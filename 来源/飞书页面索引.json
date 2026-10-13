@@ -1,0 +1,2465 @@
+[
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690037",
+    "node_token": "ZHmNwLwLXiKgvVktJjvcNHvWnHd",
+    "node_type": "origin",
+    "obj_create_time": "1789690037",
+    "obj_edit_time": "1790153379",
+    "obj_token": "ZalrdFqj2oNZscxouHzcqVUHnwh",
+    "obj_type": "docx",
+    "origin_node_token": "ZHmNwLwLXiKgvVktJjvcNHvWnHd",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "1.走进智能建造现场（4课时）",
+    "url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd",
+    "source_file": "01_1.走进智能建造现场（4课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnyk9zhRyi8AXyhdAKXuzb6c",
+        "text": "从建造施工到智能建造"
+      },
+      {
+        "level": 3,
+        "id": "doxcnNFSeThosIsyoGDSMOdRWLc",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcneKuoZeb8YxDzA07C15gNmh",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnDkvPlYnDIjv86ruF2VisKf",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnU6fa6d1rPxeNpRHLuDEkx4",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnxItgIWACAfkGSTSqC85YQg",
+        "text": "知识准备 1：建筑业\"危繁脏重\"四大痛点"
+      },
+      {
+        "level": 4,
+        "id": "doxcnFJFPr26wGQAQtfmfgaDdOb",
+        "text": "知识准备 2：智能建造定义及其关键技术"
+      },
+      {
+        "level": 4,
+        "id": "doxcnpZmCboP5uP87KnisePbOae",
+        "text": "知识准备 3：智能建造场景与岗位变化"
+      },
+      {
+        "level": 3,
+        "id": "doxcn96AlIPx9Sy6UtDLeGYzK2c",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnIKqSUiZgasB7MVQPeLnV7b",
+        "text": "实施任务1：给典型施工场景开改造处方"
+      },
+      {
+        "level": 4,
+        "id": "doxcn7zEQ01uvkGaP8i2Ci2kOFd",
+        "text": "实施任务2：给施工问题配智能建造技术"
+      },
+      {
+        "level": 3,
+        "id": "doxcn3XllC3x4BqpRHQkeBMyTxU",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnZLKut1Q6XX8emn9GtMLlFf",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnl7sK8Wd8W40PYyHr8N5vsb",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "I0XedxfLlo7K6exv1gUcgaUtnie",
+        "text": "认识施工机械"
+      },
+      {
+        "level": 3,
+        "id": "UDJ4dCUukoSPPjxFFDPcooAPn9g",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnhWutyDPxTYvuCMTCKzlnQf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnRBOJc4OIy5fv9P54svv1Sb",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnO0qkO7soYTyTMCSZuDjtNI",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "W5uFdEXMRoOTbzxz5L3cme3anmh",
+        "text": "知识准备 1：施工机械的六大家族"
+      },
+      {
+        "level": 4,
+        "id": "doxcnktwU8CSUHTfmUDqyCcWfcd",
+        "text": "知识准备 2：施工阶段与机械分布"
+      },
+      {
+        "level": 4,
+        "id": "doxcn3AqUUsQmd3cvYT8nml7gyh",
+        "text": "知识准备 3：机械施工主要危险源"
+      },
+      {
+        "level": 3,
+        "id": "doxcnvwWBdyy5fL5NB0PIS9Jc7g",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnK6WuxEBNEUGczT6NGaHwkc",
+        "text": "实施任务1：给施工新设备归类"
+      },
+      {
+        "level": 4,
+        "id": "doxcnWvpAn2B7sRJiDpSqVIGxGg",
+        "text": "实施任务2：根据施工选用机械"
+      },
+      {
+        "level": 3,
+        "id": "doxcnImIPz0T5wd0dDqCA5i0I8e",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnSNIeexU1dcqVAiHpbjlZTg",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "R6e8dVXKnodHvBxE26UciDdon2c",
+        "text": "认识施工机器人"
+      },
+      {
+        "level": 3,
+        "id": "VtD4dSYTJoyV0vxGOh4cTkc9nKh",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnts0S17ELGXjLbhwDCTcMxg",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcn1j5SIf54KJ5jZXtYx3yhPb",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcn6tsIvYPH5WydE85iZ0VoIb",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnIddwnfyWk8Jb7Bs95q2cTf",
+        "text": "知识准备1：机器人为具体作业服务"
+      },
+      {
+        "level": 4,
+        "id": "PGtMdKtYPo0lgpxZIwecHi9Mnbb",
+        "text": "知识准备2：机器人的感知、控制和执行"
+      },
+      {
+        "level": 4,
+        "id": "doxcnU3zl06lma3sIXOnQXXGukd",
+        "text": "知识准备3：机械、机器人能力与人的角色"
+      },
+      {
+        "level": 3,
+        "id": "doxcnnwrAjGQHOcaVhQVbkASgxd",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnt1LMTYStzlCN2TfBscOA2f",
+        "text": "实施任务 1：判断反馈是否形成闭环"
+      },
+      {
+        "level": 4,
+        "id": "doxcnAJSQD16IATsJ5CsFMt2eje",
+        "text": "实施任务 2：人形机器人辩论赛"
+      },
+      {
+        "level": 3,
+        "id": "doxcniQvc2kdjcGGiSPztkEcXDb",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnckjLdBGEEuRXY0QiIhPHmc",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnm8c9bg9YPOvvm1Kzdw4R8c",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 13526
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690053",
+    "node_token": "W80iwtlYwiQL80kP8zWcgt48nyg",
+    "node_type": "origin",
+    "obj_create_time": "1789690053",
+    "obj_edit_time": "1790153389",
+    "obj_token": "HFozdTE1pozUPwxUZcFc5oQCnNb",
+    "obj_type": "docx",
+    "origin_node_token": "W80iwtlYwiQL80kP8zWcgt48nyg",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "2.建筑机械硬件基础（4课时）",
+    "url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg",
+    "source_file": "02_2.建筑机械硬件基础（4课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "CdK8dZKRlovcodxLQcVcpj2vnNb",
+        "text": "动力装置的基本原理"
+      },
+      {
+        "level": 3,
+        "id": "MJ5UdqDJ3oNwMpxzSXOczV2qnsd",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "SlCEdsSdIobifKxVVE4cOoAanme",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "GRYxdFROjoc1DRxJBH6cGn6hnsd",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "XpXpdWhGJobIyax5O5ccfsq5nud",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "DV7xdnuG4omtI9xhquvcFGKpnNY",
+        "text": "知识准备1：柴油机怎样把燃烧变成转动"
+      },
+      {
+        "level": 4,
+        "id": "VyfPdaaxlo9NuBxU3PScV4acnJc",
+        "text": "知识准备2：电动机为什么能连续转动"
+      },
+      {
+        "level": 4,
+        "id": "JiPGdKUhzovYssxT7hsc841enEe",
+        "text": "知识准备3：转速、转矩和功率分别说明什么"
+      },
+      {
+        "level": 3,
+        "id": "LKgfdsCd4oMhU2xNzu7cfNjsn8b",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "QlYQdefeIoYIBvxDv91c1w69nNh",
+        "text": "实施任务1：给四冲程排顺序（12分钟）"
+      },
+      {
+        "level": 4,
+        "id": "CYCcdUop8oUUfSxFytEck3N7nZe",
+        "text": "实施任务2：识别动力装置，读懂参数（18分钟）"
+      },
+      {
+        "level": 3,
+        "id": "Av85dJowRoZDncxk51Qc0IofnTd",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "XzG4dWCHmog0HcxffZZcm9d3n9e",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "Cn3edANWVoe7XVxkD5HcLYZcnYY",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "COrVdAmDUotUZbxp5LWcLqtEnmd",
+        "text": "动力的传递与变换"
+      },
+      {
+        "level": 3,
+        "id": "KTLbd6J0ToNA6BxumlrcE1SOnkh",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "FRacd1UwDoY2bAxn3sNc3TDXnt3",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "NOmRdu3gSonAXPxX8dDcoth9nhb",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "Wpnld6w8SosL8TxaaCbc0xhhn5c",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "XgUudwStxoCV4LxPFaKcQhmUnBf",
+        "text": "知识准备1：齿轮、带和链怎样传递转动"
+      },
+      {
+        "level": 4,
+        "id": "LB2hdkQuCo33eMxfVp0cEDZ4nFh",
+        "text": "知识准备2：油液怎样推动液压缸"
+      },
+      {
+        "level": 4,
+        "id": "IIT4d11VNoMhuqxBpVzcpD6Tn2d",
+        "text": "知识准备3：气压传动与动力组合"
+      },
+      {
+        "level": 3,
+        "id": "AjVudVvfjorXZlxbgLncEH2QnwQ",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "WlvydNtH4ouzw1x9zCWclHU4ntb",
+        "text": "实施任务1：算一算齿轮转得多快（12分钟）"
+      },
+      {
+        "level": 4,
+        "id": "EvzPd8AEDog2pOxvF2Kc9lBDnpb",
+        "text": "实施任务2：沿图找进油与回油（18分钟）"
+      },
+      {
+        "level": 3,
+        "id": "JG9rdUPfAoX6Zbxkfv9cDhngnSe",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "E7CjdRnXQoKZAqxvSCQcTCmin64",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "Fzbddqcz4ot385xj8UecgueknZc",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "Oq3Ndd4jsoqH91xKA5BclpgDnlf",
+        "text": "工作机构与施工动作"
+      },
+      {
+        "level": 3,
+        "id": "HqF1dPTSNoKTy5x3g5xcqCPhnyc",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "JcYAdSXuPoyoWZxrQx2cgwignPf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "DFJodisd4ovv5vxo3PtcO9RgndH",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "FHPjdI93Po4vxqxoGN0cLaWKnhb",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "Goi1dp0oloX70Wx48x1cuGVFnmf",
+        "text": "知识准备1：液压缸伸缩，怎样让动臂转动"
+      },
+      {
+        "level": 4,
+        "id": "G75kdL09uoHKeSxpCPqcCzuGnVg",
+        "text": "知识准备2：丝杠转动，怎样让平台直线移动"
+      },
+      {
+        "level": 3,
+        "id": "WbAadJb6Xo3dGwxz1uBcKOycnih",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "EC0Ud1zRXoxyQ9xaxN6c7Xj9nPc",
+        "text": "实施任务1：追踪动臂的运动（7分钟）"
+      },
+      {
+        "level": 4,
+        "id": "DPCxdqXeaoCQNNxeRyHc2NKNnYg",
+        "text": "实施任务2：观察丝杠的运动（8分钟）"
+      },
+      {
+        "level": 3,
+        "id": "WfKsdkZweox74UxxsYYcF428nsg",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "FO2pdq7CGoD8PtxS8ducVGmKnBc",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "FjMSd9ZKTotkVWx7Ubpcv00jn3d",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 9108
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789954739",
+    "node_token": "IZGawINShiKwmMkQHsvcOUd3nfc",
+    "node_type": "origin",
+    "obj_create_time": "1789954739",
+    "obj_edit_time": "1790151869",
+    "obj_token": "NOcldXVJeoKixGxpOQhc44Yhnvd",
+    "obj_type": "docx",
+    "origin_node_token": "IZGawINShiKwmMkQHsvcOUd3nfc",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "3.机器人构型与工作空间识读（2课时）",
+    "url": "https://my.feishu.cn/wiki/IZGawINShiKwmMkQHsvcOUd3nfc",
+    "source_file": "03_3.机器人构型与工作空间识读（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcngeszW7gzynhcGDZWXfx14g",
+        "text": "机器人构型与工作空间识读"
+      },
+      {
+        "level": 3,
+        "id": "doxcniGSmT9ZS8RNP5CZl6JkHjc",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnGn7FgI16JMxYnutEgZ9jyc",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcneZ4tFY8Vr8dBjORSMOwlTh",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnXJUDHBuRTEdmEVcJWlQNiP",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnxV2s6rBffIkugtMEVv4XDg",
+        "text": "知识准备1：自由度与运动限制"
+      },
+      {
+        "level": 4,
+        "id": "doxcnznJadcUYWrFr6y6Q3UBp9b",
+        "text": "知识准备2：机械移动典型构型"
+      },
+      {
+        "level": 4,
+        "id": "doxcnQXM7Da0imGrbrVVLJQ9Ltc",
+        "text": "知识准备3：工作空间与运动路径"
+      },
+      {
+        "level": 3,
+        "id": "doxcnJsLLb33Cd3kn8FJpuzCcMg",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnFDYFsUOrB9tDYH7GCFT7pe",
+        "text": "实施任务1：数一数自由度（5分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnqxxrzG2kq1VTcMdgEA50Wc",
+        "text": "实施任务2：根据外形线索识别构型（5分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnKTlqcNITv0wBROy7z4Bp2c",
+        "text": "实施任务3：给三个作业场景选构型（7分钟）"
+      },
+      {
+        "level": 3,
+        "id": "doxcnTA6BTHTx8ePkOpc2ok5bec",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "D4cCdmLLyoDhQjxWrCDc0okunkb",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnTjpLEDyNqOyQo56G3pA4of",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 3712
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789954824",
+    "node_token": "NrlbwvO3Xij3kLksAg9c7h6YnJe",
+    "node_type": "origin",
+    "obj_create_time": "1789954824",
+    "obj_edit_time": "1790153340",
+    "obj_token": "PR9xdpttso5kQDx51Krc2ky9nhf",
+    "obj_type": "docx",
+    "origin_node_token": "NrlbwvO3Xij3kLksAg9c7h6YnJe",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "3.六轴机械臂本体与关节轴（2课时）",
+    "url": "https://my.feishu.cn/wiki/NrlbwvO3Xij3kLksAg9c7h6YnJe",
+    "source_file": "04_3.六轴机械臂本体与关节轴（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnMn7GdKJwAxxrwHOPxGxsQd",
+        "text": "六轴机械臂本体、关节轴与低速点动"
+      },
+      {
+        "level": 3,
+        "id": "doxcn28ADusHLQiTuQCk3lSZKih",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnCCbSvdtCZlbL1ScO52G5Nf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnwQin7XZG4asmXlmTbXYLSh",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnpdb4Y4vnqwMlGMqQOqKXEg",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnXtpTwAJYVS70NXrcgXTl2v",
+        "text": "知识准备1：六轴机械臂的本体关节"
+      },
+      {
+        "level": 4,
+        "id": "doxcnVgPzV1shl0LSaGFEhcgG7f",
+        "text": "知识准备2：位置与姿态的区别"
+      },
+      {
+        "level": 4,
+        "id": "doxcnUGyLj8S8jADcLCQtZnrJhf",
+        "text": "知识准备3：三种点动参照"
+      },
+      {
+        "level": 4,
+        "id": "doxcnz6Pr7DcRgNz4MXRfvlIyPg",
+        "text": "知识准备4：点动前确认什么"
+      },
+      {
+        "level": 3,
+        "id": "doxcnVPWWYYRmpC4Tq814yxulch",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnnUubIS411rze2AovsLe55d",
+        "text": "实施任务1：读动作，填轴号（5分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnGXRtHRnuZAFGte1m40Tfrf",
+        "text": "实施任务2：根据方向条件选坐标（6分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnmQtmNGJ4MvyMK36ETVQXPc",
+        "text": "实施任务3：找出点动前未确认的事项（6分钟）"
+      },
+      {
+        "level": 3,
+        "id": "doxcncqyjtbKOTE4lvfpMvJk0fh",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcneTKjk1EpSV1NOGQEgWZydJ",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnh1BM5JR1AqwQs0R37uEQ7f",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 3266
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789954850",
+    "node_token": "ZTnMwuMdPiEwgokrWIdcAa4pndV",
+    "node_type": "origin",
+    "obj_create_time": "1789954850",
+    "obj_edit_time": "1790153345",
+    "obj_token": "UUhAdU9U1oOPhnxsZK5c9N66n4e",
+    "obj_type": "docx",
+    "origin_node_token": "ZTnMwuMdPiEwgokrWIdcAa4pndV",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "3.关节驱动、减速器与传动机构（2课时）",
+    "url": "https://my.feishu.cn/wiki/ZTnMwuMdPiEwgokrWIdcAa4pndV",
+    "source_file": "05_3.关节驱动、减速器与传动机构（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcn89eh3qJdUefVejTCYeES2b",
+        "text": "关节驱动、减速器与传动机构"
+      },
+      {
+        "level": 3,
+        "id": "doxcnoR6uAS8orqPBjIlI0BPvWb",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcn8xe2sR9htIlbrmQ4JpSqie",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnU8qg68PTN2gh0NdXAZ2AuZ",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnAfVsVx6catB7sCmQYhQx0e",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnUmkI8fylTeaxSmfM3MzIte",
+        "text": "知识准备1：动力传递与位置反馈"
+      },
+      {
+        "level": 4,
+        "id": "doxcngy36WIZXvO9biHeWmTXeNh",
+        "text": "知识准备2：三类常见电机应用方式"
+      },
+      {
+        "level": 4,
+        "id": "doxcnj5ZC6wDoBBpDN6O2rxXPte",
+        "text": "知识准备3：减速器怎样改变运动"
+      },
+      {
+        "level": 4,
+        "id": "doxcnNcCfUKmmCdWs7wLXlPWGB8",
+        "text": "知识准备4：传动机构怎样改变动作"
+      },
+      {
+        "level": 3,
+        "id": "doxcnVlwfZMxDjJOuG0Esf86wse",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnV94qbdU8xRwGMknT9bBebf",
+        "text": "实施任务1：填部件，算转速（5分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnWh5v5SFbjLno2rPAPjMaiL",
+        "text": "实施任务2：根据参数筛选减速器（6分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnXjuqwFx9RybBWUPNPYwP90",
+        "text": "实施任务3：给工程动作匹配传动机构（6分钟）"
+      },
+      {
+        "level": 3,
+        "id": "doxcnObXD4U4s5sywpFkVpamHGb",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn8kAakhLtxntoCUzf48GHHc",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnc8vvW0OM2TaqV6a1eNMOid",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 4355
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789954883",
+    "node_token": "JWU9wRinNirdnXkOSDEctDYZnPQ",
+    "node_type": "origin",
+    "obj_create_time": "1789954883",
+    "obj_edit_time": "1790153351",
+    "obj_token": "Sb6pdYbkwosFvixAxEycb5s5ncf",
+    "obj_type": "docx",
+    "origin_node_token": "JWU9wRinNirdnXkOSDEctDYZnPQ",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "3.末端执行器、TCP与工具控制（2课时）",
+    "url": "https://my.feishu.cn/wiki/JWU9wRinNirdnXkOSDEctDYZnPQ",
+    "source_file": "06_3.末端执行器、TCP与工具控制（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnQTnxd9IxSBZBK4xmGeqGCA",
+        "text": "末端执行器、TCP与工具控制"
+      },
+      {
+        "level": 3,
+        "id": "doxcnhAU8GOX4q9FsxKKFQp1pVK",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnFkLo3Wss3ejJt78HTTTfyb",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnwA0XJKRoWmEzKjMr9oFT7f",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcna5iYgvkCagZKQyfv55xuUc",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnicHILByK5sFp58nOVxnygh",
+        "text": "知识准备1： 末端执行器的真实工作点"
+      },
+      {
+        "level": 4,
+        "id": "doxcnNreXSx1Q43RsYLzZUhzDff",
+        "text": "知识准备2：末端工具快拆手"
+      },
+      {
+        "level": 4,
+        "id": "doxcnZ5oBPiaqVk5Bi2UV9BocId",
+        "text": "知识准备3：TCP（工具中心点）是什么？"
+      },
+      {
+        "level": 4,
+        "id": "doxcnL2idBW12eXlqK4bUyu1Hxe",
+        "text": "知识准备4：TCP标定——四点标定法"
+      },
+      {
+        "level": 3,
+        "id": "doxcn7WgHjoYwdIB4hVUEeZckWe",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnu9GIjjrUpsFbgBJzdSLpMe",
+        "text": "实施任务1： 识别末端执行器的真实工作点"
+      },
+      {
+        "level": 4,
+        "id": "doxcn7iL3zNhvv8rQxtj6SgA1kd",
+        "text": "实施任务2：理解TCP的作用并判断风险"
+      },
+      {
+        "level": 4,
+        "id": "doxcnMpBtwUjPlmxlmlrQpdYOud",
+        "text": "实施任务3：TCP标定方式——在线完成四点标定"
+      },
+      {
+        "level": 3,
+        "id": "doxcnaZcZpAcaOawgEd29HVOJLd",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnUNr8W3k8wgjFmppHbS4WKd",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnyX0mN42QCCTzxXGsnf3Vfc",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 4540
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789954902",
+    "node_token": "ENc1wwOsZiIIuCksjFzc6COJn4p",
+    "node_type": "origin",
+    "obj_create_time": "1789954902",
+    "obj_edit_time": "1790153357",
+    "obj_token": "XfchdVspjolcD1xwpx5c8zpcnTf",
+    "obj_type": "docx",
+    "origin_node_token": "ENc1wwOsZiIIuCksjFzc6COJn4p",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "3.机器人移动底盘与行走机构（2课时）",
+    "url": "https://my.feishu.cn/wiki/ENc1wwOsZiIIuCksjFzc6COJn4p",
+    "source_file": "07_3.机器人移动底盘与行走机构（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnE05ESdggp2fTWFKPQp37mf",
+        "text": "移动底盘与行走机构"
+      },
+      {
+        "level": 3,
+        "id": "doxcn56WNKfox4MEvEaG4Kb3wzh",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHDG1BKMaoXRKke1vcJqOIf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcn8C0HxT1SAOVhom1xXdX2ae",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcneXb4Ivn0bTEkduq5Hm0xrc",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnux4t1Qcac2VA3Gq2cRUlQf",
+        "text": "知识准备1：机器人常见行走方式"
+      },
+      {
+        "level": 4,
+        "id": "doxcnzPfo4uDe4epNiGf1byb9gz",
+        "text": "知识准备2：机器人怎样转弯与横移"
+      },
+      {
+        "level": 4,
+        "id": "doxcnktOoDMdtkxxRc0dHkf0Awd",
+        "text": "知识准备3：行走方式与现场通行条件"
+      },
+      {
+        "level": 3,
+        "id": "doxcnZMkhi6xHdmi7zzCYfjN7Nc",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcn2zZLNi3x1uY1rkftIPxGgh",
+        "text": "实施任务1：对比常见行走方式"
+      },
+      {
+        "level": 4,
+        "id": "doxcnXI4yq4Ovonbw4QJ70RdMws",
+        "text": "实施任务2：判断机器人差速行走"
+      },
+      {
+        "level": 3,
+        "id": "doxcnIAodPqNau1pf5aavRtXUte",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnTzKDjhelh1sgbHUuh7om3d",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnSrsT2JENp0CMNySTKlwmnh",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 4136
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690109",
+    "node_token": "SZ6twI9H1iFHo3kX7JOcvTfxnCN",
+    "node_type": "origin",
+    "obj_create_time": "1789690109",
+    "obj_edit_time": "1790216613",
+    "obj_token": "WCgzdrHBnoM6DyxLY8Gc5O7qnT8",
+    "obj_type": "docx",
+    "origin_node_token": "SZ6twI9H1iFHo3kX7JOcvTfxnCN",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "4.机器人自身状态感知（2课时）",
+    "url": "https://my.feishu.cn/wiki/SZ6twI9H1iFHo3kX7JOcvTfxnCN",
+    "source_file": "08_4.机器人自身状态感知（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnbTD2VSMYziHevmD2WGKex3",
+        "text": "任务准备"
+      },
+      {
+        "level": 2,
+        "id": "VnEmdWFRLoR3E6xuKAZcporFn1g",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHejJH3Bgn3nBALNjWculfc",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnQe686FTY82f9dZELzUvFXg",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnGSdDpx6FlRa2NmXpNoGjTI",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcntm3tT6iIKftyG7wqNnnUbe",
+        "text": "知识准备1：机器人需要知道哪些自身状态"
+      },
+      {
+        "level": 4,
+        "id": "doxcnWhpEkK2W66kw8fWQYKiUdc",
+        "text": "知识准备2：手机传感器与机器人传感器"
+      },
+      {
+        "level": 4,
+        "id": "doxcngQrWgKVDxWsxfndmZmjbig",
+        "text": "知识准备3：加速度与振动"
+      },
+      {
+        "level": 4,
+        "id": "doxcng2DnaIjNPetNNC3RhF6fVN",
+        "text": "知识准备4：倾角与角速度"
+      },
+      {
+        "level": 4,
+        "id": "doxcnM830rCS3RZVOYOFkia739c",
+        "text": "知识准备5：位置从哪里来"
+      },
+      {
+        "level": 4,
+        "id": "doxcnCzBdv0UR914Z8Wi5baPzcM",
+        "text": "知识准备6：怎样读一段传感器记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnUMotSyNSh4HhrGpYrVfDGX",
+        "text": "任务实施"
+      },
+      {
+        "level": 3,
+        "id": "doxcnXRuavwVRo2Psx7hI2hp1tf",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnZphpehl18LbcUBW6zoplea",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnvtFmfXphaYWQxrLnHOlkgb",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 6047
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789950375",
+    "node_token": "Rg9fwaWHMimAfFkDg3xcFkmvnRb",
+    "node_type": "origin",
+    "obj_create_time": "1789950375",
+    "obj_edit_time": "1790577045",
+    "obj_token": "NauJdVLF4o7rPQxNtAlc0u95nkb",
+    "obj_type": "docx",
+    "origin_node_token": "Rg9fwaWHMimAfFkDg3xcFkmvnRb",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "4.机器人激光雷达感知（2课时）",
+    "url": "https://my.feishu.cn/wiki/Rg9fwaWHMimAfFkDg3xcFkmvnRb",
+    "source_file": "09_4.机器人激光雷达感知（2课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcn79Bio9JJL6uHuOUPRrwuNg",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnCWffrQQBmTC1SJLvToM8fg",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnZ5ZF7IHRHH7S1zVguGN9Sf",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcn9gIsXMcjH9wYmJxRTmDnBb",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnr15CwCFtRARgNaTY7dkUrc",
+        "text": "知识准备1：激光雷达怎样测距"
+      },
+      {
+        "level": 4,
+        "id": "doxcn9hHuFKBniQQM7nZkijEmYc",
+        "text": "知识准备2：一个测距点怎样变成扫描图"
+      },
+      {
+        "level": 4,
+        "id": "doxcnMJBu93nAnjx8LuUjp5erWe",
+        "text": "知识准备3：二维扫描与三维点云"
+      },
+      {
+        "level": 4,
+        "id": "doxcn4AxapfIwP0vEXmg60ZmPtf",
+        "text": "知识准备4：点云中的距离、坐标与颜色"
+      },
+      {
+        "level": 4,
+        "id": "doxcnBrdf4Brrrm4iAYk0MAgwNh",
+        "text": "知识准备5：为什么会漏掉障碍物"
+      },
+      {
+        "level": 4,
+        "id": "doxcnU6L8Uux4ava2RqPlsFybkd",
+        "text": "知识准备6：从感知结果到通行判断"
+      },
+      {
+        "level": 3,
+        "id": "doxcnH9NjA4jqR7i88EpkUktgng",
+        "text": "任务实施"
+      },
+      {
+        "level": 3,
+        "id": "doxcnKAPlvWNNK8rRSOTVJuIWrn",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnab1W5ltko03KzB4P08fmeh",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnVsu5mdXNLnuo3r3eVfkVBc",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 5178
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789901221",
+    "node_token": "UXc0wYD4JiFgZ1kmKJWcKv4wn4c",
+    "node_type": "origin",
+    "obj_create_time": "1789901221",
+    "obj_edit_time": "1791861939",
+    "obj_token": "IvJode7HMoIBY8xFuNhcdH6nnOh",
+    "obj_type": "docx",
+    "origin_node_token": "UXc0wYD4JiFgZ1kmKJWcKv4wn4c",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "4.YOLO施工视觉识别（4课时）",
+    "url": "https://my.feishu.cn/wiki/UXc0wYD4JiFgZ1kmKJWcKv4wn4c",
+    "source_file": "10_4.YOLO施工视觉识别（4课时）.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "RMOxdbvVDorkQwx8CTScWPpLnFc",
+        "text": "任务一　标注安全帽并应用YOLO模型"
+      },
+      {
+        "level": 3,
+        "id": "UbKNdoK7boxjlYxpNipcnMxwnhd",
+        "text": "任务准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnm4bxOB3HpPmDDIsqgwZqNe",
+        "text": "RobotVision 软件介绍（自研桌面端识别工具）"
+      },
+      {
+        "level": 3,
+        "id": "PLITdmL4Qo2qtKxdZNjcSdrTntg",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "SO5Bdrh5mom1KDxD2LucDe2XnUf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "Sp3pdAWhDomsKsxyA3UckP5InQc",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "UWLedMivcos6zqxXMoUcnVRpn9g",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnE9clxv0gJZD7SrTzz6swHe",
+        "text": "知识准备1：神经网络怎样学习，YOLO怎样找到目标"
+      },
+      {
+        "level": 4,
+        "id": "doxcn8WXChqoGIIyTCkVCzGZxfd",
+        "text": "知识准备2：认识既有图片素材，选择合适的样本"
+      },
+      {
+        "level": 4,
+        "id": "doxcnEVwE5RDpMIXhq3UNZAIJpe",
+        "text": "知识准备3：标注形状——点、线、矩形与多边形"
+      },
+      {
+        "level": 4,
+        "id": "doxcnhryNeOln21rTBYT1BvgHqh",
+        "text": "知识准备4：从标注到数据集——标签格式与数据整理"
+      },
+      {
+        "level": 4,
+        "id": "doxcngszKm3oHlEEdr7nwMxhGFb",
+        "text": "知识准备5：模型怎样训练，训练后得到什么"
+      },
+      {
+        "level": 4,
+        "id": "doxcnhDfiF2rTqKIrm5XTGQ60U9",
+        "text": "知识准备6：怎样判断模型识别得好不好"
+      },
+      {
+        "level": 4,
+        "id": "doxcnauELAa2gTGA7VD9okaSCdZ",
+        "text": "知识准备7：在RobotVision中应用模型并复核结果"
+      },
+      {
+        "level": 3,
+        "id": "HXv1dRLbzo2y6LxZKxacpTN2nfg",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnzooIdMfK3sfVjPV8qqJemb",
+        "text": "课堂任务1：为生活场景选择标注形状（10分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcnOYvBhDeIafovNpvc4FI6oe",
+        "text": "课堂任务2：标注并导出安全帽标签（20分钟）"
+      },
+      {
+        "level": 4,
+        "id": "doxcneASKAm9n0pnLFwybsGVicf",
+        "text": "课堂任务3：导入模型并比较同图结果（20分钟）"
+      },
+      {
+        "level": 3,
+        "id": "EnIWdOwJVoZeYexGUMscHYGmnec",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "ATZXddgAcoIR60xUI42cmf0kntd",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 21021
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690133",
+    "node_token": "UtqMwe7yti9zuJkBlLrcywi7nJe",
+    "node_type": "origin",
+    "obj_create_time": "1789690133",
+    "obj_edit_time": "1791862151",
+    "obj_token": "HTxwdzTipoGSVmxEtLKcxztKnUd",
+    "obj_type": "docx",
+    "origin_node_token": "UtqMwe7yti9zuJkBlLrcywi7nJe",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "5.主体结构施工协同",
+    "url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe",
+    "source_file": "11_5.主体结构施工协同.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcn0806AVCz2motDJFnl1RGVh",
+        "text": "钢筋加工机械与绑扎作业面识读"
+      },
+      {
+        "level": 3,
+        "id": "doxcnSXfvZB8GMSwKSYaVXohyld",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnUJayHNkZWjwp3Nmkc6V7nf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnPIpvbtDqU7vqhiL2Yv8U5f",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnzX5eNdS2J7aE7wwBcAbYSd",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnTegOQd8wIyJIDfCYuJl21e",
+        "text": "知识准备1：钢筋是怎么从盘圆变成可绑扎半成品的？"
+      },
+      {
+        "level": 4,
+        "id": "doxcnSuAcNQ78Ov8b338quoMSae",
+        "text": "知识准备2：钢筋绑扎作业面的关键观察点"
+      },
+      {
+        "level": 4,
+        "id": "doxcnhC7LvBvCsb3eaB0VO2KQlf",
+        "text": "知识准备3：钢筋绑扎的质量检查点"
+      },
+      {
+        "level": 3,
+        "id": "doxcnhFZWtYs5Biv8KQo983gFmg",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnjsaRx4JnLd9VJRtWrLe1ng",
+        "text": "实施任务1：给钢筋加工工序排序"
+      },
+      {
+        "level": 4,
+        "id": "doxcn1FPJzrdY1HgCXLKGEG4WOd",
+        "text": "实施任务2：识读钢筋绑扎作业面的关键位置"
+      },
+      {
+        "level": 4,
+        "id": "doxcnIr8PHfMuLhxuWbL4cnuYYf",
+        "text": "实施任务3：判断作业面的质量检查点"
+      },
+      {
+        "level": 4,
+        "id": "doxcnP2n7y1PStvIXo5cPxlwD7e",
+        "text": "实施任务4：划分机器人适用区和人工复核区"
+      },
+      {
+        "level": 3,
+        "id": "doxcnYx1za7ZuXGLnJd0uvzypxe",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn3v6bO855lw6FaBQJQtTmiJ",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcncn0Ks4khQyluPh5qPCKRDb",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnpjZeYmLuiyF0C8Y56Qjw9d",
+        "text": "钢筋绑扎机器人操作与人工复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcno3jhuqOifbcELZqrfZmdjf",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnXjIkkES1kapNQ4pqa5b5tc",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnKK9rnoHYsCs58n0Z5BxmKA",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcn4ZnLrsiUe7ZVL7XsAORsPb",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnHnJb5qSg0DcveYPZ2t0DRg",
+        "text": "知识准备1：钢筋绑扎机器人的基本组成"
+      },
+      {
+        "level": 4,
+        "id": "doxcn3HSKg5EKjQYrqHxfiEggjc",
+        "text": "知识准备2：钢筋绑扎的完整动作链"
+      },
+      {
+        "level": 4,
+        "id": "doxcnCBHnyq0Rmb7XpFQOH0WjDg",
+        "text": "知识准备3：连续作业中的常见异常"
+      },
+      {
+        "level": 3,
+        "id": "doxcncOdfOwb9n7zAzkOTZvIMwc",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnDPCtIClRmpowCLAM71TpYc",
+        "text": "实施任务1：完成启动前检查"
+      },
+      {
+        "level": 4,
+        "id": "doxcn8xGWM23Mwpf1uCfLzrYZFo",
+        "text": "实施任务2：观察低速试运行的完整动作链"
+      },
+      {
+        "level": 4,
+        "id": "doxcnaPAUimbNNegfxVDmwBX6nc",
+        "text": "实施任务3：识别连续作业中的异常现象"
+      },
+      {
+        "level": 4,
+        "id": "doxcnRoyOQZmH9uLYVKGRgjSAOf",
+        "text": "实施任务4：完成人工复核抽查"
+      },
+      {
+        "level": 3,
+        "id": "doxcni23WAFEgdF0Pqj6fGtPOXd",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHotKmeyz3OZCRbAeBuzh6e",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnoeRidERZHOXsbBnU4IDSFb",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnUJuNK1D3ih5VKdcUdItnLc",
+        "text": "混凝土泵送布料与整平抹光机器人"
+      },
+      {
+        "level": 3,
+        "id": "doxcnNqTuNcFsKPtADdVCmW8pcp",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnC9HmoVxNJARLH0QJmauKjf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcn7my6ZUM4SqiVTpwwgvj3Gh",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcng240wBUDrvnHRMnBdy9h2Y",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcncvIJ3dEQGNHVMXf4UvrGEg",
+        "text": "知识准备1：混凝土浇筑的主要工序"
+      },
+      {
+        "level": 4,
+        "id": "doxcnWugrtlOMePIfo60XX9VR2f",
+        "text": "知识准备2：激光整平机器人的工作原理"
+      },
+      {
+        "level": 4,
+        "id": "doxcn6GJkEeHbHeSpklWeO82Mdd",
+        "text": "知识准备3：为什么振捣仍然主要靠人工？"
+      },
+      {
+        "level": 3,
+        "id": "doxcnQU8FrXBegiqJHPRttsFslb",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnTIFLYYo8An6wY5i1UrQ8Jd",
+        "text": "实施任务1：画出混凝土浇筑工序链"
+      },
+      {
+        "level": 4,
+        "id": "doxcnJBVM9EowIhR5HXtN82cNvf",
+        "text": "实施任务2：理解整平机器人的感知原理"
+      },
+      {
+        "level": 4,
+        "id": "doxcniymKSf1jlRVsEpA4euXvGf",
+        "text": "实施任务3：分析振捣为什么暂时还需要人工"
+      },
+      {
+        "level": 4,
+        "id": "doxcnSUvYArcwLegMCp2GIovJ6f",
+        "text": "实施任务4：填写自动化难度分析表"
+      },
+      {
+        "level": 3,
+        "id": "doxcnTkRi31E40LvlDcjehuvLvb",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnoNS7wQYjD4Ep8jx6suFuxc",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcntuo3AaGmADqBliX04VV7if",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 17449
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690166",
+    "node_token": "BnHmwjoi8iqcQtkNwbRc33ufn7f",
+    "node_type": "origin",
+    "obj_create_time": "1789690166",
+    "obj_edit_time": "1791862245",
+    "obj_token": "VXhFdjYUjouE3SxmCHFcs6vjn4d",
+    "obj_type": "docx",
+    "origin_node_token": "BnHmwjoi8iqcQtkNwbRc33ufn7f",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "6.装饰装修施工分项",
+    "url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f",
+    "source_file": "12_6.装饰装修施工分项.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcn2i9Sc5J7awcMQLj0zkDdGd",
+        "text": "砌筑工程——人工工艺、砂浆机械与机器人进场"
+      },
+      {
+        "level": 3,
+        "id": "doxcn3Q6u9OA2AvHG4E5NuMPy2f",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnDiFU7TwHYBsBMAsTj6WqEf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnTfpg2JAWJIpmoaGlWf9oHf",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcniIPWUU1ZqvlWHI8R02sZDK",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnfwPHBbIWxmVgG1XZSwIech",
+        "text": "知识准备1：人工砌筑是怎么做的？"
+      },
+      {
+        "level": 4,
+        "id": "doxcnopgjIDEdlh1msnkgvPbTGd",
+        "text": "知识准备2：砌筑机器人系统组成"
+      },
+      {
+        "level": 4,
+        "id": "doxcnO9LrrqU29avHpMsI54v8mf",
+        "text": "知识准备3：砌筑作业边界"
+      },
+      {
+        "level": 4,
+        "id": "doxcn2vo37J3xn39nkIpdcG94rd",
+        "text": "知识准备4：示教点与柔顺作业"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHcrPCwntx4FaBqUp90RLzc",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnFMOBFwdI7khzaCgxCETMTf",
+        "text": "实施任务1：观察人工砌筑流程，找出关键环节"
+      },
+      {
+        "level": 4,
+        "id": "doxcn0epwgk61f3vOCgRHxVs98f",
+        "text": "实施任务2：识读砌筑机器人系统组成"
+      },
+      {
+        "level": 4,
+        "id": "doxcnOB6SI5QrKJ5vRw9NqgsjCt",
+        "text": "实施任务3：判断墙体作业边界"
+      },
+      {
+        "level": 4,
+        "id": "doxcnad20bdmeiSfFoorT0LQZZg",
+        "text": "实施任务4：记录砌筑示教点和观察作业动作"
+      },
+      {
+        "level": 4,
+        "id": "doxcnM8I0XWQokv0k6Qz2WCFDng",
+        "text": "实施任务5：完成砌筑质量判断"
+      },
+      {
+        "level": 3,
+        "id": "doxcnAxWolwywKCja9XIFxEw41c",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn3FUNq9lWdkv5FqHSTBsxac",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnrbP89RLa8ewrTk2VC6fRXd",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnYWPJBkWDkwK9wd1Hl7Madf",
+        "text": "地砖铺贴——工艺准备与铺贴机器人作业"
+      },
+      {
+        "level": 3,
+        "id": "doxcnNXnc2HmEzhjRCcu71njqLe",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcn9ODShaFYpWUlIM2bOsMqFb",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnIbylmski39blLBttWgx1SB",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnop2LNiji9VHCqG5KtvNyIc",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnfHjkUQTB8nIe7KQ7ZOlANg",
+        "text": "知识准备1：地砖铺贴作业面条件"
+      },
+      {
+        "level": 4,
+        "id": "doxcnHOCx6UWcqqm3h2Z7WfnCEf",
+        "text": "知识准备2：排版基准与收口"
+      },
+      {
+        "level": 4,
+        "id": "doxcnc879UcA5JoZxCYGmwasC4e",
+        "text": "知识准备3：薄贴工艺控制点"
+      },
+      {
+        "level": 4,
+        "id": "doxcnamZbgi2JeGZHRn6gGbr0ic",
+        "text": "知识准备4：视觉伺服、力反馈与标高控制"
+      },
+      {
+        "level": 4,
+        "id": "doxcnNOJR1HIiXF7T5PoufDg6Vd",
+        "text": "知识准备5：空鼓、偏缝与标高风险位置"
+      },
+      {
+        "level": 3,
+        "id": "doxcnColq8Q61t8ckSJ6aP2t8Ih",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcn71azHVwPRR3COFVWRDpHzh",
+        "text": "实施任务1：作业面识读与进场判断"
+      },
+      {
+        "level": 4,
+        "id": "doxcnbmqGuUJ8H7wVrA0FCijZOh",
+        "text": "实施任务2：排版基准与收口位置确认"
+      },
+      {
+        "level": 4,
+        "id": "doxcnWHCwMf06DHUpXAT22TcCHg",
+        "text": "实施任务3：薄贴工艺准备记录"
+      },
+      {
+        "level": 4,
+        "id": "doxcnx5HvqEemxawH4MnwJjkBvg",
+        "text": "实施任务4：观察机器人铺贴过程"
+      },
+      {
+        "level": 4,
+        "id": "doxcnUi63aFZcAFfDn2R1jTb3Ee",
+        "text": "实施任务5：质量复核与异常归因"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHOvWuJRG9KEjb3AvjQOzJH",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnzFXoB1Qh7n13T31zmMRc3s",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnWiaBcbeVEUvZA22fmMRtch",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnpA6kMYzniF9Du8e4saSp8f",
+        "text": "腻子打磨——作业面检查、恒力执行与质量验收"
+      },
+      {
+        "level": 3,
+        "id": "doxcngdDrRnMsMZjzZp1IA3to1g",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnmD8ULEW7FD9bXeAKzRvdgd",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnpY8QNX9Rt46fz6q0FURrg4",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnnGZBXeS6dbaehs1N8Q5Tsb",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcngrj8MQ0Ipvo44L9S1sJsLd",
+        "text": "知识准备1：腻子打磨作业面条件"
+      },
+      {
+        "level": 4,
+        "id": "doxcnmTU3D3n903Btg3XaAazLMf",
+        "text": "知识准备2：地图匹配与路径验证"
+      },
+      {
+        "level": 4,
+        "id": "doxcntBRyvJajz7w5LlytjR0CCc",
+        "text": "知识准备3：恒力执行"
+      },
+      {
+        "level": 4,
+        "id": "doxcnxFaIFUKaoThd7EcPAhS8Qc",
+        "text": "知识准备4：质量验收与人机协同"
+      },
+      {
+        "level": 4,
+        "id": "doxcnItWDhgTp0bvANbrRltWbhh",
+        "text": "知识准备5：班后维护"
+      },
+      {
+        "level": 3,
+        "id": "doxcnCZvTXl8FDQkDjsKsc16QQo",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcn4aBzuQsmjDH6xOA37wBTqb",
+        "text": "实施任务1：腻子打磨前置条件检查"
+      },
+      {
+        "level": 4,
+        "id": "doxcn1Mrxvmdb9NcDRcYx5dezCf",
+        "text": "实施任务2：地图匹配与空跑验证"
+      },
+      {
+        "level": 4,
+        "id": "doxcndAxDABST9WwsZlfiIEbdBd",
+        "text": "实施任务3：观察恒力打磨状态"
+      },
+      {
+        "level": 4,
+        "id": "doxcnfINsV1X3q2bazrsP6TnnQg",
+        "text": "实施任务4：哪些情况应暂停自动作业？"
+      },
+      {
+        "level": 4,
+        "id": "doxcnC0Mp9NlOTi3HR10cJdjIQc",
+        "text": "实施任务5：打磨质量验收与人工补打磨"
+      },
+      {
+        "level": 3,
+        "id": "doxcnFkkNDY5rn8YfYeGqpahmLf",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHn5oDBVR08Ijxa6UuqVc5o",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnG7OuqCWTmch1n77mHZaZer",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnqHI5Lh81n0rtbYK00pSfiY",
+        "text": "室内喷涂——路径规划、参数控制与缺陷诊断"
+      },
+      {
+        "level": 3,
+        "id": "doxcnyFyG6XKYk0Hy5cFoTVafPe",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnX5rKFeGnS7uTw3l4IhdhUy",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnOvPzzH41qWRKhl4zNxUwc8",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcn9rSYd7XxHsKsNbadl3Nrab",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnRKtYx24YNhlL9lTGlMIaKd",
+        "text": "知识准备1：BIM数据与喷涂路径规划"
+      },
+      {
+        "level": 4,
+        "id": "doxcn5pgxeKWOZjmromPcNy4d7d",
+        "text": "知识准备2：喷涂前置验收"
+      },
+      {
+        "level": 4,
+        "id": "doxcnXsdK6ODjPmjZpH7k3YvKqe",
+        "text": "知识准备3：喷涂路径重点位置"
+      },
+      {
+        "level": 4,
+        "id": "doxcnHsgoLKKWiwdX98hNRDgyFn",
+        "text": "知识准备4：喷涂参数与质量现象"
+      },
+      {
+        "level": 3,
+        "id": "doxcnRS7uIamfpMEV38AeMcWYvh",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnJC46HbfGPB9bdO3g1EO0vh",
+        "text": "实施任务1：BIM数据提取与路径观察"
+      },
+      {
+        "level": 4,
+        "id": "doxcnVut1GjH21SDxCcXGhIw4Id",
+        "text": "实施任务2：喷涂前置验收"
+      },
+      {
+        "level": 4,
+        "id": "doxcnpmxVBGfPeSt7txSPeq6PKf",
+        "text": "实施任务3：观察喷涂路径和参数影响"
+      },
+      {
+        "level": 4,
+        "id": "doxcnkULaK3iLCAWrD9QlsOB7Yc",
+        "text": "实施任务4：喷涂缺陷诊断"
+      },
+      {
+        "level": 4,
+        "id": "doxcnHAZnodAlSttHZjNMbQaRng",
+        "text": "实施任务5：接力作业边界判断"
+      },
+      {
+        "level": 4,
+        "id": "doxcnE6CDk0T6caFc2Uqg5e9qth",
+        "text": "实施任务6：清洗维保记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcneX6U2BW6L1gt3VVweShFNU",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnReNTI1PoUkhyD0MASNfaWg",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnZzUgcgJhEiXCdQS0u51SQg",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 25719
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690190",
+    "node_token": "CUq8wHUSXi1OHokp4OgcWmvIn8f",
+    "node_type": "origin",
+    "obj_create_time": "1789690190",
+    "obj_edit_time": "1789953136",
+    "obj_token": "UGHgdhXsmoZuGPxQKL2cAd67nJh",
+    "obj_type": "docx",
+    "origin_node_token": "CUq8wHUSXi1OHokp4OgcWmvIn8f",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "7.监测管养质量管控",
+    "url": "https://my.feishu.cn/wiki/CUq8wHUSXi1OHokp4OgcWmvIn8f",
+    "source_file": "13_7.监测管养质量管控.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnNT7GYNEbGSSc4kbLiYlMbb",
+        "text": "巡检机器人——轮式、四足与爬壁"
+      },
+      {
+        "level": 3,
+        "id": "doxcntVdZRe4Z6SZ7tyAaMkb2if",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnTap5zLxZtOd0gKeOG4fjSh",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnfslWTdSRu8LIGrBUh26q2c",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnwiiqkqb1Am0ehaOcsA9Zcf",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcn9n68C6Eu9DM8NFvQAntSnJ",
+        "text": "知识准备1: 三类巡检机器人的对比"
+      },
+      {
+        "level": 4,
+        "id": "doxcn2Nahqo3Afna7x6w2J3Jf7e",
+        "text": "知识准备2: 爬壁机器人的关键组成"
+      },
+      {
+        "level": 4,
+        "id": "doxcnhU4io3UAYrMEZHQFesUyff",
+        "text": "知识准备3: 合格病害照片的标准"
+      },
+      {
+        "level": 3,
+        "id": "doxcnH1tg6hYp3zfc21S65c6rCG",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnsoDCu7PP2snjfBHzaXkM4c",
+        "text": "实施任务1: 三类巡检机器人场景匹配"
+      },
+      {
+        "level": 4,
+        "id": "doxcnRapcZ2rW1TIrdzq7o7DhKh",
+        "text": "实施任务2: 爬壁采集设备组成识读"
+      },
+      {
+        "level": 4,
+        "id": "doxcnpfXkuktYaBNrUZUArWGvKd",
+        "text": "实施任务3: 病害照片质量判断"
+      },
+      {
+        "level": 4,
+        "id": "doxcnGQanXKP8xwhmhwbCQsxbvb",
+        "text": "实施任务4: 完成病害采集记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn0UKi8lZY0puP1vH297mxFd",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnqmpQxYzrfFMSO0vKJMrUcc",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcn7vtq8OaRZASFjWlLTgzGih",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "MlQXdsSwLosIf8xHPghc3BqZnAd",
+        "text": "负压爬壁机器人"
+      },
+      {
+        "level": 3,
+        "id": "doxcnB5ZFnsvIouzvg7UBDuHykb",
+        "text": "情景导入"
+      },
+      {
+        "level": 2,
+        "id": "NlmUdSbNeoawv7xnJpHci1WPnLe",
+        "text": "无人机巡检、病害检测与数据复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnwqX0AksZHUWK1nrEoTruif",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcncRJizQQkB8dQEUOkgHiiWh",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnCfouuZLq9PQgFZIJ1Hyyrb",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnK8SITZZqwwImwqwJHbrOff",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnbkM8FDQY90HRU3sZ4T5fyb",
+        "text": "知识准备1: 完整的病害检测链"
+      },
+      {
+        "level": 4,
+        "id": "doxcnOIemsiHok5sSGPlXF2OW4f",
+        "text": "知识准备2: 无人机巡检能发现什么，不能发现什么"
+      },
+      {
+        "level": 4,
+        "id": "doxcn5dplp46Zaf73IL4OwcifLc",
+        "text": "知识准备3: 探地雷达的基本原理和回波判读"
+      },
+      {
+        "level": 4,
+        "id": "doxcnKqM8GJIAGhssjYJX67lapf",
+        "text": "知识准备4: 测量软件读数的标定和误差来源"
+      },
+      {
+        "level": 3,
+        "id": "doxcnEZjJ6aTCrr9LNypce34yre",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnGztC2i64YiMVQt6IEWYp4c",
+        "text": "实施任务1: 无人机巡检能发现什么，不能发现什么"
+      },
+      {
+        "level": 4,
+        "id": "doxcnZtEoRuNfAgZ72PeLewgtFh",
+        "text": "实施任务2: 探地雷达回波初步判读"
+      },
+      {
+        "level": 4,
+        "id": "doxcnCH4PtWDh0mtCxtKnk7qGac",
+        "text": "实施任务3: 标定卡四角选择和比例尺确认"
+      },
+      {
+        "level": 4,
+        "id": "doxcnjuFDZRqjxfnl4tGKGn2HPe",
+        "text": "实施任务4: 裂缝宽度两点读数和点位选择"
+      },
+      {
+        "level": 4,
+        "id": "doxcnBxjGFJf7UIIrlTH5xsKRld",
+        "text": "实施任务5: 读数误差来源识别和复核清单"
+      },
+      {
+        "level": 3,
+        "id": "doxcnwh4qpaddnivUmEXUMDxC3e",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnjUx7Gc8Tmpm05oLmXIR1Xk",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcn5YnGaHWR0ZAWH9UmPX6ELf",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 13627
+  },
+  {
+    "creator": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "has_child": false,
+    "node_create_time": "1789690217",
+    "node_token": "MaDFwaZpBiKYyrkg0wnc6UzQnNe",
+    "node_type": "origin",
+    "obj_create_time": "1789690217",
+    "obj_edit_time": "1789714798",
+    "obj_token": "LlladA9sxojWOMxeZcscyZUKnUg",
+    "obj_type": "docx",
+    "origin_node_token": "MaDFwaZpBiKYyrkg0wnc6UzQnNe",
+    "origin_space_id": "7677931822625360836",
+    "owner": "ou_7387f78ac1eb0fe77a5e2b443155fe6c",
+    "parent_node_token": "AzWbw1IkHiis57kieL1cKEYanAh",
+    "space_id": "7677931822625360836",
+    "title": "8.机械机器安全维护",
+    "url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe",
+    "source_file": "14_8.机械机器安全维护.txt",
+    "headings": [
+      {
+        "level": 2,
+        "id": "doxcnkx4i6723YLOS5EF5AiMkJf",
+        "text": "机械与机器人的安全操作规程"
+      },
+      {
+        "level": 3,
+        "id": "doxcnY7p9HvJogN2IaVPqsFitnH",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnVDSTpe8yKJlU0c9cj9HfZb",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnSFYwU1bbXalgrdzeFDa4yb",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcn5ARgmb5hiPfB59SanH57eh",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnYvqpQ1g4o0EPWJsloJr1Yb",
+        "text": "知识准备1: 工程机械安全操作三步规程"
+      },
+      {
+        "level": 4,
+        "id": "doxcnG02zkXVhgQUlSGXw2ND7tc",
+        "text": "知识准备2: 典型机械事故案例"
+      },
+      {
+        "level": 4,
+        "id": "doxcnm3rIrfJeqQkWskeKDZ0ULd",
+        "text": "知识准备3: 机械安全与机器人安全的共通原则"
+      },
+      {
+        "level": 3,
+        "id": "doxcnUuuu6268yfcitwgqhrwhHd",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnVlZGIgeE4liMFpfbeEX54c",
+        "text": "实施任务1: 识别典型机械事故的原因"
+      },
+      {
+        "level": 4,
+        "id": "doxcniKILHMULZFq9KHAxwJkMWe",
+        "text": "实施任务2: 完成工程机械三阶段安全检查表"
+      },
+      {
+        "level": 4,
+        "id": "doxcnRyUrPWjQBYguD3lnzHFHSg",
+        "text": "实施任务3: 对比机械安全与机器人安全的共通原则"
+      },
+      {
+        "level": 4,
+        "id": "doxcnSa9ruIGGb8nhfvQ0M9B2He",
+        "text": "实施任务4: 根据现场情境判断违规行为"
+      },
+      {
+        "level": 3,
+        "id": "doxcnEdH0FBLHOcnjWOeJKTCHee",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcng4AKwjpXs6ib89CQnR7FUg",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcn7r6DckeqmLJGBGaAsp8QKe",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnniSjeN1War1zoZtacmjqlb",
+        "text": "设备保养、故障排查与维护记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn5bcj1Atorh4rDt0GTjGhMg",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcn2289KMcE6fyNM12qdc9F9d",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnZlaTr4ZBJRB3EvY6HL7RCh",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnPVAIo7hHuP9MgYlHosxi1d",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcnNIqnherNN8b1rqVaKMm0ub",
+        "text": "知识准备1: 日常检查的三类设备和关键部件"
+      },
+      {
+        "level": 4,
+        "id": "doxcnIwkGeeY3xkOLfQIa2xHqGb",
+        "text": "知识准备2: 磨损预警的两个关键信号"
+      },
+      {
+        "level": 4,
+        "id": "doxcnwzPzwz5AKxpNuA7SwUPTof",
+        "text": "知识准备3: 三类相似故障的区分与排查路径"
+      },
+      {
+        "level": 3,
+        "id": "doxcnIAD3hbOjztJUa3Z2g0cODf",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnXqMFL07SDa5w8WtlAXWkjc",
+        "text": "实施任务1: 完成三类设备日常检查"
+      },
+      {
+        "level": 4,
+        "id": "doxcnLFcWFeWBRcKcEkEBOBb9cf",
+        "text": "实施任务2: 根据旧油和异响判断磨损预警"
+      },
+      {
+        "level": 4,
+        "id": "doxcnGLGqKQYbTtGed2wMITs7xd",
+        "text": "实施任务3: 区分奇异点、背隙、零点丢失并设计排查路径"
+      },
+      {
+        "level": 4,
+        "id": "doxcn7ui70kWTP9Fpp3Z6Z1YLEf",
+        "text": "实施任务4: 整理综合维护记录表"
+      },
+      {
+        "level": 3,
+        "id": "doxcnd2C2HLHrdKa4X4YVqK7eJf",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn9C3GfYLHmDxZjogHNbOAOb",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcneoyxr1DrTdnUPKMpvl1xvT",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnkgZJtJO6mwAJdCELg9xVZb",
+        "text": "爬壁与特种作业机器人安全检查"
+      },
+      {
+        "level": 3,
+        "id": "doxcnUTPPiMfq0MZUEZgPDDbJXd",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnUwVeeKEwd3eX8Hk9iwGzuf",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnfKo0gswT79fL8a9cYeX0Ph",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnD9kKALCXCwiIIzF0gDiUig",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcn4nhsY7vN4hhd11uYDvJLGe",
+        "text": "知识准备1: 爬壁机器人的工作原理与防坠措施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnpvSX0r92p8WdC082RN04Db",
+        "text": "知识准备2: 四阶段安全检查逻辑"
+      },
+      {
+        "level": 4,
+        "id": "doxcn8XZbPA4p3vjHljjqyrWn1f",
+        "text": "知识准备3: 不允许继续作业的情境"
+      },
+      {
+        "level": 3,
+        "id": "doxcn9m8uy1dpLdGZisqNgyxild",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnnqgDEeNXKrA28HEzpQbn1d",
+        "text": "实施任务1: 识别爬壁机器人安全相关部件"
+      },
+      {
+        "level": 4,
+        "id": "doxcn542rBSTdfOQ8cesXlvBOye",
+        "text": "实施任务2: 完成四阶段安全检查表"
+      },
+      {
+        "level": 4,
+        "id": "doxcneaH7wFMxvRWtDymnH3KUlr",
+        "text": "实施任务3: 判断停机条件"
+      },
+      {
+        "level": 4,
+        "id": "doxcnR7PMfaxtTYxfcjgwUqN7Fd",
+        "text": "实施任务4: 完成防坠与供电检查记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcn1WQ4NN7E6jXTzTjIQmumfh",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnHAo5OZcLcPSjakA7AbbLvb",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcnqIXvlLylgcYO0wscdmhK4d",
+        "text": "拓展延伸"
+      },
+      {
+        "level": 2,
+        "id": "doxcnaer7rbKV0cxoIbKD1Ez0Se",
+        "text": "装修机器人职业健康与清洗维护"
+      },
+      {
+        "level": 3,
+        "id": "doxcnzM6xQZaZKRkUdxGFcTppub",
+        "text": "情景导入"
+      },
+      {
+        "level": 3,
+        "id": "doxcnrkZ9QlpiLNQ2nrF9ujHEEh",
+        "text": "任务描述"
+      },
+      {
+        "level": 3,
+        "id": "doxcnt1oTtgSDh4jjV2Nxm9iqDb",
+        "text": "学习目标"
+      },
+      {
+        "level": 3,
+        "id": "doxcnQQALNbI4RSg3M33mb5qCXg",
+        "text": "知识准备"
+      },
+      {
+        "level": 4,
+        "id": "doxcn5mDRwaVERXKbtrBJ6N7fec",
+        "text": "知识准备1: 喷涂和打磨的职业健康风险"
+      },
+      {
+        "level": 4,
+        "id": "doxcncojLfWRT3xl2Kd5atgICYc",
+        "text": "知识准备2: 三层职业健康防护措施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnbdcEUPMLmaZD9S6ZFEJS9c",
+        "text": "知识准备3: 班后清洗维护清单"
+      },
+      {
+        "level": 3,
+        "id": "doxcnraO4esZfBRS51u1G2CJJjc",
+        "text": "任务实施"
+      },
+      {
+        "level": 4,
+        "id": "doxcnPRxH40v1heZCxYm76uUcKe",
+        "text": "实施任务1: 识别喷涂和打磨的职业健康风险"
+      },
+      {
+        "level": 4,
+        "id": "doxcnJT3fvei4rrzI7rN5aXVzkh",
+        "text": "实施任务2: 完成班后清洗维护清单"
+      },
+      {
+        "level": 4,
+        "id": "doxcnt72x2ieiNpYdsFFSlmaK2f",
+        "text": "实施任务3: 判断是否允许继续作业"
+      },
+      {
+        "level": 4,
+        "id": "doxcnCEY76nOdDsEjbcMtMxtJ8f",
+        "text": "实施任务4: 整理综合清洗与维护记录表"
+      },
+      {
+        "level": 3,
+        "id": "doxcnmpBHoaxtYhLZL12zChPKkh",
+        "text": "成果记录"
+      },
+      {
+        "level": 3,
+        "id": "doxcnIuCcwfvjVVJFGnpuyQeUce",
+        "text": "讨论复核"
+      },
+      {
+        "level": 3,
+        "id": "doxcn9MM8jqOf2UZwbihN4z2itb",
+        "text": "拓展延伸"
+      }
+    ],
+    "chars": 31241
+  }
+]

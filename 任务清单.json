@@ -1,0 +1,277 @@
+{
+  "date": "2026-10-13",
+  "root_url": "https://my.feishu.cn/wiki/AzWbw1IkHiis57kieL1cKEYanAh",
+  "pages": 14,
+  "tasks": [
+    {
+      "id": "1-1",
+      "scene": 1,
+      "title": "从建造施工到智能建造",
+      "file": "01_走进智能建造/任务1-1_从建造施工到智能建造.md",
+      "source_page": "1.走进智能建造现场（4课时）",
+      "source_file": "来源/01_1.走进智能建造现场（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#doxcnyk9zhRyi8AXyhdAKXuzb6c",
+      "source_block_id": "doxcnyk9zhRyi8AXyhdAKXuzb6c"
+    },
+    {
+      "id": "1-2",
+      "scene": 1,
+      "title": "认识施工机械",
+      "file": "01_走进智能建造/任务1-2_认识施工机械.md",
+      "source_page": "1.走进智能建造现场（4课时）",
+      "source_file": "来源/01_1.走进智能建造现场（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#I0XedxfLlo7K6exv1gUcgaUtnie",
+      "source_block_id": "I0XedxfLlo7K6exv1gUcgaUtnie"
+    },
+    {
+      "id": "1-3",
+      "scene": 1,
+      "title": "认识施工机器人",
+      "file": "01_走进智能建造/任务1-3_认识施工机器人.md",
+      "source_page": "1.走进智能建造现场（4课时）",
+      "source_file": "来源/01_1.走进智能建造现场（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#R6e8dVXKnodHvBxE26UciDdon2c",
+      "source_block_id": "R6e8dVXKnodHvBxE26UciDdon2c"
+    },
+    {
+      "id": "2-1",
+      "scene": 2,
+      "title": "动力装置的基本原理",
+      "file": "02_机械硬件基础/任务2-1_动力装置的基本原理.md",
+      "source_page": "2.建筑机械硬件基础（4课时）",
+      "source_file": "来源/02_2.建筑机械硬件基础（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#CdK8dZKRlovcodxLQcVcpj2vnNb",
+      "source_block_id": "CdK8dZKRlovcodxLQcVcpj2vnNb"
+    },
+    {
+      "id": "2-2",
+      "scene": 2,
+      "title": "动力的传递与变换",
+      "file": "02_机械硬件基础/任务2-2_动力的传递与变换.md",
+      "source_page": "2.建筑机械硬件基础（4课时）",
+      "source_file": "来源/02_2.建筑机械硬件基础（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#COrVdAmDUotUZbxp5LWcLqtEnmd",
+      "source_block_id": "COrVdAmDUotUZbxp5LWcLqtEnmd"
+    },
+    {
+      "id": "2-3",
+      "scene": 2,
+      "title": "工作机构与施工动作",
+      "file": "02_机械硬件基础/任务2-3_工作机构与施工动作.md",
+      "source_page": "2.建筑机械硬件基础（4课时）",
+      "source_file": "来源/02_2.建筑机械硬件基础（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#Oq3Ndd4jsoqH91xKA5BclpgDnlf",
+      "source_block_id": "Oq3Ndd4jsoqH91xKA5BclpgDnlf"
+    },
+    {
+      "id": "3-1",
+      "scene": 3,
+      "title": "机器人构型与工作空间识读",
+      "file": "03_机器人构型与运动/任务3-1_机器人构型与工作空间识读.md",
+      "source_page": "3.机器人构型与工作空间识读（2课时）",
+      "source_file": "来源/03_3.机器人构型与工作空间识读（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/IZGawINShiKwmMkQHsvcOUd3nfc#doxcngeszW7gzynhcGDZWXfx14g",
+      "source_block_id": "doxcngeszW7gzynhcGDZWXfx14g"
+    },
+    {
+      "id": "3-2",
+      "scene": 3,
+      "title": "六轴机械臂本体、关节轴与低速点动",
+      "file": "03_机器人构型与运动/任务3-2_六轴机械臂本体_关节轴与低速点动.md",
+      "source_page": "3.六轴机械臂本体与关节轴（2课时）",
+      "source_file": "来源/04_3.六轴机械臂本体与关节轴（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/NrlbwvO3Xij3kLksAg9c7h6YnJe#doxcnMn7GdKJwAxxrwHOPxGxsQd",
+      "source_block_id": "doxcnMn7GdKJwAxxrwHOPxGxsQd"
+    },
+    {
+      "id": "3-3",
+      "scene": 3,
+      "title": "关节驱动、减速器与传动机构",
+      "file": "03_机器人构型与运动/任务3-3_关节驱动_减速器与传动机构.md",
+      "source_page": "3.关节驱动、减速器与传动机构（2课时）",
+      "source_file": "来源/05_3.关节驱动、减速器与传动机构（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZTnMwuMdPiEwgokrWIdcAa4pndV#doxcn89eh3qJdUefVejTCYeES2b",
+      "source_block_id": "doxcn89eh3qJdUefVejTCYeES2b"
+    },
+    {
+      "id": "3-4",
+      "scene": 3,
+      "title": "末端执行器、TCP与工具控制",
+      "file": "03_机器人构型与运动/任务3-4_末端执行器_TCP与工具控制.md",
+      "source_page": "3.末端执行器、TCP与工具控制（2课时）",
+      "source_file": "来源/06_3.末端执行器、TCP与工具控制（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/JWU9wRinNirdnXkOSDEctDYZnPQ#doxcnQTnxd9IxSBZBK4xmGeqGCA",
+      "source_block_id": "doxcnQTnxd9IxSBZBK4xmGeqGCA"
+    },
+    {
+      "id": "3-5",
+      "scene": 3,
+      "title": "移动底盘与行走机构",
+      "file": "03_机器人构型与运动/任务3-5_移动底盘与行走机构.md",
+      "source_page": "3.机器人移动底盘与行走机构（2课时）",
+      "source_file": "来源/07_3.机器人移动底盘与行走机构（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ENc1wwOsZiIIuCksjFzc6COJn4p#doxcnE05ESdggp2fTWFKPQp37mf",
+      "source_block_id": "doxcnE05ESdggp2fTWFKPQp37mf"
+    },
+    {
+      "id": "4-1",
+      "scene": 4,
+      "title": "机器人自身状态感知",
+      "file": "04_感知与识别/任务4-1_机器人自身状态感知.md",
+      "source_page": "4.机器人自身状态感知（2课时）",
+      "source_file": "来源/08_4.机器人自身状态感知（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/SZ6twI9H1iFHo3kX7JOcvTfxnCN",
+      "source_block_id": null
+    },
+    {
+      "id": "4-2",
+      "scene": 4,
+      "title": "机器人激光雷达感知",
+      "file": "04_感知与识别/任务4-2_机器人激光雷达感知.md",
+      "source_page": "4.机器人激光雷达感知（2课时）",
+      "source_file": "来源/09_4.机器人激光雷达感知（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/Rg9fwaWHMimAfFkDg3xcFkmvnRb",
+      "source_block_id": null
+    },
+    {
+      "id": "4-3",
+      "scene": 4,
+      "title": "任务一　标注安全帽并应用YOLO模型",
+      "file": "04_感知与识别/任务4-3_标注安全帽并应用YOLO模型.md",
+      "source_page": "4.YOLO施工视觉识别（4课时）",
+      "source_file": "来源/10_4.YOLO施工视觉识别（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/UXc0wYD4JiFgZ1kmKJWcKv4wn4c#RMOxdbvVDorkQwx8CTScWPpLnFc",
+      "source_block_id": "RMOxdbvVDorkQwx8CTScWPpLnFc"
+    },
+    {
+      "id": "5-1",
+      "scene": 5,
+      "title": "钢筋加工机械与绑扎作业面识读",
+      "file": "05_主体结构施工/任务5-1_钢筋加工机械与绑扎作业面识读.md",
+      "source_page": "5.主体结构施工协同",
+      "source_file": "来源/11_5.主体结构施工协同.txt",
+      "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcn0806AVCz2motDJFnl1RGVh",
+      "source_block_id": "doxcn0806AVCz2motDJFnl1RGVh"
+    },
+    {
+      "id": "5-2",
+      "scene": 5,
+      "title": "钢筋绑扎机器人操作与人工复核",
+      "file": "05_主体结构施工/任务5-2_钢筋绑扎机器人操作与人工复核.md",
+      "source_page": "5.主体结构施工协同",
+      "source_file": "来源/11_5.主体结构施工协同.txt",
+      "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcnpjZeYmLuiyF0C8Y56Qjw9d",
+      "source_block_id": "doxcnpjZeYmLuiyF0C8Y56Qjw9d"
+    },
+    {
+      "id": "5-3",
+      "scene": 5,
+      "title": "混凝土泵送布料与整平抹光机器人",
+      "file": "05_主体结构施工/任务5-3_混凝土泵送布料与整平抹光机器人.md",
+      "source_page": "5.主体结构施工协同",
+      "source_file": "来源/11_5.主体结构施工协同.txt",
+      "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcnUJuNK1D3ih5VKdcUdItnLc",
+      "source_block_id": "doxcnUJuNK1D3ih5VKdcUdItnLc"
+    },
+    {
+      "id": "6-1",
+      "scene": 6,
+      "title": "砌筑工程——人工工艺、砂浆机械与机器人进场",
+      "file": "06_装饰装修施工/任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "来源/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcn2i9Sc5J7awcMQLj0zkDdGd",
+      "source_block_id": "doxcn2i9Sc5J7awcMQLj0zkDdGd"
+    },
+    {
+      "id": "6-2",
+      "scene": 6,
+      "title": "地砖铺贴——工艺准备与铺贴机器人作业",
+      "file": "06_装饰装修施工/任务6-2_地砖铺贴_工艺准备与铺贴机器人作业.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "来源/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcnYWPJBkWDkwK9wd1Hl7Madf",
+      "source_block_id": "doxcnYWPJBkWDkwK9wd1Hl7Madf"
+    },
+    {
+      "id": "6-3",
+      "scene": 6,
+      "title": "腻子打磨——作业面检查、恒力执行与质量验收",
+      "file": "06_装饰装修施工/任务6-3_腻子打磨_作业面检查_恒力执行与质量验收.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "来源/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcnpA6kMYzniF9Du8e4saSp8f",
+      "source_block_id": "doxcnpA6kMYzniF9Du8e4saSp8f"
+    },
+    {
+      "id": "6-4",
+      "scene": 6,
+      "title": "室内喷涂——路径规划、参数控制与缺陷诊断",
+      "file": "06_装饰装修施工/任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "来源/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcnqHI5Lh81n0rtbYK00pSfiY",
+      "source_block_id": "doxcnqHI5Lh81n0rtbYK00pSfiY"
+    },
+    {
+      "id": "7-1",
+      "scene": 7,
+      "title": "巡检机器人——轮式、四足与爬壁",
+      "file": "07_监测管养/任务7-1_巡检机器人_轮式_四足与爬壁.md",
+      "source_page": "7.监测管养质量管控",
+      "source_file": "来源/13_7.监测管养质量管控.txt",
+      "source_url": "https://my.feishu.cn/wiki/CUq8wHUSXi1OHokp4OgcWmvIn8f#doxcnNT7GYNEbGSSc4kbLiYlMbb",
+      "source_block_id": "doxcnNT7GYNEbGSSc4kbLiYlMbb"
+    },
+    {
+      "id": "7-2",
+      "scene": 7,
+      "title": "无人机巡检、病害检测与数据复核",
+      "file": "07_监测管养/任务7-2_无人机巡检_病害检测与数据复核.md",
+      "source_page": "7.监测管养质量管控",
+      "source_file": "来源/13_7.监测管养质量管控.txt",
+      "source_url": "https://my.feishu.cn/wiki/CUq8wHUSXi1OHokp4OgcWmvIn8f#NlmUdSbNeoawv7xnJpHci1WPnLe",
+      "source_block_id": "NlmUdSbNeoawv7xnJpHci1WPnLe"
+    },
+    {
+      "id": "8-1",
+      "scene": 8,
+      "title": "机械与机器人的安全操作规程",
+      "file": "08_安全与维护/任务8-1_机械与机器人的安全操作规程.md",
+      "source_page": "8.机械机器安全维护",
+      "source_file": "来源/14_8.机械机器安全维护.txt",
+      "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnkx4i6723YLOS5EF5AiMkJf",
+      "source_block_id": "doxcnkx4i6723YLOS5EF5AiMkJf"
+    },
+    {
+      "id": "8-2",
+      "scene": 8,
+      "title": "设备保养、故障排查与维护记录",
+      "file": "08_安全与维护/任务8-2_设备保养_故障排查与维护记录.md",
+      "source_page": "8.机械机器安全维护",
+      "source_file": "来源/14_8.机械机器安全维护.txt",
+      "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnniSjeN1War1zoZtacmjqlb",
+      "source_block_id": "doxcnniSjeN1War1zoZtacmjqlb"
+    },
+    {
+      "id": "8-3",
+      "scene": 8,
+      "title": "爬壁与特种作业机器人安全检查",
+      "file": "08_安全与维护/任务8-3_爬壁与特种作业机器人安全检查.md",
+      "source_page": "8.机械机器安全维护",
+      "source_file": "来源/14_8.机械机器安全维护.txt",
+      "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnkgZJtJO6mwAJdCELg9xVZb",
+      "source_block_id": "doxcnkgZJtJO6mwAJdCELg9xVZb"
+    },
+    {
+      "id": "8-4",
+      "scene": 8,
+      "title": "装修机器人职业健康与清洗维护",
+      "file": "08_安全与维护/任务8-4_装修机器人职业健康与清洗维护.md",
+      "source_page": "8.机械机器安全维护",
+      "source_file": "来源/14_8.机械机器安全维护.txt",
+      "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnaer7rbKV0cxoIbKD1Ez0Se",
+      "source_block_id": "doxcnaer7rbKV0cxoIbKD1Ez0Se"
+    }
+  ]
+}
