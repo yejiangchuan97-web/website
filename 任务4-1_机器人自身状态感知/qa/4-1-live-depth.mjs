@@ -1,5 +1,5 @@
 import { fixture } from "../../公共资源/感知与识别/src/geometry.mjs";
-import * as A from "../../公共资源/感知与识别/assets/kit/audit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 import { createRequire } from 'node:module';
 import { homedir } from 'node:os';
 import { join } from 'node:path';

@@ -1,6 +1,6 @@
-import * as k from "../../公共资源/主体结构施工/assets/anatomy/iso-kit.mjs";
-import * as G from "../../公共资源/主体结构施工/assets/anatomy/lathe.mjs";
-import * as A from "../../公共资源/主体结构施工/assets/anatomy/audit.mjs";
+import * as k from "../../公共资源/anatomy/iso-kit.mjs";
+import * as G from "../../公共资源/anatomy/lathe.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 
 export function buildGeometry(){
  const P=k.fitProjection([[-123,-86,-16],[123,90,0],[-85,-68,130],[85,-68,130]],820,590,{pad:42,azimuth:40,elevation:28});

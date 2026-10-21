@@ -24,7 +24,7 @@
 
 主要源文件：`src/page.html`、`src/workshop.css`、`src/workshop.app.js`、`src/workshop.model.js`、`src/workshop.view.js`；基础工具几何与标定求解在 `src/tools.view.js`、`src/tools.model.js`。任务 3-1 的实体零件绘制器和任务 3-2 的运动学作为只读依赖复用，本任务不会构建或改写相邻页面。
 
-[Anatomy 设计说明](docs/design.md) · [验证记录](qa/verification.json) · [页面截图](qa/shots/desktop-light.png)
+[Anatomy 设计说明](docs/design.md)。本地验证产物：`qa/verification.json`、`qa/shots/desktop-light.png`，运行检查后生成，不纳入 Git。
 
 验证：`node 任务3-4_末端执行器_TCP与工具控制/qa/model.test.cjs` 检查六种工具、两类转动方式共 1,068 个姿态；`node 任务3-4_末端执行器_TCP与工具控制/qa/verify-browser.mjs` 检查换装、拟合、复核、错误示例、下载、闯关、停止、响应式与备用显示。浏览器检查需要本机 Chrome 或 Edge。
 

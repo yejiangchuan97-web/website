@@ -1,5 +1,5 @@
-import * as k from "../../公共资源/装饰装修施工/assets/tiling-anatomy/iso-kit.mjs";
-import * as A from "../../公共资源/装饰装修施工/assets/tiling-anatomy/audit.mjs";
+import * as k from "../../公共资源/anatomy/iso-kit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 export function scene({x=25,y=30,top=40,tileX=x,tileY=y,tileTop=top,bed=4,audit=false}={}){
  const floor={x:-166,y:-90,w:332,d:184,r:4};
  const P=k.fitProjection([...k.boxCorners(floor,-16,0),[-143,-62,134],[143,-62,134]],1000,580,{pad:38,azimuth:42,elevation:32});

@@ -1,5 +1,5 @@
-import * as k from "../../公共资源/主体结构施工/assets/anatomy/iso-kit.mjs";
-import * as A from "../../公共资源/主体结构施工/assets/anatomy/audit.mjs";
+import * as k from "../../公共资源/anatomy/iso-kit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 import {cycle} from "./model.mjs";
 export function scene(t=0,audit=false){
  const s=cycle(t),floor={x:-275,y:-83,w:550,d:150,r:3};

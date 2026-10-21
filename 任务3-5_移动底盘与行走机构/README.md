@@ -57,7 +57,7 @@ node 任务3-5_移动底盘与行走机构/qa/verify-learning.mjs
 node 任务3-5_移动底盘与行走机构/qa/learning-detail.mjs
 ```
 
-[设计与零件清单](docs/anatomy-redesign.md) · [验证说明](docs/verification.md) · [基础浏览器检查](qa/course-verification.json) · [十二关与布局检查](qa/campaign-verification.json)
+[设计与零件清单](docs/anatomy-redesign.md) · [验证说明](docs/verification.md)。基础浏览器检查与十二关检查分别生成本地报告 `qa/course-verification.json`、`qa/campaign-verification.json`，不纳入 Git。
 
 旧版 `qa/verify-mobile-3d.mjs` 与相关截图留作历史记录；其爬壁和旧空间通行测试不用于当前版。当前浏览器验证入口为 `qa/verify-course.mjs`、`qa/verify-campaign.mjs`、`qa/verify-learning.mjs` 和 `qa/learning-detail.mjs`。
 

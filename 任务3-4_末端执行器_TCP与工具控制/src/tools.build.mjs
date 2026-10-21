@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 const read=p=>readFileSync(new URL(p,import.meta.url),'utf8');
 const scripts=[
-  '../../任务3-2_六轴机械臂本体_关节轴与低速点动/assets/vendor/three.min.js',
+  '../../公共资源/vendor/three-r160.min.js',
   '../../任务3-2_六轴机械臂本体_关节轴与低速点动/src/model.js',
   './tools.model.js', './workshop.model.js',
   '../../任务3-1_机器人构型与工作空间识读/src/render.js',

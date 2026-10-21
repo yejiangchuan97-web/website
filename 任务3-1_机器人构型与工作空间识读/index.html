@@ -26,8 +26,7 @@ body{height:100vh;height:100dvh;display:grid;grid-template-rows:48px minmax(0,1f
 </section><div class="concept"><span>观察提示</span><p id="conceptText">自由度看可独立改变的变量；关节数量、位置方向数、姿态方向数不能简单混为一谈。</p></div>
 </main><footer><span>智能建造 · 机器人构型与工作空间实验室</span><span>教学自定义尺寸与限位 / 连杆胶囊包络＋障碍长方体 / 位置采样非完整可达性证明</span><button id="about" class="text-button">模型与使用说明 ↗</button></footer>
 <dialog id="helpDialog"><button class="dialog-close" aria-label="关闭">×</button><div class="eyebrow">FROM JOINTS TO WORKSPACE</div><h2>先看什么能动，再看能去哪里。</h2><div class="help-grid"><div><b>01 / 操作与锁轴</b><p>选择构型，拖动滑条或按住 + / −。P 为平移变量，R 为转角。锁住一轴后，这个变量固定，右侧计数和空间采样随之更新。限位缩小仍不等于少一个独立变量。若锁的是工具自转轴，位置点云可能不变，朝向调节仍会受限。</p></div><div><b>02 / 同一刚体，不同约束</b><p>自由度实验提供自由刚体、合页门、导轨抽屉、固定连接。每个连接单独定义允许的独立运动。自由刚体为不计重力的理想模型。</p></div><div><b>03 / 目标与空间</b><p>蓝色点云来自当前行程、工具长度和锁轴条件下的合法关节配置。输入目标后另用运动学检查位置可达性；六轴未找到解时不宣称数学上绝对不可达。本页不求解任意目标姿态。</p></div><div><b>04 / 中途的身体也会碰撞</b><p>载入路径对照，检查同一起终点的关节直连与预置绕行。沿连续关节插值逐帧检测，碰到障碍时暂停并标出部位。移动障碍后结果会重新计算，绕行样例也可能失效。</p></div></div><div class="model-note"><strong>模型范围</strong><p>五种模型均为教学自定义几何、尺寸与限位。SCARA 为四轴，Delta 为三平移并联型；Delta 以等长杆闭链求解，共用平台由平行四边形保持方向。可独立调节轴数不等于任意姿态都能实现相同的任务空间运动。</p><p>碰撞使用连杆胶囊包络与轴对齐障碍长方体；未计柔性线缆、负载变形与全部固定机架干涉。预置绕行仅为给定样例，不是通用自动避障规划，也不输出真机程序。</p><a href="https://robodk.com/doc/en/Collision-Avoidance.html" target="_blank" rel="noopener">参照阅读：RoboDK · Collision Detection ↗</a></div></dialog><div id="toast" role="status" aria-live="polite"></div>
-<script>console.warn('Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation'),
-/**
+<script>!/**
  * @license
  * Copyright 2010-2023 Three.js Authors
  * SPDX-License-Identifier: MIT

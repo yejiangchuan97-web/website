@@ -9,9 +9,9 @@ const HERE=__taskFile("."),ROOT=__taskFile("../../../公共资源/主体结构�
 const read=n=>readFileSync(join(HERE,n),'utf8');
 const audit=process.argv.includes('--audit');
 const level=scene('level',0,0,audit),trowel=scene('trowel',0,0,audit);
-const kit='/* Anatomy toolkit\n'+readFileSync(__taskFile("../../../公共资源/主体结构施工/assets/anatomy/LICENSE"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../../公共资源/主体结构施工/assets/anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
+const kit='/* Anatomy toolkit\n'+readFileSync(__taskFile("../../../公共资源/anatomy/LICENSE"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../../公共资源/anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
 const model='const M=(()=>{'+read("./model.mjs").replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();';
-const values={CSS:readFileSync(__taskFile("../../../公共资源/主体结构施工/assets/anatomy/iso.css"),'utf8')+'\n'+read("./style.css"),LEVEL:level.svg,TROWEL:trowel.svg,JS:kit+'\n'+model+'\nconst PROJECTION='+JSON.stringify(level.P)+';\n'+bladeRing.toString()+'\n'+read("./app.js")};
+const values={CSS:readFileSync(__taskFile("../../../公共资源/anatomy/iso.css"),'utf8')+'\n'+read("./style.css"),LEVEL:level.svg,TROWEL:trowel.svg,JS:kit+'\n'+model+'\nconst PROJECTION='+JSON.stringify(level.P)+';\n'+bladeRing.toString()+'\n'+read("./app.js")};
 let html=read("./page.html").replace(/\{\{(CSS|LEVEL|TROWEL|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
 writeFileSync(__taskFile("../index.html"),html);
 console.log('Built 5-3.html · level '+level.R.items.length+' parts · trowel '+trowel.R.items.length+' parts');

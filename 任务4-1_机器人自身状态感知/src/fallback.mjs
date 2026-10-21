@@ -1,6 +1,6 @@
-import * as k from '../../公共资源/感知与识别/assets/kit/iso-kit.mjs';
-import * as G from '../../公共资源/感知与识别/assets/kit/lathe.mjs';
-import * as A from '../../公共资源/感知与识别/assets/kit/audit.mjs';
+import * as k from '../../公共资源/anatomy/iso-kit.mjs';
+import * as G from '../../公共资源/anatomy/lathe.mjs';
+import * as A from '../../公共资源/anatomy/audit.mjs';
 // Static, physically mounted anatomy illustration for browsers without WebGL.
 export function robotFallback(){
  const P=k.fitProjection([...k.boxCorners({x:-80,y:-55,w:160,d:110,r:4},0,4),[-65,30,48],[65,30,48]],680,440,{pad:24,azimuth:-48,elevation:32});

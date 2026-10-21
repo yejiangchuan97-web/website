@@ -1,5 +1,5 @@
-import * as k from "../../../公共资源/主体结构施工/assets/anatomy/iso-kit.mjs";
-import * as A from "../../../公共资源/主体结构施工/assets/anatomy/audit.mjs";
+import * as k from "../../../公共资源/anatomy/iso-kit.mjs";
+import * as A from "../../../公共资源/anatomy/audit.mjs";
 
 export function bladeRing(cx, angle) {
   return [[5,-3],[31,-6],[34,3],[5,3]].map(([x,y])=>[cx+x*Math.cos(angle)-y*Math.sin(angle),x*Math.sin(angle)+y*Math.cos(angle)]);

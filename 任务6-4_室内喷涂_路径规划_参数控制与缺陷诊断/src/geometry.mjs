@@ -1,6 +1,6 @@
-import * as k from "../../公共资源/装饰装修施工/assets/anatomy/iso-kit.mjs";
-import * as G from "../../公共资源/装饰装修施工/assets/anatomy/lathe.mjs";
-import * as A from "../../公共资源/装饰装修施工/assets/anatomy/audit.mjs";
+import * as k from "../../公共资源/anatomy/iso-kit.mjs";
+import * as G from "../../公共资源/anatomy/lathe.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 
 export function scene({x=0,z=150,distance=300,audit=false}={}){
  const floor={x:-245,y:-103,w:490,d:208,r:5};

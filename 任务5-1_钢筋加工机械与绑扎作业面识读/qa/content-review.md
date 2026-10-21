@@ -117,7 +117,7 @@
 
 ## 实际实现验收记录
 
-2026-10-17已对生成的5-1.html运行Edge真实WebGL浏览器检查，13组通过，详见[browser-results/report.json](browser-results/report.json)；本轮HTML SHA-256为`7db76cd04b2986b86d794810011abf88b0c004ba8c4aed9ac8a165e8261d92da`。后续若重建应重新运行，以新报告内哈希为准。
+2026-10-17已对生成的5-1.html运行Edge真实WebGL浏览器检查，13组通过，详见browser-results/report.json（本地记录：`browser-results/report.json`）；本轮HTML SHA-256为`7db76cd04b2986b86d794810011abf88b0c004ba8c4aed9ac8a165e8261d92da`。后续若重建应重新运行，以新报告内哈希为准。
 
 - 四主题可独立切换，六处位置识读不会因切主题丢失。
 - 三种机构在0、35%、60%、100%阶段的读数与模型一致；修改料长3200 mm、弯角135°后计算与场景状态同步，已查看弯曲近景截图。播放、暂停、单步与复位可用；系统减少动态设置下采用单步。

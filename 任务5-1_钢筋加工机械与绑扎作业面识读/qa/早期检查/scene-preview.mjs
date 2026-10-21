@@ -2,7 +2,7 @@ import {fileURLToPath as __taskFileURL} from 'node:url';
 const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
 import{readFileSync,writeFileSync,mkdirSync}from'node:fs';import{resolve,join}from'node:path';import{pathToFileURL}from'node:url';import{createRequire}from'node:module';import{homedir}from'node:os';import*as M from"../../src/model.mjs";
 const root=__taskFile("../../.."),src=__taskFile("../../src"),out=__taskFile("./scene-shots");mkdirSync(out,{recursive:true});
-const model=readFileSync(__taskFile("../../src/model.mjs"),'utf8').replace(/^export /gm,''),three=readFileSync(__taskFile("../../../公共资源/感知与识别/assets/vendor/three-r160.min.js"),'utf8'),scene=readFileSync(__taskFile("../../src/scene.js"),'utf8');
+const model=readFileSync(__taskFile("../../src/model.mjs"),'utf8').replace(/^export /gm,''),three=readFileSync(__taskFile("../../../公共资源/vendor/three-r160.min.js"),'utf8'),scene=readFileSync(__taskFile("../../src/scene.js"),'utf8');
 const html=`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>场景独立验收</title><style>*{box-sizing:border-box}html,body,#view{margin:0;width:100%;height:100%;overflow:hidden}#view{position:relative}canvas{width:100%;height:100%;display:block}</style><div id="view" tabindex="0"></div><script>${three}</script><script>const M=(()=>{${model};return{${Object.keys(M).join(',')}}})();${scene};window.sceneHandle=createRebarScene(THREE,document.getElementById('view'),M);window.draw=()=>{for(let i=0;i<120;i++)sceneHandle.render(1/60,true);};draw();</script></html>`;
 const preview=__taskFile("./scene-shots/preview.html");writeFileSync(preview,html);
 const{chromium}=createRequire(import.meta.url)(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));

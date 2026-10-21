@@ -5,8 +5,8 @@ import {dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {scene} from "./geometry.mjs";
 import * as M from "./model.mjs";
-import * as A from "../../公共资源/装饰装修施工/assets/tiling-anatomy/audit.mjs";
-import * as k from "../../公共资源/装饰装修施工/assets/tiling-anatomy/iso-kit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
+import * as k from "../../公共资源/anatomy/iso-kit.mjs";
 const HERE=__taskFile("."),ROOT=__taskFile("../../公共资源/装饰装修施工"),read=n=>readFileSync(join(HERE,n),'utf8');
 const cache=__taskFile("./scene-cache.json");
 const s=process.argv.includes('--ui')&&existsSync(cache)?JSON.parse(readFileSync(cache,'utf8')):scene({audit:process.argv.includes('--audit')});
@@ -20,9 +20,9 @@ if(!process.argv.includes('--ui')&&existsSync(orderFile)){
  }
 }
 if(!process.argv.includes('--ui'))writeFileSync(cache,JSON.stringify({P:s.P,svg:s.svg,count:s.R.items.length}));
-const kit='/* Anatomy toolkit · MIT\n'+readFileSync(__taskFile("../../公共资源/装饰装修施工/assets/tiling-anatomy/LICENSE"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../公共资源/装饰装修施工/assets/tiling-anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
+const kit='/* Anatomy toolkit · MIT\n'+readFileSync(__taskFile("../../公共资源/anatomy/LICENSE"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../公共资源/anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
 const model='const M=(()=>{'+read("./model.mjs").replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();\nconst {'+Object.keys(M).join(',')+'}=M;';
-const values={CSS:readFileSync(__taskFile("../../公共资源/装饰装修施工/assets/tiling-anatomy/iso.css"),'utf8')+'\n'+read("./style.css"),SCENE:s.svg,JS:kit+'\n'+model+'\nconst PROJECTION='+JSON.stringify(s.P)+';\n'+read("./app.js")};
+const values={CSS:readFileSync(__taskFile("../../公共资源/anatomy/iso.css"),'utf8')+'\n'+read("./style.css"),SCENE:s.svg,JS:kit+'\n'+model+'\nconst PROJECTION='+JSON.stringify(s.P)+';\n'+read("./app.js")};
 let html=read("./page.html").replace(/\{\{(CSS|SCENE|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
 writeFileSync(__taskFile("../index.html"),html);writeFileSync(__taskFile("../dark.html"),html.replace('data-theme="light"','data-theme="dark"'));
 console.log('Built 6-2.html · '+(s.count||s.R.items.length)+' shapes · offline standalone');

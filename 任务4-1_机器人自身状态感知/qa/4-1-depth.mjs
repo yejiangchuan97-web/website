@@ -1,5 +1,5 @@
 import { fixture } from "../../公共资源/感知与识别/src/geometry.mjs";
-import * as A from "../../公共资源/感知与识别/assets/kit/audit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 import { readFileSync, writeFileSync } from 'node:fs';
 const html=readFileSync(new URL("../index.html",import.meta.url),'utf8');
 const order=[...html.matchAll(/class="machine-part" data-name="([^"]+)"/g)].map(m=>m[1]);

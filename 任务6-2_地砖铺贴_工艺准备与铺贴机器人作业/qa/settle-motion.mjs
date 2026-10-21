@@ -1,7 +1,7 @@
 import {scene} from "../src/geometry.mjs";
 import {cycle} from "../src/model.mjs";
-import * as A from "../../公共资源/装饰装修施工/assets/tiling-anatomy/audit.mjs";
-import * as k from "../../公共资源/装饰装修施工/assets/tiling-anatomy/iso-kit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
+import * as k from "../../公共资源/anatomy/iso-kit.mjs";
 import {writeFileSync} from 'node:fs';
 const base=scene(),items=base.R.settled.items,names=new Map(items.map((it,i)=>[it.name,i]));
 const pairs=[...base.R.settled.overlaps.pairs],scenes=[base];

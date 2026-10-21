@@ -1,5 +1,5 @@
 import {scene} from "../src/geometry.mjs";
-import * as A from "../../../公共资源/主体结构施工/assets/anatomy/audit.mjs";
+import * as A from "../../../公共资源/anatomy/audit.mjs";
 // Reuse the actual initial DOM order, rather than quietly re-sorting the audit pose.
 for(const kind of ['level','trowel']){
  const base=scene(kind), keys=new Map(base.R.items.map(it=>[it.name,it.key]));

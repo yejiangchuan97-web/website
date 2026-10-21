@@ -1,4 +1,4 @@
-import * as k from "../assets/kit/iso-kit.mjs";
+import * as k from "../../anatomy/iso-kit.mjs";
 export const W=760,H=400;
 export const rad=d=>d*Math.PI/180;
 export function projection(plan={x:-140,y:-90,w:280,d:180,r:10},top=144){return k.fitProjection([...k.boxCorners(plan,-18,0),[-31,0,top],[31,0,top],[0,-46,98]],W,H,{pad:35,azimuth:43,elevation:32})}

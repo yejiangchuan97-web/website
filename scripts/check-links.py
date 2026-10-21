@@ -8,6 +8,10 @@ class Links(HTMLParser):
  def handle_starttag(self,tag,attrs):
   for k,v in attrs:
    if v and k in ('href','src','poster'):self.links.append(v)
+  values=dict(attrs)
+  if tag=='meta' and values.get('http-equiv','').lower()=='refresh':
+   match=re.search(r'url\s*=\s*(.+)',values.get('content',''),re.I)
+   if match:self.links.append(match.group(1).strip().strip("\"'"))
 pages=[root/'README.md',root/'项目目录.md']+list(root.glob('任务*/README.md'))+list(root.glob('任务*/*.html'))
 issues=[];count=0
 for p in pages:

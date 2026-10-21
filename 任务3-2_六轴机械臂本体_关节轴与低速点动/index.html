@@ -240,8 +240,7 @@
 <footer><span>智能建造 · 机器人交互实验室</span><span>教学自定义几何 / 参照轴与软限位以本模型为准</span><button class="text-button" id="about">模型与使用说明 ↗</button></footer>
 <dialog id="helpDialog"><button class="dialog-close" aria-label="关闭">×</button><div class="eyebrow">GET YOUR HANDS ON</div><h2>三分钟，读懂一次移动。</h2><div class="help-grid"><div><b>01 / 转动一个关节</b><p>关节坐标中选择 J1–J6，按住 + / −，或拖动角度滑条。高亮显示选中的关节，后续连杆会随动。</p></div><div><b>02 / 换一个参照系</b><p>切到基坐标或工具坐标。X / Y / Z 平移保持朝向，Rx / Ry / Rz 绕 TCP 转动保持其位置；机械臂通过多轴配合完成动作。</p></div><div><b>03 / 示教一段动作</b><p>记录两个以上示教点，再回放。用搬运挑战练习接近、抓取、抬升和放置；辅助按钮帮助你到达工位上方，最后一段由你微调。</p></div><div><b>04 / 随时停止</b><p>松开按钮停止点动。空格或“停止运动”中断点动、巡回和回放。1–6 选轴，左右方向键点动；失去焦点也会停止。</p></div></div><div class="model-note"><strong>关于本教学模型</strong><p>右手基坐标 Z 向上，工具坐标原点为 TCP，工具 +Z 为出轴方向。关节位置、正方向、尺寸、软限位和速度均为教学自定义。笛卡尔点动使用带姿态约束的逆运动学；不可解方向会停止并提示。简化地面与自身接近检测不代表完整碰撞验证。演示不输出真机程序。</p><p>点动真机前需按设备规定确认工具参数、参照坐标、运行模式、停止方式及周边人员；本页仿真速度不代表统一安全速度。</p><a href="https://www.universal-robots.com/manuals/EN/HTML/SW5_23/Content/prod-usr-man/complianceUR12e/SW_sections/first_program/move_tab.htm" target="_blank" rel="noopener">参照阅读：Universal Robots · Using the Move Tab ↗</a></div></dialog>
 <div id="toast" role="status" aria-live="polite"></div>
-<script>console.warn('Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation'),
-/**
+<script>!/**
  * @license
  * Copyright 2010-2023 Three.js Authors
  * SPDX-License-Identifier: MIT

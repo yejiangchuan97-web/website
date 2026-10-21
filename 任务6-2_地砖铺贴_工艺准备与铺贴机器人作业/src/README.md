@@ -20,4 +20,4 @@
 - `node ../../qa/tiling/visual.mjs`：以Playwright启动本机Edge，执行anatomy原始LINE_ENDS检查器；浅/深主题共14个静止姿态。原始capture/drive启动器在本机Edge上启动即退出，故复用其检查算法。
 - `node ../../qa/tiling/closeups.mjs`：4×整机与末端细节截图。
 
-原始kit位于 `../../公共资源/装饰装修施工/assets/tiling-anatomy`，保留MIT许可。最终HTML内联所需样式、模型与绘图代码，无CDN或网络运行依赖。QA脚本中的浏览器和Playwright路径依赖开发机器，不影响交付页面。
+原始kit位于 `../../公共资源/anatomy`，保留MIT许可。最终HTML内联所需样式、模型与绘图代码，无CDN或网络运行依赖。QA脚本中的浏览器和Playwright路径依赖开发机器，不影响交付页面。

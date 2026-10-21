@@ -64,3 +64,5 @@
 在仓库根目录执行 `node scripts/build.mjs 4-2` 可构建指定任务；执行 `node scripts/build.mjs all` 构建全部有源码的当前演示。柴油机页面为现有单文件，没有独立源码构建步骤。构建前保留本地修改。
 
 执行 `python scripts/check-links.py` 检查当前任务演示、任务说明和总目录的本地链接。各任务已有检查脚本在 `qa/`，历史报告仅说明原检查时的状态。
+
+执行 `node scripts/test.mjs` 运行模型单元测试。公共库、环境和检查产物的保存规则见[仓库维护说明](文档/仓库维护说明.md)。

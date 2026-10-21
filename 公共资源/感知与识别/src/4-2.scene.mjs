@@ -1,4 +1,4 @@
-import * as k from "../assets/kit/iso-kit.mjs";
+import * as k from "../../anatomy/iso-kit.mjs";
 import {Scene,base,screw,panelBox,W,H} from "./geometry.mjs";
 export function makeLessonScene({height=.4,width=.9,position='A',azimuth=43}={}){const plan={x:-144,y:-74,w:288,d:204,r:9},P=k.fitProjection([...k.boxCorners(plan,-18,0),[-110,-width*40,100],[115,-width*40,100]],W,H,{pad:37,azimuth,elevation:35}),s=new Scene(P);base(s,plan);const half=width*40;
  for(const sign of [-1,1]){const y=sign<0?-half-5:half;s.box('wall-seat-'+sign,-112,y-2,0,224,9,4,'lo');const wall=s.box('wall-'+sign,-112,y,4,224,5,sign<0?92:7,'mid');s.detail(wall,k.lineSvg(k.sideSeam(wall.plan,sign<0?70:8,P,5),{tone:'lo'}));s.box('wall-cap-'+sign,-112,sign<0?y-1:y,sign<0?96:11,224,7,2,'hi');[-100,100].forEach((x,i)=>screw(s,'wall-bolt-'+sign+'-'+i,x,y+2,sign<0?98:13));}

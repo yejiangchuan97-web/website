@@ -1,4 +1,4 @@
-import * as k from "../assets/kit/iso-kit.mjs";
+import * as k from "../../anatomy/iso-kit.mjs";
 import {Scene,base,screw,panelBox,W,H} from "./geometry.mjs";
 export function makeLessonScene({camera=48,azimuth=43}={}){const plan={x:-138,y:-86,w:276,d:172,r:9},P=k.fitProjection([...k.boxCorners(plan,-18,0),[-120,-65,120],[120,-65,120]],W,H,{pad:36,azimuth,elevation:33}),s=new Scene(P);base(s,plan,32);
  for(const x of[-118,118]){s.box('gantry-foot-'+x,x-9,-72,0,18,24,5,'mid');s.box('gantry-post-'+x,x-4,-63,5,8,10,99,'mid');s.box('gantry-head-'+x,x-6,-65,104,12,14,6,'hi');screw(s,'gantry-bolt-'+x,x,-58,110)}s.box('rail-back',-112,-62,104,224,4,6,'mid');s.box('rail-front',-112,-55,104,224,4,6,'mid');s.box('rail-end-left',-112,-62,110,5,11,4,'hi');s.box('rail-end-right',107,-62,110,5,11,4,'hi');

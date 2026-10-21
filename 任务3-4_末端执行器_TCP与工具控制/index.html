@@ -100,8 +100,7 @@
   <footer class="page-footer"><span>智能建造 · 机器人交互实验室</span><span>教学自定义模型 · 离线可用 · 数据仅保存在本页会话</span><button id="about">模型与操作说明 ↗</button></footer>
 </main>
 <dialog id="helpDialog"><div class="dialog-heading"><span class="eyebrow">QUICK START</span><button id="closeHelp" aria-label="关闭说明">×</button></div><h2>让学生用操作理解 TCP</h2><ol><li><b>工具换装：</b>点击左侧六件立体工具，观察真正的工作点。换装后独立核对工具参数。</li><li><b>理解 TCP：</b>切换“绕法兰转 / 绕 TCP 转”，拖动姿态角，看尖端轨迹与实时位移。</li><li><b>四点标定：</b>四种姿态对准同一针尖，分别记录法兰位姿，计算后用第五姿态复核。</li><li><b>实战闯关：</b>找出换工具后仍沿用旧 TCP 的问题，并修复验证。</li></ol><p>鼠标拖动视角、滚轮缩放；工具特写放大末端。键盘 1–6 选工具，方向键在三维视区旋转视角，空格停止动作。</p><p>机械臂沿用任务 3-2 的自定义六轴结构及运动学，非特定厂家控制器。这里的快换、夹持、吸附为教学状态模拟；没有完整工件碰撞与动力学仿真。法兰系偏置遵循该机械臂坐标约定。四点法不确定工具轴方向。</p></dialog>
-<script>console.warn('Scripts "build/three.js" and "build/three.min.js" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation'),
-/**
+<script>!/**
  * @license
  * Copyright 2010-2023 Three.js Authors
  * SPDX-License-Identifier: MIT

@@ -5,7 +5,7 @@ import {writeFileSync,mkdirSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {homedir} from 'node:os';
 import {pathToFileURL} from 'node:url';
-import * as A from "../../公共资源/感知与识别/assets/kit/audit.mjs";
+import * as A from "../../公共资源/anatomy/audit.mjs";
 import {makeLessonScene} from "../../公共资源/感知与识别/src/4-3.scene.mjs";
 const require=createRequire(import.meta.url),{chromium}=require(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 const {LINE_ENDS}=await import(pathToFileURL(join(homedir(),'.agents/skills/anatomy/scripts/line-ends.mjs')));
