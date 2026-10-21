@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "4x wheel/roller/axle details in both themes",
+    "actual held pointer drives the vehicle; releasing stops it",
+    "holding steering changes front-wheel angle without moving chassis"
+  ],
+  "errors": []
+}

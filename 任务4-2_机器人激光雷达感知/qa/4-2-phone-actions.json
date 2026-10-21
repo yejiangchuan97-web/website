@@ -1,0 +1,11 @@
+[
+ ["range", "#beam-angle", 20], ["click", "#tour"],
+ ["assert", "lessonState().beamAngle===21 && !lessonState().touring", "Reduced motion scans one direction per click"],
+ ["click", "#pulse"], ["assert", "!lessonState().pulsing && document.querySelector('.toast').textContent.includes('减少动态')", "Reduced motion supplies numeric round trip without animation"],
+ ["click", "[data-view='clearance']"], ["click", "#widths [data-value='.7']"],
+ ["assert", "document.querySelector('#clearance-note').textContent.includes('不满足')", "Phone clearance control works"],
+ ["shot", "任务4-2_机器人激光雷达感知/qa/4-2-phone-clearance.png", "body"],
+ ["click", "[data-view='scan']"], ["click", "#widths [data-value='.9']"],
+ ["shot", "任务4-2_机器人激光雷达感知/qa/4-2-phone-full.png", "body"],
+ ["lines", "任务4-2_机器人激光雷达感知/qa/4-2-phone-lines.png", ".iso-plate"]
+]

@@ -1,0 +1,10 @@
+import {fileURLToPath as __taskFileURL} from 'node:url';
+const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
+import http from 'node:http';
+import {readFile,stat} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {resolve,extname,sep} from 'node:path';
+const root=__taskFile(".."),port=4174;
+const courseDocs=new Set(['任务4-1_机器人自身状态感知.md','任务4-2_机器人激光雷达感知.md','任务4-3_标注安全帽并应用YOLO模型.md']);
+const mime={'.html':'text/html; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.json':'application/json; charset=utf-8','.md':'text/plain; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'};
+http.createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(pathname==='/favicon.ico'){res.writeHead(204);res.end();return}const documentName=pathname.slice(1),courseDoc=courseDocs.has(documentName),target=courseDoc?resolve(root,'..',documentName):resolve(root,'.'+pathname+(pathname.endsWith('/')?'index.html':''));if(!courseDoc&&!target.startsWith(root.endsWith(sep)?root:root+sep)){res.writeHead(403);res.end();return}if(!(await stat(target)).isFile())throw Error('not a file');res.writeHead(200,{'Content-Type':mime[extname(target)]||'application/octet-stream','Cache-Control':'no-store'});res.end(await readFile(target))}catch{res.writeHead(404);res.end('Not found')}}).listen(port,'127.0.0.1',()=>console.log('Teaching preview: http://127.0.0.1:'+port+'/'));

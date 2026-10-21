@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f9fa"><title>机器人自身状态感知 · 任务4-1</title><style>{{CSS}}</style></head><body>
+<header class="site-header"><a href="../公共资源/感知与识别/index.html" class="brand"><span class="brand-symbol">R<span>·</span></span><span>智能建筑机械与机器人<small>机器人感知实验室</small></span></a><nav class="header-actions" aria-label="页面工具"><button id="csvOpen">手机数据</button><button id="recordBtn">观察记录 <span id="recordCount">0</span></button><button id="themeButton" aria-label="切换深色主题">◐ <span>深色</span></button></nav></header>
+<main class="shell">
+<section class="page-heading"><div><p class="eyebrow">任务 4-1 <span>/</span> 认识机器人自身的传感器</p><h1>机器人怎样知道<span>自己的状态？</span></h1><p class="subtitle">先在机身上找到传感器，再做一个动作，看它读到了什么。</p></div><p class="scope-note"><span class="status-dot"></span>自身状态感知<br><small>本页关注本体运动与驱动状态</small></p></section>
+<nav class="sensor-tabs" aria-label="选择机器人传感器">
+ <button class="sensor-tab active" data-sensor="accel" aria-pressed="true"><span class="tab-num">01</span><span><strong>加速度计</strong><small>倾斜了？颠簸了？</small></span><span class="tab-mark">↗</span></button>
+ <button class="sensor-tab" data-sensor="gyro" aria-pressed="false"><span class="tab-num">02</span><span><strong>陀螺仪</strong><small>正在转得多快？</small></span><span class="tab-mark">↗</span></button>
+ <button class="sensor-tab" data-sensor="encoder" aria-pressed="false"><span class="tab-num">03</span><span><strong>编码器</strong><small>轮轴转了多少？</small></span><span class="tab-mark">↗</span></button>
+ <button class="sensor-tab" data-sensor="current" aria-pressed="false"><span class="tab-num">04</span><span><strong>电流检测</strong><small>电机更吃力了吗？</small></span><span class="tab-mark">↗</span></button>
+</nav>
+<div class="main-grid">
+ <section class="model-card" aria-label="机器人三维传感器剖视模型">
+  <div class="figure-top"><span class="eyebrow">FIG 4.1 <span>/</span> 机器人本体</span><span class="source-badge">教学示意 · 非特定型号</span></div>
+  <div class="model-toolbar"><div class="view-buttons" aria-label="观察视角"><button data-view="iso" aria-pressed="true">整体</button><button id="focusSensor">传感器近景</button><button data-view="top" aria-pressed="false">俯视</button></div><label><input id="inspectToggle" type="checkbox" checked>打开检修盖</label></div>
+  <div id="viewport" tabindex="0" role="application" aria-label="可旋转三维机器人。拖动观察；方向键切换视角，Home恢复整体。"><div id="loading">正在加载机器人…</div><div id="fallback" hidden>{{FALLBACK}}</div></div>
+  <div class="model-caption"><span class="selected-mark"></span><div><strong id="partCaption">加速度计 · 固定在机身内部</strong><p id="partSubcaption">蓝色高亮是当前传感器，旁边的芯片是陀螺仪。</p></div><button id="locateButton">放大看位置 ↗</button></div>
+  <div class="figure-bottom"><span>拖动旋转 · 滚轮缩放 · 点击传感器切换</span><label><input id="axesToggle" type="checkbox">显示本体三轴</label></div>
+ </section>
+ <aside class="lesson-panel" aria-label="传感器作用与读数">
+  <div class="lesson-heading"><span class="eyebrow" id="sensorNumber">01 / ACCELEROMETER</span><h2 id="sensorTitle">加速度计</h2><p id="sensorQuestion">机身有没有倾斜或颠簸？</p></div>
+  <div class="where-row"><span>装在哪里</span><strong id="sensorLocation">机身内部的 IMU 板</strong></div>
+  <div class="quantity-row"><span>直接测什么</span><strong id="sensorQuantity">三轴加速度相关示值 · m/s²</strong></div>
+  <div class="action-panel"><div class="section-label"><span><i>1</i> 做一个动作</span><button id="resetExperiment">复位</button></div><div id="modeButtons" class="mode-buttons"></div>
+   <div id="gravityControls"><div class="range-label"><label for="tiltRange">机身倾角</label><output id="tiltValue">0°</output></div><input id="tiltRange" type="range" min="-30" max="30" step="1" value="0"><div class="presets"><button data-tilt="0">平放 0°</button><button data-tilt="30">倾斜 30°</button><button data-tilt="-30">反向 −30°</button></div><label class="check-row"><input id="gravityToggle" type="checkbox" checked>含重力读数 <small>关闭显示理想去重力</small></label></div>
+   <div id="rotationControls" hidden><div class="presets"><button data-duration="4" aria-pressed="true">慢转 · 4 秒</button><button data-duration="1" aria-pressed="false">快转 · 1 秒</button></div><p class="control-note">两次都绕本体 z 轴转过 90°。</p></div>
+   <div id="vibrationControls" hidden><div class="range-label"><label for="frequencyRange">振动频率</label><output id="frequencyValue">4 Hz</output></div><input id="frequencyRange" type="range" min="2" max="8" step="1" value="4"><label class="check-row"><input id="looseToggle" type="checkbox">对照：固定件松动</label><button id="tapButton" class="sub-button">加入一次轻敲</button><p class="control-note">理想去重力；位移放大显示。比较第 2–8 秒。</p></div>
+   <div id="positionControls" hidden><div class="range-label"><label for="biasRange">加速度计偏置</label><output id="biasValue">0.010 m/s²</output></div><input id="biasRange" type="range" min="0" max=".02" step=".001" value=".01"><p class="control-note">A、B 相距 0.50 m，已知初始位置和速度。</p></div>
+   <div id="encoderControls" hidden><div class="range-label"><label for="wheelRange">轮轴转角</label><output id="wheelValue">0°</output></div><input id="wheelRange" type="range" min="0" max="720" step="1" value="0"><div class="presets"><button data-wheel="90">90° 位置</button><button data-wheel="360">360° 位置</button><button id="encoderZero">当前位置归零</button></div><label class="check-row"><input id="slipToggle" type="checkbox">对照：轮子空转，底盘未前进</label><p class="control-note">教学设定：360 计数/转，轮径 0.16 m。</p></div>
+   <div id="currentControls" hidden><div class="presets load-presets"><button data-load="0" aria-pressed="true">空载</button><button data-load="1" aria-pressed="false">阻力增加</button><button data-load="2" aria-pressed="false">受阻</button></div><p class="control-note">同一转速指令：30 r/min。数值为教学设定。</p></div>
+   <div id="playback" hidden><div class="play-row"><button id="playButton" class="primary">▶ 播放动作</button><button id="stepButton" class="sub-button">单步</button><output id="timeValue">0.0 / 6.0 s</output></div><input id="timeRange" aria-label="动作时间" type="range" min="0" max="6" step=".01" value="0"></div>
+  </div>
+  <div class="readout-panel"><div class="section-label"><span><i>2</i> 看它读到了什么</span><span class="simulation-mark">教学模拟</span></div><div class="readings" id="readings"></div><p class="observation" id="observation" aria-live="polite"></p></div>
+  <div class="use-panel"><div class="section-label"><span><i>3</i> 机器人怎样用</span></div><p id="sensorUse"></p></div>
+ </aside>
+</div>
+<section class="understanding"><div><span class="eyebrow">把关系说清楚</span><h3 id="takeawayTitle">读数来自机身上的传感器。</h3></div><p id="takeaway"></p><button id="captureButton">＋ 记录这次观察</button></section>
+<div class="extension-grid">
+ <details class="extension" id="signalDetails"><summary><span><strong>看完整波形</strong><small>把动作过程和传感器读数放在同一条时间线上</small></span><span class="plus">＋</span></summary><div class="signal-content"><div class="chart-heading"><h3 id="signalTitle">三轴读数</h3><span id="signalUnit">m/s²</span></div><svg id="signal" role="img" aria-label="教学模拟时序曲线"></svg><div class="chart-footer"><span id="signalLegend"></span><label><input id="compareToggle" type="checkbox">叠加已保存的同类记录</label></div><p id="signalHint" class="control-note"></p></div></details>
+ <details class="extension" id="principleDetails"><summary><span><strong>进一步理解</strong><small>传感器之间有什么联系，哪些信息不能直接读出？</small></span><span class="plus">＋</span></summary><div class="principle-content"><p id="sensorDescription"></p><div class="boundary"><strong>还要核对</strong><p id="sensorLimit"></p></div><p class="imu-note">IMU 通常由加速度计和陀螺仪组成：一个提供加速度相关读数，一个测转动快慢。倾角和位置属于进一步估计的信息。</p></div></details>
+</div>
+<footer><span>任务4-1 · 机器人自身状态感知</span><span>模型与读数为教学示例，手机导入保留独立来源。</span></footer>
+</main>
+<dialog id="recordsDialog"><div class="dialog-heading"><div><p class="eyebrow">OBSERVATION NOTEBOOK</p><h2>我的观察记录</h2></div><button data-close="recordsDialog" aria-label="关闭记录">×</button></div><div class="notebook-toolbar"><label>姓名 / 小组<input id="studentName" placeholder="例如：第3组" maxlength="40"></label><button id="exportRecords">导出实验单</button><button id="exportCSV">导出 CSV</button><button id="clearRecords">清空记录</button></div><div id="notebook"></div></dialog>
+<dialog id="csvDialog"><div class="dialog-heading"><div><p class="eyebrow">PHONE / MEASURED DATA</p><h2>用手机读数做一次对照</h2></div><button data-close="csvDialog" aria-label="关闭手机数据">×</button></div><p class="dialog-note">导入 phyphox 导出的加速度 CSV，核对时间、三轴和单位。手机和机器人可以使用同类传感原理；这里的手机数据单独显示，不控制机器人姿态。</p><input id="csvFile" type="file" accept=".csv,.tsv,.txt" aria-label="导入手机CSV"><div id="csvMapping" hidden><div class="mapping-grid"><label>时间列<select id="csvTime"></select></label><label>时间单位<select id="csvTimeUnit"><option value="1">秒 s</option><option value=".001">毫秒 ms</option></select></label><label>x 轴<select id="csvX"></select></label><label>y 轴<select id="csvY"></select></label><label>z 轴<select id="csvZ"></select></label><label>加速度单位<select id="csvAccelUnit"><option value="1">m/s²</option><option value="9.81">g</option></select></label></div><button id="applyCSV" class="primary">应用列映射</button></div><p id="csvStatus" role="status">尚未导入文件。缺失轴保持缺失，不填 0。</p><div id="importedChart" hidden><h3 id="importedName"></h3><svg id="csvSignal" aria-label="用户导入加速度时序图" role="img"></svg><div class="mapping-grid"><label>窗口起点 / s<input id="csvFrom" type="number" value="2" step=".1"></label><label>窗口终点 / s<input id="csvTo" type="number" value="8" step=".1"></label><label>记录轴<select id="csvAxis"><option value="0">x</option><option value="1">y</option><option value="2" selected>z</option></select></label><button id="saveCSV">保存导入窗口</button></div><p class="control-note">原始数据及采集条件以你的文件和实验记录为准。</p></div></dialog>
+<div id="toast" role="status" hidden></div>
+<script>{{THREE}}</script><script>{{MODEL}}
+{{SENSORS}}
+{{SCENE}}
+{{APP}}</script></body></html>

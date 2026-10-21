@@ -1,0 +1,41 @@
+{
+  "browser": "155.0.4283.45",
+  "url": "file:///C:/Users/maquefighting/.agents/skills/anatomy/examples/dial-indicator/dial-indicator-light.html",
+  "viewport": {
+    "width": 390,
+    "height": 1000,
+    "scale": 1
+  },
+  "layout": {
+    "width": 390,
+    "documentWidth": 390,
+    "sideways": false,
+    "title": "Dial indicator",
+    "figures": 3
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "steps": [
+    {
+      "action": "shot",
+      "out": "公共资源/感知与识别/qa/environment-dial-phone.png",
+      "readout": [
+        "block 1 · reads 18.0 px"
+      ]
+    },
+    {
+      "action": "shot",
+      "out": "公共资源/感知与识别/qa/environment-dial-phone-lines.png",
+      "readout": [
+        "block 1 · reads 18.0 px"
+      ]
+    },
+    {
+      "action": "lines",
+      "ends": 367,
+      "lines": 23,
+      "problems": []
+    }
+  ]
+}

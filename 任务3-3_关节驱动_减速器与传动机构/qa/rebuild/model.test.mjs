@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {TAU,planetary,harmonic,sample,sliderCrank,limitAngle,dock,toothProfile} from '../../src/rebuild/model.mjs';
+const near=(a,b,e=1e-9)=>assert.ok(Math.abs(a-b)<=e,`${a} != ${b}`);
+test('planetary Willis relation and mesh velocities hold throughout forward and reverse rotation',()=>{for(let t=-10*TAU;t<10*TAU;t+=.043){let v=planetary(t);near(18*(t-v.output)+54*(0-v.output),0);near(18*(t-v.output)+18*(v.spin-v.output),0);for(let a of v.orbits)near(Math.hypot(36*Math.cos(a),36*Math.sin(a)),36)}});
+test('three equally spaced planets satisfy tooth assembly condition',()=>{near((18+54)/3,24);for(const t of [0,.47,TAU,37]){let v=planetary(t);near(v.orbits[1]-v.orbits[0],TAU/3);near(v.orbits[2]-v.orbits[1],TAU/3)}});
+test('harmonic output reverses exactly two flex teeth for each wave revolution',()=>{for(let n=-100;n<=100;n++){let v=harmonic(n*TAU);near(v.output/TAU*200,-2*n)}});
+test('screw advance equals lead per complete revolution for all offered leads',()=>{for(let p of [4,8,16])for(let n=0;n<5;n++)near(sample('screw',n*TAU,p).output,n*p)});
+test('rack travel is pitch-circle arc length, independent of replay speed',()=>{for(const t of [0,.1,Math.PI,TAU])near(sample('rack',t).output,12*t);near(sample('rack',TAU).output,75.39822368615503)});
+test('connecting rod length remains 70 through a full cycle at every radius',()=>{for(const r of [15,25,35])for(let t=0;t<TAU;t+=.007){const v=sample('crank',t,r);near(Math.hypot(v.x-v.pinX,v.y),70,1e-8)}});
+test('slider-crank end positions are precisely separated by twice the crank radius',()=>{for(const r of [15,25,35]){near(sliderCrank(0,r)-sliderCrank(Math.PI,r),2*r);near(sample('crank',0,r).output,2*r);near(sample('crank',Math.PI,r).output,0)}});
+test('finite rail prevents either end from being exceeded and stops input consistently',()=>{for(let p of [4,8,16]){near(sample('screw',limitAngle('screw',1e6,p),p).output,80);near(limitAngle('screw',-2,p),0)}near(sample('rack',limitAngle('rack',1e6)).output,80);near(limitAngle('rack',-2),0)});
+test('dock targets correspond to genuine driven output; outside tolerance fails',()=>{for(const [mode,t,p]of[['planet',TAU,8],['harmonic',2*TAU,8],['screw',4*TAU,8],['rack',4,8],['crank',TAU,25]])assert.equal(dock(mode,t,p).ok,true);for(const mode of ['planet','harmonic','screw','rack'])assert.equal(dock(mode,0,8).ok,false)});
+test('external teeth are bounded by intended dedendum/addendum and have no NaN vertices',()=>{for(const[n,m]of[[18,2],[24,1]])for(const[x,y]of toothProfile(n,m)){assert.ok(Number.isFinite(x)&&Number.isFinite(y));assert.ok(Math.hypot(x,y)>=n*m/2-1.25*m-1e-8);assert.ok(Math.hypot(x,y)<=n*m/2+m+1e-8)}});

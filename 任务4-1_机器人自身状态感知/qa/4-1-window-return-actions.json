@@ -1,0 +1,17 @@
+[
+ ["click", "[data-view='csv']"],
+ ["file", "#csv-file", "任务4-1_机器人自身状态感知/qa/4-1-ms-missing-x.csv"],
+ ["until", "!document.querySelector('#csv-mapping').hidden"],
+ ["select", "#csv-time-unit", "0.001"],
+ ["click", "#apply-csv"],
+ ["fill", "#window-from", 2],
+ ["fill", "#window-to", 8],
+ ["click", "#save-trial"],
+ ["click", "[data-view='motion']"],
+ ["click", "[data-view='csv']"],
+ ["assert", "Number(document.querySelector('#time').max)===6 && document.querySelector('#signal-chart')._map.end===6", "Returning to CSV preserves aligned window time range"],
+ ["range", "#time", 10],
+ ["assert", "lessonState().time<=6 && Number(document.querySelector('[data-cursor]').getAttribute('x1'))<=680", "Returned comparison cursor remains inside chart"],
+ ["click", "#clear-trials"],
+ ["assert", "Number(document.querySelector('#time').max)===12 && document.querySelector('#r1-label').textContent==='本体 x'", "Clearing comparison restores raw axis labels and time range"]
+]

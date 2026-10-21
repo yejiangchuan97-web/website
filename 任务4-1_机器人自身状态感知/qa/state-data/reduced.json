@@ -1,0 +1,1 @@
+[["scroll","#playButton"],["click","#playButton"],["eval","const s=window.__STATE_LAB__.snapshot();if(s.state.playing||Math.abs(s.state.time-5.1)>.001)throw Error('reduced-motion');JSON.stringify({reduced:s.reduced,time:s.state.time,playing:s.state.playing});"],["shot","任务4-1_机器人自身状态感知/qa/state-data/reduced.png",".timeline",1]]

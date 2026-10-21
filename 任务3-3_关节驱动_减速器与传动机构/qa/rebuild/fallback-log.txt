@@ -1,0 +1,7 @@
+eval: undefined
+eval: undefined
+line ends: 0 of 0 ends on 0 lines float
+shot C:/Users/Administrator/Documents/Codex/2026-10-21/d-desktop-website-main/work/task33/fallback-final.png · readout ""
+eval: undefined
+console.error: THREE.WebGLRenderer: Error creating WebGL context.
+console.warning: WebGL unavailable; static Anatomy fallback enabled. Error creating WebGL context.

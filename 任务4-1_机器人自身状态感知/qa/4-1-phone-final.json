@@ -1,0 +1,63 @@
+{
+  "browser": "155.0.4283.45",
+  "url": "file:///C:/Users/maquefighting/Desktop/website-main/04_%E6%84%9F%E7%9F%A5%E4%B8%8E%E8%AF%86%E5%88%AB/%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA/4-1.html",
+  "viewport": {
+    "width": 390,
+    "height": 1100,
+    "scale": 1
+  },
+  "layout": {
+    "width": 390,
+    "documentWidth": 390,
+    "sideways": false,
+    "title": "机器人状态示波台 · 感知与识别",
+    "figures": 2
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "steps": [
+    {
+      "action": "assert",
+      "label": "Reduced motion uses 0.5s steps",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Reduced motion remains stopped after second step",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Reduced motion manual angle settles immediately",
+      "value": true
+    },
+    {
+      "action": "shot",
+      "out": "任务4-1_机器人自身状态感知/qa/4-1-phone-full.png",
+      "readout": [
+        "θ 45.0° · 绕本体 x 轴"
+      ]
+    },
+    {
+      "action": "shot",
+      "out": "任务4-1_机器人自身状态感知/qa/4-1-phone-lines.png",
+      "readout": [
+        "θ 45.0° · 绕本体 x 轴"
+      ]
+    },
+    {
+      "action": "lines",
+      "ends": 136,
+      "lines": 19,
+      "problems": []
+    },
+    {
+      "action": "shot",
+      "out": "任务4-1_机器人自身状态感知/qa/4-1-phone-final.png",
+      "readout": [
+        "θ 45.0° · 绕本体 x 轴"
+      ]
+    }
+  ]
+}

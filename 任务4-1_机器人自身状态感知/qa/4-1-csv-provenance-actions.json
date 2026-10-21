@@ -1,0 +1,16 @@
+[
+ ["click", "[data-view='csv']"],
+ ["file", "#csv-file", "任务4-1_机器人自身状态感知/qa/4-1-ms-missing-x.csv"],
+ ["until", "!document.querySelector('#csv-mapping').hidden"],
+ ["select", "#csv-time-unit", "0.001"], ["select", "#csv-unit", "9.8"], ["click", "#apply-csv"],
+ ["assert", "lessonState().imported.end===12", "Baseline CSV imported"],
+ ["file", "#csv-file", "任务4-1_机器人自身状态感知/qa/4-1-invalid-time.csv"],
+ ["until", "document.querySelector('#csv-error').textContent.includes('请核对')"],
+ ["click", "#apply-csv"],
+ ["assert", "document.querySelector('#csv-error').textContent.includes('严格递增')", "Invalid CSV time rejected"],
+ ["eval", "({source:document.querySelector('#source-badge').textContent,imported:lessonState().imported})"],
+ ["fill", "#window-from", 2], ["fill", "#window-to", 8], ["click", "#save-trial"],
+ ["assert", "document.querySelector('#trial-list').textContent.includes('4-1-ms-missing-x.csv')", "Trial source must identify the successfully imported file"],
+ ["eval", "document.querySelector('#trial-list').textContent"],
+ ["shot", "任务4-1_机器人自身状态感知/qa/4-1-csv-provenance.png", "body"]
+]

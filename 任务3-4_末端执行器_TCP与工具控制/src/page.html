@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>任务 3-4 · 末端执行器与 TCP 工作室</title><style>/*STYLES*/</style></head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../README.md"><span class="brand-mark">⌘</span><span>智能建造<small>INTERACTIVE LAB</small></span></a>
+  <div class="crumb"><a href="../任务3-2_六轴机械臂本体_关节轴与低速点动/index.html">机器人构型与运动</a><span>/</span><b>任务 3-4</b></div>
+  <div class="top-actions"><span class="live-dot">三维交互实验</span><button id="theme" aria-label="切换深色主题">☾</button><button id="fullscreen" aria-label="切换全屏">⛶</button><button id="help" aria-label="操作说明">?</button></div>
+</header>
+<main>
+  <div class="page-heading"><div><span class="eyebrow">ROBOT TOOL WORKSHOP <i>/ 03.04</i></span><h1>末端执行器与 <span>TCP</span><small>换一件工具，找到新的工作点。</small></h1></div><div class="progress-badge"><span class="progress-icon">✧</span><span><b id="progressText">探索进度 0 / 4</b><small>从认识工具，到精准对点</small></span></div></div>
+  <nav class="mission-tabs" aria-label="学习活动">
+    <button class="active" data-tab="tools" aria-pressed="true"><span class="step-no">01</span><span>工具换装<small>给机械臂换一双手</small></span><i class="step-check"></i></button>
+    <button data-tab="pivot" aria-pressed="false"><span class="step-no">02</span><span>理解 TCP<small>姿态变了，尖端动了吗</small></span><i class="step-check"></i></button>
+    <button data-tab="calibrate" aria-pressed="false"><span class="step-no">03</span><span>四点标定<small>四个姿态，同一个点</small></span><i class="step-check"></i></button>
+    <button data-tab="challenge" aria-pressed="false"><span class="step-no">04</span><span>实战闯关<small>找出错误的工具参数</small></span><i class="step-check"></i></button>
+  </nav>
+  <div class="workshop">
+    <aside class="tool-cabinet" aria-label="末端执行器工具柜"><div class="cabinet-heading"><b>工具柜</b><span>06 TOOLS</span></div><p class="cabinet-hint">点击换装 · 按 1–6 快选</p><div id="toolPicker" class="tool-list"></div><div class="cabinet-footer"><span>◎</span> 同一机械臂，多种工作方式</div></aside>
+    <section class="lab-centre">
+      <div class="stage iso-plate">
+        <div class="stage-bar"><div><span class="mono">FIG. 03.04</span><strong id="figureName">六轴机械臂 · 工具工作点</strong></div><div class="view-controls"><button data-view="iso" class="active" aria-label="立体视角">立体</button><button data-view="front" aria-label="正视视角">正视</button><button data-view="top" aria-label="俯视视角">俯视</button></div></div>
+        <div class="viewport" id="viewport" tabindex="0" role="group" aria-label="三维机械臂。拖动旋转，滚轮缩放；方向键旋转视角，空格停止运动。">
+          <div id="fallback" hidden></div><svg id="overlay" aria-hidden="true"></svg>
+          <div class="stage-topline"><span><i></i><span id="stageState">偏置喷枪已装配</span></span><span class="mono">EDU / 6R</span></div>
+          <div class="stage-tools"><button id="toolCloseup" title="聚焦工具与 TCP" aria-pressed="false">⌕ 工具特写</button><button id="showAxes" aria-pressed="false">⊕ 坐标轴</button><button id="home" title="复位机械臂与视角">↺ 复位</button></div>
+          <div class="floating-key"><span><i class="key-dot tcp"></i>实际 TCP</span><span><i class="key-dot flange"></i>法兰原点</span><span id="wrongLegend" hidden><i class="key-ring"></i>所选参数</span></div>
+          <div id="swapToast" class="swap-toast" hidden>工具连接中</div>
+        </div>
+        <div class="stage-caption"><span>拖动旋转 · 滚轮缩放 · 双击复位视角</span><span id="renderMode">三维教学模型</span></div>
+        <div class="readouts"><div class="readout-title"><i class="key-dot tcp"></i><span>TCP 实时位置<small>相对基坐标系 / mm</small></span></div><div><small>X</small><output id="posX">—</output></div><div><small>Y</small><output id="posY">—</output></div><div><small>Z</small><output id="posZ">—</output></div><div class="error-readout"><small id="metricLabel">参数偏差 / mm</small><output id="metricValue">0.00</output></div></div>
+      </div>
+      <div class="insight-card"><div class="insight-mark">◎</div><div><span class="eyebrow" id="insightEyebrow">MEET THE WORKING POINT</span><h2 id="insightTitle">TCP，是工具真正工作的那个点。</h2><p id="insightText">喷枪看喷嘴，夹爪看夹持中心。TCP 由作业任务定义，不一定是工具外形的中心。</p></div><button id="nextLesson" class="text-link">试试绕 TCP 转动 <span>↗</span></button></div>
+    </section>
+    <aside class="control-panel">
+      <div class="panel-heading"><span class="eyebrow" id="panelEyebrow">01 / EQUIP & EXPLORE</span><h2 id="panelTitle">认识你的工具</h2></div>
+      <section id="toolsPanel" class="panel-section">
+        <div class="equipped-heading"><span class="tool-number" id="toolNumber">01</span><div><h3 id="toolName">偏置喷枪</h3><span id="toolTask">墙面喷涂</span></div><span class="status-pill" id="equippedBadge">已装配</span></div>
+        <div class="point-card"><small>这个工具的 TCP 在哪里？</small><strong id="toolPoint">喷嘴出口中心</strong><p id="toolDescription"></p><button id="findTCP" class="text-link">在三维模型中看清它 ↗</button></div>
+        <div class="offset-card"><div><b>法兰 → TCP</b><span>法兰系偏置 / mm</span></div><div class="offset-values"><span>X <b id="offX">170</b></span><span>Y <b id="offY">0</b></span><span>Z <b id="offZ">−45</b></span></div></div>
+        <div class="connection-state"><span><i></i>机械连接已锁紧</span><span id="paramState">✓ 工具参数一致</span></div>
+        <button id="applyTool" class="primary" hidden>同步当前工具的 TCP 参数</button>
+        <div class="divider-label"><span>试一试前端动作</span></div>
+        <button id="actuate" class="primary action-button">▷ 开启喷射</button><button id="contact" class="secondary" hidden aria-pressed="false">放入练习材料</button>
+        <p class="microcopy" id="toolActionNote">工具动作由末端装置完成，机械臂负责改变位置和姿态。</p>
+        <button id="enterPivot" class="lesson-next">下一步：TCP 为什么重要 <span>→</span></button>
+      </section>
+      <section id="pivotPanel" class="panel-section" hidden>
+        <p class="intro">改变工具方向，盯住<span class="tcp-text">绿色工作点</span>。哪一种方式能让尖端留在原地？</p>
+        <div class="segmented pivot-switch"><button data-pivot="flange" aria-pressed="false">绕法兰转<small>连接处不动</small></button><button data-pivot="tcp" class="active" aria-pressed="true">绕 TCP 转<small>工作点不动</small></button></div>
+        <div class="angle-control"><div><label for="pivotAngle">工具姿态角</label><output id="angleValue">0°</output></div><input id="pivotAngle" type="range" min="-22" max="22" value="0" step="0.5"><div class="range-ends"><span>−22°</span><span>0°</span><span>+22°</span></div></div>
+        <button id="playPivot" class="primary">▷ 播放姿态对照</button>
+        <div class="motion-metrics"><div><span>实际 TCP 位移</span><b><output id="tipTravel">0.00</output><small>mm</small></b></div><div><span>法兰原点位移</span><b><output id="flangeTravel">0.00</output><small>mm</small></b></div></div>
+        <div class="explanation" id="pivotExplanation">绕 TCP 改变方向时，多个关节联动补偿，法兰会移动，但工作点保持在同一位置。</div>
+        <div class="divider-label"><span>制造一个错误，观察后果</span></div>
+        <label class="field-label" for="parameterTool">控制器调用的工具参数</label><select id="parameterTool"></select>
+        <button id="correctParam" class="secondary">使用当前工具的正确参数</button>
+        <p class="microcopy">姿态角相对初始工具方向。教学模型的求解精度会产生小于 0.1 mm 的数值误差。</p>
+      </section>
+      <section id="calibratePanel" class="panel-section" hidden>
+        <p class="intro">同一个工作点，以<strong>四个不同姿态</strong>对准同一固定针尖，再求出 TCP 的位置偏置。</p>
+        <div class="cal-points" id="poseButtons"></div>
+        <div class="cal-distance"><span>距固定针尖</span><b><output id="pinError">—</output> <small>mm</small></b></div>
+        <div class="cal-adjust" id="calAdjust"></div>
+        <div class="button-pair"><button id="align" class="secondary">◎ 辅助对准</button><button id="capture" class="primary">● 记录姿态 1</button></div>
+        <button id="solve" class="primary" disabled>计算 TCP 位置</button>
+        <div id="calResult" class="explanation">先对准，再记录。四个记录对应同一个空间参考点。</div>
+        <div class="button-pair"><button id="validate" class="secondary" disabled>用第 5 姿态复核</button><button id="export" class="secondary" disabled>↓ 下载记录</button></div>
+        <div id="validationResult" class="validation-result" hidden></div>
+        <details class="cal-details"><summary>对点数据与错误示例</summary><table><thead><tr><th>采点</th><th>法兰位置 / mm</th></tr></thead><tbody id="samples"></tbody></table><div class="button-pair"><button id="badRepeat">重复姿态</button><button id="badPoint">混入错点</button></div><button id="clearSamples" class="text-link">清空本轮采集 ↺</button></details>
+        <p class="microcopy">四点法只求位置，工具轴方向需另行定义。0.5 mm 为本练习采点与复核阈值。虚拟中心在实机上需定位工装。</p>
+      </section>
+      <section id="challengePanel" class="panel-section" hidden>
+        <div class="challenge-badge">MISSION / 换装排错</div><h3 class="challenge-title">装牢了，就能直接开工吗？</h3>
+        <p class="intro">现场把喷枪换成了夹爪，机械连接已锁紧，却继续调用旧喷枪参数。</p>
+        <button id="startChallenge" class="primary">▷ 进入故障现场</button>
+        <div id="challengeTask" hidden><div class="challenge-error"><span>实际夹持中心与所选 TCP</span><b><output id="challengeError">—</output><small> mm</small></b></div><p class="field-label">先做判断：应该怎样处理？</p><div class="quiz-answers"><button data-answer="lock">已经锁紧，直接运行</button><button data-answer="speed">降低速度，继续使用旧参数</button><button data-answer="tcp">核对夹爪参数，复核 TCP 后再作业</button></div><p id="quizFeedback" class="explanation" hidden></p><button id="repairChallenge" class="primary" disabled>修复参数并做姿态复核</button></div>
+        <div id="challengeSuccess" class="success-card" hidden><span>✓</span><h3>排错成功！</h3><p>你已完成参数匹配与新姿态复核。工具装牢、参数正确，分别确认。</p><button id="retryChallenge" class="secondary">再挑战一次</button></div>
+        <div class="tip-note"><b>关键判断</b><p>“机械连接完成”和“工具参数正确”是两件不同的事。降低速度不能修正 TCP 偏差。</p></div>
+      </section>
+      <div class="panel-footer"><button id="stop" aria-label="停止所有动作">■ 停止动作 <kbd>SPACE</kbd></button><div id="notice" role="status">从左侧选一件工具，开始探索。</div></div>
+    </aside>
+  </div>
+  <footer class="page-footer"><span>智能建造 · 机器人交互实验室</span><span>教学自定义模型 · 离线可用 · 数据仅保存在本页会话</span><button id="about">模型与操作说明 ↗</button></footer>
+</main>
+<dialog id="helpDialog"><div class="dialog-heading"><span class="eyebrow">QUICK START</span><button id="closeHelp" aria-label="关闭说明">×</button></div><h2>让学生用操作理解 TCP</h2><ol><li><b>工具换装：</b>点击左侧六件立体工具，观察真正的工作点。换装后独立核对工具参数。</li><li><b>理解 TCP：</b>切换“绕法兰转 / 绕 TCP 转”，拖动姿态角，看尖端轨迹与实时位移。</li><li><b>四点标定：</b>四种姿态对准同一针尖，分别记录法兰位姿，计算后用第五姿态复核。</li><li><b>实战闯关：</b>找出换工具后仍沿用旧 TCP 的问题，并修复验证。</li></ol><p>鼠标拖动视角、滚轮缩放；工具特写放大末端。键盘 1–6 选工具，方向键在三维视区旋转视角，空格停止动作。</p><p>机械臂沿用任务 3-2 的自定义六轴结构及运动学，非特定厂家控制器。这里的快换、夹持、吸附为教学状态模拟；没有完整工件碰撞与动力学仿真。法兰系偏置遵循该机械臂坐标约定。四点法不确定工具轴方向。</p></dialog>
+<!--SCRIPTS-->
+</body></html>

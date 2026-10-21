@@ -1,0 +1,16 @@
+const task=await taskSpace(4),p=task.page('p1'),fs=await import('node:fs/promises');
+await p.goto('file:///C:/Users/Administrator/Documents/GitHub/website/任务4-1_机器人自身状态感知/index.html');
+await p.click('.sensor-tab[data-sensor="encoder"]');await p.click('[data-wheel="360"]');await p.click('#captureButton');await p.click('#recordBtn');
+const jsonPromise=p.waitForEvent('download',{timeout:15000});await p.click('#exportRecords');const json=await jsonPromise;
+const dir='C:/Users/Administrator/Documents/GitHub/website/任务4-1_机器人自身状态感知/qa/sensor-review/';
+await json.saveAs(dir+'export-check.json');
+const csvPromise=p.waitForEvent('download',{timeout:15000});await p.click('#exportCSV');const csv=await csvPromise;await csv.saveAs(dir+'export-check.csv');
+const note=JSON.parse(await fs.readFile(dir+'export-check.json','utf8')),table=await fs.readFile(dir+'export-check.csv','utf8');
+if(note.records[0].sample.counts!==360||!table.includes('wheel_angle_axis_deg'))throw Error('export mismatch');
+await p.click('[data-close="recordsDialog"]');await p.click('#csvOpen');
+await p.evaluate(()=>{const dt=new DataTransfer();dt.items.add(new File(['time,x\n0,1\n0,2'],'invalid-time.csv'));document.querySelector('#csvFile').files=dt.files;document.querySelector('#csvFile').dispatchEvent(new Event('change'));});
+await p.waitForFunction(()=>!document.querySelector('#csvMapping').hidden);await p.click('#applyCSV');
+const error=await p.evaluate(()=>document.querySelector('#csvStatus').textContent);if(!error.includes('严格递增'))throw Error(error);
+await p.click('[data-close="csvDialog"]');await p.click('.sensor-tab[data-sensor="accel"]');
+console.log({exports:'JSON + CSV verified',invalidCSV:error});
+await task.finish({keep:[]});

@@ -1,0 +1,14 @@
+import {fileURLToPath as __taskFileURL} from 'node:url';
+const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
+import {readFileSync,writeFileSync} from 'node:fs';
+import {dirname,join} from 'node:path';import {fileURLToPath} from 'node:url';
+import {scene} from "./geometry.mjs";import * as M from "./model.mjs";
+const HERE=__taskFile("."),ROOT=__taskFile("../../公共资源/装饰装修施工"),PREV=__taskFile("../../公共资源/主体结构施工");
+const read=n=>readFileSync(join(HERE,n),'utf8');const s=scene(0,process.argv.includes('--audit'));
+if(process.argv.includes('--poses'))for(const t of [1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.999])scene(t,true);
+const kit='/* Anatomy toolkit MIT\n'+readFileSync(__taskFile("../../公共资源/主体结构施工/assets/anatomy/LICENSE"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../公共资源/主体结构施工/assets/anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
+const model='const M=(()=>{'+read("./model.mjs").replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();';
+const values={SCENE:s.svg,CSS:readFileSync(__taskFile("../../公共资源/主体结构施工/assets/anatomy/iso.css"),'utf8')+'\n'+readFileSync(__taskFile("../../任务5-3_混凝土泵送布料与整平抹光机器人/历史版本/src/style.css"),'utf8')+'\n'+read("./style.css"),JS:kit+'\n'+model+'\nconst PROJECTION='+JSON.stringify(s.P)+';\nconst PART_BOUNDS='+JSON.stringify(s.bounds)+';\n'+read("./order.mjs").replace(/^export /gm,'')+'\n'+read("./app.js")};
+let html=read("./page.html").replace(/\{\{(CSS|SCENE|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
+if(process.argv.includes('--light'))html=html.replaceAll('data-theme="dark"','data-theme="light"');
+writeFileSync(__taskFile("../index.html"),html);console.log('Built 5-1-brick.html · '+s.n+' solid parts');

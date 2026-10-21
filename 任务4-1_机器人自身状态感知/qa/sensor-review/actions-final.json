@@ -1,0 +1,1 @@
+[["eval","window.scrollTo(0,0)"],["wait",100],["shot","任务4-1_机器人自身状态感知/qa/sensor-review/final-desktop.png","body",1,[0,0,1440,1400]],["eval","JSON.stringify({sensor:window.__SENSE__.snapshot().state.sensor,available:window.__SENSE__.snapshot().scene.available,overflow:document.documentElement.scrollWidth>innerWidth,bodyHeight:document.body.scrollHeight})"]]

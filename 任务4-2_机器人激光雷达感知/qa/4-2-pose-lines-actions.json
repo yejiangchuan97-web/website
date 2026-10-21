@@ -1,0 +1,9 @@
+[
+ ["click", "#widths [data-value='.7']"], ["range", "#scan-height", 0.12], ["range", "#camera-angle", 90], ["range", "#beam-angle", 9],
+ ["lines", "任务4-2_机器人激光雷达感知/qa/4-2-low-side-lines.png", ".iso-plate"],
+ ["click", "#widths [data-value='.9']"], ["range", "#scan-height", 1.05], ["range", "#camera-angle", 170], ["range", "#beam-angle", 180],
+ ["lines", "任务4-2_机器人激光雷达感知/qa/4-2-high-rear-lines.png", ".iso-plate"],
+ ["range", "#scan-height", 0.8], ["range", "#camera-angle", 43], ["range", "#beam-angle", 0],
+ ["lines", "任务4-2_机器人激光雷达感知/qa/4-2-beam-lines.png", ".iso-plate"],
+ ["range", "#scan-height", 0.4], ["range", "#camera-angle", 43], ["range", "#beam-angle", 9]
+]

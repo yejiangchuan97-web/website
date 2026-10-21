@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "tracked link, contact colours and pin marker at 4x in both themes",
+    "support polygon shares foot coordinates and respects solid occlusion in both themes",
+    "prediction completes with real elapsed animation frames, not test-stepped time",
+    "timeline and support overlay remain available without WebGL"
+  ],
+  "errors": []
+}

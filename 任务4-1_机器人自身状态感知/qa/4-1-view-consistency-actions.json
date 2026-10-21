@@ -1,0 +1,8 @@
+[
+ ["range", "#time", 3],
+ ["eval", "lessonState()"],
+ ["click", "[data-view='drift']"], ["click", "[data-view='motion']"],
+ ["assert", "lessonState().time!==0 || (lessonState().angle===0 && lessonState().omega===0)", "Returning automatic motion keeps pose and time consistent"],
+ ["eval", "lessonState()"],
+ ["shot", "任务4-1_机器人自身状态感知/qa/4-1-view-consistency.png", "body"]
+]

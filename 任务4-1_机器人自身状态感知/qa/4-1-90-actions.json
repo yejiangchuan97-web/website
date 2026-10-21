@@ -1,0 +1,1 @@
+[["range","#angle",90],["wait",1600],["lines","任务4-1_机器人自身状态感知/qa/4-1-90-lines.png",".iso-plate"],["assert","Math.abs(lessonState().angle-90)<.01","90° settled"]]

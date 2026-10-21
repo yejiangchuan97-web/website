@@ -1,0 +1,11 @@
+import {fileURLToPath as __taskFileURL} from 'node:url';
+const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
+import {createRequire} from 'node:module';
+import {homedir} from 'node:os';
+import {join,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {mkdir,writeFile} from 'node:fs/promises';
+const {chromium}=createRequire(import.meta.url)(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+const HERE=__taskFile("."),OUT=__taskFile("./visual-review");await mkdir(OUT,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--do-not-de-elevate','--allow-file-access-from-files']});const logs=[];
+try{for(const width of[1440,390])for(const id of['4-3','4-3-predict','4-3-evaluate']){const c=await browser.newContext({viewport:{width,height:width===390?844:1100},isMobile:width===390,hasTouch:width===390}),p=await c.newPage();const log={width,id,errors:[],requests:[]};p.on('pageerror',e=>log.errors.push(e.message));p.on('request',r=>{if(/^https?:/.test(r.url()))log.requests.push(r.url())});await p.goto(new URL("../../公共资源/感知与识别"+id+'.html',import.meta.url).href);await p.waitForTimeout(200);log.layout=await p.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight}));await p.screenshot({path:join(OUT,id+'-'+width+'.png'),fullPage:true});logs.push(log);await c.close()}}finally{await browser.close()}await writeFile(__taskFile("./visual-review/report.json"),JSON.stringify(logs,null,2));console.log(JSON.stringify(logs,null,2));

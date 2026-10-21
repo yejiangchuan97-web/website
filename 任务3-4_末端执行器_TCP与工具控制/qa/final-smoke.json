@@ -1,0 +1,14 @@
+[
+  ["eval", "(()=>{const out=[];for(const id of Object.keys(ToolModel.tools)){toolLab.setTool(id);toolLab.view.updateLab(toolLab.getState(),1);const d=toolLab.diagnostics(),error=RobotModel.norm(RobotModel.sub(d.renderedTCP,d.metrics.f.p));if(error>1e-8)throw Error(id+' geometry mismatch');out.push({tool:id,error});}toolLab.switchTab('calibrate');if(toolLab.getState().contact)throw Error('material was not cleared');toolLab.switchTab('tools');toolLab.setTool('nozzle');toolLab.applyParameter('nozzle');return out;})()"],
+  ["key", "6", "#viewport"],
+  ["eval", "if(toolLab.getState().tool!=='drill')throw Error('keyboard tool shortcut')"],
+  ["key", "1", "#viewport"],
+  ["eval", "toolLab.applyParameter('nozzle');document.querySelector('#actuate').click()"],
+  ["key", " ", "#viewport", "Space"],
+  ["eval", "if(toolLab.getState().active)throw Error('space did not stop the tool');toolLab.closeup(true)"],
+  ["wait", 150],
+  ["shot", "C:/Users/Administrator/Documents/GitHub/website/任务3-4_末端执行器_TCP与工具控制/qa/shots/junctions-4x-light.png", "#viewport", 4],
+  ["eval", "document.querySelector('#theme').click()"],
+  ["wait", 150],
+  ["shot", "C:/Users/Administrator/Documents/GitHub/website/任务3-4_末端执行器_TCP与工具控制/qa/shots/junctions-4x-dark.png", "#viewport", 4]
+]

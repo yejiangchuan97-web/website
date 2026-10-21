@@ -1,0 +1,25 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+const root=resolve('任务4-1_机器人自身状态感知/src');
+let html=readFileSync(root+'/page.html','utf8');
+html=html.replace('content="#f6f7f5"','content="#f5f8fd"').replace('<body>','<body><div class="presentation">');
+html=html.replace('<span class="brand-icon">R<span>·</span></span>','<span class="brand-icon">R<span>↗</span></span>');
+html=html.replace('土木工程 · 状态与数据观察','INTERACTIVE LAB · 土木工程');
+html=html.replace('</a><nav aria-label="页面工具">','</a><div class="header-title"><h1>机器人自身状态感知</h1><span>任务 4-1</span></div><nav aria-label="页面工具">');
+html=html.replace('</nav></header>','<button id="helpButton">教学说明 <span class="help-icon">?</span></button></nav></header>');
+html=html.replace(/<section class="intro">[\s\S]*?<\/section>/,'');
+// The state scene stays intact; only its surrounding layout moves.
+const heading=html.match(/<div class="experiment-heading">[\s\S]*?<span class="source-tag">[\s\S]*?<\/span><\/div>/)[0];
+html=html.replace(heading,'').replace('<section class="scene-panel" aria-label="机器人状态三维示意">','<section class="scene-panel" aria-label="机器人状态三维示意">'+heading);
+html=html.replace('<p id="liveExplanation" class="live-explanation"></p>','');
+html=html.replace('</div>\n<div class="scene-foot">','</div>\n<p id="liveExplanation" class="live-explanation" aria-live="off"></p>\n<div class="scene-foot">');
+html=html.replace('</div></aside>','</div><button id="captureButton" class="capture-button">＋ 记录这次观察</button></aside>');
+html=html.replace('<span>与三维动作同步</span>','<strong>数据观察台</strong>');
+html=html.replace('<div><span class="eyebrow">同一个时刻，同一组数据</span><h2>把动作和曲线对上</h2></div>','<div class="wave-title"><h2>同步数据曲线</h2><span>点击曲线，定位三维动作</span></div>');
+const meaning=html.match(/<section class="meaning"[\s\S]*?<\/details>/)[0].replace('<button id="captureButton">＋ 记录这次观察</button>','').replace('<details class="notes">','<details class="notes" open>');
+html=html.replace(/<section class="meaning"[\s\S]*?<\/details>/,'');
+html=html.replace('</main>','</main></div>\n<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialog-heading"><h2 id="helpTitle">从状态读懂传感数据</h2><button data-close="helpDialog" aria-label="关闭教学说明">×</button></div><p class="dialog-note">先选择施工状态，再改变一个条件。拖动时间轴或点击曲线，三维动作与读数会停在同一时刻；勾选“叠加基准”，可比较不同条件下的数据变化。</p>'+meaning+'</dialog>');
+writeFileSync(root+'/page.html',html);
+let app=readFileSync(root+'/app.js','utf8');
+app=app.replace("$('captureButton').onclick=capture;","$('helpButton').onclick=()=>{state.playing=false;changed();$('helpDialog').showModal();};\n$('captureButton').onclick=capture;");
+writeFileSync(root+'/app.js',app);

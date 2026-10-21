@@ -1,0 +1,41 @@
+{
+  "browser": "155.0.4283.45",
+  "url": "file:///C:/Users/maquefighting/Desktop/website-main/04_%E6%84%9F%E7%9F%A5%E4%B8%8E%E8%AF%86%E5%88%AB/%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA/4-2.html",
+  "viewport": {
+    "width": 1440,
+    "height": 1100,
+    "scale": 1
+  },
+  "layout": {
+    "width": 1440,
+    "documentWidth": 1440,
+    "sideways": false,
+    "title": "Route-A 扫描观察室 · 感知与识别",
+    "figures": 3
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "steps": [
+    {
+      "action": "shot",
+      "out": "任务4-2_机器人激光雷达感知/qa/4-2-9-lines.png",
+      "readout": [
+        "A / 端墙 / 2.329m"
+      ]
+    },
+    {
+      "action": "lines",
+      "ends": 172,
+      "lines": 15,
+      "problems": []
+    },
+    {
+      "action": "shot",
+      "out": "任务4-2_机器人激光雷达感知/qa/4-2-diagnostic.png",
+      "readout": [
+        "A / 端墙 / 2.329m"
+      ]
+    }
+  ]
+}

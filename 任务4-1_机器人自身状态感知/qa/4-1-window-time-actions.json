@@ -1,0 +1,11 @@
+[
+ ["click", "[data-view='csv']"],
+ ["file", "#csv-file", "任务4-1_机器人自身状态感知/qa/4-1-ms-missing-x.csv"],
+ ["until", "!document.querySelector('#csv-mapping').hidden"],
+ ["select", "#csv-time-unit", "0.001"], ["click", "#apply-csv"],
+ ["fill", "#window-from", 2], ["fill", "#window-to", 8], ["click", "#save-trial"],
+ ["range", "#time", 10],
+ ["eval", "({state:lessonState(),rangeMax:document.querySelector('#time').max,chartEnd:document.querySelector('#signal-chart')._map.end,cursor:document.querySelector('[data-cursor]').getAttribute('x1')})"],
+ ["assert", "Number(document.querySelector('[data-cursor]').getAttribute('x1'))<=680", "Comparison cursor remains inside chart"],
+ ["shot", "任务4-1_机器人自身状态感知/qa/4-1-window-time.png", "body"]
+]

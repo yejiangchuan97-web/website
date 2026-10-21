@@ -1,0 +1,1 @@
+[["click","[data-sensor='gyro']"],["click","#playButton"],["eval","JSON.stringify({time:window.__SENSE__.snapshot().state.time,playing:window.__SENSE__.snapshot().state.playing,reduced:window.__SENSE__.snapshot().reduced})"],["click","#focusSensor"],["shot","任务4-1_机器人自身状态感知/qa/sensor-review/reduced-gyro.png",".main-grid",1]]

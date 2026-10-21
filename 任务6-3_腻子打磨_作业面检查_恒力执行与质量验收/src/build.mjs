@@ -1,0 +1,14 @@
+import {fileURLToPath as __taskFileURL} from 'node:url';
+const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
+import {readFileSync,writeFileSync} from 'node:fs';
+import {dirname,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {scene} from "./geometry.mjs";
+import * as M from "./model.mjs";
+const HERE=__taskFile("."),ROOT=__taskFile("../../公共资源/装饰装修施工"),read=n=>readFileSync(join(HERE,n),'utf8');
+const s=scene(0,0,process.argv.includes('--audit'));
+const kit='/* Anatomy\n'+readFileSync(__taskFile("../../公共资源/装饰装修施工/assets/anatomy/LICENSE"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../公共资源/装饰装修施工/assets/anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
+const model='const M=(()=>{'+read("./model.mjs").replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();';
+const values={CSS:readFileSync(__taskFile("../../公共资源/装饰装修施工/assets/anatomy/iso.css"),'utf8')+'\n'+read("./style.css"),SCENE:s.svg,JS:kit+'\n'+model+'\nconst P='+JSON.stringify(s.P)+';\n'+read("./app.js")};
+const html=read("./page.html").replace(/\{\{(CSS|SCENE|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
+writeFileSync(__taskFile("../index.html"),html);console.log('Built 6-3.html · '+s.R.items.length+' parts');

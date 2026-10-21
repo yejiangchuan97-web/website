@@ -1,0 +1,111 @@
+{
+  "checkedAt": "2026-10-21T14:29:34.605Z",
+  "checks": [
+    {
+      "name": "learning activities replace the text-only surface menu",
+      "passed": true
+    },
+    {
+      "name": "nine predictions run actual model commands and classify real end poses",
+      "passed": true,
+      "data": [
+        {
+          "type": "diff",
+          "index": 0,
+          "status": "done",
+          "actual": "left",
+          "feedback": "✓ 预测正确。右轮走得更远，车身向较慢的左侧转弯。 本次位移 0.54 m，朝向变化 68.8°。"
+        },
+        {
+          "type": "diff",
+          "index": 1,
+          "status": "done",
+          "actual": "spin",
+          "feedback": "再看一下运动结果。两轮速度相反，车身中心基本不移动，朝向持续改变。 本次位移 0.00 m，朝向变化 95.5°。"
+        },
+        {
+          "type": "diff",
+          "index": 2,
+          "status": "done",
+          "actual": "back",
+          "feedback": "再看一下运动结果。同向同速仍保持直线，负轮速使车辆后退。 本次位移 0.50 m，朝向变化 0.0°。"
+        },
+        {
+          "type": "car",
+          "index": 0,
+          "status": "done",
+          "actual": "still",
+          "feedback": "再看一下运动结果。打轮只改变前轮朝向，必须行驶才能改变车身朝向。 本次位移 0.00 m，朝向变化 0.0°。"
+        },
+        {
+          "type": "car",
+          "index": 1,
+          "status": "done",
+          "actual": "left",
+          "feedback": "✓ 预测正确。前进时车身沿左弧线移动，内外前轮采用不同转角。 本次位移 0.74 m，朝向变化 29.8°。"
+        },
+        {
+          "type": "car",
+          "index": 2,
+          "status": "done",
+          "actual": "right",
+          "feedback": "再看一下运动结果。转角不变而行驶方向反转，车头偏转方向也随之反转。 本次位移 0.74 m，朝向变化 -29.8°。"
+        },
+        {
+          "type": "mecanum",
+          "index": 0,
+          "status": "done",
+          "actual": "side",
+          "feedback": "再看一下运动结果。四轮与斜滚子共同实现侧向移动，车头保持不变。 本次位移 0.72 m，朝向变化 0.0°。"
+        },
+        {
+          "type": "mecanum",
+          "index": 1,
+          "status": "done",
+          "actual": "spin",
+          "feedback": "再看一下运动结果。四轮组合产生旋转，车身中心基本不移动。 本次位移 0.00 m，朝向变化 51.6°。"
+        },
+        {
+          "type": "mecanum",
+          "index": 2,
+          "status": "done",
+          "actual": "diagonal",
+          "feedback": "✓ 预测正确。前向与侧向速度叠加成斜向直线，朝向仍保持不变。 本次位移 0.85 m，朝向变化 0.0°。"
+        }
+      ]
+    },
+    {
+      "name": "interrupted prediction is cancelled instead of receiving a false result",
+      "passed": true
+    },
+    {
+      "name": "track timeline scrubs to a stationary, correctly positioned contact link",
+      "passed": true
+    },
+    {
+      "name": "leg pose buttons show one swinging foot and toggle the actual support polygon",
+      "passed": true
+    },
+    {
+      "name": "play, pause, single-step and reset share one motion timeline",
+      "passed": true
+    },
+    {
+      "name": "rail lateral attempt leaves pose unchanged and exposes the off-track target",
+      "passed": true
+    },
+    {
+      "name": "desktop learning panels fit the page and scroll internally when needed",
+      "passed": true
+    },
+    {
+      "name": "390px layout exposes the new controls without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "no uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

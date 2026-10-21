@@ -1,0 +1,187 @@
+{
+  "checkedAt": "2026-10-21T14:30:38.369Z",
+  "checks": [
+    {
+      "name": "three activities with true 3D; no wall-climbing activity",
+      "passed": true
+    },
+    {
+      "name": "desktop layout 1280×720 drive",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1280×720 terrain",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1280×720 game",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1440×900 drive",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1440×900 terrain",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1440×900 game",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1920×1080 drive",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1920×1080 terrain",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "desktop layout 1920×1080 game",
+      "passed": true,
+      "data": {
+        "width": true,
+        "height": true,
+        "panel": false
+      }
+    },
+    {
+      "name": "all three levels complete through wheel commands and integration",
+      "passed": true,
+      "data": [
+        {
+          "index": 0,
+          "status": "won",
+          "elapsed": 14.670796326794761,
+          "distance": 5.00000000000004,
+          "contacts": 0,
+          "checkpoint": 1,
+          "checkpointHold": 0,
+          "hold": 0.6000000000000002,
+          "reverseDistance": 0,
+          "maxHeadingError": 1.5707963267948968,
+          "stars": 3,
+          "failReason": ""
+        },
+        {
+          "index": 1,
+          "status": "won",
+          "elapsed": 7.474999999999987,
+          "distance": 2.7500000000000258,
+          "contacts": 0,
+          "checkpoint": 1,
+          "checkpointHold": 0,
+          "hold": 0.6000000000000002,
+          "reverseDistance": 0,
+          "maxHeadingError": 0,
+          "stars": 3,
+          "failReason": ""
+        },
+        {
+          "index": 2,
+          "status": "won",
+          "elapsed": 19.323318572439767,
+          "distance": 7.702939528262963,
+          "contacts": 0,
+          "checkpoint": 1,
+          "checkpointHold": 0,
+          "hold": 0.6000000000000002,
+          "reverseDistance": 0,
+          "maxHeadingError": 3.1415926535897927,
+          "stars": 3,
+          "failReason": ""
+        }
+      ]
+    },
+    {
+      "name": "collision stops motion once; reversing clears contact and permits recovery",
+      "passed": true
+    },
+    {
+      "name": "retry resets score, timer, pose and controls",
+      "passed": true
+    },
+    {
+      "name": "focus loss pauses game, freezes time and requires explicit resume",
+      "passed": true
+    },
+    {
+      "name": "switching lessons retains paused challenge progress",
+      "passed": true
+    },
+    {
+      "name": "mecanum heading violation has specific retry feedback",
+      "passed": true
+    },
+    {
+      "name": "actual keyboard: steering at rest is separate from driving; key release stops",
+      "passed": true
+    },
+    {
+      "name": "wheel detail uses same live roller assembly in both themes",
+      "passed": true
+    },
+    {
+      "name": "tracks, four-legged gait and rail constraints retained",
+      "passed": true
+    },
+    {
+      "name": "390px screen has no sideways overflow; touch controls remain available",
+      "passed": true
+    },
+    {
+      "name": "reduced motion jumps camera directly to the selected view",
+      "passed": true
+    },
+    {
+      "name": "without WebGL the page retains a solid geometry projection",
+      "passed": true
+    },
+    {
+      "name": "no uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}
