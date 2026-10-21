@@ -1,0 +1,160 @@
+TAP version 13
+# Subtest: Ackermann body-centre velocity makes both rear wheels roll without sideways slip
+ok 1 - Ackermann body-centre velocity makes both rear wheels roll without sideways slip
+  ---
+  duration_ms: 1.0208
+  type: 'test'
+  ...
+# Subtest: reversing Ackermann drive reverses wheel rotation without flipping steering pivots
+ok 2 - reversing Ackermann drive reverses wheel rotation without flipping steering pivots
+  ---
+  duration_ms: 0.1384
+  type: 'test'
+  ...
+# Subtest: mecanum X roller contact has no velocity along the passive roller axis
+ok 3 - mecanum X roller contact has no velocity along the passive roller axis
+  ---
+  duration_ms: 0.2395
+  type: 'test'
+  ...
+# Subtest: track loop closes, stays above ground and is continuous at every line/arc junction
+ok 4 - track loop closes, stays above ground and is continuous at every line/arc junction
+  ---
+  duration_ms: 1.5639
+  type: 'test'
+  ...
+# Subtest: every 3D leg maintains two 260mm rods through support and swing, forward, reverse and turn
+ok 5 - every 3D leg maintains two 260mm rods through support and swing, forward, reverse and turn
+  ---
+  duration_ms: 3.8528
+  type: 'test'
+  ...
+# Subtest: support feet stay fixed in world coordinates while the chassis translates or rotates
+ok 6 - support feet stay fixed in world coordinates while the chassis translates or rotates
+  ---
+  duration_ms: 0.2057
+  type: 'test'
+  ...
+# Subtest: creeping gait has at most one swing foot and lifts that foot clear of the floor
+ok 7 - creeping gait has at most one swing foot and lifts that foot clear of the floor
+  ---
+  duration_ms: 0.7927
+  type: 'test'
+  ...
+# Subtest: planetary mesh equations and fixed ring share one input
+ok 8 - planetary mesh equations and fixed ring share one input
+  ---
+  duration_ms: 1.1022
+  type: 'test'
+  ...
+# Subtest: harmonic 200/202 reverses two teeth per input revolution
+ok 9 - harmonic 200/202 reverses two teeth per input revolution
+  ---
+  duration_ms: 0.1217
+  type: 'test'
+  ...
+# Subtest: 8mm lead screw advances 8mm per revolution
+ok 10 - 8mm lead screw advances 8mm per revolution
+  ---
+  duration_ms: 0.0943
+  type: 'test'
+  ...
+# Subtest: closed feedback recovers after disturbance in simplified joint model
+ok 11 - closed feedback recovers after disturbance in simplified joint model
+  ---
+  duration_ms: 0.9759
+  type: 'test'
+  ...
+# Subtest: nozzle four poses and held-out pose are reachable; QR solves recorded flange transforms
+ok 12 - nozzle four poses and held-out pose are reachable; QR solves recorded flange transforms
+  ---
+  duration_ms: 5.1541
+  type: 'test'
+  ...
+# Subtest: gripper four poses and held-out pose are reachable; QR solves recorded flange transforms
+ok 13 - gripper four poses and held-out pose are reachable; QR solves recorded flange transforms
+  ---
+  duration_ms: 2.0804
+  type: 'test'
+  ...
+# Subtest: vacuum four poses and held-out pose are reachable; QR solves recorded flange transforms
+ok 14 - vacuum four poses and held-out pose are reachable; QR solves recorded flange transforms
+  ---
+  duration_ms: 1.9067
+  type: 'test'
+  ...
+# Subtest: tie four poses and held-out pose are reachable; QR solves recorded flange transforms
+ok 15 - tie four poses and held-out pose are reachable; QR solves recorded flange transforms
+  ---
+  duration_ms: 1.8507
+  type: 'test'
+  ...
+# Subtest: grind four poses and held-out pose are reachable; QR solves recorded flange transforms
+ok 16 - grind four poses and held-out pose are reachable; QR solves recorded flange transforms
+  ---
+  duration_ms: 2.1069
+  type: 'test'
+  ...
+# Subtest: drill four poses and held-out pose are reachable; QR solves recorded flange transforms
+ok 17 - drill four poses and held-out pose are reachable; QR solves recorded flange transforms
+  ---
+  duration_ms: 2.389
+  type: 'test'
+  ...
+# Subtest: QR rejects duplicate / one-axis deficient samples
+ok 18 - QR rejects duplicate / one-axis deficient samples
+  ---
+  duration_ms: 0.6569
+  type: 'test'
+  ...
+# Subtest: corrupting one flange measurement changes result and residual
+ok 19 - corrupting one flange measurement changes result and residual
+  ---
+  duration_ms: 1.7768
+  type: 'test'
+  ...
+# Subtest: right wheel faster -> positive yaw; counterrotation has zero translation
+ok 20 - right wheel faster -> positive yaw; counterrotation has zero translation
+  ---
+  duration_ms: 0.1083
+  type: 'test'
+  ...
+# Subtest: mecanum inverse and forward agree for all body twist components
+ok 21 - mecanum inverse and forward agree for all body twist components
+  ---
+  duration_ms: 0.1544
+  type: 'test'
+  ...
+# Subtest: Ackermann cannot rotate while stationary; inner wheel steers more
+ok 22 - Ackermann cannot rotate while stationary; inner wheel steers more
+  ---
+  duration_ms: 0.1267
+  type: 'test'
+  ...
+# Subtest: SE2 integration supports straight, strafe and circular motion
+ok 23 - SE2 integration supports straight, strafe and circular motion
+  ---
+  duration_ms: 0.1494
+  type: 'test'
+  ...
+# Subtest: full body intersects obstacle before centre does; extension alters occupied space
+ok 24 - full body intersects obstacle before centre does; extension alters occupied space
+  ---
+  duration_ms: 0.4019
+  type: 'test'
+  ...
+# Subtest: turning chamber clear endpoints still have colliding intermediate poses
+ok 25 - turning chamber clear endpoints still have colliding intermediate poses
+  ---
+  duration_ms: 1.2476
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 135.1098

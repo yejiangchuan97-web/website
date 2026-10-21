@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-15T06:46:24.041Z",
+  "checks": [
+    "final calibration instructions fit 1280x720",
+    "closed track loop, contact strip and fixed-length leg links render during motion",
+    "output encoder selection changes actual highlighted sensor and feedback endpoint"
+  ],
+  "exceptions": []
+}

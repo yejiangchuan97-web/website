@@ -1,0 +1,144 @@
+{
+  "checkedAt": "2026-10-15T07:51:37.849Z",
+  "checks": [
+    {
+      "name": "offline page uses a real WebGL scene and perspective camera",
+      "passed": true,
+      "detail": {
+        "webgl": true,
+        "mode": "mechanism",
+        "context": "route",
+        "type": "diff",
+        "meshCount": 524,
+        "drawCalls": 264,
+        "triangles": 55598,
+        "camera": [
+          2.62492277405299,
+          -0.4630870374289773,
+          1.4452453327355037
+        ],
+        "root": [
+          1,
+          1,
+          0
+        ],
+        "bodyYaw": 0,
+        "wheelCenters": [
+          [
+            1,
+            1.24,
+            0.135
+          ],
+          [
+            1,
+            0.76,
+            0.135
+          ]
+        ],
+        "wheelAngles": [
+          0,
+          0
+        ],
+        "steeringAngles": [
+          0,
+          0
+        ],
+        "flags": {
+          "cutaway": false,
+          "arrows": true,
+          "envelope": true
+        }
+      }
+    },
+    {
+      "name": "every activity fits 1280×720,1366×768,1920×1080 without page scrolling",
+      "passed": true
+    },
+    {
+      "name": "all six locomotion types have independent detailed three-dimensional assemblies",
+      "passed": true
+    },
+    {
+      "name": "all six mechanism control panels also fit the smallest 1280×720 desktop",
+      "passed": true
+    },
+    {
+      "name": "cutaway exposes battery, controller and mechanical parts",
+      "passed": true
+    },
+    {
+      "name": "drag orbits the real camera without changing world heading or position",
+      "passed": true
+    },
+    {
+      "name": "differential wheel rotations and body pose share the same motion state",
+      "passed": true
+    },
+    {
+      "name": "3D X rollers remain at 45°, passive rollers turn, strafe keeps body heading",
+      "passed": true
+    },
+    {
+      "name": "front knuckles turn to different Ackermann angles; stopped steering does not rotate chassis",
+      "passed": true
+    },
+    {
+      "name": "96 physical track shoes travel around closed belts rather than sliding a texture",
+      "passed": true
+    },
+    {
+      "name": "3D leg rods keep 260mm length; stance foot stays fixed while one foot lifts",
+      "passed": true
+    },
+    {
+      "name": "turning quadruped also holds support feet in world coordinates",
+      "passed": true
+    },
+    {
+      "name": "flanged railway wheels meet rail height and remain on the constrained line",
+      "passed": true
+    },
+    {
+      "name": "full body footprint stops against the physical material crate",
+      "passed": true
+    },
+    {
+      "name": "Shift drag raycasts a raised 3D crate and updates the collision obstacle",
+      "passed": true,
+      "detail": {
+        "id": "box",
+        "name": "材料箱",
+        "x": 2.4000301368196366,
+        "y": 3.2000019123480907,
+        "w": 0.8,
+        "h": 1,
+        "enabled": true
+      }
+    },
+    {
+      "name": "turning chamber shows a 3D swept envelope and actual intermediate interference",
+      "passed": true
+    },
+    {
+      "name": "wall crawler is mounted in a vertical frame with distinct magnetic and vacuum structures",
+      "passed": true
+    },
+    {
+      "name": "3D mechanisms remain usable in dark theme and on a 390px viewport",
+      "passed": true
+    },
+    {
+      "name": "losing focus stops motion",
+      "passed": true
+    },
+    {
+      "name": "without WebGL, fallback projects the same solid meshes instead of restoring a flat diagram",
+      "passed": true
+    },
+    {
+      "name": "no uncaught browser exceptions",
+      "passed": true
+    }
+  ],
+  "exceptions": []
+}

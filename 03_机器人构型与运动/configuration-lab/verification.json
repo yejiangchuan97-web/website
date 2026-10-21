@@ -1,0 +1,170 @@
+{
+  "checkedAt": "2026-10-15T05:55:46.789Z",
+  "checks": [
+    {
+      "name": "standalone offline page starts",
+      "passed": true,
+      "detail": {
+        "webgl": true,
+        "models": 1,
+        "meshCount": 217,
+        "calls": 201,
+        "triangles": 36989,
+        "renderedTCP": [
+          -150,
+          -120,
+          220
+        ]
+      }
+    },
+    {
+      "name": "cartesian: rendered TCP matches kinematics; closed-chain rod geometry is rigid",
+      "passed": true
+    },
+    {
+      "name": "cartesian: physical single-axis motion, release stop, and lock",
+      "passed": true
+    },
+    {
+      "name": "cartesian: live workspace, range restriction, and actual tool offset",
+      "passed": true
+    },
+    {
+      "name": "cartesian: direct path pauses on a physical collision, detour completes",
+      "passed": true
+    },
+    {
+      "name": "cartesian: moving the obstacle recomputes the path result",
+      "passed": true
+    },
+    {
+      "name": "cylindrical: rendered TCP matches kinematics; closed-chain rod geometry is rigid",
+      "passed": true
+    },
+    {
+      "name": "cylindrical: physical single-axis motion, release stop, and lock",
+      "passed": true
+    },
+    {
+      "name": "cylindrical: live workspace, range restriction, and actual tool offset",
+      "passed": true
+    },
+    {
+      "name": "cylindrical: direct path pauses on a physical collision, detour completes",
+      "passed": true
+    },
+    {
+      "name": "cylindrical: moving the obstacle recomputes the path result",
+      "passed": true
+    },
+    {
+      "name": "articulated: rendered TCP matches kinematics; closed-chain rod geometry is rigid",
+      "passed": true
+    },
+    {
+      "name": "articulated: physical single-axis motion, release stop, and lock",
+      "passed": true
+    },
+    {
+      "name": "articulated: live workspace, range restriction, and actual tool offset",
+      "passed": true
+    },
+    {
+      "name": "articulated: direct path pauses on a physical collision, detour completes",
+      "passed": true
+    },
+    {
+      "name": "articulated: moving the obstacle recomputes the path result",
+      "passed": true
+    },
+    {
+      "name": "scara: rendered TCP matches kinematics; closed-chain rod geometry is rigid",
+      "passed": true
+    },
+    {
+      "name": "scara: physical single-axis motion, release stop, and lock",
+      "passed": true
+    },
+    {
+      "name": "scara: live workspace, range restriction, and actual tool offset",
+      "passed": true
+    },
+    {
+      "name": "scara: direct path pauses on a physical collision, detour completes",
+      "passed": true
+    },
+    {
+      "name": "scara: moving the obstacle recomputes the path result",
+      "passed": true
+    },
+    {
+      "name": "delta: rendered TCP matches kinematics; closed-chain rod geometry is rigid",
+      "passed": true
+    },
+    {
+      "name": "delta: physical single-axis motion, release stop, and lock",
+      "passed": true
+    },
+    {
+      "name": "delta: live workspace, range restriction, and actual tool offset",
+      "passed": true
+    },
+    {
+      "name": "delta: direct path pauses on a physical collision, detour completes",
+      "passed": true
+    },
+    {
+      "name": "delta: moving the obstacle recomputes the path result",
+      "passed": true
+    },
+    {
+      "name": "free: defined connection exposes 6 independent variables",
+      "passed": true
+    },
+    {
+      "name": "hinge: defined connection exposes 1 independent variables",
+      "passed": true
+    },
+    {
+      "name": "slide: defined connection exposes 1 independent variables",
+      "passed": true
+    },
+    {
+      "name": "fixed: defined connection exposes 0 independent variables",
+      "passed": true
+    },
+    {
+      "name": "random position target and inverse solving honour a locked Cartesian axis",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: four activities and pendant fit without scrolling",
+      "passed": true
+    },
+    {
+      "name": "1600x900: four activities and pendant fit without scrolling",
+      "passed": true
+    },
+    {
+      "name": "1280x720: four activities and pendant fit without scrolling",
+      "passed": true
+    },
+    {
+      "name": "Space interrupts a live single-axis tour",
+      "passed": true
+    },
+    {
+      "name": "390 px mobile keeps the model visible and joint locks usable",
+      "passed": true
+    },
+    {
+      "name": "without WebGL, the same geometry remains as a static SVG and the five type selectors still work",
+      "passed": true
+    },
+    {
+      "name": "no uncaught browser exceptions",
+      "passed": true
+    }
+  ],
+  "exceptions": []
+}
