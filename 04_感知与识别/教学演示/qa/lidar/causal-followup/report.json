@@ -1,0 +1,135 @@
+{
+  "started": "2026-10-16T13:11:42.083Z",
+  "target": "file:///C:/Users/maquefighting/Desktop/website-main/04_%E6%84%9F%E7%9F%A5%E4%B8%8E%E8%AF%86%E5%88%AB/%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA/4-2.html",
+  "htmlSHA256": "57085133430d5e1da246e8d49864449d34a78b065ed4bef8bbed3f9c61f0b63d",
+  "checks": [
+    {
+      "name": "18-progress-head-readout-causal-consistency",
+      "pass": true,
+      "ms": 2687,
+      "detail": {
+        "before": {
+          "experiment": "density",
+          "source": "simulation",
+          "position": "A",
+          "height": 0.7,
+          "step": 2,
+          "channels": 16,
+          "angle": 34,
+          "channel": 15,
+          "sigma": 0,
+          "maxRange": 12,
+          "seed": 1,
+          "progress": 0.1,
+          "viewMode": "hybrid",
+          "colorMode": "height",
+          "pointSize": 2.2,
+          "axes": true,
+          "beam": true,
+          "overlay": false,
+          "aligned": true,
+          "slice": false,
+          "sliceZ": 0.7,
+          "unit": "m",
+          "theme": "light"
+        },
+        "after": {
+          "experiment": "density",
+          "source": "simulation",
+          "position": "A",
+          "height": 0.7,
+          "step": 2,
+          "channels": 16,
+          "angle": 36,
+          "channel": 0,
+          "sigma": 0,
+          "maxRange": 12,
+          "seed": 1,
+          "progress": 0.10034722222222223,
+          "viewMode": "hybrid",
+          "colorMode": "height",
+          "pointSize": 2.2,
+          "axes": true,
+          "beam": true,
+          "overlay": false,
+          "aligned": true,
+          "slice": false,
+          "sliceZ": 0.7,
+          "unit": "m",
+          "theme": "light"
+        },
+        "poleNumber": 0,
+        "visible": 278,
+        "head": {
+          "position": "A",
+          "height": 0.7,
+          "azimuth": 36,
+          "elevation": -20,
+          "opticalCenter": [
+            -2.3,
+            -0.6,
+            0.7
+          ]
+        },
+        "ray": {
+          "index": 0,
+          "azimuth": 36,
+          "elevation": -20,
+          "origin": [
+            -2.3,
+            -0.6,
+            0.7
+          ],
+          "direction": [
+            0.760227299704533,
+            0.5523374641860205,
+            -0.3420201433256687
+          ],
+          "hit": true,
+          "distance": 2.046663080114161,
+          "truthDistance": 2.046663080114161,
+          "point": [
+            -0.7440708531998488,
+            0.5304486957134059,
+            0
+          ],
+          "truthPoint": [
+            -0.7440708531998488,
+            0.5304486957134059,
+            0
+          ],
+          "local": [
+            1.555929146800151,
+            1.130448695713406,
+            -0.7
+          ],
+          "timeNs": 13.653866369874862,
+          "objectId": "floor"
+        }
+      }
+    }
+  ],
+  "pages": [
+    {
+      "label": "desktop",
+      "pageErrors": [],
+      "consoleErrors": [],
+      "glErrors": [],
+      "failedRequests": [],
+      "remoteRequests": []
+    },
+    {
+      "label": "progress-causality",
+      "pageErrors": [],
+      "consoleErrors": [],
+      "glErrors": [],
+      "failedRequests": [],
+      "remoteRequests": []
+    }
+  ],
+  "screenshots": [
+    "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\lidar\\causal-followup\\12-causal-progress.png"
+  ],
+  "finished": "2026-10-16T13:11:47.091Z",
+  "passed": true
+}

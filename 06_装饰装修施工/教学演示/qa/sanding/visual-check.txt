@@ -1,0 +1,17 @@
+eval: undefined
+line ends: 0 of 48 ends on 15 lines float
+shot 06_装饰装修施工/教学演示/qa/sanding/rig-4x-light.png · readout "力已稳定"
+line ends: 0 of 48 ends on 15 lines float
+shot 06_装饰装修施工/教学演示/qa/sanding/rig-4x-dark.png · readout "力已稳定"
+eval: undefined
+line ends: 0 of 48 ends on 15 lines float
+shot 06_装饰装修施工/教学演示/qa/sanding/gap-4x-dark.png · readout "失去接触"
+line ends: 0 of 48 ends on 15 lines float
+shot 06_装饰装修施工/教学演示/qa/sanding/gap-4x-light.png · readout "失去接触"
+eval: undefined
+line ends: 0 of 48 ends on 15 lines float
+shot 06_装饰装修施工/教学演示/qa/sanding/compressed-4x-light.png · readout "保护锁定"
+line ends: 0 of 48 ends on 15 lines float
+shot 06_装饰装修施工/教学演示/qa/sanding/compressed-4x-dark.png · readout "保护锁定"
+eval: "{\"scrollHeight\":810,\"viewport\":810}"
+console: clean

@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 1,
+  "title": "安全帽标注教学原图",
+  "provenance": "原创教学矢量绘制，非真实施工影像；所有类别与框均为教学设定。",
+  "classMap": {
+    "0": "hardhat",
+    "1": "no-hardhat"
+  },
+  "annotationPolicy": "训练框围绕可见头部及所戴安全帽；不框躯干。遮挡无法判断佩戴状态的头部 classId=null，不写入训练标签。",
+  "bboxFormat": "[xmin,ymin,xmax,ymax] in original-image pixels",
+  "images": [
+    {
+      "file": "construction-640.svg",
+      "width": 640,
+      "height": 640,
+      "objects": [
+        {
+          "id": "H01",
+          "classId": 0,
+          "className": "hardhat",
+          "bbox": [
+            160,
+            80,
+            320,
+            240
+          ],
+          "headBbox": [
+            172.035,
+            141,
+            306.357,
+            240
+          ],
+          "helmetBbox": [
+            160,
+            80,
+            320,
+            162.5
+          ],
+          "amodalHeadWithHelmetBbox": [
+            160,
+            80,
+            320,
+            240
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "0 0.375000 0.250000 0.250000 0.250000"
+        },
+        {
+          "id": "H02",
+          "classId": 1,
+          "className": "no-hardhat",
+          "bbox": [
+            54.971,
+            244.952,
+            110.709,
+            309.201
+          ],
+          "headBbox": [
+            54.971,
+            244.952,
+            110.709,
+            309.201
+          ],
+          "helmetBbox": null,
+          "amodalHeadWithHelmetBbox": [
+            54.971,
+            244.952,
+            110.709,
+            309.201
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "1 0.129438 0.432932 0.087091 0.100389"
+        },
+        {
+          "id": "H03",
+          "classId": 0,
+          "className": "hardhat",
+          "bbox": [
+            414,
+            220,
+            487.6,
+            293.6
+          ],
+          "headBbox": [
+            419.536,
+            248.06,
+            481.324,
+            293.6
+          ],
+          "helmetBbox": [
+            414,
+            220,
+            487.6,
+            257.95
+          ],
+          "amodalHeadWithHelmetBbox": [
+            414,
+            220,
+            487.6,
+            293.6
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "0 0.704375 0.401250 0.115000 0.115000"
+        },
+        {
+          "id": "H04",
+          "classId": 1,
+          "className": "no-hardhat",
+          "bbox": [
+            524.687,
+            334.812,
+            577.77,
+            396
+          ],
+          "headBbox": [
+            524.687,
+            334.812,
+            577.77,
+            396
+          ],
+          "helmetBbox": null,
+          "amodalHeadWithHelmetBbox": [
+            524.687,
+            334.812,
+            577.77,
+            396
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "1 0.861295 0.570947 0.082942 0.095606"
+        },
+        {
+          "id": "H05",
+          "classId": 0,
+          "className": "hardhat",
+          "bbox": [
+            352,
+            365,
+            411.2,
+            424.2
+          ],
+          "headBbox": [
+            356.453,
+            387.57,
+            406.152,
+            424.2
+          ],
+          "helmetBbox": [
+            352,
+            365,
+            411.2,
+            395.525
+          ],
+          "amodalHeadWithHelmetBbox": [
+            352,
+            365,
+            411.2,
+            424.2
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "0 0.596250 0.616563 0.092500 0.092500"
+        },
+        {
+          "id": "H06",
+          "classId": null,
+          "className": "review",
+          "bbox": [
+            552,
+            127,
+            570,
+            178.2
+          ],
+          "headBbox": [
+            555.851,
+            146.52,
+            598.834,
+            178.2
+          ],
+          "helmetBbox": [
+            552,
+            127,
+            603.2,
+            153.4
+          ],
+          "amodalHeadWithHelmetBbox": [
+            552,
+            127,
+            603.2,
+            178.2
+          ],
+          "occluded": true,
+          "reviewReason": "立柱遮住大部分头部与帽体；只凭露出片段不能确认佩戴状态。",
+          "yolo": null
+        }
+      ],
+      "example": "H01",
+      "trainingLabelCount": 5
+    },
+    {
+      "file": "construction-960.svg",
+      "width": 960,
+      "height": 640,
+      "objects": [
+        {
+          "id": "H01",
+          "classId": 0,
+          "className": "hardhat",
+          "bbox": [
+            160,
+            80,
+            320,
+            240
+          ],
+          "headBbox": [
+            172.035,
+            141,
+            306.357,
+            240
+          ],
+          "helmetBbox": [
+            160,
+            80,
+            320,
+            162.5
+          ],
+          "amodalHeadWithHelmetBbox": [
+            160,
+            80,
+            320,
+            240
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "0 0.250000 0.250000 0.166667 0.250000"
+        },
+        {
+          "id": "H02",
+          "classId": 1,
+          "className": "no-hardhat",
+          "bbox": [
+            54.971,
+            244.952,
+            110.709,
+            309.201
+          ],
+          "headBbox": [
+            54.971,
+            244.952,
+            110.709,
+            309.201
+          ],
+          "helmetBbox": null,
+          "amodalHeadWithHelmetBbox": [
+            54.971,
+            244.952,
+            110.709,
+            309.201
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "1 0.086292 0.432932 0.058060 0.100389"
+        },
+        {
+          "id": "H03",
+          "classId": 0,
+          "className": "hardhat",
+          "bbox": [
+            544,
+            220,
+            617.6,
+            293.6
+          ],
+          "headBbox": [
+            549.536,
+            248.06,
+            611.324,
+            293.6
+          ],
+          "helmetBbox": [
+            544,
+            220,
+            617.6,
+            257.95
+          ],
+          "amodalHeadWithHelmetBbox": [
+            544,
+            220,
+            617.6,
+            293.6
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "0 0.605000 0.401250 0.076667 0.115000"
+        },
+        {
+          "id": "H04",
+          "classId": 1,
+          "className": "no-hardhat",
+          "bbox": [
+            814.687,
+            334.812,
+            867.77,
+            396
+          ],
+          "headBbox": [
+            814.687,
+            334.812,
+            867.77,
+            396
+          ],
+          "helmetBbox": null,
+          "amodalHeadWithHelmetBbox": [
+            814.687,
+            334.812,
+            867.77,
+            396
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "1 0.876280 0.570947 0.055295 0.095606"
+        },
+        {
+          "id": "H05",
+          "classId": 0,
+          "className": "hardhat",
+          "bbox": [
+            624,
+            365,
+            683.2,
+            424.2
+          ],
+          "headBbox": [
+            628.453,
+            387.57,
+            678.152,
+            424.2
+          ],
+          "helmetBbox": [
+            624,
+            365,
+            683.2,
+            395.525
+          ],
+          "amodalHeadWithHelmetBbox": [
+            624,
+            365,
+            683.2,
+            424.2
+          ],
+          "occluded": false,
+          "reviewReason": null,
+          "yolo": "0 0.680833 0.616563 0.061667 0.092500"
+        },
+        {
+          "id": "H06",
+          "classId": null,
+          "className": "review",
+          "bbox": [
+            850,
+            127,
+            868,
+            178.2
+          ],
+          "headBbox": [
+            853.851,
+            146.52,
+            896.834,
+            178.2
+          ],
+          "helmetBbox": [
+            850,
+            127,
+            901.2,
+            153.4
+          ],
+          "amodalHeadWithHelmetBbox": [
+            850,
+            127,
+            901.2,
+            178.2
+          ],
+          "occluded": true,
+          "reviewReason": "立柱遮住大部分头部与帽体；只凭露出片段不能确认佩戴状态。",
+          "yolo": null
+        }
+      ],
+      "example": "H01",
+      "trainingLabelCount": 5
+    }
+  ],
+  "bboxMeasurement": "Head and helmet paths measured with Chromium SVG getBBox(); small numeric rounding uses an enclosing 0.001 px grid. For occluded H06, bbox is the visible left fragment; amodal bounds describe the drawing source only, not an accepted training label."
+}

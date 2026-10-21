@@ -1,0 +1,7240 @@
+[
+  {
+    "angle": 0,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-0",
+        "back": "clip-spine-0",
+        "frontKey": 32,
+        "backKey": 37,
+        "cells": 258,
+        "area": 2,
+        "against": 158.8125,
+        "cycle": true,
+        "depth": 1.6112861633300781,
+        "at": [
+          345.5,
+          94.5
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 5,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-0",
+        "back": "clip-spine-0",
+        "frontKey": 32,
+        "backKey": 37,
+        "cells": 244,
+        "area": 0.375,
+        "against": 164.6875,
+        "cycle": true,
+        "depth": 1.6447485349298958,
+        "at": [
+          357.75,
+          89.25
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 10,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "angle": 15,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "angle": 20,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "angle": 25,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "angle": 30,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 208,
+        "area": 8.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.759368740646977,
+        "at": [
+          425.5,
+          138.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 48,
+        "backKey": 49,
+        "cells": 36,
+        "area": 0.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.08203663740093,
+        "at": [
+          433.25,
+          128.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 35,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 588,
+        "area": 30.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.34787992487165,
+        "at": [
+          424.5,
+          141.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "bearing-1",
+        "frontKey": 43,
+        "backKey": 48,
+        "cells": 31,
+        "area": 0.3125,
+        "against": 159.9375,
+        "cycle": true,
+        "depth": 1.5992920432755255,
+        "at": [
+          400.5,
+          124
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 48,
+        "backKey": 49,
+        "cells": 109,
+        "area": 4.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.02183855258101,
+        "at": [
+          433.5,
+          130
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 40,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 1061,
+        "area": 58.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.34787992487165,
+        "at": [
+          424.5,
+          141.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "bearing-1",
+        "frontKey": 43,
+        "backKey": 48,
+        "cells": 44,
+        "area": 0.625,
+        "against": 142.8125,
+        "cycle": true,
+        "depth": 1.6085979530652565,
+        "at": [
+          401.5,
+          123.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-1-0",
+        "frontKey": 48,
+        "backKey": 54,
+        "cells": 91,
+        "area": 3.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 28.249780183891744,
+        "at": [
+          432.5,
+          136.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 48,
+        "backKey": 49,
+        "cells": 193,
+        "area": 9,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.04963016352361,
+        "at": [
+          431.25,
+          133.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 45,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 1797,
+        "area": 101.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 56.17958036635325,
+        "at": [
+          412.25,
+          142.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 407,
+        "area": 20.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.91145061482252,
+        "at": [
+          425.75,
+          142.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 619,
+        "area": 32.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 44.16843264543747,
+        "at": [
+          416.25,
+          137.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "bearing-1",
+        "frontKey": 43,
+        "backKey": 48,
+        "cells": 55,
+        "area": 0.625,
+        "against": 133.9375,
+        "cycle": true,
+        "depth": 1.6085979530652565,
+        "at": [
+          401.5,
+          123.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-1-0",
+        "frontKey": 48,
+        "backKey": 54,
+        "cells": 209,
+        "area": 9.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 28.247831663352805,
+        "at": [
+          432.75,
+          136.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 48,
+        "backKey": 49,
+        "cells": 234,
+        "area": 11.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.051170571922576,
+        "at": [
+          429.5,
+          137.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 3817,
+        "area": 202.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 100.83767831500843,
+        "at": [
+          381,
+          118
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 132,
+        "area": 2.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 101.26069426600684,
+        "at": [
+          378.75,
+          111.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 5437,
+        "area": 283.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 92.16268941866639,
+        "at": [
+          382.5,
+          118.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-1-1",
+        "back": "chip",
+        "frontKey": 55,
+        "backKey": 56,
+        "cells": 389,
+        "area": 18.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 58.71668490119404,
+        "at": [
+          383.5,
+          106.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-1-1",
+        "back": "chip-pin-1",
+        "frontKey": 55,
+        "backKey": 58,
+        "cells": 102,
+        "area": 3.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 41.11387969135239,
+        "at": [
+          387,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-pad-1-1",
+        "back": "chip",
+        "frontKey": 50,
+        "backKey": 56,
+        "cells": 89,
+        "area": 0.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 57.35497283935547,
+        "at": [
+          381.75,
+          105.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 4113,
+        "area": 208.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 80.09624767303467,
+        "at": [
+          385.25,
+          110
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 194,
+        "area": 5.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 52.386205683782535,
+        "at": [
+          404,
+          120.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 61,
+        "area": 1.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.6715145111084,
+        "at": [
+          420.75,
+          129.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 638,
+        "area": 28.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 52.51800537109375,
+        "at": [
+          381.75,
+          105.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 210,
+        "area": 7.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 57.64008781314766,
+        "at": [
+          376.25,
+          102
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 164,
+        "area": 4.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 31.439937591552734,
+        "at": [
+          387,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "speaker",
+        "frontKey": 44,
+        "backKey": 45,
+        "cells": 158,
+        "area": 0.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 17.18364715576172,
+        "at": [
+          410.75,
+          123.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "camera-hole",
+        "frontKey": 44,
+        "backKey": 46,
+        "cells": 50,
+        "area": 0.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.610422134399414,
+        "at": [
+          421.75,
+          130
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 755,
+        "area": 35.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 35.7408332824707,
+        "at": [
+          377.25,
+          100.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 210,
+        "area": 7.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.07954406738281,
+        "at": [
+          370.75,
+          97.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 214,
+        "area": 7.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.602970123291016,
+        "at": [
+          387,
+          106.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 50,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 638,
+        "area": 32.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 50.6781120300293,
+        "at": [
+          346.5,
+          85.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 3197,
+        "area": 187,
+        "against": 0,
+        "cycle": false,
+        "depth": 53.52400207519531,
+        "at": [
+          409,
+          146.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 945,
+        "area": 51.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.135701188799743,
+        "at": [
+          424.25,
+          145.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 1865,
+        "area": 106.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 48.50813767632047,
+        "at": [
+          411.5,
+          140.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-1-0",
+        "frontKey": 48,
+        "backKey": 54,
+        "cells": 106,
+        "area": 4,
+        "against": 0,
+        "cycle": false,
+        "depth": 28.24281715751009,
+        "at": [
+          429.5,
+          142
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 48,
+        "backKey": 49,
+        "cells": 123,
+        "area": 5.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.01564616269498,
+        "at": [
+          427.5,
+          140.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 5934,
+        "area": 337.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 68.70155747599742,
+        "at": [
+          366,
+          105.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1178,
+        "area": 66.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 97.73862364417619,
+        "at": [
+          372.75,
+          106.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 540,
+        "area": 28.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 88.2032494124978,
+        "at": [
+          374.75,
+          109.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 829,
+        "area": 0.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.853214263916016,
+        "at": [
+          411,
+          133.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 16045,
+        "area": 950.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 39.07066415876042,
+        "at": [
+          361,
+          100.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 2076,
+        "area": 110.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 87.83866682570864,
+        "at": [
+          383,
+          113.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 190,
+        "area": 7.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.206831455230713,
+        "at": [
+          369.75,
+          109.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 191,
+        "area": 7.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.239958153490797,
+        "at": [
+          329.75,
+          74.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 197,
+        "area": 8.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.81497573852539,
+        "at": [
+          427,
+          141.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 90,
+        "area": 0.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.983694948170921,
+        "at": [
+          388.75,
+          108
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 201,
+        "area": 8.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.88563212069677,
+        "at": [
+          380.75,
+          101
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 3480,
+        "area": 195.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 58.59615707397461,
+        "at": [
+          381.25,
+          107.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "speaker",
+        "frontKey": 43,
+        "backKey": 45,
+        "cells": 231,
+        "area": 8.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 61.23458290100098,
+        "at": [
+          402,
+          124
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "chip",
+        "frontKey": 43,
+        "backKey": 56,
+        "cells": 957,
+        "area": 50.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 62.0986246281342,
+        "at": [
+          380,
+          104.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "chip-pin-0",
+        "frontKey": 43,
+        "backKey": 51,
+        "cells": 134,
+        "area": 5.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 63.469825744628906,
+        "at": [
+          376.25,
+          102.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "chip-pin-1",
+        "frontKey": 43,
+        "backKey": 58,
+        "cells": 149,
+        "area": 4.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 40.32643566224415,
+        "at": [
+          387.25,
+          107
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-1-1",
+        "back": "chip",
+        "frontKey": 55,
+        "backKey": 56,
+        "cells": 150,
+        "area": 4.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 43.08970642089844,
+        "at": [
+          382.75,
+          102.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-1-1",
+        "back": "chip-pin-1",
+        "frontKey": 55,
+        "backKey": 58,
+        "cells": 85,
+        "area": 2.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 40.25639693928004,
+        "at": [
+          388,
+          106.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-pad-1-1",
+        "back": "chip",
+        "frontKey": 50,
+        "backKey": 56,
+        "cells": 195,
+        "area": 7.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 41.803565979003906,
+        "at": [
+          381.5,
+          102
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-pad-1-1",
+        "back": "chip-pin-1",
+        "frontKey": 50,
+        "backKey": 58,
+        "cells": 23,
+        "area": 0.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 36.19136428833008,
+        "at": [
+          387.5,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 11706,
+        "area": 686.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 58.59603309631348,
+        "at": [
+          372.75,
+          103.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 231,
+        "area": 8.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 52.36680793762207,
+        "at": [
+          402,
+          124
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 73,
+        "area": 2.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.567678451538086,
+        "at": [
+          418.5,
+          133.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 1132,
+        "area": 59.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 53.23085021972656,
+        "at": [
+          380,
+          104.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 288,
+        "area": 12.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 58.20195007324219,
+        "at": [
+          377.25,
+          103.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 289,
+        "area": 13,
+        "against": 0,
+        "cycle": false,
+        "depth": 31.458660125732422,
+        "at": [
+          387.25,
+          107
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 1132,
+        "area": 59.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.018753051757812,
+        "at": [
+          385.5,
+          104
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 288,
+        "area": 12.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.068927764892578,
+        "at": [
+          371.75,
+          97.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 289,
+        "area": 13,
+        "against": 0,
+        "cycle": false,
+        "depth": 10.999317169189453,
+        "at": [
+          393.5,
+          110.25
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 55,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 2048,
+        "area": 118.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 54.951066970825195,
+        "at": [
+          351,
+          82.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 4402,
+        "area": 259.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 47.43684005737305,
+        "at": [
+          413.5,
+          155.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 1417,
+        "area": 79.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.202086783802898,
+        "at": [
+          421,
+          147
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 89,
+        "area": 3.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.641711003969412,
+        "at": [
+          425.5,
+          143.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 3406,
+        "area": 199.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 48.193464279174805,
+        "at": [
+          413.5,
+          147.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 423,
+        "area": 21.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 35.77895405095306,
+        "at": [
+          421.75,
+          140.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "camera-hole",
+        "frontKey": 31,
+        "backKey": 46,
+        "cells": 88,
+        "area": 3.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 42.205684706860545,
+        "at": [
+          418,
+          139.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 48,
+        "backKey": 49,
+        "cells": 20,
+        "area": 0.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.091007232666016,
+        "at": [
+          425.5,
+          143.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 6972,
+        "area": 401.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 41.43888282775879,
+        "at": [
+          356.75,
+          97.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1236,
+        "area": 70.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 64.9922987565951,
+        "at": [
+          374.75,
+          111.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 593,
+        "area": 31.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 53.216989263631696,
+        "at": [
+          378.25,
+          117.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 56,
+        "area": 1.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.835127980627213,
+        "at": [
+          335.5,
+          73
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 1381,
+        "area": 54.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.866687774658203,
+        "at": [
+          413.25,
+          138
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 26530,
+        "area": 1604.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.573709303801934,
+        "at": [
+          397.25,
+          133.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 9308,
+        "area": 548.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 58.90522816392507,
+        "at": [
+          381.5,
+          116.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 266,
+        "area": 10.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 59.6715489660057,
+        "at": [
+          399.5,
+          128
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 1256,
+        "area": 67.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 60.49653429838293,
+        "at": [
+          378.75,
+          104
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 365,
+        "area": 17.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 61.842050493225926,
+        "at": [
+          375.25,
+          102
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 308,
+        "area": 14.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.270852327346802,
+        "at": [
+          373,
+          119.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 66,
+        "area": 0.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.4187703132629395,
+        "at": [
+          374.25,
+          119
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 308,
+        "area": 14.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.275370240859772,
+        "at": [
+          327.25,
+          64
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 145,
+        "area": 4.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.056457165389297,
+        "at": [
+          429,
+          149.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 323,
+        "area": 15.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.90616226196289,
+        "at": [
+          425.5,
+          143.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 147,
+        "area": 4.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.061867939281115,
+        "at": [
+          386,
+          98
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 322,
+        "area": 15.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.849942434871423,
+        "at": [
+          384,
+          96.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 4977,
+        "area": 285.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 35.35000991821289,
+        "at": [
+          383.25,
+          102.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "speaker",
+        "frontKey": 43,
+        "backKey": 45,
+        "cells": 29,
+        "area": 0.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 38.70581817626953,
+        "at": [
+          410.5,
+          134
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "camera-hole",
+        "frontKey": 43,
+        "backKey": 46,
+        "cells": 88,
+        "area": 3.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 32.582393646240234,
+        "at": [
+          416.25,
+          137.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "chip",
+        "frontKey": 43,
+        "backKey": 56,
+        "cells": 521,
+        "area": 25.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 44.37601852416992,
+        "at": [
+          382,
+          101.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "chip-pin-1",
+        "frontKey": 43,
+        "backKey": 58,
+        "cells": 364,
+        "area": 17.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 40.30809738006759,
+        "at": [
+          388.25,
+          106.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 18532,
+        "area": 1112.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 35.35060977935791,
+        "at": [
+          379.75,
+          115.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 266,
+        "area": 10.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 38.77874946594238,
+        "at": [
+          405.25,
+          131
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 88,
+        "area": 3.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.714618682861328,
+        "at": [
+          416.25,
+          137.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 166,
+        "area": 6,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.704680707089452,
+        "at": [
+          362.5,
+          81.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 1484,
+        "area": 81.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 44.29408645629883,
+        "at": [
+          376.25,
+          98
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 365,
+        "area": 17.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 42.013790130615234,
+        "at": [
+          371.75,
+          96.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 364,
+        "area": 17.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 31.440322875976562,
+        "at": [
+          388.25,
+          106.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 1484,
+        "area": 81.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 9.052410125732422,
+        "at": [
+          382,
+          101.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 365,
+        "area": 17.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 6.688697814941406,
+        "at": [
+          371.75,
+          96.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 364,
+        "area": 17.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 6.701202392578125,
+        "at": [
+          394,
+          110.5
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 60,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 2825,
+        "area": 165.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 54.502777099609375,
+        "at": [
+          351,
+          81.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 5314,
+        "area": 314.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 41.13738250732422,
+        "at": [
+          409.5,
+          159.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 2030,
+        "area": 114.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.222904205322266,
+        "at": [
+          418.25,
+          148.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 95,
+        "area": 3.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.8043381873782,
+        "at": [
+          425.75,
+          147.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 322,
+        "area": 15.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.63253467148921,
+        "at": [
+          422.25,
+          148
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 4444,
+        "area": 263.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 42.78721809387207,
+        "at": [
+          412.25,
+          152.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 746,
+        "area": 39.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 39.433238177033296,
+        "at": [
+          413.25,
+          140.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "camera-hole",
+        "frontKey": 31,
+        "backKey": 46,
+        "cells": 98,
+        "area": 3.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 46.195972340837145,
+        "at": [
+          416,
+          144
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 7850,
+        "area": 452.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 29.813560009002686,
+        "at": [
+          372.5,
+          122.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1286,
+        "area": 73.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 46.76685597363911,
+        "at": [
+          372.75,
+          114.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 641,
+        "area": 34.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 38.2589750730338,
+        "at": [
+          370.5,
+          116
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 279,
+        "area": 13.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.428574081565678,
+        "at": [
+          337.75,
+          70.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 222,
+        "area": 10.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.075434678846513,
+        "at": [
+          337.25,
+          70.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 1920,
+        "area": 83.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.875457763671875,
+        "at": [
+          427,
+          161.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 36812,
+        "area": 2243.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.97409439086914,
+        "at": [
+          346.75,
+          80
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 17626,
+        "area": 1059.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 42.40663337976595,
+        "at": [
+          388.25,
+          123.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 302,
+        "area": 12.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 44.871755599975586,
+        "at": [
+          405,
+          136
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 90,
+        "area": 3.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.907987594604492,
+        "at": [
+          413.5,
+          141.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 1824,
+        "area": 102.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 48.90831916219632,
+        "at": [
+          381,
+          100
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 436,
+        "area": 21.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 47.19980847608382,
+        "at": [
+          372.5,
+          96.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 439,
+        "area": 21.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 38.73244100050706,
+        "at": [
+          388.5,
+          106.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 421,
+        "area": 20.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.285277366638184,
+        "at": [
+          365.75,
+          115
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 92,
+        "area": 0.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.413339614868164,
+        "at": [
+          368.75,
+          118.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 425,
+        "area": 20.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.285316631904344,
+        "at": [
+          330.5,
+          60.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 93,
+        "area": 0.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.436083024379762,
+        "at": [
+          333.25,
+          64.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 205,
+        "area": 8,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.052497863769531,
+        "at": [
+          424.5,
+          149.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 440,
+        "area": 22.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.896980285644531,
+        "at": [
+          422.25,
+          148
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 205,
+        "area": 7.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.063277085065323,
+        "at": [
+          389.5,
+          96.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 441,
+        "area": 22.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.88080774862523,
+        "at": [
+          387,
+          93.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 5991,
+        "area": 344.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 25.451904296875,
+        "at": [
+          386,
+          99.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "camera-hole",
+        "frontKey": 43,
+        "backKey": 46,
+        "cells": 92,
+        "area": 3.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 27.9124755859375,
+        "at": [
+          415.5,
+          141.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "chip-pin-1",
+        "frontKey": 43,
+        "backKey": 58,
+        "cells": 135,
+        "area": 4.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.18167495727539,
+        "at": [
+          397,
+          114.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 25215,
+        "area": 1526.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 25.451934814453125,
+        "at": [
+          383.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 302,
+        "area": 12.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 27.905881881713867,
+        "at": [
+          405,
+          136
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 98,
+        "area": 3.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.652536392211914,
+        "at": [
+          413.5,
+          141.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 184,
+        "area": 7.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.825526942918543,
+        "at": [
+          365,
+          78.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 1824,
+        "area": 102.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 31.941970825195312,
+        "at": [
+          381,
+          100
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 436,
+        "area": 21.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.244495391845703,
+        "at": [
+          372.5,
+          96.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 439,
+        "area": 21.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 29.978046417236328,
+        "at": [
+          389.5,
+          106.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 1824,
+        "area": 102.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 6.507514953613281,
+        "at": [
+          381,
+          100
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 436,
+        "area": 21.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.820121765136719,
+        "at": [
+          372.5,
+          96.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 439,
+        "area": 21.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.754508972167969,
+        "at": [
+          397,
+          114.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 65,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 2739,
+        "area": 160.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 52.0535888671875,
+        "at": [
+          349.25,
+          75.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 5725,
+        "area": 338.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 34.564069747924805,
+        "at": [
+          411.25,
+          166
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 2868,
+        "area": 162.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.078563690185547,
+        "at": [
+          424.75,
+          167.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 461,
+        "area": 22.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.788599075662916,
+        "at": [
+          424.25,
+          149.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 643,
+        "area": 34.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.642623901367188,
+        "at": [
+          422.75,
+          157.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 4829,
+        "area": 286.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 37.18954658508301,
+        "at": [
+          411.25,
+          157
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 1126,
+        "area": 62,
+        "against": 0,
+        "cycle": false,
+        "depth": 41.823158264160156,
+        "at": [
+          412,
+          144.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "camera-hole",
+        "frontKey": 31,
+        "backKey": 46,
+        "cells": 108,
+        "area": 4.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 45.235639572143555,
+        "at": [
+          414.25,
+          147.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 8655,
+        "area": 499.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.419880390167236,
+        "at": [
+          369.25,
+          124.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1341,
+        "area": 76.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 36.75004110903719,
+        "at": [
+          368.5,
+          115.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 681,
+        "area": 36.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.030122756958008,
+        "at": [
+          368.75,
+          119.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 560,
+        "area": 29.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 22.09509058395431,
+        "at": [
+          339.75,
+          68.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 434,
+        "area": 22.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.6841124741469,
+        "at": [
+          341.75,
+          68.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 2433,
+        "area": 111.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.8665313720703125,
+        "at": [
+          406.75,
+          132
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 46816,
+        "area": 2864.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.343278687759096,
+        "at": [
+          397.75,
+          133
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 26143,
+        "area": 1585.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 33.32783200018656,
+        "at": [
+          387.75,
+          105.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 334,
+        "area": 14.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 35.25187301635742,
+        "at": [
+          400.5,
+          138.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 108,
+        "area": 4.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.896547317504883,
+        "at": [
+          411,
+          144.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 2166,
+        "area": 123.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 38.41450170592419,
+        "at": [
+          386,
+          102.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 507,
+        "area": 25.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 37.07896475242489,
+        "at": [
+          375.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 508,
+        "area": 25.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 37.062049047210564,
+        "at": [
+          390.25,
+          106.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 531,
+        "area": 26.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.286158084869385,
+        "at": [
+          365,
+          122.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 109,
+        "area": 2.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.3938703536987305,
+        "at": [
+          366.5,
+          120.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 534,
+        "area": 27.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.251043921633482,
+        "at": [
+          332.75,
+          58
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 112,
+        "area": 2.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.4321032239502287,
+        "at": [
+          336.25,
+          60.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 259,
+        "area": 10.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.8712806701660156,
+        "at": [
+          426.25,
+          160.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 552,
+        "area": 29,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.90707015991211,
+        "at": [
+          422.75,
+          157.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 259,
+        "area": 10.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.9046243551638753,
+        "at": [
+          392,
+          91.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 543,
+        "area": 28.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.894791430235301,
+        "at": [
+          389.5,
+          91.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 5873,
+        "area": 334.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.003814697265625,
+        "at": [
+          388,
+          94.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 31706,
+        "area": 1929.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.004501342773438,
+        "at": [
+          389.75,
+          124.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 334,
+        "area": 14.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.928569793701172,
+        "at": [
+          400.5,
+          138.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 108,
+        "area": 4.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.861543655395508,
+        "at": [
+          411.5,
+          144.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 202,
+        "area": 8.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.995622756967265,
+        "at": [
+          370.25,
+          76.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 2166,
+        "area": 123.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 25.09334945678711,
+        "at": [
+          386,
+          102.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 507,
+        "area": 25.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.751663208007812,
+        "at": [
+          375.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 508,
+        "area": 25.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.73895263671875,
+        "at": [
+          390.25,
+          106.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 2166,
+        "area": 123.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 5.113124847412109,
+        "at": [
+          386,
+          102.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 507,
+        "area": 25.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.785961151123047,
+        "at": [
+          375.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 508,
+        "area": 25.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.7579116821289062,
+        "at": [
+          390.25,
+          106.5
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 70,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 2411,
+        "area": 140.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 41.45946502685547,
+        "at": [
+          349.25,
+          75.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 5256,
+        "area": 308.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 27.82033920288086,
+        "at": [
+          411.25,
+          171.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 3657,
+        "area": 209.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.209705352783203,
+        "at": [
+          418.5,
+          165
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 1057,
+        "area": 58.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.802417755126953,
+        "at": [
+          421,
+          153
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 723,
+        "area": 39.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.624156951904297,
+        "at": [
+          417.75,
+          153
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 4599,
+        "area": 271.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 31.353042602539062,
+        "at": [
+          410.25,
+          161.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 1330,
+        "area": 74.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 37.26814651489258,
+        "at": [
+          410,
+          148
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "camera-hole",
+        "frontKey": 31,
+        "backKey": 46,
+        "cells": 118,
+        "area": 5.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 40.35433769226074,
+        "at": [
+          411.25,
+          151.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 9417,
+        "area": 543.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.414669513702393,
+        "at": [
+          367.5,
+          130.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1389,
+        "area": 78.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.438281297683716,
+        "at": [
+          369.75,
+          125.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 723,
+        "area": 39.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.927111625671387,
+        "at": [
+          369.25,
+          125.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 855,
+        "area": 46.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.009424851006536,
+        "at": [
+          344.25,
+          64.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 601,
+        "area": 31.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.466309967362818,
+        "at": [
+          345.75,
+          65.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 2942,
+        "area": 139.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.87359619140625,
+        "at": [
+          411.25,
+          145.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 56467,
+        "area": 3464.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.06140436112473,
+        "at": [
+          392.75,
+          105
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 34616,
+        "area": 2110.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 27.625487238306548,
+        "at": [
+          391.5,
+          124
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 360,
+        "area": 16.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 29.214189529418945,
+        "at": [
+          394,
+          139.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 118,
+        "area": 5.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 29.093996047973633,
+        "at": [
+          409,
+          148
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 2472,
+        "area": 141.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 31.840227148958057,
+        "at": [
+          386,
+          101.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 576,
+        "area": 29.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.71795245779225,
+        "at": [
+          378.25,
+          102.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 575,
+        "area": 29.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 30.727547087648695,
+        "at": [
+          392.5,
+          107.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 636,
+        "area": 32.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.2892866134643555,
+        "at": [
+          360.75,
+          120.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 137,
+        "area": 4.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.458174705505371,
+        "at": [
+          363.75,
+          123.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 635,
+        "area": 32.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.284427642822266,
+        "at": [
+          337.5,
+          59
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 137,
+        "area": 4.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.4498291015625,
+        "at": [
+          340.5,
+          61
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 308,
+        "area": 13.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.061073303222656,
+        "at": [
+          422,
+          161
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 634,
+        "area": 33.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.888607025146484,
+        "at": [
+          417.75,
+          153
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 306,
+        "area": 13,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.05163256885136,
+        "at": [
+          396,
+          91
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 637,
+        "area": 33.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.89378629106183,
+        "at": [
+          394,
+          86.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 5305,
+        "area": 296.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.583251953125,
+        "at": [
+          392,
+          92.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 37978,
+        "area": 2318.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.583206176757812,
+        "at": [
+          394,
+          111.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 360,
+        "area": 16.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.160242080688477,
+        "at": [
+          395.75,
+          140.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 118,
+        "area": 5.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.15375518798828,
+        "at": [
+          410.75,
+          149.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 216,
+        "area": 9.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 5.166696619957904,
+        "at": [
+          374.25,
+          74.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 2472,
+        "area": 141.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.80514144897461,
+        "at": [
+          386,
+          101.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 576,
+        "area": 29.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.680267333984375,
+        "at": [
+          378.25,
+          102.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 575,
+        "area": 29.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.69678497314453,
+        "at": [
+          392.5,
+          107.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 2472,
+        "area": 141.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.230842590332031,
+        "at": [
+          386,
+          101.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 576,
+        "area": 29.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.1068649291992188,
+        "at": [
+          377.5,
+          100.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 575,
+        "area": 29.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.1275177001953125,
+        "at": [
+          395.5,
+          112.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 75,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 2049,
+        "area": 118.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 34.017452239990234,
+        "at": [
+          349.25,
+          75.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 4346,
+        "area": 250.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.922340393066406,
+        "at": [
+          411,
+          176.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 3981,
+        "area": 228.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.184741973876953,
+        "at": [
+          416.75,
+          174
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 1434,
+        "area": 81.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.795135498046875,
+        "at": [
+          417.5,
+          158.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 764,
+        "area": 41.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.61920166015625,
+        "at": [
+          416.5,
+          164
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 4033,
+        "area": 235.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.60333251953125,
+        "at": [
+          416.25,
+          150
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 1280,
+        "area": 70.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 32.490055084228516,
+        "at": [
+          408.75,
+          151.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 10116,
+        "area": 583.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.671239376068115,
+        "at": [
+          365,
+          136
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1435,
+        "area": 81.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.166767597198486,
+        "at": [
+          367,
+          130
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 761,
+        "area": 41.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.41724443435669,
+        "at": [
+          367.5,
+          131.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 1082,
+        "area": 60.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.21116323252685,
+        "at": [
+          348.5,
+          61
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 725,
+        "area": 39.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.413008158026045,
+        "at": [
+          349.5,
+          62.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 3433,
+        "area": 166.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.863659350995192,
+        "at": [
+          394.5,
+          88.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 65680,
+        "area": 4036.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 9.509298324584961,
+        "at": [
+          371.5,
+          139.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 42055,
+        "area": 2571.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.744265673159468,
+        "at": [
+          395.25,
+          122.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 387,
+        "area": 17.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 25.109525680541992,
+        "at": [
+          391.75,
+          143.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 128,
+        "area": 5.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 25.107696533203125,
+        "at": [
+          408,
+          153.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 2772,
+        "area": 160.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 27.36167675615865,
+        "at": [
+          382.75,
+          99.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 640,
+        "area": 33.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.42120206366095,
+        "at": [
+          377,
+          98.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 641,
+        "area": 33.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.400738296622727,
+        "at": [
+          395.75,
+          113.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 732,
+        "area": 38.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.280925750732422,
+        "at": [
+          358,
+          123
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 157,
+        "area": 5.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.456875801086426,
+        "at": [
+          362.5,
+          131.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 733,
+        "area": 38.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.294736796140661,
+        "at": [
+          340.75,
+          51
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 158,
+        "area": 5.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.4580116271972656,
+        "at": [
+          343,
+          56.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 354,
+        "area": 15.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.059581756591797,
+        "at": [
+          417.5,
+          158.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 717,
+        "area": 38.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.874408721923828,
+        "at": [
+          416,
+          154.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 356,
+        "area": 15.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.065503530563902,
+        "at": [
+          399,
+          85.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 713,
+        "area": 38.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.90073607295416,
+        "at": [
+          397.5,
+          83.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 4726,
+        "area": 258.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.498641967773438,
+        "at": [
+          393,
+          82.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 43960,
+        "area": 2690.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 14.25408935546875,
+        "at": [
+          394.25,
+          96.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 387,
+        "area": 17.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.621274948120117,
+        "at": [
+          391.75,
+          143.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 128,
+        "area": 5.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.609848022460938,
+        "at": [
+          406.5,
+          151.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 231,
+        "area": 10,
+        "against": 0,
+        "cycle": false,
+        "depth": 5.466127929407818,
+        "at": [
+          376,
+          71
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 2772,
+        "area": 160.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 17.874317169189453,
+        "at": [
+          382.75,
+          99.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 640,
+        "area": 33.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.91375732421875,
+        "at": [
+          377,
+          98.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 641,
+        "area": 33.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.902339935302734,
+        "at": [
+          395.75,
+          113.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 2772,
+        "area": 160.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.6248321533203125,
+        "at": [
+          382.75,
+          99.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 640,
+        "area": 33.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.682281494140625,
+        "at": [
+          377,
+          98.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 641,
+        "area": 33.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.670116424560547,
+        "at": [
+          395.75,
+          113.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 80,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-0",
+        "back": "clip-spine-0",
+        "frontKey": 32,
+        "backKey": 37,
+        "cells": 184,
+        "area": 0.375,
+        "against": 160.6875,
+        "cycle": true,
+        "depth": 1.6474161435792922,
+        "at": [
+          346.75,
+          90.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 1704,
+        "area": 97.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 28.48101043701172,
+        "at": [
+          349.25,
+          75.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 3073,
+        "area": 170.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.166015625,
+        "at": [
+          415.5,
+          177.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 4186,
+        "area": 240.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.77273941040039,
+        "at": [
+          413.25,
+          177.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 1475,
+        "area": 83.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.799537658691406,
+        "at": [
+          418.25,
+          156
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 800,
+        "area": 43.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.715072631835938,
+        "at": [
+          413.75,
+          156.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 3148,
+        "area": 179.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 26.60333251953125,
+        "at": [
+          416.25,
+          165.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 980,
+        "area": 51.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 28.32074737548828,
+        "at": [
+          413,
+          157.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 10796,
+        "area": 623.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 14.719108581542969,
+        "at": [
+          353.75,
+          91.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1471,
+        "area": 83.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.099807739257812,
+        "at": [
+          362,
+          123.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 796,
+        "area": 43.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.902291297912598,
+        "at": [
+          361.5,
+          127
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 1257,
+        "area": 70.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.06053968600851,
+        "at": [
+          351.5,
+          58.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 795,
+        "area": 43.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.86911695398244,
+        "at": [
+          352.25,
+          61
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 3884,
+        "area": 192.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.871968196699697,
+        "at": [
+          399,
+          93.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-1-0",
+        "frontKey": 35,
+        "backKey": 49,
+        "cells": 83,
+        "area": 0.5,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.286098480224609,
+        "at": [
+          412,
+          159.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 74416,
+        "area": 4579.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.395792582650188,
+        "at": [
+          368.25,
+          114
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 48632,
+        "area": 2980.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.959365081641906,
+        "at": [
+          397.25,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 412,
+        "area": 19.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 22.157230377197266,
+        "at": [
+          396,
+          150.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 136,
+        "area": 6.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 22.15423583984375,
+        "at": [
+          404.25,
+          154.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 3051,
+        "area": 177.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.159870050146353,
+        "at": [
+          387.25,
+          101.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 702,
+        "area": 36.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.30479919239548,
+        "at": [
+          376.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 701,
+        "area": 37.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.298770943974148,
+        "at": [
+          395,
+          109.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 819,
+        "area": 43.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.267556190490723,
+        "at": [
+          358,
+          123.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 177,
+        "area": 6.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.4262781143188477,
+        "at": [
+          358.5,
+          128.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 819,
+        "area": 43.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.278712935905219,
+        "at": [
+          345.5,
+          47.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 180,
+        "area": 6.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.440540313720703,
+        "at": [
+          346,
+          52.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 400,
+        "area": 18.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.066230773925781,
+        "at": [
+          415.25,
+          163.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 787,
+        "area": 42.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.897796630859375,
+        "at": [
+          413,
+          157.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 399,
+        "area": 18.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.067844428553528,
+        "at": [
+          403.25,
+          90.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 788,
+        "area": 42.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.872985705119973,
+        "at": [
+          401.25,
+          81.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 4162,
+        "area": 221.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.672527313232422,
+        "at": [
+          411.25,
+          146.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 49607,
+        "area": 3041,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.583232879638672,
+        "at": [
+          378.75,
+          119.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 412,
+        "area": 19.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.783039093017578,
+        "at": [
+          396,
+          150.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 136,
+        "area": 6.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.784561157226562,
+        "at": [
+          404.25,
+          154.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 239,
+        "area": 10.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 5.8150177001953125,
+        "at": [
+          373.75,
+          65.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 3051,
+        "area": 177.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.78433609008789,
+        "at": [
+          387.25,
+          101.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 702,
+        "area": 36.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 14.929088592529297,
+        "at": [
+          376.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 701,
+        "area": 37.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 14.92306137084961,
+        "at": [
+          395,
+          109.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 3051,
+        "area": 177.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.2019424438476562,
+        "at": [
+          387.25,
+          101.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 702,
+        "area": 36.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.3664016723632812,
+        "at": [
+          376.75,
+          98.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 701,
+        "area": 37.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.3603744506835938,
+        "at": [
+          395,
+          109.5
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 85,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-0",
+        "back": "clip-spine-0",
+        "frontKey": 32,
+        "backKey": 37,
+        "cells": 200,
+        "area": 2.9375,
+        "against": 155.4375,
+        "cycle": true,
+        "depth": 1.6486943943823391,
+        "at": [
+          347,
+          89.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 1389,
+        "area": 78.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 24.165428161621094,
+        "at": [
+          349.25,
+          75.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "cradle",
+        "frontKey": 31,
+        "backKey": 35,
+        "cells": 1470,
+        "area": 70.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.690311431884766,
+        "at": [
+          411.5,
+          179.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 3992,
+        "area": 227.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 17.553695678710938,
+        "at": [
+          415.5,
+          178.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 1504,
+        "area": 86,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.54003143310547,
+        "at": [
+          415.75,
+          158.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 828,
+        "area": 46.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.846641540527344,
+        "at": [
+          414.5,
+          168.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 1989,
+        "area": 107.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.060779571533203,
+        "at": [
+          412.75,
+          166.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-screen",
+        "frontKey": 31,
+        "backKey": 44,
+        "cells": 444,
+        "area": 17.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 23.244720458984375,
+        "at": [
+          410,
+          159.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 11420,
+        "area": 660,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.26688003540039,
+        "at": [
+          354.5,
+          97
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1503,
+        "area": 85.125,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.804285049438477,
+        "at": [
+          360,
+          130.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 829,
+        "area": 45.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 17.03325366973877,
+        "at": [
+          358.25,
+          128.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 1398,
+        "area": 78.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.802834763914646,
+        "at": [
+          354,
+          53.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 826,
+        "area": 45,
+        "against": 0,
+        "cycle": false,
+        "depth": 17.01504401711282,
+        "at": [
+          354.75,
+          55.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 4321,
+        "area": 217.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.876260830249464,
+        "at": [
+          402.75,
+          103.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-1-0",
+        "frontKey": 35,
+        "backKey": 49,
+        "cells": 147,
+        "area": 4.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.291988372802734,
+        "at": [
+          409.5,
+          166.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-1-1",
+        "frontKey": 35,
+        "backKey": 50,
+        "cells": 146,
+        "area": 4.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.292314262667162,
+        "at": [
+          403.25,
+          86.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 82563,
+        "area": 5086.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.660355719430271,
+        "at": [
+          399.25,
+          74.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 54766,
+        "area": 3361.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.86763989275697,
+        "at": [
+          378.75,
+          67.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 433,
+        "area": 20.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.959470748901367,
+        "at": [
+          385.25,
+          148.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 146,
+        "area": 7.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.96312713623047,
+        "at": [
+          401.5,
+          158.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "home-port",
+        "frontKey": 35,
+        "backKey": 47,
+        "cells": 252,
+        "area": 11.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 14.909034459033478,
+        "at": [
+          381.5,
+          66.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 3308,
+        "area": 193.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 21.75012858826168,
+        "at": [
+          392.25,
+          116.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 756,
+        "area": 40.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.995871384594558,
+        "at": [
+          378.75,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 757,
+        "area": 40.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.99588667703695,
+        "at": [
+          396,
+          117.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 898,
+        "area": 47.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.277848243713379,
+        "at": [
+          355.5,
+          125.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 198,
+        "area": 7.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.456425666809082,
+        "at": [
+          355.75,
+          131
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 897,
+        "area": 47.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.285663604736328,
+        "at": [
+          348.75,
+          46
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 198,
+        "area": 7.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.45556640625,
+        "at": [
+          349.75,
+          54.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 440,
+        "area": 20.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.069816589355469,
+        "at": [
+          412.25,
+          166.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 828,
+        "area": 46.0625,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.801643371582031,
+        "at": [
+          410.75,
+          159
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 439,
+        "area": 20.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.070142873895108,
+        "at": [
+          406,
+          86.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 827,
+        "area": 45.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.725872618414826,
+        "at": [
+          404.5,
+          79.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 3646,
+        "area": 187.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.325478034656285,
+        "at": [
+          406,
+          108.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 54889,
+        "area": 3369.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.341142654418945,
+        "at": [
+          368.75,
+          116
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 433,
+        "area": 20.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.411802291870117,
+        "at": [
+          385.25,
+          148.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 146,
+        "area": 7.3125,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.413139343261719,
+        "at": [
+          399.75,
+          156.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 252,
+        "area": 11.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 6.256477355957031,
+        "at": [
+          381.5,
+          66.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 3308,
+        "area": 193.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 14.202205657958984,
+        "at": [
+          392.25,
+          116.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 756,
+        "area": 40.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.447948455810547,
+        "at": [
+          378.75,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 757,
+        "area": 40.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 13.447959899902344,
+        "at": [
+          396,
+          117.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 3308,
+        "area": 193.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.8810806274414062,
+        "at": [
+          392.25,
+          116.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 756,
+        "area": 40.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.1268272399902344,
+        "at": [
+          378.75,
+          106.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 757,
+        "area": 40.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.1268386840820312,
+        "at": [
+          396,
+          117.75
+        ],
+        "unorderable": false
+      }
+    ]
+  },
+  {
+    "angle": 90,
+    "missing": [],
+    "problems": [
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "bearing-0",
+        "back": "clip-spine-0",
+        "frontKey": 32,
+        "backKey": 37,
+        "cells": 206,
+        "area": 8.375,
+        "against": 160.1875,
+        "cycle": true,
+        "depth": 1.5502840297848337,
+        "at": [
+          347.5,
+          89.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "bearing-cap-0",
+        "frontKey": 35,
+        "backKey": 36,
+        "cells": 1099,
+        "area": 63.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 20.66045379638672,
+        "at": [
+          349.25,
+          75.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-spine-1",
+        "frontKey": 31,
+        "backKey": 43,
+        "cells": 2585,
+        "area": 149.1875,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.077991485595703,
+        "at": [
+          411.5,
+          143.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-1-0",
+        "frontKey": 31,
+        "backKey": 54,
+        "cells": 1527,
+        "area": 92,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.92101287841797,
+        "at": [
+          413.5,
+          160.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 31,
+        "backKey": 49,
+        "cells": 571,
+        "area": 31.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.541061401367188,
+        "at": [
+          409,
+          161
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "upright-1",
+        "back": "phone-shell",
+        "frontKey": 31,
+        "backKey": 42,
+        "cells": 758,
+        "area": 38.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 17.138748168945312,
+        "at": [
+          409.25,
+          142.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "bearing-1",
+        "frontKey": 43,
+        "backKey": 48,
+        "cells": 45,
+        "area": 0.5,
+        "against": 173.5,
+        "cycle": true,
+        "depth": 1.5002450548066264,
+        "at": [
+          411.25,
+          118.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-0",
+        "frontKey": 35,
+        "backKey": 37,
+        "cells": 12110,
+        "area": 753.375,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.949832916259766,
+        "at": [
+          354.25,
+          77.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-0",
+        "frontKey": 35,
+        "backKey": 38,
+        "cells": 1476,
+        "area": 88.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.985363006591797,
+        "at": [
+          355.5,
+          127.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-0",
+        "frontKey": 35,
+        "backKey": 40,
+        "cells": 859,
+        "area": 51.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.524635314941406,
+        "at": [
+          355.75,
+          130.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-0-1",
+        "frontKey": 35,
+        "backKey": 39,
+        "cells": 1453,
+        "area": 87.4375,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.598339145244715,
+        "at": [
+          356.75,
+          52.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-0-1",
+        "frontKey": 35,
+        "backKey": 41,
+        "cells": 858,
+        "area": 51.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 15.453379493529475,
+        "at": [
+          357.75,
+          57.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-spine-1",
+        "frontKey": 35,
+        "backKey": 43,
+        "cells": 4789,
+        "area": 297.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.6467742919921875,
+        "at": [
+          404.75,
+          122
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-1-0",
+        "frontKey": 35,
+        "backKey": 49,
+        "cells": 162,
+        "area": 9.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.251956939697266,
+        "at": [
+          406.5,
+          161.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "clip-pad-1-1",
+        "frontKey": 35,
+        "backKey": 50,
+        "cells": 162,
+        "area": 9.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.149195980604944,
+        "at": [
+          407.25,
+          78.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-shell",
+        "frontKey": 35,
+        "backKey": 42,
+        "cells": 89887,
+        "area": 5590.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 9.435402909514181,
+        "at": [
+          404.5,
+          75.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "phone-screen",
+        "frontKey": 35,
+        "backKey": 44,
+        "cells": 59582,
+        "area": 3701.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.154284596348035,
+        "at": [
+          374.25,
+          62
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "speaker",
+        "frontKey": 35,
+        "backKey": 45,
+        "cells": 440,
+        "area": 21.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.23474884033203,
+        "at": [
+          379.75,
+          149.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "camera-hole",
+        "frontKey": 35,
+        "backKey": 46,
+        "cells": 145,
+        "area": 7.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 18.211322784423828,
+        "at": [
+          396.5,
+          158.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "home-port",
+        "frontKey": 35,
+        "backKey": 47,
+        "cells": 248,
+        "area": 11.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 16.207507106696738,
+        "at": [
+          386.5,
+          66
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip",
+        "frontKey": 35,
+        "backKey": 56,
+        "cells": 3543,
+        "area": 214.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.876896518128632,
+        "at": [
+          382,
+          98.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-0",
+        "frontKey": 35,
+        "backKey": 51,
+        "cells": 808,
+        "area": 48.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.189132349893605,
+        "at": [
+          375.75,
+          97.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "cradle",
+        "back": "chip-pin-1",
+        "frontKey": 35,
+        "backKey": 58,
+        "cells": 766,
+        "area": 45.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 19.164235557889285,
+        "at": [
+          392,
+          107
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-0",
+        "frontKey": 37,
+        "backKey": 38,
+        "cells": 943,
+        "area": 56.875,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.094048500061035,
+        "at": [
+          353.75,
+          126.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-0",
+        "frontKey": 37,
+        "backKey": 40,
+        "cells": 208,
+        "area": 9.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.414022445678711,
+        "at": [
+          354,
+          130.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-0-1",
+        "frontKey": 37,
+        "backKey": 39,
+        "cells": 945,
+        "area": 57,
+        "against": 0,
+        "cycle": false,
+        "depth": 7.183385376818087,
+        "at": [
+          353.75,
+          43.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-0",
+        "back": "clip-pad-0-1",
+        "frontKey": 37,
+        "backKey": 41,
+        "cells": 208,
+        "area": 10,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.306610107421875,
+        "at": [
+          354.25,
+          47.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-0",
+        "frontKey": 43,
+        "backKey": 54,
+        "cells": 479,
+        "area": 25.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 4.030635833740234,
+        "at": [
+          410.75,
+          161.25
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-0",
+        "frontKey": 43,
+        "backKey": 49,
+        "cells": 820,
+        "area": 48.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.484745025634766,
+        "at": [
+          408.5,
+          160.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-1-1",
+        "frontKey": 43,
+        "backKey": 55,
+        "cells": 479,
+        "area": 25.8125,
+        "against": 0,
+        "cycle": false,
+        "depth": 3.9278800373864584,
+        "at": [
+          411.5,
+          78
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "clip-pad-1-1",
+        "frontKey": 43,
+        "backKey": 50,
+        "cells": 818,
+        "area": 48.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 8.433764339840963,
+        "at": [
+          408.25,
+          77.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "clip-spine-1",
+        "back": "phone-screen",
+        "frontKey": 43,
+        "backKey": 44,
+        "cells": 2961,
+        "area": 183.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.197280883789062,
+        "at": [
+          405,
+          79.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "phone-screen",
+        "frontKey": 42,
+        "backKey": 44,
+        "cells": 59582,
+        "area": 3701.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.238262176513672,
+        "at": [
+          374.25,
+          62
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "speaker",
+        "frontKey": 42,
+        "backKey": 45,
+        "cells": 440,
+        "area": 21.625,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.318729400634766,
+        "at": [
+          379.75,
+          149.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "camera-hole",
+        "frontKey": 42,
+        "backKey": 46,
+        "cells": 145,
+        "area": 7.6875,
+        "against": 0,
+        "cycle": false,
+        "depth": 11.295303344726562,
+        "at": [
+          396.5,
+          158.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "home-port",
+        "frontKey": 42,
+        "backKey": 47,
+        "cells": 248,
+        "area": 11.5625,
+        "against": 0,
+        "cycle": false,
+        "depth": 6.7721099853515625,
+        "at": [
+          386.5,
+          66
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip",
+        "frontKey": 42,
+        "backKey": 56,
+        "cells": 3543,
+        "area": 214.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.960880279541016,
+        "at": [
+          382,
+          98.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-0",
+        "frontKey": 42,
+        "backKey": 51,
+        "cells": 808,
+        "area": 48.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.273113250732422,
+        "at": [
+          375.75,
+          97.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-shell",
+        "back": "chip-pin-1",
+        "frontKey": 42,
+        "backKey": 58,
+        "cells": 766,
+        "area": 45.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 12.248218536376953,
+        "at": [
+          392,
+          107
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip",
+        "frontKey": 44,
+        "backKey": 56,
+        "cells": 3543,
+        "area": 214.9375,
+        "against": 0,
+        "cycle": false,
+        "depth": 2.58685302734375,
+        "at": [
+          382,
+          98.5
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-0",
+        "frontKey": 44,
+        "backKey": 51,
+        "cells": 808,
+        "area": 48.25,
+        "against": 0,
+        "cycle": false,
+        "depth": 1.8990859985351562,
+        "at": [
+          375.75,
+          97.75
+        ],
+        "unorderable": false
+      },
+      {
+        "state": 0,
+        "label": "share 0",
+        "front": "phone-screen",
+        "back": "chip-pin-1",
+        "frontKey": 44,
+        "backKey": 58,
+        "cells": 766,
+        "area": 45.75,
+        "against": 0,
+        "cycle": false,
+        "depth": 1.8741874694824219,
+        "at": [
+          392,
+          107
+        ],
+        "unorderable": false
+      }
+    ]
+  }
+]

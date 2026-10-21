@@ -1,0 +1,12 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {dirname,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {scene} from './geometry.mjs';
+import * as M from './model.mjs';
+const HERE=dirname(fileURLToPath(import.meta.url)),ROOT=join(HERE,'../..'),read=n=>readFileSync(join(HERE,n),'utf8');
+const s=scene(0,0,process.argv.includes('--audit'));
+const kit='/* Anatomy\n'+readFileSync(join(ROOT,'assets/anatomy/LICENSE'),'utf8')+'\n*/\n'+readFileSync(join(ROOT,'assets/anatomy/iso-kit.mjs'),'utf8').replace(/^export /gm,'');
+const model='const M=(()=>{'+read('model.mjs').replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();';
+const values={CSS:readFileSync(join(ROOT,'assets/anatomy/iso.css'),'utf8')+'\n'+read('style.css'),SCENE:s.svg,JS:kit+'\n'+model+'\nconst P='+JSON.stringify(s.P)+';\n'+read('app.js')};
+const html=read('page.html').replace(/\{\{(CSS|SCENE|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
+writeFileSync(join(ROOT,'6-3.html'),html);console.log('Built 6-3.html · '+s.R.items.length+' parts');

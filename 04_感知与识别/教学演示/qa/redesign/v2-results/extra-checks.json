@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "chart-pointer-coordinate-and-keyboard",
+      "pass": true,
+      "result": {
+        "t": 3,
+        "box": {
+          "x": 41,
+          "y": 754,
+          "width": 1017,
+          "height": 117
+        },
+        "vb": {
+          "w": 1017,
+          "h": 117
+        }
+      }
+    },
+    {
+      "name": "comparison-overlay",
+      "pass": true,
+      "result": {
+        "traces": 1
+      }
+    },
+    {
+      "name": "csv-rejection-duplicate-time.csv",
+      "pass": true,
+      "result": {
+        "status": "第3行时间没有严格递增。"
+      }
+    },
+    {
+      "name": "csv-rejection-invalid-number.csv",
+      "pass": true,
+      "result": {
+        "status": "第3行缺少有效数字，未用0替代。"
+      }
+    },
+    {
+      "name": "csv-rejection-missing-value.csv",
+      "pass": true,
+      "result": {
+        "status": "第3行缺少有效数字，未用0替代。"
+      }
+    },
+    {
+      "name": "duplicate-column-rejection",
+      "pass": true,
+      "result": {
+        "status": "时间列和各轴必须使用不同列。"
+      }
+    },
+    {
+      "name": "notebook-delete-clear",
+      "pass": true,
+      "result": {
+        "before": 1
+      }
+    }
+  ]
+}

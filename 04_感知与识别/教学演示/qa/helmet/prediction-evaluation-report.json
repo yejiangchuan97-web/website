@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-10-16T15:41:14.407Z",
+  "tests": [
+    {
+      "name": "预测页初始化：固定7候选，五个人工目标图，默认阈值0.25",
+      "status": "pass"
+    },
+    {
+      "name": "预测页0.50同步更新保留3/筛除4，原始分数不变",
+      "status": "pass"
+    },
+    {
+      "name": "筛除候选仍可定位，自动打开筛除框且选中项绘于最后",
+      "status": "pass"
+    },
+    {
+      "name": "SVG候选可用键盘选择与取消",
+      "status": "pass"
+    },
+    {
+      "name": "预测分数等于阈值仍保留；0.92与1.00无保留，0.00全保留",
+      "status": "pass"
+    },
+    {
+      "name": "阈值参与题错误与正确两种反馈均可触发",
+      "status": "pass"
+    },
+    {
+      "name": "预测跳评估携带阈值0.50，返回预测也恢复0.50",
+      "status": "pass"
+    },
+    {
+      "name": "评估0.25为TP4 FP3 FN1，P57.1% R80.0%，所有真值/预测同时显示",
+      "status": "pass"
+    },
+    {
+      "name": "错类、重复、背景三种误检独立解释；错类仍留下真值漏检",
+      "status": "pass"
+    },
+    {
+      "name": "真值与预测叠加独立开关；点击真值可高亮，键盘可选预测",
+      "status": "pass"
+    },
+    {
+      "name": "更严格的IoU门槛使偏移P02失配；0.50可恢复标准计数",
+      "status": "pass"
+    },
+    {
+      "name": "评估0.50为3/0/2，P100% R60%；1.00空预测精确率不适用",
+      "status": "pass"
+    },
+    {
+      "name": "独立挑战隐藏指标、逐框结论与漏检身份，不泄露计数答案",
+      "status": "pass"
+    },
+    {
+      "name": "挑战错误答案反馈保留独立核验；正确答案揭示计数与解释",
+      "status": "pass"
+    },
+    {
+      "name": "阈值与IoU门槛改变清空答案；查看解析给出误检原因与漏检ID",
+      "status": "pass"
+    },
+    {
+      "name": "IoU独立位置实验：完全重合1、无重叠0、交并面积与滑条同步",
+      "status": "pass"
+    },
+    {
+      "name": "非法URL阈值安全回退，不抛错或越界",
+      "status": "pass"
+    },
+    {
+      "name": "390px手机预测页无横向溢出、候选可点击、原生滑条支持触控",
+      "status": "pass"
+    },
+    {
+      "name": "390px手机评估页无横向溢出、挑战核验/IoU滑条可用",
+      "status": "pass"
+    },
+    {
+      "name": "离线独立运行：无脚本异常或外网资源请求",
+      "status": "pass"
+    }
+  ],
+  "browserErrors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "prediction-evaluation/prediction-desktop.png",
+    "prediction-evaluation/evaluation-desktop.png",
+    "prediction-evaluation/prediction-mobile.png",
+    "prediction-evaluation/evaluation-mobile.png"
+  ],
+  "passed": 20,
+  "failed": 0
+}

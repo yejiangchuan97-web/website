@@ -1,0 +1,52 @@
+{
+  "tier": "Figure",
+  "concept": "A single wall-facing sanding pad on a normal slide responds to a raised or recessed wall coupon. The same mechanism explains force control and local dwell; a wall elevation maps circular footprints around a real window opening.",
+  "parts": {
+    "base": [
+      "bench",
+      "four feet",
+      "two wall feet",
+      "wall panel",
+      "variable-depth wall coupon",
+      "four coupon fasteners",
+      "column foot",
+      "column",
+      "column cap",
+      "two vertical rails",
+      "four rail stops",
+      "height carriage",
+      "six carriage fasteners"
+    ],
+    "normal_axis": [
+      "arm",
+      "arm cover",
+      "two normal rails",
+      "four rail stops",
+      "normal carriage",
+      "actuator mount",
+      "actuator body",
+      "actuator gland",
+      "single visible actuator rod",
+      "force sensor",
+      "sensor collars",
+      "sensor window"
+    ],
+    "tool": [
+      "abrasive sheet",
+      "backing disc",
+      "dust skirt",
+      "motor body",
+      "motor end cap",
+      "eight end-cap bolts",
+      "eight extraction holes",
+      "service port",
+      "controller case",
+      "controller lid",
+      "display",
+      "six vents"
+    ]
+  },
+  "model": "Illustrative compliant contact: compression=max(0,4+bump-retreat) mm; F=5*compression N. Feedback moves retreat toward the force setpoint with 0.55 s response, 4 mm/s rate limit, ±4 mm travel. Above 45 N the example locks normal-axis advance. These are teaching settings, not tool recommendations.",
+  "coverage": "Single 0.30 m disc; wall 3.6×2.4 m; window at (1.4,0.8), size 0.8×0.9 m. 0.08 m protection margin. Path segments contacting the expanded window or wall boundary are skipped with a lifted tool, never connected through the opening in contact. All parameter changes invalidate dry-run verification.",
+  "visual": "Normal displacement uses 1.5 drawing units per mm. No spindle rotation is simulated; the time strip shows relative feed in dwell scenarios."
+}

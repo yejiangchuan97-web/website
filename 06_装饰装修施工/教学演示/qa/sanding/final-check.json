@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "circularCornerClearance": true,
+  "hazard": {
+    "x": 1.27,
+    "z": 0.95,
+    "contact": false
+  },
+  "errors": []
+}

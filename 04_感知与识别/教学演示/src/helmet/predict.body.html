@@ -1,0 +1,23 @@
+<div class="helmet-main">
+  <div class="workspace prediction-workspace">
+    <section class="panel">
+      <div class="panel-head"><div><span class="tag">固定候选 · 7 个框</span><h2>同一张图，换一个筛选门槛</h2><p>拖动阈值，观察哪些候选框被保留。人物与原始预测分数保持不变。</p></div><span class="image-badge">640 × 640 px</span></div>
+      <div class="prediction-controls">
+        <div class="threshold-top"><label for="prediction-threshold">置信度阈值</label><output id="prediction-threshold-value" for="prediction-threshold">0.25</output></div>
+        <input id="prediction-threshold" type="range" min="0" max="1" step="0.01" value="0.25" aria-describedby="prediction-threshold-help">
+        <div class="range-labels"><span>0.00 · 保留更多</span><span>1.00 · 保留更少</span></div>
+        <div class="toolbar"><button class="btn small" data-prediction-threshold="0.25">观察 0.25</button><button class="btn small" data-prediction-threshold="0.50">比较 0.50</button><label class="toggle-label"><input id="prediction-show-filtered" type="checkbox">显示被筛除的框</label></div>
+        <p class="tiny muted" id="prediction-threshold-help">保留规则：预测分数 ≥ 阈值。本课刻意保留重复候选供下一页核对；真实检测流程通常还有 NMS（去重），此处未模拟。</p>
+      </div>
+      <div class="stage helmet-image-stage"><svg id="prediction-svg" viewBox="0 0 640 640" role="img" aria-label="安全帽固定预测回放"></svg><div id="prediction-empty" class="stage-empty" hidden>当前阈值没有保留任何候选框。<span>降低阈值，再观察哪些框出现。</span></div></div>
+      <div class="stage-bottom"><div class="legend-row"><span><i class="legend-line prediction-line"></i>保留的预测框</span><span><i class="legend-line filtered-line"></i>被筛除的框</span></div><span id="prediction-image-status" class="tiny">原创教学示意图 · 非真实施工影像</span></div>
+    </section>
+    <aside class="prediction-sidebar">
+      <section class="panel"><div class="panel-head"><div><h2>候选结果</h2><p>点击一项，在图中定位对应框。</p></div></div><div class="prediction-counts"><div><strong id="prediction-visible-count">7</strong><span>个保留</span></div><div><strong id="prediction-hidden-count">0</strong><span>个筛除</span></div></div><div id="prediction-candidate-list" class="candidate-list" aria-label="固定预测候选列表"></div></section>
+      <section class="note score-note"><span class="eyebrow">读懂这个数字</span><h3>0.91 是预测分数</h3><p>它表示模型对这个类别的置信程度，不能直接读作“这个框有 91% 的正确率”。是否预测正确，要与人工核对的真值比较。</p></section>
+    </aside>
+  </div>
+  <section class="panel lesson-section"><div class="panel-head"><div><span class="tag">动手想一想</span><h2>提高阈值，一定会得到更好的结果吗？</h2><p>先在图中比较 0.25 和 0.50，再作出判断。</p></div></div><div class="answer-options" id="prediction-question"><button class="answer-option" data-prediction-answer="always"><span>A</span><div><strong>一定更好</strong><small>留下的分数更高，所以所有结果都更正确。</small></div></button><button class="answer-option" data-prediction-answer="tradeoff"><span>B</span><div><strong>需要同时考虑误检与漏检</strong><small>低分错误框可能被筛掉，低分正确框也可能消失。</small></div></button></div><div id="prediction-answer-feedback" class="answer-feedback" aria-live="polite" hidden></div></section>
+  <section class="lesson-cards prediction-flow"><article class="lesson-card"><span class="step-kicker">01 / 输入</span><h3>图像 + 已有权重</h3><p>真实推理用训练好的权重读取新图像。此页使用固定示例，浏览器没有加载或运行 YOLO 模型。</p></article><article class="lesson-card"><span class="step-kicker">02 / 输出</span><h3>框 + 类别 + 分数</h3><p>预测结果带有分数。它与标注页导出的五列人工训练标签，是不同用途的数据。</p></article><article class="lesson-card"><span class="step-kicker">03 / 筛选</span><h3>改变门槛，保留候选</h3><p>本页滑条只筛选已有候选，不重新预测、不训练，也不改变这些框的原始分数。</p></article></section>
+  <div class="page-next"><div><span class="eyebrow">下一步 · 结果评估</span><h3>这些框里，哪些真的找对了？</h3><p>带着当前阈值，核对误检、漏检与一对一匹配。</p></div><a class="btn primary" id="prediction-next-evaluation" href="4-3-evaluate.html?threshold=0.25">去评估这些结果 <span aria-hidden="true">→</span></a></div>
+</div>

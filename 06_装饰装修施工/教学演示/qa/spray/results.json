@@ -1,0 +1,169 @@
+{
+  "model": [
+    {
+      "safe": 98,
+      "centerPollution": 32.5,
+      "unprotected": 100,
+      "gapCoverage": 82
+    }
+  ],
+  "layouts": [
+    {
+      "tab": "coverage",
+      "width": 1440,
+      "height": 810,
+      "scrollW": 1440,
+      "scrollH": 810,
+      "overflow": 0,
+      "feedbackBottom": 772,
+      "panelBottom": 780
+    },
+    {
+      "tab": "opening",
+      "width": 1440,
+      "height": 810,
+      "scrollW": 1440,
+      "scrollH": 810,
+      "overflow": 0,
+      "feedbackBottom": 772,
+      "panelBottom": 780
+    },
+    {
+      "tab": "dose",
+      "width": 1440,
+      "height": 810,
+      "scrollW": 1440,
+      "scrollH": 810,
+      "overflow": 0,
+      "feedbackBottom": 772,
+      "panelBottom": 780
+    },
+    {
+      "tab": "coverage",
+      "width": 1920,
+      "height": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "overflow": 0,
+      "feedbackBottom": 1008,
+      "panelBottom": 1037
+    },
+    {
+      "tab": "opening",
+      "width": 1920,
+      "height": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "overflow": 0,
+      "feedbackBottom": 1008,
+      "panelBottom": 1037
+    },
+    {
+      "tab": "dose",
+      "width": 1920,
+      "height": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "overflow": 0,
+      "feedbackBottom": 1008,
+      "panelBottom": 1037
+    },
+    {
+      "tab": "coverage",
+      "width": 1366,
+      "height": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "overflow": 0,
+      "feedbackBottom": 730,
+      "panelBottom": 738
+    },
+    {
+      "tab": "opening",
+      "width": 1366,
+      "height": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "overflow": 0,
+      "feedbackBottom": 730,
+      "panelBottom": 738
+    },
+    {
+      "tab": "dose",
+      "width": 1366,
+      "height": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "overflow": 0,
+      "feedbackBottom": 730,
+      "panelBottom": 738
+    },
+    {
+      "tab": "coverage",
+      "width": 1280,
+      "height": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "overflow": 0,
+      "feedbackBottom": 682,
+      "panelBottom": 690
+    },
+    {
+      "tab": "opening",
+      "width": 1280,
+      "height": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "overflow": 0,
+      "feedbackBottom": 682,
+      "panelBottom": 690
+    },
+    {
+      "tab": "dose",
+      "width": 1280,
+      "height": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "overflow": 0,
+      "feedbackBottom": 682,
+      "panelBottom": 690
+    },
+    {
+      "tab": "coverage",
+      "width": 390,
+      "height": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "overflow": 0,
+      "feedbackBottom": 790,
+      "panelBottom": 800
+    },
+    {
+      "tab": "opening",
+      "width": 390,
+      "height": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "overflow": 0,
+      "feedbackBottom": 790,
+      "panelBottom": 800
+    },
+    {
+      "tab": "dose",
+      "width": 390,
+      "height": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "overflow": 0,
+      "feedbackBottom": 790,
+      "panelBottom": 800
+    }
+  ],
+  "checks": [
+    "animation, pause, step, keyboard",
+    "progress scrubbing and nozzle closeup",
+    "window-edge center vs footprint triggering",
+    "flow compensation, explanation dialog, fullscreen"
+  ],
+  "errors": []
+}

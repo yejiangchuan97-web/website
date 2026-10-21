@@ -1,0 +1,182 @@
+{
+  "browser": "155.0.4283.45",
+  "url": "file:///C:/Users/maquefighting/Desktop/website-main/04_%E6%84%9F%E7%9F%A5%E4%B8%8E%E8%AF%86%E5%88%AB/%E6%95%99%E5%AD%A6%E6%BC%94%E7%A4%BA/4-1.html",
+  "viewport": {
+    "width": 1440,
+    "height": 1100,
+    "scale": 1
+  },
+  "layout": {
+    "width": 1440,
+    "documentWidth": 1440,
+    "sideways": false,
+    "title": "机器人状态示波台 · 感知与识别",
+    "figures": 2
+  },
+  "errors": [],
+  "warnings": [],
+  "failures": [],
+  "steps": [
+    {
+      "action": "assert",
+      "label": "0°: z = +g, y = 0",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "90°: y = +g, z = 0",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Ideal gravity removal zeros all axes",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Slow 90° final pose and zero angular speed",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Fast 90° same final pose and zero angular speed",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Hold: 35° remains after angular speed returns to zero",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Play advances time",
+      "value": true
+    },
+    {
+      "action": "eval",
+      "expression": "window.qaPausedTime=lessonState().time",
+      "value": 0.533268
+    },
+    {
+      "action": "assert",
+      "label": "Pause holds time",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Reset restores time and pose",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Keyboard End reaches 90°",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Keyboard Shift+Right changes 10°",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Milliseconds converted to seconds; missing x retained",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "CSV missing axis displayed as missing; g converted to 9.8m/s²",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "CSV cursor selects t=6s sample",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Save 2-8s window and correct peak",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Only three windows saved",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Existing trials require one shared axis",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Missing axis cannot be filled with zero for comparison",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Duplicate axis/time mapping rejected",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "b=0.01 and t=10s yield 0.5m error",
+      "value": true
+    },
+    {
+      "action": "assert",
+      "label": "Manual 45° has zero displayed angular speed",
+      "value": true
+    },
+    {
+      "action": "shot",
+      "out": "04_感知与识别/教学演示/qa/4-1-desktop-full.png",
+      "readout": [
+        "θ 45.0° · 绕本体 x 轴"
+      ]
+    },
+    {
+      "action": "shot",
+      "out": "04_感知与识别/教学演示/qa/4-1-interaction-lines.png",
+      "readout": [
+        "θ 45.0° · 绕本体 x 轴"
+      ]
+    },
+    {
+      "action": "lines",
+      "ends": 136,
+      "lines": 19,
+      "problems": []
+    },
+    {
+      "action": "eval",
+      "expression": "lessonState()",
+      "value": {
+        "view": "motion",
+        "mode": "slow",
+        "time": 0,
+        "angle": 44.99529393970738,
+        "omega": 0,
+        "withGravity": true,
+        "playing": false,
+        "bias": 0.01,
+        "imported": {
+          "axes": [
+            false,
+            true,
+            true
+          ],
+          "end": 12,
+          "rows": 13
+        },
+        "trials": 0
+      }
+    },
+    {
+      "action": "shot",
+      "out": "04_感知与识别/教学演示/qa/4-1-desktop-final.png",
+      "readout": [
+        "θ 45.0° · 绕本体 x 轴"
+      ]
+    }
+  ]
+}

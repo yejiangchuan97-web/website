@@ -1,0 +1,21 @@
+{
+  "tier": "Figure series",
+  "concept": "A laser-referenced screed-head teaching rig moves vertically against an independent datum; a twin-rotor trowel works a sample slab and reveals why timing and geometric coverage are different questions.",
+  "layout": "One 16:9 viewport, three sequential experiments, no vertical scroll; light/dark themes; self-contained HTML.",
+  "parts": {
+    "base": ["sample tray", "concrete coupon", "four feet", "four foot caps", "front ruler", "ruler end screws", "edge rim", "corner fasteners"],
+    "screed_structure": ["two column feet", "two gantry columns", "two column caps", "crossbeam", "two actuator mounts", "two cylinder bodies", "two glands", "two rods", "two rod end pads", "head backbone", "working blade", "blade wear strip", "six blade bolts", "two receiver mast feet", "two masts", "two receiver housings", "two receiver windows", "six receiver segments", "controller enclosure", "controller lid", "four enclosure screws", "six cooling slots", "laser tower foot", "laser tower", "laser body", "laser window"],
+    "trowel": ["eight blades", "two blade spiders", "two output shafts", "two gearbox housings", "two motor bodies", "two motor covers", "sixteen motor screws", "two split safety guard rings", "eight guard struts", "four guard braces", "chassis plate", "battery enclosure", "battery lid", "four battery fasteners", "six ventilation slots", "controller", "controller screen", "sensor mast", "sensor body", "sensor window", "two bumper pads", "two service covers"]
+  },
+  "model": {
+    "datum": "Design elevation is zero. Receiver reading e = head - laser. Closed loop head moves toward laser with a 0.8 s illustrative time constant and 8 mm/s rate limit. Independent error = head - design. Display displacement magnified 1.6 world units/mm.",
+    "timing": "Early / ready / late are illustrative material-state presets, not elapsed times or strength predictions. No numerical quality score.",
+    "coverage": "Union of two swept circular tool footprints on a 4.8 by 3.2 m teaching coupon, sampled on a fixed 80 by 54 grid. Guard envelope sets a 0.20 m boundary inset. Coverage is geometry only."
+  },
+  "sources": [
+    "../../../任务5-3_混凝土泵送布料与整平抹光机器人.md",
+    "../../../../来源/11_5.主体结构施工协同.txt",
+    "https://www.somero.com/parts/oasis-control-system/",
+    "https://www.nrmca.org/wp-content/uploads/2021/01/20pr.pdf"
+  ]
+}

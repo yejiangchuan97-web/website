@@ -1,0 +1,119 @@
+{
+  "poses": [
+    {
+      "z": 49,
+      "rules": 294
+    },
+    {
+      "z": 52,
+      "rules": 291
+    },
+    {
+      "z": 55,
+      "rules": 297
+    },
+    {
+      "z": 59,
+      "rules": 307
+    },
+    {
+      "z": 64,
+      "rules": 295
+    },
+    {
+      "z": 70,
+      "rules": 287
+    },
+    {
+      "z": 85,
+      "rules": 279
+    },
+    {
+      "z": 150,
+      "rules": 273
+    },
+    {
+      "z": 205,
+      "rules": 268
+    },
+    {
+      "z": 281,
+      "rules": 275
+    }
+  ],
+  "order": [
+    "foot.-220.-81",
+    "foot.-220.81",
+    "foot.220.-81",
+    "foot.220.81",
+    "bench",
+    "plinth",
+    "ruler",
+    "wall.left",
+    "tire.-39.-14",
+    "tire.13.-14",
+    "wall.bottom",
+    "wall.top",
+    "frame.left",
+    "hub.-39.-14",
+    "hub.13.-14",
+    "rear.bumper",
+    "wall.right",
+    "nozzle",
+    "tip.guard.-2",
+    "frame.bottom",
+    "frame.top",
+    "axle.-39.-14",
+    "axle.13.-14",
+    "nozzle.coupler",
+    "frame.right",
+    "wheel.bridge.-39",
+    "wheel.bridge.13",
+    "tip.guard.6",
+    "sill",
+    "axle.-39.43",
+    "axle.13.43",
+    "chassis",
+    "valve",
+    "tire.-39.43",
+    "tire.13.43",
+    "shell",
+    "range.window",
+    "hub.-39.43",
+    "hub.13.43",
+    "front.bumper",
+    "controller",
+    "lidar.platform",
+    "mast.shoe",
+    "control.face",
+    "vent.0",
+    "vent.1",
+    "vent.2",
+    "vent.3",
+    "vent.4",
+    "lidar.mount",
+    "mast.right",
+    "limit.lower",
+    "tool.arm",
+    "screen",
+    "stop.base",
+    "rail.right",
+    "mast.left",
+    "range.body",
+    "stop.button",
+    "slider.-11.155",
+    "slider.-11.141",
+    "mast.top",
+    "rail.left",
+    "stop.upper",
+    "slider.-25.155",
+    "slider.-25.141",
+    "carriage",
+    "hatch",
+    "tool.bracket",
+    "lidar.body",
+    "lidar.window",
+    "lidar.cap"
+  ],
+  "errors": 0
+}

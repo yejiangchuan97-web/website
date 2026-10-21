@@ -1,0 +1,165 @@
+{
+  "model": [
+    "suction thresholds, isolated cup loss, vision convergence/occlusion, independent force/height, continuous cycle poses"
+  ],
+  "layouts": [
+    {
+      "tab": "vision",
+      "w": 1440,
+      "h": 810,
+      "scrollW": 1440,
+      "scrollH": 810,
+      "overflow": 0,
+      "qBottom": 637,
+      "panelBottom": 691
+    },
+    {
+      "tab": "vacuum",
+      "w": 1440,
+      "h": 810,
+      "scrollW": 1440,
+      "scrollH": 810,
+      "overflow": 0,
+      "qBottom": 659,
+      "panelBottom": 691
+    },
+    {
+      "tab": "height",
+      "w": 1440,
+      "h": 810,
+      "scrollW": 1440,
+      "scrollH": 810,
+      "overflow": 0,
+      "qBottom": 618,
+      "panelBottom": 691
+    },
+    {
+      "tab": "vision",
+      "w": 1920,
+      "h": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "overflow": 0,
+      "qBottom": 919,
+      "panelBottom": 931
+    },
+    {
+      "tab": "vacuum",
+      "w": 1920,
+      "h": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "overflow": 0,
+      "qBottom": 919,
+      "panelBottom": 931
+    },
+    {
+      "tab": "height",
+      "w": 1920,
+      "h": 1080,
+      "scrollW": 1920,
+      "scrollH": 1080,
+      "overflow": 0,
+      "qBottom": 919,
+      "panelBottom": 931
+    },
+    {
+      "tab": "vision",
+      "w": 1366,
+      "h": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "overflow": 0,
+      "qBottom": 567.546875,
+      "panelBottom": 665
+    },
+    {
+      "tab": "vacuum",
+      "w": 1366,
+      "h": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "overflow": 0,
+      "qBottom": 603.296875,
+      "panelBottom": 665
+    },
+    {
+      "tab": "height",
+      "w": 1366,
+      "h": 768,
+      "scrollW": 1366,
+      "scrollH": 768,
+      "overflow": 0,
+      "qBottom": 549.234375,
+      "panelBottom": 665
+    },
+    {
+      "tab": "vision",
+      "w": 1280,
+      "h": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "overflow": 0,
+      "qBottom": 567.546875,
+      "panelBottom": 617
+    },
+    {
+      "tab": "vacuum",
+      "w": 1280,
+      "h": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "overflow": 0,
+      "qBottom": 603.296875,
+      "panelBottom": 617
+    },
+    {
+      "tab": "height",
+      "w": 1280,
+      "h": 720,
+      "scrollW": 1280,
+      "scrollH": 720,
+      "overflow": 0,
+      "qBottom": 549.234375,
+      "panelBottom": 617
+    },
+    {
+      "tab": "vision",
+      "w": 390,
+      "h": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "overflow": 0,
+      "qBottom": 735,
+      "panelBottom": 743
+    },
+    {
+      "tab": "vacuum",
+      "w": 390,
+      "h": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "overflow": 0,
+      "qBottom": 735,
+      "panelBottom": 743
+    },
+    {
+      "tab": "height",
+      "w": 390,
+      "h": 844,
+      "scrollW": 390,
+      "scrollH": 844,
+      "overflow": 0,
+      "qBottom": 735,
+      "panelBottom": 743
+    }
+  ],
+  "checks": [
+    "occlusion freezes feedback; recovery converges",
+    "insufficient suction prevents lifting; mid-transfer loss stops playback",
+    "raised base preserves force and increases finish height; hidden defect does not falsify surface readings",
+    "fractional base readout and full compression range",
+    "fullscreen, help, sources"
+  ],
+  "errors": []
+}

@@ -1,0 +1,15 @@
+ply
+format ascii 1.0
+comment synthetic QA points with known original coordinates
+element vertex 4
+property float x
+property float y
+property float z
+property uchar red
+property uchar green
+property uchar blue
+end_header
+1000 2000 3000 255 0 0
+1010 2000 3000 0 255 0
+1000 2020 3040 0 0 255
+980 1990 3030 255 255 0

@@ -1,0 +1,213 @@
+{
+  "htmlSHA256": "090ab9ea1c84c622504ea2278ab8c63d9714626d2fce7038f83b1a3e328571d7",
+  "shots": [
+    {
+      "name": "view-iso",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\view-iso.png",
+      "scene": {
+        "available": true,
+        "meshes": 354,
+        "drawCalls": 365,
+        "triangles": 67202,
+        "robotWorldAxes": {
+          "x": [
+            1,
+            0,
+            0
+          ],
+          "y": [
+            0,
+            0.9510565162951535,
+            0.3090169943749475
+          ],
+          "z": [
+            0,
+            -0.3090169943749475,
+            0.9510565162951535
+          ]
+        },
+        "worldGravity": [
+          0,
+          0,
+          -1
+        ],
+        "bodyPosition": [
+          0,
+          0,
+          2.55
+        ],
+        "tilt": 18,
+        "yaw": 0,
+        "camera": [
+          6.744553349195815,
+          -9.043595073643074,
+          8.059441791968577
+        ],
+        "selected": null,
+        "theme": "light",
+        "mode": "observe"
+      }
+    },
+    {
+      "name": "view-front",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\view-front.png",
+      "scene": {
+        "available": true,
+        "meshes": 354,
+        "drawCalls": 365,
+        "triangles": 67202,
+        "robotWorldAxes": {
+          "x": [
+            1,
+            0,
+            0
+          ],
+          "y": [
+            0,
+            0.9510565162951535,
+            0.3090169943749475
+          ],
+          "z": [
+            0,
+            -0.3090169943749475,
+            0.9510565162951535
+          ]
+        },
+        "worldGravity": [
+          0,
+          0,
+          -1
+        ],
+        "bodyPosition": [
+          0,
+          0,
+          2.55
+        ],
+        "tilt": 18,
+        "yaw": 0,
+        "camera": [
+          7.627816917169666e-16,
+          -12.457170381665064,
+          5.317378926362862
+        ],
+        "selected": null,
+        "theme": "light",
+        "mode": "observe"
+      }
+    },
+    {
+      "name": "view-side",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\view-side.png",
+      "scene": {
+        "available": true,
+        "meshes": 354,
+        "drawCalls": 365,
+        "triangles": 67202,
+        "robotWorldAxes": {
+          "x": [
+            1,
+            0,
+            0
+          ],
+          "y": [
+            0,
+            0.9510565162951535,
+            0.3090169943749475
+          ],
+          "z": [
+            0,
+            -0.3090169943749475,
+            0.9510565162951535
+          ]
+        },
+        "worldGravity": [
+          0,
+          0,
+          -1
+        ],
+        "bodyPosition": [
+          0,
+          0,
+          2.55
+        ],
+        "tilt": 18,
+        "yaw": 0,
+        "camera": [
+          12.593342393913224,
+          0.25190043549867774,
+          4.816251470308798
+        ],
+        "selected": null,
+        "theme": "light",
+        "mode": "observe"
+      }
+    },
+    {
+      "name": "view-top",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\view-top.png",
+      "scene": {
+        "available": true,
+        "meshes": 354,
+        "drawCalls": 365,
+        "triangles": 67202,
+        "robotWorldAxes": {
+          "x": [
+            1,
+            0,
+            0
+          ],
+          "y": [
+            0,
+            0.9510565162951535,
+            0.3090169943749475
+          ],
+          "z": [
+            0,
+            -0.3090169943749475,
+            0.9510565162951535
+          ]
+        },
+        "worldGravity": [
+          0,
+          0,
+          -1
+        ],
+        "bodyPosition": [
+          0,
+          0,
+          2.55
+        ],
+        "tilt": 18,
+        "yaw": 0,
+        "camera": [
+          4.041752679397112e-17,
+          -0.6600683041365294,
+          14.583231871682578
+        ],
+        "selected": null,
+        "theme": "light",
+        "mode": "observe"
+      }
+    },
+    {
+      "name": "dark-final",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\dark-final.png"
+    },
+    {
+      "name": "4x-light-robot",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\4x-light-robot.png"
+    },
+    {
+      "name": "4x-light-bearing",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\4x-light-bearing.png"
+    },
+    {
+      "name": "4x-dark-robot",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\4x-dark-robot.png"
+    },
+    {
+      "name": "4x-dark-bearing",
+      "path": "C:\\Users\\maquefighting\\Desktop\\website-main\\04_感知与识别\\教学演示\\qa\\redesign\\v2-final-visual\\4x-dark-bearing.png"
+    }
+  ]
+}

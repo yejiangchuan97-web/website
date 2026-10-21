@@ -1,0 +1,49 @@
+{
+  "teaching": true,
+  "groupedBy": "source family",
+  "sources": [
+    {
+      "id": "A01",
+      "name": "工地A · 视频01 / 帧100",
+      "family": "site-A-video-01",
+      "split": "test"
+    },
+    {
+      "id": "A02",
+      "name": "工地A · 视频01 / 帧101",
+      "family": "site-A-video-01",
+      "split": "test"
+    },
+    {
+      "id": "B01",
+      "name": "工地B · 独立批次照片",
+      "family": "site-B-batch-02",
+      "split": "test"
+    },
+    {
+      "id": "C01",
+      "name": "工地C · 独立批次照片",
+      "family": "site-C-batch-03",
+      "split": "test"
+    },
+    {
+      "id": "D01",
+      "name": "工地D · 原图",
+      "family": "site-D-image-01",
+      "split": "train"
+    },
+    {
+      "id": "D02",
+      "name": "工地D · 原图副本",
+      "family": "site-D-image-01",
+      "split": "train"
+    },
+    {
+      "id": "D03",
+      "name": "工地D · 训练增强",
+      "family": "site-D-image-01",
+      "split": "train",
+      "aug": true
+    }
+  ]
+}

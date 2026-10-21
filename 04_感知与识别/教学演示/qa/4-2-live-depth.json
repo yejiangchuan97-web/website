@@ -1,0 +1,266 @@
+[
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 10
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 43
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 90
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 170
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 10
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 43
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 90
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 170
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 10
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 43
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 90
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.7,
+      "position": "A",
+      "azimuth": 170
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 10
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 43
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 90
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.12,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 170
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 10
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 43
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 90
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 0.4,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 170
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 10
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 43
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 90
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  },
+  {
+    "config": {
+      "height": 1.05,
+      "width": 0.9,
+      "position": "A",
+      "azimuth": 170
+    },
+    "orderError": null,
+    "missing": [],
+    "problems": []
+  }
+]
