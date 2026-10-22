@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23087f68'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='44' fill='white'%3E%E2%9A%99%3C/text%3E%3C/svg%3E"
+    />
+    <title>动力传动实验室 · 三维交互演示</title>
+    <style>
+      /*STYLE*/
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="动力传动实验室"
+        ><span class="brand-icon">⚙</span
+        ><span
+          >动力传动<span class="brand-light">实验室</span
+          ><small>MECHANICS / INTERACTIVE LAB</small></span
+        ></a
+      >
+      <nav aria-label="装置切换">
+        <button class="tab active" data-mode="gear">
+          <span>01</span>机械传动</button
+        ><button class="tab" data-mode="hyd"><span>02</span>液压推动</button
+        ><button class="tab" data-mode="air"><span>03</span>气压推动</button>
+      </nav>
+      <div class="top-actions">
+        <button
+          class="theme-toggle"
+          id="themeBtn"
+          aria-label="切换到深色背景"
+          aria-pressed="false"
+        >
+          <span class="theme-icon">☾</span
+          ><span class="theme-text">深色</span></button
+        ><button class="ghost help" id="helpBtn">
+          原理与说明 <span>↗</span>
+        </button>
+      </div>
+    </header>
+    <main class="workspace">
+      <section class="viewport" aria-label="三维模型视窗">
+        <div class="scene-heading">
+          <div class="eyebrow" id="eyebrow">ROTARY TRANSMISSION</div>
+          <h1 id="sceneTitle">让动力，传递起来。</h1>
+          <p id="sceneSubtitle">观察齿面啮合，理解转速与转矩的交换。</p>
+        </div>
+        <div class="scene-tools">
+          <span class="live"
+            ><i></i><span id="runningText">模拟运行中</span></span
+          ><button class="icon-btn" id="frontBtn" title="正视图">正视</button
+          ><button class="icon-btn" id="isoBtn" title="三维视角">3D</button
+          ><button class="icon-btn" id="homeBtn" title="复位视角 (Home)">
+            ⌂</button
+          ><button class="icon-btn" id="fullBtn" title="全屏">⛶</button>
+        </div>
+        <div id="canvasWrap">
+          <canvas
+            id="scene"
+            aria-label="可拖动旋转、滚轮缩放的三维机械模型"
+            tabindex="0"
+          ></canvas>
+          <div id="webglError" hidden>
+            此浏览器未启用 WebGL。请用 Chrome 或 Edge 打开，并启用图形加速。
+          </div>
+          <svg
+            class="component-leaders"
+            id="componentLeaders"
+            aria-hidden="true"
+          ></svg>
+          <div
+            class="component-layer"
+            id="componentLabels"
+            role="group"
+            aria-label="常显组件名称"
+          ></div>
+        </div>
+        <div class="scene-bottom">
+          <div class="legend" id="legend"></div>
+          <span class="gesture"
+            >组件名称常显 <b>·</b> 拖动旋转 <b>·</b> 滚轮缩放</span
+          >
+        </div>
+        <div class="metrics" id="metrics"></div>
+      </section>
+      <aside class="control-panel">
+        <div class="panel-heading">
+          <span>实验控制</span><small>PARAMETERS</small>
+        </div>
+        <div class="panel-scroll">
+          <div class="section-label">
+            装置设置 <span id="modeCode">01 / TRANSMISSION</span>
+          </div>
+          <div id="modeControls"></div>
+          <div class="state-card">
+            <div class="state-top">
+              <span class="state-dot"></span
+              ><strong id="stateText">连续传动</strong>
+            </div>
+            <p id="stateDetail"></p>
+          </div>
+          <div class="principle">
+            <span>工作原理</span><strong id="formula"></strong>
+            <p id="principleText"></p>
+          </div>
+          <div class="mini-chart">
+            <div>
+              <span id="chartTitle">转速对比</span
+              ><span id="chartUnit">rpm</span>
+            </div>
+            <canvas id="chart" aria-label="实时数据曲线"></canvas>
+            <div class="chart-legend" id="chartLegend"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="transport">
+      <div class="playback">
+        <button id="playBtn" class="play" title="播放 / 暂停 (空格)">
+          Ⅱ <span>暂停</span></button
+        ><button id="stepBtn" class="ghost" title="暂停并前进 0.1 秒">
+          单步 <span>+0.1s</span></button
+        ><button id="resetBtn" class="ghost" title="重置当前实验 (R)">
+          ↺ 重置
+        </button>
+      </div>
+      <div class="speed-control">
+        <label for="speed">整体播放速率</label
+        ><input
+          id="speed"
+          type="range"
+          min="0.1"
+          max="2"
+          step="0.1"
+          value="1"
+        /><output id="speedOut">1.0×</output
+        ><button class="ghost" id="normalBtn" title="恢复 1 倍播放">1×</button>
+      </div>
+      <div class="sim-clock">
+        <span>模拟时间</span><strong id="clock">00:00.0</strong
+        ><small>播放倍率不改变物理参数</small>
+      </div>
+    </footer>
+    <dialog id="helpDialog">
+      <div class="dialog-head">
+        <div>
+          <div class="eyebrow">MODEL NOTES</div>
+          <h2>看得见运动，也读得懂原理。</h2>
+        </div>
+        <button class="icon-btn" id="closeHelp" aria-label="关闭说明">✕</button>
+      </div>
+      <div class="dialog-content">
+        <p>
+          三维教学模型。动画、流量、体积和读数由同一个物理状态驱动；各模型在对应假设内满足传动关系与守恒关系。
+        </p>
+        <h3>01 / 齿轮、带与链</h3>
+        <p>
+          直齿轮采用 20° 压力角渐开线、相同模数及标准中心距；外啮合两轮反向，n₂
+          = −n₁ z₁/z₂。开式平带依靠摩擦，两轮同向；设定无打滑，n₁d₁ =
+          n₂d₂。滚子链依靠滚子与链齿的几何啮合，两轮同向，平均速比等于齿数比。链的显示采用节线近似，忽略多边形效应引起的瞬时速度波动；带的弹性、打滑及张紧动态未模拟。
+        </p>
+        <p>
+          机械传动的转矩按恒定效率估算：齿轮 97%、带 95%、链 98%。输出转矩 T₂ =
+          η T₁ |n₁/n₂|，输入功率 P = T₁ω₁。细虚线为节圆 / 节线，不是实体零件。
+        </p>
+        <h3>02 / 双作用液压缸</h3>
+        <p>
+          A = πD²/4，B = π(D²−d²)/4。伸出 v = Q/A，缩回 |v| =
+          Q/B。液压油按不可压缩、无泄漏处理，采用准静态模型：入口压力由阻力、100
+          N 摩擦力及 0.1 MPa
+          回油背压共同决定。压力设置是溢流上限，不是固定工作压力。负载超限或到达终点时，缸口流量为零，泵流量经溢流支路回油；中位为封闭中位，泵仍经溢流阀回油。显示“进油量”为累计进入缸腔的油量，不包括溢流量。
+        </p>
+        <h3>03 / 双作用气缸</h3>
+        <p>
+          采用等温集中参数双腔模型：p<sub>绝对</sub>V =
+          mRT；阀口采用含临界阻塞的可压缩流量关系。按两腔压差、12 kg
+          等效质量、25 N 摩擦及 300 N·s/m
+          阻尼积分活塞运动，展示充气建压、压缩、排气与负载停滞。负载为双向运动阻力。封闭中位会保留空气，活塞可能因压差和惯性继续微动，不能视为机械锁。端点为刚性挡块。未计温升、泄漏、软管容积和行程缓冲。
+        </p>
+        <p>
+          所有压力读数均为<b>表压</b>。气量统一折算至
+          <b>20°C、101.325 kPa 绝压</b>，以 NL / NL·min⁻¹
+          显示（本页约定参考状态，非 0°C 标准状态）；气体实际腔容积另以 mL
+          显示。气动流量旋钮为 0.7 MPa
+          绝压上游、临界流动下的额定供气能力，实际流量随压差变化。A/B 均含 5 mm
+          等效死容积。
+        </p>
+        <h3>操作</h3>
+        <p>
+          1 / 2 / 3 切换装置；空格播放或暂停；R 重置当前实验；Home
+          复位视角。拖动旋转，滚轮或双指捏合缩放，Shift 拖动平移。单步始终前进
+          0.1
+          秒模拟时间。切换装置保留各自状态；更换几何尺寸或传动方式会重置当前实验，避免状态突变。桌面固定视窗，小屏仅控制区内部滚动。
+        </p>
+        <h3>零件观察与学生任务</h3>
+        <p>
+          点击组件名称会独立展示对应零件，并暂停整机；可拖动观察各个方向，开启自动旋转，或从零件说明中切换其他组件。Esc
+          或“返回整体”恢复整机。机械传动可切换 1、2
+          号轴为输入，盘车按钮使输入轴正向转过 15°。
+        </p>
+        <p>
+          “学习任务”包含轴系装配、输入轴对换、液压接管和气缸加载四项练习。装配题以预装轴承座、轴、键、齿轮、轴环的教学顺序进行，齿轮配对检查模数与压力角；结果只验证本页的连接、顺序与运动关系，不代替实际装配公差与强度检验。模型外观采用教学比例。通过记录保存在本机，可导出文本实验记录。
+        </p>
+        <h3>参考资料与组件</h3>
+        <p>
+          <a
+            href="https://khkgears.net/new/gear_knowledge/gear_technical_reference/calculation_gear_dimensions.html"
+            target="_blank"
+            rel="noopener"
+            >KHK · 齿轮尺寸与传动关系</a
+          ><br /><a
+            href="https://www.festo.com/net/supportportal/files/10203/actuators"
+            target="_blank"
+            rel="noopener"
+            >Festo · 气缸压力与作用力</a
+          ><br /><a
+            href="https://www.festo.com/de/en/s/air-consumption"
+            target="_blank"
+            rel="noopener"
+            >Festo · 气缸耗气量</a
+          >
+        </p>
+        <p class="muted">
+          渲染：Three.js r160，MIT
+          License。所有依赖均已内嵌；文件可离线运行。模型用于原理教学，不替代工程选型与安全验证。
+        </p>
+      </div>
+    </dialog>
+    <script>
+      /*THREE*/
+    </script>
+    <script>
+      /*MODEL*/
+    </script>
+    <script>
+      /*ANNOTATIONS*/
+    </script>
+    <script>
+      /*FOCUS*/
+    </script>
+    <script>
+      /*KNOWLEDGE*/
+    </script>
+    <script>
+      /*LEARNING*/
+    </script>
+    <script>
+      /*APP*/
+    </script>
+  </body>
+</html>
