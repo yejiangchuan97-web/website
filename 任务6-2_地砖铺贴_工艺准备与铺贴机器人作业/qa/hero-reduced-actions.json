@@ -1,0 +1,82 @@
+[
+  [
+    "until",
+    "window.tilingLab"
+  ],
+  [
+    "eval",
+    "if(!tilingLab.scene.stats().webgl)throw Error('expected WebGL');'WebGL reduced-motion mode'"
+  ],
+  [
+    "click",
+    "#center"
+  ],
+  [
+    "click",
+    "[data-layout=quad]"
+  ],
+  [
+    "click",
+    "#trial"
+  ],
+  [
+    "eval",
+    "if(!tilingLab.snapshot().state.grip.trial)throw Error('reduced trial incomplete');'reduced motion completes discrete lift'"
+  ],
+  [
+    "click",
+    "#transfer"
+  ],
+  [
+    "click",
+    "#recognize"
+  ],
+  [
+    "click",
+    "#occlude"
+  ],
+  [
+    "click",
+    "#slip"
+  ],
+  [
+    "click",
+    "#occlude"
+  ],
+  [
+    "click",
+    "#recognize"
+  ],
+  [
+    "eval",
+    "for(let i=0;i<35&&!tilingLab.snapshot().readings.vision.aligned;i++)document.querySelector('#alignStep').click();'single-step alignment'"
+  ],
+  [
+    "click",
+    "#acceptAlign"
+  ],
+  [
+    "click",
+    "#toPress"
+  ],
+  [
+    "click",
+    "[data-mode=force]"
+  ],
+  [
+    "eval",
+    "for(let i=0;i<40&&!tilingLab.snapshot().readings.press.passed;i++)document.querySelector('#pressStep').click();'single-step pressure'"
+  ],
+  [
+    "click",
+    "#ruler"
+  ],
+  [
+    "click",
+    "#finish"
+  ],
+  [
+    "eval",
+    "if(!Object.values(tilingLab.snapshot().state.done).every(Boolean)||tilingLab.snapshot().readings.sensorForce!==0)throw Error('reduced WebGL mismatch');'REDUCED WEBGL FULL WORKFLOW PASS'"
+  ]
+]

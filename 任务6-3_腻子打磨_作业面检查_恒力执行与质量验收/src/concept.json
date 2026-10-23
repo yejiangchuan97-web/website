@@ -1,52 +1,56 @@
 {
-  "tier": "Figure",
-  "concept": "A single wall-facing sanding pad on a normal slide responds to a raised or recessed wall coupon. The same mechanism explains force control and local dwell; a wall elevation maps circular footprints around a real window opening.",
+  "tier": "Hero",
+  "concept": "同一台真实三维移动打磨机器人贯穿四项实训：肩肘协同扫墙，柔顺腕按力反馈退让，墙面保留磨痕，随动软管连接可剖视集尘系统。",
+  "layout": "16:9 固定画幅，同屏切换四关；手机切换画面和控制，保留全部关卡操作。浅色为默认，同时生成深色页面。",
+  "stages": [
+    {
+      "id": "force",
+      "title": "稳住接触力",
+      "interaction": "固定位置与反馈控制对照，注入墙面凸起，查看接触力变化与法向退让，记录比较结果。"
+    },
+    {
+      "id": "surface",
+      "title": "磨出好表面",
+      "interaction": "选择砂纸或砂网粒度，轻压或重压，连续进给或同点驻留，在试片上观察起伏、划痕和损伤，再用侧光复核。"
+    },
+    {
+      "id": "dust",
+      "title": "把粉尘收住",
+      "interaction": "识别滤芯、管路、尘袋故障，停机隔离后处理，再确认密封和集尘恢复。"
+    },
+    {
+      "id": "care",
+      "title": "验收与养护",
+      "interaction": "结合侧光与靠尺判读表面，按停磨、清余尘、断电、检查清洁、记录收纳的次序完成交接。"
+    }
+  ],
   "parts": {
-    "base": [
-      "bench",
-      "four feet",
-      "two wall feet",
-      "wall panel",
-      "variable-depth wall coupon",
-      "four coupon fasteners",
-      "column foot",
-      "column",
-      "column cap",
-      "two vertical rails",
-      "four rail stops",
-      "height carriage",
-      "six carriage fasteners"
+    "robot": "131 purposeful physical meshes; full assembly inventory in robot3d.js and HERO.md",
+    "assemblies": [
+      "低位移动底盘与转向轮",
+      "肩座与控制台",
+      "肩肘腕逆运动学链",
+      "法向柔顺滑台与力传感器",
+      "磨料、接口垫、背盘与集尘裙边",
+      "集尘桶、尘袋、折叠滤芯与管接头",
+      "2 mm 路径更新的连续随动软管"
     ],
-    "normal_axis": [
-      "arm",
-      "arm cover",
-      "two normal rails",
-      "four rail stops",
-      "normal carriage",
-      "actuator mount",
-      "actuator body",
-      "actuator gland",
-      "single visible actuator rod",
-      "force sensor",
-      "sensor collars",
-      "sensor window"
-    ],
-    "tool": [
-      "abrasive sheet",
-      "backing disc",
-      "dust skirt",
-      "motor body",
-      "motor end cap",
-      "eight end-cap bolts",
-      "eight extraction holes",
-      "service port",
-      "controller case",
-      "controller lid",
-      "display",
-      "six vents"
+    "room": [
+      "厚墙与踢脚线",
+      "侧墙窗洞、窗框和玻璃",
+      "地台、地板缝与作业边界",
+      "六块独立试磨区",
+      "侧光工作灯",
+      "真实贴墙靠尺"
     ]
   },
-  "model": "Illustrative compliant contact: compression=max(0,4+bump-retreat) mm; F=5*compression N. Feedback moves retreat toward the force setpoint with 0.55 s response, 4 mm/s rate limit, ±4 mm travel. Above 45 N the example locks normal-axis advance. These are teaching settings, not tool recommendations.",
-  "coverage": "Single 0.30 m disc; wall 3.6×2.4 m; window at (1.4,0.8), size 0.8×0.9 m. 0.08 m protection margin. Path segments contacting the expanded window or wall boundary are skipped with a lifted tool, never connected through the opening in contact. All parameter changes invalidate dry-run verification.",
-  "visual": "Normal displacement uses 1.5 drawing units per mm. No spindle rotation is simulated; the time strip shows relative feed in dwell scenarios."
+  "models": {
+    "contact": "F=5*max(0,4+bump-retreat) N，默认目标 20 N，反馈 0.55 s，退让速率不超过 4 mm/s，行程 ±4 mm，超过 45 N 锁定。均为教学设定，不是通用设备参数。",
+    "surface": "rough/scratch/damage 是 0..1 离散教学状态；P180 三遍后 P240 一遍可达本关目标。重压或驻留产生不能靠继续磨削消除的损伤。不预测去除厚度、实际平整度和合格率。",
+    "dust": "电源、接管、滤芯、尘袋与密封均就绪才允许作业；任一故障阻止恢复。粉尘图形只示意源头收集状态，不表示浓度或空气安全。",
+    "maintenance": "先停止磨盘，保持吸尘收走余尘，再关闭电源并断开能源。磨料、过滤系统和机身检查在断电后任意顺序完成，全部完成后才可记录收纳。"
+  },
+  "visual": "Three.js透视实体，蓝白圆角机身、暖白墙面、PBR材质、真实接触阴影；自由拖转、缩放、磨头特写、砂网与接口垫拆解；法向位移按0.008m/mm教学放大。",
+  "material_boundary": "砂纸或砂网磨粒可使用氧化铝等，具体配方随产品变化。P80/P180/P240 仅用于教学比较，不是统一工序，也不对应 Abranet Yellow 产品固定分档。",
+  "verification": "WebGL真实浏览器动作、几何端点与关节长度、资源数量、主题/移动端/减弱动态/二维备用视图；不将SVG审计结果用于证明此3D渲染器。"
 }

@@ -1,3 +1,73 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>{{TITLE}} · 任务3-3</title><style>{{ISO_CSS}}</style><style>{{CSS}}</style></head><body data-theme="light"><div class="app" data-mobile="model"><header class="topbar"><a href="../README.md" class="brand"><span class="brandmark">⌘</span><span>机械交互实验室<small>MECHANISM LAB / 03.03</small></span></a><nav class="topnav" aria-label="两个实验室"><a href="reducers.html" data-page="reducers">01 减速器</a><a href="conversion.html" data-page="conversion">02 运动转换</a></nav><div class="toptools"><button class="icon" id="help" aria-label="教学说明">?</button><button class="icon" id="theme" aria-label="切换明暗主题">◐</button><button class="icon" id="full" aria-label="全屏实验室">⛶</button></div></header><section class="intro"><div><div class="eyebrow">{{EYEBROW}}</div><h1>{{TITLE}}</h1><p id="subtitle"></p></div><nav class="modules" id="modules" aria-label="选择机构"></nav></section><div class="workspace"><section class="main"><figure class="figure iso-plate" style="margin:0"><div class="fighead"><span class="mono" id="figNumber"></span><b id="figTitle"></b></div><div class="viewport" id="viewport" tabindex="0" role="group" aria-label="三维机构，拖动旋转，滚轮缩放，空格暂停，左右键单步"></div><div class="fallback iso" id="fallback">{{FALLBACK}}<p>三维显示不可用。按钮与读数仍可操作；此图为静态分解参考，不表示当前机构的运动状态。</p></div><div class="viewtools"><button id="view" title="俯视与立体视角切换">俯视</button><button id="cut" aria-pressed="true">剖开</button><button id="explode" aria-pressed="false">拆开</button><button id="zoom">近看</button><button id="cameraReset">复位视角</button></div><div class="scene-note" id="sceneNote"></div><div class="figbottom"><div class="hint">空白处环绕 · 滚轮近看<br><span id="sceneHint">拖动手轮驱动 · 点击零件查看</span></div><div class="parttag"><strong id="partName"></strong><small id="partRole"></small></div></div></figure><div class="readouts"><div class="readout"><small>输入转动</small><output id="inputValue">0.00</output><em>圈</em><div class="detail" id="inputDetail"></div></div><div class="readout"><small id="outputLabel">输出转角</small><output id="outputValue">0.0</output><em id="outputUnit">°</em><div class="detail" id="outputDetail"></div></div><div class="readout"><small id="ratioLabel">减速比</small><output id="ratioValue">4 : 1</output><div class="detail" id="ratioDetail"></div></div></div><div class="transport"><button id="play" class="primary" aria-label="播放或暂停">▶ 播放</button><button id="stepBack" aria-label="输入反向单步">− 单步</button><button id="step" aria-label="输入正向单步">+ 单步</button><button id="oneTurn">转一圈</button><button id="reset">归零</button><select id="speed" aria-label="演示速度"><option value="0.25">0.25× 慢放</option><option value="0.5" selected>0.5× 慢放</option><option value="1">1× 演示</option><option value="2">2× 演示</option></select></div></section><aside class="side"><div class="sidehead"><h2>动手挑战</h2><span class="stars" id="stars" aria-label="已完成挑战">○ ○ ○</span></div><nav class="missiontabs" id="missiontabs" aria-label="选择挑战"><button data-level="0" class="active">01 找零件</button><button data-level="1">02 做实验</button><button data-level="2">03 停到位</button></nav><section class="mission"><div class="level" id="levelTag"></div><h3 id="missionTitle"></h3><p id="missionText"></p><div id="choices" class="choices"></div><div id="targetMeter" hidden><div class="meter"><b id="targetMark"></b><i id="positionMark"></i></div><div class="meterlabels"><span id="meterStart"></span><span id="meterEnd"></span></div></div><div class="setting" id="setting" hidden><label><span id="settingLabel"></span><select id="settingSelect" aria-label="机构参数"></select></label></div><button id="check" class="check primary">检查选择</button><div class="feedback" id="feedback" role="status" aria-live="polite"></div></section><section class="legend"><div class="legend-title">PARTS / 点击查看零件</div><div class="legend-buttons" id="legend"></div><p class="lesson-note" id="lessonNote"></p></section></aside></div><div class="mobile-switch"><button data-mobile="model" class="active">观察模型</button><button data-mobile="control">操作挑战</button></div><footer class="foot"><span>教学机构 · 运动与读数由同一模型驱动</span><a href="README.md">教学说明与来源 ↗</a><span>拖动观察 / 空格暂停 / ← → 单步 / F 全屏</span></footer></div><dialog id="about"><h2>在机械上找到答案</h2><p>点击零件、慢放、俯视和拆开，观察输入、固定件与输出。挑战可以自由切换，完成状态只保存在这台设备中。</p><p id="modelBoundary"></p><p>波发生器与柔轮的运动关系参考 <a href="https://www.harmonicdrive.net/technology" target="_blank" rel="noopener">Harmonic Drive 技术说明</a>；丝杠旋转与直线转换参考 <a href="https://www.thk.com/jp/en/products/ball_screw/" target="_blank" rel="noopener">THK 技术说明</a>。尺寸、速度与挑战目标为教学设定。</p><p>视觉设计采用 Anatomy 的实物实验台、实体零件、明暗层次与慢动作方法；主体为真三维，可离线运行。浏览器不支持三维时显示 Anatomy 静态备用图。</p><button id="closeHelp">回到实验</button></dialog><div class="toast" id="toast" role="status"></div><script>{{THREE}}</script><script>const PAGE='{{PAGE}}';{{MODEL}}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>{{TITLE}} · 任务3-3</title>
+<style>{{ISO_CSS}}</style>
+<style>{{CSS}}</style>
+</head>
+<body data-theme="light" data-page="{{PAGE}}">
+<div class="app" data-mobile="model">
+  <header class="topbar">
+    <a href="../README.md" class="brand"><span class="brandmark" aria-hidden="true">⌘</span><span>机械交互实验室<small>MECHANISM LAB / 03.03</small></span></a>
+    <span class="header-divider" aria-hidden="true"></span><span class="course">机器人构型与运动 <span class="task-tag">任务 3-3</span></span>
+    <nav class="topnav" aria-label="两个实验室"><a href="reducers.html" data-page="reducers">减速器</a><a href="conversion.html" data-page="conversion">运动转换</a></nav>
+    <div class="toptools"><button class="icon" id="help" aria-label="教学说明">?</button><button class="icon" id="theme" aria-label="切换明暗主题">◐</button><button class="icon" id="full" aria-label="全屏实验室">⛶</button></div>
+  </header>
+  <section class="intro">
+    <div><div class="eyebrow"><i aria-hidden="true"></i>{{EYEBROW}}</div><h1>{{TITLE}}</h1><p id="subtitle"></p></div>
+    <nav class="modules" id="modules" aria-label="选择机构"></nav>
+  </section>
+  <div class="workspace">
+    <section class="main" aria-label="机构与实时运动">
+      <figure class="figure iso-plate" style="margin:0">
+        <div class="fighead"><span class="mono" id="figNumber"></span><b id="figTitle"></b></div>
+        <div class="viewport" id="viewport" tabindex="0" role="group" aria-label="三维机构，拖动旋转，滚轮缩放，空格暂停，左右键单步"></div>
+        <div class="fallback iso" id="fallback">{{FALLBACK}}<p>三维显示不可用。按钮与读数仍可操作；此图为静态分解参考，不表示当前机构的运动状态。</p></div>
+        <div class="viewtools" aria-label="观察方式"><button id="view" title="俯视与立体视角切换">俯视</button><button id="cut" aria-pressed="true">剖开</button><button id="explode" aria-pressed="false">拆开</button><button id="markers" aria-pressed="true">运动标记</button><button id="zoom">近看</button><button id="cameraReset">复位视角</button></div>
+        <div class="scene-note" id="sceneNote"></div>
+        <div class="figbottom"><div class="hint"><div class="motion-status" id="motionStatus"></div><span id="sceneHint">拖动手轮驱动 · 点击零件查看</span><span class="orbit-hint">拖空白处旋转视角 · 滚轮缩放</span></div><div class="parttag"><strong id="partName"></strong><small id="partRole"></small></div></div>
+      </figure>
+      <div class="readouts" aria-label="实时读数">
+        <div class="readout"><small><i class="readout-dot input" aria-hidden="true"></i>输入转动</small><output id="inputValue">0.00</output><em>圈</em><div class="detail" id="inputDetail"></div></div>
+        <div class="readout"><small><i class="readout-dot output" aria-hidden="true"></i><span id="outputLabel">输出转角</span></small><output id="outputValue">0.0</output><em id="outputUnit">°</em><div class="detail" id="outputDetail"></div></div>
+        <div class="readout"><small id="ratioLabel">减速比</small><output id="ratioValue">4 : 1</output><div class="detail" id="ratioDetail"></div></div>
+      </div>
+      <div class="transport" aria-label="运动控制"><button id="play" class="primary" aria-label="播放或暂停">▶ 播放</button><div class="step-pair"><button id="stepBack" aria-label="输入反向单步">− 单步</button><button id="step" aria-label="输入正向单步">+ 单步</button></div><button id="oneTurn">输入一圈</button><button id="reset">归零</button><label class="speed-label"><span>速度</span><select id="speed" aria-label="演示速度"><option value="0.25">0.25× 慢放</option><option value="0.5">0.5× 慢放</option><option value="1" selected>1× 演示</option><option value="2">2× 演示</option><option value="4">4× 演示</option><option value="8">8× 演示</option></select></label></div>
+    </section>
+    <aside class="side" aria-label="运动观察与实验">
+      <section class="observation">
+        <div class="sidehead"><h2>看清输入与输出</h2><span class="live-tag"><i aria-hidden="true"></i>同步运动</span></div>
+        <p class="motion-summary" id="motionSummary"></p>
+        <div class="dial-pair reducer-only"><div class="dial-card"><span>输入</span><div class="motion-dial input-dial" id="inputDial" aria-hidden="true"></div></div><div class="dial-card"><span>输出</span><div class="motion-dial output-dial" id="outputDial" aria-hidden="true"></div></div></div>
+        <p class="dial-note reducer-only" id="dialNote" hidden>杯口径向形变差放大 8×；绿点跟随柔轮材料。三维几何与转速比例保持真实。</p>
+        <div class="input-progress reducer-only"><div><label id="inputTurnsLabel" for="inputTurns">累计输入圈数<span>拖动对照输出</span></label><output id="inputTurnsValue" for="inputTurns">0.00 圈</output></div><input id="inputTurns" type="range" min="0" max="4" step="0.01" value="0" aria-label="累计输入圈数，拖动对照输出"></div>
+        <div class="motion-rows" id="motionRows"></div>
+        <div class="equation" id="equation"></div>
+      </section>
+      <section class="experiment" aria-label="连续输入实验">
+        <div class="section-label reducer-only">连续输入 · 观察慢速输出</div>
+        <div class="experiment-controls reducer-only"><label for="turnCount">输入</label><select id="turnCount" aria-label="连续输入圈数"><option value="10">10 圈</option><option value="25" selected>25 圈</option><option value="100">100 圈</option></select><button id="manyTurns" class="primary">运行实验</button></div>
+        <div class="setting" id="setting" hidden><label><span id="settingLabel"></span><select id="settingSelect" aria-label="机构参数"></select></label></div>
+      </section>
+      <section class="legend"><div class="legend-title">零件识读 <span>点击定位</span></div><div class="legend-buttons" id="legend"></div><p class="lesson-note" id="lessonNote"></p></section>
+      <details class="challenge-details" id="challengeDetails">
+        <summary><span>动手挑战</span><span class="stars" id="stars" aria-label="已完成挑战">○ ○ ○</span><span class="chevron" aria-hidden="true">⌄</span></summary>
+        <nav class="missiontabs" id="missiontabs" aria-label="选择挑战"><button data-level="0" class="active">01 找零件</button><button data-level="1">02 做实验</button><button data-level="2">03 停到位</button></nav>
+        <section class="mission"><div class="level" id="levelTag"></div><h3 id="missionTitle"></h3><p id="missionText"></p><div id="choices" class="choices"></div><div id="targetMeter" hidden><div class="meter"><b id="targetMark"></b><i id="positionMark"></i></div><div class="meterlabels"><span id="meterStart"></span><span id="meterEnd"></span></div></div><button id="check" class="check primary">检查选择</button><div class="feedback" id="feedback" role="status" aria-live="polite"></div></section>
+      </details>
+    </aside>
+  </div>
+  <div class="mobile-switch"><button data-mobile="model" class="active">观察模型</button><button data-mobile="control">运动与实验</button></div>
+  <footer class="foot"><span>结构示意 · 运动与读数共用同一模型</span><a href="README.md">教学说明与来源 ↗</a><span>空格 播放 / ← → 单步 / F 全屏</span></footer>
+</div>
+<dialog id="about"><h2>在机械上找到答案</h2><p>点击零件、慢放、俯视和拆开，观察输入、固定件与输出。连续输入实验帮助观察慢速输出，动手挑战可以自由切换，完成状态只保存在这台设备中。</p><p id="modelBoundary"></p><p>波发生器与柔轮的运动关系参考 <a href="https://www.harmonicdrive.net/technology/harmonicdrive" target="_blank" rel="noopener">Harmonic Drive 技术说明</a>；丝杠旋转与直线转换参考 <a href="https://www.thk.com/jp/en/products/ball_screw/" target="_blank" rel="noopener">THK 技术说明</a>。尺寸、速度与挑战目标为教学设定。</p><p>两个转盘和累计角度与模型同步。正向按俯视逆时针定义；连续输入只提高整体播放速度，不改变输入与输出比例。底部刻度用于对照固定零位。</p><button id="closeHelp">回到实验</button></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script>{{THREE}}</script>
+<script>const PAGE='{{PAGE}}';{{MODEL}}
 {{SCENE}}
-{{APP}}</script></body></html>
+{{APP}}</script>
+</body>
+</html>

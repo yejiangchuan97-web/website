@@ -1,0 +1,15 @@
+[
+ ["eval","window.masonryLab.game.setLesson(2)"],
+ ["shot","qa/rebuild/bond-light.png",".app"],
+ ["click","[data-tab=issues]"],
+ ["click","[data-issue=mortar]"],
+ ["shot","qa/rebuild/issues-light.png",".app"],
+ ["click","[data-tab=robot]"],
+ ["eval","window.masonryLab.seek(3.5)"],
+ ["shot","qa/rebuild/robot-light.png",".app"],
+ ["eval","window.masonryLab.seek(6.5)"],
+ ["shot","qa/rebuild/robot-contact.png",".app"],
+ ["click","#theme"],
+ ["shot","qa/rebuild/robot-dark.png",".app"],
+ ["eval","JSON.stringify(window.masonryLab.snapshot().scene)"]
+]

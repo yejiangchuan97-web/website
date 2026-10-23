@@ -1,91 +1,208 @@
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-let tab='coverage',p={...M.DEFAULTS,slow:false},progress=0,playing=!reduced.matches,rate=4,raf=0,last=0,visible=true,stats,pose,zoom=false;
-const head=$$('[data-group="head"]'),robot=$$('[data-group="robot"]');
-const lessons={
- coverage:{title:'路径走遍 ≠ 喷幅覆盖',subtitle:'改变道间距，观察漏带如何出现；再用喷距改变喷幅。',question:'喷幅400 mm，道间距500 mm，会留下多宽的漏带？',answers:['没有漏带','100 mm','500 mm'],correct:1,feedback:'中间漏带为 s − W = 100 mm。端道调整不改变中间道的结论。'},
- opening:{title:'中心没进窗，喷幅可能已经进了',subtitle:'路径保持不变，只切换喷枪触发逻辑，比较窗洞污染与窗边漏区。',question:'关喷判断应该看喷嘴中心，还是整个喷幅？',answers:['只看中心','看整个喷幅'],correct:1,feedback:'喷幅有宽度。先按完整喷幅保护洞口，再复核窗边尚未覆盖的区域。'},
- dose:{title:'减速时，流量也要一起思考',subtitle:'跟随升降滑台观察起收段；同一条路径，停留时间改变局部沉积。',question:'速度降到一半、流量保持不变，相对沉积如何变化？',answers:['减半','不变','约为2倍'],correct:2,feedback:'在本页固定传递效率的假设下，流量÷速度变成2倍；这不是实际流挂判据。'}
-};
-function planeMatrix(){const a=iso([-180,-69.95,285],PROJECTION),b=iso([-179.9,-69.95,285],PROJECTION),c=iso([-180,-69.95,284.9],PROJECTION);return `matrix(${b[0]-a[0]} ${b[1]-a[1]} ${c[0]-a[0]} ${c[1]-a[1]} ${a[0]} ${a[1]})`;}
-$('#wallOverlay').setAttribute('transform',planeMatrix());
-function coatMarkup(){const ds=['','','',''];for(const c of stats.cells){if(!c.n)continue;const i=c.hole?3:Math.min(c.n,3)-1;ds[i]+=`M${c.x-10} ${2400-c.z-10}h20v20h-20Z`;}
- return ds.map((d,i)=>`<path class="coverage-${['one','two','three','polluted'][i]}" d="${d}"/>`).join('');}
-function routeMarkup(){let on='',off='';for(const seg of M.pathSegments(p)){if(seg.travel){off+=`M${seg.x0} ${2400-seg.z0}L${seg.x1} ${2400-seg.z1}`;continue;}const step=20*Math.sign(seg.z1-seg.z0);for(let z=seg.z0;step>0?z<seg.z1:z>seg.z1;z+=step){const z1=z+step,d=`M${seg.x0} ${2400-z}L${seg.x0} ${2400-z1}`;if(M.sprayAllowed(seg.x0,(z+z1)/2,p))on+=d;else off+=d;}}
- return `<path class="route-off" d="${off}"/><path class="route-on" d="${on}"/>`;}
-function setMetric(i,label,value,unit,note){$('#metric'+i+'Label').textContent=label;$('#metric'+i).innerHTML=value+' <small>'+unit+'</small>';$('#metric'+i+'Note').textContent=note;}
-function updatePlan(){
- stats=M.coverage(p);const coat=coatMarkup(),route=routeMarkup();$('#coat').innerHTML=coat;$('#mapCoat').innerHTML=coat;$('#wallRoute').innerHTML=route;$('#mapRoute').innerHTML=route;
- for(const id of ['spacing','distance','speed']){$('#'+id).value=p[id];$('#'+id+'Out').textContent=p[id]+(id==='speed'?' mm/s':' mm');}
- $('#slow').checked=p.slow;$('#compensate').checked=p.compensate;$$('[data-guard]').forEach(b=>{b.classList.toggle('active',b.dataset.guard===p.guard);b.setAttribute('aria-pressed',b.dataset.guard===p.guard);});
- const o=M.overlap(p);
- if(tab==='coverage'){
-  setMetric(1,'教学喷幅',Math.round(o.width),'mm','固定扇角 · W ∝ D');setMetric(2,o.gap?'中间道漏带':'相邻道重叠',o.gap?Math.round(o.gap):Math.round(o.ratio*100),o.gap?'mm':'%','名义值，不含末道调整');setMetric(3,'计划几何覆盖',stats.percent.toFixed(1),'%','扣除洞口 · 20 mm网格');
-  $('#takeaway').textContent=o.gap?`道间距大于喷幅，中间留下 ${Math.round(o.gap)} mm 漏带；“中心线走遍”不能保证覆盖。`:`相邻道搭接 ${Math.round(o.ratio*100)}%；窗边仍有 ${stats.area.toFixed(2)} m² 计划未覆盖区，需要精细补作业。`;
- }else if(tab==='opening'){
-  setMetric(1,'洞口受喷面积',stats.pollution.toFixed(1),'%','完整计划 · 窗洞内估计');setMetric(2,'墙面未覆盖',stats.area.toFixed(2),'m²','不含洞口 · 需要复核');setMetric(3,'开关判断',p.guard==='footprint'?'喷幅':p.guard==='center'?'中心':'无保护','','路径与触发逻辑分开');
-  $('#takeaway').textContent=p.guard==='footprint'?'洞口污染降为零；窗边留下的空白不能靠取消保护解决，应单独规划精细补作业。':p.guard==='center'?'中心尚未进入洞口，喷幅边缘已经越界。只判断中心，会漏掉窗侧与启停边缘。':'中心线经过窗洞时仍在喷涂。运动路径正确，不代表开关时序也正确。';
- }else{
-  drawPlot();$('#takeaway').textContent=p.compensate?'速度降低，流量同比降低：模型中的相对沉积保持一致。实际设备还需要考虑阀与供料响应。':p.slow?'起收段减速到50%，定流量下局部相对沉积增至匀速段的2倍；曲线展示完整单道。':'匀速、定流量时，模型中的相对沉积沿单道保持一致。';
- }
- draw();
-}
-function drawPlot(){let d='';for(let i=0;i<=100;i++){const v=M.depositionAt(i/100,p),y=128-v.dose*50;d+=(i?'L':'M')+(36+i*3.3)+' '+y;}
- $('#doseCurve').setAttribute('d',d);$('#doseArea').setAttribute('d',d+'L366 128H36Z');
- // Plot vertical scale follows the largest modeled dose, so slow experiments never clip.
- const max=Math.max(2,600/p.speed),scale=100/max;let curve='';for(let i=0;i<=100;i++)curve+=(i?'L':'M')+(36+i*3.3)+' '+(128-M.depositionAt(i/100,p).dose*scale);
- $('#doseCurve').setAttribute('d',curve);$('#doseArea').setAttribute('d',curve+'L366 128H36Z');$('#dosePlot').dataset.scale=scale;
- const text=$$('#dosePlot text');text[0].textContent=max.toFixed(1)+'×';text[1].textContent=(max/2).toFixed(1)+'×';
-}
-function shift(el,delta){el.setAttribute('transform',translateAlong(PROJECTION,delta));}
-function draw(){
- pose=M.poseAt(progress,p);const x=pose.x/10-183,z=M.WALL.base+pose.z/10,dy=(p.distance-300)/10;
- robot.forEach(el=>shift(el,[x,dy,0]));head.forEach(el=>shift(el,[x,dy,z-150]));
- const w=M.fanWidth(p.distance),r=`M${pose.x-w/2} ${2400-pose.z-40}h${w}v80h-${w}Z`;
- $('#wallFootprint').setAttribute('d',r);$('#mapFootprint').setAttribute('x',pose.x-w/2);$('#mapFootprint').setAttribute('y',2400-pose.z-40);$('#mapFootprint').setAttribute('width',w);$('#mapFootprint').setAttribute('height',80);
- for(const id of ['wallDot','mapDot']){$('#'+id).setAttribute('cx',pose.x);$('#'+id).setAttribute('cy',2400-pose.z);}
- const nx=pose.x/10-180,ny=-40+dy;
- const aim=iso([nx,ny,z],PROJECTION);$('#machine').setAttribute('viewBox',zoom?`${aim[0]-190} ${aim[1]-145} 470 300`:'0 0 1050 620');
- const fan=[iso([nx,ny,z],PROJECTION),iso([nx-w/20,-69.9,z-4],PROJECTION),iso([nx+w/20,-69.9,z-4],PROJECTION),iso([nx+w/20,-69.9,z+4],PROJECTION),iso([nx-w/20,-69.9,z+4],PROJECTION)];
- $('#sprayFan').setAttribute('d',pathOf(fan,true));$('#sprayFan').style.opacity=pose.on?'1':'0';$('#wallFootprint').style.opacity=pose.on?'1':'.25';$('#mapFootprint').style.opacity=pose.on?'1':'.25';
- $('#valveState').textContent=pose.on?'喷枪开启':pose.travel?'换道 · 停喷':'洞口保护 · 停喷';$('#valveLed').style.opacity=pose.on?'1':'.25';$('#phase').textContent=pose.travel?'换道 · 喷枪关闭':pose.on?'竖向作业 · 喷枪开启':'通过保护区 · 喷枪关闭';
- $('#liveSpeed').textContent=Math.round(pose.v)+' mm/s';$('#tcp').textContent=`TCP · X ${(pose.x/1000).toFixed(2)} m / Z ${(pose.z/1000).toFixed(2)} m`;
- $('#progress').value=Math.round(progress*1000);$('#progressLabel').textContent=Math.round(progress*100)+'%';$('#passLabel').textContent=`第 ${pose.pass} / ${M.passes(p.spacing).length} 道`;$('#play').textContent=reduced.matches?'单步预览':playing?'Ⅱ 暂停':'▶ 播放';
- if(tab==='dose'){
-  setMetric(1,'当前TCP速度',Math.round(pose.v),'mm/s',pose.travel?'换道期间关闭喷枪':'起收段可减速到50%');setMetric(2,'当前相对流量',pose.on?(pose.flow*100).toFixed(0):'0','%','相对于本课基准流量');setMetric(3,'局部相对沉积',pose.on?pose.dose.toFixed(2):'0','×',pose.on?'300 mm/s 匀速段 = 1×':'停喷时不产生沉积');
-  $('#doseDot').setAttribute('cx',36+(pose.z-40)/2320*330);$('#doseDot').setAttribute('cy',128-pose.dose*Number($('#dosePlot').dataset.scale||50));$('#doseDot').style.opacity=pose.on?'1':'.3';
- }
-}
-function renderLesson(reset=true){
- if(reset){p={...M.DEFAULTS,slow:tab==='dose'};progress=0;}
- const l=lessons[tab];$('#title').textContent=l.title;$('#subtitle').textContent=l.subtitle;$('#question').textContent=l.question;$('#feedback').textContent='先预测，再拖动参数验证。';
- $('#answers').innerHTML=l.answers.map((a,i)=>`<button data-answer="${i}">${a}</button>`).join('');
- $$('[data-tab]').forEach(b=>{b.classList.toggle('active',b.dataset.tab===tab);b.setAttribute('aria-pressed',b.dataset.tab===tab);});$$('[data-panel]').forEach(el=>el.hidden=el.dataset.panel!==tab);
- $('#map').toggleAttribute('hidden',tab==='dose');$('#dosePlot').toggleAttribute('hidden',tab!=='dose');$('#miniTitle').textContent=tab==='dose'?'单道相对沉积':'墙面展开';$('#miniNote').textContent=tab==='dose'?'完整单道 · 相对量':'完整计划预览';
- $('#planStatus').textContent=tab==='dose'?'相对沉积 ≠ 真实膜厚':'计划预览 ≠ 已完成施工';updatePlan();
-}
-function pause(){playing=false;draw();}
-function tick(now){raf=0;if(!visible||document.hidden){last=0;return;}const dt=last?Math.min((now-last)/1000,1/30):0;last=now;if(playing&&!reduced.matches){const s=M.poseAt(progress,p);progress+=s.v/s.total*dt*rate;if(progress>=1)progress=0;draw();}if(playing&&!reduced.matches)raf=requestAnimationFrame(tick);}
-function run(){if(!raf&&playing&&!reduced.matches&&visible&&!document.hidden){last=0;raf=requestAnimationFrame(tick);}}
-function togglePlay(){if(reduced.matches){progress=Math.min(.9999,progress+.02);playing=false;draw();return;}playing=!playing;draw();run();}
-function step(delta=.007){pause();progress=Math.max(0,Math.min(.9999,progress+delta));draw();}
-$$('[data-tab]').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;renderLesson();run();}));
-for(const id of ['spacing','distance','speed'])$('#'+id).addEventListener('input',e=>{pause();p[id]=Number(e.target.value);updatePlan();});
-$$('[data-preset]').forEach(b=>b.addEventListener('click',()=>{pause();p.distance=300;p.spacing=b.dataset.preset==='gap'?500:200;progress=0;updatePlan();}));
-$$('[data-guard]').forEach(b=>b.addEventListener('click',()=>{pause();p.guard=b.dataset.guard;updatePlan();}));
-for(const id of ['slow','compensate'])$('#'+id).addEventListener('change',e=>{p[id]=e.target.checked;updatePlan();});
-$('#inspectWindow').addEventListener('click',()=>{pause();const segs=M.pathSegments(p),i=segs.findIndex(s=>!s.travel&&s.x0>=M.WALL.hole.x-M.fanWidth(p.distance)/2&&s.x0<M.WALL.hole.x);const idx=Math.max(0,i);let d=segs.slice(0,idx).reduce((s,a)=>s+a.length,0);d+=Math.abs(1200-segs[idx].z0);progress=d/segs.reduce((s,a)=>s+a.length,0);draw();});
-$('#play').addEventListener('click',togglePlay);$('#step').addEventListener('click',()=>step());$('#rewind').addEventListener('click',()=>{pause();progress=0;draw();});$('#rate').addEventListener('change',e=>rate=Number(e.target.value));$('#progress').addEventListener('input',e=>{const value=Number(e.target.value);pause();progress=Math.min(.999999,value/1000);draw();});$('#reset').addEventListener('click',()=>{pause();renderLesson();});
-$('#answers').addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(!b)return;$$('[data-answer]').forEach(x=>x.classList.toggle('chosen',x===b));const ok=Number(b.dataset.answer)===lessons[tab].correct;$('#feedback').textContent=(ok?'判断正确。':'再想一想。')+lessons[tab].feedback;});
-$('#theme').addEventListener('click',()=>{document.body.dataset.theme=document.body.dataset.theme==='light'?'dark':'light';});
-$('#zoom').addEventListener('click',()=>{zoom=!zoom;$('#zoom').textContent=zoom?'返回全景':'喷头近看';$('#zoom').setAttribute('aria-pressed',zoom);draw();});
-async function full(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{$('#hint').textContent='当前环境未允许全屏，可使用浏览器的 F11。';}}
-$('#fullscreen').addEventListener('click',full);document.addEventListener('fullscreenchange',()=>$('#fullscreen').setAttribute('aria-label',document.fullscreenElement?'退出全屏':'全屏演示'));
-$('#help').addEventListener('click',()=>{pause();$('#helpDialog').showModal();});$('#closeHelp').addEventListener('click',()=>$('#helpDialog').close());
-$('#mobileToggle').addEventListener('click',()=>{const on=$('.app').classList.toggle('mobile-controls');$('#mobileToggle').textContent=on?'查看模型 ⇄':'调节参数 ⇄';});
-document.addEventListener('keydown',e=>{if($('#helpDialog').open||e.target.matches('input,select'))return;if(e.code==='Space'){if(e.target.matches('button'))return;e.preventDefault();togglePlay();}if(e.code==='ArrowRight'){e.preventDefault();step();}if(e.code==='ArrowLeft'){e.preventDefault();step(-.007);}if(e.key.toLowerCase()==='f')full();if(['1','2','3'].includes(e.key)){tab=['coverage','opening','dose'][Number(e.key)-1];renderLesson();}});
-new IntersectionObserver(entries=>{visible=entries.at(-1).isIntersecting;if(visible)run();}).observe($('#scene'));
-document.addEventListener('visibilitychange',()=>{last=0;if(!document.hidden)run();});reduced.addEventListener('change',()=>{if(reduced.matches)pause();else run();});
-renderLesson();run();
-window.sprayLab={snapshot:()=>({tab,p:{...p},progress,playing,pose:{...pose},coverage:{percent:stats.percent,area:stats.area,pollution:stats.pollution}}),model:M};
-
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const stages = ['plan', 'trial', 'spray', 'inspect', 'deliver'];
+  const titles = ['规划一面墙的作业路线', '让第一道涂层告诉你结果', '把你的方案变成墙面', '走近墙面，处理留下的痕迹', '一面墙，一份完整作业记录'];
+  const hints = [
+    '调整喷距与道间距，沿着路线观察喷幅搭接；窗洞需要完整喷幅避让。',
+    '先试喷左侧两道，观察漏带与起收段沉积，再调整道间距、速度和流量同步。',
+    '机器人按已保存的参数执行。你可以暂停、切换视角，近看喷枪的启停。',
+    '点选墙面或返修清单。漏喷区补涂，污染区清理，沉积偏差区处理后重涂。',
+    '路线、实际涂覆、窗洞保护与返修操作已汇总，可导出本次作业记录。'
+  ];
+  const initial = {spacing:500, distance:300, speed:420, guard:'center', slow:true, compensate:false};
+  let state, lastTime=0, lastUI=0, frame=0, visible=true, scene;
+  const logs=[];
+  const log = (action, detail='') => logs.push({time:new Date().toISOString(), action, detail});
+  const fmt = n => Number.isFinite(n) ? n.toFixed(1) : '0.0';
+  function focusScene() { if(innerWidth<=900)document.querySelector('.world').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}); }
+  function setCamera(name) { scene?.setView(name);document.querySelectorAll('[data-view]').forEach(b=>{const active=b.dataset.view===name;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));}); }
+  function toast(message) { $('toast').textContent=message; $('toast').classList.add('show'); clearTimeout(toast.timer); toast.timer=setTimeout(()=>$('toast').classList.remove('show'),4000); }
+  function reset() {
+    state={stage:'plan', reached:0, params:{...initial}, color:'#4ab4aa', run:null, trialRun:null, trialDone:false, active:null, running:false, selection:null, inspect:false, repair:null};
+    logs.length=0; log('接收作业单','WALL A · 3600 × 2400 mm');
+    ['spacing','distance','speed','guard'].forEach(k=>$(k).value=state.params[k]);
+    ['slow','compensate'].forEach(k=>$(k).checked=state.params[k]);
+    $('rate').value='8'; $('pathToggle').checked=true; $('inspectToggle').checked=false;
+    document.querySelectorAll('[data-color]').forEach(b=>b.classList.toggle('active',b.dataset.color===state.color));
+    setCamera('orbit'); scene?.setPathVisible(true); refresh();document.querySelector('.panel-scroll').scrollTop=0;
+  }
+  function summary() { return state.run ? PM.summarizeRun(state.run) : null; }
+  function activeRun() { return state.stage==='trial' ? state.trialRun : state.run; }
+  function stageTo(stage) {
+    if(state.active==='trial'&&stage!=='trial'){state.active=null;state.running=false;}
+    state.stage=stage; state.reached=Math.max(state.reached,stages.indexOf(stage));
+    state.inspect=stage==='inspect'; $('inspectToggle').checked=state.inspect;
+    log('进入阶段',stage); refresh();document.querySelector('.panel-scroll').scrollTop=0;
+  }
+  function paramsChanged() {
+    if(state.run || state.running) return;
+    ['spacing','distance','speed'].forEach(k=>state.params[k]=Number($(k).value));
+    state.params.guard=$('guard').value;
+    ['slow','compensate'].forEach(k=>state.params[k]=$(k).checked);
+    state.trialDone=false; state.trialRun=null; state.active=null; state.running=false;
+    log('调整参数',JSON.stringify(state.params)); refresh();
+  }
+  function startTrial() {
+    if(state.running || state.run) return;
+    state.trialRun=PM.createRun(state.params); state.trialDone=false;
+    state.active='trial'; state.running=true;
+    if(state.stage!=='trial')stageTo('trial');
+    log('开始两道试喷',JSON.stringify(state.params)); refresh();focusScene();
+  }
+  function startSpray() {
+    if(!state.trialDone || state.running) return;
+    state.run=PM.createRun(state.params); state.active='spray'; state.running=true;
+    state.selection=null; log('开始正式喷涂',JSON.stringify(state.params)); stageTo('spray');focusScene();
+  }
+  function togglePlay() {
+    if(!state.active) return;
+    state.running=!state.running; log(state.running?'继续作业':'暂停作业'); refresh();
+  }
+  function beginRepair(all) {
+    if(!state.run || state.run.progress<1 || state.running || (!all&&!state.selection))return;
+    const s=summary(); if(s.ready) {toast('本次教学目标已达成，可以交付。');return;}
+    state.repair={all, elapsed:0, lastPatch:0, duration:all?8:1.8, targets:all?s.issues.map(i=>({x:i.x,z:i.z})): [{x:state.selection.x,z:state.selection.z}]};
+    if(!state.repair.targets.length)state.repair.targets=[{x:1800,z:1200}];
+    state.active='repair'; state.running=true;
+    log('执行返修工单',all?'采用校准后的精细作业，清理保护区、处理异常层并补涂':`局部 x=${state.selection.x}, z=${state.selection.z} mm；采用校准后的精细作业`);
+    toast('返修使用校准后的精细作业：先清理污染或异常层，再完成局部补涂。');
+    refresh();focusScene();
+  }
+  function selectPoint(point) {
+    if(state.stage!=='inspect'||state.running||state.active==='repair')return;
+    state.selection={x:point.x,z:point.z};
+    const c=state.run.coat.cells.reduce((best,c)=>Math.hypot(c.x-point.x,c.z-point.z)<Math.hypot(best.x-point.x,best.z-point.z)?c:best);
+    state.selection={x:c.x,z:c.z};
+    const note=c.hole ? (c.n?'窗面有涂料痕迹：先清理并恢复遮蔽。':'窗洞保护区，当前无污染。') : (!c.n?'这里还没有涂覆，需要精细补涂。':c.doseIssue?'相对沉积偏离教学目标：先处理，再按记录重涂。':'此处已达到本次教学目标。');
+    toast(`定位 ${Math.round(c.x)} / ${Math.round(c.z)} mm · ${note}`);
+    log('点选墙面检查',`${Math.round(c.x)},${Math.round(c.z)}`);refresh();
+  }
+  function refresh() {
+    if(!state)return;
+    const i=stages.indexOf(state.stage), s=summary(), r=activeRun();
+    $('stageLabel').textContent=`0${i+1} / ${['规划路线','试喷调机','执行喷涂','巡检返修','项目交付'][i]}`;
+    $('stageHint').textContent=['拖动旋转 · 滚轮缩放','先试喷，再调整','涂层随作业累积','点选墙面定位','作业记录已生成'][i];
+    $('missionTitle').textContent=titles[i]; $('missionHint').textContent=hints[i];
+    $('panelTitle').textContent=['编排你的方案','试喷与调机','作业进行中','巡检与返修','完成本次交付'][i];
+    $('panelKicker').textContent=['PLAN','TRY & TUNE','SPRAY','INSPECT & REPAIR','DELIVER'][i];
+    $('panelHint').textContent=hints[i];
+    $('parameterPanel').hidden=i>2;
+    $('trialPanel').hidden=i!==1;
+    $('inspectionPanel').hidden=i!==3;
+    $('deliveryPanel').hidden=i!==4;
+    ['spacing','distance','speed'].forEach(k=>{$(k+'Out').textContent=state.params[k]+(k==='speed'?' mm/s':' mm');});
+    document.querySelectorAll('#parameterPanel input,#parameterPanel select,#parameterPanel button').forEach(el=>el.disabled=!!state.run||state.running);
+    document.querySelectorAll('[data-stage]').forEach(b=>{
+      b.classList.toggle('active',b.dataset.stage===state.stage);
+      b.classList.toggle('done',stages.indexOf(b.dataset.stage)<i);
+      b.disabled=stages.indexOf(b.dataset.stage)>state.reached||state.running||!!state.run&&stages.indexOf(b.dataset.stage)<2;
+      b.setAttribute('aria-current',b.dataset.stage===state.stage?'step':'false');
+    });
+    const ov=M.overlap(state.params), d0=M.depositionAt(0,state.params).dose, d1=M.depositionAt(.5,state.params).dose;
+    $('planNote').innerHTML=`<b>喷幅 ${Math.round(ov.width)} mm</b><span>${ov.gap>0?`相邻道留有 ${Math.round(ov.gap)} mm 漏带`:`名义搭接 ${Math.round(ov.ratio*100)}%`} · ${M.passes(state.params.spacing).length} 道</span>`;
+    $('trialResult').innerHTML=state.trialDone?`<strong>两道试喷已完成</strong><p>已涂区域 ${fmt(PM.summarizeRun(state.trialRun).coverage)}%。起收段相对沉积 ${fmt(d0)}×，中段 ${fmt(d1)}×。</p><p>${ov.gap>0?'可见间距漏带；减小道间距后再试。':'路线间无名义漏带。正式作业时继续观察窗边停喷。'}${d0>1.2||d1<.85?' 调整速度与流量同步，观察涂层变化。':''}</p>`:state.running?'<strong>正在试喷两道</strong><p>近看喷头与墙面，观察起收段和实际涂覆。</p>':'<strong>当前参数还未试喷</strong><p>每次调整参数后，重新试喷，再开始正式作业。</p>';
+    $('retryTrial').disabled=state.running;
+    if(state.stage==='inspect')renderIssues(s);
+    $('repairSelected').disabled=state.running||!state.selection||!!s?.ready;
+    $('repairAll').disabled=state.running||!!s?.ready;
+    $('repairSelected').textContent=state.selection?`处理此处 · ${Math.round(state.selection.x)} / ${Math.round(state.selection.z)}`:'点选墙面后局部返修';
+    if(state.stage==='deliver'){
+      $('deliverySummary').innerHTML=`<div class="delivery-seal">✓</div><strong>WALL A · 项目已交付</strong><p>已喷覆盖 ${fmt(s.coverage)}%<br>窗面污染 ${fmt(s.pollution)}%<br>相对沉积达标 ${fmt(s.uniformity)}%</p><p>完成 ${state.run.repairs.length} 次区域处理，记录 ${logs.length} 项操作。</p><small>以上为本教学项目的网格模拟结果。</small>`;
+    }
+    const primary=$('actionPrimary');primary.disabled=state.running;
+    if(state.stage==='plan'){primary.textContent='保存路线，开始试喷 →';$('actionHint').textContent='可以先保留当前参数，用试喷观察你的方案。';}
+    if(state.stage==='trial'){primary.textContent=state.running?'试喷进行中…':state.trialDone?'按当前方案开始作业 →':'按新参数重新试喷 →';$('actionHint').textContent='试喷不会计入正式作业；正式喷涂会使用当前参数快照。';}
+    if(state.stage==='spray'){primary.textContent=state.run?.progress>=1?'完成喷涂，开始巡检 →':'按已保存方案执行中';primary.disabled=state.run?.progress<1;$('actionHint').textContent='作业中锁定参数。发现异常可以暂停查看，完成后处理返修。';}
+    if(state.stage==='inspect'){primary.textContent=s?.ready?'确认记录，交付项目 →':'先处理墙面，再交付';primary.disabled=!s?.ready||state.running;$('actionHint').textContent='本次目标：覆盖 ≥99.5%，窗面无污染，相对沉积在 0.85–1.20×。';}
+    if(state.stage==='deliver'){primary.textContent='新开一面墙 ↗';$('actionHint').textContent='下载记录后，可用另一组参数开始新的项目。';}
+    $('play').textContent=state.running?'Ⅱ 暂停':'▶ 继续';$('play').disabled=!state.active;
+    $('sceneStatus').textContent=state.active==='repair'?(state.running?'返修工单执行中':'返修已暂停'):state.running?(state.active==='trial'?'两道试喷中':'正在喷涂'):r?.progress>=1?'本轮路径已完成':r?'作业已暂停':'等待你的操作';
+    updateReadouts(); updateScene();
+  }
+  function renderIssues(s) {
+    const list=$('issueList');list.replaceChildren();
+    const intro=document.createElement('p');intro.className='issue-summary';
+    intro.textContent=s.ready?'本次教学目标已达成。可以查看墙面后交付。':`待处理网格 ${s.issueCount} 个 · 漏喷 ${fmt(s.missArea)} m²。以下为代表位置，可直接点击墙面检查。`;
+    list.append(intro);
+    for(const issue of s.issues){const b=document.createElement('button');b.type='button';b.className='issue-item';b.innerHTML=`<span class="issue-dot"></span><span><b>${issue.label}</b><small>${issue.detail}</small></span><span>↗</span>`;
+      b.addEventListener('click',()=>{setCamera('front');selectPoint(issue);});list.append(b);}
+  }
+  function updateReadouts() {
+    const r=activeRun(), s=r?PM.summarizeRun(r):null, progress=r?.progress||0;
+    $('coverageValue').textContent=fmt(s?.coverage||0)+'%';$('pollutionValue').textContent=fmt(s?.pollution||0)+'%';$('uniformityValue').textContent=s?fmt(s.uniformity)+'%':'—';
+    $('progress').value=Math.round(progress*1000);$('progressText').textContent=state.active==='repair'?`返修 ${Math.round(state.repair.elapsed/state.repair.duration*100)}%`:`${Math.round(progress*100)}%`;
+    const pose=currentPose();$('passLabel').textContent=`${state.stage==='trial'?'试喷 · ':''}第 ${pose.pass} / ${M.passes(state.params.spacing).length} 道`;
+    $('tcp').textContent=`喷枪 X ${(pose.x/1000).toFixed(2)} m · 高 ${(pose.z/1000).toFixed(2)} m`;
+    $('valveState').textContent=state.active==='repair'?'区域处理':state.running?(pose.on?'喷枪开启':'喷枪关闭'):'喷枪关闭';
+    $('valveState').dataset.on=String(!!(state.running&&pose.on));
+    $('liveSpeed').textContent=state.running?`${Math.round(pose.v)} mm/s`:'0 mm/s';
+  }
+  function currentPose() {
+    const r=activeRun();let pose=M.poseAt(r?.progress||0,state.params);
+    if(state.active==='repair'&&state.repair){const work=state.repair;const t=Math.min(.999,work.elapsed/work.duration)*work.targets.length;const a=work.targets[Math.floor(t)];pose={...pose,x:a.x,z:a.z,on:false,v:0};}
+    return pose;
+  }
+  function updateScene() {
+    if(!scene||!state)return;
+    $('inspectionLegend').hidden=!state.inspect;
+    const r=activeRun();
+    scene.update({params:state.params,pose:currentPose(),progress:r?.progress||0,coat:r?.coat||null,viewMode:state.inspect?'inspect':r?'paint':'plan',color:state.color,running:state.running,trial:state.stage==='trial',selectedCell:state.selection});
+  }
+  function tick(now) {
+    frame=0;if(!visible)return;
+    const dt=Math.min(.08,(now-(lastTime||now))/1000);lastTime=now;
+    if(state.running){
+      if(state.active==='repair'){
+        state.repair.elapsed+=dt;
+        if(state.repair.all&&state.repair.elapsed-state.repair.lastPatch>.12){
+          state.repair.lastPatch=state.repair.elapsed;
+          const issue=PM.summarizeRun(state.run).issues[0];
+          if(issue){state.repair.targets=[issue];PM.repairAt(state.run,issue.x,issue.z);}
+        }
+        if(state.repair.elapsed>=state.repair.duration){
+          if(state.repair.all)PM.repairAll(state.run);else PM.repairAt(state.run,state.repair.targets[0].x,state.repair.targets[0].z);
+          state.running=false;state.active=null;state.repair=null;state.selection=null;
+          log('返修完成');toast(summary().ready?'墙面已达到本次教学目标，可以交付。':'此区域处理完成，继续检查其他位置。');refresh();
+        }
+      }else{
+        const r=state.active==='trial'?state.trialRun:state.run,pose=M.poseAt(r.progress,r.params);
+        const rate=state.active==='trial'?2.5:Number($('rate').value);
+        const trialLimit=Math.min(1,(2320*2+state.params.spacing)/pose.total);
+        const limit=state.active==='trial'?trialLimit:1;
+        PM.advanceRun(r,Math.min(limit,r.progress+pose.v*dt*rate/pose.total));
+        if(r.progress>=limit-1e-8){const trial=state.active==='trial';state.running=false;state.active=null;state.trialDone=trial||state.trialDone;log(trial?'两道试喷完成':'正式路径执行完成');toast(trial?'试喷结束。调整参数后可以再试，或按此方案开始作业。':'喷涂完成。进入巡检，查看墙面上的实际结果。');refresh();if(trial)document.querySelector('.panel-scroll').scrollTop=0;}
+      }
+      updateScene();
+    }
+    if(now-lastUI>180){lastUI=now;updateReadouts();}
+    frame=requestAnimationFrame(tick);
+  }
+  function exportRecord() {
+    if(state.stage!=='deliver')return;
+    const s=summary();const rows=[['室内喷涂工坊 · 教学作业记录'],['墙面','WALL A 3600 × 2400 mm'],['完成时间',new Date().toLocaleString('zh-CN')],['道间距 mm',state.params.spacing],['喷距 mm',state.params.distance],['设定速度 mm/s',state.params.speed],['洞口保护',state.params.guard],['流量同步',state.params.compensate?'是':'否'],['已喷覆盖 %',fmt(s.coverage)],['窗面污染 %',fmt(s.pollution)],['相对沉积达标 %',fmt(s.uniformity)],['范围说明','教学几何与相对沉积模型，不代表实际膜厚与工程验收'],[],['时间','操作','详情'],...logs.map(l=>[l.time,l.action,l.detail])];
+    rows.push([],['返修编号','X mm','高度 mm','处理内容','处理网格数'],...state.run.repairs.map(a=>[a.id,a.x,a.z,a.label,a.changed]));
+    const csv='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='WALL-A_喷涂项目作业记录.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('作业记录已导出。');
+  }
+  $('parameterPanel').before($('trialPanel'));
+  scene=window.createSprayScene($('scene'),{onWallPick:selectPoint,onContextLost:()=>{if(state){state.running=false;refresh();toast('三维显示暂停，作业进度已停住。刷新页面可重新开工。');}}});
+  scene.setTheme(document.body.dataset.theme);
+  ['spacing','distance','speed','guard','slow','compensate'].forEach(k=>$(k).addEventListener('input',paramsChanged));
+  $('actionPrimary').addEventListener('click',()=>{if(state.stage==='plan')startTrial();else if(state.stage==='trial')state.trialDone?startSpray():startTrial();else if(state.stage==='spray'&&state.run.progress>=1)stageTo('inspect');else if(state.stage==='inspect'&&summary().ready)stageTo('deliver');else if(state.stage==='deliver')reset();});
+  $('retryTrial').addEventListener('click',startTrial);$('play').addEventListener('click',togglePlay);
+  $('repairSelected').addEventListener('click',()=>beginRepair(false));$('repairAll').addEventListener('click',()=>beginRepair(true));
+  $('export').addEventListener('click',exportRecord);$('reset').addEventListener('click',()=>{reset();toast('已新建作业，重新安排你的喷涂方案。');});
+  document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setCamera(b.dataset.view)));
+  document.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)stageTo(b.dataset.stage);}));
+  document.querySelectorAll('[data-color]').forEach(b=>b.addEventListener('click',()=>{if(state.run||state.running)return;state.color=b.dataset.color;document.querySelectorAll('[data-color]').forEach(v=>{v.classList.toggle('active',v===b);v.setAttribute('aria-pressed',String(v===b));});updateScene();}));
+  $('pathToggle').addEventListener('change',()=>scene.setPathVisible($('pathToggle').checked));
+  $('inspectToggle').addEventListener('change',()=>{state.inspect=$('inspectToggle').checked;updateScene();});
+  $('theme').addEventListener('click',()=>{document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark';scene.setTheme(document.body.dataset.theme);});
+  $('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{toast('当前窗口不支持全屏，可使用浏览器全屏功能。');}});
+  $('help').addEventListener('click',()=>$('helpDialog').showModal());$('closeHelp').addEventListener('click',()=>$('helpDialog').close());
+  document.addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,button')||$('helpDialog').open)return;if(e.code==='Space'){e.preventDefault();togglePlay();}if(e.key.toLowerCase()==='f')$('fullscreen').click();});
+  document.addEventListener('visibilitychange',()=>{visible=!document.hidden;lastTime=0;if(visible&&!frame)frame=requestAnimationFrame(tick);else if(!visible){cancelAnimationFrame(frame);frame=0;}});
+  window.sprayLab={model:M,projectModel:PM,scene,snapshot:()=>({stage:state.stage,params:{...state.params},progress:activeRun()?.progress||0,playing:state.running,active:state.active,trialDone:state.trialDone,pose:currentPose(),summary:summary(),selection:state.selection,stats:scene.getStats(),logCount:logs.length})};
+  reset();frame=requestAnimationFrame(tick);
+})();

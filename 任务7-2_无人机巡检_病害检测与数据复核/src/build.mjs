@@ -1,0 +1,12 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import * as model from './model.mjs';
+const file=p=>fileURLToPath(new URL(p,import.meta.url));
+const read=p=>readFileSync(file(p),'utf8');
+const modelScript='const M=(()=>{'+read('./model.mjs').replace(/^export /gm,'')+';return {'+Object.keys(model).join(',')+'};})();';
+const sources='<h3>资料来源</h3><p><a href="https://support.pix4d.com/hc/best-practices-for-image-acquisition-and-photogrammetry" target="_blank" rel="noopener noreferrer">Pix4D · 影像采集与摄影测量最佳实践</a>：距离、角度、曝光与影像质量。<br><a href="https://support.pix4d.com/hc/en-us/articles/202560249" target="_blank" rel="noopener noreferrer">Pix4D · GSD 与画面范围计算</a>：相机参数与采样间距。<br><a href="https://www.fhwa.dot.gov/bridge/nbis2022/qanda/08.cfm" target="_blank" rel="noopener noreferrer">FHWA · 桥梁检查问答 Q313-1、Q313-2</a>：无人机影像的辅助作用与接触检查限制，仅作方法能力参考。</p>';
+const parts={CSS:read('./style.css'),MODEL:modelScript,SCENE:read('./scene.js'),APP:read('./app.js'),THREE:read('../../公共资源/vendor/three-r160.min.js'),SOURCES:sources};
+const html=read('./page.html').replace(/\{\{(CSS|MODEL|SCENE|APP|THREE|SOURCES)\}\}/g,(_,key)=>['MODEL','SCENE','APP','THREE'].includes(key)?parts[key].replace(/<\/script/gi,'<\\/script'):parts[key]);
+writeFileSync(file('../index.html'),html);
+writeFileSync(file('../dark.html'),html.replace('data-theme="light"','data-theme="dark"').replace("theme:'light',measurement", "theme:'dark',measurement"));
+console.log('Built task 7-2: standalone index.html + dark.html; '+Buffer.byteLength(html)+' bytes.');

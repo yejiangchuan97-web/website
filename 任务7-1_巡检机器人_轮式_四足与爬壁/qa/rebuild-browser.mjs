@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import {existsSync,mkdirSync,writeFileSync,readFileSync} from 'node:fs';
+import {dirname,join} from 'node:path';
+import {homedir} from 'node:os';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const qa=dirname(fileURLToPath(import.meta.url)),task=dirname(qa),out=join(qa,'rebuild-artifacts');mkdirSync(out,{recursive:true});
+const require=createRequire(import.meta.url),{chromium}=require(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+const executablePath=['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Google/Chrome/Application/chrome.exe'].find(existsSync);
+const browser=await chromium.launch({executablePath,headless:true,args:['--edge-skip-compat-layer-relaunch','--do-not-de-elevate','--allow-file-access-from-files','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const errors=[],report={date:new Date().toISOString(),checks:[],errors};
+const url=pathToFileURL(join(task,'index.html')).href;
+const note=(name,data={})=>{report.checks.push({name,...data});console.log(name,JSON.stringify(data));};
+const shots=[];
+try{
+ const page=await browser.newPage({viewport:{width:1600,height:900},reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(url);await page.waitForFunction(()=>!!window.inspectionLab);
+ const shot=async name=>{await page.screenshot({path:join(out,name+'.png')});shots.push(name);};
+ const click=async selector=>page.locator(selector).first().click();
+ const arrival=async()=>page.waitForFunction(()=>inspectionLab.state.entries[inspectionLab.state.mission].arrived,null,{timeout:90000});
+ const saved=async valid=>{await click('#shutterButton');const p=await page.evaluate(()=>{const s=inspectionLab.state,p=s.entries[s.mission].photos.at(-1);return{id:p.id,valid:p.valid,reason:p.reason,condition:p.condition};});assert.equal(p.valid,valid,p.reason);return p;};
+ const collect=async id=>{
+  await click('[data-action="capture"]');
+  if(id!=='road'){const bad=await saved(false);assert.match(bad.reason,/太暗/);await click('#lampButton');}
+  await click('[data-camera-mode="wide"]');await saved(true);
+  await click('[data-camera-mode="detail"]');await saved(true);
+  await shot(id+'-capture');
+  await click('[data-view="camera"]');await shot(id+'-camera');
+  await click('[data-stage="record"]');
+  await page.selectOption('#observation',{index:2});await page.selectOption('#disposition',{index:2});await click('#saveRecordButton');
+  assert.equal(await page.evaluate(()=>!!inspectionLab.state.entries[inspectionLab.state.mission].record),false,'unsupported diagnosis must be rejected');
+  await page.selectOption('#observation',{index:1});await click('#saveRecordButton');
+  const before=await page.evaluate(()=>{const s=inspectionLab.state,e=s.entries[s.mission];return{record:e.record.id,reference:e.record.referencePhotoID,image:e.photos.find(p=>p.id===e.record.referencePhotoID).image};});
+  await click('#beginFollowButton');await saved(true);
+  const after=await page.evaluate(()=>{const s=inspectionLab.state,e=s.entries[s.mission];return{follow:e.follow,original:e.photos.find(p=>p.id===e.record.referencePhotoID).image,new:e.photos.at(-1).image};});
+  assert.equal(after.original,before.image,'saved original must remain unchanged');assert.equal(after.follow.originalPhotoID,before.reference);
+  if(id==='road'){assert.notEqual(after.new,before.image,'cleaning must change actual snapshot');assert.equal(after.follow.status,'resolved');}
+  await shot(id+'-record');note('evidence-'+id,{status:after.follow.status,reference:before.reference});
+ };
+ await shot('desktop-overview');assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1),true);
+ await click('[data-stage="travel"]');await click('#autoDrive');await page.waitForFunction(()=>inspectionLab.state.entries.road.progress>.25);await shot('wheel-motion');await arrival();
+ await click('[data-action="capture"]');await click('[data-camera-mode="detail"]');await page.locator('#cameraYaw').evaluate(el=>{el.value='35';el.dispatchEvent(new Event('input',{bubbles:true}));});await page.locator('#cameraPitch').evaluate(el=>{el.value='25';el.dispatchEvent(new Event('input',{bubbles:true}));});
+ await saved(false);await click('#alignButton');await click('[data-stage="travel"]');await collect('road');
+ await click('[data-mission="stairs"]');await click('[data-stage="travel"]');await click('[data-robot="wheel"]');await click('#autoDrive');
+ await page.waitForFunction(()=>!!inspectionLab.state.entries.stairs.blocked,null,{timeout:30000});assert.equal(await page.evaluate(()=>inspectionLab.state.entries.stairs.arrived),false);await shot('wrong-platform');
+ const wheelAtStop=await page.evaluate(()=>inspectionLab.scene.inspect().fleet.wheel.group.position.toArray());assert(wheelAtStop[0]<-15,'wheel must stop before stair');note('wheel-blocked-at-stair',{position:wheelAtStop});
+ await click('[data-robot="dog"]');await click('#autoDrive');await page.waitForFunction(()=>inspectionLab.state.entries.stairs.progress>.35);await shot('dog-on-stairs');await arrival();await collect('stairs');
+ await click('[data-mission="wall"]');await click('[data-stage="travel"]');await click('#autoDrive');assert.match(await page.locator('#feedback').innerText(),/附着/);
+ await page.check('#magnetCheck');await click('#autoDrive');assert.match(await page.locator('#feedback').innerText(),/系绳/);
+ await page.check('#tetherCheck');await click('#autoDrive');await page.waitForFunction(()=>inspectionLab.state.entries.wall.progress>.4);await shot('crawler-motion');await arrival();await collect('wall');
+ const summary=await page.evaluate(()=>inspectionLab.model.summary(inspectionLab.state));assert.equal(summary.completed,3);assert.equal(summary.pending,2);assert.equal(summary.resolved,1);note('complete-three-sites',summary);
+ await click('#reportButton');await shot('report');await click('#reportContent [data-photo="P002"]');assert.match(await page.locator('#photoContent h2').innerText(),/A01/);await click('[data-close="photoDialog"]');
+ const downloadPromise=page.waitForEvent('download');await click('#exportButton');const download=await downloadPromise;await download.saveAs(join(out,'巡检交接记录.html'));const exported=readFileSync(join(out,'巡检交接记录.html'),'utf8');assert.equal((exported.match(/<img /g)||[]).length,9);assert.match(exported,/仍需后续处理 2/);note('export-nine-original-and-followup-images');await click('[data-close="reportDialog"]');
+ await click('#themeButton');await click('[data-view="overview"]');await shot('dark-overview');await click('[data-view="robot"]');await shot('crawler-close-dark');await click('#explodeButton');await shot('crawler-exploded-dark');
+ await click('#themeButton');await shot('crawler-exploded-light');
+ const r=await page.locator('#viewport canvas').boundingBox();await page.mouse.move(r.x+r.width*.5,r.y+r.height*.5);const az=await page.evaluate(()=>inspectionLab.scene.stats().orbit.az);await page.mouse.down();await page.mouse.move(r.x+r.width*.6,r.y+r.height*.55,{steps:8});await page.mouse.up();await page.waitForTimeout(100);assert.notEqual(await page.evaluate(()=>inspectionLab.scene.stats().orbit.az),az);note('pointer-orbit');
+ await page.setViewportSize({width:1440,height:810});await click('[data-view="overview"]');await shot('desktop-1440');
+ await page.close();
+ const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});mobile.on('pageerror',e=>errors.push(e.message));await mobile.goto(url);await mobile.waitForFunction(()=>!!window.inspectionLab);assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await mobile.screenshot({path:join(out,'mobile-scene.png')});shots.push('mobile-scene');
+ await mobile.click('[data-stage="travel"]');await mobile.locator('#autoDrive').scrollIntoViewIfNeeded();await mobile.click('#autoDrive');await mobile.waitForFunction(()=>inspectionLab.state.entries.road.progress>.12,null,{timeout:15000});note('mobile-offscreen-travel');await mobile.waitForFunction(()=>inspectionLab.state.entries.road.arrived,null,{timeout:90000});await mobile.click('[data-action="capture"]');await mobile.locator('#lampButton').scrollIntoViewIfNeeded();await mobile.click('#lampButton');await mobile.click('#shutterButton');assert.equal(await mobile.evaluate(()=>inspectionLab.state.entries.road.photos.at(-1).valid),true);await mobile.screenshot({path:join(out,'mobile-controls.png')});shots.push('mobile-controls');note('mobile-offscreen-preview-capture');await mobile.close();
+ const fallback=await browser.newPage({viewport:{width:390,height:844}});fallback.on('pageerror',e=>errors.push(e.message));await fallback.goto(url+'?no-webgl=1');await fallback.click('[data-stage="travel"]');await fallback.click('[data-mission="stairs"]');await fallback.click('[data-stage="capture"]');await fallback.locator('#shutterButton').scrollIntoViewIfNeeded();await fallback.click('#shutterButton');assert.match(await fallback.locator('#feedback').innerText(),/没有可用/);await fallback.screenshot({path:join(out,'fallback.png')});shots.push('fallback');note('fallback-no-fabricated-photo');
+ assert.deepEqual(errors,[]);report.passed=true;report.shots=shots;
+}catch(e){report.passed=false;report.failure=e.stack;throw e;}finally{writeFileSync(join(out,'browser-report.json'),JSON.stringify(report,null,2));await browser.close();}

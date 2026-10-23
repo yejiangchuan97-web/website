@@ -1,0 +1,13 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import * as M from './inspection-model.mjs';
+const path=p=>fileURLToPath(new URL(p,import.meta.url));
+const read=p=>readFileSync(path(p),'utf8');
+const model='const M=(()=>{'+read('./inspection-model.mjs').replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();';
+const sources=`<ul><li><a href="https://infotechnology.fhwa.dot.gov/high-resolution-digital-photography/" target="_blank" rel="noopener">FHWA · 高分辨率摄影</a>：表面异常的识别、定位与留档，为后续深入检查提供依据。</li><li><a href="https://www.txdot.gov/manuals/brg/ins/chapter-8-bridge-records/section-3-inspection-documentation-and-the-bridge-.html" target="_blank" rel="noopener">TxDOT · 桥梁检查记录</a>：定位全景与问题近景、维修记录和接近原视角的完成照片。仅借用记录流程，不移植其等级或时限。</li><li><a href="https://dev.bostondynamics.com/docs/concepts/about_spot.html" target="_blank" rel="noopener">Boston Dynamics · Spot 环境条件</a>：四足通行能力依赖具体台阶、坡度与环境条件。</li><li><a href="https://engineering.cmu.edu/pita/news/2025/11/10-johnson.html" target="_blank" rel="noopener">CMU · 磁吸爬壁巡检研究</a>：磁吸移动用于适配的钢结构，贴合与越障条件影响作业。</li><li><a href="https://www.mdpi.com/2076-3417/15/1/80" target="_blank" rel="noopener">负压爬壁机器人吸附力研究</a>：压差形成吸附，密封与边缘漏气影响保持能力。</li></ul>`;
+const css=read('./workbench.css');
+const js=model+'\n'+['world3d.js','robots3d.js','patrol-scene.js','workbench.js'].map(f=>read('./'+f)).join('\n');
+const html=read('./workbench.html').replace(/\{\{(CSS|THREE|JS|SOURCES)\}\}/g,(_,key)=>({CSS:css,THREE:read('../../公共资源/vendor/three-r160.min.js'),SOURCES:sources.replace(/^<ul>|<\/ul>$/g,''),JS:js.replace(/<\/script/gi,'<\\/script')}[key]));
+writeFileSync(path('../index.html'),html);writeFileSync(path('../dark.html'),html.replaceAll('data-theme="light"','data-theme="dark"'));
+console.log('Built task 7-1 · true 3D bridge workshop · offline HTML');
+if(process.argv.includes('--audit'))console.log('Three.js renderer: use qa/inspection-model.test.mjs and qa/rebuild-browser.mjs. SVG geometry audit does not apply.');

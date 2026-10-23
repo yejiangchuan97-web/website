@@ -1,6 +1,8 @@
 import * as k from "../../公共资源/anatomy/iso-kit.mjs";
 import * as A from "../../公共资源/anatomy/audit.mjs";
-export function scene({x=25,y=30,top=40,tileX=x,tileY=y,tileTop=top,bed=4,audit=false}={}){
+export function scene({x=25,y=30,top=40,tileX=x,tileY=y,tileTop=top,bed=4,layout='quad',audit=false}={}){
+ layout=({1:'single',2:'dual',4:'quad',double:'dual',four:'quad'})[layout]||layout;
+ if(!['single','dual','quad'].includes(layout))throw new Error('Unknown cup layout: '+layout);
  const floor={x:-166,y:-90,w:332,d:184,r:4};
  const P=k.fitProjection([...k.boxCorners(floor,-16,0),[-143,-62,134],[143,-62,134]],1000,580,{pad:38,azimuth:42,elevation:32});
  const R=A.recorder(P);let n=0;
@@ -46,13 +48,20 @@ export function scene({x=25,y=30,top=40,tileX=x,tileY=y,tileTop=top,bed=4,audit=
  box('head.mount',x-9,y-6,18,18,top+21,4,'hi',true,'head');
  box('force.sensor',x-7,y-4,14,14,top+17,4,'lo',false,'head');
  box('manifold',x-12,y-8,24,22,top+13,4,'hi',true,'head');
- for(const a of [-20,20]){
+ if(layout==='single'){
+  // A centre stem seats directly against the manifold. Equal effective area:
+  // radius ratios 2 : sqrt(2) : 1 for one, two and four cups respectively.
+  cyl('cup.lip0',x,y,17,top,1.5,'lo');
+  cyl('cup.neck0',x,y,12,top+1.5,3,'mid');
+  cyl('cup.stem0',x,y,4,top+4.5,8.5,'hi');
+ }else for(const a of [-20,20]){
   box('crossbar'+a,x+(a<0?-20:12),y-4,8,8,top+13,4,'mid',false,'head');
-  box('cupbeam'+a,x+a-4,y-25,8,50,top+9,4,'mid',false,'head');
-  for(const b of [-21,21]){
-   cyl('cup.lip'+a+b,x+a,y+b,8.5,top,1.5,'lo');
-   cyl('cup.neck'+a+b,x+a,y+b,6,top+1.5,3,'mid');
-   cyl('cup.stem'+a+b,x+a,y+b,2,top+4.5,4.5,'hi');
+  box('cupbeam'+a,x+a-4,y-(layout==='quad'?25:4),8,layout==='quad'?50:8,top+9,4,'mid',false,'head');
+  const radiusScale=layout==='dual'?Math.SQRT2:1;
+  for(const b of layout==='quad'?[-21,21]:[0]){
+   cyl('cup.lip'+a+b,x+a,y+b,8.5*radiusScale,top,1.5,'lo');
+   cyl('cup.neck'+a+b,x+a,y+b,6*radiusScale,top+1.5,3,'mid');
+   cyl('cup.stem'+a+b,x+a,y+b,2*radiusScale,top+4.5,4.5,'hi');
   }
  }
  box('camera.bracket',x+9,y-2,15,8,top+21,3,'mid',false,'head');
@@ -68,5 +77,5 @@ export function scene({x=25,y=30,top=40,tileX=x,tileY=y,tileTop=top,bed=4,audit=
  if(audit)A.auditOrExit(R,P,{argv:['--audit']});
  R.items.sort((a,b)=>a.key-b.key);
  const body=`<path class="iso-halo" d="${k.haloOf(floor,-16,14,P)}"/>`+R.items.map(it=>`<g data-part="${it.name}" data-group="${it.group}">${it.svg}</g>`).join('');
- return {P,R,body,svg:k.figureSvg({width:1000,height:580,label:'地砖铺贴教学台：双导轨滑台、升降执行器、力传感器、相机及四吸盘末端',body})};
+ return {P,R,body,layout,svg:k.figureSvg({width:1000,height:580,label:`地砖铺贴教学台：双导轨滑台、升降执行器、力传感器、相机及${{single:'单',dual:'双',quad:'四'}[layout]}吸盘末端；平移与升降示意`,body})};
 }

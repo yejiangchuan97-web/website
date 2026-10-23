@@ -14,6 +14,11 @@ export function scene(bump=0,retreat=0,audit=false){
  function round(name,x,y,z,r,length,attrs='',detail=false){
   const F=G.frameAlong([x,y,z],[0,1,0]),profile=[[0,r],[length,r]];
   let inner='';if(detail){const pts=Array.from({length:8},(_,i)=>G.pointOf(F,length,r-2.5,i*Math.PI/4));inner=k.dotsSvg(pts.map(p=>k.iso(p,P)),{size:.65});}
+  if(name==='backing'){
+   // A real pad-face mark, available for a cutaway. The guard correctly occludes it when assembled.
+   const c=k.iso(G.pointOf(F,length,0,0),P),u=k.iso(G.pointOf(F,length,1,0),P),v=k.iso(G.pointOf(F,length,1,Math.PI/2),P);
+   inner+=`<g transform="matrix(${u[0]-c[0]} ${u[1]-c[1]} ${v[0]-c[0]} ${v[1]-c[1]} ${c[0]} ${c[1]})"><g data-rotor><circle cx="22" cy="0" r="1.4" class="iso-dot" data-tone="hi"/></g></g>`;
+  }
   put(name,G.solidOf(profile,F,P),A.solid(F,profile,{name}),[x,y+length/2,z],attrs,inner,name==='abrasive');
  }
  for(const x of [-129,129])for(const y of [-61,111])slab('stand.foot'+n++,x-7,y-7,14,14,-17,5);
@@ -67,6 +72,7 @@ export function scene(bump=0,retreat=0,audit=false){
  const ticks=k.topTicks(-132,-38,4,5,115,.8,[2,4],P);
  R.items.at(-1).svg+=k.lineSvg(ticks.minor,{tone:'lo'})+k.lineSvg(ticks.major,{tone:'mid'});
  A.settle(R,P);if(audit)A.auditOrExit(R,P,{argv:['--audit']});R.items.sort((a,b)=>a.key-b.key);
- const body=R.items.map((it,i)=>`<g id="part-${i}" data-name="${it.name}" ${it.attrs}>${it.svg}</g>`).join('');
+ const component=name=>name.startsWith('sensor')?'sensor':name==='abrasive'?'abrasive':name==='backing'?'backing':name.startsWith('dust.')?'shroud':name.startsWith('normal.')||name.startsWith('drive.')?'actuator':name.startsWith('wall.')?'wall':name.startsWith('motor')?'motor':'structure';
+ const body=R.items.map((it,i)=>`<g id="part-${i}" data-name="${it.name}" data-component="${component(it.name)}" ${it.attrs}>${it.svg}</g>`).join('');
  return {P,R,svg:k.figureSvg({width:1000,height:580,label:'墙面腻子打磨头验证台，单磨盘沿墙法向退让，包含立柱、双导轨、力传感器和集尘护罩',body})};
 }

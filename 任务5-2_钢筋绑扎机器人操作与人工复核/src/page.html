@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eef1ed"><title>5-2 钢筋绑扎机器人 · 单点绑扎实验室</title><style>{{CSS}}</style></head>
-<body class="iso" data-theme="light">
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f7fc"><title>任务5-2 · 绑好一扣，查清一点</title><style>{{CSS}}</style></head>
+<body class="iso" data-theme="light" data-mode="game">
 <div id="screen">
- <header><a class="brand" href="../任务5-1_钢筋加工机械与绑扎作业面识读/index.html" title="返回任务5-1"><span class="brand-symbol">筑</span><span>智能建造<span class="brand-en">CONSTRUCTION LAB</span></span></a><span class="header-label">主体结构施工 <i>/</i> 任务 5-2</span><nav aria-label="教学主题"><button class="active" data-mode="cycle">01 单点绑扎</button><button data-mode="fault">02 卡丝回放</button><button data-mode="review">03 人工复核</button></nav><div class="utilities"><button id="theme" title="切换深浅主题" aria-label="切换深浅主题">◐</button><button id="help" title="教学说明" aria-label="教学说明">?</button><button id="fullscreen">⛶ 全屏</button></div></header>
- <main>
-  <section class="stage iso-plate" aria-label="交互教学模型">
-   <div class="intro"><div class="eyebrow">REBAR TYING / 单点动作实验</div><h1 id="headline">一根绑丝，怎样锁住交点？</h1><p id="subhead">把短暂的一次绑扎，拆成五个可观察的动作。</p></div>
-   <div class="scene-tabs" aria-label="视图选择"><button class="active" data-view="action">动作剖面</button><button data-view="structure">机构观察</button></div>
-   <div id="action-view" class="view">
-    <div class="figure-corner">FIG 5.2 <span>单点绑扎 · 示意剖面</span></div>
+<header><a class="brand" href="../任务5-1_钢筋加工机械与绑扎作业面识读/index.html"><span class="brand-symbol">筑</span><span>智能建造实训室<small>任务 5-2 · 钢筋绑扎机器人</small></span></a><nav aria-label="教学主题"><button class="active" data-mode="game">01 上岗挑战</button><button data-mode="cycle">02 看懂这一扣</button><button data-mode="fault">03 卡丝怎么办</button></nav><div class="utilities"><button id="theme" aria-label="切换深浅主题" title="切换深浅主题">◐</button><button id="help" aria-label="教学说明">?</button><button id="fullscreen">⛶ 全屏</button></div></header>
+<main>
+<section class="stage iso-plate" aria-label="绑扎操作实训">
+<div class="intro"><div class="eyebrow" id="eyebrow">动手操作 · 完成任务</div><h1 id="headline">先绑四个点，再把质量查清。</h1><p id="subhead">移动枪口、对准交点、扣动扳机。完成后，接着做一次人工复核。</p></div>
+<div class="scene-tabs" aria-label="观察视图" hidden><button class="active" data-view="action">这一扣怎么形成</button><button data-view="structure">看看送丝部件</button></div>
+<div id="game-view" class="view"></div>
+<div id="action-view" class="view" hidden><div class="figure-corner">FIG 5.2 <span>单点绑扎 · 放慢看</span></div>
     <svg id="action-svg" viewBox="0 -100 850 580" role="img" aria-label="绑扎头按定位、夹持、送丝、扭结、离开动作工作，绑丝环绕上下两根钢筋">
      <defs>
       <linearGradient id="metal" x2="1" y2="1"><stop stop-color="var(--metal1)"/><stop offset=".42" stop-color="var(--metal2)"/><stop offset="1" stop-color="var(--metal3)"/></linearGradient>
@@ -56,27 +56,22 @@
      </g>
      <circle id="wire-tip" r="4" fill="var(--wire)"/>
     </svg>
-    <div class="detail-window"><div class="detail-title">交点近看 <span>隐藏工具，观察绑丝</span></div><svg viewBox="315 236 220 179" role="img" aria-label="放大交点绑丝，隐藏工具以看清丝环与扭结"><use href="#fixture"/><use href="#tie-loop"/><use href="#knot"/><use href="#wire-tip"/></svg><p id="detail-caption">先对准交点，绑丝尚未送出。</p><small>圆形：横向钢筋端面<br>长条：纵向钢筋侧面</small></div>
-    <div class="drawing-note"><span class="key-mark"></span><span id="drawing-note">深色细线为绑丝 · 工序与形变均为教学示意</span></div>
-    <div class="drawing-readout" id="drawing-readout">定位 / 01</div>
-   </div>
-   <div id="structure-view" class="view" hidden><div class="figure-corner">FIG 5.2 <span>机构观察 · 固定剖视教学台</span></div><div id="iso-model">{{FIGURE}}</div><div class="component-list" aria-label="机构选择"><button data-part="spool">供丝盘</button><button data-part="feed">送丝轮</button><button data-part="head">驱动与工具头</button><button data-part="guide">导向弧槽</button><button data-part="bars">交叉钢筋</button></div><p id="component-note">选择一个部件，观察它在一次绑扎中承担的工作。</p></div>
-   <div class="stage-footer"><span id="stage-hint">拖动时间轴观察细节 · 空格播放 / 暂停 · ← → 逐步</span><span>工序示意 / 非设备实测</span></div>
-  </section>
-  <aside>
-   <div class="panel-top"><span id="panel-label">动作观察</span><span class="mini">REBAR-A / P01</span></div>
-   <div class="mode-content" id="cycle-content"><div class="section-label">当前动作 <span id="phase-number">01 / 05</span></div><h2 id="phase-title"></h2><p id="phase-text" class="body-text"></p><div class="observation"><span>观察重点</span><p id="phase-watch"></p></div></div>
-   <div class="mode-content" id="fault-content" hidden><div class="section-label">异常对照 <span>供丝受阻</span></div><h2>指令发出，丝却没到位</h2><p class="body-text">同一个交点、同一条动作链。比较正常送丝与中途受阻：后续动作不能替代缺失的送丝。</p><div class="segmented"><button data-fault="normal" class="active">正常供丝</button><button data-fault="jam">注入卡丝</button></div><div id="fault-message" class="observation"><span>观察重点</span><p>切换“注入卡丝”，播放到送丝阶段。</p></div></div>
-   <div class="mode-content" id="review-content" hidden><div class="section-label">复核练习 <span>动作完成之后</span></div><h2>看见绑丝，就能判合格吗？</h2><div class="sample-list"><button class="active" data-sample="normal">A <span>已完成样例</span></button><button data-sample="missing">B <span>漏绑样例</span></button><button data-sample="loose">C <span>疑似松扣</span></button></div><p class="body-text" id="review-prompt">选择下一步最合适的复核方式。</p><div class="answers"><button data-answer="visual">逐点目视，核对有无绑丝</button><button data-answer="touch">按现场要求人工检查牢固度</button><button data-answer="pass">动画走完，直接判定合格</button></div><p id="answer-feedback" role="status">先观察，再选择检查方法。</p></div>
-   <div class="metrics" id="metrics"><div><span id="target-label">目标送丝</span><strong id="target-read">0<small>%</small></strong></div><div><span id="feed-label">实际送丝</span><strong id="feed-read">0<small>%</small></strong></div><div><span>本点状态</span><strong class="text-metric" id="status-read">未完成</strong></div></div>
-   <div id="play-controls"><div class="play-line"><button id="play" class="primary" aria-label="播放动作">▶ 播放动作</button><button id="reset" title="回到开始" aria-label="回到开始">↺</button><button id="speed" title="切换演示速度">0.5×</button></div><div class="range-top"><label for="progress">教学周期</label><output id="progress-read">0%</output></div><input id="progress" type="range" min="0" max="1000" step="1" value="0" aria-label="绑扎动作进度"><div class="range-ends"><span>定位</span><span>送丝</span><span>离开</span></div></div>
-   <div class="panel-bottom"><span class="status-dot"></span><span id="mode-status">可随时暂停、拖动与回放</span></div>
-  </aside>
- </main>
- <section class="timeline" aria-label="五个绑扎动作"><div class="timeline-label"><span class="eyebrow">ONE TYING CYCLE</span><h2>从对点到离开</h2><p>点击动作，定格观察</p></div><div id="phase-buttons"></div></section>
- <footer><span>教学重点：动作链完整 ≠ 实际质量合格</span><span>任务 5-2 <i>·</i> 钢筋绑扎机器人操作与人工复核</span><button id="sources">依据与说明 ↗</button></footer>
-</div>
-<dialog id="info"><button id="close-info" aria-label="关闭说明">×</button><div class="eyebrow">TEACHING NOTES</div><h2>把关键动作看清楚</h2><p>三个主题分别关注单点动作、供丝受阻和人工复核。动作剖面是放大的工序示意，机构观察是固定展示；两者不是同一真实机型的工程图。</p><p>归一化周期和送丝百分比只描述本演示。切断、回抽、扭结及折弯的具体先后因机型而异；不提供可上机的运动参数，也不模拟钢丝弹塑性。</p><p>卡丝案例只演示“停止后续动作并保留异常点”。实际清障前，应按设备规程停机、隔离能源并确认不可运动，由授权人员处理。网页不能验证真实停机状态。</p><p>操作：空格播放或暂停，左右方向键微调，Home / End 跳至两端；进度条支持拖动。按 F 进入全屏，Esc 退出。系统启用减少动态效果时，播放改为单步推进。</p><p>课程依据：<a href="README.md">任务 5-2</a>。机构参考：<a href="https://www.maxusacorp.com/rebar_tying_tools/products/rebar-tie-gun-rb441t-twintier/" target="_blank" rel="noreferrer">MAX 官方送丝、回抽与折弯机构说明</a>。页面并非该产品复刻。</p></dialog>
+
+<div class="detail-window"><div class="detail-title">绑丝近看<span>暂时隐藏工具，看清是否绕住两根筋</span></div><svg viewBox="315 236 220 179" role="img" aria-label="交点绑丝的放大剖面"><use href="#fixture"/><use href="#tie-loop"/><use href="#knot"/><use href="#wire-tip"/></svg><p id="detail-caption"></p><small><i></i> 橙色是绑丝<br>圆形、长条分别表示两根钢筋</small></div><div class="drawing-note"><span class="key-mark"></span>绑丝要绕全，扭结才有意义</div><div class="drawing-readout" id="drawing-readout"></div></div>
+<div id="structure-view" class="view" hidden><div class="figure-corner">FIG 5.2 <span>供丝路径 · 固定剖视教学台</span></div><div id="iso-model">{{FIGURE}}</div><div class="component-list" aria-label="查看部件"><button data-part="spool">供丝盘</button><button data-part="feed">送丝轮</button><button data-part="head">工具头</button><button data-part="guide">导向槽</button><button data-part="bars">两根钢筋</button></div><p id="component-note">点击部件，看它怎样帮助绑丝绕过交点。</p></div>
+<div class="stage-footer"><span id="stage-hint">拖动或点按移动枪口 · 方向键微调 · 空格扣动扳机</span><span>教学情境 · 不连接设备</span></div></section>
+<aside aria-label="操作面板"><div id="game-controls"></div>
+<div id="study-controls" hidden><div class="panel-top"><span id="panel-label">只看一个关键点</span><span class="mini">操作观察</span></div>
+<div id="cycle-content" class="mode-content"><span class="section-label">小知识 · 送丝到位</span><h2>轮子转了，<br>不等于绑丝绕全了。</h2><p class="body-text">送丝轮把绑丝向前推，导向槽让它绕过交点。要看的是：<strong>绑丝有没有包住两根钢筋。</strong></p><div class="observation"><span id="phase-number">03 / 05</span><h3 id="phase-title"></h3><p id="phase-watch"></p><p id="phase-text" hidden></p></div></div>
+<div id="fault-content" class="mode-content" hidden><span class="section-label">异常处置 · 送丝受阻</span><h2>丝没绕完，<br>这个点就没有完成。</h2><p class="body-text">播放卡丝情境，看看绑丝停在哪里。随后保留异常点，再进入停机检查。</p><div class="segmented"><button data-fault="jam" class="active">卡丝情境</button><button data-fault="normal">正常对照</button></div><div id="fault-message" class="observation"></div><div class="fault-actions"><button id="mark-fault">① 保留异常点</button><button id="isolate-fault">② 模拟停机隔离</button><button id="inspect-fault">③ 查看供丝路径</button></div><p id="fault-feedback" role="status">先播放卡丝情境，观察送丝停住的位置。</p></div>
+<div class="metrics"><div><span>送丝目标</span><strong id="target-read"></strong></div><div><span>当前送丝</span><strong id="feed-read"></strong></div><div><span>本点记录</span><strong class="text-metric" id="status-read"></strong></div></div>
+<div id="play-controls"><div class="play-line"><button id="play" class="primary" aria-label="播放动作">▶ 播放动作</button><button id="reset" aria-label="回到开始">↺</button><button id="speed" title="切换速度">0.5×</button></div><div class="range-top"><label for="progress">慢放观察</label><output id="progress-read">0%</output></div><input id="progress" type="range" min="0" max="1000" value="0" aria-label="绑扎动作进度"><div class="range-ends"><span>定位</span><span>送丝</span><span>离开</span></div></div><div class="panel-bottom"><span class="status-dot"></span><span id="mode-status">送丝百分比仅表示教学进度</span></div></div></aside>
+</main>
+<section id="game-route" class="game-route" aria-label="操作任务"><div><b>01</b><span><strong>先对准</strong><small>枪口覆盖交点</small></span></div><div><b>02</b><span><strong>再绑扎</strong><small>绕住两根钢筋</small></span></div><div><b>03</b><span><strong>最后复核</strong><small>发现问题，补绑再查</small></span></div><p>完成动作只是开始。<br><strong>把每一个待查点查清楚。</strong></p></section>
+<section class="timeline" hidden aria-label="五个绑扎动作"><div class="timeline-label"><span class="eyebrow">一次绑扎</span><h2>从对点到离开</h2><p>点击动作定格观察</p></div><div id="phase-buttons"></div></section>
+<footer><span><i class="legend-dot orange"></i>绑丝 / 待查　<i class="legend-dot green"></i>本练习已复核</span><span>绑好一扣，查清一点</span><button id="sources">依据与说明 ↗</button></footer></div>
+<dialog id="info"><button id="close-info" aria-label="关闭说明">×</button><div class="eyebrow">教学说明</div><h2>从操作结果，理解这一扣。</h2><p>先在“上岗挑战”完成四点绑扎，再进入停机状态下的人工复核练习。缺丝可通过目视发现；松扣通过模拟轻拉呈现。补绑后仍要重新检查。本页的“已复核”只表示练习完成。</p><p>“看懂这一扣”只聚焦送丝轮推动绑丝、导向槽引导成环，以及绑丝须绕住两根钢筋。五步动作用于回看操作过程，固定剖视台用于识别部件；它们是教学示意，不是某一机型的工程复刻。</p><p>游戏对准范围、进度和样例反馈均为教学设定，不代表设备精度、额定参数或真实验收标准。动画中的切断、收紧与扭结顺序是简化表达，具体结构与动作以所用机型手册为准。</p><p>卡丝时保留异常点并停止后续绑扎；实际清障前按设备规程停机、锁止、隔离能源并确认不可运动，由授权人员处理。网页中的“模拟停机隔离”不会操作真实设备。</p><p>操作：上岗挑战支持点按/拖动、方向键和空格；动作页支持空格播放/暂停、左右微调、Home/End。F 全屏，Esc 关闭说明或退出全屏。减少动态效果时，动作页改为单步；游戏操作直接显示结果。</p><p>课程依据：<a href="README.md">任务5-2教学说明</a>。机构参考：<a href="https://www.maxusacorp.com/rebar_tying_tools/products/rb441t/" target="_blank" rel="noreferrer">MAX TWINTIER 送丝与回拉机构</a>。操作参考：<a href="https://www.maxusacorp.com/wp-content/uploads/TWINTIER-Manual-RB441T-RB611T.pdf" target="_blank" rel="noreferrer">MAX RB441T / RB611T 官方说明书</a>（英文部分第16—19页：对准、保持就位与异常检查）。实际牢固度须按现场要求检查。</p></dialog>
 <script>{{MODEL}}
-{{APP}}</script>
-</body></html>
+{{GAME_MODEL}}
+{{GAME}}
+{{APP}}</script></body></html>

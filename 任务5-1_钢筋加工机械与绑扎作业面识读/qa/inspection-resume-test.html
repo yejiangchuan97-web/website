@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Inspection animation resume regression</title>
+<style>body{margin:24px;font-family:sans-serif}#host{width:720px;max-width:95vw}pre{white-space:pre-wrap}</style>
+<div id="host"></div><pre id="result">Running…</pre>
+<script src="../src/inspection.js"></script>
+<script>
+(async()=>{
+ const host=document.getElementById('host'),results=[];
+ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ const check=(ok,label)=>{if(!ok)throw Error(label);results.push(label)};
+ const until=async predicate=>{const start=performance.now();while(!predicate()){if(performance.now()-start>3000)throw Error('Timed out waiting for resumed tape');await wait(25)}};
+ let inspection;
+ const fresh=async()=>{inspection?.destroy();host.style.display='block';inspection=createRebarInspection(host);inspection.open('spacing');await wait(80)};
+ const start=()=>host.querySelector('[data-inspect-action]').click();
+ const completed=()=>inspection.snapshot().completed.includes('spacing');
+ await fresh();start();
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+  check(completed()&&inspection.snapshot().spacingMM===480,'Reduced motion immediately presents the final measurement');
+  check(!inspection.snapshot().animationScheduled,'Reduced motion schedules no tape animation');
+ }else{
+  await until(()=>inspection.snapshot().spacingMM>0);check(!completed(),'Tape starts as an actual intermediate measurement');
+  host.style.display='none';await wait(80);const paused=inspection.snapshot().spacingMM;await wait(180);
+  check(inspection.snapshot().spacingMM===paused&&!inspection.snapshot().animationScheduled,'Actual DOM hiding pauses the tape without advancing it');
+  host.style.display='block';await until(completed);
+  check(inspection.snapshot().spacingMM===480,'Intersection return automatically resumes and completes the tape');
+
+  await fresh();start();await until(()=>inspection.snapshot().spacingMM>0);
+  // Exercise the browser visibility handler deterministically without switching the test runner's own tab.
+  Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));
+  const hiddenAt=inspection.snapshot().spacingMM;await wait(180);
+  check(inspection.snapshot().spacingMM===hiddenAt&&!inspection.snapshot().animationScheduled,'Document hidden notification pauses the measurement');
+  delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));await until(completed);
+  check(inspection.snapshot().spacingMM===480,'Document visibility return automatically resumes the target');
+
+  await fresh();start();await until(()=>inspection.snapshot().spacingMM>0);inspection.open('missing');const otherTabAt=inspection.snapshot().spacingMM;await wait(180);
+  check(inspection.snapshot().spacingMM===otherTabAt&&!completed(),'An inactive inspection tab does not advance or finish the tape');
+  inspection.open('spacing');await until(completed);
+  check(inspection.snapshot().spacingMM===480,'Returning to the spacing tool resumes its pending measurement');
+
+  await fresh();start();await until(()=>inspection.snapshot().spacingMM>0);inspection.destroy();const destroyedAt=inspection.snapshot().spacingMM;
+  document.dispatchEvent(new Event('visibilitychange'));host.style.display='none';await wait(70);host.style.display='block';await wait(180);
+  check(inspection.snapshot().spacingMM===destroyedAt&&!inspection.snapshot().animationPending&&!inspection.snapshot().animationScheduled,'Destroy prevents any pending animation from restarting');
+ }
+ inspection.destroy();window.__resumeTest={passed:true,results};document.getElementById('result').textContent=JSON.stringify(window.__resumeTest,null,2);
+})().catch(error=>{delete document.hidden;window.__resumeTest={passed:false,error:error.stack};document.getElementById('result').textContent=error.stack;console.error(error)});
+</script></html>

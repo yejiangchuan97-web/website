@@ -1,20 +1,14 @@
-import {fileURLToPath as __taskFileURL} from 'node:url';
-const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
-import {readFileSync,writeFileSync,existsSync} from 'node:fs';
-import {dirname,join} from 'node:path';
-import {fileURLToPath} from 'node:url';
-import {scene} from "./geometry.mjs";
-import * as M from "./model.mjs";
-const HERE=__taskFile("."),ROOT=__taskFile("../../公共资源/装饰装修施工");
-const read=n=>readFileSync(join(HERE,n),'utf8');
-const sc=scene({audit:process.argv.includes('--audit')});
-if(existsSync(__taskFile("./draw-order.json"))){const order=JSON.parse(read("./draw-order.json"));sc.R.items.sort((a,b)=>order.indexOf(a.name)-order.indexOf(b.name));}
-if(process.argv.includes('--poses'))for(const z of [49,85,205,281])scene({x:z<150?-150:150,z,distance:z<150?200:450,audit:true});
-const kit=readFileSync(__taskFile("../../公共资源/anatomy/iso-kit.mjs"),'utf8').replace(/^export /gm,'');
-const model='const M=(()=>{'+read("./model.mjs").replace(/^export /gm,'')+';return {'+Object.keys(M).join(',')+'};})();';
-const stat=sc.R.items.filter(it=>it.group==='static').map(it=>`<g data-name="${it.name}">${it.svg}</g>`).join('');
-const robot=sc.R.items.filter(it=>it.group!=='static').map(it=>`<g data-name="${it.name}" data-group="${it.group}">${it.svg}</g>`).join('');
-const values={CSS:readFileSync(__taskFile("../../公共资源/anatomy/iso.css"),'utf8')+read("./style.css"),STATIC:stat,ROBOT:robot,JS:kit+'\n'+model+'\nconst PROJECTION='+JSON.stringify(sc.P)+';\n'+read("./app.js")};
-const html=read("./page.html").replace(/\{\{(CSS|STATIC|ROBOT|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
-writeFileSync(__taskFile("../index.html"),html);writeFileSync(__taskFile("../dark.html"),html.replace('data-theme="light"','data-theme="dark"'));
-console.log('Built spray lab · '+sc.R.items.length+' physical parts · standalone light + dark');
+import {readFileSync, writeFileSync} from 'node:fs';
+import * as M from './model.mjs';
+import * as PM from './project-model.mjs';
+
+const read = name => readFileSync(new URL(name, import.meta.url), 'utf8');
+const moduleBody = name => read(name).replace(/^import[^\n]+\n/gm, '').replace(/^export /gm, '');
+const model = `const M = (() => {${moduleBody('./model.mjs')}\nreturn {${Object.keys(M).join(',')}};})(); window.M=M;`;
+const project = `const PM = (() => {${moduleBody('./project-model.mjs')}\nreturn {${Object.keys(PM).join(',')}};})();`;
+const js = [read('../../公共资源/vendor/three-r160.min.js'), model, project, read('./scene3d.js'), read('./app.js')].join('\n;\n');
+const html = read('./page.html').replace('{{CSS}}', () => read('./style.css')).replace('{{JS}}', () => js.replace(/<\/script/gi, '<\\/script'));
+writeFileSync(new URL('../index.html',import.meta.url),html);
+writeFileSync(new URL('../dark.html',import.meta.url),html.replace('data-theme="light"','data-theme="dark"'));
+console.log('Built immersive spray project: real WebGL 3D, cumulative coating, offline light + dark.');
+if(process.argv.includes('--audit')) console.log('This renderer uses Three.js meshes. Run qa/project-model.test.mjs and the browser checks; SVG anatomy audits do not apply.');

@@ -1,0 +1,10 @@
+[
+ ["eval","window.masonryLab.seek(6.5)"],
+ ["shot","qa/rebuild/fallback-light.png",".app"],
+ ["lines","qa/rebuild/lines-light.png"],
+ ["click","[data-platform=mobile]"],
+ ["click","#theme"],
+ ["shot","qa/rebuild/fallback-dark.png",".app"],
+ ["lines","qa/rebuild/lines-dark.png"],
+ ["eval","JSON.stringify(window.masonryLab.snapshot().scene)"]
+]

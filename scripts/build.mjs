@@ -15,7 +15,9 @@ const builds={
   "6-1": "任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场/src/build.mjs",
   "6-2": "任务6-2_地砖铺贴_工艺准备与铺贴机器人作业/src/build.mjs",
   "6-3": "任务6-3_腻子打磨_作业面检查_恒力执行与质量验收/src/build.mjs",
-  "6-4": "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/src/build.mjs"
+  "6-4": "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/src/build.mjs",
+  "7-1": "任务7-1_巡检机器人_轮式_四足与爬壁/src/build.mjs",
+  "7-2": "任务7-2_无人机巡检_病害检测与数据复核/src/build.mjs"
 };
 const task=process.argv[2];
 if(!task || (task!=='all'&&!builds[task])){console.log('用法: node scripts/build.mjs <任务编号|all>\n可构建任务: '+Object.keys(builds).join(', '));process.exit(task?1:0)}

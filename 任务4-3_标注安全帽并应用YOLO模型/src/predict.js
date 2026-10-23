@@ -39,7 +39,7 @@
       const filtered = p.score < state.threshold;
       return `<button class="candidate-row ${filtered ? 'is-filtered' : ''} ${p.id === state.selectedId ? 'is-selected' : ''}" data-prediction-candidate="${esc(p.id)}" aria-pressed="${p.id === state.selectedId}"><span class="candidate-top"><strong>${esc(p.id)}</strong><span class="candidate-state ${filtered ? 'muted' : ''}">${filtered ? '已筛除' : '已保留'}</span></span><span class="candidate-main"><span>${className(p.cls)}</span><b class="mono">${p.score.toFixed(2)}</b></span><span class="score-track" aria-hidden="true"><i style="width:${p.score * 100}%"></i><em style="left:${state.threshold * 100}%"></em></span></button>`;
     }).join('');
-    $('prediction-next-evaluation').href = `4-3-evaluate.html?threshold=${state.threshold.toFixed(2)}`;
+    $('prediction-next-evaluation').href = `evaluate.html?threshold=${state.threshold.toFixed(2)}`;
     if (focusedCandidate) [...$('prediction-candidate-list').querySelectorAll('[data-prediction-candidate]')].find(element => element.dataset.predictionCandidate === focusedCandidate)?.focus({preventScroll: true});
     if (focusedBox) [...svg.querySelectorAll('[data-prediction-box]')].find(element => element.dataset.predictionBox === focusedBox)?.focus({preventScroll: true});
   }

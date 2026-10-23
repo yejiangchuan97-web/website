@@ -2,11 +2,11 @@ import {fileURLToPath as __taskFileURL} from 'node:url';
 const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
 import{createRequire}from'node:module';import{homedir}from'node:os';import{join,dirname}from'node:path';import{fileURLToPath,pathToFileURL}from'node:url';import{mkdirSync,writeFileSync,readFileSync}from'node:fs';import assert from'node:assert/strict';
 const here=__taskFile("."),out=__taskFile("./shots");mkdirSync(out,{recursive:true});
-const{LINE_ENDS}=await import(pathToFileURL(join(homedir(),'.agents/skills/anatomy/scripts/line-ends.mjs')));
+const{LINE_ENDS}=await import(pathToFileURL(join(homedir(),'.codex/skills/anatomy/scripts/line-ends.mjs')));
 const{chromium}=createRequire(import.meta.url)(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--do-not-de-elevate','--allow-file-access-from-files']});const lines=[],errors=[];
 try{
- const p=await browser.newPage({viewport:{width:1440,height:810},deviceScaleFactor:4,reducedMotion:'reduce'});p.on('pageerror',e=>errors.push(e.message));await p.goto(new URL("../index.html",import.meta.url).href);await p.locator('[data-view="structure"]').click();
+ const p=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:4,reducedMotion:'reduce'});p.on('pageerror',e=>errors.push(e.message));await p.goto(new URL("../index.html",import.meta.url).href);await p.locator('[data-mode="cycle"]').click();await p.locator('[data-view="structure"]').click();
  for(const theme of['light','dark']){
   await p.evaluate(t=>document.body.dataset.theme=t,theme);
   const result=await p.evaluate(`(${LINE_ENDS})({select:'#structure-view',show:true})`);lines.push({theme,...result});console.log(theme+' line ends: '+result.problems.length+' / '+result.ends);assert.equal(result.problems.length,0,JSON.stringify(result.problems));
@@ -15,8 +15,8 @@ try{
   await p.locator('[data-view="action"]').click();await p.locator('[data-phase="3"]').click();await p.locator('.detail-window').screenshot({path:join(out,'knot-4x-'+theme+'.png')});await p.locator('[data-view="structure"]').click();
  }
  await p.close();
- const page=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});await page.goto(new URL("../index.html",import.meta.url).href);await page.locator('[data-phase="3"]').click();await page.screenshot({path:__taskFile("./shots/desktop-capture.png")});await page.setViewportSize({width:1440,height:810});
+ const page=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});await page.goto(new URL("../index.html",import.meta.url).href);await page.locator('[data-mode="cycle"]').click();await page.locator('[data-phase="3"]').click();await page.screenshot({path:__taskFile("./shots/desktop-capture.png")});await page.setViewportSize({width:1440,height:900});
  const shots=[];for(const v of[0,.2,.4,.5,.6,.68,.76,1]){await page.evaluate(v=>__TYING__.seek(v),v);const image=await page.locator('#action-view').screenshot();shots.push({v,image:image.toString('base64')});}
  const sheet=await browser.newPage({viewport:{width:1440,height:900}});await sheet.setContent('<html><style>body{margin:0;background:#e7ece5;font:13px Arial;color:#294436;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}figure{margin:0}figcaption{height:23px}img{display:block;width:100%;height:190px;object-fit:contain;background:#f8faf6}</style>'+shots.map(s=>`<figure><figcaption>教学周期 ${Math.round(s.v*100)}%</figcaption><img src="data:image/png;base64,${s.image}"></figure>`).join('')+'</html>');await sheet.screenshot({path:__taskFile("./shots/cycle-contact-sheet.png"),fullPage:true});await sheet.close();await page.close();
- writeFileSync(__taskFile("./visual-report.json"),JSON.stringify({lines,errors,note:'Stock capture/drive browser launcher failed on this host; Playwright executes the unchanged Anatomy LINE_ENDS checker and screenshots instead.'},null,2));assert.equal(errors.length,0);
+ writeFileSync(__taskFile("./visual-report.json"),JSON.stringify({lines,errors,note:'Anatomy LINE_ENDS checker on the retained fixed structure, plus 4x light/dark close-ups and eight cycle poses. Game interactions are validated by verify.mjs.'},null,2));assert.equal(errors.length,0);
 }finally{await browser.close();}

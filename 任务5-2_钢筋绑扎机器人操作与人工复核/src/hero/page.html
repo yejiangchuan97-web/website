@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f7f7">
+  <title>钢筋绑扎工坊 · 智能建造</title>
+  <style>{{CSS}}</style>
+</head>
+<body data-theme="light">
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 2 8M4 4v6h6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 .3c0 1.7-2.5 2-2.5 3.7M12 16h.01"/></symbol>
+    <symbol id="i-theme" viewBox="0 0 24 24"><path d="M19.8 14.2A8 8 0 0 1 9.8 4.2a8 8 0 1 0 10 10Z"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Zm0 0v10m-9-5 9 5 9-5m-9 5v10"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  </defs></svg>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="../index.html" aria-label="返回智能建造课程">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="brand-copy"><strong>FIELD STUDIO</strong><small>智能建造 · 交互工坊</small></span>
+      </a>
+      <span class="header-divider" aria-hidden="true"></span>
+      <div class="lesson-heading"><span class="lesson-number">05.02</span><h1>钢筋绑扎工坊</h1></div>
+      <div class="top-actions">
+        <span class="connection-status"><i></i><span>工位就绪</span></span>
+        <button id="reset" class="icon-button" type="button" aria-label="重新开始" title="重新开始"><svg><use href="#i-reset"/></svg></button>
+        <button id="help" class="icon-button" type="button" aria-label="操作说明" title="操作说明"><svg><use href="#i-help"/></svg></button>
+        <button id="theme" class="icon-button" type="button" aria-label="切换明暗主题" title="切换明暗主题"><svg><use href="#i-theme"/></svg></button>
+        <button id="fullscreen" class="icon-button" type="button" aria-label="全屏工坊" title="全屏工坊"><svg><use href="#i-full"/></svg></button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="world" aria-label="机器人绑扎交互工位">
+        <div class="scene-shell" id="scene-shell">
+          <div id="hero-scene" tabindex="0" role="application" aria-label="三维钢筋绑扎工位。拖动旋转，滚轮缩放，点击钢筋交点选择绑扎位置。方向键微调，空格开始绑扎。"></div>
+          <div id="fallback" class="iso" data-theme="light" hidden>{{FALLBACK}}</div>
+          <div id="loading-scene" class="loading-scene"><span class="loading-ring"></span><p>正在准备绑扎工位</p></div>
+
+          <div class="scene-top">
+            <div class="stagebar"><span class="live-dot"></span><strong>绑扎作业区</strong><span class="stagebar-separator">/</span><span>工作台 01</span></div>
+            <div class="camera-controls" aria-label="观察视角">
+              <button type="button" class="active" data-camera="overview" aria-pressed="true">全景</button>
+              <button type="button" data-camera="front" aria-pressed="false">正面</button>
+              <button type="button" data-camera="top" aria-pressed="false">俯视</button>
+              <button type="button" data-camera="tool" aria-pressed="false">枪头</button>
+            </div>
+          </div>
+
+          <aside class="mission-card" id="mission-card" aria-label="当前任务">
+            <div class="mission-topline"><span id="mission-step" class="mission-step">MISSION 01</span><button id="mission-toggle" class="mission-toggle" type="button" aria-label="折叠任务说明" aria-expanded="true"><svg><use href="#i-chev"/></svg></button></div>
+            <h2 id="mission-title">给这块钢筋网，绑好四个点。</h2>
+            <p id="mission-text">选一个交点，让枪口对准，再启动绑扎。完成后，亲手检查每一扣。</p>
+            <div class="mission-tags"><span>自由操作</span><span>4 个交点</span><span>人工复核</span></div>
+          </aside>
+
+          <div class="view-tools">
+            <button id="cutaway" class="glass-button" type="button" aria-pressed="false"><svg><use href="#i-eye"/></svg><span>打开枪头外壳</span></button>
+            <div class="view-legend"><span><i class="legend-pending"></i>待绑扎</span><span><i class="legend-done"></i>已绑扎</span><span><i class="legend-review"></i>待复核</span></div>
+          </div>
+
+          <div id="phase-strip" class="phase-strip" aria-label="观察绑扎动作" hidden>
+            <button type="button" data-phase="0" class="active"><span>01</span>定位</button>
+            <button type="button" data-phase="1"><span>02</span>夹持</button>
+            <button type="button" data-phase="2"><span>03</span>送丝</button>
+            <button type="button" data-phase="3"><span>04</span>扭结</button>
+            <button type="button" data-phase="4"><span>05</span>离开</button>
+          </div>
+
+          <div class="scene-bottom"><span class="orbit-hint"><span class="mouse-symbol" aria-hidden="true"></span>拖动旋转<span>·</span>滚轮缩放<span>·</span>点击交点移动</span><span class="scene-state"><i></i><span id="scene-status">等待对点</span><span id="world-coordinate">X 0.00 · Z 0.00</span></span></div>
+          <div id="webgl-note" class="webgl-note" hidden>当前浏览器无法显示三维工位，以下为静态机构参考。请在支持 WebGL 的浏览器中操作。</div>
+        </div>
+
+        <div class="control-deck">
+          <div class="metrics" aria-label="任务进度">
+            <div class="metric"><span>已绑交点</span><div><strong id="metric-tied">0</strong><small>/ 4</small></div></div>
+            <div class="metric"><span>复核完成</span><div><strong id="metric-checked">0</strong><small>/ 4</small></div></div>
+            <div class="metric"><span>待处理</span><div><strong id="metric-pending">0</strong><small>处</small></div></div>
+          </div>
+          <div class="cycle-monitor"><div class="cycle-heading"><span><i class="live-dot"></i>当前动作</span><strong id="cycle-label">准备就绪</strong></div><div class="cycle-track"><span id="cycle-progress"></span></div><div class="cycle-phases"><span>定位</span><span>夹持</span><span>送丝</span><span>扭结</span><span>离开</span></div></div>
+        </div>
+
+        <nav class="project-nav" aria-label="学习环节">
+          <button id="nav-tie" type="button" data-mode="game" class="active" aria-current="step"><span class="nav-number">01</span><span><strong>对点绑扎</strong><small>操作机器人</small></span><svg><use href="#i-arrow"/></svg></button>
+          <button id="nav-review" type="button" data-mode="review" disabled><span class="nav-number">02</span><span><strong>人工复核</strong><small>发现并处理问题</small></span><svg><use href="#i-arrow"/></svg></button>
+          <button id="nav-study" type="button" data-mode="study"><span class="nav-number">03</span><span><strong>看懂这一扣</strong><small>近看送丝与成环</small></span><svg><use href="#i-arrow"/></svg></button>
+        </nav>
+      </section>
+
+      <aside id="control-panel" class="control-panel" aria-label="操作台">
+        <div class="panel-heading"><span class="eyebrow" id="panel-kicker">01 / 操作机器人</span><h2 id="panel-title">先对准，再绑扎。</h2><p id="panel-description">把枪口移到钢筋交点，让这一扣同时绕住两根钢筋。</p></div>
+
+        <div class="panel-content">
+          <section id="tie-panel" aria-label="绑扎操作">
+            <div class="section-heading"><h3>选择绑扎点</h3><span>点击场景也可以</span></div>
+            <div id="point-list" class="point-list" aria-label="待绑扎交点">
+              <button type="button" data-point="A"><span>A</span><small>待绑扎</small></button><button type="button" data-point="B"><span>B</span><small>待绑扎</small></button><button type="button" data-point="C"><span>C</span><small>待绑扎</small></button><button type="button" data-point="D"><span>D</span><small>待绑扎</small></button>
+            </div>
+            <div class="align-card">
+              <div class="section-heading"><h3>微调枪口</h3><span>方向键 ↑ ↓ ← →</span></div>
+              <div class="alignment-controls">
+                <div class="dpad" aria-label="微调枪口位置"><button class="jog-up" type="button" data-jog="z" data-amount="-0.05" aria-label="枪口向前微调"><svg><use href="#i-arrow"/></svg></button><button class="jog-left" type="button" data-jog="x" data-amount="-0.05" aria-label="枪口向左微调"><svg><use href="#i-arrow"/></svg></button><span class="dpad-center" aria-hidden="true"><svg><use href="#i-target"/></svg></span><button class="jog-right" type="button" data-jog="x" data-amount="0.05" aria-label="枪口向右微调"><svg><use href="#i-arrow"/></svg></button><button class="jog-down" type="button" data-jog="z" data-amount="0.05" aria-label="枪口向后微调"><svg><use href="#i-arrow"/></svg></button></div>
+                <div class="aim-status"><span class="status-label">对点状态</span><strong id="aim-readout">请选择一个交点</strong><p>观察枪口与交点的位置。</p></div>
+              </div>
+            </div>
+            <div class="action-group"><button id="tie-trigger" class="button primary" type="button"><svg><use href="#i-play"/></svg><span>启动一次绑扎</span><kbd>空格</kbd></button><div class="button-pair"><button id="tie-auto" class="button secondary" type="button">连续绑扎</button><button id="pause-action" class="button secondary" type="button"><svg><use href="#i-pause"/></svg>暂停</button></div><button id="go-review" class="button primary" type="button" hidden>完成绑扎，进入复核<svg><use href="#i-arrow"/></svg></button></div>
+            <div class="operation-note"><svg><use href="#i-target"/></svg><p>先观察一个完整动作，再试着连续完成其余交点。</p></div>
+          </section>
+
+          <section id="review-panel" aria-label="人工复核" hidden>
+            <div class="safe-card"><svg><use href="#i-shield"/></svg><div><strong>停稳后，再靠近检查。</strong><p>先确认机器人退出作业位置。</p></div></div>
+            <button id="review-safe" class="button secondary" type="button">确认已停机，开始复核</button>
+            <div class="section-heading review-heading"><h3>逐点检查</h3><span>共 4 个绑点</span></div>
+            <div id="review-point-list" class="point-list" aria-label="选择复核交点"><button type="button" data-review="A"><span>A</span><small>待复核</small></button><button type="button" data-review="B"><span>B</span><small>待复核</small></button><button type="button" data-review="C"><span>C</span><small>待复核</small></button><button type="button" data-review="D"><span>D</span><small>待复核</small></button></div>
+            <button id="review-closeup" class="observation-card" type="button" aria-label="近看当前绑点"><span class="section-heading"><strong>看这一扣</strong><svg><use href="#i-eye"/></svg></span><span id="review-observation">选择一个绑点，靠近看看绑丝是否成环、是否同时绕住两根钢筋。</span><span class="inspection-checks"><span>看成环</span><span>看扭结</span><span>查松动</span></span></button>
+            <div class="action-group"><button id="pull" class="button primary" type="button">轻拉检查<svg><use href="#i-arrow"/></svg></button><button id="mark-repair" class="button secondary" type="button">标记这个绑点需要返修</button><button id="repair" class="button primary" type="button" hidden>重新绑扎这个点<svg><use href="#i-reset"/></svg></button></div>
+          </section>
+
+          <section id="study-panel" aria-label="送丝与成环观察" hidden>
+            <div class="study-focus"><span class="eyebrow">只看一个细节</span><h3 id="study-headline">绑丝绕住两根钢筋，才算成环。</h3><p>打开外壳，跟着绑丝走一遍：从线盘送出，沿导向嘴绕过交点，再收紧扭结。</p></div>
+            <div class="section-heading"><h3>慢看一次绑扎</h3><span id="study-percent">0%</span></div>
+            <div class="study-player"><input id="study-progress" type="range" min="0" max="1000" value="0" aria-label="绑扎动作进度"><div class="playback-row"><button id="study-play" class="button secondary" type="button"><svg><use href="#i-play"/></svg>播放动作</button><button id="study-reset" class="icon-button" type="button" aria-label="动作回到起点" title="动作回到起点"><svg><use href="#i-reset"/></svg></button><strong id="study-phase">定位</strong></div></div>
+            <div class="fault-lab"><div class="section-heading"><h3>如果送丝卡住了？</h3></div><p>看看枪口附近会发生什么，再按顺序处理。</p><button id="fault-toggle" class="button secondary" type="button" aria-pressed="false">试试送丝受阻</button><div id="fault-actions" class="fault-actions" hidden><button id="mark-fault" class="fault-step" type="button"><span>1</span>发现异常，停止作业</button><button id="isolate-fault" class="fault-step" type="button"><span>2</span>断电并确认隔离</button><button id="inspect-fault" class="fault-step" type="button"><span>3</span>检查线盘与导向通道</button></div><p id="fault-feedback" class="fault-feedback" role="status"></p></div>
+            <button id="study-back" class="button text-button" type="button">回到绑扎工位<svg><use href="#i-arrow"/></svg></button>
+          </section>
+
+          <section id="complete" class="complete-card" hidden><span class="complete-icon"><svg><use href="#i-check"/></svg></span><span class="eyebrow">任务完成</span><h3>这一块，可以交接了。</h3><p>你完成了绑扎、逐点复核和问题处理。</p><button id="complete-study" class="button primary" type="button">再看一眼，这一扣怎么形成<svg><use href="#i-arrow"/></svg></button><button id="complete-reset" class="button secondary" type="button">再操作一次</button></section>
+        </div>
+
+        <div class="panel-foot"><div id="feedback" class="feedback" role="status" aria-live="polite"><i></i><span>点击 A、B、C、D，选择第一个绑扎点。</span></div><div class="panel-footnote"><span class="live-dot"></span>教学模拟 · 操作与人工复核</div></div>
+      </aside>
+    </main>
+
+    <footer class="app-footer"><span>智能建筑机械与机器人</span><span>任务 5-2<span class="footer-dot">·</span>钢筋绑扎机器人操作与人工复核</span><span class="footer-right">FIELD STUDIO <span class="footer-dot">/</span> LEARN BY DOING</span></footer>
+  </div>
+
+  <dialog id="info" class="info-dialog"><div class="dialog-top"><span class="eyebrow">工坊操作说明</span><button id="close-info" class="icon-button" type="button" aria-label="关闭说明"><svg><use href="#i-close"/></svg></button></div><h2>动手绑一扣，再检查它。</h2><p>先选择钢筋交点，微调枪口，启动绑扎。完成四个交点后，确认停机，再逐点观察和轻拉检查。</p><ul><li><strong>观察工位：</strong>拖动旋转，滚轮或双指缩放；上方按钮切换视角。</li><li><strong>移动枪口：</strong>点击交点，或使用方向键微调。</li><li><strong>启动绑扎：</strong>点击按钮或按空格。动作中可暂停观察。</li><li><strong>看懂送丝：</strong>进入“看懂这一扣”，打开外壳，拖动进度。</li></ul><div class="scope-note"><strong>关于这个教学模型</strong><p>本工坊用简化机械臂和绑扎头呈现操作顺序、绑丝成环与人工复核。画面比例、动作速度与交点布置用于教学，不代表某一实际机型；实际设备操作与停机维护应按对应机型说明书执行。</p></div><div class="source-links"><span>结构与操作参考</span><a href="https://www.maxusacorp.com/wp-content/uploads/TWINTIER-Manual-RB441T-RB611T.pdf" target="_blank" rel="noopener noreferrer">MAX TWINTIER 官方操作手册 ↗</a><a href="https://www.maxusacorp.com/rebar_tying_tools/products/rb441t/" target="_blank" rel="noopener noreferrer">MAX RB441T 官方产品资料 ↗</a></div></dialog>
+  <script>{{THREE}}</script>
+  <script>{{MODEL}}</script>
+  <script>{{SCENE}}</script>
+  <script>{{APP}}</script>
+</body>
+</html>

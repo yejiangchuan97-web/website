@@ -1,0 +1,15 @@
+[
+  ["eval", "document.querySelector('.mission-card').style.display='none'; sprayLab.scene.setPathVisible(false); sprayLab.scene.update({params:{distance:200},pose:{x:1800,z:40,on:false},running:false});sprayLab.scene.setView('nozzle');"],
+  ["wait", 500],
+  ["shot", "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/qa/close-low-light.png", "#scene", 2],
+  ["eval", "sprayLab.scene.update({params:{distance:300},pose:{x:1800,z:1200,on:true},running:true});sprayLab.scene.setView('nozzle');"],
+  ["wait", 500],
+  ["shot", "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/qa/close-mid-spray.png", "#scene", 2],
+  ["eval", "sprayLab.scene.update({params:{distance:450},pose:{x:1800,z:2360,on:false},running:false});sprayLab.scene.setView('nozzle');"],
+  ["wait", 500],
+  ["shot", "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/qa/close-high-light.png", "#scene", 2],
+  ["eval", "document.body.dataset.theme='dark';sprayLab.scene.setTheme('dark');sprayLab.scene.update({params:{distance:300},pose:{x:1800,z:1200,on:false},running:false});sprayLab.scene.setView('nozzle');"],
+  ["wait", 500],
+  ["shot", "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/qa/close-mid-dark-4x.png", "#scene", 4],
+  ["eval", "JSON.stringify(sprayLab.scene.getStats())"]
+]

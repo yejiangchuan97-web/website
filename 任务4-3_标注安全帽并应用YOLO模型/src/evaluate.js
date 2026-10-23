@@ -98,7 +98,7 @@
     $('evaluation-show-prediction').checked = state.showPrediction;
     document.querySelectorAll('[data-evaluation-threshold]').forEach(button => {const active = Number(button.dataset.evaluationThreshold) === state.threshold; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active));});
     renderImage(result); renderLists(result); renderMetrics(result); renderIoU();
-    $('evaluation-back-prediction').href = `4-3-predict.html?threshold=${state.threshold.toFixed(2)}`;
+    $('evaluation-back-prediction').href = `predict.html?threshold=${state.threshold.toFixed(2)}`;
     if (focusId && focusRegion) [...$(focusRegion).querySelectorAll(`[data-evaluation-${focusType}]`)].find(element => element.getAttribute(`data-evaluation-${focusType}`) === focusId)?.focus({preventScroll: true});
   }
   function clearAnswers() {

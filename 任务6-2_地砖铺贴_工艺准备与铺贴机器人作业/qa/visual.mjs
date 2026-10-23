@@ -1,17 +1,26 @@
-import {fileURLToPath as __taskFileURL} from 'node:url';
-const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
-import {createRequire} from 'node:module';import {homedir} from 'node:os';import {join,dirname} from 'node:path';import {fileURLToPath} from 'node:url';import {writeFileSync} from 'node:fs';
-import {LINE_ENDS} from 'file:///C:/Users/maquefighting/.agents/skills/anatomy/scripts/line-ends.mjs';
-const HERE=__taskFile(".");const {chromium}=createRequire(import.meta.url)(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
-const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--do-not-de-elevate','--allow-file-access-from-files']});const results=[];
-try{for(const theme of ['light','dark']){const page=await browser.newPage({viewport:{width:1440,height:810},reducedMotion:'reduce',deviceScaleFactor:1});await page.goto(new URL("../index.html",import.meta.url).href);await page.waitForFunction(()=>window.tilingLab);await page.evaluate(t=>document.body.dataset.theme=t,theme);
-for(const [label,phase]of [['vision',null],['approach',0],['contact',1],['lift',2],['target',3],['placed',4],['released',5]]){
- if(phase!==null){await page.locator('[data-tab="vacuum"]').click();await page.locator('#cycleReset').click();for(let i=0;i<phase;i++)await page.locator('#cycleStep').click()}
- const r=await page.evaluate(`(${LINE_ENDS})({show:true})`);results.push({theme,label,ends:r.ends,lines:r.lines,problems:r.problems});console.log(theme+' '+label+' line ends: '+r.problems.length);if(r.problems.length)console.log(r.problems);
- if(label==='vision'||label==='lift'||label==='placed'){await page.locator('#stage').screenshot({path:join(HERE,`lines-${theme}-${label}.png`)});await page.evaluate(()=>document.querySelector('[data-line-ends]')?.remove());
- const box=await page.locator('#stage').boundingBox();await page.screenshot({path:join(HERE,`detail-${theme}-${label}.png`),clip:{x:box.x+box.width*.38,y:box.y+box.height*.35,width:box.width*.32,height:box.height*.5},scale:'css'});
- }else await page.evaluate(()=>document.querySelector('[data-line-ends]')?.remove());
+// Anatomy visual verification. Uses the skill's line checker and capture driver.
+import {spawnSync} from 'node:child_process';
+import {writeFileSync,mkdirSync} from 'node:fs';
+import {homedir} from 'node:os';
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {cycle} from '../src/model.mjs';
+const here=fileURLToPath(new URL('.',import.meta.url));
+const driver=join(homedir(),'.codex/skills/anatomy/scripts/drive.mjs');
+const shots=join(here,'geometry');mkdirSync(shots,{recursive:true});
+for(const theme of ['light','dark']){
+ const actions=[['until','typeof window.setRigPose === "function"'],['wait',250],['eval',`document.body.dataset.theme=${JSON.stringify(theme)}`]];
+ for(const layout of ['single','dual','quad']){
+  for(const t of [0,1,1.5,2,2.5,3,3.5,4,5]){
+   const pose={...cycle(t),layout,y:30,tileY:30};
+   actions.push(['eval',`window.setRigPose(${JSON.stringify(pose)}); ${JSON.stringify(theme+' '+layout+' t='+t)}`],['lines',null,'#stage']);
+  }
+  for(const top of [6,12.8])actions.push(['eval',`window.setRigPose(${JSON.stringify({layout,top,bed:top-4})})`],['lines',null,'#stage']);
+  actions.push(['eval',`window.setRigPose(${JSON.stringify({layout,x:25,y:30,top:40})})`],['lines',null,'#stage']);
+  actions.push(['shot',join(shots,`${layout}-${theme}-4x.png`),'#stage',4]);
+ }
+ const path=join(shots,`${theme}-actions.json`);writeFileSync(path,JSON.stringify(actions,null,2));
+ const result=spawnSync(process.execPath,[driver,fileURLToPath(new URL('../index.html',import.meta.url)),'--actions',path,'--width','1440','--height','1100','--reduced','--no-webgl'],{stdio:'inherit'});
+ if(result.status!==0)process.exit(result.status||1);
 }
-await page.close()}
-}finally{await browser.close();writeFileSync(__taskFile("./line-results.json"),JSON.stringify(results,null,2))}
-if(results.some(r=>r.problems.length))process.exitCode=1;
+console.log('geometry line checks passed: 3 layouts × 2 themes × 12 poses');

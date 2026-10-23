@@ -1,0 +1,9 @@
+[
+ ["shot","qa/rebuild/phone-manual.png",".app"],
+ ["eval","window.masonryLab.game.setLesson(1);document.querySelector('[data-game-action=width][data-value=\"365\"]').click()"],
+ ["shot","qa/rebuild/phone-game.png",".app"],
+ ["eval","window.masonryLab.setTab('robot')"],
+ ["eval","window.masonryLab.seek(3.5)"],
+ ["shot","qa/rebuild/phone-robot.png",".app"],
+ ["eval","JSON.stringify(window.masonryLab.snapshot().scene)"]
+]

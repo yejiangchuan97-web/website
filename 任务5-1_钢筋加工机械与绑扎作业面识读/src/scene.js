@@ -2,13 +2,13 @@
 function createRebarScene(T,host,M,callbacks={}){
   const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));renderer.outputColorSpace=T.SRGBColorSpace;
-  renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.16;
+  renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.04;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   renderer.domElement.setAttribute('aria-hidden','true');renderer.domElement.style.touchAction='none';host.prepend(renderer.domElement);
-  const scene=new T.Scene(),camera=new T.PerspectiveCamera(36,1,.05,160);camera.up.set(0,0,1);scene.background=new T.Color(0xf4f8ff);scene.fog=new T.Fog(0xf4f8ff,65,135);
+  const scene=new T.Scene(),camera=new T.PerspectiveCamera(36,1,.05,160);camera.up.set(0,0,1);scene.background=new T.Color(0xeef6ff);scene.fog=null;
   const world=new T.Group();scene.add(world);
   const material=(color,metalness=.1,roughness=.5)=>new T.MeshStandardMaterial({color,metalness,roughness});
-  const mats={white:material(0xf1f6fd,.26,.32),edge:material(0xd3e2f0,.5,.32),blue:material(0x277cd9,.4,.31),navy:material(0x244c72,.52,.31),steel:material(0x6e8ca7,.77,.28),chrome:material(0xc7d9e9,.91,.22),rubber:material(0x273c50,.05,.82),floor:material(0xe4edf6,.05,.88),form:material(0xd3dfe9,.04,.83),timber:material(0xa9bccc,.03,.8),amber:material(0xdca047,.24,.48),red:material(0xcc6370,.19,.44),cyan:material(0x61b9d1,.3,.38)};
+  const mats={white:material(0xffffff,.08,.50),edge:material(0xb7d7f6,.12,.50),blue:material(0x1f6bff,.12,.40),navy:material(0x14385e,.22,.47),steel:material(0x365875,.45,.43),chrome:material(0xd6e7f4,.65,.27),rubber:material(0x193348,.04,.83),floor:material(0xe2eefb,.02,.88),form:material(0xe6c599,.02,.85),timber:material(0xb47941,.02,.86),amber:material(0xffaa26,.06,.48),orange:material(0xff8619,.08,.46),teal:material(0x00b9aa,.08,.45),green:material(0x0cb981,.06,.48),red:material(0xee4c5a,.07,.47),cyan:material(0x34bcdf,.08,.45)};
   const boxG=new T.BoxGeometry(1,1,1),cylG=new T.CylinderGeometry(1,1,1,24),sphereG=new T.SphereGeometry(1,10,8),tieG=new T.TorusGeometry(.016,.0023,5,14),unitY=new T.Vector3(0,1,0),tmpM=new T.Matrix4();
   const meshes=[],pickables=[],buckets=new Map(),partCounts={},labels=new T.Group(),covers=new T.Group(),upper=new T.Group(),lower=new T.Group(),ties=new T.Group(),spacers=new T.Group(),junctions=new T.Group(),reachRoot=new T.Group(),errorRoot=new T.Group();
   world.add(labels,covers,upper,lower,ties,spacers,junctions,reachRoot,errorRoot);
@@ -26,10 +26,10 @@ function createRebarScene(T,host,M,callbacks={}){
   const textures=[];
   function label(text,w,h,parent,pos,style={}){const c=document.createElement('canvas');c.width=1024;c.height=Math.round(1024*h/w);const x=c.getContext('2d');x.clearRect(0,0,c.width,c.height);if(style.bg){x.fillStyle=style.bg;x.fillRect(0,0,c.width,c.height);}x.fillStyle=style.color||'#456e95';x.font=`600 ${Math.round(c.height*.63)}px "Microsoft YaHei",Arial`;x.textAlign='center';x.textBaseline='middle';x.fillText(text,c.width/2,c.height*.54,c.width*.94);const tex=new T.CanvasTexture(c);tex.colorSpace=T.SRGBColorSpace;textures.push(tex);const o=single(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false}),parent,pos);o.castShadow=false;return o;}
   // Broad studio lights provide four useful material tones without external environments.
-  scene.add(new T.HemisphereLight(0xeaf4ff,0x8a9eb1,2.6));
-  const key=new T.DirectionalLight(0xffffff,3.1);key.position.set(-12,-15,24);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-16,right:16,top:13,bottom:-13,near:1,far:70});key.shadow.normalBias=.025;key.shadow.bias=-.00013;scene.add(key);
-  const fill=new T.DirectionalLight(0xa8d2ff,1.2);fill.position.set(12,10,12);scene.add(fill);
-  const ground=single(new T.PlaneGeometry(300,300),material(0xf4f8ff,0,.94),scene,[0,0,-.48]);ground.castShadow=false;
+  scene.add(new T.HemisphereLight(0xf3f9ff,0x8d9fb4,1.75));
+  const key=new T.DirectionalLight(0xfff9ef,2.5);key.position.set(-12,-15,24);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-16,right:16,top:13,bottom:-13,near:1,far:70});key.shadow.normalBias=.025;key.shadow.bias=-.00013;scene.add(key);
+  const fill=new T.DirectionalLight(0xb4d9ff,.65);fill.position.set(12,10,12);scene.add(fill);
+  const ground=single(new T.PlaneGeometry(300,300),new T.MeshBasicMaterial({color:0xeef6ff,toneMapped:false}),scene,[0,0,-.48]);ground.castShadow=false;
   // Heavy portable teaching diorama, feet and a slim blue reveal around the edge.
   box(20.7,13.6,.34,'white',world,[0,0,-.26]);box(20.3,13.2,.1,'edge',world,[0,0,-.04]);box(20,13,.045,'floor',world,[0,0,.0325]);
   for(const x of[-9.7,9.7])for(const y of[-6.1,6.1]){cyl(.23,.11,'rubber',world,[x,y,-.43]);cyl(.12,.12,'steel',world,[x,y,-.32]);}
@@ -37,9 +37,9 @@ function createRebarScene(T,host,M,callbacks={}){
   for(let x=-9;x<10;x+=2)box(.012,12.7,.003,'edge',world,[x,0,.057]);
   for(const y of[-4.7,4.7])box(19.6,.014,.003,'edge',world,[0,y,.057]);
   // The pedestrian route is outside the work and stock areas, not across the grid.
-  box(19.8,1,.012,'white',world,[0,5.7,.065],'route');
+  box(19.8,1,.012,'teal',world,[0,5.7,.065],'route');
   for(const y of[5.18,6.22])box(19.8,.034,.014,'blue',world,[0,y,.07],'route');
-  for(let x=-9.5;x<10;x+=1.2){const arrow=group(world,[x,5.68,.079]);const q1=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),.65),q2=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),-.65);box(.22,.035,.005,'edge',arrow,[0,.055,0],'route',q1);box(.22,.035,.005,'edge',arrow,[0,-.055,0],'route',q2);}
+  for(let x=-9.5;x<10;x+=1.2){const arrow=group(world,[x,5.68,.079]);const q1=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),.65),q2=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),-.65);box(.22,.035,.005,'white',arrow,[0,.055,0],'route',q1);box(.22,.035,.005,'white',arrow,[0,-.055,0],'route',q2);}
   label('人 员 通 道',2.0,.24,labels,[-.2,5.72,.081]);
   // Split machine zones and a dedicated transfer aisle.
   for(const y of[3,0,-3]){box(6.8,2.64,.012,'white',world,[-6.2,y,.066]);for(const yy of[y-1.32,y+1.32])box(6.8,.026,.006,'edge',world,[-6.2,yy,.074]);}
@@ -47,15 +47,15 @@ function createRebarScene(T,host,M,callbacks={}){
   // Low protective rails end in bolted feet; the open aisle remains passable.
   for(const y of[-4.65,4.65]){const end=y<0?-6.4:-3.2;for(const x of[-9.6,-8,-6.4,-4.8,-3.2].filter(x=>x<=end)){box(.22,.22,.025,'edge',world,[x,y,.08]);cyl(.025,.66,'navy',world,[x,y,.41]);for(const dx of[-.07,.07])bolt(world,x+dx,y,.10,null,.013);}rod([-9.6,y,.65],[end,y,.65],.022,'blue');rod([-9.6,y,.35],[end,y,.35],.018,'edge');}
   const machineGroups={},machineCovers={},moving={},dynamicGeometries=[];
-  function bench(id,y){const g=group(world,[-6.3,y,0]);machineGroups[id]=g;const cover=group(covers,[-6.3,y,0]);machineCovers[id]=cover;
-    box(2.05,1.12,.12,'blue',g,[0,0,.17],id);box(1.94,1.04,.075,'edge',g,[0,0,.27],id);
+  function bench(id,y){const paint=id==='cut'?'orange':id==='bend'?'teal':'blue',g=group(world,[-6.3,y,0]);machineGroups[id]=g;const cover=group(covers,[-6.3,y,0]);machineCovers[id]=cover;
+    box(2.05,1.12,.12,paint,g,[0,0,.17],id);box(1.94,1.04,.075,'edge',g,[0,0,.27],id);
     for(const x of[-.8,.8])for(const yy of[-.42,.42]){box(.18,.16,.12,'rubber',g,[x,yy,.11],id);box(.105,.105,.76,'white',g,[x,yy,.57],id);box(.20,.19,.03,'edge',g,[x,yy,.97],id);bolt(g,x,yy,.999,id);}
     for(const yy of[-.43,.43]){box(1.83,.08,.11,'edge',g,[0,yy,.49],id);box(2.22,.10,.11,'white',g,[0,yy,1.03],id);}
     for(const x of[-.87,.87])box(.10,.90,.09,'edge',g,[x,0,.49],id);
-    box(2.25,1.23,.12,'white',g,[0,0,1.10],id);box(2.28,.05,.035,'blue',g,[0,-.62,1.10],id);
+    box(2.25,1.23,.12,'white',g,[0,0,1.10],id);box(2.28,.05,.035,paint,g,[0,-.62,1.10],id);
     for(const x of[-.99,.99])for(const yy of[-.5,.5])bolt(g,x,yy,1.17,id);
     // Motor bolted to the bottom frame, coaxial shaft and bounded cooling fins.
-    cyl(.21,.53,'blue',g,[.15,.18,.50],'x',id);cyl(.19,.045,'edge',g,[-.137,.18,.50],'x',id);cyl(.17,.055,'navy',g,[.442,.18,.50],'x',id);cyl(.053,.15,'chrome',g,[-.225,.18,.50],'x',id);
+    cyl(.21,.53,paint,g,[.15,.18,.50],'x',id);cyl(.19,.045,'edge',g,[-.137,.18,.50],'x',id);cyl(.17,.055,'navy',g,[.442,.18,.50],'x',id);cyl(.053,.15,'chrome',g,[-.225,.18,.50],'x',id);
     for(let x=-.08;x<.42;x+=.062)cyl(.222,.015,'edge',g,[x,.18,.50],'x',id);
     box(.40,.42,.055,'steel',g,[.16,.18,.29],id);for(const x of[0,.31])bolt(g,x,.35,.33,id,.018);
     box(.34,.33,.54,'white',g,[-.55,-.06,.55],id);box(.28,.018,.43,'edge',g,[-.55,-.235,.55],id);box(.026,.025,.12,'navy',g,[-.45,-.256,.56],id);for(const z of[.42,.69])box(.04,.035,.07,'steel',g,[-.68,-.25,z],id);
@@ -64,8 +64,8 @@ function createRebarScene(T,host,M,callbacks={}){
     const plate=label(id==='straighten'?'01  调直':id==='cut'?'02  切断':'03  弯曲',1.52,.21,g,[0,-.626,.80],{bg:'#edf5ff',color:'#2d6dab'});plate.rotation.x=Math.PI/2;
     // Actual roller stands: a horizontal roller is supported by two bearing blocks.
     const barZ=id==='straighten'?1.225:id==='cut'?1.245:1.32,rollerZ=barZ-.008-.065,crossZ=rollerZ-.10,legTop=crossZ-.0375,legBottom=.1025;
-    for(const side of[-1,1]){for(const x of[side*1.65,side*2.35]){for(const yy of[-.34,.34]){box(.065,.065,legTop-legBottom,'edge',g,[x,yy,(legTop+legBottom)/2],id);box(.20,.16,.025,'navy',g,[x,yy,.09],id);}box(.08,.84,.075,'white',g,[x,0,crossZ],id);for(const yy of[-.30,.30]){box(.12,.11,.08,'blue',g,[x,yy,rollerZ-.0225],id);cyl(.027,.11,'chrome',g,[x,yy,rollerZ],'y',id);}cyl(.065,.53,'chrome',g,[x,0,rollerZ],'y',id);}for(const yy of[-.34,.34])rod([side*1.4,yy,crossZ],[side*2.5,yy,crossZ],.03,'edge',g,id);}
-    box(2.18,.10,.32,'blue',cover,[0,.55,1.31],id);box(.10,1.1,.32,'white',cover,[-1.05,0,1.31],id);
+    for(const side of[-1,1]){for(const x of[side*1.65,side*2.35]){for(const yy of[-.34,.34]){box(.065,.065,legTop-legBottom,'edge',g,[x,yy,(legTop+legBottom)/2],id);box(.20,.16,.025,'navy',g,[x,yy,.09],id);}box(.08,.84,.075,'white',g,[x,0,crossZ],id);for(const yy of[-.30,.30]){box(.12,.11,.08,paint,g,[x,yy,rollerZ-.0225],id);cyl(.027,.11,'chrome',g,[x,yy,rollerZ],'y',id);}cyl(.065,.53,'chrome',g,[x,0,rollerZ],'y',id);}for(const yy of[-.34,.34])rod([side*1.4,yy,crossZ],[side*2.5,yy,crossZ],.03,'edge',g,id);}
+    box(2.18,.10,.32,paint,cover,[0,.55,1.31],id);box(.10,1.1,.32,'white',cover,[-1.05,0,1.31],id);
     for(let x=-.85;x<=.85;x+=.17)box(.065,.007,.16,'navy',cover,[x,.495,1.32],id);
     return g;
   }
@@ -81,17 +81,17 @@ function createRebarScene(T,host,M,callbacks={}){
   for(const {x,y,radius}of wheels){box(.16,.16,.045,'edge',straight,[x,y,1.165],'straighten');cyl(radius,.10,'chrome',straight,[x,y,1.225],'z','straighten');cyl(.042,.047,'navy',straight,[x,y,1.30],'z','straighten');bolt(straight,x,y,1.33,'straighten',.023);box(.085,.085,.045,'blue',straight,[x,y+Math.sign(y)*.16,1.20],'straighten');rod([x,y,1.20],[x,y+Math.sign(y)*.25,1.20],.015,'chrome',straight,'straighten');const mark=group(straight,[x,y,1.278]);box(.06,.012,.004,'blue',mark,[.077,0,0],'straighten');wheelMarks.push(mark);}
   // Guillotine: fixed guide rails, lower blade and a true vertical carriage.
   for(const yy of[-.32,.32]){box(.12,.15,.78,'navy',cut,[.15,yy,1.52],'cut');box(.035,.06,.63,'chrome',cut,[.077,yy,1.53],'cut');}
-  box(.28,.83,.11,'blue',cut,[.15,0,1.95],'cut');box(.20,.55,.042,'steel',cut,[-.10,0,1.181],'cut');box(.030,.52,.035,'chrome',cut,[-.016,0,1.2195],'cut');
-  const blade=group(cut,[0,0,0]);box(.012,.51,.20,'chrome',blade,[.006,0,1.55],'cut');box(.18,.61,.13,'blue',blade,[.10,0,1.72],'cut');cyl(.045,.23,'chrome',blade,[.12,0,1.88],'z','cut');cyl(.084,.33,'white',cut,[.12,0,2.0],'z','cut');
+  box(.28,.83,.11,'orange',cut,[.15,0,1.95],'cut');box(.20,.55,.042,'steel',cut,[-.10,0,1.181],'cut');box(.030,.52,.035,'chrome',cut,[-.016,0,1.2195],'cut');
+  const blade=group(cut,[0,0,0]);box(.012,.51,.20,'chrome',blade,[.006,0,1.55],'cut');box(.18,.61,.13,'orange',blade,[.10,0,1.72],'cut');cyl(.045,.23,'chrome',blade,[.12,0,1.88],'z','cut');cyl(.084,.33,'white',cut,[.12,0,2.0],'z','cut');
   const clamp=group(cut);box(.21,.44,.075,'navy',clamp,[-.28,0,1.30],'cut');for(const yy of[-.16,.16])cyl(.022,.19,'chrome',cut,[-.28,yy,1.43],'z','cut');
-  box(3.2,.11,.03,'edge',cut,[1.7,.37,1.22],'cut');for(let i=0;i<30;i++)box(.01,i%5===0?.09:.045,.006,'navy',cut,[.32+i*.095,.37,1.24],'cut');const stop=group(cut);box(.065,.49,.19,'blue',stop,[.0325,0,1.30],'cut');bolt(stop,.0325,.18,1.40,'cut');
+  box(3.2,.11,.03,'edge',cut,[1.7,.37,1.22],'cut');for(let i=0;i<30;i++)box(.01,i%5===0?.09:.045,.006,'navy',cut,[.32+i*.095,.37,1.24],'cut');const stop=group(cut);box(.065,.49,.19,'orange',stop,[.0325,0,1.30],'cut');bolt(stop,.0325,.18,1.40,'cut');
   moving.cut={blade,clamp,stop};
   // Rotary bending table: stationary mandrel and a moving pin tangent to the bar.
-  cyl(.53,.085,'edge',bend,[0,0,1.205],'z','bend');cyl(.49,.024,'blue',bend,[0,0,1.26],'z','bend');cyl(.152,.19,'chrome',bend,[0,0,1.355],'z','bend');cyl(.045,.026,'navy',bend,[0,0,1.464],'z','bend');
+  cyl(.53,.085,'edge',bend,[0,0,1.205],'z','bend');cyl(.49,.024,'teal',bend,[0,0,1.26],'z','bend');cyl(.152,.19,'chrome',bend,[0,0,1.355],'z','bend');cyl(.045,.026,'navy',bend,[0,0,1.464],'z','bend');
   for(let i=0;i<12;i++){const a=i*Math.PI/6;bolt(bend,.43*Math.cos(a),.43*Math.sin(a),1.285,'bend',.018);cyl(.022,.013,'navy',bend,[.32*Math.cos(a),.32*Math.sin(a),1.282],'z','bend');}
   const pin=group(bend);cyl(.037,.19,'chrome',pin,[0,0,1.355],'z','bend');cyl(.045,.026,'navy',pin,[0,0,1.275],'z','bend');
   for(const x of[-.65,-1.0]){cyl(.065,.18,'chrome',bend,[x,.25,1.36],'z','bend');box(.11,.18,.035,'navy',bend,[x,.25,1.26],'bend');}
-  box(1.0,.065,.07,'blue',bend,[-.65,.36,1.25],'bend');for(let i=0;i<12;i++)box(.008,.03,.006,'white',bend,[-1.05+i*.07,.36,1.29],'bend');
+  box(1.0,.065,.07,'teal',bend,[-.65,.36,1.25],'bend');for(let i=0;i<12;i++)box(.008,.03,.006,'white',bend,[-1.05+i*.07,.36,1.29],'bend');
   const arcPts=[];for(let i=0;i<=40;i++){const a=-i*Math.PI/80;arcPts.push([.67*Math.cos(a),.67*Math.sin(a),1.17]);}pipe(arcPts,.004,'navy',bend,'bend');
   moving.bend={pin};
   for(const [id,g]of Object.entries(machineGroups)){const bars=group(g);moving[id]={...moving[id],bars};}
@@ -131,7 +131,43 @@ function createRebarScene(T,host,M,callbacks={}){
   const materialGroup=group(world);for(const x of[7.1,8.3])box(.15,1.35,.12,'timber',materialGroup,[x,-3.4,.734],'material');
   for(let j=0;j<4;j++)for(let k=0;k<5;k++){const y=-3.78+j*.19,z=.802+k*.016;rod([6.87,y,z],[8.72,y,z],.008,'steel',materialGroup,'material');}
   for(let j=0;j<5;j++){const z=.882+j*.016,x=7.95,y=-3.4;for(const [a,b]of[[[x,y,z],[x+.52,y,z]],[[x+.52,y,z],[x+.52,y+.46,z]],[[x+.52,y+.46,z],[x,y+.46,z]],[[x,y+.46,z],[x,y,z]]])rod(a,b,.008,'navy',materialGroup,'material');}
-  label('半成品暂存',1.7,.20,labels,[7.8,-4.18,.612]);
+  const materialLabel=label('待运钢筋',1.7,.20,materialGroup,[7.8,-4.18,.612]);
+
+  // Gameplay fixtures: moving stock, a blocked route, physical opening rails, and paint beneath the steel.
+  // The target rack remains within the portable base, clear of the robot platform and the pedestrian route.
+  const stockDestination=[0,-2.25,-.60];
+  for(const y of[-6.3,-4.85])box(2.3,.035,.009,'teal',world,[7.8,y,.078]);
+  for(const x of[6.65,8.95])box(.035,1.45,.009,'teal',world,[x,-5.575,.078]);
+  const routeObstacle=group(world,[8,5.7,0]);
+  for(const x of[-.48,.48])for(const y of[-.27,.27])box(.12,.12,.16,'navy',routeObstacle,[x,y,.15],'routeObstacle');
+  box(1.25,.78,.10,'orange',routeObstacle,[0,0,.28],'routeObstacle');
+  for(const x of[-.59,.59])box(.07,.78,.52,'orange',routeObstacle,[x,0,.58],'routeObstacle');
+  for(const y of[-.355,.355])box(1.14,.07,.52,'orange',routeObstacle,[0,y,.58],'routeObstacle');
+  for(const y of[-.40,.40])box(1.29,.06,.045,'navy',routeObstacle,[0,y,.85],'routeObstacle');
+  for(const x of[-.60,.60])for(const y of[-.36,.36])box(.08,.08,.58,'amber',routeObstacle,[x,y,.58],'routeObstacle');
+  for(const y of[-.41,.41]){box(.28,.05,.055,'chrome',routeObstacle,[0,y,.65],'routeObstacle');for(const x of[-.14,.14])box(.045,.05,.11,'chrome',routeObstacle,[x,y,.61],'routeObstacle');}
+  for(const y of[-.18,0,.18])rod([-.48,y,.48],[.48,y,.48],.028,'steel',routeObstacle,'routeObstacle');
+  const openingGuard=group(world),gx=[opening[0]-.22,opening[2]+.22],gy=[opening[1]-.22,opening[3]+.22];
+  for(const x of gx)for(const y of gy){box(.20,.20,.055,'navy',openingGuard,[x,y,.702],'opening');cyl(.045,.91,'amber',openingGuard,[x,y,1.185],'z','opening');cyl(.055,.055,'navy',openingGuard,[x,y,1.67],'z','opening');for(const dx of[-.065,.065])bolt(openingGuard,x+dx,y,.741,'opening',.015);}
+  for(const z of[1.05,1.53]){for(const y of gy)rod([gx[0],y,z],[gx[1],y,z],.035,'amber',openingGuard,'opening');for(const x of gx)rod([x,gy[0],z],[x,gy[1],z],.035,'amber',openingGuard,'opening');}
+  const zoneGroups={},zonePaints={},zonePins={},zoneColors={auto:0x0cb981,manual:0xffa329,blocked:0xee4c5a};
+  const zoneRects={regular:[[2.7,-3.2,5.8,.15]],column:[[.65,.55,2.95,1.1],[.65,2.3,2.95,2.85],[.65,1.1,1.25,2.3],[2.35,1.1,2.95,2.3]],opening:[[4.55,.75,7.45,1.12],[4.55,3.48,7.45,3.85],[4.55,1.12,4.92,3.48],[7.08,1.12,7.45,3.48]]};
+  const pinPositions={regular:[3.05,-2.9,.676],column:[.75,.65,.676],opening:[7.3,.85,.676]};
+  for(const name of Object.keys(zoneRects)){
+    const g=group(world);zoneGroups[name]=g;const tint=new T.MeshBasicMaterial({color:zoneColors.auto,transparent:true,opacity:.30,depthWrite:false,side:T.DoubleSide});zonePaints[name]=tint;
+    for(const [x0,y0,x1,y1]of zoneRects[name]){const face=single(new T.PlaneGeometry(x1-x0,y1-y0),tint,g,[(x0+x1)/2,(y0+y1)/2,.608]);face.castShadow=false;}
+    const pos=pinPositions[name],pin=group(g,pos);cyl(.12,.045,'navy',pin,[0,0,.0225]);cyl(.024,.60,'chrome',pin,[0,0,.345]);const sign=single(new T.BoxGeometry(.48,.07,.35),material(zoneColors.auto,.08,.48),pin,[.18,0,.64]);zonePins[name]=sign;bolt(pin,0,0,.06,null,.019);
+    box(.29,.008,.035,'white',pin,[.18,-.039,.65]);box(.035,.008,.16,'white',pin,[.18,-.039,.65]);
+  }
+  const gameTargets={stock:0,obstacle:0},gameMotion={stock:0,obstacle:0};
+  const gamePaths={stock:[[0,0,0],[0,0,.45],[0,-2.25,.45],stockDestination],obstacle:[[8,5.7,0],[8,5.7,1.2],[9.3,5.7,1.2],[9.3,-5.4,1.2],[5,-5.4,1.2],[5,-5.4,0]]};
+  function applyGame(){
+    const game=state.game||{},stage=Number.isInteger(state.gameStage)?state.gameStage:0;
+    gameTargets.stock=game.materialMoved?1:0;gameTargets.obstacle=game.routeCleared?1:0;materialLabel.visible=state.showLabels!==false;
+    openingGuard.visible=Boolean(game.openingGuarded);routeObstacle.visible=stage>=1;robot.visible=state.showRobot!==false;basePlatform.visible=state.showRobot!==false;
+    for(const name of Object.keys(zoneGroups)){const classification=game.zones?.[name];zoneGroups[name].visible=stage>=2&&Boolean(zoneColors[classification]);if(zoneColors[classification]){zonePaints[name].color.setHex(zoneColors[classification]);zonePins[name].material.color.setHex(zoneColors[classification]);}}
+  }
+  function updateGameMotion(dt,reduced){let moving=false;for(const [name,obj]of[['stock',materialGroup],['obstacle',routeObstacle]]){const difference=gameTargets[name]-gameMotion[name],step=Math.min(Math.max(dt,0),.1)/(name==='stock'?1.35:2.0);if(Math.abs(difference)>.00001)moving=true;gameMotion[name]=reduced?gameTargets[name]:gameMotion[name]+Math.sign(difference)*Math.min(Math.abs(difference),step);const path=gamePaths[name],p=gameMotion[name]*(path.length-1),i=Math.min(path.length-2,Math.floor(p)),f=p-i,t=f*f*(3-2*f);obj.position.set(...path[i].map((v,k)=>v+(path[i+1][k]-v)*t));}return moving;}
   // Robot sits outside all reinforcement, on an independent hard platform.
   const robot=group(world),robotArm=group(robot),basePlatform=group(world,[2,-5.5,0]);box(4.0,1.0,.19,'edge',basePlatform,[0,0,.15]);box(3.96,.96,.025,'white',basePlatform,[0,0,.2575]);
   box(.88,.60,.20,'white',robot,[0,0,.39],'robot');box(.90,.61,.055,'blue',robot,[0,0,.52],'robot');for(const x of[-.31,.31])for(const y of[-.35,.35])cyl(.16,.095,'rubber',robot,[x,y,.31],'y','robot');
@@ -142,13 +178,13 @@ function createRebarScene(T,host,M,callbacks={}){
   let reachCircle=null;function buildReach(base){for(const o of[...reachRoot.children]){reachRoot.remove(o);if(o.geometry&&!o.isInstancedMesh)o.geometry.dispose();}const pts=[];for(let i=0;i<=160;i++){const a=i*Math.PI/80;pts.push(new T.Vector3(base[0]+6*Math.cos(a),base[1]+6*Math.sin(a),.705));}reachCircle=new T.Line(new T.BufferGeometry().setFromPoints(pts),new T.LineDashedMaterial({color:0x4a91da,dashSize:.15,gapSize:.12,transparent:true,opacity:.80}));reachCircle.computeLineDistances();reachRoot.add(reachCircle);}
   // Compact inspection jig beside the machines; design and measured bars are separate objects.
   const inspect=group(errorRoot,[-3.9,-5.3,0]);for(const x of[-1.65,1.65])for(const y of[-.78,.78]){box(.12,.12,.74,'edge',inspect,[x,y,.45]);box(.25,.25,.06,'navy',inspect,[x,y,.10]);}box(3.8,2.0,.10,'white',inspect,[0,0,.86]);box(.04,1.8,.06,'blue',inspect,[-1.78,0,.94]);
-  label('半成品复核',1.65,.22,inspect,[0,-1.01,.79],{bg:'#edf5ff'}).rotation.x=Math.PI/2;
+  label('成形对照台',1.65,.22,inspect,[0,-1.01,.79],{bg:'#edf5ff'}).rotation.x=Math.PI/2;
   const designBar=group(inspect),measuredBar=group(inspect);moving.errors={designBar,measuredBar};
   const selectedMarker=group(world);const selectedRing=ring(.098,.010,'amber',selectedMarker,[0,0,0]);selectedRing.material=new T.MeshBasicMaterial({color:0xe4a24b,depthTest:false,transparent:true,opacity:.96});selectedRing.renderOrder=9;selectedMarker.visible=false;
   flush();
-  let state={mode:'overview',machine:'straighten',progress:0,cutaway:true,showLabels:true,showGrid:false,showReach:false,showUpper:true,showLower:true,showDesign:true,base:[1.8,-5.4],selectedId:'',errorKind:'short',errorAmount:100,spacingMM:400};
+  let state={mode:'overview',machine:'straighten',progress:0,cutaway:true,showLabels:false,showGrid:false,showReach:false,showUpper:true,showLower:true,showDesign:true,base:[1.8,-5.4],selectedId:'',errorKind:'short',errorAmount:100,spacingMM:400,gameStage:0,game:{materialMoved:false,routeCleared:false,openingGuarded:false,zones:{}},showRobot:false};
   let desired={az:-1.98,el:.76,r:33,tx:0,ty:0,tz:.3},current={...desired},lastProgressKey='',spacing=400,lastBase='';
-  const centers={straighten:[-6.3,3,1.2],cut:[-6.3,0,1.25],bend:[-6.3,-3,1.25],slab:[3.6,-.3,.67],column:[1.8,1.7,1.5],opening:[6,2.3,.6],material:[7.8,-3.4,.8],route:[0,5.7,.1],spacer:[1.1,-2.1,.66],joint:[2,-2,.8],errors:[-3.9,-5.3,.94]};
+  const centers={straighten:[-6.3,3,1.2],cut:[-6.3,0,1.25],bend:[-6.3,-3,1.25],slab:[3.6,-.3,.67],column:[1.8,1.7,1.5],opening:[6,2.3,.6],material:[7.8,-3.4,.8],route:[0,5.7,.1],routeObstacle:[8,5.7,.75],regular:[4,-1.6,.7],spacer:[1.1,-2.1,.66],joint:[2,-2,.8],errors:[-3.9,-5.3,.94]};
   function clearDynamic(g){for(const o of[...g.children]){g.remove(o);if(o.geometry)o.geometry.dispose();}}
   function dynamicPolyline(points,z,mat,parent,r=.008){if(!points||points.length<2)return;const vs=points.map(p=>new T.Vector3(p[0],p[1],p[2]??z)),curve=new T.CurvePath();for(let i=1;i<vs.length;i++)if(vs[i].distanceTo(vs[i-1])>.000001)curve.add(new T.LineCurve3(vs[i-1],vs[i]));if(!curve.curves.length)return;const geom=new T.TubeGeometry(curve,Math.max(20,points.length*3),r,8,false);const o=new T.Mesh(geom,mats[mat]);parent.add(o);o.castShadow=true;return o;}
   function dynamicBend(a,z,parent){const g=a.geometry,R=g.bendRadius,A=a.bendAngleDeg*Math.PI/180,F=g.fixedLength,L=g.freeLength,total=F+R*A+L;class BendCurve extends T.Curve{getPoint(t,target=new T.Vector3()){const d=t*total;if(d<F)return target.set(-F+d,R,z);if(d<F+R*A){const th=(d-F)/R;return target.set(R*Math.sin(th),R*Math.cos(th),z);}const s=d-F-R*A;return target.set(R*Math.sin(A)+s*Math.cos(A),R*Math.cos(A)-s*Math.sin(A),z);}}const o=new T.Mesh(new T.TubeGeometry(new BendCurve(),220,.008,12,false),mats.navy);parent.add(o);o.castShadow=true;return o;}
@@ -166,10 +202,10 @@ function createRebarScene(T,host,M,callbacks={}){
   }
   function colorJunctions(){for(const o of junctions.children){if(!o.isInstancedMesh)continue;for(let i=0;i<gridObjects.length&&i<o.count;i++){const q=M.classifyPoint?.(gridObjects[i],{base:state.base,reach:6})||{status:'auto'};o.setColorAt(i,new T.Color(q.status==='auto'?0x3a8ce0:q.status==='manual'?0xdca047:0xd16573));}if(o.instanceColor)o.instanceColor.needsUpdate=true;}}
   function wake(){callbacks.wake?.();callbacks.onChange?.();}
-  function setState(value={}){const prev=state;state={...state,...value};state.base=Array.isArray(state.base)?state.base:[1.8,-5.4];if(state.spacingMM!==spacing){spacing=state.spacingMM;buildBars(spacing);}labels.visible=state.showLabels!==false;upper.visible=state.showUpper!==false;lower.visible=state.showLower!==false;ties.visible=upper.visible&&lower.visible;spacers.visible=true;junctions.visible=Boolean(state.showGrid||state.showReach);reachRoot.visible=Boolean(state.showReach);errorRoot.visible=state.mode==='errors';for(const [id,g]of Object.entries(machineCovers))g.visible=!state.cutaway;
-    const bk=state.base.join(',');if(bk!==lastBase){lastBase=bk;robot.position.set(state.base[0],state.base[1],.12);buildReach(state.base);colorJunctions();}if(prev.showReach!==state.showReach||prev.showGrid!==state.showGrid||prev.spacingMM!==state.spacingMM)colorJunctions();const selectedPoint=gridObjects.find(p=>p.id===state.selectedId);selectedMarker.visible=Boolean(selectedPoint);if(selectedPoint)selectedMarker.position.set(selectedPoint.x,selectedPoint.y,.717);updateMechanism();if(state.mode==='errors')updateErrors();wake();}
-  function setView(name='iso',immediate=false){const presets={iso:{az:-1.98,el:.76,r:33,tx:0,ty:0,tz:.3},top:{az:-Math.PI/2,el:1.55,r:33,tx:0,ty:0,tz:0},front:{az:-Math.PI/2,el:.28,r:33,tx:0,ty:0,tz:.9},detail:{az:-1.87,el:.68,r:8,tx:3.4,ty:0,tz:.68},section:{az:-1.80,el:.16,r:3.1,tx:1.1,ty:-2.1,tz:.64}};Object.assign(desired,presets[name]||presets.iso);if(name==='detail'&&state.mode==='process')focus(state.machine);if(immediate||window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)current={...desired};wake();}
-  function focus(id){const point=gridObjects.find(p=>p.id===id),p=point?[point.x,point.y,point.z]:id==='robot'?[state.base[0],state.base[1],1]:centers[id]||centers.slab;Object.assign(desired,{az:id==='column'?-1.9:-1.78,el:id==='spacer'?.30:id==='opening'?1.08:.70,r:point?3:['straighten','cut','bend'].includes(id)?6.9:id==='column'?5.8:id==='spacer'?2.4:id==='robot'?4:id==='errors'?5.6:id==='route'?21:id==='slab'?18:7.5,tx:p[0],ty:p[1],tz:p[2]});if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)current={...desired};wake();}
+  function setState(value={}){const prev=state;state={...state,...value};if(value.game)state.game={...prev.game,...value.game,zones:value.game.zones?{...value.game.zones}:{...(prev.game?.zones||{})}};state.base=Array.isArray(state.base)?state.base:[1.8,-5.4];if(state.spacingMM!==spacing){spacing=state.spacingMM;buildBars(spacing);}labels.visible=state.showLabels!==false;upper.visible=state.showUpper!==false;lower.visible=state.showLower!==false;ties.visible=upper.visible&&lower.visible;spacers.visible=true;junctions.visible=Boolean(state.showGrid||state.showReach);reachRoot.visible=Boolean(state.showReach);errorRoot.visible=state.mode==='errors';for(const [id,g]of Object.entries(machineCovers))g.visible=!state.cutaway;
+    const bk=state.base.join(',');if(bk!==lastBase){lastBase=bk;robot.position.set(state.base[0],state.base[1],.12);buildReach(state.base);colorJunctions();}if(prev.showReach!==state.showReach||prev.showGrid!==state.showGrid||prev.spacingMM!==state.spacingMM)colorJunctions();const selectedPoint=gridObjects.find(p=>p.id===state.selectedId);selectedMarker.visible=Boolean(selectedPoint);if(selectedPoint)selectedMarker.position.set(selectedPoint.x,selectedPoint.y,.717);updateMechanism();applyGame();if(state.mode==='errors')updateErrors();wake();}
+  function setView(name='iso',immediate=false){const presets={floor:{az:-1.70,el:.90,r:21,tx:3.6,ty:.4,tz:.55},processing:{az:-1.9,el:.8,r:16.5,tx:-6.2,ty:0,tz:.8},iso:{az:-1.98,el:.76,r:33,tx:0,ty:0,tz:.3},top:{az:-Math.PI/2,el:1.55,r:33,tx:0,ty:0,tz:0},front:{az:-Math.PI/2,el:.28,r:33,tx:0,ty:0,tz:.9},detail:{az:-1.87,el:.68,r:8,tx:3.4,ty:0,tz:.68},section:{az:-1.80,el:.16,r:3.1,tx:1.1,ty:-2.1,tz:.64}};Object.assign(desired,presets[name]||presets.iso);if(name==='detail'&&state.mode==='process')focus(state.machine);if(immediate||window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)current={...desired};wake();}
+  function focus(id){const point=gridObjects.find(p=>p.id===id),p=point?[point.x,point.y,point.z]:id==='material'?[7.8+materialGroup.position.x,-3.4+materialGroup.position.y,.8+materialGroup.position.z]:id==='routeObstacle'?[routeObstacle.position.x,routeObstacle.position.y,.75]:id==='robot'?[state.base[0],state.base[1],1]:centers[id]||centers.slab;Object.assign(desired,{az:id==='column'?-1.9:-1.78,el:id==='spacer'?.30:id==='opening'?1.08:.70,r:point?3:['straighten','cut','bend'].includes(id)?6.9:id==='column'?5.8:id==='spacer'?2.4:id==='robot'?4:id==='errors'?5.6:id==='route'?21:id==='slab'?18:7.5,tx:p[0],ty:p[1],tz:p[2]});if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)current={...desired};wake();}
   function resize(){const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();wake();}
   const ro=new ResizeObserver(resize);ro.observe(host);
   const raycaster=new T.Raycaster(),mouse=new T.Vector2(),pointers=new Map();let gesture=null,moved=false;
@@ -180,9 +216,9 @@ function createRebarScene(T,host,M,callbacks={}){
   function pointUp(e){if(pointers.has(e.pointerId)&&!moved&&pointers.size===1)pick(e.clientX,e.clientY);pointers.delete(e.pointerId);gesture=null;}
   const wheel=e=>{e.preventDefault();desired.r=Math.max(1.8,Math.min(48,desired.r*Math.exp(e.deltaY*.00075)));wake();},context=e=>e.preventDefault();
   renderer.domElement.addEventListener('pointerdown',pointDown);renderer.domElement.addEventListener('pointermove',pointMove);renderer.domElement.addEventListener('pointerup',pointUp);renderer.domElement.addEventListener('pointercancel',pointUp);renderer.domElement.addEventListener('wheel',wheel,{passive:false});renderer.domElement.addEventListener('contextmenu',context);
-  function render(dt=1/60,reduced=false){const ease=reduced?1:1-Math.exp(-Math.min(Math.max(0,dt),.1)*11);let movingCamera=false;for(const k of Object.keys(current)){const d=desired[k]-current[k];if(Math.abs(d)>.00005)movingCamera=true;current[k]+=d*ease;}const r=current.r*Math.max(1,1.12/camera.aspect),target=new T.Vector3(current.tx,current.ty,current.tz);camera.position.set(target.x+r*Math.cos(current.el)*Math.cos(current.az),target.y+r*Math.cos(current.el)*Math.sin(current.az),target.z+r*Math.sin(current.el));camera.lookAt(target);renderer.render(scene,camera);return movingCamera;}
+  function render(dt=1/60,reduced=false){const ease=reduced?1:1-Math.exp(-Math.min(Math.max(0,dt),.1)*11);let movingCamera=false;for(const k of Object.keys(current)){const d=desired[k]-current[k];if(Math.abs(d)>.00005)movingCamera=true;current[k]+=d*ease;}const r=current.r*Math.max(1,1.12/camera.aspect),target=new T.Vector3(current.tx,current.ty,current.tz);camera.position.set(target.x+r*Math.cos(current.el)*Math.cos(current.az),target.y+r*Math.cos(current.el)*Math.sin(current.az),target.z+r*Math.sin(current.el));camera.lookAt(target);const movingGame=updateGameMotion(dt,reduced);renderer.render(scene,camera);return movingCamera||movingGame;}
   function projectPoint(p){const a=(Array.isArray(p)?new T.Vector3(...p):new T.Vector3(p.x,p.y,p.z??.7)).project(camera);return{x:(a.x+1)*host.clientWidth/2,y:(1-a.y)*host.clientHeight/2,visible:a.z>=-1&&a.z<=1};}
-  function snapshot(){const counts={};for(const p of gridObjects){const k=M.classifyPoint?.(p,{base:state.base,reach:6})?.status||'auto';counts[k]=(counts[k]||0)+1;}return{available:true,world:'metres, XY floor, Z up',partCounts,totalParts:Object.values(partCounts).reduce((a,b)=>a+b,0),meshObjects:meshes.length,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,barSegments:barSegments.map(s=>({a:s.a.slice(),b:s.b.slice(),layer:s.layer})),barDiameter:.016,lowerCentreZ:.65,upperCentreZ:.666,spacerHeight:.042,spacerPositions:spacerPositions.map(p=>p.slice()),floorTopTriangles,floorTriangles:floorTopTriangles,geometryAudit:{formworkTop:.6,hole:opening.slice(),topTriangleCount:floorTopTriangles.length,lowerBarZ:.65,upperBarZ:.666,barRadius:.008,barContactGap:0,robotWheelBottom:.27,robotPlatformTop:.27,robotPlatform:config.platform||[0,-6,4,-5]},gridPoints:gridObjects.length,junctionCounts:counts,opening:opening.slice(),column:column.slice(),slab:{...slab},base:state.base.slice(),reach:6,view:{...current},desiredView:{...desired},camera:camera.position.toArray(),state:{...state},selectedPoint:gridObjects.find(p=>p.id===state.selectedId)||null,errorGeometry:errorGeometryState,process:M.processingState?.(state.machine,state.progress,{lengthMM:state.lengthMM??2400,angleDeg:state.angleDeg??90})};}
+  function snapshot(){const counts={};for(const p of gridObjects){const k=M.classifyPoint?.(p,{base:state.base,reach:6})?.status||'auto';counts[k]=(counts[k]||0)+1;}return{available:true,world:'metres, XY floor, Z up',partCounts,totalParts:Object.values(partCounts).reduce((a,b)=>a+b,0),meshObjects:meshes.length,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,barSegments:barSegments.map(s=>({a:s.a.slice(),b:s.b.slice(),layer:s.layer})),barDiameter:.016,lowerCentreZ:.65,upperCentreZ:.666,spacerHeight:.042,spacerPositions:spacerPositions.map(p=>p.slice()),floorTopTriangles,floorTriangles:floorTopTriangles,geometryAudit:{formworkTop:.6,hole:opening.slice(),topTriangleCount:floorTopTriangles.length,lowerBarZ:.65,upperBarZ:.666,barRadius:.008,barContactGap:0,robotWheelBottom:.27,robotPlatformTop:.27,robotPlatform:config.platform||[0,-6,4,-5]},gridPoints:gridObjects.length,junctionCounts:counts,opening:opening.slice(),column:column.slice(),slab:{...slab},base:state.base.slice(),reach:6,view:{...current},desiredView:{...desired},camera:camera.position.toArray(),game:{...state.game,zones:{...state.game.zones},stage:state.gameStage,materialPosition:materialGroup.position.toArray(),materialWorldCenter:[7.8+materialGroup.position.x,-3.4+materialGroup.position.y,.8+materialGroup.position.z],routeObstaclePosition:routeObstacle.position.toArray(),routeObstacleVisible:routeObstacle.visible,openingGuardVisible:openingGuard.visible,zoneVisibility:Object.fromEntries(Object.entries(zoneGroups).map(([k,g])=>[k,g.visible])),robotVisible:robot.visible},state:{...state},selectedPoint:gridObjects.find(p=>p.id===state.selectedId)||null,errorGeometry:errorGeometryState,process:M.processingState?.(state.machine,state.progress,{lengthMM:state.lengthMM??2400,angleDeg:state.angleDeg??90})};}
   setState(state);resize();render(1,true);
   return{setState,setView,focus,resize,render,tick:render,snapshot,projectPoint,dispose(){ro.disconnect();for(const [n,f]of[['pointerdown',pointDown],['pointermove',pointMove],['pointerup',pointUp],['pointercancel',pointUp],['wheel',wheel],['contextmenu',context]])renderer.domElement.removeEventListener(n,f);const gs=new Set(),ms=new Set();scene.traverse(o=>{if(o.geometry)gs.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])ms.add(m);});for(const g of gs)g.dispose();for(const m of ms)m.dispose();for(const t of textures)t.dispose();renderer.dispose();renderer.domElement.remove();}};
 }

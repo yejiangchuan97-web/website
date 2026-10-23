@@ -1,19 +1,2 @@
-import {fileURLToPath as __taskFileURL} from 'node:url';
-const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
-import {readFileSync,writeFileSync} from 'node:fs';
-import {dirname,join} from 'node:path';
-import {fileURLToPath} from 'node:url';
-import {ISO_CSS} from "../../公共资源/anatomy/iso-kit.mjs";
-import {buildGeometry} from "./geometry.mjs";
-import * as model from "./model.mjs";
-const here=__taskFile("."),root=__taskFile("../../公共资源/主体结构施工"),read=n=>readFileSync(join(here,n),'utf8');
-console.log(new Date().toISOString(),'Building tying Figure');
-const figure=process.argv.includes('--ui')?JSON.parse(read("./figure-cache.json")):buildGeometry();
-if(!process.argv.includes('--ui'))writeFileSync(__taskFile("./figure-cache.json"),JSON.stringify(figure));
-const values={CSS:ISO_CSS+'\n'+read("./style.css"),FIGURE:figure.svg,MODEL:'const M=(()=>{\n'+read("./model.mjs").replace(/^export /gm,'')+'\nreturn {'+Object.keys(model).join(',')+'};})();',APP:read("./app.js")};
-let html=read("./page.html").replace(/\{\{(CSS|FIGURE|MODEL|APP)\}\}/g,(_,key)=>values[key]);
-html=html.replace('<html lang="zh-CN">','<!-- Anatomy toolkit license:\n'+readFileSync(__taskFile("../../公共资源/anatomy/LICENSE"),'utf8')+'\n-->\n<html lang="zh-CN">');
-if(process.argv.includes('--light'))html=html.replace('data-theme="light"','data-theme="light"');
-writeFileSync(__taskFile("../index.html"),html);
-writeFileSync(__taskFile("../dark.html"),html.replace('data-theme="light"','data-theme="dark"'));
-console.log('Built 5-2.html and 5-2-dark.html · '+figure.parts+' solid parts · '+Math.round(html.length/1024)+' KB');
+// Task 5-2 now opens the Hero workstation. Legacy SVG source is kept for fallback.
+import './hero/build.mjs';
