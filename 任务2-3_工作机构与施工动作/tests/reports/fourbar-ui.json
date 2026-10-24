@@ -1,0 +1,61 @@
+{
+  "checks": [
+    "actual pointer drag over 360 degrees",
+    "fixed pivots and rigid bars throughout drag",
+    "trace on coupler local point",
+    "drag point and clear previous trace",
+    "play pause reverse",
+    "explicit branch reset and branch sign continuity",
+    "disconnected region blocked even for a valid target",
+    "pointer unwrap remains continuous while constrained",
+    "decelerate and stop at merger guard",
+    "reverse out of boundary",
+    "parallelogram branches and singular stops",
+    "invalid dimensions preserve prior experiment",
+    "trace controls",
+    "3D view drag and orbit",
+    "theme and names",
+    "gripper physical jaw projection",
+    "one-page desktop and mobile no horizontal overflow",
+    "offline"
+  ],
+  "layouts": [
+    {
+      "w": 1366,
+      "h": 768,
+      "sw": 1366,
+      "sh": 768,
+      "gripBottom": 292.671875
+    },
+    {
+      "w": 1024,
+      "h": 768,
+      "sw": 1024,
+      "sh": 768,
+      "gripBottom": 292.671875
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "sw": 1920,
+      "sh": 1080,
+      "gripBottom": 365.484375
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "sw": 390,
+      "sh": 1602,
+      "gripBottom": 1106.703125
+    },
+    {
+      "w": 320,
+      "h": 760,
+      "sw": 320,
+      "sh": 1732,
+      "gripBottom": 1219.390625
+    }
+  ],
+  "errors": [],
+  "network": []
+}

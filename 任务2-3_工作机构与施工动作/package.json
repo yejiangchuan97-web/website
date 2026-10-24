@@ -1,0 +1,16 @@
+{
+  "name": "mechanism-classroom",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Offline interactive 3D mechanism teaching lab and four-bar extension",
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node tests/physics.cjs && node tests/fourbar-math.cjs && node tests/fourbar-mechanics.cjs",
+    "test:ui": "node tests/enlarged-controls.cjs",
+    "test:fourbar": "node tests/fourbar-ui.cjs",
+    "test:teaching-ui": "node tests/fourbar-teaching-ui.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

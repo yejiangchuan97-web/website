@@ -1,0 +1,19 @@
+{
+  "samples": 161814,
+  "maxError": 2.6290081223123707e-13,
+  "minGripperClearance": 3.5841341879523014,
+  "checks": [
+    "circle closure over dimension grid",
+    "all rod lengths constant",
+    "fixed pivot spacing",
+    "both branch signs preserved",
+    "local coupler point transform",
+    "mirrored jaw geometry and actual horizontal gap",
+    "12 continuous full rotations",
+    "disconnected interval cannot be skipped",
+    "parallelogram singularities stop before 0 and 180 degrees",
+    "manual branch solutions distinct",
+    "invalid lengths rejected",
+    "pointer angle unwrap"
+  ]
+}

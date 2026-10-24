@@ -1,0 +1,25 @@
+{
+  "samples": 6320,
+  "maxPowerError": 1.7763568394002505e-15,
+  "minPistonGlandClearance": 2.4884066672568963,
+  "nominalSpeeds": [
+    5.231917918865725,
+    6.751005009200228
+  ],
+  "maxScrewRate": 1,
+  "vibrationAmplitude": 0.00013783476710997633,
+  "analyticAmplitude": 0.00013788833891786103,
+  "checks": [
+    "fourbar closure",
+    "finite difference velocity ratio",
+    "virtual work and hydraulic power conservation",
+    "extend/retract areas and force",
+    "pressure stall",
+    "piston packaging over parameter grid",
+    "thread efficiency and power",
+    "torque stall",
+    "smooth speed and 100 mm limits",
+    "transient vibration converges to analytic amplitude",
+    "zero eccentricity damped energy decay"
+  ]
+}
