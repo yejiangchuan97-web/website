@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f8fd">
+<title>多缸柴油机 · 可拆解交互实验室</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<header>
+ <a class="brand" href="#" aria-label="柴油机交互实验室首页"><span class="brand-icon">D<span>↗</span></span><span>机械原理<span class="brand-sub">INTERACTIVE LAB</span></span></a>
+ <div class="header-title"><span id="engineTitle">直列四缸柴油机</span><span class="tag">四冲程</span></div>
+ <div class="header-actions"><div class="theme-picker" aria-label="页面配色"><button id="lightTheme" aria-pressed="false">蓝白</button><button id="darkTheme" class="active" aria-pressed="true">深黑</button></div><button id="helpBtn" class="quiet">使用说明 <span class="circle-help">?</span></button></div>
+</header>
+<main>
+ <section class="workspace" aria-label="柴油机三维交互视窗">
+  <div class="intro"><div class="eyebrow"><i></i> ENGINE ANATOMY / 01</div><h1 id="heroTitle">看见动力的接续。</h1><p id="heroSubtitle">四缸错峰做功，共用一根曲轴。</p><div class="model-tag" id="modelTag">INLINE 4 · 180° 做功间隔</div></div>
+  <div id="viewport"><div id="loading">正在构建三维模型…</div><div id="labels"></div></div>
+  <div class="view-tools"><div class="segmented" id="viewButtons"><button data-view="iso" class="active">透视</button><button data-view="front">正视</button><button data-view="side">侧视</button><button data-view="top">俯视</button></div><button class="square" id="resetView" title="重置视角与缩放" aria-label="重置视角与缩放">↺</button></div>
+  <div class="status-badge"><span id="statusDot"></span><span id="statusText">正在运行</span><span class="sep">/</span><span id="modeText">机体剖切</span></div>
+  <div class="fx-badge" id="fxBadge" data-effect="intake"><span class="fx-dot"></span><div><strong id="fxState">空气吸入</strong><span id="fxDetail">气流沿进气道进入气缸</span></div><span class="fx-live">FLOW FX</span></div>
+  <div class="model-note"><span id="modelSummary">四缸 · 共轨直喷 · 涡轮增压</span><span>原理示意模型 / 非制造图纸</span></div>
+  <div class="gesture-hint"><span>◉ 拖动旋转</span><span>↕ 滚轮缩放</span><span>⇧ + 拖动平移</span></div>
+  <div class="axis-key"><b class="axis-y">Y</b><b class="axis-z">Z</b><b class="axis-x">X</b><svg viewBox="0 0 70 65"><path d="M34 39V10M34 39L8 53M34 39L62 52" fill="none" stroke="#a7b2b0" stroke-width="1.5"/></svg></div>
+  <div class="selection-card" id="selectionCard" hidden><span class="eyebrow">COMPONENT DETAIL</span><button id="clearSelection" aria-label="关闭零件详情">×</button><h3 id="partName"></h3><p id="partDesc"></p></div>
+ </section>
+ <aside class="controls">
+  <div class="panel-title"><span>实验控制台</span><span class="tiny">LIVE MODEL</span></div>
+
+  <section class="control-section mode-section"><div class="section-title"><span><small>00</small> 发动机配置</span><span class="tiny">SHARED CRANK</span></div>
+   <div class="engine-picker" aria-label="发动机缸数"><button data-engine="1">单缸<small>SINGLE</small></button><button data-engine="4" class="active">直列四缸<small>INLINE 4</small></button><button data-engine="6">直列六缸<small>INLINE 6</small></button></div>
+   <p class="mode-description" id="modeDescription">1 → 3 → 4 → 2 错峰做功，点击下方气缸卡片切换观察缸。</p>
+  </section>
+  <section class="control-section"><div class="section-title"><span><small>01</small> 装配与结构</span><span id="assemblyState" class="tiny">已装配</span></div>
+   <button class="primary" id="explodeBtn"><span class="explode-icon">⤢</span><span id="explodeText">一键拆解</span><span class="button-arrow">↗</span></button>
+   <div class="range-label"><label for="explodeRange">拆解程度</label><output id="explodeValue">0%</output></div><input id="explodeRange" type="range" min="0" max="100" value="0" aria-label="拆解程度">
+   <div class="switch-row"><label for="cutToggle">机体剖切<span>打开外壳，观察内部机构</span></label><input type="checkbox" id="cutToggle" class="switch" checked></div>
+   <div id="cutControls"><div class="range-label"><label for="cutRange">剖切位置</label><output id="cutValue">50%</output></div><input id="cutRange" type="range" min="-100" max="100" value="0">
+   <div class="range-label"><label for="cutAngle">剖切方向</label><output id="cutAngleValue">0°</output></div><input id="cutAngle" type="range" min="-90" max="90" value="0"></div>
+   <div class="switch-row compact"><label for="labelToggle">零件标注</label><input type="checkbox" id="labelToggle" class="switch" checked></div>
+   <div class="switch-row compact"><label for="effectsToggle">气流与燃烧特效</label><input type="checkbox" id="effectsToggle" class="switch" checked></div>
+  </section>
+  <section class="control-section"><div class="section-title"><span><small>02</small> 运行与节奏</span><button id="stepBtn" class="text-button" title="暂停并前进 15 度">单步 +15°</button></div>
+   <div class="play-row"><button id="playBtn" class="play-btn" aria-label="暂停运行">Ⅱ</button><div><strong id="speedReadout">0.50<span>×</span></strong><span class="subtext">教学演示倍率</span></div><span class="rpm-pill" id="rpmReadout">15 rpm</span></div>
+   <input id="speedRange" type="range" min="0.1" max="2" step="0.05" value="0.5" aria-label="运行速率">
+   <div class="range-ticks"><span>0.1× 慢速</span><span>1×</span><span>2× 快速</span></div>
+   <div class="angle-row"><label for="cycleRange">曲轴转角</label><div class="angle-shortcuts"><button data-angle="90" title="快捷键 1 / 曲轴转角 90°：进气冲程">90°</button><button data-angle="450" title="快捷键 2 / 曲轴转角 450°：做功冲程">450°</button><output id="angleReadout">0°</output></div></div><input id="cycleRange" type="range" min="0" max="719.9" step="0.1" value="0" aria-label="曲轴转角，拖动暂停并定位">
+   <p class="hint" id="runHint">拖动转角可暂停并观察任意时刻</p>
+   <div class="fx-shortcuts"><span>特效观察</span><div><button data-fx-angle="90">进气气流</button><button data-fx-angle="356">喷油雾化</button><button data-fx-angle="382">压燃瞬间</button></div></div>
+   <div class="sound-panel"><div class="switch-row compact"><label for="audioToggle">发动机同步音效</label><input type="checkbox" id="audioToggle" class="switch"></div><div class="range-label"><label for="audioVolume">音量</label><output id="volumeValue">30%</output></div><input id="audioVolume" type="range" min="0" max="100" value="30" aria-label="发动机音效音量"><div class="audio-status-row"><span id="audioStatus">放大近景时自动开启</span><span id="audioMeter" class="audio-meter" aria-label="音效输出电平"><i></i><i></i><i></i><i></i><i></i></span></div><button id="inspectEngineBtn" class="inspect-button">近景运行 · 气流与音效 ↗</button><p class="hint">进气 → 压缩 → 压燃 → 排气，按冲程同步</p></div>
+  </section>
+  <section class="control-section parts-section"><div class="section-title"><span><small>03</small> 零件索引</span><span class="tiny">点击平滑放大</span></div><div class="multi-tools" id="multiTools" hidden>
+ <label class="range-label" for="systemFilter" style="margin-top:0">按系统查看</label><select id="systemFilter"><option value="all">整机 · 全部系统</option value="structure">机体与密封</option><option value="motion">曲柄连杆</option><option value="valvetrain">配气与正时</option><option value="fuel">燃油供给</option><option value="air">进排气与增压</option><option value="cooling">冷却循环</option><option value="oil">润滑循环</option><option value="electric">启动与电气</option></select>
+ <div class="multi-selected" id="multiSelected">先从模型或零件索引选择部件</div><div class="mini-actions"><button id="detachPart" disabled>拆下所选部件</button><button id="isolatePart" disabled>独立观察</button></div><button id="restoreParts" class="multi-restore">全部部件复位 · 显示整机</button>
+ <input type="search" id="partSearch" class="part-search" placeholder="搜索部件，如：凸轮、油泵" aria-label="搜索多缸发动机部件">
+</div><div id="partsList" class="parts-grid"></div><p id="partsCount" class="parts-count" hidden></p></section>
+  <section class="control-section vehicle-section"><div class="section-title"><span><small>04</small> 整机应用</span><span class="tiny">BACKHOE</span></div><button id="vehicleBtn" class="vehicle-btn" aria-pressed="false"><svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="17" width="17" height="5" rx="2.5"/><path d="M5 17V9h8v8M7 9V4h6v5m0 1 7-6 3 8-3 5 5 2 2-4M5 13h8"/></svg><span id="vehicleText">装入运行中的挖掘机</span></button><button id="engineBayBtn" class="bay-btn" hidden>放大观察动力舱 ↗</button><div class="switch-row compact"><label for="xrayToggle">透视动力舱</label><input type="checkbox" id="xrayToggle" class="switch" checked disabled></div><div class="switch-row compact"><label for="tracksToggle">履带循环转动</label><input type="checkbox" id="tracksToggle" class="switch" checked disabled></div><div id="travelControls" class="travel-controls"><button data-drive="1" class="active" aria-pressed="true" disabled>前进</button><button data-drive="-1" aria-pressed="false" disabled>后退</button><span id="trackMotion"><i id="trackFlow">⟳</i><span id="trackState">装机后可运行</span></span></div><p id="vehicleHint" class="hint">反铲挖掘机 / 向机身内收挖掘</p></section>
+  <div class="panel-footer"><span class="live-dot"></span>720° / 一个完整工作循环<button id="resetAll" class="text-button">重置</button></div>
+ </aside>
+</main>
+<section class="multi-dashboard" id="multiDashboard" aria-label="多缸协同运行与做功时序" hidden>
+ <div class="dashboard-head"><div><div class="eyebrow">ONE CRANKSHAFT · MANY CYLINDERS</div><h2 style="margin-top:9px">多缸协同，动力接续。</h2><p id="multiExplanation"></p></div><div id="firingOrder" class="firing-order" aria-label="做功顺序"></div></div>
+ <div class="cylinder-cards" id="cylinderCards"></div>
+ <div class="dashboard-bottom"><div><div class="timing-title"><span>720° 工作时序 · 竖线为当前曲轴转角</span><div class="phase-legend"><span style="--c:#3b9dff">进气</span><span style="--c:#d6b451">压缩</span><span style="--c:#f3933e">做功</span><span style="--c:#92a6c4">排气</span></div></div><div class="timing-axis"><span>0°</span><span>180°</span><span>360°</span><span>540°</span><span>720°</span></div><div id="timingRows"></div></div><div class="power-summary"><span class="eyebrow">POWER STROKE OVERLAP</span><strong id="powerCount">1 缸做功</strong><p id="powerCylinders"></p><small id="powerDescription"></small></div></div>
+ <div class="multi-hint">点击气缸卡片选择观察缸；下方四冲程、转角快捷键及特效定位均跟随观察缸。点击做功顺序中的缸号，可暂停定位到该缸压燃时刻。</div>
+</section>
+
+<section class="cycle-panel" aria-label="四冲程状态与说明">
+ <div class="cycle-heading"><span class="eyebrow">THE FOUR-STROKE CYCLE</span><h2 id="cycleTitle">第 1 缸 · 四个冲程。</h2><p id="cycleDescription">点击冲程，定位观察缸 <span>↗</span></p></div>
+ <div class="strokes" id="strokes">
+  <button class="stroke active" data-stroke="0" style="--stroke:#238bfa"><span class="stroke-top"><span>01 / INTAKE</span><b>↓</b></span><h3>进气<span>0°—180°</span></h3><p>进气门开启，活塞下行，吸入新鲜空气。</p><div class="stroke-line"><i></i></div></button>
+  <button class="stroke" data-stroke="1" style="--stroke:#bf913c"><span class="stroke-top"><span>02 / COMPRESSION</span><b>↑</b></span><h3>压缩<span>180°—360°</span></h3><p>两气门关闭，活塞上行，空气受压升温。</p><div class="stroke-line"><i></i></div></button>
+  <button class="stroke" data-stroke="2" style="--stroke:#de713f"><span class="stroke-top"><span>03 / POWER</span><b>↓</b></span><h3>做功<span>360°—540°</span></h3><p>柴油喷入高温空气后自燃，推动活塞下行。</p><div class="stroke-line"><i></i></div></button>
+  <button class="stroke" data-stroke="3" style="--stroke:#77899b"><span class="stroke-top"><span>04 / EXHAUST</span><b>↑</b></span><h3>排气<span>540°—720°</span></h3><p>排气门开启，活塞上行，将废气排出。</p><div class="stroke-line"><i></i></div></button>
+ </div>
+</section>
+<footer><span>DIESEL ENGINE LAB <i>©</i> 2026</span><span>旋转观察 · 拆解探索 · 理解机械</span><button id="infoBtn" class="text-button">模型说明 ↗</button></footer>
+<dialog id="helpDialog"><button id="closeHelp" class="dialog-close" aria-label="关闭说明">×</button><div class="eyebrow">DIESEL ENGINE LAB</div><h2>让机械原理，变得可见。</h2><div class="help-grid"><div><h3>旋转与视角</h3><p>鼠标左键拖动旋转，滚轮缩放；Shift + 拖动或右键拖动平移。触屏单指旋转、双指缩放。顶部可切换四种视角。</p></div><div><h3>拆解与合成</h3><p>点击「一键拆解」展开零件，再点击「一键合成」复原。也可拖动拆解程度。拆解期间暂停运行，复原后恢复先前状态。</p></div><div><h3>机体剖切</h3><p>剖切作用于气缸、缸盖、曲轴箱等外壳，保留运动机构便于教学。滑块可改变剖面位置和方向；关闭后查看完整外观。</p></div><div><h3>逐帧观察</h3><p>空格键播放或暂停，单步前进 15°；90°、450°按钮或数字键 1、2 可定位进气和做功状态。使用特效观察按钮可查看进气气流、喷油雾化和压燃瞬间。倍率 1× 对应教学转速 30 rpm。</p></div></div><div class="model-disclaimer"><strong>零件聚焦与挖掘机模式</strong><p>点击零件索引，镜头平滑推近并跟随所选零件，其他零件淡化。背景自动切为深黑，右上角可切换蓝白主题。「装入运行中的挖掘机」将发动机缩放并安装到后部动力舱，飞轮与液压泵同轴连接。透明机罩便于观察发动机，动臂、斗杆、铲斗和液压缸随运行状态联动。可放大动力舱、开关透视，或返回发动机视图。反铲斗口朝向机身，动臂、斗杆、铲斗与四连杆同步运动；履带可切换前后转动，驱动轮和滚轮随履带运动，整机原地展示行走机构。排气从缸盖经消声器和带隔热罩的烟囱排出。发动机近景会自动启动四冲程观察与合成音效，可用开关静音或调整音量。暂停后，模型和音效同步停止。发动机与挖掘机的组合为教学安装示意，并非特定整机的真实设计或液压性能仿真；音效为分冲程合成演示。</p><strong>多缸协同与独立拆解</strong><p>切换直列四缸或六缸后，各缸依次做功并驱动同一根曲轴。四缸采用1-3-4-2顺序、180°间隔；六缸采用1-5-3-6-2-4顺序、120°间隔。全局0°为第1缸做功上止点，本缸0°为进气上止点。点击气缸卡片切换观察缸，时序图和几何动画使用同一曲轴转角。零件索引支持搜索、按系统筛选、单独拆下与独立观察；全部复位后可继续运行。多缸音效仅跟随当前观察缸。机体剖切打开时可见各缸内部着色气体及压燃动画。系统管路在拆解状态断开，拆解路径为教学展示。</p><strong>关于这个模型</strong><p>这是程序化构建的单缸及直列四缸、六缸直喷柴油机原理示意。多缸配置为共轨增压教学模型，具有整体气缸体、共用多拐曲轴、半速凸轮轴及34组可拆解总成。曲柄连杆采用几何约束，曲轴每转两圈完成一个循环。采用理想化气门正时，省略提前角、迟闭角和气门重叠；单缸保留原简化结构；多缸增加配气正时、供油、增压中冷、冷却、润滑和启动电气系统。展示覆盖主要总成，内部微小油孔、控制器线束及全部标准件未按制造级细化。气体颜色和喷雾仅用于说明，不代表压力、温度或流体仿真。模型尺寸与拆解路径经过教学化调整，不用于制造或维修。</p><p>原理参考：<a href="https://www.cummins.com/en-eu/news/how-do-diesel-engines-work" target="_blank" rel="noopener">Cummins · How do diesel engines work?</a>　顺序参考：<a href="https://media.kubota.io/uploads/Kubota-Engines%E2%80%9303-Series-Manual.pdf" target="_blank" rel="noopener">Kubota 03系列手册</a>、<a href="https://energy.virginia.gov/coal/coal-mine-safety/documents/Certification/StudyGuides/DieselEngineMechanic.pdf" target="_blank" rel="noopener">柴油机技师学习资料</a>。渲染：<a href="https://threejs.org/" target="_blank" rel="noopener">Three.js</a>（MIT）</p></div></dialog>
+<script src="src/three.js"></script><script src="src/engine-lab.js"></script>
+</body></html>
