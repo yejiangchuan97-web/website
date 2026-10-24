@@ -1,12 +1,42 @@
-(()=>{'use strict';const $=id=>document.getElementById(id),data=window.COURSE;let chapter=0;const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const notes={'3-1':'辨认构型 · 观察可达空间','3-2':'认识关节轴 · 低速点动','3-3':'看清传动 · 验证运动关系','3-4':'选用工具 · 理解 TCP','3-5':'驱动轮组 · 完成行走任务'};
-function entries(t){return t.entries||[];}
-function taskHTML(t){const links=entries(t),available=links.length>0;const body=`<span class="task-code">${t.id}</span><span class="task-text"><strong>${esc(t.title)}</strong><small>${esc(notes[t.id]||'认识设备 · 观察过程 · 动手学习')}</small>${available?'':`<span class="pending">${t.statusLabel}</span>`}</span>${available?'<span class="task-go">↗</span>':''}`;return `<article class="task-item" id="task-${t.id}">${links.length===1?`<a class="task-main" href="${esc(links[0].file)}" aria-label="进入任务${t.id} ${esc(t.title)}">${body}</a>`:`<div class="task-main">${body}</div>`}${links.length>1?`<div class="task-sub">${links.map(e=>`<a href="${esc(e.file)}">${esc(e.title)} ↗</a>`).join('')}</div>`:''}</article>`;}
-$('chapter-menu').innerHTML=data.chapters.map(c=>`<a href="#chapter-${c.id}" class="chapter-link" data-chapter="${c.id}"><span class="num">0${c.id}</span><span class="chapter-name">${esc(c.nav)}</span><span class="arrow">›</span></a>`).join('');
-function show(n){chapter=n;document.querySelector('.overview-link').toggleAttribute('aria-current',n===0);document.querySelectorAll('[data-chapter]').forEach(a=>{if(Number(a.dataset.chapter)===n)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});$('task-list').classList.toggle('overview-tasks',n===0);$('task-notice').textContent='';if(n===0){$('scene-kicker').textContent='COURSE ATLAS / 01—08';$('scene-title').textContent='一座展厅，看见完整课程';$('stage').setAttribute('aria-label','八个章节的三维机械与机器人展品');$('scene-hint').textContent='点击展品标签，展开对应章节';$('panel-kicker').textContent='START EXPLORING';$('panel-count').textContent='08 章';$('panel-title').textContent='把建造现场带进课堂';$('panel-description').textContent='由机械原理出发，走向机器人操作与现场作业。选择一个章节，展开对应学习任务。';$('task-list').innerHTML=data.chapters.map(c=>`<div class="task-item"><a class="task-main" href="#chapter-${c.id}"><span class="task-code">0${c.id}</span><span class="task-text"><strong>${esc(c.title)}</strong><small>${c.tasks.length} 项任务${c.id===3?' · 完整交互示例':''}</small></span><span class="task-go">→</span></a></div>`).join('');}else{const c=data.chapters[n-1];$('scene-kicker').textContent=`CHAPTER 0${n} / ${n===3?'STRUCTURE & MOTION':'CONSTRUCTION ROBOTICS'}`;$('scene-title').textContent=n===3?'从构型到行走，看见运动的来处':c.title;$('stage').setAttribute('aria-label',n===3?'机器人构型、六轴机械臂、减速器、末端工具和移动底盘五组三维模型':c.title+'三维主题模型');$('scene-hint').textContent=n===3?'点击模型标签或任务名称，进入学习':'从右侧任务菜单选择学习内容';$('panel-kicker').textContent=`CHAPTER 0${n}`;$('panel-count').textContent=`0${c.tasks.length} 项任务`;$('panel-title').textContent=c.title;$('panel-description').textContent=c.description;$('task-list').innerHTML=c.tasks.map(taskHTML).join('');$('task-notice').textContent=data.scope==='chapter3'&&n!==3?'本示例先接入第3章；本章任务已列入课程总览。':'';}$('scope-note').textContent=data.scope==='chapter3'?'课程总封面 · 第3章示例版':'课程总封面 · 已接入现有课程';window.CourseScene?.show(n);}
-window.CourseUI={model(id){if(!id.includes('-')){const n=Number(id);if(n!==chapter)location.hash=`chapter-${n}`;return;}const t=data.chapters[2].tasks.find(t=>t.id===id);if(!t)return;const links=entries(t);if(links.length===1){location.href=links[0].file;return;}document.querySelectorAll('.task-item').forEach(e=>e.classList.remove('is-focused'));const row=$('task-'+id);row?.classList.add('is-focused');window.CourseScene?.focus(id);$('task-notice').textContent='任务3-3包含两个实验室，请选择“减速器”或“运动转换”。';row?.querySelector('a')?.focus({preventScroll:true});if(innerWidth<651)row?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});}};
-function route(){const m=location.hash.match(/^#chapter-([1-8])$/);show(m?Number(m[1]):0);}addEventListener('hashchange',route);
-let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;function motion(){const b=$('motion');b.setAttribute('aria-pressed',String(paused));b.setAttribute('aria-label',paused?'播放模型运动':'暂停模型运动');b.textContent=paused?'▷':'Ⅱ';window.CourseScene?.pause(paused);}motion();$('motion').onclick=()=>{paused=!paused;motion();};
-function catalog(query=''){query=query.trim().toLowerCase();let count=0;$('catalog-content').innerHTML=data.chapters.map(c=>{const tasks=c.tasks.filter(t=>(t.id+' '+t.title+' '+c.title).toLowerCase().includes(query));if(!tasks.length)return '';count+=tasks.length;return `<section class="catalog-group"><h3><a href="#chapter-${c.id}" data-close-catalog>0${c.id} ${esc(c.title)} ↗</a></h3>${tasks.map(t=>{const es=entries(t);return `<div class="catalog-row"><span>${t.id}</span><div>${es.length===1?`<a href="${esc(es[0].file)}">${esc(t.title)} ↗</a>`:esc(t.title)}${es.length>1?`<div class="catalog-subs">${es.map(e=>`<a href="${esc(e.file)}">${esc(e.title)} ↗</a>`).join('')}</div>`:''}</div>${es.length?'':`<span class="pending">${t.statusLabel}</span>`}</div>`;}).join('')}</section>`;}).join('');if(!count)$('catalog-content').innerHTML='<p class="empty-search">没有找到对应任务，请换一个关键词。</p>';document.querySelectorAll('[data-close-catalog]').forEach(a=>a.onclick=()=>$('catalog').close());}
-$('catalog-open').onclick=()=>{catalog();$('task-search').value='';$('catalog').showModal();$('task-search').focus();};$('catalog-close').onclick=()=>$('catalog').close();$('task-search').oninput=e=>catalog(e.target.value);$('catalog').addEventListener('click',e=>{if(e.target===$('catalog')){const r=$('catalog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('catalog').close();}});route();
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id),data=window.COURSE;
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const chapter=n=>data.chapters.find(c=>c.id===n),links=t=>t.entries||[];
+  $('chapter-grid').innerHTML=data.chapters.map(c=>`<article class="chapter-card" id="chapter-${c.id}"><a class="chapter-entry-link" data-chapter="${c.id}" href="${esc(c.entry)}" aria-label="进入第${c.id}章 ${esc(c.title)}"><div class="chapter-top"><span>CHAPTER 0${c.id}</span><small>${esc(c.kind)}</small></div><h3>${esc(c.title)}</h3><p>${esc(c.description)}</p><div class="chapter-bottom"><span>${c.tasks.length} 项任务</span><b>进入章节 ↗</b></div></a><button class="task-shortcut" data-tasks="${c.id}" aria-label="查看第${c.id}章任务">任务目录</button></article>`).join('');
+  $('start-course').href=chapter(1).entry;
+  $('chapter-filter').insertAdjacentHTML('beforeend',data.chapters.map(c=>`<option value="${c.id}">第${c.id}章 · ${esc(c.title)}</option>`).join(''));
+  const route=[
+    ['从现场认识设备','用场景说明问题，认识机械、机器人与人的分工。',[1]],
+    ['从动力走到运动','看动力如何产生与传递，再识读结构、关节和工具。',[2,3]],
+    ['从观测走到识别','认识自身状态、环境扫描与图像中的目标和疑点。',[4]],
+    ['进入具体施工作业','比较主体结构与装饰装修中的动作、反馈和质量复核。',[5,6]],
+    ['把复核与维护接起来','巡检取证、数据复核，再识读安全操作与维护条件。',[7,8]]
+  ];
+  $('route-list').innerHTML=route.map(([title,text,ids])=>`<li><h3>${title}</h3><p>${text}</p><div>${ids.map(n=>`<a href="${esc(chapter(n).entry)}">0${n} ${esc(chapter(n).title)} ↗</a>`).join('')}</div></li>`).join('');
+  $('route-open').onclick=()=>$('learning-route').showModal();$('route-close').onclick=()=>$('learning-route').close();
+  function catalog(){
+    const query=$('task-search').value.trim().toLowerCase(),filter=Number($('chapter-filter').value);
+    let count=0,groups=0;
+    $('catalog-content').innerHTML=data.chapters.map(c=>{
+      if(filter&&c.id!==filter)return '';
+      const tasks=c.tasks.filter(t=>(`${t.id} ${t.title} ${c.title} ${t.kind} 第${c.id}章`).toLowerCase().includes(query));
+      if(!tasks.length)return '';count+=tasks.length;groups++;
+      return `<section class="catalog-group" data-catalog-chapter="${c.id}"><h3><a href="${esc(c.entry)}">0${c.id} ${esc(c.title)} ↗</a><small>${tasks.length} 项任务</small></h3>${tasks.map(t=>`<article class="catalog-row" data-task="${t.id}"><span class="task-code">${t.id}</span><div class="task-info"><a class="task-title" href="${esc(links(t)[0].file)}">${esc(t.title)} ↗</a><small>${esc(t.kind)}</small>${links(t).length>1?`<div class="task-sub">${links(t).map(e=>`<a href="${esc(e.file)}">${esc(e.title)} ↗</a>`).join('')}</div>`:''}</div></article>`).join('')}</section>`;
+    }).join('');
+    $('catalog-count').textContent=`显示 ${count} 项任务 · ${groups} 个章节`;
+    if(!count)$('catalog-content').innerHTML='<p class="empty-search">没有找到对应任务，请换一个关键词或章节。</p>';
+  }
+  function openCatalog(n=0){$('task-search').value='';$('chapter-filter').value=String(n);catalog();$('catalog').showModal();$('task-search').focus();}
+  $('catalog-open').onclick=()=>openCatalog();$('catalog-close').onclick=()=>$('catalog').close();
+  $('chapter-grid').addEventListener('click',e=>{const b=e.target.closest('[data-tasks]');if(b)openCatalog(Number(b.dataset.tasks));});
+  $('task-search').oninput=catalog;$('chapter-filter').onchange=catalog;
+  for(const dialog of [$('catalog'),$('learning-route')])dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+  function markChapter(){const match=location.hash.match(/^#chapter-([1-8])$/);document.querySelectorAll('.chapter-card').forEach(c=>c.classList.toggle('returning',c.id===match?.[0].slice(1)));}
+  addEventListener('hashchange',markChapter);markChapter();
+  window.CourseUI={model(id){if(!id.includes('-')){const c=chapter(Number(id));if(c)location.href=c.entry;return;}const t=data.chapters.flatMap(c=>c.tasks).find(t=>t.id===id);if(t)location.href=links(t)[0].file;}};
+  let paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function motion(){const b=$('motion');b.setAttribute('aria-pressed',String(paused));b.setAttribute('aria-label',paused?'播放模型运动':'暂停模型运动');b.textContent=paused?'▷ 播放模型':'Ⅱ 暂停模型';window.CourseScene?.pause(paused);}
+  $('motion').onclick=()=>{paused=!paused;motion();};window.CourseScene?.show(0);motion();
+  window.CourseHome={state:()=>({chapters:data.chapters.length,tasks:data.chapters.reduce((sum,c)=>sum+c.tasks.length,0),paused,models:window.CourseScene?.getState?.()}),openCatalog};
 })();

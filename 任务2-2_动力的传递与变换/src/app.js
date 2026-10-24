@@ -32,7 +32,7 @@
     panZ = 0,
     nameLabels,
     stage = {},
-    dark = false,
+    dark = true,
     focusState = null,
     overviewView = null,
     cameraTween = null,
@@ -41,9 +41,6 @@
     partKey = null,
     inspection = null,
     learning = null;
-  try {
-    dark = localStorage.getItem("mechanics-theme") === "dark";
-  } catch (e) {}
   const target = new THREE.Vector3(0, 1.5, 0),
     wrap = $("#canvasWrap"),
     canvas = $("#scene");

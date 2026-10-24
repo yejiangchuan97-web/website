@@ -13,7 +13,14 @@
       "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#doxcnyk9zhRyi8AXyhdAKXuzb6c",
       "source_block_id": "doxcnyk9zhRyi8AXyhdAKXuzb6c",
       "directory": "任务1-1_从建造施工到智能建造",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务1-1_从建造施工到智能建造/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务1-1_从建造施工到智能建造/index.html"
+        }
+      ]
     },
     {
       "id": "1-2",
@@ -25,7 +32,14 @@
       "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#I0XedxfLlo7K6exv1gUcgaUtnie",
       "source_block_id": "I0XedxfLlo7K6exv1gUcgaUtnie",
       "directory": "任务1-2_认识施工机械",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务1-2_认识施工机械/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务1-2_认识施工机械/index.html"
+        }
+      ]
     },
     {
       "id": "1-3",
@@ -37,7 +51,14 @@
       "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#R6e8dVXKnodHvBxE26UciDdon2c",
       "source_block_id": "R6e8dVXKnodHvBxE26UciDdon2c",
       "directory": "任务1-3_认识施工机器人",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务1-3_认识施工机器人/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务1-3_认识施工机器人/index.html"
+        }
+      ]
     },
     {
       "id": "2-1",
@@ -50,7 +71,17 @@
       "source_block_id": "CdK8dZKRlovcodxLQcVcpj2vnNb",
       "directory": "任务2-1_动力装置的基本原理",
       "status": "已有演示",
-      "demo": "任务2-1_动力装置的基本原理/index.html"
+      "demo": "任务2-1_动力装置的基本原理/index.html",
+      "demos": [
+        {
+          "title": "直流电机",
+          "file": "任务2-1_动力装置的基本原理/index.html"
+        },
+        {
+          "title": "柴油机",
+          "file": "任务2-1_动力装置的基本原理/diesel.html"
+        }
+      ]
     },
     {
       "id": "2-2",
@@ -62,7 +93,8 @@
       "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#COrVdAmDUotUZbxp5LWcLqtEnmd",
       "source_block_id": "COrVdAmDUotUZbxp5LWcLqtEnmd",
       "directory": "任务2-2_动力的传递与变换",
-      "status": "方案"
+      "status": "已有演示",
+      "demo": "任务2-2_动力的传递与变换/index.html"
     },
     {
       "id": "2-3",
@@ -74,7 +106,18 @@
       "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#Oq3Ndd4jsoqH91xKA5BclpgDnlf",
       "source_block_id": "Oq3Ndd4jsoqH91xKA5BclpgDnlf",
       "directory": "任务2-3_工作机构与施工动作",
-      "status": "方案"
+      "status": "已有演示",
+      "demo": "任务2-3_工作机构与施工动作/index.html",
+      "demos": [
+        {
+          "title": "工作机构",
+          "file": "任务2-3_工作机构与施工动作/index.html"
+        },
+        {
+          "title": "四杆扩展",
+          "file": "任务2-3_工作机构与施工动作/fourbar.html"
+        }
+      ]
     },
     {
       "id": "3-1",
@@ -163,7 +206,13 @@
       "source_block_id": null,
       "directory": "任务4-1_机器人自身状态感知",
       "status": "已有演示",
-      "demo": "任务4-1_机器人自身状态感知/index.html"
+      "demo": "任务4-1_机器人自身状态感知/index.html",
+      "demos": [
+        {
+          "title": "状态与数据",
+          "file": "任务4-1_机器人自身状态感知/index.html"
+        }
+      ]
     },
     {
       "id": "4-2",
@@ -176,7 +225,13 @@
       "source_block_id": null,
       "directory": "任务4-2_机器人激光雷达感知",
       "status": "已有演示",
-      "demo": "任务4-2_机器人激光雷达感知/index.html"
+      "demo": "任务4-2_机器人激光雷达感知/index.html",
+      "demos": [
+        {
+          "title": "扫描与点云",
+          "file": "任务4-2_机器人激光雷达感知/index.html"
+        }
+      ]
     },
     {
       "id": "4-3",
@@ -189,7 +244,21 @@
       "source_block_id": "RMOxdbvVDorkQwx8CTScWPpLnFc",
       "directory": "任务4-3_标注安全帽并应用YOLO模型",
       "status": "已有演示",
-      "demo": "任务4-3_标注安全帽并应用YOLO模型/index.html"
+      "demo": "任务4-3_标注安全帽并应用YOLO模型/index.html",
+      "demos": [
+        {
+          "title": "标注实验",
+          "file": "任务4-3_标注安全帽并应用YOLO模型/index.html#annotation"
+        },
+        {
+          "title": "预测实验",
+          "file": "任务4-3_标注安全帽并应用YOLO模型/index.html#predict"
+        },
+        {
+          "title": "评估实验",
+          "file": "任务4-3_标注安全帽并应用YOLO模型/index.html#evaluate"
+        }
+      ]
     },
     {
       "id": "5-1",
@@ -202,7 +271,13 @@
       "source_block_id": "doxcn0806AVCz2motDJFnl1RGVh",
       "directory": "任务5-1_钢筋加工机械与绑扎作业面识读",
       "status": "已有演示",
-      "demo": "任务5-1_钢筋加工机械与绑扎作业面识读/index.html"
+      "demo": "任务5-1_钢筋加工机械与绑扎作业面识读/index.html",
+      "demos": [
+        {
+          "title": "加工与作业面",
+          "file": "任务5-1_钢筋加工机械与绑扎作业面识读/index.html"
+        }
+      ]
     },
     {
       "id": "5-2",
@@ -215,7 +290,13 @@
       "source_block_id": "doxcnpjZeYmLuiyF0C8Y56Qjw9d",
       "directory": "任务5-2_钢筋绑扎机器人操作与人工复核",
       "status": "已有演示",
-      "demo": "任务5-2_钢筋绑扎机器人操作与人工复核/index.html"
+      "demo": "任务5-2_钢筋绑扎机器人操作与人工复核/index.html",
+      "demos": [
+        {
+          "title": "绑扎与人工复核",
+          "file": "任务5-2_钢筋绑扎机器人操作与人工复核/index.html"
+        }
+      ]
     },
     {
       "id": "5-3",
@@ -227,7 +308,14 @@
       "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcnUJuNK1D3ih5VKdcUdItnLc",
       "source_block_id": "doxcnUJuNK1D3ih5VKdcUdItnLc",
       "directory": "任务5-3_混凝土泵送布料与整平抹光机器人",
-      "status": "方案"
+      "status": "工序导读",
+      "demo": "任务5-3_混凝土泵送布料与整平抹光机器人/index.html",
+      "demos": [
+        {
+          "title": "混凝土工序导读",
+          "file": "任务5-3_混凝土泵送布料与整平抹光机器人/index.html"
+        }
+      ]
     },
     {
       "id": "6-1",
@@ -240,7 +328,13 @@
       "source_block_id": "doxcn2i9Sc5J7awcMQLj0zkDdGd",
       "directory": "任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场",
       "status": "已有演示",
-      "demo": "任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场/index.html"
+      "demo": "任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场/index.html",
+      "demos": [
+        {
+          "title": "砌筑课堂",
+          "file": "任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场/index.html"
+        }
+      ]
     },
     {
       "id": "6-2",
@@ -253,7 +347,13 @@
       "source_block_id": "doxcnYWPJBkWDkwK9wd1Hl7Madf",
       "directory": "任务6-2_地砖铺贴_工艺准备与铺贴机器人作业",
       "status": "已有演示",
-      "demo": "任务6-2_地砖铺贴_工艺准备与铺贴机器人作业/index.html"
+      "demo": "任务6-2_地砖铺贴_工艺准备与铺贴机器人作业/index.html",
+      "demos": [
+        {
+          "title": "铺贴实训",
+          "file": "任务6-2_地砖铺贴_工艺准备与铺贴机器人作业/index.html"
+        }
+      ]
     },
     {
       "id": "6-3",
@@ -266,7 +366,13 @@
       "source_block_id": "doxcnpA6kMYzniF9Du8e4saSp8f",
       "directory": "任务6-3_腻子打磨_作业面检查_恒力执行与质量验收",
       "status": "已有演示",
-      "demo": "任务6-3_腻子打磨_作业面检查_恒力执行与质量验收/index.html"
+      "demo": "任务6-3_腻子打磨_作业面检查_恒力执行与质量验收/index.html",
+      "demos": [
+        {
+          "title": "打磨工坊",
+          "file": "任务6-3_腻子打磨_作业面检查_恒力执行与质量验收/index.html"
+        }
+      ]
     },
     {
       "id": "6-4",
@@ -279,7 +385,13 @@
       "source_block_id": "doxcnqHI5Lh81n0rtbYK00pSfiY",
       "directory": "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断",
       "status": "已有演示",
-      "demo": "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/index.html"
+      "demo": "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/index.html",
+      "demos": [
+        {
+          "title": "喷涂工坊",
+          "file": "任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/index.html"
+        }
+      ]
     },
     {
       "id": "7-1",
@@ -291,7 +403,14 @@
       "source_url": "https://my.feishu.cn/wiki/CUq8wHUSXi1OHokp4OgcWmvIn8f#doxcnNT7GYNEbGSSc4kbLiYlMbb",
       "source_block_id": "doxcnNT7GYNEbGSSc4kbLiYlMbb",
       "directory": "任务7-1_巡检机器人_轮式_四足与爬壁",
-      "status": "方案"
+      "status": "已有演示",
+      "demo": "任务7-1_巡检机器人_轮式_四足与爬壁/index.html",
+      "demos": [
+        {
+          "title": "桥梁巡检",
+          "file": "任务7-1_巡检机器人_轮式_四足与爬壁/index.html"
+        }
+      ]
     },
     {
       "id": "7-2",
@@ -304,7 +423,13 @@
       "source_block_id": "NlmUdSbNeoawv7xnJpHci1WPnLe",
       "directory": "任务7-2_无人机巡检_病害检测与数据复核",
       "status": "已有演示",
-      "demo": "任务7-2_无人机巡检_病害检测与数据复核/index.html"
+      "demo": "任务7-2_无人机巡检_病害检测与数据复核/index.html",
+      "demos": [
+        {
+          "title": "无人机巡检与复核",
+          "file": "任务7-2_无人机巡检_病害检测与数据复核/index.html"
+        }
+      ]
     },
     {
       "id": "8-1",
@@ -316,7 +441,14 @@
       "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnkx4i6723YLOS5EF5AiMkJf",
       "source_block_id": "doxcnkx4i6723YLOS5EF5AiMkJf",
       "directory": "任务8-1_机械与机器人的安全操作规程",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务8-1_机械与机器人的安全操作规程/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务8-1_机械与机器人的安全操作规程/index.html"
+        }
+      ]
     },
     {
       "id": "8-2",
@@ -328,7 +460,14 @@
       "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnniSjeN1War1zoZtacmjqlb",
       "source_block_id": "doxcnniSjeN1War1zoZtacmjqlb",
       "directory": "任务8-2_设备保养_故障排查与维护记录",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务8-2_设备保养_故障排查与维护记录/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务8-2_设备保养_故障排查与维护记录/index.html"
+        }
+      ]
     },
     {
       "id": "8-3",
@@ -340,7 +479,14 @@
       "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnkgZJtJO6mwAJdCELg9xVZb",
       "source_block_id": "doxcnkgZJtJO6mwAJdCELg9xVZb",
       "directory": "任务8-3_爬壁与特种作业机器人安全检查",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务8-3_爬壁与特种作业机器人安全检查/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务8-3_爬壁与特种作业机器人安全检查/index.html"
+        }
+      ]
     },
     {
       "id": "8-4",
@@ -352,7 +498,14 @@
       "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnaer7rbKV0cxoIbKD1Ez0Se",
       "source_block_id": "doxcnaer7rbKV0cxoIbKD1Ez0Se",
       "directory": "任务8-4_装修机器人职业健康与清洗维护",
-      "status": "方案"
+      "status": "任务导读",
+      "demo": "任务8-4_装修机器人职业健康与清洗维护/index.html",
+      "demos": [
+        {
+          "title": "阅读任务导读",
+          "file": "任务8-4_装修机器人职业健康与清洗维护/index.html"
+        }
+      ]
     }
   ],
   "layout_updated": "2026-10-21"

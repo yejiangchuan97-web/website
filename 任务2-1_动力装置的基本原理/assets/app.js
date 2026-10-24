@@ -2002,7 +2002,7 @@
     }
     nav.addEventListener("keydown", (e) => {
       if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
-      const bs = [...nav.querySelectorAll("[role=tab]")],
+      const bs = [...nav.querySelectorAll("[role=tab]")].filter(b => b.getClientRects().length),
         i = bs.indexOf(document.activeElement);
       if (i < 0) return;
       e.preventDefault();
@@ -2093,7 +2093,7 @@
     }
     setMobilePane("model");
     const info = {
-      explore: "自由探索：部件名与电流箭头持续显示。电流方向采用正电荷运动约定，N / S 是固定磁极。",
+      explore: "青色粒子沿电流方向流动，橙色箭头与光点表示受力；反接电源，对照方向变化。",
       principle: "电磁原理：改变电压和负载，观察受力、机械换向及转速 / 转矩 / 功率。",
       robot: "机械臂应用：电机已装入肩关节；追踪电刷、电枢、两级齿轮与输出法兰。",
       reference: "模型说明：这里列出教学假设、坐标约定、稳态方程与原理核对来源。",
@@ -2218,6 +2218,7 @@
       enabled = true,
       conductors = true,
       prefix = "motor",
+      phase = chargeTime,
     },
   ) {
     layer.replaceChildren();
@@ -2279,6 +2280,23 @@
         "marker-end": `url(#${prefix}-${kind}-tip)`,
       });
       g.append(path);
+      if (kind === "force") {
+        // These light pulses emphasize force direction; their speed is illustrative.
+        for (let i = 0; i < 3; i++) {
+          const progress = ((phase * 0.8 + i / 3) % 1 + 1) % 1;
+          const dot = svgEl("g", {
+            "data-force-particle": key + "-" + i,
+            "data-force-phase": fixed(phase, 4),
+            "aria-hidden": "true",
+            transform: `translate(${a[0] + (b[0] - a[0]) * progress} ${a[1] + (b[1] - a[1]) * progress})`,
+          });
+          dot.append(
+            svgEl("circle", { r: 5, fill: colors.force, opacity: 0.16 }),
+            svgEl("circle", { r: 2.4, fill: "#fff1d4" }),
+          );
+          g.append(dot);
+        }
+      }
       if (text) label(g, text, b, colors[kind]);
       layer.append(g);
     };
@@ -2664,8 +2682,8 @@
       ];
     }
     const narrow = W < 560,
-      labelW = narrow ? 87 : 128,
-      font = narrow ? 9.3 : 11.5,
+      labelW = narrow ? 104 : 146,
+      font = narrow ? 11.3 : 13.5,
       top = narrow ? 71 : 65,
       bottom = student.active ? H - 104 : fault.active ? H - 116 : H - 45,
       step = Math.max(21, (bottom - top) / 4);
@@ -2678,15 +2696,15 @@
         x = l.side ? W - labelW - 10 : 10,
         y = top + l.row * step,
         ex = l.side ? x : x + labelW,
-        ey = y + 9;
+        ey = y + 11;
       const join = l.side ? x - 8 : x + labelW + 8;
       l.line.setAttribute("d", `M${ax} ${ay}L${join} ${ey}H${ex}`);
       l.dot.setAttribute("cx", ax);
       l.dot.setAttribute("cy", ay);
-      for (const [k, v] of Object.entries({ x, y, width: labelW, height: 19 }))
+      for (const [k, v] of Object.entries({ x, y, width: labelW, height: 23 }))
         l.rect.setAttribute(k, v);
       l.text.setAttribute("x", x + 6);
-      l.text.setAttribute("y", y + 13);
+      l.text.setAttribute("y", y + 16);
       l.text.style.fontSize = font + "px";
     }
     const active = model.I > 1e-6,
@@ -2732,7 +2750,7 @@
         particleRoutes.push({
           key: i === 0 ? "supply" : i === 1 ? "return" : "winding-" + i,
           points: points.map(project),
-          color: i === 0 ? "#ff9eaa" : i === 1 ? "#8dd8ff" : "#79f4ef",
+          color: "#79f4ef",
         });
       const hideCoil =
         i > 1 &&
@@ -4236,6 +4254,7 @@
         enabled: state.showEM && sim.focus === "motor",
         conductors: true,
         prefix: "robot-em",
+        phase: sim.chargeTime,
       });
       paintCurrentParticles(
         overlayParticles,

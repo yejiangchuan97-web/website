@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#edf3fc"><meta name="color-scheme" content="light"><title>钢筋工地开工挑战 · 任务5-1</title><style>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#edf3fc"><meta name="color-scheme" content="dark light"><title>钢筋工地开工挑战 · 任务5-1</title><style>
 :root{color-scheme:light;--ink:#152842;--muted:#60748e;--blue:#2469ed;--orange:#f39b36;--teal:#23a79c;--green:#279d77;--red:#d94a56;--line:#dce5f1;--pale:#edf3fc;font-family:"Microsoft YaHei","Segoe UI",sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(ellipse at 8% 6%,#dceaff,transparent 55%),#edf2f9;display:flex;align-items:center;justify-content:center;padding:16px;color:var(--ink)}button,input{font:inherit}button{cursor:pointer;color:inherit;transition:background .18s,box-shadow .18s,transform .18s}button:disabled{cursor:default;opacity:.55}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:3px solid #ffaf37;outline-offset:4px}button:hover:not(:disabled){filter:brightness(.98)}[hidden]{display:none!important}
 .game{container-type:inline-size;width:min(1600px,calc(100vw - 32px),calc((100dvh - 32px)*16/9));aspect-ratio:16/9;display:grid;grid-template-rows:5.3cqw 7.2cqw minmax(0,1fr) 9.1cqw 2.2cqw;background:#fff;border:1px solid #dce5f1;border-radius:20px;overflow:hidden;box-shadow:0 20px 70px #315c8b19;position:relative;font-size:clamp(12px,1cqw,17px)}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:0 2.1cqw;border-bottom:1px solid var(--line);gap:1cqw;background:#fff}.brand{display:flex;align-items:center;gap:.8cqw;font-weight:800;font-size:1.05cqw;white-space:nowrap}.brand span:not(.brand-mark){display:block;color:var(--muted);font-size:.79cqw;font-weight:500;margin-top:.3cqw}.brand-mark{width:2.8cqw;height:2.8cqw;display:grid;place-items:center;color:#fff;font-size:2cqw;background:var(--blue);border-radius:.8cqw;box-shadow:0 4px 10px #2469ed24}.chapters{display:flex;align-items:center;gap:1.1cqw}.chapters button{display:flex;align-items:center;gap:.6cqw;border:0;background:transparent;padding:.6cqw .8cqw;color:#7a899c;font-size:1cqw;font-weight:700;border-radius:10px}.chapters b{width:1.9cqw;height:1.9cqw;display:grid;place-items:center;border-radius:50%;background:#edf1f7;font-size:.85cqw}.chapters [aria-current=step]{background:#e8f0ff;color:var(--blue)}.chapters [aria-current=step] b{background:var(--blue);color:white}.chapters .complete b{background:#e2f6ed;color:var(--green)}.chapters i{font-style:normal;color:#b4c3d4}.top-actions{display:flex;gap:.5cqw}.icon-button{background:white;border:1px solid var(--line);border-radius:.7cqw;width:2.4cqw;height:2.4cqw;font-size:1.25cqw;font-weight:700}
@@ -14,6 +14,42 @@ dialog{width:min(760px,calc(100vw - 32px));max-height:90dvh;overflow:auto;border
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}.game[data-stage="2"] .hotspot.done{border-color:var(--spot-color);background:#fff}.game[data-stage="2"] .hotspot.done .pin{background:var(--spot-color)}
 @media(max-width:760px) and (orientation:portrait){.mission-progress{width:55px;flex-basis:55px}.mission-progress strong{font-size:22px;white-space:nowrap}.mission-progress small{font-size:11px}}
 .using-plan .view-tools,.using-plan .gesture{display:none}
+</style><style>:root{--c5-nav-height:64px}
+.c5-nav{position:fixed;inset:0 0 auto;height:var(--c5-nav-height);z-index:1000;display:flex;align-items:center;gap:24px;padding:0 24px;background:#111d30;color:#dbe9fc;border-bottom:1px solid #334660;font:15px/1.4 "Segoe UI","Microsoft YaHei",sans-serif;box-sizing:border-box}
+.c5-nav a{text-decoration:none;color:#c0d2ec;white-space:nowrap;font-size:15px}.c5-nav .c5-home{font-weight:700;color:#8ebeff;padding-right:20px;border-right:1px solid #3a4a62}.c5-links{display:flex;align-items:center;gap:5px;flex:1}.c5-links a{padding:8px 12px;border-radius:6px}.c5-links a:hover,.c5-links a[aria-current]{background:#294260;color:#fff}.c5-nav button{border:1px solid #465d79;background:#22354d;color:#e5efff;border-radius:7px;padding:8px 12px;font:inherit;cursor:pointer;white-space:nowrap}.c5-nav :focus-visible{outline:3px solid #e7ac54;outline-offset:3px}
+html[data-c5] body{display:block;overflow:hidden;margin:0;padding:0;width:100%;height:100dvh}
+#c5-content{position:absolute;inset:var(--c5-nav-height) 0 0;overflow:auto;background:var(--bg,#edf2f9)}
+html[data-c5=rebar] #c5-content{display:grid;place-items:center;padding:16px}
+html[data-c5=rebar] .game{width:min(1600px,calc(100vw - 32px),calc((100dvh - var(--c5-nav-height) - 32px)*16/9))}
+html[data-c5=tying] .app{height:calc(100dvh - var(--c5-nav-height))}
+html[data-c5=tying] .app:fullscreen{height:100dvh}
+html[data-c5][data-theme=dark]{color-scheme:dark}
+html[data-c5=rebar][data-theme=dark]{--ink:#e1ebf7;--muted:#acc0d8;--blue:#80b5ff;--line:#344b66;--pale:#20364e;--orange:#ecb371;--teal:#65cbbf;--green:#67ceac}
+html[data-c5=rebar][data-theme=dark] #c5-content{background:#0e1929}
+html[data-c5=rebar][data-theme=dark] :is(.game,.topbar,.hotspot,.machine-setting,dialog,.icon-button){background:#18293f;color:var(--ink);border-color:var(--line)}
+html[data-c5=rebar][data-theme=dark] :is(.order-card,.site-note,.scene-legend,.process-overlay,.view-tools,.carry-card,.task-chip,.next-button){background:#20354d;color:var(--ink);border-color:#46617f}
+html[data-c5=rebar][data-theme=dark] :is(.chapters [aria-current=step],.chapters b,.task-chip.active,.hotspot.done,.game[data-stage="2"] .hotspot.done){background:#284667;color:#e8f1ff}
+html[data-c5=rebar][data-theme=dark] :is(.primary-button,.brand-mark,.chapters [aria-current=step] b){background:#3476c7;color:white}
+html[data-c5=rebar][data-theme=dark] :is(.order-card>p,.card-kicker,.carry-card em,.scene-legend span,.gesture,.process-overlay button,.summary-row,.help-steps p,.boundary-note,.keyboard-note){color:#b8cce4}
+html[data-c5=rebar][data-theme=dark] :is(.field,.action-dock,.game-footer){border-color:var(--line)}
+html[data-c5=rebar][data-theme=dark] .field{background:#20334a}
+html[data-c5=rebar][data-theme=dark] .process-overlay button{background:#304963}
+html[data-c5=rebar][data-theme=dark] .game-footer{background:#142236;color:#a9c1dc}
+html[data-c5=rebar][data-theme=dark] .game-footer button{color:#c0d7f1}
+html[data-c5=rebar][data-theme=dark] .gesture{background:#20354ddd;color:#b8cce4}
+html[data-c5=rebar][data-theme=dark] #feedback{color:#bed1e9}
+html[data-c5=rebar][data-theme=dark] #feedback.success{color:#7bd5b4}
+html[data-c5=rebar][data-theme=dark] #feedback.notice{color:#ecc38c}
+html[data-c5=rebar][data-theme=dark] :is(.rb-inspection,.ri-heading h3){color:var(--ink)}
+html[data-c5=rebar][data-theme=dark] :is(.ri-hint,.ri-tool-copy p,.ri-footnote){color:#afc5df}
+html[data-c5=rebar][data-theme=dark] .ri-feedback{color:#7bd5b4}
+html[data-c5=rebar][data-theme=dark] :is(.ri-toolbar,.ri-tab,.ri-state,.dialog-close){background:#243c56;color:#dcecff;border-color:#46617f}
+html[data-c5=rebar][data-theme=dark] .ri-tab[aria-selected=true]{background:#2c6fbe;color:white;border-color:#80b5ff}
+html[data-c5=rebar][data-theme=dark] .ri-action:disabled{background:#344c66;color:#bacde4}
+@media(max-width:999px){.c5-nav{gap:8px;padding:0 12px}.c5-nav .c5-home{padding-right:10px}.c5-links{overflow:auto}.c5-links a{font-size:13px;padding:8px}.c5-nav button{font-size:13px;padding:7px}}
+@media(max-width:900px){html[data-c5=tying] .app{height:auto;min-height:calc(100dvh - var(--c5-nav-height))}}
+@media(max-width:760px) and (orientation:portrait){html[data-c5=rebar] #c5-content{display:block;padding:10px}html[data-c5=rebar] .game{width:100%;min-height:calc(100dvh - var(--c5-nav-height) - 20px)}}
+@media(max-width:600px){:root{--c5-nav-height:96px}.c5-nav{height:96px;display:grid;grid-template-columns:1fr auto;grid-template-rows:44px 44px;gap:0}.c5-nav .c5-home{border:0}.c5-links{grid-column:1/-1;grid-row:2;width:100%;overflow-x:auto;min-width:0}.c5-nav button{grid-column:2;grid-row:1}.c5-links a{flex:none}}
 </style></head>
 <body>
 <main id="game" class="game" aria-label="钢筋工地开工挑战">
@@ -35,7 +71,22 @@ dialog{width:min(760px,calc(100vw - 32px));max-height:90dvh;overflow:auto;border
 <dialog id="inspectionDialog"><button class="dialog-close" data-close="inspectionDialog" aria-label="关闭检查台">×</button><div id="inspectionHost"></div></dialog>
 <dialog id="finishDialog"><button class="dialog-close" data-close="finishDialog" aria-label="返回场景">×</button><div class="finish-mark" aria-hidden="true">✓</div><span class="eyebrow">交接准备完成</span><h2>从一根钢筋，到一张作业分区图。</h2><p>你已经完成加工订单、整理现场，并留下了交接依据。</p><div id="handoffSummary"></div><div class="finish-actions"><button id="downloadBtn" class="primary-button">保存交接记录 ↓</button><button id="replayBtn" class="plain-button">再挑战一次</button></div><p class="boundary-note">绿色表示本例中的机器人候选区域。现场仍需核实设备、支承和实际作业条件，不能据此直接放行。</p></dialog>
 <dialog id="restartDialog"><button class="dialog-close" data-close="restartDialog" aria-label="取消重开">×</button><h2>重新开始这一轮挑战？</h2><p>当前加工、巡查与分区进度会清空。</p><div class="finish-actions"><button id="confirmRestart" class="primary-button">重新开始</button><button class="plain-button" data-close="restartDialog">继续当前挑战</button></div></dialog>
-<script>/*
+<script>(()=>{'use strict';
+const lab="rebar";
+const root=document.documentElement;root.dataset.c5=lab;root.dataset.theme='dark';
+const content=document.createElement('div');content.id='c5-content';
+for(const node of [...document.body.children])if(!['SCRIPT','STYLE','DIALOG'].includes(node.tagName))content.append(node);
+document.body.prepend(content);
+const nav=document.createElement('nav');nav.className='c5-nav';nav.setAttribute('aria-label','第五章学习导航');
+const routes=[['rebar','5-1 加工与作业面','任务5-1_钢筋加工机械与绑扎作业面识读/index.html'],['tying','5-2 绑扎与复核','任务5-2_钢筋绑扎机器人操作与人工复核/index.html'],['concrete','5-3 混凝土工序导读','任务5-3_混凝土泵送布料与整平抹光机器人/index.html']];
+nav.innerHTML='<a class="c5-home" href="../第五章_主体结构施工/index.html">← 第五章总览</a><div class="c5-links">'+routes.map(([id,name,url])=>`<a data-route="${id}" ${id===lab?'aria-current="page"':''} href="../${url}">${name}</a>`).join('')+'</div><button id="c5-theme" type="button">切换浅色</button>';
+document.body.prepend(nav);
+function sync(){root.dataset.theme=lab==='tying'?document.body.dataset.theme:root.dataset.theme;nav.querySelector('#c5-theme').textContent=root.dataset.theme==='dark'?'切换浅色':'切换深色';}
+function apply(next){if(lab==='tying'){if(document.body.dataset.theme!==next)document.getElementById('theme')?.click();}else {root.dataset.theme=next;window.__REBAR_GAME__?.setTheme(next==='dark');}sync();}
+nav.querySelector('#c5-theme').onclick=()=>apply(root.dataset.theme==='dark'?'light':'dark');
+document.addEventListener('DOMContentLoaded',()=>{apply('dark');new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['data-theme']});});
+})();
+</script><script>/*
 The MIT License
 
 Copyright © 2010-2023 three.js authors
@@ -460,7 +511,7 @@ function createRebarScene(T,host,M,callbacks={}){
   function projectPoint(p){const a=(Array.isArray(p)?new T.Vector3(...p):new T.Vector3(p.x,p.y,p.z??.7)).project(camera);return{x:(a.x+1)*host.clientWidth/2,y:(1-a.y)*host.clientHeight/2,visible:a.z>=-1&&a.z<=1};}
   function snapshot(){const counts={};for(const p of gridObjects){const k=M.classifyPoint?.(p,{base:state.base,reach:6})?.status||'auto';counts[k]=(counts[k]||0)+1;}return{available:true,world:'metres, XY floor, Z up',partCounts,totalParts:Object.values(partCounts).reduce((a,b)=>a+b,0),meshObjects:meshes.length,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,barSegments:barSegments.map(s=>({a:s.a.slice(),b:s.b.slice(),layer:s.layer})),barDiameter:.016,lowerCentreZ:.65,upperCentreZ:.666,spacerHeight:.042,spacerPositions:spacerPositions.map(p=>p.slice()),floorTopTriangles,floorTriangles:floorTopTriangles,geometryAudit:{formworkTop:.6,hole:opening.slice(),topTriangleCount:floorTopTriangles.length,lowerBarZ:.65,upperBarZ:.666,barRadius:.008,barContactGap:0,robotWheelBottom:.27,robotPlatformTop:.27,robotPlatform:config.platform||[0,-6,4,-5]},gridPoints:gridObjects.length,junctionCounts:counts,opening:opening.slice(),column:column.slice(),slab:{...slab},base:state.base.slice(),reach:6,view:{...current},desiredView:{...desired},camera:camera.position.toArray(),game:{...state.game,zones:{...state.game.zones},stage:state.gameStage,materialPosition:materialGroup.position.toArray(),materialWorldCenter:[7.8+materialGroup.position.x,-3.4+materialGroup.position.y,.8+materialGroup.position.z],routeObstaclePosition:routeObstacle.position.toArray(),routeObstacleVisible:routeObstacle.visible,openingGuardVisible:openingGuard.visible,zoneVisibility:Object.fromEntries(Object.entries(zoneGroups).map(([k,g])=>[k,g.visible])),robotVisible:robot.visible},state:{...state},selectedPoint:gridObjects.find(p=>p.id===state.selectedId)||null,errorGeometry:errorGeometryState,process:M.processingState?.(state.machine,state.progress,{lengthMM:state.lengthMM??2400,angleDeg:state.angleDeg??90})};}
   setState(state);resize();render(1,true);
-  return{setState,setView,focus,resize,render,tick:render,snapshot,projectPoint,dispose(){ro.disconnect();for(const [n,f]of[['pointerdown',pointDown],['pointermove',pointMove],['pointerup',pointUp],['pointercancel',pointUp],['wheel',wheel],['contextmenu',context]])renderer.domElement.removeEventListener(n,f);const gs=new Set(),ms=new Set();scene.traverse(o=>{if(o.geometry)gs.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])ms.add(m);});for(const g of gs)g.dispose();for(const m of ms)m.dispose();for(const t of textures)t.dispose();renderer.dispose();renderer.domElement.remove();}};
+  return{setTheme(dark){scene.background.setHex(dark?0x20334a:0xeef6ff);ground.material.color.setHex(dark?0x20334a:0xeef6ff);},setState,setView,focus,resize,render,tick:render,snapshot,projectPoint,dispose(){ro.disconnect();for(const [n,f]of[['pointerdown',pointDown],['pointermove',pointMove],['pointerup',pointUp],['pointercancel',pointUp],['wheel',wheel],['contextmenu',context]])renderer.domElement.removeEventListener(n,f);const gs=new Set(),ms=new Set();scene.traverse(o=>{if(o.geometry)gs.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])ms.add(m);});for(const g of gs)g.dispose();for(const m of ms)m.dispose();for(const t of textures)t.dispose();renderer.dispose();renderer.domElement.remove();}};
 }
 
 /* Anatomy kit generated fixture: 43 solids. Parts: 4 rubber feet, 4 collars, 2 runners, 1 formwork board, 4 edge rails, 8 washers, 8 screw heads, 6 spacers, 6 rebar rods. The wire loops are SVG surface marks. All displayed dimensions use the model below. */
@@ -744,7 +795,7 @@ new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(!visible){lastTime
 document.addEventListener('visibilitychange',()=>{lastTime=0;if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;}else wake(1600);});
 reduced.addEventListener('change',()=>{if(reduced.matches&&busy){s.progress=1;completeProcess();}wake();});
 try{scene=createRebarScene(THREE,$('viewport'),M,{onSelect:select,wake:()=>wake(),onChange:()=>wake()});scene.setView('processing',true);$('loading').hidden=true;}catch(error){$('loading').hidden=true;$('fallback').hidden=false;$('game').classList.add('using-plan');console.info('启用俯视模式：'+error.message);}
-window.__REBAR_GAME__={snapshot:()=>({state:clone(s),playing,busy,visible,hidden:document.hidden,animationScheduled:!!raf,reducedMotion:reduced.matches,scene:scene?.snapshot()||{available:false},inspection:inspection?.snapshot()||null,zoneCount:zoneCount(),stageReady:stageReady()}),projectPoint:p=>scene?.projectPoint(p)||null};
+window.__REBAR_GAME__={setTheme(dark){scene?.setTheme(dark);wake();},snapshot:()=>({state:clone(s),playing,busy,visible,hidden:document.hidden,animationScheduled:!!raf,reducedMotion:reduced.matches,scene:scene?.snapshot()||{available:false},inspection:inspection?.snapshot()||null,zoneCount:zoneCount(),stageReady:stageReady()}),projectPoint:p=>scene?.projectPoint(p)||null};
 say('先让弯曲的钢筋变直。找到调直机，开始第一棒。');render();wake(1800);
 })();
 </script></body></html>

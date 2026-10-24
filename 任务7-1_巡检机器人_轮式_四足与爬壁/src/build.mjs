@@ -1,5 +1,6 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {integrateChapter7} from '../../公共资源/巡检与数据复核/chapter-layout.mjs';
 import * as M from './inspection-model.mjs';
 const path=p=>fileURLToPath(new URL(p,import.meta.url));
 const read=p=>readFileSync(path(p),'utf8');
@@ -8,6 +9,6 @@ const sources=`<ul><li><a href="https://infotechnology.fhwa.dot.gov/high-resolut
 const css=read('./workbench.css');
 const js=model+'\n'+['world3d.js','robots3d.js','patrol-scene.js','workbench.js'].map(f=>read('./'+f)).join('\n');
 const html=read('./workbench.html').replace(/\{\{(CSS|THREE|JS|SOURCES)\}\}/g,(_,key)=>({CSS:css,THREE:read('../../公共资源/vendor/three-r160.min.js'),SOURCES:sources.replace(/^<ul>|<\/ul>$/g,''),JS:js.replace(/<\/script/gi,'<\\/script')}[key]));
-writeFileSync(path('../index.html'),html);writeFileSync(path('../dark.html'),html.replaceAll('data-theme="light"','data-theme="dark"'));
+writeFileSync(path('../index.html'),integrateChapter7(html,'patrol'));writeFileSync(path('../dark.html'),integrateChapter7(html,'patrol'));
 console.log('Built task 7-1 · true 3D bridge workshop · offline HTML');
 if(process.argv.includes('--audit'))console.log('Three.js renderer: use qa/inspection-model.test.mjs and qa/rebuild-browser.mjs. SVG geometry audit does not apply.');

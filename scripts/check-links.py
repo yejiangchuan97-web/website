@@ -12,7 +12,7 @@ class Links(HTMLParser):
   if tag=='meta' and values.get('http-equiv','').lower()=='refresh':
    match=re.search(r'url\s*=\s*(.+)',values.get('content',''),re.I)
    if match:self.links.append(match.group(1).strip().strip("\"'"))
-pages=[root/'README.md',root/'项目目录.md']+list(root.glob('任务*/README.md'))+list(root.glob('任务*/*.html'))
+pages=[root/'index.html',root/'README.md',root/'项目目录.md']+list(root.glob('任务*/README.md'))+list(root.glob('任务*/*.html'))+list(root.glob('第一章*/*.html'))+list(root.glob('第一章*/README.md'))+list(root.glob('第二章*/*.html'))+list(root.glob('第二章*/README.md'))+list(root.glob('第三章*/*.html'))+list(root.glob('第四章*/*.html'))+list(root.glob('第四章*/README.md'))+list(root.glob('第五章*/*.html'))+list(root.glob('第五章*/README.md'))+list(root.glob('第六章*/*.html'))+list(root.glob('第六章*/README.md'))+list(root.glob('第七章*/*.html'))+list(root.glob('第七章*/README.md'))+list(root.glob('第八章*/*.html'))+list(root.glob('第八章*/README.md'))
 issues=[];count=0
 for p in pages:
  text=p.read_text(encoding='utf-8-sig')

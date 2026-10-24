@@ -4,7 +4,7 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
 window.createPatrolScene=function(host,callbacks={}){
  const T=window.THREE,reduce=matchMedia('(prefers-reduced-motion: reduce)');
  let renderer;
- try{if(!T||/no-?webgl/.test(location.search))throw Error('WebGL unavailable');renderer=new T.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});}catch(e){host.innerHTML='<div class="fallback"><b>三维现场暂时无法开启</b><p>当前浏览器没有提供 WebGL。请使用支持硬件加速的浏览器重新打开本地页面。</p><p>仍可查看任务与已有记录；本轮不会生成模拟的三维采集证据。</p></div>';return{update(){},setView(){},setTheme(){},explode(){},capture(){return null},metrics(){return null},stats(){return{webgl:false}},dispose(){}};}
+ try{if(!T||/no-?webgl/.test(location.search))throw Error('WebGL unavailable');renderer=new T.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});}catch(e){host.innerHTML='<div class="fallback"><b>三维现场暂时无法开启</b><p>当前浏览器没有提供 WebGL。请使用支持硬件加速的浏览器重新打开本地页面。</p><p>仍可查看任务与已有记录；本轮不会生成模拟的三维采集证据。</p></div>';return{update(){},setView(){},setTheme(){},explode(){},highlightPart(){},capture(){return null},metrics(){return null},stats(){return{webgl:false}},dispose(){}};}
  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.shadowMap.autoUpdate=false;
  const canvas=renderer.domElement;canvas.tabIndex=0;canvas.setAttribute('aria-label','桥梁巡检三维现场：拖动旋转、滚轮缩放，方向键旋转，Home恢复全桥');host.appendChild(canvas);
  const scene=new T.Scene(),camera=new T.PerspectiveCamera(38,1,.05,180),inspectionCamera=new T.PerspectiveCamera(58,1.6,.015,90);
@@ -26,7 +26,10 @@ window.createPatrolScene=function(host,callbacks={}){
  const targetRing=new T.Mesh(new T.RingGeometry(.35,.38,64),ringMat);scene.add(targetRing);
  const pinNodes={};for(const id of ['road','stairs','wall']){const b=document.createElement('button');b.className='world-pin';b.dataset.point=id;b.title='选择'+({road:'桥面排水口',stairs:'桥台侧面',wall:'钢梁检查面'}[id]);b.innerHTML='<span>'+({road:'A',stairs:'B',wall:'C'}[id])+'</span>';b.onclick=()=>callbacks.onPick?.(id);host.appendChild(b);pinNodes[id]=b;}
  const targetData={road:{point:[-2,4.80,2.65],normal:[0,1,0],size:.85},stairs:{point:[-8.3,3.85,3.52],normal:[0,0,1],size:.75},wall:{point:[3,3.9,3.21],normal:[0,0,1],size:.48}};
- let state=null,lastMission=null,view='overview',exploded=false,explosion=0,visible=true,destroyed=false,raf=0,last=0,elapsed=0,dirty=true,lastPreview=0,cameraMetrics=null,theme='light';
+ let state=null,lastMission=null,lastRobot=null,view='overview',exploded=false,explosion=0,visible=true,destroyed=false,raf=0,last=0,elapsed=0,dirty=true,lastPreview=0,cameraMetrics=null,theme='light';
+ const highlighted=[];
+ function clearHighlight(){for(const {mesh,original,material} of highlighted){mesh.material=original;material.dispose();}highlighted.length=0;}
+ function highlightPart(tokens=[]){clearHighlight();if(state&&tokens.length)fleet[state.robot].group.traverse(mesh=>{if(!mesh.isMesh||!tokens.some(token=>mesh.name.startsWith(state.robot+'.'+token)))return;const original=mesh.material,material=original.clone();material.emissive.setHex(0xf5a623);material.emissiveIntensity=.75;mesh.material=material;highlighted.push({mesh,original,material});});request();}
  let orbit={az:.57,el:.48,r:34,tx:-.3,ty:2.2,tz:1.8},goal={...orbit};
  const preview=document.createElement('canvas');preview.width=640;preview.height=400;const pctx=preview.getContext('2d',{willReadFrequently:true});
  const renderTarget=new T.WebGLRenderTarget(640,400),pixels=new Uint8Array(640*400*4),imageData=pctx.createImageData(640,400);renderTarget.texture.colorSpace=T.SRGBColorSpace;
@@ -42,15 +45,15 @@ window.createPatrolScene=function(host,callbacks={}){
   }
   return{x:3,y:lerp(2.52,3.28,p),z:3.18,yaw:0};
  }
- function setRobot(kind,id,p,moving,dt){
+ function setRobot(kind,id,p,moving,dt,reset=false){
   const rig=fleet[kind],o=poseAt(id,p,kind);rig.group.position.set(o.x,o.y,o.z);rig.group.rotation.set(0,o.yaw,0);
   if(id==='wall'&&kind==='crawler')rig.group.quaternion.setFromRotationMatrix(new T.Matrix4().makeBasis(new T.Vector3(0,1,0),new T.Vector3(0,0,1),new T.Vector3(1,0,0)));
   const ground=id==='stairs'&&kind==='dog'&&o.yaw===0?(x,z)=>groundAt(o.x+x)-o.y:undefined;
-  rig.setPose({travel:id==='stairs'?(p<.82?p/.82*7.2:7.2+(p-.82)/.18*.45):p*(id==='road'?Math.hypot(7.55,.2):.76),time:elapsed,moving,reducedMotion:reduce.matches,adhesion:state?.entries.wall.magnet,exploded:state?.robot===kind?explosion:0,groundAt:ground??null});
+  rig.setPose({travel:id==='stairs'?(p<.82?p/.82*7.2:7.2+(p-.82)/.18*.45):p*(id==='road'?Math.hypot(7.55,.2):.76),time:elapsed,moving,reducedMotion:reduce.matches,adhesion:state?.entries.wall.magnet,exploded:state?.robot===kind?explosion:0,groundAt:ground??null,reset});
   return o;
  }
  function buildRoute(){while(route.children.length)route.remove(route.children[0]);if(!state)return;for(let i=0;i<27;i++){const p=poseAt(state.mission,i/26),m=new T.Mesh(new T.SphereGeometry(.035,6,4),routeMat);m.position.set(p.x,p.y+.045,p.z);if(state.mission==='wall')m.position.z+=.02;route.add(m);}}
- function updateRope(){const e=state.entries.wall,show=e.tether;for(const m of ropeParts)m.visible=show;if(!show)return;const end=fleet.crawler.tetherMount.getWorldPosition(new T.Vector3()),start=new T.Vector3(3.7,4.965,3.3);const points=[start,new T.Vector3(3.7,4.94,3.6),new T.Vector3(3.65,4.35,3.73),new T.Vector3(3.56,end.y+.12,3.8),end];const curve=new T.CatmullRomCurve3(points);for(let i=0;i<16;i++){const a=curve.getPoint(i/16),b=curve.getPoint((i+1)/16),m=ropeParts[i],delta=b.clone().sub(a);m.position.copy(a).add(b).multiplyScalar(.5);m.scale.set(1,delta.length(),1);m.quaternion.setFromUnitVectors(up,delta.normalize());}}
+ function updateRope(){const e=state.entries.wall,show=e.tether&&state.robot==='crawler'&&state.mission==='wall';for(const m of ropeParts)m.visible=show;if(!show)return;const end=fleet.crawler.tetherMount.getWorldPosition(new T.Vector3()),start=new T.Vector3(3.7,4.965,3.3);const points=[start,new T.Vector3(3.7,4.94,3.6),new T.Vector3(3.65,4.35,3.73),new T.Vector3(3.56,end.y+.12,3.8),end];const curve=new T.CatmullRomCurve3(points);for(let i=0;i<16;i++){const a=curve.getPoint(i/16),b=curve.getPoint((i+1)/16),m=ropeParts[i],delta=b.clone().sub(a);m.position.copy(a).add(b).multiplyScalar(.5);m.scale.set(1,delta.length(),1);m.quaternion.setFromUnitVectors(up,delta.normalize());}}
  function cameraTarget(){if(!state)return;const td=targetData[state.mission],rig=fleet[state.robot];rig.group.updateMatrixWorld(true);rig.cameraMount.getWorldPosition(camPosition);targetPosition.fromArray(td.point);
   const direction=targetPosition.clone().sub(camPosition).normalize(),right=new T.Vector3().crossVectors(direction,up).normalize(),camUp=new T.Vector3().crossVectors(right,direction).normalize();
   const yaw=(state.camera.yaw||0)*Math.PI/180,pitch=(state.camera.pitch||0)*Math.PI/180;
@@ -70,14 +73,18 @@ window.createPatrolScene=function(host,callbacks={}){
  function renderPreview(){if(!state||!cameraMetrics)return;
   const oldExposure=renderer.toneMappingExposure;renderer.toneMappingExposure=captureExposure();
   const oldRing=targetRing.visible,oldRoute=route.visible;targetRing.visible=false;route.visible=false;
+  for(const item of highlighted)item.mesh.material=item.original;
   renderer.setRenderTarget(renderTarget);renderer.render(scene,inspectionCamera);renderer.readRenderTargetPixels(renderTarget,0,0,640,400,pixels);renderer.setRenderTarget(null);renderer.toneMappingExposure=oldExposure;targetRing.visible=oldRing;route.visible=oldRoute;
+  for(const item of highlighted)item.mesh.material=item.material;
   for(let y=0;y<400;y++)imageData.data.set(pixels.subarray((399-y)*640*4,(400-y)*640*4),y*640*4);pctx.putImageData(imageData,0,0);
   if(state.entries[state.mission].moving){const temp=document.createElement('canvas');temp.width=640;temp.height=400;temp.getContext('2d').drawImage(preview,0,0);pctx.globalAlpha=.25;for(let i=1;i<=4;i++)pctx.drawImage(temp,i*4,0);pctx.globalAlpha=1;}
   callbacks.onPreview?.(preview,cameraMetrics);
  }
  function settling(){return Object.values(fleet).some(r=>r.needsSettle?.());}
- function updateWorld(dt){if(!state)return;elapsed+=dt;const targetExplosion=exploded?1:0;explosion+=(targetExplosion-explosion)*(reduce.matches?1:1-Math.exp(-dt*7));if(Math.abs(explosion-targetExplosion)<.001)explosion=targetExplosion;if(dirty||state.entries[state.mission].moving||settling()||explosion!==targetExplosion)renderer.shadowMap.needsUpdate=true;
-  for(const kind of Object.keys(fleet)){const id=kind==='wheel'?'road':kind==='dog'?'stairs':'wall',e=state.entries[id];if(kind===state.robot)setRobot(kind,state.mission,state.entries[state.mission].progress,state.entries[state.mission].moving,dt);else setRobot(kind,id,e.robot===kind?e.progress:0,false,dt);}
+ function updateWorld(dt,reset=false){if(!state)return;elapsed+=dt;const targetExplosion=exploded?1:0;explosion+=(targetExplosion-explosion)*(reduce.matches?1:1-Math.exp(-dt*7));if(Math.abs(explosion-targetExplosion)<.001)explosion=targetExplosion;if(dirty||reset||state.entries[state.mission].moving||settling()||explosion!==targetExplosion)renderer.shadowMap.needsUpdate=true;
+  // Only the selected platform is deployed. Parked rigs must not share its route,
+  // cast shadows onto it, or appear in the inspection camera after a switch.
+  for(const [kind,rig] of Object.entries(fleet)){rig.group.visible=kind===state.robot;const id=kind==='wheel'?'road':kind==='dog'?'stairs':'wall',e=state.entries[id];if(kind===state.robot)setRobot(kind,state.mission,state.entries[state.mission].progress,state.entries[state.mission].moving,dt,reset);else setRobot(kind,id,e.robot===kind?e.progress:0,false,dt,reset);}
   scene.updateMatrixWorld(true);updateRope();cameraTarget();
   world.setState?.({roadCleared:!!state.entries.road.follow||!!state.entries.road.serviceDone,wallMaterial:'steel',wet:true});
   const td=targetData[state.mission];targetRing.position.set(...td.point);targetRing.position.addScaledVector(new T.Vector3(...td.normal),.018);targetRing.quaternion.setFromUnitVectors(new T.Vector3(0,0,1),new T.Vector3(...td.normal));targetRing.visible=view!=='robot'&&state.stage!=='capture';route.visible=state.stage==='survey'||state.stage==='travel';
@@ -113,14 +120,14 @@ window.createPatrolScene=function(host,callbacks={}){
  canvas.addEventListener('wheel',e=>{e.preventDefault();goal.r=clamp(goal.r*Math.exp(e.deltaY*.001),.7,55);request();},{passive:false});
  canvas.addEventListener('keydown',e=>{if(e.key==='Home'){setView('overview');e.preventDefault();return;}if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','-','='].includes(e.key)){e.preventDefault();if(e.key==='ArrowLeft')goal.az-=.12;if(e.key==='ArrowRight')goal.az+=.12;if(e.key==='ArrowUp')goal.el=clamp(goal.el+.08,-.12,1.35);if(e.key==='ArrowDown')goal.el=clamp(goal.el-.08,-.12,1.35);if(e.key==='+'||e.key==='=')goal.r*=.9;if(e.key==='-')goal.r*=1.1;request();}});
  return{
-  update(s){const changed=lastMission!==s.mission;state=s;if(changed){lastMission=s.mission;buildRoute();}updateWorld(0);request();},
+  update(s){const changed=lastMission!==s.mission,switched=changed||lastRobot!==s.robot||state!==s;state=s;if(switched){lastRobot=s.robot;exploded=false;explosion=0;clearHighlight();}if(changed){lastMission=s.mission;buildRoute();}updateWorld(0,switched);request();},
   setView,setTheme(t){theme=t;scene.fog.color.setHex(t==='dark'?0x1d3040:0xeaf0f3);renderer.toneMappingExposure=t==='dark'?.88:1.12;request();},
-  explode(value){exploded=value;setView('robot');request();},
+  explode(value){exploded=value;setView('robot');request();},highlightPart,
   capture(){if(!state)return null;updateWorld(0);renderPreview();if(visible)drawMain();return{image:preview.toDataURL('image/jpeg',.88),metrics:JSON.parse(JSON.stringify(cameraMetrics)),mode:state.camera.mode,mission:state.mission,condition:state.mission==='road'&&(state.entries.road.serviceDone||state.entries.road.follow)?'after-maintenance':'initial',capturedAt:new Date().toISOString()};},
   metrics(){return cameraMetrics},preview,resize,
   stats(){let meshes=0,triangles=0;scene.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;}});return{webgl:true,meshes,triangles,world:world.stats?.(),robots:Object.fromEntries(Object.entries(fleet).map(([k,r])=>[k,r.stats()])),view,orbit:{...orbit},metrics:cameraMetrics};},
   inspect(){return{scene,camera,inspectionCamera,fleet,world,poseAt,groundAt}},
-  dispose(){destroyed=true;cancelAnimationFrame(raf);ro.disconnect();io.disconnect();document.removeEventListener('visibilitychange',onVisibility);renderer.dispose();renderTarget.dispose();}
+  dispose(){destroyed=true;clearHighlight();cancelAnimationFrame(raf);ro.disconnect();io.disconnect();document.removeEventListener('visibilitychange',onVisibility);renderer.dispose();renderTarget.dispose();}
  };
 };
 })();

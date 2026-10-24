@@ -85,7 +85,7 @@ $('#fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await docum
 $('#help').onclick=()=>$('#helpDialog').showModal();$('#layerHelp').onclick=$('#abrasiveInfo').onclick=()=>$('#materialDialog').showModal();$$('[data-close]').forEach(e=>e.onclick=()=>$('#'+e.dataset.close).close());
 $('#mobileToggle').onclick=()=>{const on=$('#app').classList.toggle('mobile-controls');text('mobileToggle',on?'返回画面':'操作面板');};
 $('#downloadRecord').onclick=()=>{const report={task:'任务6-3 腻子打磨实训',completed:S.done,records:S.records,note:'教学操作记录，不是实际工程质量验收记录'};const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='任务6-3_实训记录.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-function fit(){document.documentElement.style.setProperty('--scale',Math.min(innerWidth/1600,innerHeight/900));}addEventListener('resize',fit);fit();
+function fit(){document.documentElement.style.setProperty('--scale',Math.min((document.getElementById('c6-content')?.clientWidth||innerWidth)/1600,(document.getElementById('c6-content')?.clientHeight||innerHeight)/900));}addEventListener('resize',fit);fit();
 document.addEventListener('keydown',e=>{const dialog=$('dialog[open]');if(dialog){if(e.key==='Escape'){e.preventDefault();dialog.close();}return;}if(/INPUT|BUTTON|A|CANVAS/.test(e.target.tagName))return;if(e.key==='ArrowRight'){e.preventDefault();$('#next').click();}if(e.key==='ArrowLeft'){e.preventDefault();setTab(tabs[(tabs.indexOf(S.tab)+3)%4]);}});
 let frame=0,last=0,visible=true;
 function wake(){if(!frame&&visible&&!document.hidden&&!reduced.matches){last=0;frame=requestAnimationFrame(tick);}}

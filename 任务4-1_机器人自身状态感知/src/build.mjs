@@ -4,12 +4,13 @@ import{readFileSync,writeFileSync,existsSync}from'node:fs';
 import{dirname,join}from'node:path';
 import{fileURLToPath,pathToFileURL}from'node:url';
 import{robotFallback}from"./fallback.mjs";
+import {integrateChapter4} from '../../公共资源/感知与识别/chapter-layout.mjs';
 const HERE=__taskFile("."),ROOT=__taskFile("../../公共资源/感知与识别");
 export function buildSelfState(){
  const read=n=>readFileSync(join(HERE,n),'utf8');
  const values={CSS:'/*\n'+readFileSync(__taskFile("../../公共资源/anatomy/LICENSE.txt"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../公共资源/anatomy/iso.css"),'utf8')+'\n'+read("./style.css")+"\n"+read("./layout.css"),FALLBACK:'<div class="iso" data-theme="light">'+robotFallback()+'</div>',THREE:'/*\n'+readFileSync(__taskFile("../../公共资源/vendor/THREE-LICENSE.txt"),'utf8')+'\n*/\n'+readFileSync(__taskFile("../../公共资源/vendor/three-r160.min.js"),'utf8'),MODEL:read("./state-model.mjs").replace(/^export /gm,''),SCENE:read("./scene.js"),APP:read("./app.js").replace('{{CSV_TOOLS}}',()=>read('./csv-tools.js')),DIALOGS:read('./dialogs.html')};
  const out=read("./page.html").replace(/\{\{(CSS|FALLBACK|THREE|MODEL|SCENE|APP|DIALOGS)\}\}/g,(_,key)=>values[key].replace(/<\/script/gi,'<\\/script'));
- writeFileSync(__taskFile("../index.html"),out);
+ writeFileSync(__taskFile("../index.html"),integrateChapter4(out,'state'));
  // Refresh only this task's existing chapter card, preserving all other cards.
  const chapter=join(ROOT,'index.html');
  if(existsSync(chapter)){

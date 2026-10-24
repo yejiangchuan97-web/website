@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
 const read = (name) => fs.readFileSync(path.join(root, name), "utf8");
+const integrate = require("../../公共资源/动力与工作机构/integrate.cjs");
 const template = read("src/index.template.html");
 const styles = ["src/style.css", "src/enhancements.css", "src/learning.css"];
 // These classic scripts intentionally run in order: rendering library, model,
@@ -59,10 +60,10 @@ for (const [token, file] of scripts) {
   );
 }
 fs.mkdirSync(path.join(root, "dist"), { recursive: true });
-fs.writeFileSync(path.join(root, "index.html"), addNotice(development));
+fs.writeFileSync(path.join(root, "index.html"), integrate(addNotice(development), "transmission", "../"));
 fs.writeFileSync(
   path.join(root, "dist/机械动力实验室.html"),
-  addNotice(standalone),
+  integrate(addNotice(standalone), "transmission", "../../"),
 );
 console.log("Generated index.html (editable source entry)");
 console.log("Generated dist/机械动力实验室.html (offline standalone)");

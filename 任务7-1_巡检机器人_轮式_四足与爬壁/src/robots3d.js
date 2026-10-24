@@ -277,6 +277,7 @@
       leg.error = Math.max(Math.abs(V(k).distanceTo(V(hip)) - .27), Math.abs(V(k).distanceTo(V(ankle)) - .29));
     }
     function setPose(next = {}) {
+      if(next.reset){lastTime=null;motionBlend=0;torso.ready=false;torso.pitch=0;}
       for(const [key,value] of Object.entries(next))if(key!=='groundAt'&&key!=='feet')pose[key]=value;
       if(typeof next.groundAt==='function')terrainAt=next.groundAt;
       else if(next.groundAt===null)terrainAt=()=>0;

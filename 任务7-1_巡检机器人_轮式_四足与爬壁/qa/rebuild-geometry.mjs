@@ -1,8 +1,10 @@
 import {createRequire} from 'node:module';
 import {existsSync,mkdirSync,writeFileSync} from 'node:fs';
 import {fileURLToPath,pathToFileURL} from 'node:url';
+import {homedir} from 'node:os';
+import {join} from 'node:path';
 import assert from 'node:assert/strict';
-const require=createRequire(import.meta.url),{chromium}=require('C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const require=createRequire(import.meta.url),{chromium}=require(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
 const here=fileURLToPath(new URL('./',import.meta.url)),out=here+'rebuild-artifacts/geometry/';mkdirSync(out,{recursive:true});
 const executablePath=['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe','C:/Program Files/Google/Chrome/Application/chrome.exe'].find(existsSync);
 const browser=await chromium.launch({executablePath,headless:true,args:['--edge-skip-compat-layer-relaunch','--do-not-de-elevate','--allow-file-access-from-files','--use-angle=swiftshader','--enable-unsafe-swiftshader']});

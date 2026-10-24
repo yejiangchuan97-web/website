@@ -1,0 +1,15 @@
+/* Colors only: image pixels, annotation coordinates and experiment state stay intact. */
+html[data-theme=dark]{color-scheme:dark;--ink:#dce9f8;--muted:#a5bad2;--blue:#79b6ff;--deep:#387fc6;--soft:#20364e;--line:#344b66;--paper:#0f1b2d;--good:#67d8bb;--bad:#ff9c8e;--warn:#eab86e}
+html[data-theme=dark] body{background:var(--paper);color:var(--ink)}
+html[data-theme=dark] :is(.panel,.lesson-card,.ws-metrics,.ws-knowledge-header,.class-choice,.box-row,.btn,select,input[type=number],input[type=text],.answer-option){background:#192b41;color:#dce9f8;border-color:#3b526c}
+html[data-theme=dark] :is(.ws-tool-rail,.stage-bottom,.ws-overlay-toolbar,.ws-knowledge,.progress-strip,.image-picker,.formula-cell,.metric,.note,.code-box,.next-lesson,.page-next,.evaluation-controls,.evaluation-rule,.tag,.image-badge){background:#20334a!important;color:#bad1eb!important;border-color:#3b526c!important}
+html[data-theme=dark] :is(.canvas-wrap,.helmet-image-stage){background:radial-gradient(ellipse at 50% 30%,#243b53,#142338)!important}
+html[data-theme=dark] :is(.panel-head,.control-section,.toolbar,.evaluation-control-grid>div+div,.ws-tool-rail){border-color:#344b66!important}
+html[data-theme=dark] :is(h1,h2,h3,.ws-heading h1,.ws-board .panel-head h2,.ws-knowledge-header h2,.ws-label-heading,.class-choice,.selected-meta,.stage-bottom strong,.range-row output,.metric strong,.code-box){color:#dce9f8!important}
+html[data-theme=dark] :is(p,.tiny,.muted,small,label,.switch-row,.range-row,.ws-heading p,.panel-head p,.ws-board .panel-head p,.ws-board .tiny,.ws-board .muted,.box-row small,.coordinate-grid label,.metric span,.metric small,.equations,.review-check,.feedback,.check-result,.evaluation-metric-note,.ws-knowledge-content .lesson-card p){color:#abc0d8!important}
+html[data-theme=dark] :is(.btn.primary,.btn.active,.class-choice.active,.box-row.active,.answer-option.selected){background:#2d5b8b!important;color:#fff!important;border-color:#78b9ff!important}
+html[data-theme=dark] :is(.btn:hover,.box-row:hover,.class-choice:hover){background:#29445f}
+html[data-theme=dark] :is(.class-choice span:first-child,.formula-cell,.metric,.evaluation-rule,.ws-export-shortcut){background:#263d55!important;color:#8ed9ce!important}
+html[data-theme=dark] .ws-knowledge-overlay{background:#020a16ac}
+html[data-theme=dark] #evaluation-zero-note{background:transparent!important;color:#edc58d!important}
+html[data-theme=dark] :is(.tag,.image-badge){box-shadow:none}

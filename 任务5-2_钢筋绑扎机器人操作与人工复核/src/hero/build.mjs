@@ -2,6 +2,7 @@ import {readFileSync,writeFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import * as model from './model.mjs';
 import {ISO_CSS} from '../../../公共资源/anatomy/iso-kit.mjs';
+import {integrateChapter5} from '../../../公共资源/主体结构施工/chapter-layout.mjs';
 const path=p=>fileURLToPath(new URL(p,import.meta.url)),read=p=>readFileSync(path(p),'utf8');
 const fallback=JSON.parse(read('../figure-cache.json')).svg;
 const script=s=>s.replace(/<\/script/gi,'<\\/script');
@@ -11,7 +12,8 @@ const values={CSS:read('./style.css')+'\n'+ISO_CSS+'\n#fallback{position:absolut
  SCENE:script(read('./scene.js')),APP:script(read('./app.js')),FALLBACK:fallback};
 let html=read('./page.html').replace(/\{\{(CSS|THREE|MODEL|SCENE|APP|FALLBACK)\}\}/g,(_,key)=>values[key]);
 html=html.replace('<html lang="zh-CN">','<!-- Anatomy MIT license:\n'+read('../../../公共资源/anatomy/LICENSE')+'\nThree.js license:\n'+read('../../../公共资源/vendor/THREE-LICENSE.txt')+'\n-->\n<html lang="zh-CN">');
+html=integrateChapter5(html.replace('data-theme="light"','data-theme="dark"'),'tying');
 writeFileSync(path('../../index.html'),html);
-writeFileSync(path('../../dark.html'),html.replace('data-theme="light"','data-theme="dark"'));
+writeFileSync(path('../../dark.html'),html);
 console.log('Built Task 5-2 Hero · standalone true 3D · '+Math.round(Buffer.byteLength(html)/1024)+' KB');
 if(process.argv.includes('--audit'))console.log('Hero uses Three.js: run qa/hero-model.test.mjs and qa/hero-verify.mjs. Native SVG audit applies only to the legacy static fallback.');

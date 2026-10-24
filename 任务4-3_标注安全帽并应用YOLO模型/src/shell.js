@@ -7,7 +7,8 @@
   const pendingThresholds = new Map();
   let messageTimer;
   function fit() {
-    const scale = Math.min(window.innerWidth / 1440, window.innerHeight / 810);
+    const content=document.getElementById('c4-content');
+    const scale = Math.min((content?.clientWidth||window.innerWidth) / 1440, (content?.clientHeight||window.innerHeight) / 810);
     shell.style.transform = `scale(${scale})`;
   }
   function message(text) {
@@ -50,6 +51,7 @@
         try {history.pushState(null, '', hash);} catch {location.hash = hash;}
       }
     }
+    window.dispatchEvent(new Event('c4-route-change'));
   }
   function readRoute() {
     const [hash, query = ''] = location.hash.slice(1).split('?');

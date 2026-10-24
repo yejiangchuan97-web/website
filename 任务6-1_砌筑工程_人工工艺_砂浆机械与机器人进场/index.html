@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>任务6-1 · 从人工砌筑到机器人</title><style>.iso{
+<!doctype html><html lang="zh-CN" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>任务6-1 · 从人工砌筑到机器人</title><style>.iso{
   --anatomy-page:#0b0b0b;--anatomy-card:#131313;--anatomy-text:#a3a3a3;--anatomy-strong:#e6e6e6;--anatomy-muted:#6e6e6e;
   --anatomy-paper:#131313;--anatomy-face:#1b1b1b;--anatomy-top:#1c1c1c;
   --anatomy-shade-0:#0f0f0f;--anatomy-shade-1:#121212;--anatomy-shade-2:#151515;--anatomy-shade-3:#181818;
@@ -116,9 +116,22 @@ html[data-theme=dark]{color-scheme:dark;--bg:#101b2b;--paper:#17263a;--ink:#dce8
 @media(min-width:761px){.control-panel,.visual-card{height:clamp(720px,78vh,860px)}.stage-wrap,.stage{min-height:435px}}
 @media(min-width:761px){:fullscreen .masthead{height:62px}:fullscreen .chapter-nav{margin-bottom:10px}:fullscreen .chapter-nav button{padding-top:10px;padding-bottom:10px}:fullscreen .lesson-band,:fullscreen footer{display:none}:fullscreen .visual-card,:fullscreen .control-panel{height:calc(100dvh - 145px)}:fullscreen .stage-wrap,:fullscreen .stage{min-height:260px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style><style>:root{--c6-nav-height:64px}
+.c6-nav{position:fixed;inset:0 0 auto;height:var(--c6-nav-height);z-index:1000;display:flex;align-items:center;gap:24px;padding:0 24px;background:#111d30;color:#dbe9fc;border-bottom:1px solid #334660;font:15px/1.4 "Segoe UI","Microsoft YaHei",sans-serif;box-sizing:border-box}
+.c6-nav a{text-decoration:none;color:#c0d2ec;white-space:nowrap;font-size:15px}.c6-nav .c6-home{font-weight:700;color:#8ebeff;padding-right:20px;border-right:1px solid #3a4a62}.c6-links{display:flex;align-items:center;gap:5px;flex:1}.c6-links a{padding:8px 12px;border-radius:6px}.c6-links a:hover,.c6-links a[aria-current]{background:#294260;color:#fff}.c6-nav button{border:1px solid #465d79;background:#22354d;color:#e5efff;border-radius:7px;padding:8px 12px;font:inherit;cursor:pointer;white-space:nowrap}.c6-nav :focus-visible{outline:3px solid #e7ac54;outline-offset:3px}
+html[data-c6] body{display:block;overflow:hidden;margin:0;padding:0;width:100%;height:100dvh}
+#c6-content{position:absolute;inset:var(--c6-nav-height) 0 0;overflow:auto;background:var(--paper,var(--bg,#101b2b))}
+html[data-c6=spray] #c6-content{background:var(--bg)}
+html[data-c6=spray] .app{height:calc(100dvh - var(--c6-nav-height))}
+html[data-c6=tiling] #c6-content,html[data-c6=sanding] #c6-content{overflow:hidden}
+@media(max-width:999px){.c6-nav{gap:8px;padding:0 12px}.c6-nav .c6-home{padding-right:10px}.c6-links{overflow:auto}.c6-links a{font-size:13px;padding:8px}.c6-nav button{font-size:13px;padding:7px}}
+@media(max-width:900px){html[data-c6=spray] .app{height:auto;min-height:calc(100dvh - var(--c6-nav-height))}}
+@media(max-width:760px){html[data-c6=tiling] #c6-content,html[data-c6=sanding] #c6-content{overflow:auto}html[data-c6=tiling] .app,html[data-c6=sanding] .app{height:calc(100dvh - var(--c6-nav-height))}}
+@media(max-width:760px){html[data-c6=sanding] .mobile-controls main{overflow:hidden}html[data-c6=sanding] .mobile-controls .controls{height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}html[data-c6=sanding] .app>footer{position:relative;z-index:2;background:var(--paper)}}
+@media(max-width:600px){:root{--c6-nav-height:96px}.c6-nav{height:96px;display:grid;grid-template-columns:1fr auto;grid-template-rows:44px 44px;gap:0}.c6-nav .c6-home{border:0}.c6-links{grid-column:1/-1;grid-row:2;width:100%;overflow-x:auto;min-width:0}.c6-nav button{grid-column:2;grid-row:1}.c6-links a{flex:none}}
 </style></head>
-<body class="iso" data-theme="light"><div class="app">
-<header class="masthead"><a class="brand" href="../README.md"><span class="brand-mark">筑</span><span>智能建造实验室<small>CONSTRUCTION LAB / 06.01</small></span></a><div class="course-name">砌筑工程<span>从工艺到机器人</span></div><div class="header-tools"><button id="theme" aria-label="切换深浅主题">◐ 深色</button><button id="fullscreen">⛶ 全屏</button><button id="help">使用说明</button></div></header>
+<body class="iso" data-theme="dark"><div class="app">
+<header class="masthead"><a class="brand" href="../第六章_装饰装修施工/index.html"><span class="brand-mark">筑</span><span>智能建造实验室<small>CONSTRUCTION LAB / 06.01</small></span></a><div class="course-name">砌筑工程<span>从工艺到机器人</span></div><div class="header-tools"><button id="theme" aria-label="切换深浅主题">◐ 深色</button><button id="fullscreen">⛶ 全屏</button><button id="help">使用说明</button></div></header>
 <nav class="chapter-nav" aria-label="学习阶段"><button data-tab="manual" aria-pressed="true"><b>01</b><span>先亲手砌一砌<small>认砖 · 组砌 · 错缝</small></span><i>→</i></button><button data-tab="issues" aria-pressed="false"><b>02</b><span>发现人工难点<small>灰缝 · 基准 · 连续作业</small></span><i>→</i></button><button data-tab="robot" aria-pressed="false"><b>03</b><span>再让机器人介入<small>定位 · 取放 · 反馈</small></span><i>↗</i></button></nav>
 <main class="lab-layout"><section class="visual-card iso-plate"><div class="figure-heading"><div><div class="eyebrow"><span class="status-dot"></span><span id="eyebrow">MASONRY / LEARN BY BUILDING</span></div><h1 id="title">砖怎样摆，才是一面墙？</h1><p id="subtitle">转一转砖，拼一皮墙，再让上下皮接缝错开。</p></div><span class="figure-number" id="figureNumber">FIG. 01</span></div>
 <div class="stage-wrap"><div id="stage" class="stage" tabindex="0" role="group" aria-label="三维砌筑工作台。拖动旋转，滚轮缩放，方向键旋转。"></div><div class="scene-tag" id="sceneTag">人工砌筑试排台</div><div class="view-tools" aria-label="观察视角"><button data-view="iso" aria-pressed="true">立体</button><button data-view="top" aria-pressed="false">俯视</button><button data-view="front" aria-pressed="false">正视</button><button data-view="detail" aria-pressed="false">近看</button><span></span><button id="zoomOut" aria-label="缩小">−</button><button id="zoomIn" aria-label="放大">＋</button><button id="home" aria-label="复位视角">↺</button></div><div id="fallbackNotice" class="fallback-note" hidden>三维加速不可用，已切换实体投影画面；仍可完成操作。</div></div>
@@ -146,7 +159,21 @@ html[data-theme=dark]{color-scheme:dark;--bg:#101b2b;--paper:#17263a;--ink:#dce8
 <a href="https://www.fbr.com.au/view/faqs/faqs" target="_blank" rel="noopener">FBR · 不同材料工艺与人机分工</a>
 <a href="README.md">本页教学设计与模型边界</a>
 </div></dialog>
-<script>/* Three.js r160, MIT; Anatomy toolkit, MIT. Licenses in 公共资源. */
+<script>(()=>{'use strict';
+const lab="masonry";
+const root=document.documentElement;root.dataset.c6=lab;
+const content=document.createElement('div');content.id='c6-content';
+for(const node of [...document.body.children])if(!['SCRIPT','STYLE','DIALOG'].includes(node.tagName))content.append(node);
+document.body.prepend(content);
+const nav=document.createElement('nav');nav.className='c6-nav';nav.setAttribute('aria-label','第六章学习导航');
+const routes=[['masonry','6-1 砌筑','任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场/index.html'],['tiling','6-2 地砖铺贴','任务6-2_地砖铺贴_工艺准备与铺贴机器人作业/index.html'],['sanding','6-3 腻子打磨','任务6-3_腻子打磨_作业面检查_恒力执行与质量验收/index.html'],['spray','6-4 室内喷涂','任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/index.html']];
+nav.innerHTML='<a class="c6-home" href="../第六章_装饰装修施工/index.html">← 第六章总览</a><div class="c6-links">'+routes.map(([id,name,url])=>`<a data-route="${id}" ${id===lab?'aria-current="page"':''} href="../${url}">${name}</a>`).join('')+'</div><button id="c6-theme" type="button">切换浅色</button>';
+document.body.prepend(nav);
+function sync(){if(lab==='spray'&&root.dataset.theme!==document.body.dataset.theme)root.dataset.theme=document.body.dataset.theme;nav.querySelector('#c6-theme').textContent=root.dataset.theme==='dark'?'切换浅色':'切换深色';}
+nav.querySelector('#c6-theme').onclick=()=>{document.getElementById('theme')?.click();sync();};
+document.addEventListener('DOMContentLoaded',()=>{sync();new MutationObserver(sync).observe(lab==='spray'?document.body:root,{attributes:true,attributeFilter:['data-theme']});});
+})();
+</script><script>/* Three.js r160, MIT; Anatomy toolkit, MIT. Licenses in 公共资源. */
 !/**
  * @license
  * Copyright 2010-2023 Three.js Authors
@@ -711,7 +738,7 @@ function plateHtml({ fig, title, hint, readout = "", keys = [], caption, body })
     return `<figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true">${corner("fig", fig)}${title ? corner("title", title) : ""}${hint ? corner("hint", hint) : ""}${corner("readout", readout, " data-readout")}</div>${body}</div>${legend}</figure>`;
 }
 function pageHtml({ title, theme = "dark", body, script = "", width = 650 }) {
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="dark"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
 }
 const PAGE_CSS = `
 *{box-sizing:border-box}

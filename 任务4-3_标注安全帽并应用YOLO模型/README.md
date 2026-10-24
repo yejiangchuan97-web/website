@@ -12,7 +12,7 @@
 
 ## 教学方案与实现说明
 
-**统一入口：[安全帽与 YOLO 教学实验](index.html)** · [直接进入预测](index.html#predict) · [直接进入评估](index.html#evaluate) · [本章演示入口](../公共资源/感知与识别/index.html)
+**统一入口：[安全帽与 YOLO 教学实验](index.html)** · [直接进入预测](index.html#predict) · [直接进入评估](index.html#evaluate) · [本章演示入口](../第四章_感知与智能识别/index.html)
 
 当前交付将标注、预测、评估三个实验合在一个离线 HTML 中。**直接把 `index.html` 发给别人即可**，无需同时发送另外两个页面或素材文件；顶部导航始终显示全部三个实验，切换时保留当前操作。`predict.html` 与 `evaluate.html` 兼容旧入口，也各自包含全部三个实验。
 

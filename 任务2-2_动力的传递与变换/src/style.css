@@ -21,7 +21,7 @@ body {
   font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
   background: var(--paper);
   color: var(--ink);
-  font-size: 13px;
+  font-size: 15px;
 }
 button,
 input,
@@ -74,7 +74,7 @@ body {
   align-items: center;
   gap: 10px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   white-space: nowrap;
   letter-spacing: 0.4px;
 }
@@ -86,7 +86,7 @@ body {
   background: var(--ink);
   color: #f8fffa;
   border-radius: 12px;
-  font-size: 27px;
+  font-size: 28px;
   font-family: "Segoe UI Symbol", sans-serif;
 }
 .brand-light {
@@ -95,7 +95,7 @@ body {
 }
 .brand small {
   display: block;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 1.7px;
   margin-top: 3px;
   color: var(--muted);
@@ -116,7 +116,7 @@ nav {
   white-space: nowrap;
 }
 .tab span {
-  font-size: 10px;
+  font-size: 12px;
   color: #8f9b98;
   margin-right: 9px;
   font-variant-numeric: tabular-nums;
@@ -132,12 +132,12 @@ nav {
 .ghost {
   padding: 9px 10px;
   border-radius: 7px;
-  font-size: 12px;
+  font-size: 14px;
   white-space: nowrap;
 }
 .ghost span {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   margin-left: 5px;
 }
 .help {
@@ -171,13 +171,13 @@ nav {
   pointer-events: none;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--green);
   letter-spacing: 2.1px;
   font-weight: 700;
 }
 h1 {
-  font-size: 28px;
+  font-size: 29px;
   letter-spacing: -0.9px;
   line-height: 1.3;
   margin: 9px 0 8px;
@@ -186,7 +186,7 @@ h1 {
 .scene-heading p {
   margin: 0;
   color: #7b8986;
-  font-size: 12px;
+  font-size: 14px;
 }
 .scene-tools {
   position: absolute;
@@ -203,7 +203,7 @@ h1 {
   gap: 7px;
   margin-right: 9px;
   color: #7b8986;
-  font-size: 10px;
+  font-size: 12px;
 }
 .live i,
 .state-dot {
@@ -225,7 +225,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 .icon-btn:hover {
   background: #fff;
@@ -258,7 +258,7 @@ h1 {
   pointer-events: none;
   white-space: nowrap;
   transform: translate(-50%, -100%);
-  font-size: 10px;
+  font-size: 12px;
   color: #536861;
   padding: 6px 10px;
   background: #ffffffdf;
@@ -291,7 +291,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 10px;
+  font-size: 12px;
   color: #687b72;
 }
 .legend i,
@@ -303,7 +303,7 @@ h1 {
   margin-right: 5px;
 }
 .gesture {
-  font-size: 10px;
+  font-size: 12px;
   color: #91a096;
 }
 .gesture b {
@@ -329,25 +329,25 @@ h1 {
 }
 .metric .caption {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: #89948d;
   margin-bottom: 6px;
   white-space: nowrap;
 }
 .metric strong {
-  font-size: 26px;
+  font-size: 27px;
   letter-spacing: -1px;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
 }
 .metric em {
-  font-size: 10px;
+  font-size: 12px;
   color: #819089;
   font-style: normal;
   margin-left: 5px;
 }
 .metric small {
-  font-size: 9px;
+  font-size: 11px;
   display: block;
   color: #9aa69d;
   margin-top: 4px;
@@ -370,11 +370,11 @@ h1 {
   justify-content: space-between;
   padding: 20px 20px 17px;
   border-bottom: 1px solid #edf0ec;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .panel-heading small {
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 1.5px;
   font-weight: 400;
   color: #a2ada4;
@@ -391,11 +391,11 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 12px;
   margin-bottom: 16px;
 }
 .section-label span {
-  font-size: 8px;
+  font-size: 10px;
   color: #a5b1aa;
   letter-spacing: 0.5px;
 }
@@ -411,7 +411,7 @@ h1 {
   flex: 1;
   padding: 7px 4px;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 }
 .segmented .selected {
@@ -428,17 +428,17 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
-  font-size: 11px;
+  font-size: 13px;
   color: #5f7168;
 }
 .field-top output {
   font-weight: 600;
   color: #304c3e;
-  font-size: 12px;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
 }
 .field-top output small {
-  font-size: 9px;
+  font-size: 11px;
   color: #8a9a8f;
   font-weight: 400;
   margin-left: 4px;
@@ -447,7 +447,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   color: #acb7ae;
-  font-size: 8px;
+  font-size: 10px;
   margin-top: 4px;
 }
 .field input[type="range"],
@@ -465,7 +465,7 @@ h1 {
   background: #f9fbf8;
   color: #40574a;
   width: 100%;
-  font-size: 11px;
+  font-size: 13px;
   cursor: pointer;
 }
 .field-inline {
@@ -473,7 +473,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  font-size: 11px;
+  font-size: 13px;
   color: #677c6c;
   margin: 13px 0;
 }
@@ -486,7 +486,7 @@ h1 {
   gap: 7px;
 }
 .badge {
-  font-size: 9px;
+  font-size: 11px;
   background: #f0f4ee;
   padding: 4px 7px;
   border-radius: 4px;
@@ -496,7 +496,7 @@ h1 {
   margin-bottom: 10px;
 }
 .direction button {
-  font-size: 11px;
+  font-size: 13px;
 }
 .state-card {
   background: #f3f7f2;
@@ -511,11 +511,11 @@ h1 {
   gap: 7px;
 }
 .state-top strong {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
 }
 .state-card p {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.7;
   color: #7c8e7d;
   margin: 6px 0 0;
@@ -526,20 +526,20 @@ h1 {
 }
 .principle > span {
   color: #9cab9b;
-  font-size: 9px;
+  font-size: 11px;
   display: block;
   margin-bottom: 8px;
 }
 .principle strong {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 400;
   color: #42634c;
   display: block;
   letter-spacing: 0.3px;
 }
 .principle p {
-  font-size: 10px;
+  font-size: 12px;
   color: #8a9b8b;
   line-height: 1.8;
   margin: 8px 0 0;
@@ -550,7 +550,7 @@ h1 {
 .mini-chart > div:first-child {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: 11px;
   color: #8f9f8f;
 }
 .mini-chart canvas {
@@ -562,7 +562,7 @@ h1 {
 .chart-legend {
   display: flex;
   gap: 13px;
-  font-size: 8px;
+  font-size: 10px;
   color: #94a591;
   margin-top: 2px;
 }
@@ -590,11 +590,11 @@ h1 {
   border-radius: 8px;
   height: 36px;
   padding: 0 18px;
-  font-size: 14px;
+  font-size: 16px;
   min-width: 85px;
 }
 .play span {
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 6px;
 }
 .play:hover {
@@ -608,14 +608,14 @@ h1 {
 }
 .speed-control label {
   color: #849583;
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 }
 .speed-control input {
   width: 110px;
 }
 .speed-control output {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--green);
   min-width: 34px;
   font-variant-numeric: tabular-nums;
@@ -628,17 +628,17 @@ h1 {
   min-width: 172px;
 }
 .sim-clock > span {
-  font-size: 9px;
+  font-size: 11px;
   color: #99a696;
 }
 .sim-clock strong {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
 .sim-clock small {
   grid-column: 1/-1;
-  font-size: 8px;
+  font-size: 10px;
   color: #abb7a6;
   text-align: right;
 }
@@ -664,7 +664,7 @@ dialog::backdrop {
   border-bottom: 1px solid var(--line);
 }
 .dialog-head h2 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 7px 0 0;
   letter-spacing: -0.5px;
 }
@@ -672,12 +672,12 @@ dialog::backdrop {
   padding: 8px 26px 26px;
   max-height: calc(85dvh - 110px);
   overflow: auto;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: #6c7d71;
 }
 .dialog-content h3 {
-  font-size: 13px;
+  font-size: 15px;
   margin: 24px 0 6px;
   color: #34573f;
 }
@@ -689,7 +689,7 @@ dialog::backdrop {
 }
 .muted {
   color: #9daa9b;
-  font-size: 10px;
+  font-size: 12px;
 }
 #webglError {
   position: absolute;
@@ -766,7 +766,7 @@ dialog::backdrop {
     top: 23px;
   }
   h1 {
-    font-size: 25px;
+    font-size: 26px;
   }
   .viewport {
     grid-template-rows: 1fr 86px;
@@ -775,7 +775,7 @@ dialog::backdrop {
     bottom: 99px;
   }
   .metric strong {
-    font-size: 24px;
+    font-size: 25px;
   }
   .metric {
     padding: 0 18px;
@@ -790,7 +790,7 @@ dialog::backdrop {
     gap: 14px;
   }
   .brand {
-    font-size: 15px;
+    font-size: 17px;
   }
   .tab {
     padding: 9px 12px;
@@ -799,7 +799,7 @@ dialog::backdrop {
     margin-right: 6px;
   }
   .help {
-    font-size: 11px;
+    font-size: 13px;
   }
   .scene-tools {
     top: 17px;
@@ -813,7 +813,7 @@ dialog::backdrop {
     top: 58px;
   }
   h1 {
-    font-size: 23px;
+    font-size: 25px;
   }
   .scene-bottom {
     left: 20px;
@@ -826,7 +826,7 @@ dialog::backdrop {
     padding: 0 12px;
   }
   .metric strong {
-    font-size: 21px;
+    font-size: 23px;
   }
   .speed-control {
     min-width: 245px;
@@ -839,7 +839,7 @@ dialog::backdrop {
     min-width: 132px;
   }
   .sim-clock small {
-    font-size: 7px;
+    font-size: 9px;
   }
   .panel-scroll {
     padding: 16px;
@@ -856,17 +856,17 @@ dialog::backdrop {
     padding: 10px 0;
   }
   .brand {
-    font-size: 15px;
+    font-size: 17px;
     gap: 7px;
   }
   .brand-icon {
     width: 32px;
     height: 32px;
-    font-size: 23px;
+    font-size: 25px;
     border-radius: 9px;
   }
   .brand small {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1.3px;
   }
   .topbar nav {
@@ -878,11 +878,11 @@ dialog::backdrop {
   }
   .tab {
     padding: 6px 8px;
-    font-size: 11px;
+    font-size: 13px;
     flex: 1;
   }
   .help {
-    font-size: 10px;
+    font-size: 12px;
     padding: 7px;
   }
   .workspace {
@@ -900,14 +900,14 @@ dialog::backdrop {
     left: 17px;
   }
   .scene-heading h1 {
-    font-size: 19px;
+    font-size: 21px;
     margin: 5px 0;
   }
   .scene-heading p {
     display: none;
   }
   .eyebrow {
-    font-size: 7px;
+    font-size: 9px;
     letter-spacing: 1.6px;
   }
   .scene-tools {
@@ -918,7 +918,7 @@ dialog::backdrop {
   .icon-btn {
     min-width: 27px;
     height: 27px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .scene-tools .icon-btn:nth-of-type(4) {
     display: none;
@@ -928,25 +928,25 @@ dialog::backdrop {
     left: 15px;
   }
   .legend {
-    font-size: 8px;
+    font-size: 10px;
     gap: 10px;
   }
   .model-label {
-    font-size: 8px;
+    font-size: 10px;
     padding: 4px 6px;
   }
   .metric {
     padding: 0 9px;
   }
   .metric .caption {
-    font-size: 8px;
+    font-size: 10px;
     margin-bottom: 3px;
   }
   .metric strong {
-    font-size: 18px;
+    font-size: 20px;
   }
   .metric em {
-    font-size: 7px;
+    font-size: 9px;
     margin-left: 3px;
   }
   .metric small {
@@ -960,7 +960,7 @@ dialog::backdrop {
   .panel-heading {
     padding: 10px;
     writing-mode: vertical-rl;
-    font-size: 11px;
+    font-size: 13px;
     justify-content: center;
     border-right: 1px solid #edf0ec;
     border-bottom: 0;
@@ -977,7 +977,7 @@ dialog::backdrop {
     margin-bottom: 10px;
   }
   .section-label span {
-    font-size: 7px;
+    font-size: 9px;
   }
   #modeControls {
     display: grid;
@@ -996,17 +996,17 @@ dialog::backdrop {
     margin-bottom: 11px;
   }
   .field-top {
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 6px;
   }
   .field-top output {
-    font-size: 11px;
+    font-size: 13px;
   }
   .range-marks {
-    font-size: 7px;
+    font-size: 9px;
   }
   .field-inline {
-    font-size: 10px;
+    font-size: 12px;
     margin: 5px 0;
   }
   .principle,
@@ -1018,10 +1018,10 @@ dialog::backdrop {
     padding: 8px 10px;
   }
   .state-card p {
-    font-size: 9px;
+    font-size: 11px;
   }
   .state-top strong {
-    font-size: 10px;
+    font-size: 12px;
   }
   .transport {
     flex-wrap: wrap;
@@ -1038,14 +1038,14 @@ dialog::backdrop {
     padding: 0 12px;
   }
   .play span {
-    font-size: 11px;
+    font-size: 13px;
   }
   .playback .ghost {
-    font-size: 10px;
+    font-size: 12px;
     padding: 6px 8px;
   }
   .playback .ghost span {
-    font-size: 8px;
+    font-size: 10px;
   }
   .speed-control {
     order: 3;
@@ -1054,7 +1054,7 @@ dialog::backdrop {
     gap: 10px;
   }
   .speed-control label {
-    font-size: 9px;
+    font-size: 11px;
   }
   .speed-control input {
     width: 120px;
@@ -1067,10 +1067,10 @@ dialog::backdrop {
     gap: 0 8px;
   }
   .sim-clock > span {
-    font-size: 8px;
+    font-size: 10px;
   }
   .sim-clock strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .sim-clock small {
     display: none;
@@ -1086,15 +1086,15 @@ dialog::backdrop {
     display: none;
   }
   .brand {
-    font-size: 13px;
+    font-size: 15px;
   }
   .help {
-    font-size: 9px;
+    font-size: 11px;
   }
   .scene-tools .icon-btn:nth-of-type(1) {
     display: none;
   }
   .metric strong {
-    font-size: 16px;
+    font-size: 18px;
   }
 }

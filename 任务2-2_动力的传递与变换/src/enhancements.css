@@ -11,12 +11,12 @@
   gap: 6px;
   padding: 8px 10px;
   border-radius: 8px;
-  font-size: 11px;
+  font-size: 13px;
   min-width: 68px;
   justify-content: center;
 }
 .theme-toggle .theme-icon {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1;
 }
 .component-layer,
@@ -43,13 +43,13 @@
   border: 1px solid #d2e1d8;
   box-shadow: 0 2px 7px #243d3110;
   white-space: nowrap;
-  font-size: 10px;
+  font-size: 12px;
   color: #36564a;
   will-change: transform;
 }
 .component-index {
   font-variant-numeric: tabular-nums;
-  font-size: 8px;
+  font-size: 10px;
   color: #18866d;
   border-right: 1px solid #d9e7df;
   padding-right: 6px;
@@ -71,7 +71,7 @@
 }
 .component-label.inside::after {
   content: "内";
-  font-size: 8px;
+  font-size: 10px;
   color: #8e9d95;
 }
 .component-label.outside {
@@ -79,7 +79,7 @@
 }
 .component-label.outside::after {
   content: "↗";
-  font-size: 10px;
+  font-size: 12px;
   color: var(--green);
 }
 .scene-heading {
@@ -89,7 +89,7 @@
   z-index: 3;
 }
 .names-note {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--green);
   margin-left: 4px;
 }
@@ -295,7 +295,7 @@
     gap: 4px;
   }
   .theme-toggle {
-    font-size: 10px;
+    font-size: 12px;
     padding: 7px 8px;
     min-width: 58px;
   }
@@ -313,11 +313,11 @@
   }
   .theme-toggle {
     padding: 5px 7px;
-    font-size: 9px;
+    font-size: 11px;
     min-width: 54px;
   }
   .theme-toggle .theme-icon {
-    font-size: 13px;
+    font-size: 15px;
   }
   .workspace {
     grid-template-rows: minmax(250px, 1fr) minmax(0, 30%);
@@ -327,11 +327,11 @@
     padding: 0 5px 0 3px;
     gap: 4px;
     border-radius: 3px;
-    font-size: 8px;
+    font-size: 10px;
     box-shadow: 0 1px 4px #20352a10;
   }
   .component-index {
-    font-size: 6px;
+    font-size: 8px;
     line-height: 10px;
     padding-right: 3px;
   }
@@ -344,10 +344,10 @@
     stroke-width: 0.8;
   }
   .component-label.inside::after {
-    font-size: 6px;
+    font-size: 8px;
   }
   .names-note {
-    font-size: 7px;
+    font-size: 9px;
   }
   .legend {
     gap: 8px;
@@ -356,11 +356,11 @@
     flex-basis: 100%;
   }
   .brand {
-    font-size: 14px;
+    font-size: 16px;
   }
   .help {
     padding: 5px;
-    font-size: 9px;
+    font-size: 11px;
   }
   .help span {
     display: none;
@@ -379,7 +379,7 @@
     display: none;
   }
   .scene-heading h1 {
-    font-size: 17px;
+    font-size: 19px;
     margin: 3px 0;
   }
   .scene-bottom {
@@ -393,7 +393,7 @@
     gap: 4px;
   }
   .component-index {
-    font-size: 6px;
+    font-size: 8px;
     line-height: 10px;
     padding-right: 3px;
   }
@@ -453,13 +453,13 @@
   min-width: 0;
 }
 .component-focus-bar small {
-  font-size: 8px;
+  font-size: 10px;
   color: #7c9789;
   display: block;
   margin-bottom: 4px;
 }
 .component-focus-bar strong {
-  font-size: 12px;
+  font-size: 14px;
   color: #24694e;
   font-weight: 600;
   display: block;
@@ -473,7 +473,7 @@
   background: #fff;
   border-radius: 6px;
   padding: 7px 8px;
-  font-size: 10px;
+  font-size: 12px;
   color: #277857;
 }
 .component-focus-bar button:hover {
@@ -526,14 +526,14 @@
     padding: 5px 10px;
   }
   .component-focus-bar small {
-    font-size: 6px;
+    font-size: 8px;
     margin-bottom: 2px;
   }
   .component-focus-bar strong {
-    font-size: 10px;
+    font-size: 12px;
   }
   .component-focus-bar button {
-    font-size: 9px;
+    font-size: 11px;
     padding: 5px 7px;
   }
 }
@@ -543,7 +543,7 @@
   width: 8px;
   flex: 0 0 8px;
   visibility: hidden;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--green);
 }
 .component-label.inside::after {

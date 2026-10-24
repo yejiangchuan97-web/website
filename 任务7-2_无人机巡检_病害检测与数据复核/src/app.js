@@ -21,6 +21,8 @@
       if(!['light','dark'].includes(state.theme))state.theme='light';
     }
   } catch {state=structuredClone(DEFAULT);}
+  // Each visit starts dark while restoring photos, reviews and the rest of the saved progress.
+  state.theme='dark';
   function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch{toast('浏览器无法保存进度，请及时导出记录。');}}
   function toast(text){$('toast').textContent=text;$('toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),3300);}
   const latest=(id=state.selected)=>state.captures.filter(photo=>photo.cellId===id).at(-1);

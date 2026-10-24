@@ -230,6 +230,6 @@ new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(!visible){lastTime
 document.addEventListener('visibilitychange',()=>{lastTime=0;if(document.hidden){if(raf)cancelAnimationFrame(raf);raf=0;}else wake(1600);});
 reduced.addEventListener('change',()=>{if(reduced.matches&&busy){s.progress=1;completeProcess();}wake();});
 try{scene=createRebarScene(THREE,$('viewport'),M,{onSelect:select,wake:()=>wake(),onChange:()=>wake()});scene.setView('processing',true);$('loading').hidden=true;}catch(error){$('loading').hidden=true;$('fallback').hidden=false;$('game').classList.add('using-plan');console.info('启用俯视模式：'+error.message);}
-window.__REBAR_GAME__={snapshot:()=>({state:clone(s),playing,busy,visible,hidden:document.hidden,animationScheduled:!!raf,reducedMotion:reduced.matches,scene:scene?.snapshot()||{available:false},inspection:inspection?.snapshot()||null,zoneCount:zoneCount(),stageReady:stageReady()}),projectPoint:p=>scene?.projectPoint(p)||null};
+window.__REBAR_GAME__={setTheme(dark){scene?.setTheme(dark);wake();},snapshot:()=>({state:clone(s),playing,busy,visible,hidden:document.hidden,animationScheduled:!!raf,reducedMotion:reduced.matches,scene:scene?.snapshot()||{available:false},inspection:inspection?.snapshot()||null,zoneCount:zoneCount(),stageReady:stageReady()}),projectPoint:p=>scene?.projectPoint(p)||null};
 say('先让弯曲的钢筋变直。找到调直机，开始第一棒。');render();wake(1800);
 })();

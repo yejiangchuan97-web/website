@@ -216,8 +216,22 @@ html[data-theme=dark]{--bg:#0b101a;--surface:#111a29;--stage:#15232c;--ink:#e4ed
  .site-header{padding:12px 14px;gap:10px}.brand{font-size:10px}.brand small{font-size:7px}.brand-icon{width:29px;height:32px;font-size:20px}.brand-icon span{font-size:10px}.header-title{border:0;padding:0;display:block;margin-left:auto;margin-right:0}.header-title h1{font-size:12px}.header-title>span{font-size:8px;padding:2px 5px;display:inline-block;margin-top:3px}.site-header nav{width:100%;margin:0;justify-content:space-between;gap:4px}.site-header button{font-size:10px;padding:6px 8px}.help-icon{width:13px;height:13px;font-size:9px;margin-left:3px}
  .shell{padding:16px 14px 0}.scene-data-grid{grid-template-columns:1fr}.scene-toolbar>span{font-size:9px}.experiment-heading{gap:8px;padding:14px 14px 0}.experiment-heading h2{font-size:16px}.source-tag{font-size:8px}.scene-stamp strong{font-size:15px}.scene-panel #viewport{min-height:290px}.scene-foot{flex-wrap:wrap}.scene-foot>span:last-child{width:auto}.wave-title{display:block}.wave-heading{gap:8px}.wave-heading h2{font-size:18px}.chart-card svg{height:156px}.capture-button{padding:10px}footer{padding:18px 0}
 }
+</style><style>:root{--c4-nav-height:64px}
+.c4-nav{position:fixed;inset:0 0 auto;height:var(--c4-nav-height);z-index:1000;display:flex;align-items:center;gap:24px;padding:0 24px;background:#111d30;color:#dbe9fc;border-bottom:1px solid #334660;font:15px/1.4 "Segoe UI","Microsoft YaHei",sans-serif;box-sizing:border-box}
+.c4-nav a{text-decoration:none;color:#c0d2ec;white-space:nowrap;font-size:15px}.c4-nav .c4-home{font-weight:700;color:#8ebeff;padding-right:20px;border-right:1px solid #3a4a62}.c4-links{display:flex;align-items:center;gap:5px;flex:1}.c4-links a{padding:8px 12px;border-radius:6px}.c4-links a:hover,.c4-links a[aria-current]{background:#294260;color:#fff}.c4-nav button{border:1px solid #465d79;background:#22354d;color:#e5efff;border-radius:7px;padding:8px 12px;font:inherit;cursor:pointer;white-space:nowrap}.c4-nav :focus-visible{outline:3px solid #e7ac54;outline-offset:3px}
+html[data-c4] body{display:block;overflow:hidden;margin:0;width:100%;height:100dvh}
+#c4-content{position:absolute;inset:var(--c4-nav-height) 0 0;overflow:auto;background:var(--bg,#0b1422)}
+html[data-c4=state] #c4-content{display:grid;place-items:center}
+html[data-c4=vision] #c4-content{display:grid;place-items:center;overflow:hidden;background:#0c1625}
+html[data-c4=vision][data-theme=light] #c4-content{background:#dfebf5}
+html[data-c4] :is(dialog){max-height:calc(100dvh - 90px)}
+html[data-c4=lidar] :is(.control-label,.field-label,.tabs button,.segmented button,.experiment-tabs button){font-size:14px}
+html[data-c4=lidar] :is(.site-header p,.lab-title p){font-size:14px}
+@media(min-width:1000px){html[data-c4=state] .presentation{width:min(100%,calc((100dvh - var(--c4-nav-height))*16/9))}}
+@media(max-width:999px){html[data-c4=state] #c4-content{display:block}html[data-c4=state] .presentation{width:100%;min-height:100%}.c4-nav{gap:8px;padding:0 12px}.c4-nav .c4-home{padding-right:10px}.c4-links{overflow:auto}.c4-links a{font-size:13px;padding:8px}.c4-nav button{font-size:13px;padding:7px}}
+@media(max-width:600px){:root{--c4-nav-height:96px}.c4-nav{height:96px;display:grid;grid-template-columns:1fr auto;grid-template-rows:44px 44px;gap:0}.c4-nav .c4-home{border:0}.c4-links{grid-column:1/-1;grid-row:2;width:100%;overflow-x:auto;min-width:0}.c4-nav button{grid-column:2;grid-row:1}.c4-links a{flex:none}}
 </style></head><body><div class="presentation">
-<header class="site-header"><a class="brand" href="../公共资源/感知与识别/index.html"><span class="brand-icon">R<span>↗</span></span><span>智能建筑机械与机器人<small>INTERACTIVE LAB · 土木工程</small></span></a><div class="header-title"><h1>机器人自身状态感知</h1><span>任务 4-1</span></div><nav aria-label="页面工具"><button id="csvOpen">手机数据对照</button><button id="recordBtn">观察记录 <b id="recordCount">0</b></button><button id="themeButton" aria-label="切换深色主题">◐ 深色</button><button id="helpButton">教学说明 <span class="help-icon">?</span></button></nav></header>
+<header class="site-header"><a class="brand" href="../第四章_感知与智能识别/index.html"><span class="brand-icon">R<span>↗</span></span><span>智能建筑机械与机器人<small>INTERACTIVE LAB · 土木工程</small></span></a><div class="header-title"><h1>机器人自身状态感知</h1><span>任务 4-1</span></div><nav aria-label="页面工具"><button id="csvOpen">手机数据对照</button><button id="recordBtn">观察记录 <b id="recordCount">0</b></button><button id="themeButton" aria-label="切换深色主题">◐ 深色</button><button id="helpButton">教学说明 <span class="help-icon">?</span></button></nav></header>
 <main class="shell">
 
 <nav class="case-tabs" aria-label="选择施工状态">
@@ -261,7 +275,33 @@ html[data-theme=dark]{--bg:#0b101a;--surface:#111a29;--stage:#15232c;--ink:#e4ed
 <dialog id="csvDialog"><div class="dialog-heading"><div><p class="eyebrow">PHONE / MEASURED DATA</p><h2>用手机读数做一次对照</h2></div><button data-close="csvDialog" aria-label="关闭手机数据">×</button></div><p class="dialog-note">导入 phyphox 导出的加速度 CSV，核对时间、三轴和单位。手机和机器人可以使用同类传感原理；这里的手机数据单独显示，不控制机器人姿态。</p><input id="csvFile" type="file" accept=".csv,.tsv,.txt" aria-label="导入手机CSV"><div id="csvMapping" hidden><div class="mapping-grid"><label>时间列<select id="csvTime"></select></label><label>时间单位<select id="csvTimeUnit"><option value="1">秒 s</option><option value=".001">毫秒 ms</option></select></label><label>x 轴<select id="csvX"></select></label><label>y 轴<select id="csvY"></select></label><label>z 轴<select id="csvZ"></select></label><label>加速度单位<select id="csvAccelUnit"><option value="1">m/s²</option><option value="9.81">g</option></select></label></div><button id="applyCSV" class="primary">应用列映射</button></div><p id="csvStatus" role="status">尚未导入文件。缺失轴保持缺失，不填 0。</p><div id="importedChart" hidden><h3 id="importedName"></h3><svg id="csvSignal" aria-label="用户导入加速度时序图" role="img"></svg><div class="mapping-grid"><label>窗口起点 / s<input id="csvFrom" type="number" value="2" step=".1"></label><label>窗口终点 / s<input id="csvTo" type="number" value="8" step=".1"></label><label>记录轴<select id="csvAxis"><option value="0">x</option><option value="1">y</option><option value="2" selected>z</option></select></label><button id="saveCSV">保存导入窗口</button></div><p class="control-note">原始数据及采集条件以你的文件和实验记录为准。</p></div></dialog>
 
 <div id="toast" role="status" hidden></div>
-<script>/*
+<script>(()=>{'use strict';
+const lab="state";
+const root=document.documentElement;
+root.dataset.c4=lab;
+const content=document.createElement('div');content.id='c4-content';
+for(const node of [...document.body.children])if(!['SCRIPT','STYLE','DIALOG'].includes(node.tagName))content.append(node);
+document.body.prepend(content);
+const nav=document.createElement('nav');nav.className='c4-nav';nav.setAttribute('aria-label','第四章实验导航');
+const routes=[['state','4-1 自身状态','任务4-1_机器人自身状态感知/index.html'],['lidar','4-2 激光雷达','任务4-2_机器人激光雷达感知/index.html'],['annotation','4-3 标注','任务4-3_标注安全帽并应用YOLO模型/index.html#annotation'],['predict','预测','任务4-3_标注安全帽并应用YOLO模型/index.html#predict'],['evaluate','评估','任务4-3_标注安全帽并应用YOLO模型/index.html#evaluate']];
+nav.innerHTML='<a class="c4-home" href="../第四章_感知与智能识别/index.html">← 第四章总览</a><div class="c4-links">'+routes.map(([id,name,url])=>`<a data-route="${id}" href="../${url}">${name}</a>`).join('')+'</div><button id="c4-theme" type="button">切换浅色</button>';
+document.body.prepend(nav);
+let theme='dark';
+function highlight(){const selected=lab==='vision'?(location.hash.slice(1).split('?')[0]||document.body.dataset.startView):lab;nav.querySelectorAll('[data-route]').forEach(a=>{a.toggleAttribute('aria-current',a.dataset.route===selected);if(lab==='vision'&&['annotation','predict','evaluate'].includes(a.dataset.route))a.href='#'+a.dataset.route;});}
+function syncFrames(){document.querySelectorAll('.lesson-frame').forEach(f=>{if(f.contentDocument?.documentElement)f.contentDocument.documentElement.dataset.theme=theme;});}
+function applyTheme(next){theme=next;root.dataset.c4Theme=theme;
+ if(lab==='state'){if(root.dataset.theme!==theme)document.getElementById('themeButton')?.click();}
+ else if(lab==='lidar'){document.getElementById(theme==='dark'?'darkTheme':'lightTheme')?.click();}
+ else {root.dataset.theme=theme;syncFrames();}
+ nav.querySelector('#c4-theme').textContent=theme==='dark'?'切换浅色':'切换深色';
+}
+nav.querySelector('#c4-theme').onclick=()=>applyTheme(root.dataset.theme==='dark'?'light':'dark');
+document.querySelectorAll('.lesson-frame').forEach(f=>f.addEventListener('load',syncFrames));
+addEventListener('hashchange',highlight);addEventListener('popstate',highlight);addEventListener('c4-route-change',highlight);
+document.addEventListener('DOMContentLoaded',()=>{applyTheme('dark');highlight();new MutationObserver(()=>{root.dataset.c4Theme=root.dataset.theme;nav.querySelector('#c4-theme').textContent=root.dataset.theme==='dark'?'切换浅色':'切换深色';}).observe(root,{attributes:true,attributeFilter:['data-theme']});});
+highlight();
+})();
+</script><script>/*
 The MIT License
 
 Copyright © 2010-2023 three.js authors

@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import {integrateChapter6} from '../../公共资源/装饰装修施工/chapter-layout.mjs';
 import * as Model from './model.mjs';
 import * as GameModel from './game.model.mjs';
 
@@ -31,7 +32,7 @@ const html = read('./page.html').replace(/\{\{(CSS|SCENE|SERVICE|SOURCES|JS)\}\}
 if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error('页面仍有未替换的构建占位符。');
 // Change only the initial root/body theme attributes, never selectors in CSS.
 const themePage = theme => html.replace(/(<(?:html|body)\b[^>]*\bdata-theme=")[^"]*(")/g, '$1' + theme + '$2');
-writeFileSync(file('../index.html'), themePage('light'));
-writeFileSync(file('../dark.html'), themePage('dark'));
+writeFileSync(file('../index.html'), integrateChapter6(themePage('dark'),'sanding'));
+writeFileSync(file('../dark.html'), integrateChapter6(themePage('dark'),'sanding'));
 console.log('Built index.html + dark.html · Hero 3D workshop, local Three.js runtime');
 if(audit) console.log('Three.js physical mesh scene: use node qa/hero-check.mjs for camera, pose, hose, game and layout checks. The legacy SVG audit does not certify this renderer.');

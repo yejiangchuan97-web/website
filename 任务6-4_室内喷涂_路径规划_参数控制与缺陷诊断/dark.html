@@ -18,10 +18,23 @@
 @media(min-width:901px) and (min-height:541px){html,.app{overflow:clip}}
 @media(max-width:540px){.mission-card p{display:none}.mission-card{width:188px}.mission-card h2{margin-bottom:0}}
 .inspection-legend{position:absolute;bottom:88px;left:22px;display:flex;flex-wrap:wrap;gap:12px;background:var(--hud);padding:9px 12px;border:1px solid var(--line);border-radius:8px;font-size:9px;color:var(--ink);pointer-events:none}.inspection-legend span{display:flex;align-items:center;gap:5px}.inspection-legend i{display:inline-block;width:7px;height:7px;border-radius:2px}@media(max-width:540px){.inspection-legend{left:12px;right:12px;bottom:84px;gap:8px;font-size:8px;padding:7px}}
+</style><style>:root{--c6-nav-height:64px}
+.c6-nav{position:fixed;inset:0 0 auto;height:var(--c6-nav-height);z-index:1000;display:flex;align-items:center;gap:24px;padding:0 24px;background:#111d30;color:#dbe9fc;border-bottom:1px solid #334660;font:15px/1.4 "Segoe UI","Microsoft YaHei",sans-serif;box-sizing:border-box}
+.c6-nav a{text-decoration:none;color:#c0d2ec;white-space:nowrap;font-size:15px}.c6-nav .c6-home{font-weight:700;color:#8ebeff;padding-right:20px;border-right:1px solid #3a4a62}.c6-links{display:flex;align-items:center;gap:5px;flex:1}.c6-links a{padding:8px 12px;border-radius:6px}.c6-links a:hover,.c6-links a[aria-current]{background:#294260;color:#fff}.c6-nav button{border:1px solid #465d79;background:#22354d;color:#e5efff;border-radius:7px;padding:8px 12px;font:inherit;cursor:pointer;white-space:nowrap}.c6-nav :focus-visible{outline:3px solid #e7ac54;outline-offset:3px}
+html[data-c6] body{display:block;overflow:hidden;margin:0;padding:0;width:100%;height:100dvh}
+#c6-content{position:absolute;inset:var(--c6-nav-height) 0 0;overflow:auto;background:var(--paper,var(--bg,#101b2b))}
+html[data-c6=spray] #c6-content{background:var(--bg)}
+html[data-c6=spray] .app{height:calc(100dvh - var(--c6-nav-height))}
+html[data-c6=tiling] #c6-content,html[data-c6=sanding] #c6-content{overflow:hidden}
+@media(max-width:999px){.c6-nav{gap:8px;padding:0 12px}.c6-nav .c6-home{padding-right:10px}.c6-links{overflow:auto}.c6-links a{font-size:13px;padding:8px}.c6-nav button{font-size:13px;padding:7px}}
+@media(max-width:900px){html[data-c6=spray] .app{height:auto;min-height:calc(100dvh - var(--c6-nav-height))}}
+@media(max-width:760px){html[data-c6=tiling] #c6-content,html[data-c6=sanding] #c6-content{overflow:auto}html[data-c6=tiling] .app,html[data-c6=sanding] .app{height:calc(100dvh - var(--c6-nav-height))}}
+@media(max-width:760px){html[data-c6=sanding] .mobile-controls main{overflow:hidden}html[data-c6=sanding] .mobile-controls .controls{height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}html[data-c6=sanding] .app>footer{position:relative;z-index:2;background:var(--paper)}}
+@media(max-width:600px){:root{--c6-nav-height:96px}.c6-nav{height:96px;display:grid;grid-template-columns:1fr auto;grid-template-rows:44px 44px;gap:0}.c6-nav .c6-home{border:0}.c6-links{grid-column:1/-1;grid-row:2;width:100%;overflow-x:auto;min-width:0}.c6-nav button{grid-column:2;grid-row:1}.c6-links a{flex:none}}
 </style></head>
 <body data-theme="dark"><div class="app">
 <header class="topbar">
-<a class="brand" href="../README.md" aria-label="智能建造项目目录"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>智能建造<small>FIELD STUDIO</small></span></a>
+<a class="brand" href="../第六章_装饰装修施工/index.html" aria-label="智能建造项目目录"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>智能建造<small>FIELD STUDIO</small></span></a>
 <div class="project-heading"><span>实训项目 06.04</span><h1>室内喷涂工坊</h1></div><div class="session-tag"><i></i>项目进行中</div>
 <div class="header-actions"><button id="reset" class="quiet">重新开工</button><button id="help" class="quiet">操作指南</button><button id="theme" class="icon-button" aria-label="切换明暗主题" title="切换明暗主题">◐</button><button id="fullscreen" class="icon-button" aria-label="全屏作业" title="全屏作业">⛶</button></div>
 </header>
@@ -63,7 +76,21 @@
 <footer class="app-footer"><span><i></i>教学模拟 · 参数用于观察几何覆盖与相对沉积</span><span>SPRAYING WORKSHOP <b>06.04</b></span></footer>
 </div>
 <dialog id="helpDialog"><button id="closeHelp" class="dialog-close" aria-label="关闭操作指南">×</button><span class="eyebrow">FIELD GUIDE</span><h2>亲手完成一面墙</h2><p>规划路线、试喷调机、执行喷涂、巡检返修，最后导出作业记录。先观察，再调整，让过程留下可检查的痕迹。</p><div class="guide-grid"><div><b>观察现场</b><p>拖动旋转场景，滚轮缩放；触屏可双指缩放。方向键旋转，加减键缩放；顶部按钮可切换正视、俯视与喷头近景。</p></div><div><b>控制作业</b><p>调节参数后开始试喷。正式喷涂时可暂停观察，用演示速度调整观察节奏。覆盖数据只记录已执行的作业。</p></div><div><b>巡检返修</b><p>打开质检视图，点选墙面或待处理记录，再进行局部处理。保护窗洞的同时，也要完成窗边补作业。</p></div><div><b>模型约定</b><p>本页使用固定扇角、矩形喷幅与相对沉积的教学模型。颜色和达标比例用于项目练习，不代表真实膜厚或工程验收结论。</p></div></div></dialog>
-<script>!/**
+<script>(()=>{'use strict';
+const lab="spray";
+const root=document.documentElement;root.dataset.c6=lab;
+const content=document.createElement('div');content.id='c6-content';
+for(const node of [...document.body.children])if(!['SCRIPT','STYLE','DIALOG'].includes(node.tagName))content.append(node);
+document.body.prepend(content);
+const nav=document.createElement('nav');nav.className='c6-nav';nav.setAttribute('aria-label','第六章学习导航');
+const routes=[['masonry','6-1 砌筑','任务6-1_砌筑工程_人工工艺_砂浆机械与机器人进场/index.html'],['tiling','6-2 地砖铺贴','任务6-2_地砖铺贴_工艺准备与铺贴机器人作业/index.html'],['sanding','6-3 腻子打磨','任务6-3_腻子打磨_作业面检查_恒力执行与质量验收/index.html'],['spray','6-4 室内喷涂','任务6-4_室内喷涂_路径规划_参数控制与缺陷诊断/index.html']];
+nav.innerHTML='<a class="c6-home" href="../第六章_装饰装修施工/index.html">← 第六章总览</a><div class="c6-links">'+routes.map(([id,name,url])=>`<a data-route="${id}" ${id===lab?'aria-current="page"':''} href="../${url}">${name}</a>`).join('')+'</div><button id="c6-theme" type="button">切换浅色</button>';
+document.body.prepend(nav);
+function sync(){if(lab==='spray'&&root.dataset.theme!==document.body.dataset.theme)root.dataset.theme=document.body.dataset.theme;nav.querySelector('#c6-theme').textContent=root.dataset.theme==='dark'?'切换浅色':'切换深色';}
+nav.querySelector('#c6-theme').onclick=()=>{document.getElementById('theme')?.click();sync();};
+document.addEventListener('DOMContentLoaded',()=>{sync();new MutationObserver(sync).observe(lab==='spray'?document.body:root,{attributes:true,attributeFilter:['data-theme']});});
+})();
+</script><script>!/**
  * @license
  * Copyright 2010-2023 Three.js Authors
  * SPDX-License-Identifier: MIT

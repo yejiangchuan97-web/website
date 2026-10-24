@@ -215,15 +215,15 @@ window.ComponentNames = class ComponentNames {
           ),
         ),
         labelH = Math.max(
-          12,
+          16,
           Math.min(
-            compact ? 17 : 25,
+            compact ? 21 : 29,
             Math.floor((this.bottom - this.top) / rows),
           ),
         );
       this.items.forEach((item) => {
         item.el.style.height = labelH + "px";
-        item.el.style.fontSize = (labelH < 17 ? 7 : compact ? 8 : 10) + "px";
+        item.el.style.fontSize = (labelH < 20 ? 9 : compact ? 10 : 12) + "px";
         item.width = item.el.offsetWidth;
         item.height = item.el.offsetHeight;
       });

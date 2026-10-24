@@ -1,5 +1,6 @@
 const fs=require('node:fs');
 const path=require('node:path');
+const integrate=require('../公共资源/动力与工作机构/integrate.cjs');
 const read=file=>fs.readFileSync(path.join(__dirname,file),'utf8');
 const template=read('src/index.template.html')
  .replace('/*__WORKSHOP_CSS__*/',()=>read('src/workshop.css'))
@@ -14,12 +15,14 @@ const html=template.replace('/*__THREE__*/',()=>three).replace('/*__APP__*/',()=
 const directory=path.join(__dirname,'dist');
 fs.mkdirSync(directory,{recursive:true});
 const destination=path.join(directory,'mechanism-classroom.html');
-fs.writeFileSync(destination,html,'utf8');
+fs.writeFileSync(destination,integrate(html,'mechanisms','../../'),'utf8');
+fs.writeFileSync(path.join(__dirname,'index.html'),integrate(html.replaceAll('fourbar-linkage.html','fourbar.html'),'mechanisms','../'),'utf8');
 console.log('Built '+destination+' ('+Buffer.byteLength(html)+' bytes)');
 const fourbar=read('src/fourbar.template.html')
  .replace('/*__FOURBAR_CSS__*/',()=>read('src/fourbar.css'))
  .replace('/*__THREE__*/',()=>three)
  .replace('/*__KINEMATICS__*/',()=>read('src/fourbar-kinematics.js'))
  .replace('/*__FOURBAR_APP__*/',()=>read('src/fourbar-app.js').replace('/*__TEACHING__*/',()=>read('src/fourbar-teaching.js')));
-fs.writeFileSync(path.join(directory,'fourbar-linkage.html'),fourbar,'utf8');
+fs.writeFileSync(path.join(directory,'fourbar-linkage.html'),integrate(fourbar,'fourbar','../../'),'utf8');
+fs.writeFileSync(path.join(__dirname,'fourbar.html'),integrate(fourbar.replaceAll('mechanism-classroom.html','index.html'),'fourbar','../'),'utf8');
 console.log('Built fourbar-linkage.html ('+Buffer.byteLength(fourbar)+' bytes)');
