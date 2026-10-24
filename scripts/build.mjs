@@ -2,6 +2,7 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const builds={
+  "3-entry": "第三章_机器人结构与运动/src/build.mjs",
   "3-1": "任务3-1_机器人构型与工作空间识读/src/build.mjs",
   "3-2": "任务3-2_六轴机械臂本体_关节轴与低速点动/src/build.mjs",
   "3-3": "任务3-3_关节驱动_减速器与传动机构/src/rebuild/build.mjs",

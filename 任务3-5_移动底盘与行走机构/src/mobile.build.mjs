@@ -1,3 +1,4 @@
+import {chapterLayout} from '../../公共资源/机器人构型与运动/src/chapter-layout.mjs';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createRequire} from 'node:module';
 const {levels,chapters}=createRequire(import.meta.url)('./mobile.game.js');
@@ -53,5 +54,5 @@ help:`<p>三个学习活动：轮式操纵观察差速、转向轮与麦克纳�
 extra:read('./mobile-3d.css'),
 scripts:[read('../../公共资源/vendor/three-r160.min.js'),read('./mobile.model.js'),read('./mobile.learning.js'),read('./mobile.game.js'),read('./mobile.fallback.js'),read('./mobile.view.js'),read('./mobile.app.js')]
 });
-writeFileSync(new URL('../index.html',import.meta.url),html);
+writeFileSync(new URL('../index.html',import.meta.url),chapterLayout(html,'3-5'));
 console.log('Built task 3-5 index.html',html.length);

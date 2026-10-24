@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#edf4fa"><title>智能建筑机械与机器人 · 课程实训展厅</title><link rel="stylesheet" href="course-cover/cover.css"></head>
+<body>
+<header class="topbar"><a class="brand" href="#overview" aria-label="课程总览"><span class="brand-mark">建</span><span>智能建造 · 数字实训课程<small>CONSTRUCTION ROBOTICS LAB</small></span></a><div class="top-actions"><span class="edition">交互式学习空间</span><button id="catalog-open" class="outline">全部任务 <span>↗</span></button></div></header>
+<main>
+<section class="intro"><div><p class="eyebrow"><span></span> 从机械原理，到机器人作业</p><h1>智能建筑机械<span class="title-join">与</span>机器人</h1><p class="intro-copy">认识结构，操控运动，感知现场，完成建造。<br class="mobile-break">在三维实训中，把原理变成看得见的行动。</p></div><div class="course-facts"><strong>08<span>学习章节</span></strong><i></i><strong>27<span>课程任务</span></strong><a href="#chapter-3">第 3 章示例 <b>↗</b></a></div></section>
+<section class="exhibition" aria-label="课程三维展厅">
+<nav class="chapter-nav" aria-label="章节选择"><a class="overview-link" href="#overview"><span>◎</span> 课程全景</a><p class="nav-caption">选择学习章节</p><div id="chapter-menu"></div><div class="nav-note"><span class="live-dot"></span> 结构 · 感知 · 作业 · 安全</div></nav>
+<div class="stage-column"><div class="stage-heading"><div><p id="scene-kicker" class="eyebrow">COURSE ATLAS</p><h2 id="scene-title">一座展厅，看见完整课程</h2></div><button id="motion" class="icon-button" aria-pressed="false" aria-label="暂停模型运动">Ⅱ</button></div><div id="stage" role="group" aria-label="八个章节的三维机械与机器人展品"><div id="labels"></div><div id="fallback" hidden><strong>课程模型预览暂不可用</strong><p>仍可通过章节菜单和任务入口学习全部已接入的课程。</p></div><span class="stage-watermark" aria-hidden="true">ROBOTICS<br>LEARNING ATLAS</span></div><div class="stage-bottom"><p><span class="live-dot"></span><span id="scene-hint">点击展品标签，展开对应章节</span></p><span>三维教学示意</span></div></div>
+<aside class="task-panel" aria-labelledby="panel-title"><div class="panel-top"><span id="panel-kicker" class="eyebrow">START EXPLORING</span><span id="panel-count" class="count-tag">08 章</span></div><h2 id="panel-title">从这里开始探索</h2><p id="panel-description"></p><div id="task-list"></div><div id="task-notice" role="status"></div></aside>
+</section>
+<footer><p><span class="footer-line"></span> 观察结构 <b>→</b> 动手操作 <b>→</b> 验证结果 <b>→</b> 回到现场</p><span id="scope-note">课程总览 · 第3章完整交互示例</span></footer>
+</main>
+<dialog id="catalog"><div class="dialog-heading"><div><p class="eyebrow">COURSE DIRECTORY</p><h2>完整课程 · 27 项任务</h2></div><button id="catalog-close" class="icon-button" aria-label="关闭全部任务">×</button></div><label class="search-wrap"><span>⌕</span><input id="task-search" type="search" placeholder="搜索任务名称或编号，例如：TCP、3-2" aria-label="搜索任务"></label><div id="catalog-content"></div></dialog>
+<script src="course-cover/data.js"></script><script src="公共资源/vendor/three-r160.min.js"></script><script src="course-cover/scene.js"></script><script src="course-cover/app.js"></script>
+</body></html>
