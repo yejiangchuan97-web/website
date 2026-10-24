@@ -1,0 +1,21 @@
+<dialog id="study-dialog" class="study-dialog" aria-labelledby="study-title">
+<header class="study-head"><div><div class="eyebrow">SECTION / EXPLODED / ASSEMBLY</div><h2 id="study-title">剖视与组装实验室</h2></div><div class="toolbar"><button type="button" data-theme-toggle>深色背景</button><button type="button" data-labels-toggle>隐藏部件名</button><button id="study-close" type="button">关闭</button></div></header>
+<div class="study-layout"><div class="study-visual">
+<div class="study-tools"><div class="view-buttons" data-for="study"><button data-view="front">正视</button><button data-view="side">侧视</button><button data-view="top">俯视</button><button data-view="iso" aria-pressed="true">轴测</button><button data-view="quad">四视图</button></div><div class="toolbar"><button id="study-focus" aria-pressed="false">放大活塞</button><button id="study-zoom-out" aria-label="缩小">−</button><button id="study-zoom-in" aria-label="放大">＋</button><button id="study-fit">适合窗口</button></div></div>
+<div class="stage" id="study-stage" role="region" aria-label="可旋转的剖视与爆炸装配三维模型"><div class="stage-overlay" id="study-overlay"></div><div class="stage-top"><span id="study-mode-note">剖视 · 观察内部结构</span><span id="study-value">运动数据</span></div><div class="stage-hint"><span>拖动旋转 · 滚轮缩放 · 可点击安装位</span><span id="study-live-hint">剖切方向可调</span></div><div class="quad-names"><span>正视</span><span>侧视</span><span>俯视</span><span>轴测</span></div></div>
+<div class="study-motion"><button id="study-play" class="primary" aria-pressed="false">▶ 内部运动</button><button id="study-minus">回收 2 mm</button><button id="study-plus">伸出 2 mm</button><label class="study-speed">慢放 <select id="study-speed"><option value=".25">0.25×</option><option value=".5" selected>0.5×</option><option value="1">1×</option></select></label><label class="study-position"><span id="study-position-label">活塞行程</span><input type="range" id="study-position" min="0" max="100" step=".1" value="50" aria-label="内部运动位置"></label></div>
+<div class="study-caption" id="study-caption"></div>
+</div>
+<aside class="study-aside"><div class="study-tabs"><button id="study-hyd" aria-pressed="true">液压缸</button><button id="study-screw" aria-pressed="false">丝杠 / 螺母</button></div>
+<h3>观察结构</h3><div class="study-section-row"><label><input id="study-section" type="checkbox" checked>剖视内部</label><button id="study-demo-reset">恢复装配</button></div>
+<label class="study-control"><span>剖切方向 <output id="study-cut-out">0°</output></span><input id="study-cut" type="range" min="0" max="360" step="5" value="0" aria-label="剖切方向，度"></label>
+<label class="study-control"><span>爆炸程度 <output id="study-explode-out">0%</output></span><input id="study-explode" type="range" min="0" max="100" step="1" value="0" aria-label="爆炸程度"></label>
+<div class="study-readout" id="study-readout"></div>
+<h3>学生组装练习</h3><p class="study-help">选择零件，再点击画面中的安装位；也可拖动零件按钮到安装位，或使用下方“装入”按钮。</p>
+<div class="study-actions"><button id="study-start" class="primary">开始组装</button><button id="study-auto">自动示范</button><button id="study-undo">撤回一步</button></div>
+<div class="study-progress"><progress id="study-progress" value="6" max="6" aria-label="组装完成度"></progress><span id="study-count">6 / 6</span></div>
+<div id="study-kit" class="study-kit" aria-label="待安装零件"></div>
+<div class="study-install"><button id="study-install">装入当前零件</button><button id="study-restart">重新练习</button></div>
+<p id="study-feedback" class="study-feedback" role="status" aria-live="polite">点击“开始组装”进入练习。</p><p id="study-part-info" class="study-part-info"></p>
+<details class="study-note"><summary>教学模型说明</summary><p>剖视展示内部空间和运动关系，爆炸图展示零件之间的装配关系。液压缸油腔颜色表示空间变化；速度按流量与有效面积计算，未求解流场；丝杠螺纹采用 30° 梯形牙型，同导程、同旋向，并留有间隙；装配时螺母沿轴线旋入，每圈前进一个导程。轴承与导套有通孔，平台避让丝杠。组装练习检查安装位置与前置依赖，是教学顺序，不能替代实际工艺规程；不模拟拧紧扭矩、密封预紧与接触碰撞。</p><p>液压缸内部按本页当前缸长和行程构建；丝杠圈数与位移使用原页面的运动模型。<a href="https://www.parker.com/literature/Industrial%20Cylinder/cylinder/cat/english/0106c001b.pdf" target="_blank" rel="noopener">结构参考：Parker 液压缸零件</a>。</p></details>
+</aside></div></dialog>

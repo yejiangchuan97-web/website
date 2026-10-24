@@ -1,0 +1,66 @@
+{
+  "checks": [
+    "local playback moves only selected model",
+    "pause freezes both positions",
+    "reverse changes only selected drive",
+    "hydraulic 2 mm step",
+    "screw exact one-turn step",
+    "independent speed per model",
+    "open pauses combined playback",
+    "close and Escape stop local playback and restore panels",
+    "space scoped to selected model",
+    "combined playback still drives both",
+    "desktop/mobile modal controls fit"
+  ],
+  "layouts": [
+    {
+      "w": 1366,
+      "h": 768,
+      "model": "boom",
+      "stage": 575
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "model": "screw",
+      "stage": 575
+    },
+    {
+      "w": 1024,
+      "h": 768,
+      "model": "boom",
+      "stage": 575
+    },
+    {
+      "w": 1024,
+      "h": 768,
+      "model": "screw",
+      "stage": 575
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "model": "boom",
+      "stage": 598
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "model": "screw",
+      "stage": 598
+    },
+    {
+      "w": 320,
+      "h": 760,
+      "model": "boom",
+      "stage": 492
+    },
+    {
+      "w": 320,
+      "h": 760,
+      "model": "screw",
+      "stage": 492
+    }
+  ],
+  "errors": []
+}

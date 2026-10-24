@@ -1,0 +1,146 @@
+{
+  "checks": [
+    "acute mu and explanatory text",
+    "angle/force layer toggle preserves geometry and trace",
+    "compression/tension reverses actual arrows and moments",
+    "output dead-point limit has small tangential force and finite guarded angle",
+    "moving away from output dead-point improves force component",
+    "A/B dead-point retains a nonzero transmission angle and output moment",
+    "reference force line crosses O1 at A/B dead-point",
+    "active A passes A/B dead-point on same branch",
+    "dark 3D annotations and hidden names",
+    "normal/output/input cases fit one desktop page",
+    "mobile no horizontal overflow",
+    "offline"
+  ],
+  "layouts": [
+    {
+      "lesson": "normal",
+      "w": 1366,
+      "h": 768,
+      "sw": 1366,
+      "sh": 768
+    },
+    {
+      "lesson": "output",
+      "w": 1366,
+      "h": 768,
+      "sw": 1366,
+      "sh": 768
+    },
+    {
+      "lesson": "input",
+      "w": 1366,
+      "h": 768,
+      "sw": 1366,
+      "sh": 768
+    },
+    {
+      "lesson": "normal",
+      "w": 1024,
+      "h": 768,
+      "sw": 1024,
+      "sh": 768
+    },
+    {
+      "lesson": "output",
+      "w": 1024,
+      "h": 768,
+      "sw": 1024,
+      "sh": 768
+    },
+    {
+      "lesson": "input",
+      "w": 1024,
+      "h": 768,
+      "sw": 1024,
+      "sh": 768
+    },
+    {
+      "lesson": "normal",
+      "w": 1366,
+      "h": 900,
+      "sw": 1366,
+      "sh": 900
+    },
+    {
+      "lesson": "output",
+      "w": 1366,
+      "h": 900,
+      "sw": 1366,
+      "sh": 900
+    },
+    {
+      "lesson": "input",
+      "w": 1366,
+      "h": 900,
+      "sw": 1366,
+      "sh": 900
+    },
+    {
+      "lesson": "normal",
+      "w": 1920,
+      "h": 1080,
+      "sw": 1920,
+      "sh": 1080
+    },
+    {
+      "lesson": "output",
+      "w": 1920,
+      "h": 1080,
+      "sw": 1920,
+      "sh": 1080
+    },
+    {
+      "lesson": "input",
+      "w": 1920,
+      "h": 1080,
+      "sw": 1920,
+      "sh": 1080
+    },
+    {
+      "lesson": "normal",
+      "w": 390,
+      "h": 844,
+      "sw": 390,
+      "sh": 1602
+    },
+    {
+      "lesson": "output",
+      "w": 390,
+      "h": 844,
+      "sw": 390,
+      "sh": 1602
+    },
+    {
+      "lesson": "input",
+      "w": 390,
+      "h": 844,
+      "sw": 390,
+      "sh": 1602
+    },
+    {
+      "lesson": "normal",
+      "w": 320,
+      "h": 760,
+      "sw": 320,
+      "sh": 1732
+    },
+    {
+      "lesson": "output",
+      "w": 320,
+      "h": 760,
+      "sw": 320,
+      "sh": 1751
+    },
+    {
+      "lesson": "input",
+      "w": 320,
+      "h": 760,
+      "sw": 320,
+      "sh": 1751
+    }
+  ],
+  "errors": [],
+  "network": []
+}
