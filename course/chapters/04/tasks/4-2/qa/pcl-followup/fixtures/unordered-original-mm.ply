@@ -1,0 +1,14 @@
+ply
+format ascii 1.0
+comment original coordinates are millimetres
+element vertex 3
+property uchar red
+property double z
+property double x
+property uchar green
+property double y
+property uchar blue
+end_header
+255 3000 1000 20 2000 30
+10 3000 2000 255 2000 40
+30 3400 2000 40 2000 255

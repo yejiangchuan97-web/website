@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8f0f9"><meta name="color-scheme" content="light dark"><title>智能建筑机械与机器人</title><link rel="stylesheet" href="course/home/home.css"></head>
+<body class="is-overview boot">
+<div id="app">
+<div class="backdrop" id="backdrop" aria-hidden="true"><p class="ghost" id="ghost"></p></div>
+<div id="scene"></div>
+<header class="topbar">
+<p class="edition top-edition" id="top-edition">建筑工程 · 互动学习</p>
+<a class="back" id="back" href="index.html" hidden>← 全部章节</a>
+<div class="home-tools"><button id="catalog-open" type="button">全部任务</button></div>
+</header>
+<section id="overview" class="overview" aria-label="课程封面">
+<div class="book" id="book">
+<div class="head">
+<h1 class="book-title">智能建筑机械与机器人</h1>
+<div class="stats"><p><strong>{{CHAPTER_COUNT}}</strong><span>学习<br>章节</span></p><p><strong>{{TASK_COUNT}}</strong><span>互动<br>任务</span></p></div>
+<p class="book-intro">从机械原理，到智能施工。在观察与操作中，理解人机协作。</p>
+</div>
+<nav class="toc" id="toc" aria-label="课程目录"></nav>
+<div class="cta"><a class="primary" id="start" href="#chapter-1">开始学习<span aria-hidden="true">→</span></a><p class="hint">拖动转台或按 ← → 选一章，再点一次进入</p></div>
+</div>
+<div class="stage-probe" id="stage-probe" aria-hidden="true"></div>
+<div class="marks" id="marks" aria-hidden="true"></div>
+<nav class="chapter-grid" id="chapter-grid" aria-label="全部章节" hidden></nav>
+</section>
+<section id="cover" class="cover" aria-labelledby="cv-name" hidden>
+<div class="cv-side" id="cv-side">
+<div class="head">
+<p class="edition" id="cv-kicker"></p>
+<h2 class="cv-title" id="cv-name" tabindex="-1"></h2>
+<div class="stats" id="cv-stats"></div>
+<p class="book-intro cv-lead" id="cv-lead"></p>
+</div>
+<nav class="tasks" id="tasks" aria-label="本章任务"></nav>
+<nav class="cv-nav" id="cv-nav" aria-label="相邻章节"></nav>
+</div>
+<div class="chips" id="chips" aria-hidden="true"></div>
+</section>
+<p class="sr-only" id="announce" role="status" aria-live="polite"></p>
+</div>
+<dialog id="catalog" aria-labelledby="catalog-title"><div class="dialog-head"><h2 id="catalog-title">全部任务</h2><button id="catalog-close" class="close" type="button" aria-label="关闭">×</button></div><label class="search"><span class="sr-only">搜索任务</span><input id="task-search" type="search" placeholder="搜索任务名称或编号，例如 3-2、喷涂" autocomplete="off"></label><div id="catalog-content" class="catalog-content"></div></dialog>
+<script src="course/home/data.js"></script><script src="shared/vendor/three-r160.min.js"></script><script src="shared/workshop/machines.js"></script><script src="shared/workshop/machine-models.js"></script><script src="shared/workshop/six-axis.js"></script><script src="shared/chapter-cover/safety-maintenance-models.js"></script><script src="shared/chapter-cover/cover-models.js"></script><script src="course/home/exhibits.js"></script><script src="course/home/stage.js"></script><script src="course/home/app.js"></script>
+</body></html>

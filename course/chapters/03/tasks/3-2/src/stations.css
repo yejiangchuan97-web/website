@@ -1,0 +1,80 @@
+/* 3-2：示教器排在三维区底栏 —— 左：参照系；中：六个轴（滑轨 + 点动）；右：点动方式、速度、停止 */
+.c3-pendant { display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:10px; width:100%; min-width:0; align-items:stretch; }
+.c3-pd-frames { display:flex; flex-direction:column; gap:5px; padding-left:10px; border-left:1px solid var(--hair); }
+.c3-pd-title { font-size:12px; font-weight:700; color:var(--accent-2); display:flex; align-items:center; gap:6px; }
+.c3-pd-title::before { content:""; width:4px; height:12px; border-radius:2px; background:var(--course-accent); }
+.c3-pendant .frame-tabs { display:flex; flex-direction:column; gap:3px; padding:3px; margin:0 !important; border-radius:10px; background:var(--surface-2); border:1px solid var(--hair); }
+.c3-pendant .frame-tabs button { height:27px; padding:0 12px; border:0; border-radius:7px; background:none; color:var(--course-muted); font-size:13px; white-space:nowrap; text-align:left; }
+.c3-pendant .frame-tabs button.active { background:var(--course-surface); color:var(--course-accent); font-weight:700; box-shadow:0 1px 3px rgba(18,44,78,.14); }
+
+.c3-pendant .jog-rows { display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; margin:0 !important; align-content:center; }
+.c3-pendant .jog-row {
+  display:grid !important; grid-template-columns:28px minmax(0,1fr) 28px; grid-template-areas:"label label value" "minus slider plus";
+  align-items:center; gap:2px 6px; padding:4px 8px 5px; margin:0 !important; min-height:0 !important;
+  border-radius:10px; background:var(--surface-2); border:1px solid transparent;
+}
+.c3-pendant .jog-row.selected { border-color:var(--course-accent); background:var(--blue-soft); }
+.c3-pendant .jog-label { grid-area:label; display:flex; align-items:baseline; gap:5px; padding:0; border:0; background:none; font-weight:800; font-size:13.5px; color:var(--course-ink); white-space:nowrap; overflow:hidden; text-align:left; }
+.c3-pendant .jog-label span { font-weight:400; font-size:12px; color:var(--course-muted); overflow:hidden; text-overflow:ellipsis; }
+.c3-pendant .jog-value { display:contents; }
+.c3-pendant .jog-value output { grid-area:value; justify-self:end; white-space:nowrap; font-variant-numeric:tabular-nums; font-weight:700; font-size:13px; color:var(--course-accent); }
+.c3-pendant .jog-value input[type="range"] { grid-area:slider; width:100%; min-width:0; }
+.c3-pendant .jog-button[data-dir="-1"] { grid-area:minus; }
+.c3-pendant .jog-button[data-dir="1"] { grid-area:plus; }
+.c3-pendant .jog-button { width:28px; height:26px; padding:0; font-size:16px; line-height:1; }
+
+.c3-pd-side { display:flex; flex-direction:column; justify-content:space-between; gap:6px; padding-left:10px; border-left:1px solid var(--hair); width:196px; }
+.c3-pendant .jog-setting { display:flex; align-items:center; gap:6px; margin:0 !important; }
+.c3-pendant #stepLabel { color:var(--course-muted); font-size:12px; white-space:nowrap; }
+.c3-pendant .speed-control { display:grid; grid-template-columns:auto 1fr; align-items:center; gap:2px 8px; margin:0 !important; }
+.c3-pendant .speed-control > div:first-child { display:contents; }
+.c3-pendant .speed-control label { font-size:12.5px; color:var(--course-muted); white-space:nowrap; }
+.c3-pendant .speed-control output { grid-column:1; grid-row:2; font-size:12.5px; }
+.c3-pendant .speed-control input { grid-column:2; grid-row:1 / span 2; width:100%; }
+.c3-pendant .speed-control .scale-text { display:none; }
+.c3-pendant .stop-button { width:100%; margin:0 !important; }
+.c2-strip:has(.c3-pendant) .c2-readouts { display:block; }
+
+/* 面板里的六轴卡片排成三列 */
+.c2-panel .axis-cards { display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; }
+.c2-panel .axis-card { display:grid !important; grid-template-columns:auto 1fr; align-items:center; gap:0 6px; min-height:0 !important; height:auto !important; padding:6px 8px !important; text-align:left; writing-mode:horizontal-tb; }
+.c2-panel .axis-card span { font-weight:800; }
+.c2-panel .axis-card i { display:none; }
+.c2-panel .axis-card strong { font-size:12.5px; white-space:nowrap; }
+.c2-panel .axis-card p { grid-column:1 / -1; margin:0; font-size:11.5px; color:var(--course-muted); }
+
+@media (max-height:720px) {
+  .c3-pendant .jog-row { padding:2px 8px 3px; }
+  .c3-pendant .jog-button { height:24px; }
+  .c3-pendant .frame-tabs button { height:24px; }
+}
+.c3-pd-side #stepLabel { display:none; }
+.c3-pd-side .jog-setting .segmented { flex:1; }
+.c3-pendant .jog-rows { grid-template-rows:none !important; grid-auto-rows:auto !important; height:auto !important; min-height:0 !important; max-height:none !important; flex:none !important; overflow:visible !important; }
+.c3-pendant { align-items:start; }
+.c3-pd-frames, .c3-pd-side { align-self:stretch; }
+.c3-pendant { grid-template-columns:minmax(0,1fr) auto !important; }
+.c2-panel .frame-tabs { display:flex; gap:3px; padding:3px; margin:0 !important; border-radius:11px; background:var(--surface-2); border:1px solid var(--hair); }
+.c2-panel .frame-tabs button { flex:1; height:34px; border:0; border-radius:8px; background:none; color:var(--course-muted); font-size:14px; white-space:nowrap; cursor:pointer; }
+.c2-panel .frame-tabs button.active { background:var(--course-surface); color:var(--course-accent); font-weight:700; box-shadow:0 1px 4px rgba(18,44,78,.14); }
+.c2-panel .frame-description { margin:0 !important; padding:7px 10px; border-radius:10px; background:var(--blue-soft); color:var(--course-ink); font-size:13px; line-height:1.5; }
+
+/* —— 示教器搬进面板：参照系下面就是六格 —— */
+.c3-pendant.c3-in-panel { display:flex !important; flex-direction:column; gap:6px; }
+.c3-in-panel .jog-setting .segmented { flex:1; }
+.c3-in-panel #stepLabel { font-size:12px; color:var(--course-muted); white-space:nowrap; }
+.c3-in-panel .jog-rows { grid-template-columns:repeat(2, minmax(0,1fr)) !important; }
+
+/* —— 速度与停止：在点动六格下面 —— */
+.c3-jog-foot { display:flex; align-items:center; gap:10px; }
+.c3-jog-foot .speed-control { flex:1; min-width:0; }
+.c3-jog-foot .stop-button { width:auto !important; flex:0 0 auto; }
+
+/* —— 基坐标 / 工具坐标：没有滑轨的行，− 和 + 做成两个并排的大按钮 —— */
+.c3-pendant .jog-row:not(:has(input[type="range"])) { grid-template-columns:1fr 1fr; grid-template-areas:"label value" "minus plus"; }
+.c3-pendant .jog-row:not(:has(input[type="range"])) .jog-button { width:100%; height:28px; }
+
+/* 三维区：去掉图号“FIG. 03.02”、型号“EDU / 6R”和重复的操作提示、单位注；看法切换放到左上角 */
+html.lab-native section.stage-card :is(.fig-index, .model-label, .canvas-corner) { display:none !important; }
+html.lab-native section.stage-card .stage-bar { justify-content:flex-start; padding:12px; }
+html.lab-native section.stage-card .view-buttons button { font-size:13px; }

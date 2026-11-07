@@ -1,0 +1,15 @@
+[
+  {
+    "id": "cdz200l",
+    "title": "VMC Motion CDZ200L",
+    "author": "VMC Motion Technologies Co., Ltd.",
+    "source": "https://github.com/vmc-motion/cdz200l",
+    "licenseId": "Apache-2.0",
+    "file": "shared/models/dozer/cdz200l.glb",
+    "runtime": "shared/models/dozer/cdz200l.data.js",
+    "license": "shared/models/dozer/LICENSE.html",
+    "provenance": "shared/models/dozer/cdz200l.source.json",
+    "sha256": "d9aa1dfdc2d6309dea51187c7cd3284a3b7d0fb5c9b85c3f0761bbae8112aad3",
+    "bytes": 10669792
+  }
+]

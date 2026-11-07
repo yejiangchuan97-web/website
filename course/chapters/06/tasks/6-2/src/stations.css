@@ -1,0 +1,69 @@
+/* 6-2 地砖铺贴：原页面控件进入统一外壳后的排版 */
+
+/* 三维区上方：吸盘布局（选研究对象），横排三张小卡 */
+.c2-stage-top .cup-options:not([hidden]) { display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)); grid-template-rows:none !important; gap:8px; width:100%; margin:0 !important; height:auto !important; }
+.c2-stage-top .cup-options button {
+  display:grid !important; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:12px; align-items:center; text-align:left;
+  min-height:0 !important; height:auto !important; margin:0 !important; padding:7px 14px 7px 10px !important;
+  border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); box-shadow:var(--shadow-sm); color:var(--ink, inherit) !important; cursor:pointer;
+}
+.c2-stage-top .cup-options button[aria-pressed="true"] { border-color:var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; color:var(--course-accent) !important; }
+.c2-stage-top .cup-options svg { grid-row:span 2; width:46px; height:32px; margin:0 !important; }
+.c2-stage-top .cup-options b { font-size:14px; margin:0; line-height:1.3; }
+.c2-stage-top .cup-options small { font-size:11px; margin:0; line-height:1.3; }
+.c2-stage-top .cup-options button:disabled { opacity:.5; cursor:not-allowed; }
+
+/* 三维区：原页面的悬浮件让出外壳的提示位置 */
+
+.c2-native-stage .view-toolbar { top:12px; left:12px; border-radius:12px; box-shadow:var(--shadow-sm); }
+.c2-native-stage .view-toolbar button { border-radius:8px; }
+.c2-native-stage .scene-status { top:22px; right:18px; }
+.c2-native-stage .camera-panel { top:48px; right:14px; width:200px; border-radius:12px; }
+.c2-native-stage .section-note { top:48px; right:14px; border-radius:10px; }
+
+/* 三维区底部：原有三项仪表铺满一栏 */
+.c2-strip .c2-readouts:has(#instruments) { flex:1; display:block; }
+.c2-strip #instruments { display:grid; grid-template-columns:1fr 1.25fr 1fr; gap:10px; padding:0; border:0; width:100%; }
+.c2-strip #instruments > div { padding:8px 14px; border-radius:12px; background:var(--soft, rgba(127,140,160,.08)); min-width:0; }
+.c2-strip #instruments span { font-size:12px; }
+.c2-strip #instruments strong { font-size:22px; line-height:1.35; }
+.c2-strip #instruments .word-value { font-size:19px; line-height:1.55; }
+.c2-strip #instruments em { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.c2-strip #instruments .third-metric.trace-mode { display:flex; flex-direction:column; }
+.c2-strip #instruments .third-metric.trace-mode strong { display:none; }
+.c2-strip #instruments .third-metric.trace-mode #forceTrace { position:static; order:2; width:100%; height:28px; margin:3px 0 2px; }
+.c2-strip #instruments .third-metric.trace-mode em { order:3; }
+
+/* 面板：去掉原页面的外框与折叠头，控件直接排开 */
+.c2-panel details#gripMore, .c2-panel details#pressMore { border:0; margin:0; background:none; padding:0; }
+.c2-panel details > summary { display:none; }
+.c2-panel .detail-body { padding:0; }
+.c2-panel :is(.control-label, .control-section > label, .detail-body > label:not(.check)) { margin:8px 0 6px; font-size:13px; }
+.c2-panel .control-section { margin:0; }
+.c2-panel .range-ends { margin:2px 0 6px; font-size:11px; }
+.c2-panel .detail-body .check { margin:6px 0; font-size:13px; }
+.c2-panel .detail-body select { border-radius:10px; padding:7px 8px; font-size:13px; }
+.c2-panel .action-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:6px 0 0; }
+.c2-panel .segmented { margin:2px 0 4px; }
+.c2-panel .wide { width:100%; margin-top:8px; }
+.c2-panel .micro { font-size:12px; margin:6px 0 0; line-height:1.6; }
+.c2-panel .alignment-pad { display:flex; align-items:center; gap:16px; margin:10px 0 0; }
+.c2-panel .dpad { display:grid; grid-template-columns:repeat(3, 38px); grid-template-rows:repeat(3, 32px); gap:4px; }
+.c2-panel .dpad button { padding:0; border-radius:9px; }
+.c2-panel .turn-pad { display:grid; grid-template-columns:1fr 1fr; gap:6px; flex:1; }
+.c2-panel .turn-pad button:last-child { grid-column:1/-1; }
+html.lab-native .c2-panel .segmented button[aria-pressed="true"] { background:var(--course-surface); color:var(--course-accent); font-weight:700; box-shadow:0 1px 3px rgba(18,44,78,.14); }
+/* 对缝工位的“遮挡镜头 / 滑移扰动”是两个动作，不是二选一：按普通按钮排 */
+html.lab-native .c2-panel .segmented:has(#occlude) { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0; border:0; background:none; margin:6px 0 0; }
+html.lab-native .c2-panel .segmented:has(#occlude) button { height:auto; padding:9px 8px; border:1px solid var(--hair); border-radius:10px; background:var(--course-surface); color:var(--ink, inherit); font-size:13px; }
+html.lab-native .c2-panel #occlude[aria-pressed="true"] { border-color:#c77a12; color:#c77a12; background:rgba(199,122,18,.08); font-weight:700; }
+
+/* 面板收紧：两个开关并排；比较实验里的长注释由挑战卡的解释代替 */
+.c2-panel #gripMore .detail-body { display:grid; grid-template-columns:1fr 1fr; column-gap:10px; }
+.c2-panel #gripMore .detail-body > :not(.check) { grid-column:1/-1; }
+.c2-panel :is(#gripMore, #pressMore) .micro { display:none; }
+.c2-panel .range-ends { display:none; }
+
+/* 三维区：去掉“TL–06 / 铺砖工作站”这类编号小字；相机画面让出右上角的全屏按钮 */
+html.lab-native .scene-area #sceneStatus { display:none !important; }
+html.lab-native .scene-area #cameraPanel { top:56px; }

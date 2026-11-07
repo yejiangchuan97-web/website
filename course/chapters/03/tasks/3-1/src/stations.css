@@ -1,0 +1,39 @@
+/* 3-1：三维区上方的“连接”选择，和构型选择占同一位置 */
+.c2-stage-top .constraint-cards:not([hidden]) { display:grid !important; grid-template-columns:repeat(4, minmax(150px, 1fr)); gap:8px; width:100%; height:auto !important; min-height:0 !important; margin:0 !important; }
+.c2-stage-top .constraint-cards button {
+  display:grid !important; grid-template-columns:auto 1fr; grid-template-rows:auto auto; align-items:center; gap:0 10px;
+  min-height:0 !important; height:auto !important; aspect-ratio:auto !important; padding:7px 12px !important; text-align:left;
+  border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); box-shadow:var(--shadow-sm); cursor:pointer;
+}
+.c2-stage-top .constraint-cards button.active { border-color:var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; }
+.c2-stage-top .constraint-cards b { grid-row:1 / span 2; font-size:22px; font-weight:800; color:var(--course-accent); line-height:1; }
+.c2-stage-top .constraint-cards strong { font-size:14px; }
+.c2-stage-top .constraint-cards small { font-size:12px; color:var(--course-muted); }
+
+/* 3-1：关节行——数值放在滑轨右边，一行一个关节 */
+.c2-panel .joint-row { padding:2px 6px !important; align-items:center; }
+.c2-panel .joint-value { display:flex !important; flex-direction:row-reverse; align-items:center; gap:6px; min-width:0; }
+.c2-panel .joint-value output { flex:0 0 auto; min-width:64px; text-align:right; font-size:12.5px; }
+.c2-panel .joint-value input { flex:1 1 auto; width:auto; min-width:0; }
+.c2-panel .joint-label { display:flex; flex-direction:column; align-items:flex-start; line-height:1.15; }
+.c2-panel .joint-label small { font-size:10.5px; color:var(--course-muted); }
+
+/* 3-1：两个范围滑轨并排时，标题收短 */
+.c2-panel .c2-grid2 .range-control label { font-size:12.5px; }
+@media (max-height:720px) {
+  .c2-panel #pathInfo { display:none; }
+  .c2-panel .obstacle-editor label { line-height:1.2; }
+}
+
+/* 三维区：去掉图号“FIG. 03.01”、英文自由度标记和重复的操作提示（外壳已有一次性提示）；看法切换放到左上角 */
+html.lab-native section.stage .stage-bar { justify-content:flex-start; padding:12px; }
+html.lab-native section.stage :is(.fig, #geometryLabel, .stage-hint) { display:none !important; }
+html.lab-native section.stage .views { background:var(--stage-chip); border-color:var(--stage-chip-line); border-radius:10px; box-shadow:var(--shadow-sm); }
+html.lab-native section.stage .views button { font-size:13px; padding:5px 11px; border-radius:7px; }
+html.lab-native section.stage .stage-state { top:58px; }
+
+/* 统一字号后：点动行的名称不折行；三维区底部读数条按内容长高，三行文字不被裁掉 */
+.c2-panel .joint-label { white-space:nowrap; }
+.c2-panel .joint-label small { font-size:13px; }
+html.lab-native .stage .readouts { height:auto !important; min-height:63px; align-items:center; }
+html.lab-native .stage .readouts .collision-readout { line-height:1.3; }

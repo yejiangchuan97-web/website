@@ -1,0 +1,179 @@
+html.lab-native #toast { display:none !important; }
+
+/* ===== 三维区：原场景铺满，图注和底部说明收起，视角切换放左上角 ===== */
+html.lab-native .scene-card { min-height:0 !important; height:auto !important; background:transparent; }
+html.lab-native .scene-card > figcaption, html.lab-native .scene-card > .scene-caption { display:none !important; }
+html.lab-native .scene-card #scene { position:absolute; inset:0; min-height:0 !important; height:100% !important; }
+html.lab-native .scene-card .view-toolbar {
+  left:12px; top:12px; bottom:auto; padding:3px; gap:3px; border-radius:11px;
+  border:1px solid color-mix(in srgb, var(--hair) 70%, transparent);
+  background:color-mix(in srgb, var(--course-surface) 88%, transparent); backdrop-filter:blur(8px); box-shadow:var(--shadow-sm);
+}
+html.lab-native .scene-card .view-toolbar button { height:26px; padding:0 11px; border-radius:8px; font-size:13px; color:var(--course-ink); }
+html.lab-native .scene-card .view-toolbar button.active { background:var(--blue-soft); color:var(--course-accent); font-weight:700; }
+
+/* 三维区里的浮层：采集取景框（航拍采集）、复核照片（复核疑点）、证据台账（交付记录） */
+html.lab-native .c7-overlay {
+  position:absolute; z-index:3; margin:0 !important; border-radius:14px; overflow:hidden;
+  border:1px solid var(--hair); background:var(--course-surface); box-shadow:var(--shadow-lg);
+}
+html.lab-native .scene-card:not([data-c7-station="capture"]) .c7-viewfinder,
+html.lab-native .scene-card:not([data-c7-station="review"]) .c7-photo,
+html.lab-native .scene-card:not([data-c7-station="report"]) .c7-ledger { display:none !important; }
+html.lab-native .c7-viewfinder { right:12px; top:12px; width:min(330px, 38%); background:#bdbbb4; }
+html.lab-native .c7-photo { right:12px; top:50%; transform:translateY(-50%); width:min(600px, 58%, calc((100% - 60px) * 5 / 3)); background:#bdbbb4; }
+html.lab-native .c7-photo canvas { aspect-ratio:5 / 3 !important; cursor:crosshair; }
+html.lab-native .c7-overlay .image-stamp { font-size:11px; padding:5px 10px; background:rgba(16,32,52,.72); }
+html.lab-native .c7-ledger { right:12px; top:12px; width:min(620px, 62%); padding:10px 14px 8px; border-bottom:1px solid var(--hair); }
+html.lab-native .c7-ledger .ledger-heading { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; }
+html.lab-native .c7-ledger .ledger-heading h2 { font-size:15px; margin:0; }
+html.lab-native .c7-ledger #log-count { font-size:12px; color:var(--course-muted); }
+html.lab-native .c7-ledger table { font-size:12.5px; }
+html.lab-native .c7-ledger :is(th, td) { padding:5px 6px; border-bottom:1px solid var(--hair); }
+html.lab-native .c7-ledger th { color:var(--course-muted); font-weight:600; font-size:12px; }
+html.lab-native .c7-ledger tr:last-child td { border-bottom:0; }
+html.lab-native .c7-ledger td button { padding:2px 8px; border-radius:8px; font-size:12px; border:1px solid var(--hair); background:var(--surface-2); }
+html.lab-native .c7-ledger .status-chip { font-size:12px; font-weight:600; }
+html.lab-native .c7-ledger .status-chip.pending { color:var(--warn); }
+
+/* ===== 三维区上方：六个点位 ===== */
+html.lab-native .c2-stage-top .point-strip {
+  display:grid !important; grid-template-columns:repeat(6, minmax(0, 1fr)); gap:8px; width:100%; padding:0 !important; border:0 !important; background:none !important;
+}
+html.lab-native .c2-stage-top .point-strip button {
+  height:36px; padding:0 10px !important; border-radius:12px; border:1px solid var(--hair); background:var(--course-surface);
+  box-shadow:var(--shadow-sm); font:700 14px/1 inherit; font-family:inherit; color:var(--course-ink); gap:8px;
+}
+html.lab-native .c2-stage-top .point-strip button i { width:8px; height:8px; background:var(--hair); }
+html.lab-native .c2-stage-top .point-strip button.captured i { background:var(--warn); }
+html.lab-native .c2-stage-top .point-strip button.reviewed i { background:var(--ok); }
+html.lab-native .c2-stage-top .point-strip button.active { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); box-shadow:0 0 0 1px var(--course-accent) inset; }
+
+/* ===== 面板里的原控件 ===== */
+html.lab-native .c2-panel :is(.preset-row, .control, .shutter-row, .action-row, .quality, .route-checks, .route-order) { margin:0 !important; }
+html.lab-native .c2-panel .preset-row { display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12.5px; color:var(--course-muted); }
+html.lab-native .c2-panel .preset-row > span { margin-right:2px; }
+html.lab-native .c2-panel .preset-row button, html.lab-native .c2-panel .route-checks label {
+  height:30px; padding:0 10px; border-radius:9px; border:1px solid var(--hair); background:var(--surface-2); color:var(--course-ink); font-size:12.5px;
+}
+html.lab-native .c2-panel .control label, html.lab-native .c2-panel .shutter-row { font-size:13px; align-items:center; }
+html.lab-native .c2-panel .control output { font:700 13.5px/1 inherit; font-family:inherit; color:var(--course-accent); font-variant-numeric:tabular-nums; }
+html.lab-native .c2-panel .control input[type=range] { margin:4px 0 0; }
+html.lab-native .c2-panel .shutter-row select { width:118px; height:30px; padding:0 8px; border-radius:9px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); font:13px inherit; font-family:inherit; }
+html.lab-native .c2-panel .quality { border-radius:11px; border-left-width:3px; font-size:12.5px; line-height:1.5; padding:8px 11px; }
+html.lab-native .c2-panel .quality.poor { color:var(--warn); background:var(--warn-soft); border-color:var(--warn); }
+html.lab-native .c2-panel .quality strong { font-size:13px; margin-bottom:1px; }
+html.lab-native .c2-panel .action-row { display:flex; gap:8px; }
+html.lab-native .c2-panel .action-row button { flex:1 1 0; }
+html.lab-native .c2-panel button.secondary {
+  height:34px; padding:0 12px; border-radius:10px; font-size:13.5px; font-weight:600; border:1px solid var(--hair);
+  background:var(--course-surface); color:var(--course-ink); box-shadow:var(--shadow-sm); white-space:nowrap;
+}
+html.lab-native .c2-panel button.secondary:hover:not(:disabled) { border-color:var(--course-accent); color:var(--course-accent); }
+html.lab-native .c2-panel .route-checks { display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:5px; }
+html.lab-native .c2-panel .route-checks label { padding:0 6px; display:flex; align-items:center; justify-content:center; gap:4px; font-weight:600; }
+html.lab-native .c2-panel .route-checks label:has(input:checked) { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); }
+html.lab-native .c2-panel .route-order { font-size:12.5px; color:var(--course-muted); font-variant-numeric:tabular-nums; }
+html.lab-native .c2-panel #preview-route { width:100%; }
+
+/* 复核 */
+html.lab-native .c2-panel .ai-result { margin:0; padding:9px 12px; border-radius:11px; font-size:13px; line-height:1.55; }
+html.lab-native .c2-panel .ai-result b { color:var(--course-ink); font-size:14px; }
+html.lab-native .c2-panel .ai-result span { color:var(--course-muted); font-size:12px; }
+html.lab-native .c2-panel .reference-description { margin:6px 0 0; font-size:12.5px; color:var(--course-ink); }
+html.lab-native .c2-panel .review-tools { display:flex; justify-content:space-between; align-items:center; gap:6px; margin:0; font-size:13px; }
+html.lab-native .c2-panel .review-tools label { display:flex; align-items:center; gap:5px; }
+html.lab-native .c2-panel .history-button { align-self:flex-start; }
+html.lab-native .c2-panel #review-empty { margin:0; padding:10px 12px; border:0; border-radius:11px; background:var(--surface-2); font-size:13px; color:var(--course-muted); }
+html.lab-native .c2-panel #review-form { display:flex; flex-direction:column; gap:8px; }
+html.lab-native .c2-panel #review-form[hidden] { display:none; }
+html.lab-native .c2-panel .decision-group { margin:0; gap:5px; }
+html.lab-native .c2-panel .decision-group legend { display:none; }
+html.lab-native .c2-panel .decision-group label { padding:6px 10px; border-radius:10px; font-size:13px; border-color:var(--hair); background:var(--course-surface); }
+html.lab-native .c2-panel .decision-group label:has(input:checked) { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); font-weight:600; }
+html.lab-native .c2-panel .manual-mark { margin:0; font-size:13px; align-items:center; }
+html.lab-native .c2-panel .manual-mark input { margin:0; }
+html.lab-native .c2-panel .annotation-tools { display:flex; flex-direction:column; gap:5px; font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-panel .annotation-tools > div { display:flex; gap:6px; align-items:end; }
+html.lab-native .c2-panel .annotation-tools label { flex:1; display:flex; flex-direction:column; gap:2px; }
+html.lab-native .c2-panel .annotation-tools input { height:30px; padding:0 8px; border-radius:8px; }
+html.lab-native .c2-panel .annotation-tools button { height:30px; padding:0 12px; border-radius:9px; border:1px solid var(--hair); background:var(--surface-2); }
+html.lab-native .c2-panel .field-label { font-size:13px; color:var(--course-muted); }
+html.lab-native .c2-panel .field-label small { margin-left:4px; }
+html.lab-native .c2-panel :is(textarea, #student) { border-radius:10px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); font-size:13.5px; padding:7px 10px; }
+html.lab-native .c2-panel textarea { min-height:54px; }
+html.lab-native .c2-panel #student { display:block; width:100%; }
+
+/* 交付 */
+html.lab-native .c2-panel .report-score { padding:0 0 6px; gap:12px; border-bottom:1px solid var(--hair); }
+html.lab-native .c2-panel .report-score > strong { font:800 46px/1 inherit; font-family:inherit; letter-spacing:-1px; color:var(--course-accent); font-variant-numeric:tabular-nums; }
+html.lab-native .c2-panel .report-score > span { font-size:15px; font-family:inherit; }
+html.lab-native .c2-panel .report-score small { font-size:12px; margin-top:2px; }
+html.lab-native .c2-panel .report-status { margin:0; font-size:13px; line-height:1.5; }
+html.lab-native .c2-panel .report-checks { font-size:13px; }
+html.lab-native .c2-panel .report-checks > div { padding:5px 0; border-color:var(--hair); }
+html.lab-native .c2-panel .report-checks b { color:var(--warn); font-weight:600; }
+html.lab-native .c2-panel .report-checks .ok b { color:var(--ok); }
+html.lab-native .c2-panel #reset { align-self:flex-start; color:var(--bad); }
+
+@media (max-height:720px) {
+  html.lab-native .c2-panel .quality { padding:6px 10px; }
+  html.lab-native .c2-panel .control input[type=range] { margin-top:2px; }
+  html.lab-native .c7-viewfinder { width:min(280px, 34%); }
+}
+@media (max-width:900px) {
+  html.lab-native .c2-stage-top .point-strip { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+  html.lab-native .c7-viewfinder { width:44%; }
+  html.lab-native .c7-photo { width:calc(100% - 24px); }
+  html.lab-native .c7-ledger { left:12px; width:auto; overflow:auto; max-height:calc(100% - 24px); }
+}
+
+/* 7-2：取景框下方的质量结论；航线一行放下 */
+html.lab-native .c7-viewfinder .quality { margin:0; border-radius:0; border-left:0; border-top:3px solid var(--ok); padding:7px 11px; font-size:12px; line-height:1.45; }
+html.lab-native .c7-viewfinder .quality.poor { color:var(--warn); background:var(--warn-soft); border-color:var(--warn); }
+html.lab-native .c7-viewfinder .quality strong { display:block; font-size:13px; }
+html.lab-native .c7-viewfinder .image-stamp { position:static; }
+html.lab-native .c2-panel .c2-group > h3 .route-order { margin-left:auto !important; font-size:12px; font-weight:500; }
+html.lab-native .c2-panel .c2-row:has(> .route-checks) { display:flex; gap:6px; align-items:center; }
+html.lab-native .c2-panel .c2-row > .route-checks { flex:1 1 auto; gap:4px; }
+html.lab-native .c2-panel .c2-row > .route-checks label { padding:0 3px; font-size:12px; }
+html.lab-native .c2-panel .c2-row > .route-checks input { width:12px; height:12px; }
+html.lab-native .c2-panel .c2-row > #preview-route { width:auto; flex:0 0 auto; }
+
+/* 7-2：三个判断并排成一行按钮 */
+html.lab-native .c2-panel .decision-group { grid-template-columns:repeat(3, minmax(0,1fr)); }
+html.lab-native .c2-panel .decision-group label { justify-content:center; text-align:center; padding:0 4px; height:34px; font-size:12.5px; line-height:1.2; cursor:pointer; position:relative; }
+html.lab-native .c2-panel .decision-group input { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
+html.lab-native .c2-panel .decision-group label:has(input:focus-visible) { outline:2px solid var(--course-accent); outline-offset:2px; }
+html.lab-native .c2-panel #review-form textarea { min-height:44px; }
+
+/* 7-2：期末作业——面板里的作业卡，三维区里的作业要求单 */
+html.lab-native .c2-panel .c7-hw-card { display:flex; flex-direction:column; gap:6px; padding:11px 12px; border-radius:12px; border:1px solid var(--hair); background:linear-gradient(135deg, var(--blue-soft), var(--course-surface)); }
+html.lab-native .c2-panel .c7-hw-card > b { font-size:14.5px; color:var(--course-ink); }
+html.lab-native .c2-panel .c7-hw-card > p { margin:0; font-size:12.5px; line-height:1.5; color:var(--course-muted); }
+html.lab-native .c2-panel .c7-hw-card .c2-row > * { flex:1 1 0; }
+html.lab-native .c2-panel .c7-dl { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; }
+html.lab-native .scene-card:not([data-c7-station="report"]) .c7-homework,
+html.lab-native .scene-card:not([data-c7-homework="1"]) .c7-homework,
+html.lab-native .scene-card[data-c7-homework="1"] .c7-ledger { display:none !important; }
+html.lab-native .c7-homework { left:12px; right:12px; top:12px; bottom:12px; display:flex; flex-direction:column; }
+html.lab-native .c7-homework > header { display:flex; justify-content:space-between; align-items:center; padding:12px 16px 10px; border-bottom:1px solid var(--hair); }
+html.lab-native .c7-homework h2 { margin:2px 0 0; font-size:17px; }
+html.lab-native .c7-hw-tag { display:inline-block; padding:1px 9px; border-radius:9px; font-size:12px; font-weight:700; color:#fff; background:linear-gradient(135deg,#3a82e4,#1f5bbd); }
+html.lab-native .c7-hw-close { width:30px; height:30px; border-radius:50%; border:1px solid var(--hair); background:var(--surface-2); color:var(--course-muted); font-size:18px; line-height:1; padding:0; }
+html.lab-native .c7-hw-body { flex:1 1 auto; min-height:0; overflow:auto; padding:10px 16px 14px; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px 18px; align-content:start; font-size:13px; line-height:1.6; }
+html.lab-native .c7-hw-body > section:nth-child(2) { grid-row:span 3; }
+html.lab-native .c7-hw-body h3 { margin:0 0 3px; font-size:13.5px; color:var(--accent-2); }
+html.lab-native .c7-hw-body p, html.lab-native .c7-hw-body ul { margin:0; }
+html.lab-native .c7-hw-body ul { padding-left:18px; }
+html.lab-native .c7-hw-body li { margin-top:3px; }
+html.lab-native .c7-hw-body li > b:first-child { margin-right:4px; color:var(--course-ink); }
+html.lab-native .c7-hw-fields { display:flex; flex-wrap:wrap; gap:4px; margin:2px 0 6px !important; }
+html.lab-native .c7-hw-fields span { padding:1px 8px; border-radius:8px; font-size:12px; background:var(--blue-soft); color:var(--course-accent); }
+html.lab-native .c7-hw-body table { width:100%; border-collapse:collapse; font-size:12.5px; }
+html.lab-native .c7-hw-body td { padding:3px 6px; border-bottom:1px solid var(--hair); }
+html.lab-native .c7-hw-body td:nth-child(2) { font-weight:800; color:var(--course-accent); text-align:right; width:36px; }
+@media (max-width:900px) { html.lab-native .c7-hw-body { grid-template-columns:1fr; } html.lab-native .c7-hw-body > section:nth-child(2) { grid-row:auto; } }
+
+/* 右上角的取景画面、记录表让出全屏按钮 */
+html.lab-native .scene-card :is(.preview-frame, .evidence-ledger) { top:56px; }

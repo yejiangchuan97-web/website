@@ -1,0 +1,15 @@
+{
+  "name": "mechanics-interactive-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "可离线运行的三维机械、液压与气压教学实验室",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js && node scripts/serve.js",
+    "start": "node scripts/serve.js",
+    "test": "node tests/model.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,13 @@
+export const WALL={w:3600,h:2400,hole:{x:1550,z:800,w:800,h:800},base:45,y:-70};
+export const DEFAULTS={spacing:200,distance:300,speed:300,guard:'footprint',compensate:false,slow:true};
+export function fanWidth(distance){return 400*distance/300;}
+export function passes(spacing){const xs=[];for(let x=100;x<=3500+.001;x+=spacing)xs.push(x);if(xs.at(-1)<3500-1)xs.push(3500);return xs;}
+export function inHole(x,z){const h=WALL.hole;return x>=h.x&&x<h.x+h.w&&z>=h.z&&z<h.z+h.h;}
+export function intersectsHole(x,z,width){const h=WALL.hole;return x+width/2>h.x&&x-width/2<h.x+h.w&&z+40>h.z&&z-40<h.z+h.h;}
+export function sprayAllowed(x,z,p,travel=false){if(travel)return false;if(p.guard==='off')return true;return !(p.guard==='center'?inHole(x,z):intersectsHole(x,z,fanWidth(p.distance)));}
+export function pathSegments(p){const xs=passes(p.spacing),out=[];for(let i=0;i<xs.length;i++){const z0=i%2?2360:40,z1=i%2?40:2360;out.push({x0:xs[i],x1:xs[i],z0,z1,travel:false,length:2320});if(i<xs.length-1)out.push({x0:xs[i],x1:xs[i+1],z0:z1,z1,travel:true,length:xs[i+1]-xs[i]});}return out;}
+export function poseAt(progress,p){const segs=pathSegments(p),total=segs.reduce((s,a)=>s+a.length,0);let d=Math.max(0,Math.min(.999999,progress))*total;let i=0;for(;i<segs.length-1&&d>segs[i].length;i++)d-=segs[i].length;const a=segs[i],t=d/a.length;const x=a.x0+(a.x1-a.x0)*t,z=a.z0+(a.z1-a.z0)*t;const edge=Math.min(z-40,2360-z);const factor=p.slow?(.5+.5*Math.min(1,Math.max(0,edge)/260)):1;const v=p.speed*(a.travel?1:factor);return {x,z,travel:a.travel,on:sprayAllowed(x,z,p,a.travel),v,total,index:i,pass:Math.floor(i/2)+1,progress,factor,flow:p.compensate?factor:1,dose:(p.compensate?factor:1)/factor*300/p.speed};}
+export function overlap(p){const w=fanWidth(p.distance);return {width:w,ratio:Math.max(0,1-p.spacing/w),gap:Math.max(0,p.spacing-w)};}
+export function coverage(p){const xs=passes(p.spacing),width=fanWidth(p.distance),cells=[];let target=0,covered=0,polluted=0,holeCells=0;for(let z=10;z<WALL.h;z+=20)for(let x=10;x<WALL.w;x+=20){const hole=inHole(x,z);let n=0;for(const px of xs){if(Math.abs(x-px)<=width/2&&(sprayAllowed(px,Math.max(40,z-40),p)||sprayAllowed(px,Math.min(2360,z+40),p)))n++;}if(hole){holeCells++;if(n)polluted++;}else{target++;if(n)covered++;}cells.push({x,z,n,hole});}return {cells,percent:100*covered/target,miss:100*(target-covered)/target,pollution:100*polluted/holeCells,area:(target-covered)*.0004};}
+export function depositionAt(t,p){const z=40+2320*t,edge=Math.min(z-40,2360-z),f=p.slow?.5+.5*Math.min(1,Math.max(0,edge)/260):1;return {speed:p.speed*f,flow:p.compensate?f:1,dose:300/p.speed*(p.compensate?1:1/f)};}
+

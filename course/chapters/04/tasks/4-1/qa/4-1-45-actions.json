@@ -1,0 +1,1 @@
+[["range","#angle",45],["wait",1600],["lines","course/chapters/04/tasks/4-1/qa/4-1-45-lines.png",".iso-plate"],["assert","Math.abs(lessonState().angle-45)<.01","45° settled"]]

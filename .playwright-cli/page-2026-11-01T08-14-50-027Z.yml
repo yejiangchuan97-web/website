@@ -1,0 +1,110 @@
+- generic [active] [ref=f36e1]:
+  - banner [ref=f36e2]:
+    - link "课程首页" [ref=f36e3] [cursor=pointer]:
+      - /url: "#overview"
+      - generic [aria-hidden] [ref=f36e4]: ⌘
+      - generic [ref=f36e5]:
+        - text: 智能建筑机械与机器人
+        - generic [ref=f36e6]: 离线互动课程 · 观察、操作与复核
+    - navigation "课程导航" [ref=f36e7]:
+      - link "章节展厅" [ref=f36e8] [cursor=pointer]:
+        - /url: "#chapters"
+      - button "切换深色" [ref=f36e9] [cursor=pointer]
+      - button "学习路线" [ref=f36e10] [cursor=pointer]
+      - button "全部任务 ↗" [ref=f36e11] [cursor=pointer]
+  - main [ref=f36e12]:
+    - region [ref=f36e13]:
+      - generic [ref=f36e14]:
+        - paragraph [ref=f36e15]: CONSTRUCTION ROBOTICS / 01—08
+        - heading "智能建筑机械与机器人" [level=1] [ref=f36e16]
+      - generic [ref=f36e17]:
+        - paragraph [ref=f36e18]: 从设备原理走向施工作业。点击展品，开始本章学习。
+        - generic [ref=f36e19]:
+          - strong [ref=f36e20]:
+            - text: "08"
+            - generic [ref=f36e21]: 学习章节
+          - strong [ref=f36e22]:
+            - text: "24"
+            - generic [ref=f36e23]: 课程任务
+    - region [ref=f36e24]:
+      - generic [ref=f36e25]:
+        - generic [ref=f36e26]:
+          - paragraph [ref=f36e27]: CHOOSE AN EXHIBIT
+          - heading "八章主题展厅" [level=2] [ref=f36e28]
+        - generic [ref=f36e29]:
+          - button "▷ 演示部件动作" [ref=f36e30] [cursor=pointer]
+          - button "↺ 重置动作" [ref=f36e31] [cursor=pointer]
+      - status [ref=f36e32]: 展品已暂停。可演示部件动作，或点击模型进入章节。
+      - group "八章主题展厅，点击模型或章节铭牌进入章节" [ref=f36e33]:
+        - navigation "章节展品入口":
+          - link "01 走进智能建造 2 项任务 进入章节 ↗" [ref=f36e35] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/overview/index.html
+            - generic [ref=f36e36]:
+              - generic [ref=f36e37]: "01"
+              - strong [ref=f36e38]: 走进智能建造
+            - generic [ref=f36e39]:
+              - text: 2 项任务
+              - generic [ref=f36e40]: 进入章节 ↗
+          - link "02 动力与工作机构 3 项任务 进入章节 ↗" [ref=f36e41] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/overview/index.html
+            - generic [ref=f36e42]:
+              - generic [ref=f36e43]: "02"
+              - strong [ref=f36e44]: 动力与工作机构
+            - generic [ref=f36e45]:
+              - text: 3 项任务
+              - generic [ref=f36e46]: 进入章节 ↗
+          - link "03 机器人结构与运动 5 项任务 进入章节 ↗" [ref=f36e47] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/03/overview/index.html
+            - generic [ref=f36e48]:
+              - generic [ref=f36e49]: "03"
+              - strong [ref=f36e50]: 机器人结构与运动
+            - generic [ref=f36e51]:
+              - text: 5 项任务
+              - generic [ref=f36e52]: 进入章节 ↗
+          - link "04 感知与智能识别 3 项任务 进入章节 ↗" [ref=f36e53] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/04/overview/index.html
+            - generic [ref=f36e54]:
+              - generic [ref=f36e55]: "04"
+              - strong [ref=f36e56]: 感知与智能识别
+            - generic [ref=f36e57]:
+              - text: 3 项任务
+              - generic [ref=f36e58]: 进入章节 ↗
+          - link "05 主体结构施工 3 项任务 进入章节 ↗" [ref=f36e59] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/05/overview/index.html
+            - generic [ref=f36e60]:
+              - generic [ref=f36e61]: "05"
+              - strong [ref=f36e62]: 主体结构施工
+            - generic [ref=f36e63]:
+              - text: 3 项任务
+              - generic [ref=f36e64]: 进入章节 ↗
+          - link "06 装饰装修施工 4 项任务 进入章节 ↗" [ref=f36e65] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/06/overview/index.html
+            - generic [ref=f36e66]:
+              - generic [ref=f36e67]: "06"
+              - strong [ref=f36e68]: 装饰装修施工
+            - generic [ref=f36e69]:
+              - text: 4 项任务
+              - generic [ref=f36e70]: 进入章节 ↗
+          - link "07 巡检与数据复核 2 项任务 进入章节 ↗" [ref=f36e71] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/07/overview/index.html
+            - generic [ref=f36e72]:
+              - generic [ref=f36e73]: "07"
+              - strong [ref=f36e74]: 巡检与数据复核
+            - generic [ref=f36e75]:
+              - text: 2 项任务
+              - generic [ref=f36e76]: 进入章节 ↗
+          - link "08 安全操作与维护 2 项任务 进入章节 ↗" [ref=f36e77] [cursor=pointer]:
+            - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/08/overview/index.html
+            - generic [ref=f36e78]:
+              - generic [ref=f36e79]: "08"
+              - strong [ref=f36e80]: 安全操作与维护
+            - generic [ref=f36e81]:
+              - text: 2 项任务
+              - generic [ref=f36e82]: 进入章节 ↗
+      - generic [ref=f36e83]:
+        - status [ref=f36e84]: 点击模型或章节铭牌，进入对应章节封面。
+        - generic [ref=f36e85]: 教学概念模型 · 安全展品为静态展示
+    - generic [ref=f36e86]:
+      - generic [ref=f36e87]: 从原理到应用，在观察、操作与复核中学习。
+      - link "回到顶部 ↑" [ref=f36e88] [cursor=pointer]:
+        - /url: "#overview"

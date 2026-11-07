@@ -1,0 +1,12 @@
+[
+ ["eval","const click=s=>document.querySelector(s).click();click('#bumpPreset');click('#feedbackMode');for(let i=0;i<5;i++)click('#forceStep');click('#recordForce');click('[data-tab=surface]');for(let i=0;i<3;i++)click('#sandPass');click('#surfaceLight');click('#acceptPatch');click('[data-tab=dust]');click('#stopDust');click('[data-repair=filterClean]');click('#restartDust');click('#resumeSanding');click('[data-tab=care]');click('#rakingLight');click('#straightedge');for(const d of ['0:0','1:1','2:0'])click('[data-diagnosis=\"'+d+'\"]');for(const a of ['stop','extract','isolate','abrasive','checkFilter','cleanBody','record'])click('[data-maintenance='+a+']');click('#submitCare');if(!Object.values(sandingLab.state.done).every(Boolean))throw new Error('record prerequisites');window.originalObjectURL=URL.createObjectURL;URL.createObjectURL=function(blob){blob.text().then(text=>window.downloadedRecord=JSON.parse(text));return originalObjectURL.call(this,blob)};'ready to export'"],
+ ["click","#downloadRecord"],
+ ["until","!!window.downloadedRecord",2000],
+ ["eval","if(Object.values(downloadedRecord.completed).some(x=>!x)||downloadedRecord.records.care.maintenance.length!==7)throw new Error('incomplete record');downloadedRecord"],
+ ["click","[data-close=summaryDialog]"],
+ ["key","Enter","[data-tab=force]"],
+ ["eval","if(sandingLab.state.tab!=='force')throw new Error('keyboard tab activation');'keyboard activation passed'"],
+ ["click","#help"],
+ ["key","Escape","#helpDialog"],
+ ["eval","if(document.querySelector('#helpDialog').open)throw new Error('escape dialog');'dialog escape passed'"]
+]

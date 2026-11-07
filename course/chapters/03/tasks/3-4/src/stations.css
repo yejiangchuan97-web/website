@@ -1,0 +1,20 @@
+/* 3-4：工具柜横排在三维区上方 */
+.c2-stage-top .tool-list { display:grid !important; grid-template-columns:repeat(6, minmax(120px, 1fr)); grid-template-rows:none !important; grid-auto-rows:auto !important; gap:8px; width:100%; height:auto !important; max-height:none !important; overflow:visible !important; margin:0 !important; }
+.c2-stage-top .tool-list > button {
+  display:grid !important; grid-template-columns:auto 1fr; align-items:center; gap:0 8px; min-height:0 !important; height:auto !important;
+  padding:6px 10px !important; margin:0 !important; text-align:left; border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); box-shadow:var(--shadow-sm); cursor:pointer;
+}
+.c2-stage-top .tool-list > button:is(.active, [aria-pressed="true"], [aria-selected="true"]) { border-color:var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; }
+.c2-stage-top .tool-list > button canvas, .c2-stage-top .tool-list > button svg, .c2-stage-top .tool-list > button img { grid-row:1 / span 3; width:38px !important; height:38px !important; }
+
+/* 3-4：面板里原来的操作区不再加外框 */
+.c2-panel .panel-section { display:flex !important; flex-direction:column; gap:8px; margin:0; padding:0; border:0; background:none; box-shadow:none; }
+.c2-panel .panel-section .button-pair { display:flex; gap:6px; flex-wrap:wrap; }
+.c2-panel .panel-section :is(.secondary) { height:32px; padding:0 12px; border-radius:10px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); cursor:pointer; }
+.c2-panel .panel-section .text-link { border:0; background:none; color:var(--course-accent); font-weight:600; cursor:pointer; padding:0; }
+
+/* 三维区：去掉图号“FIG. 03.04”、型号“EDU / 6R”、工具柜英文编号和重复的操作提示；看法切换放到左上角 */
+html.lab-native :is(.stage, .c2-stage-top) :is(.stage-bar .mono, #figureName, .stage-topline > .mono, .tool-card small) { display:none !important; }
+html.lab-native .stage .stage-caption { display:none !important; } /* 只剩重复的操作提示和“三维教学模型”字样 */
+html.lab-native .stage .stage-bar { justify-content:flex-start; }
+html.lab-native .stage .view-controls button { font-size:13px; padding:4px 10px; }

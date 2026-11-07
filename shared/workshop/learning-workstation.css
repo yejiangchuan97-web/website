@@ -1,0 +1,91 @@
+/* Fitted classroom canvas; scrolling is confined to the inspector and records. */
+body.learning-page{height:100dvh;overflow:hidden;background:#dce7ef}
+#lesson-frame{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--lesson-scale,1));transform-origin:center;background:var(--bg);overflow:hidden}
+#lesson-frame .course-nav{height:54px;min-height:54px;padding:0 30px;font-size:12px}
+.learning-page #lesson-frame .workshop{width:100%;height:846px;min-height:0;max-height:none;padding:20px 30px 12px;display:grid;grid-template-rows:72px 38px 54px minmax(0,1fr) 30px;gap:12px}
+.learning-page #lesson-frame .heading{margin:0;align-items:center}
+.learning-page #lesson-frame .heading h1{font-size:28px;margin:5px 0}
+.learning-page #lesson-frame .heading p{margin:0;font-size:11px}
+.learning-page .lesson-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-width:0}
+.learning-page #learning-cases{margin:0;flex-wrap:nowrap;gap:7px;min-width:0}
+.learning-page #learning-cases button{padding:7px 12px;white-space:nowrap}
+#open-records{padding:7px 16px;font-size:12px;white-space:nowrap;border-color:var(--blue);color:var(--blue)}
+.learning-page #lesson-frame .tabs{display:grid!important;grid-template-columns:repeat(8,minmax(0,1fr));margin:0;gap:8px}
+.learning-feedback #lesson-frame .tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+.learning-page #lesson-frame .tabs button{min-height:0;height:54px;padding:8px 12px;border-radius:7px}
+.learning-page #lesson-frame .tabs b{font-size:12px}
+.learning-page #lesson-frame .tabs svg{width:31px;height:30px}
+.learning-page #lesson-frame .work-area{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:16px;height:100%;min-height:0;margin:0}
+.learning-page #lesson-frame .viewport-panel{height:100%;min-height:0;overflow:hidden}
+.learning-page #lesson-frame .scene-host{height:auto;min-height:0;flex:1}
+.learning-page #lesson-frame .scene-top{min-height:40px;padding:6px 15px}
+.learning-page #lesson-frame .scene-top button{padding:5px 9px}
+.learning-page #lesson-frame .side{height:100%;max-height:100%;min-height:0;overflow:auto;padding:16px;display:block}
+.learning-page #lesson-frame .hero-caption{top:20px;left:24px}
+.learning-page #lesson-frame .hero-caption h2{font-size:26px}
+.learning-page #lesson-frame .hero-playback{padding:9px 15px}
+.learning-page #lesson-frame .metrics{display:none}
+.learning-page #lesson-frame .scene-bottom{padding:7px 15px}
+.learning-page #lesson-frame .work-footer{margin:0;font-size:10px;min-width:0;display:flex;gap:16px;align-items:center}
+.learning-page #lesson-frame .work-footer>span{flex:1}
+.learning-page #lesson-frame #learning-status{position:absolute;bottom:49px;left:48px;max-width:900px;margin:0;padding:4px 10px;background:var(--paper);border-radius:4px;pointer-events:none;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.learning-page #learning-status:empty{display:none}
+.learning-page .learning-guidance h3{font-size:17px;margin:6px 0}
+.learning-page .learning-guidance p{margin:5px 0}
+.learning-page .learning-guidance .learning-coach{padding:8px 10px}
+.learning-page .part-index{grid-template-columns:1fr 1fr}
+.learning-page .part-index button{font-size:10px;padding:7px}
+.learning-page #station-title{font-size:19px;margin:12px 0 8px}
+.learning-page #station-intro{font-size:11px;margin-bottom:10px}
+.learning-page #badge{display:none}
+.learning-page .trial-buttons{margin:10px 0;gap:6px}
+.learning-page .trial-buttons button{min-height:33px;padding:6px}
+.learning-page .experiment-readout{padding:10px 17px}
+#record-dialog{width:min(1000px,94vw);max-height:88dvh;padding:22px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:14px;overflow:auto}
+#record-dialog::backdrop{background:#10283d80;backdrop-filter:blur(5px)}
+#record-dialog .close{position:sticky;top:0;display:block;margin:0 0 12px auto;z-index:2}
+#record-dialog .learning-output{border:0;padding:0;margin:0}
+#record-dialog .learning-status{margin-bottom:0}
+:root[data-theme=dark] body.learning-page{background:#08141f}
+/* Narrow screens keep the model visible while the controls scroll locally. */
+.compact-lesson #lesson-frame{left:0;top:0;transform:none}
+.compact-lesson #lesson-frame .course-nav{height:44px;min-height:44px;padding:0 12px;gap:8px}
+.compact-lesson #lesson-frame .course-nav>a:not(.chapter){display:none}
+.compact-lesson #lesson-frame .course-nav .chapter{font-size:11px}
+.compact-lesson #lesson-frame .workshop{height:calc(100dvh - 44px);padding:10px;grid-template-rows:55px 34px 43px minmax(0,1fr) 16px;gap:8px}
+.compact-lesson #lesson-frame .heading h1{font-size:18px;letter-spacing:-.5px}
+.compact-lesson #lesson-frame .heading .eyebrow{font-size:7px;letter-spacing:1px}
+.compact-lesson #lesson-frame .heading p{display:none}
+.compact-lesson #lesson-frame .heading-tools{display:flex;gap:4px}
+
+.compact-lesson #lesson-frame #help{font-size:10px;padding:7px}
+.compact-lesson .lesson-toolbar{gap:7px}
+.compact-lesson #learning-cases{overflow:auto}
+.compact-lesson #learning-cases button{font-size:10px;padding:5px 7px}
+.compact-lesson #learning-cases .lesson-route{font-size:9px;white-space:nowrap}
+.compact-lesson #open-records{font-size:10px;padding:6px 8px}
+.compact-lesson #lesson-frame .tabs{display:flex!important;overflow:auto;gap:6px}
+.compact-lesson #lesson-frame .tabs button{flex:0 0 122px;height:40px;padding:5px 8px}
+.compact-lesson #lesson-frame .tabs svg{width:23px;height:24px}
+.compact-lesson #lesson-frame .tabs b{font-size:10px}
+.compact-lesson #lesson-frame .work-area{grid-template-columns:1fr;grid-template-rows:minmax(210px,1.25fr) minmax(100px,1fr);gap:8px}
+.compact-lesson #lesson-frame .hero-caption{top:9px;left:12px}
+.compact-lesson #lesson-frame .hero-caption h2{font-size:16px;margin:4px 0}
+.compact-lesson #lesson-frame .hero-caption p{display:none}
+.compact-lesson #lesson-frame .scene-top{min-height:30px;padding:3px 10px}
+.compact-lesson #lesson-frame .scene-top button{font-size:9px;padding:3px 6px}
+.compact-lesson #lesson-frame .scene-tools{bottom:7px;right:7px}
+.compact-lesson #lesson-frame .scene-tools button{padding:3px 5px;min-height:24px;font-size:9px}
+.compact-lesson #lesson-frame .hero-playback{padding:5px 8px;gap:4px}
+.compact-lesson #lesson-frame .hero-playback button{font-size:9px;min-height:26px;padding:4px 6px}
+.compact-lesson #lesson-frame .hero-playback .primary{min-width:72px}
+.compact-lesson #lesson-frame .transport{gap:5px}
+.compact-lesson #lesson-frame .transport output{font-size:8px}
+.compact-lesson #lesson-frame .scene-bottom{display:none}
+.compact-lesson #lesson-frame .side{padding:12px}
+.compact-lesson #lesson-frame .work-footer>span{display:none}
+.compact-lesson #lesson-frame .work-footer{font-size:9px;justify-content:flex-end}
+.compact-lesson #lesson-frame #learning-status{bottom:29px;left:18px;max-width:90%;font-size:9px}
+.compact-lesson .experiment-readout{padding:5px 8px;gap:7px}
+.compact-lesson .experiment-readout strong{font-size:12px;margin-top:3px}
+.compact-lesson .experiment-readout small{font-size:8px}

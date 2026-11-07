@@ -1,0 +1,31 @@
+{
+  "01": {"title": "第一章 · 走进智能建造", "href": "course/chapters/01/overview/index.html", "tasks": [
+    {"id": "1-2", "label": "1-2", "short": "施工机械", "href": "course/chapters/01/tasks/1-2/index.html"},
+    {"id": "1-3", "label": "1-3", "short": "施工机器人", "href": "course/chapters/01/tasks/1-3/index.html"}]},
+  "03": {"title": "第三章 · 机器人结构与运动", "href": "course/chapters/03/overview/index.html", "tasks": [
+    {"id": "3-1", "label": "3-1", "short": "构型与空间", "href": "course/chapters/03/tasks/3-1/index.html"},
+    {"id": "3-2", "label": "3-2", "short": "六轴点动", "href": "course/chapters/03/tasks/3-2/index.html"},
+    {"id": "3-3a", "task": "3-3", "page": "reducers", "label": "3-3", "short": "减速器", "href": "course/chapters/03/tasks/3-3/reducers.html"},
+    {"id": "3-3b", "task": "3-3", "page": "conversion", "label": "3-3", "short": "运动转换", "href": "course/chapters/03/tasks/3-3/conversion.html"},
+    {"id": "3-4", "label": "3-4", "short": "末端与 TCP", "href": "course/chapters/03/tasks/3-4/index.html"},
+    {"id": "3-5", "label": "3-5", "short": "移动底盘", "href": "course/chapters/03/tasks/3-5/index.html"}]},
+  "04": {"title": "第四章 · 感知与智能识别", "href": "course/chapters/04/overview/index.html", "tasks": [
+    {"id": "4-1", "label": "4-1", "short": "状态与传感数据", "href": "course/chapters/04/tasks/4-1/index.html"},
+    {"id": "4-2", "label": "4-2", "short": "激光雷达与点云", "href": "course/chapters/04/tasks/4-2/index.html"},
+    {"id": "4-3", "label": "4-3", "short": "安全帽识别", "href": "course/chapters/04/tasks/4-3/index.html"}]},
+  "05": {"title": "第五章 · 主体结构施工协同", "href": "course/chapters/05/overview/index.html", "tasks": [
+    {"id": "5-1", "label": "5-1", "short": "钢筋加工与识读", "href": "course/chapters/05/tasks/5-1/index.html"},
+    {"id": "5-2", "label": "5-2", "short": "钢筋绑扎机器人", "href": "course/chapters/05/tasks/5-2/index.html"},
+    {"id": "5-3", "label": "5-3", "short": "泵送振捣整平", "href": "course/chapters/05/tasks/5-3/index.html"}]},
+  "06": {"title": "第六章 · 装饰装修施工", "href": "course/chapters/06/overview/index.html", "tasks": [
+    {"id": "6-1", "label": "6-1", "short": "砌筑机器人", "href": "course/chapters/06/tasks/6-1/index.html"},
+    {"id": "6-2", "label": "6-2", "short": "地砖铺贴", "href": "course/chapters/06/tasks/6-2/index.html"},
+    {"id": "6-3", "label": "6-3", "short": "腻子打磨", "href": "course/chapters/06/tasks/6-3/index.html"},
+    {"id": "6-4", "label": "6-4", "short": "室内喷涂", "href": "course/chapters/06/tasks/6-4/index.html"}]},
+  "07": {"title": "第七章 · 巡检与数据复核", "href": "course/chapters/07/overview/index.html", "tasks": [
+    {"id": "7-1", "label": "7-1", "short": "桥梁巡检", "href": "course/chapters/07/tasks/7-1/index.html"},
+    {"id": "7-2", "label": "7-2", "short": "无人机立面巡检", "href": "course/chapters/07/tasks/7-2/index.html"}]},
+  "08": {"title": "第八章 · 安全操作与维护", "href": "course/chapters/08/overview/index.html", "tasks": [
+    {"id": "8-1", "label": "8-1", "short": "安全操作", "href": "course/chapters/08/tasks/8-1/index.html"},
+    {"id": "8-2", "label": "8-2", "short": "保养排查", "href": "course/chapters/08/tasks/8-2/index.html"}]}
+}

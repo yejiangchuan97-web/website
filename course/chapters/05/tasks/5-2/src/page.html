@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f7fc"><title>任务5-2 · 绑好一扣，查清一点</title><style>{{CSS}}</style></head>
+<body class="iso" data-theme="light" data-mode="game">
+<div id="screen">
+<header><a class="brand" href="../../5-1/index.html"><span class="brand-symbol">筑</span><span>智能建造实训室<small>任务 5-2 · 钢筋绑扎机器人</small></span></a><nav aria-label="教学主题"><button class="active" data-mode="game">01 上岗挑战</button><button data-mode="cycle">02 看懂这一扣</button><button data-mode="fault">03 卡丝怎么办</button></nav><div class="utilities"><button id="theme" aria-label="切换深浅主题" title="切换深浅主题">◐</button><button id="help" aria-label="教学说明">?</button></div></header>
+<main>
+<section class="stage iso-plate" aria-label="绑扎操作实训">
+<div class="intro"><div class="eyebrow" id="eyebrow">动手操作 · 完成任务</div><h1 id="headline">先绑四个点，再把质量查清。</h1><p id="subhead">移动枪口、对准交点、扣动扳机。完成后，接着做一次人工复核。</p></div>
+<div class="scene-tabs" aria-label="观察视图" hidden><button class="active" data-view="action">这一扣怎么形成</button><button data-view="structure">看看送丝部件</button></div>
+<div id="game-view" class="view"></div>
+<div id="action-view" class="view" hidden><div class="figure-corner">FIG 5.2 <span>单点绑扎 · 放慢看</span></div>
+    <svg id="action-svg" viewBox="0 -100 850 580" role="img" aria-label="绑扎头按定位、就位、送丝、扭结、离开动作工作，绑丝环绕上下两根钢筋">
+     <defs>
+      <linearGradient id="metal" x2="1" y2="1"><stop stop-color="var(--metal1)"/><stop offset=".42" stop-color="var(--metal2)"/><stop offset="1" stop-color="var(--metal3)"/></linearGradient>
+      <linearGradient id="bar" x2="0" y2="1"><stop stop-color="var(--bar1)"/><stop offset=".3" stop-color="var(--bar2)"/><stop offset=".75" stop-color="var(--bar3)"/><stop offset="1" stop-color="var(--bar1)"/></linearGradient>
+      <pattern id="rib" width="20" height="48" patternUnits="userSpaceOnUse" patternTransform="skewX(-16)"><path d="M5 1V47" stroke="var(--rib)" stroke-width="3"/><path d="M9 1V47" stroke="var(--bar2)" stroke-width="1"/></pattern>
+      <clipPath id="bar-clip"><rect x="205" y="326" width="425" height="46" rx="7"/></clipPath>
+      <filter id="shadow"><feGaussianBlur stdDeviation="9"/></filter>
+     </defs>
+     <ellipse cx="429" cy="434" rx="223" ry="11" fill="var(--shadow)" filter="url(#shadow)"/>
+     <g id="fixture" stroke="var(--edge)" stroke-width="1.2">
+      <path d="M166 420H680L665 436H152Z" fill="var(--metal3)"/><path d="M152 436H665V445H152Z" fill="var(--metal1)"/>
+      <path d="M234 372H262V420H234ZM572 372H600V420H572Z" fill="url(#metal)"/>
+      <path d="M224 412H273V420H224ZM562 412H611V420H562Z" fill="var(--metal2)"/>
+      <circle cx="232" cy="416" r="2"/><circle cx="265" cy="416" r="2"/><circle cx="570" cy="416" r="2"/><circle cx="603" cy="416" r="2"/>
+      <rect x="205" y="326" width="425" height="46" rx="7" fill="url(#bar)"/>
+      <rect x="204" y="326" width="427" height="46" fill="url(#rib)" clip-path="url(#bar-clip)" stroke="none"/>
+      <ellipse cx="630" cy="349" rx="5" ry="22" fill="var(--metal3)"/>
+      <circle cx="425" cy="300" r="26" fill="url(#bar)"/><circle cx="425" cy="300" r="20" fill="none" stroke="var(--rib)"/>
+      <path d="M409 289L441 311M410 308L440 292" stroke="var(--rib)" opacity=".5"/>
+      <rect x="313" y="428" width="77" height="11" rx="2" fill="var(--metal2)"/><circle cx="318" cy="433" r="1"/><circle cx="385" cy="433" r="1"/>
+      <path d="M325 432H375M325 435H355" stroke="var(--edge)" stroke-width=".7"/>
+     </g>
+     <path id="tie-loop" fill="none" stroke="var(--wire)" stroke-width="4.2" stroke-linecap="round"/>
+     <g id="knot" fill="none" stroke="var(--wire)" stroke-width="2.2" stroke-linecap="round"><path id="knot-a"/><path id="knot-b"/></g>
+     <g id="tool" stroke="var(--edge)" stroke-width="1.3">
+      <rect x="391" y="46" width="68" height="24" rx="4" fill="var(--metal3)"/>
+      <rect x="402" y="36" width="46" height="10" rx="2" fill="var(--metal1)"/>
+      <rect x="375" y="68" width="100" height="109" rx="10" fill="url(#metal)"/>
+      <path d="M386 68V175M464 68V175M375 88H475" fill="none" opacity=".6"/>
+      <g fill="var(--screw)"><circle cx="383" cy="78" r="2.4"/><circle cx="467" cy="78" r="2.4"/><circle cx="383" cy="163" r="2.4"/><circle cx="467" cy="163" r="2.4"/></g>
+      <g fill="var(--metal3)"><rect x="398" y="102" width="54" height="4" rx="2"/><rect x="398" y="112" width="54" height="4" rx="2"/><rect x="398" y="122" width="54" height="4" rx="2"/><rect x="398" y="132" width="54" height="4" rx="2"/></g>
+      <rect x="389" y="177" width="72" height="19" rx="3" fill="var(--metal3)"/>
+      <rect x="395" y="196" width="10" height="22" fill="var(--metal2)"/><rect x="445" y="196" width="10" height="22" fill="var(--metal2)"/>
+      <rect x="385" y="216" width="80" height="24" rx="4" fill="url(#metal)"/>
+      <rect x="405" y="222" width="40" height="32" rx="3" fill="var(--metal3)"/>
+      <g id="twister"><path d="M417 249V269Q425 280 433 269V249" fill="none" stroke="var(--screw)" stroke-width="5"/><rect x="415" y="244" width="20" height="9" rx="2" fill="var(--metal2)"/></g>
+      <g id="jaw-left"><path d="M386 229C333 248 320 288 329 337C337 371 355 391 382 398L389 384C366 374 351 355 348 330C341 290 354 263 392 249Z" fill="url(#metal)"/><path d="M388 239C346 259 332 289 341 332C348 363 365 384 386 391" fill="none" stroke="var(--rib)"/><circle cx="380" cy="245" r="4" fill="var(--metal3)"/></g>
+      <g id="jaw-right"><path d="M464 229C517 248 530 288 521 337C513 371 495 391 468 398L461 384C484 374 499 355 502 330C509 290 496 263 458 249Z" fill="url(#metal)"/><path d="M462 239C504 259 518 289 509 332C502 363 485 384 464 391" fill="none" stroke="var(--rib)"/><circle cx="470" cy="245" r="4" fill="var(--metal3)"/></g>
+      <g id="feed-wheel"><path d="M322 176H375V208H322Z" fill="var(--metal3)"/><circle cx="343" cy="188" r="15" fill="var(--metal2)"/><circle cx="343" cy="188" r="4" fill="var(--screw)"/><path id="wheel-mark" d="M343 176V184M343 192V200" stroke="var(--edge)" stroke-width="2"/></g>
+      <path d="M309 157L325 180" fill="none" stroke="var(--screw)" stroke-width="3"/>
+      <g id="reel"><circle cx="276" cy="120" r="52" fill="var(--metal1)"/><circle cx="276" cy="120" r="44" fill="none" stroke="var(--rib)" stroke-width="10"/><circle cx="276" cy="120" r="31" fill="none" stroke="var(--edge)"/><circle cx="276" cy="120" r="10" fill="var(--metal3)"/><path d="M285 120H308M267 120H244M276 111V88M276 129V152" stroke="var(--metal2)" stroke-width="5"/><path d="M308 98H375V111H324" fill="var(--metal3)"/></g>
+      <path id="supply-wire" d="M310 159L343 188L375 211L388 244" fill="none" stroke="var(--wire)" stroke-width="2.5"/>
+      <rect x="368" y="205" width="13" height="12" rx="2" fill="var(--metal2)"/>
+      <path id="cutter" d="M367 209L382 213L367 217Z" fill="var(--screw)"/>
+     </g>
+     <circle id="wire-tip" r="4" fill="var(--wire)"/>
+    </svg>
+
+<div class="detail-window"><div class="detail-title">绑丝近看<span>暂时隐藏工具，看清是否绕住两根筋</span></div><svg viewBox="315 236 220 179" role="img" aria-label="交点绑丝的放大剖面"><use href="#fixture"/><use href="#tie-loop"/><use href="#knot"/><use href="#wire-tip"/></svg><p id="detail-caption"></p><small><i></i> 橙色是绑丝<br>圆形、长条分别表示两根钢筋</small></div><div class="drawing-note"><span class="key-mark"></span>绑丝要绕全，扭结才有意义</div><div class="drawing-readout" id="drawing-readout"></div></div>
+<div id="structure-view" class="view" hidden><div class="figure-corner">FIG 5.2 <span>供丝路径 · 固定剖视教学台</span></div><div id="iso-model">{{FIGURE}}</div><div class="component-list" aria-label="查看部件"><button data-part="spool">供丝盘</button><button data-part="feed">送丝轮</button><button data-part="head">工具头</button><button data-part="guide">导向槽</button><button data-part="bars">两根钢筋</button></div><p id="component-note">点击部件，看它怎样帮助绑丝绕过交点。</p></div>
+<div class="stage-footer"><span id="stage-hint">拖动或点按移动枪口 · 方向键微调 · 空格扣动扳机</span><span>教学情境 · 不连接设备</span></div></section>
+<aside aria-label="操作面板"><div id="game-controls"></div>
+<div id="study-controls" hidden><div class="panel-top"><span id="panel-label">只看一个关键点</span><span class="mini">操作观察</span></div>
+<div id="cycle-content" class="mode-content"><span class="section-label">小知识 · 送丝到位</span><h2>轮子转了，<br>不等于绑丝绕全了。</h2><p class="body-text">送丝轮把绑丝向前推，导向槽让它绕过交点。要看的是：<strong>绑丝有没有包住两根钢筋。</strong></p><div class="observation"><span id="phase-number">03 / 05</span><h3 id="phase-title"></h3><p id="phase-watch"></p><p id="phase-text" hidden></p></div></div>
+<div id="fault-content" class="mode-content" hidden><span class="section-label">异常处置 · 送丝受阻</span><h2>丝没绕完，<br>这个点就没有完成。</h2><p class="body-text">播放卡丝情境，看看绑丝停在哪里。随后保留异常点，再进入停机检查。</p><div class="segmented"><button data-fault="jam" class="active">卡丝情境</button><button data-fault="normal">正常对照</button></div><div id="fault-message" class="observation"></div><div class="fault-actions"><button id="mark-fault">① 保留异常点</button><button id="isolate-fault">② 模拟停机隔离</button><button id="inspect-fault">③ 查看供丝路径</button></div><p id="fault-feedback" role="status">先播放卡丝情境，观察送丝停住的位置。</p></div>
+<div class="metrics"><div><span>送丝目标</span><strong id="target-read"></strong></div><div><span>当前送丝</span><strong id="feed-read"></strong></div><div><span>本点记录</span><strong class="text-metric" id="status-read"></strong></div></div>
+<div id="play-controls"><div class="play-line"><button id="play" class="primary" aria-label="播放动作">▶ 播放动作</button><button id="reset" aria-label="回到开始">↺</button><button id="speed" title="切换速度">0.5×</button></div><div class="range-top"><label for="progress">慢放观察</label><output id="progress-read">0%</output></div><input id="progress" type="range" min="0" max="1000" value="0" aria-label="绑扎动作进度"><div class="range-ends"><span>定位</span><span>送丝</span><span>离开</span></div></div><div class="panel-bottom"><span class="status-dot"></span><span id="mode-status">送丝百分比仅表示教学进度</span></div></div></aside>
+</main>
+<section id="game-route" class="game-route" aria-label="操作任务"><div><b>01</b><span><strong>先对准</strong><small>枪口覆盖交点</small></span></div><div><b>02</b><span><strong>再绑扎</strong><small>绕住两根钢筋</small></span></div><div><b>03</b><span><strong>最后复核</strong><small>发现问题，补绑再查</small></span></div><p>完成动作只是开始。<br><strong>把每一个待查点查清楚。</strong></p></section>
+<section class="timeline" hidden aria-label="五个绑扎动作"><div class="timeline-label"><span class="eyebrow">一次绑扎</span><h2>从对点到离开</h2><p>点击动作定格观察</p></div><div id="phase-buttons"></div></section>
+<footer><span><i class="legend-dot orange"></i>绑丝 / 待查　<i class="legend-dot green"></i>本练习已复核</span><span>绑好一扣，查清一点</span><button id="sources">依据与说明 ↗</button></footer></div>
+<dialog id="info"><button id="close-info" aria-label="关闭说明">×</button><div class="eyebrow">教学说明</div><h2>从操作结果，理解这一扣。</h2><p>先在“上岗挑战”完成四点绑扎，再进入停机状态下的人工复核练习。缺丝可通过目视发现；松扣通过模拟轻拉呈现。补绑后仍要重新检查。本页的“已复核”只表示练习完成。</p><p>“看懂这一扣”只聚焦送丝轮推动绑丝、导向槽引导成环，以及绑丝须绕住两根钢筋。五步动作用于回看操作过程，固定剖视台用于识别部件；它们是教学示意，不是某一机型的工程复刻。</p><p>游戏对准范围、进度和样例反馈均为教学设定，不代表设备精度、额定参数或真实验收标准。动画中的切断、收紧与扭结顺序是简化表达，具体结构与动作以所用机型手册为准。</p><p>卡丝时保留异常点并停止后续绑扎；实际清障前按设备规程停机、锁止、隔离能源并确认不可运动，由授权人员处理。网页中的“模拟停机隔离”不会操作真实设备。</p><p>操作：上岗挑战支持点按/拖动、方向键和空格；动作页支持空格播放/暂停、左右微调、Home/End。F 全屏，Esc 关闭说明或退出全屏。减少动态效果时，动作页改为单步；游戏操作直接显示结果。</p><p>课程依据：<a href="README.md">任务5-2教学说明</a>。实际牢固度须按现场要求检查。</p></dialog>
+<script>{{MODEL}}
+{{GAME_MODEL}}
+{{GAME}}
+{{APP}}</script></body></html>

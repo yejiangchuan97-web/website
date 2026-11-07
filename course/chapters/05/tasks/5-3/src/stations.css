@@ -1,0 +1,50 @@
+/* 5-3：统一外壳里的楼面分区图等；同时压住 shared/workshop/ui.css 的全局 h1/h2/p/button 规则对外壳的影响 */
+html.lab-native .c2-top, html.lab-native .c2-bar, html.lab-native .c2-main { font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Segoe UI",sans-serif; }
+html.lab-native .c2-panel p, html.lab-native .c2-bar h1, html.lab-native .c2-panel h2 { line-height:1.5; }
+
+/* 三维区：原 .scene-host 的渐变底和最小高度不要 */
+html.lab-native #scene.c2-native-stage { background:transparent; min-height:0 !important; }
+html.lab-native #scene .hotspot { font-size:11.5px; padding:4px 10px; border-radius:14px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); box-shadow:var(--shadow-sm); line-height:1.4; }
+html.lab-native #scene .hotspot[aria-pressed=true] { background:var(--course-accent); border-color:var(--course-accent); color:#fff; }
+html[data-theme="dark"].lab-native #scene .hotspot[aria-pressed=true] { color:#0f1d2e; }
+
+/* 楼面分区图 */
+.p53-map { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+.p53-tile {
+  position:relative; overflow:hidden; display:flex; align-items:baseline; justify-content:space-between; gap:4px;
+  height:44px; padding:0 10px !important; border-radius:11px !important; border:1px solid var(--hair) !important;
+  background:var(--surface-2) !important; color:var(--course-ink) !important; box-shadow:none; text-align:left; line-height:44px !important;
+  --tone:#8aacc3;
+}
+.p53-tile > b, .p53-tile > small { position:relative; z-index:1; }
+.p53-tile > b { font-size:15px; font-weight:800; }
+.p53-tile > small { font-size:12px; color:var(--course-muted); font-variant-numeric:tabular-nums; }
+.p53-fill { position:absolute; left:0; right:0; bottom:0; height:0; background:color-mix(in srgb, var(--tone) 34%, transparent); transition:height .3s, background .3s; }
+.p53-tile[data-kind=part] { --tone:#4f8fd0; }
+.p53-tile[data-kind=filled] { --tone:#9aa7b0; }
+.p53-tile[data-kind=vibrated] { --tone:#5d6b7c; }
+.p53-tile[data-kind=ok] { --tone:#1f8a5b; }
+.p53-tile[data-kind=off] { --tone:#c77a12; }
+.p53-tile:is([data-kind=ok], [data-kind=off]) > small { color:var(--tone); font-weight:700; }
+.p53-tile:hover { border-color:var(--course-accent) !important; }
+.p53-tile[aria-pressed=true] { border-color:var(--course-accent) !important; box-shadow:0 0 0 1.5px var(--course-accent) inset; }
+.p53-tile[aria-pressed=true] > b { color:var(--course-accent); }
+.p53-info { margin:2px 0 0 !important; font-size:12.5px; color:var(--course-muted); font-variant-numeric:tabular-nums; }
+.p53-legend { display:flex; flex-wrap:wrap; gap:4px 10px; font-size:11.5px; color:var(--course-muted); }
+.p53-legend span { display:inline-flex; align-items:center; gap:4px; }
+.p53-dot { width:9px; height:9px; border-radius:3px; display:inline-block; }
+.p53-dot.part { background:#4f8fd0; } .p53-dot.filled { background:#9aa7b0; } .p53-dot.vibrated { background:#5d6b7c; }
+.p53-dot.ok { background:#1f8a5b; } .p53-dot.off { background:#c77a12; }
+
+/* 并排的主按钮与开关等宽 */
+html.lab-native .c2-panel .c2-row > * { flex:1; }
+
+@media (max-height:720px) {
+  .p53-tile { height:34px; line-height:34px !important; }
+  .p53-map { gap:5px; }
+  .p53-legend { display:none; }
+}
+
+/* 控件组标题右侧的小按钮（载入示例） */
+html.lab-native .c2-group h3 .c2-btn.c2-small { margin-left:auto; height:24px; padding:0 9px; font-size:12px; font-weight:600; }
+html.lab-native .c2-group h3:has(.c2-btn) { display:flex; align-items:center; }

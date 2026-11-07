@@ -1,0 +1,11 @@
+import{readFileSync,writeFileSync}from'node:fs';
+import{Script}from'node:vm';
+import{createHash}from'node:crypto';
+import assert from'node:assert/strict';
+const html=readFileSync(new URL('../../index.html',import.meta.url),'utf8');
+const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(x=>x[1]);for(const script of scripts)new Script(script);
+assert.equal(scripts.length,2);assert.ok(!/\{\{(?:MODEL|APP|SCENE|CSV_TOOLS|DIALOGS)\}\}/.test(html));
+const csv=readFileSync(new URL('export-check.csv',import.meta.url),'utf8');assert.ok(csv.includes('angular_velocity_deg_s')&&csv.includes('起步与制动')&&csv.includes('原地转向'));
+const lines=csv.trim().split(/\r?\n/);assert.equal(lines.length,1603);
+const result={inlineScriptsParsed:scripts.length,exportedDataRows:lines.length-1,sha256:createHash('sha256').update(html).digest('hex')};
+writeFileSync(new URL('file-check.json',import.meta.url),JSON.stringify(result,null,2));console.log(result);

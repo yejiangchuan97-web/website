@@ -1,0 +1,2009 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="离线有刷直流电机交互教学：剖切结构、机械换向、安培力、转速转矩功率与机器人减速传动。"
+    />
+    <title>有刷直流电机 · 交互实验室</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+
+  <style data-chapter2-layout>/* Chapter 2 follows the course gallery palette and compact navigation. */
+html[data-c2] body{padding-top:54px!important;box-sizing:border-box;height:100dvh}
+.c2-nav{position:fixed;inset:0 0 auto;height:54px;z-index:1000;display:flex;align-items:center;gap:28px;padding:0 28px;background:#101b29;color:#e2edf8;border-bottom:1px solid #2c4055;font:16px/1.4 "Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;box-sizing:border-box}
+.c2-nav *{box-sizing:border-box}.c2-nav a{color:inherit;text-decoration:none}.c2-home{display:flex;align-items:center;gap:10px;white-space:nowrap;font-weight:700;flex-shrink:0}.c2-home>b{display:grid;place-items:center;width:36px;height:36px;background:#244e75;border-radius:7px 12px 7px 7px;font-size:29px;color:white;font-weight:400}.c2-home small{display:block;font-size:12px;color:#7892aa;font-weight:400;margin-top:3px}.c2-links{display:flex;gap:8px;margin:auto;min-width:0;overflow-x:auto}.c2-links a{padding:9px 15px;border:1px solid transparent;white-space:nowrap;border-radius:6px;font-size:15px}.c2-links small{font:13px Consolas,monospace;color:#7294b5;margin-right:7px}.c2-links a:hover{background:#e7f0fc}.c2-links [aria-current]{background:#e1edff;color:#245fae;border-color:#bfd4ef;font-weight:700}.c2-course{font-size:14px;white-space:nowrap;color:#527a9f!important}.c2-nav a:focus-visible{outline:3px solid #e9ad50;outline-offset:2px}
+html[data-c2=transmission]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--green:#286dde;--mint:#e2edff;--paper:#eff5fc}
+html[data-c2=mechanisms]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--green:#286dde;--panel:#f3f7fd}
+html[data-c2=fourbar]:not(.dark){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--card:#fff;--panel:#f3f7fd;--accent:#286dde;--soft:#e2edff}
+html[data-c2=mechanisms] .shell{max-width:1600px}
+@media(max-width:900px){.c2-nav{padding:0 12px;gap:12px}.c2-links{gap:2px}.c2-links a{padding:8px 10px}.c2-course{display:none}}
+@media(max-width:600px){.c2-nav{height:96px;flex-wrap:wrap;padding:8px 10px;gap:4px;align-content:center}.c2-home>b{width:27px;height:27px;font-size:25px}.c2-home{font-size:14px}.c2-home small{font-size:11px}.c2-links{width:100%;order:2;margin:0}.c2-links a{font-size:13px;padding:7px 9px}.c2-links small{font-size:11px;margin-right:4px}html[data-c2] body{padding-top:96px!important}}
+@media print{.c2-nav{display:none}html[data-c2] body{padding-top:0!important}}
+/* Keep existing labs' controls accessible under the chapter navigation. */
+.c2-lesson-notes{margin-top:10px;border:1px solid #d4e1ef;border-radius:7px;background:#ffffffbb;padding:8px 14px}.c2-lesson-notes>summary{font-size:14px;color:#52799b;cursor:pointer}
+@media(min-width:821px){html[data-c2=mechanisms] .lab>.stage{height:clamp(200px,calc(100dvh - 660px),300px)}html[data-c2=mechanisms] .shell{padding-top:15px;padding-bottom:10px}html[data-c2=mechanisms] .lessons{margin-top:10px}html[data-c2=mechanisms] .lesson p{font-size:12px}html[data-c2=fourbar] #fb-stage{height:clamp(235px,calc(100dvh - 600px),336px)}html[data-c2=fourbar] .fb-shell{padding-top:16px;padding-bottom:12px}html[data-c2=fourbar] .fb-header{margin-bottom:14px}}
+
+.c2-nav .c2-home small{color:#8da8c4}.c2-nav .c2-links small{color:#89a5c0}.c2-nav .c2-links a:hover{background:#1a2e45}.c2-nav .c2-links [aria-current]{background:#203f62;color:#d9edff;border-color:#3a638c}.c2-nav .c2-course{color:#9bbcdc!important}.c2-lesson-notes{border-color:#30485d;background:#142331}.c2-lesson-notes>summary{color:#acc5db}
+html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes{background:#f5f9ff;border-color:#d4e1ef}html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes>summary{color:#52799b}
+
+/* Chapter 2 workstation, shared with both built and directly maintained pages. */
+.c2-render-fallback{position:absolute;left:10px;bottom:32px;z-index:4;max-width:calc(100% - 20px);padding:5px 8px;border:1px solid var(--course-line);border-radius:5px;background:var(--course-surface);color:var(--course-muted);font:12px/1.5 "Microsoft YaHei",sans-serif;pointer-events:none}
+html[data-c2] body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif}
+html[data-c2][data-theme]{--green:var(--course-accent)}
+html[data-c2=mechanisms][data-theme] :is(.lab .controls,.lab .lab-foot,.c2-lesson-notes),html[data-c2=fourbar][data-theme] :is(.fb-card,.fb-tools){background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] :is(.toolbar,.view-buttons,.controls) button,html[data-c2=fourbar][data-theme] :is(.fb-tools,.fb-motion) button{background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] button[aria-pressed=true],html[data-c2=fourbar][data-theme] button[aria-pressed=true]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-accent)}
+html[data-c2][data-theme] input[type=range],html[data-c2][data-theme] input[type=checkbox]{accent-color:var(--course-accent)}
+html[data-c2=transmission][data-theme] .topbar nav{background:var(--soft)}
+html[data-c2] [hidden]{display:none!important}
+html[data-c2] .c2-nav{gap:18px;padding-inline:24px}
+html[data-c2] .c2-nav .c2-home{color:var(--course-ink)}
+html[data-c2] .c2-nav :is(.c2-home small,.c2-links small,.c2-course){color:var(--course-muted)!important}
+html[data-c2] .c2-nav .c2-links a[aria-current]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-line)}
+html[data-c2] .c2-nav .c2-links a:hover{background:var(--soft);color:var(--course-ink)}
+html[data-c2] :is(.c2-button,.c2-experiments button){font:500 14px/1.4 "Microsoft YaHei",sans-serif;min-height:36px;padding:7px 12px;border:1px solid var(--course-line);border-radius:7px;background:var(--course-surface);color:var(--course-ink);white-space:nowrap;cursor:pointer;box-shadow:none;letter-spacing:0}
+html[data-c2] .c2-button:hover{border-color:var(--course-accent);background:var(--blue-soft)}
+html[data-c2] .c2-button:focus-visible{outline:3px solid var(--course-accent);outline-offset:3px}
+html[data-c2] :is(.c2-guide-button,.c2-primary){color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+.c2-learning-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+html[data-c2] .c2-original-help{display:none}
+html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:30px;line-height:1.3;letter-spacing:0}
+html[data-c2] :is(.sub,.fb-header p,.brand p){font-size:14px;line-height:1.7;color:var(--course-muted)}
+html[data-c2] .c2-view{position:relative;background:var(--course-surface);border:1px solid var(--course-line);border-radius:12px;overflow:hidden;min-width:0}
+html[data-c2] .c2-viewbar{position:relative;z-index:6;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 14px;border-bottom:1px solid var(--course-line);background:var(--course-surface);color:var(--course-muted);flex:none}
+.c2-view-label{font-size:13px;white-space:nowrap;letter-spacing:.5px}
+.c2-view-actions,.c2-view-motion{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+html[data-c2] .c2-viewbar .c2-button{min-height:32px;padding:5px 10px;font-size:13px}
+html[data-c2] .c2-viewbar :is(.view-tools,.scene-tools){position:static;inset:auto;margin:0;display:flex;gap:5px;box-shadow:none;align-items:center}
+html[data-c2] .c2-viewbar .live{display:none}
+html[data-c2] .c2-viewbar .c2-view-motion{display:none}
+
+html[data-c2] .c2-dialog{width:min(700px,calc(100vw - 32px));height:auto;max-height:85dvh;max-width:700px;padding:0;border:1px solid var(--course-line);border-radius:14px;background:var(--course-surface);color:var(--course-ink);box-shadow:0 24px 80px #06182a55;overflow:auto;font-size:15px;line-height:1.8}
+.c2-dialog::backdrop{background:#071a2bb3;backdrop-filter:blur(3px)}
+.c2-dialog-head,.c2-dialog-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 24px;background:var(--course-surface)}
+.c2-dialog-head{border-bottom:1px solid var(--course-line)}
+html[data-c2] .c2-dialog h2{font-size:22px;margin:0;line-height:1.5}
+html[data-c2] .c2-dialog h3{font-size:16px;margin:20px 0 8px;color:var(--course-accent)}
+.c2-dialog-body{padding:0 28px 8px}.c2-dialog-body ul,.c2-dialog-body ol{padding-left:24px}.c2-dialog-body li{margin:10px 0}.c2-steps p{margin:4px 0;color:var(--course-muted)}
+.c2-reflection{padding:12px 16px;border-left:3px solid var(--course-accent);background:var(--blue-soft)}
+.c2-boundary{font-size:13px;color:var(--course-muted);border-top:1px solid var(--course-line);padding-top:14px}
+.c2-dialog-foot{justify-content:flex-end;border-top:1px solid var(--course-line)}
+
+/* Diesel: reserve a stable heading area and keep playback beside the model. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mechanics: one large observation area with controls, optional side-by-side. */
+html[data-c2=mechanisms] .shell{padding:18px 24px;max-width:1648px}
+.c2-experiments{display:flex;gap:8px;margin:4px 0 14px}
+html[data-c2] .c2-experiments [aria-pressed=true]{color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+html[data-c2=mechanisms] .labs[data-presentation=single]{display:block}
+html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;background:transparent;border:0;box-shadow:none;overflow:visible}
+html[data-c2=mechanisms] .c2-control-column{border:1px solid var(--course-line);border-radius:12px;background:var(--course-surface);overflow:auto;max-height:calc(100dvh - 300px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:clamp(300px,calc(100dvh - 450px),510px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline{grid-template-columns:1fr}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline>button{justify-self:end}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-head{flex-wrap:wrap}
+html[data-c2=mechanisms] .labs[data-presentation=single] .controls{grid-template-columns:1fr;padding:20px;gap:18px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .lengths{grid-template-columns:1fr;gap:16px}
+html[data-c2=mechanisms] .labs[data-presentation=single] :is(.control-head,.control select,.inline-toggles,.force-line,.lab-foot){font-size:14px;line-height:1.7}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats{padding:16px;grid-template-columns:1fr;gap:12px;background:var(--soft)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat{border:0;border-bottom:1px solid var(--course-line);padding-bottom:8px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-family:inherit;font-size:24px;line-height:1.5}
+html[data-c2=mechanisms] .lab .stage{background:var(--course-bg);border-color:var(--course-line)}
+html[data-c2=mechanisms] .lab-head{padding:14px 16px 10px}
+html[data-c2=mechanisms] .viewbar{margin:0 14px 10px}
+html[data-c2=mechanisms] .viewbar button{font-size:13px;min-height:30px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .stage{height:300px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-control-column{border:0}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-view{border:0;border-radius:0}
+html[data-c2=mechanisms] .c2-lesson-notes{margin-top:16px}
+
+html[data-c2=fourbar] .fb-shell{max-width:1648px;padding:18px 24px}
+html[data-c2=fourbar] #fb-stage{height:clamp(300px,calc(100dvh - 530px),420px)}
+html[data-c2=fourbar] .fb-card{border-color:var(--course-line)}
+html[data-c2=fourbar] .fb-stage{background:var(--course-bg)}
+html[data-c2=fourbar] .fb-header nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+html[data-c2=fourbar] .fb-gripper .c2-viewbar{padding-inline:10px}.fb-gripper .c2-view-label{font-size:12px}
+html[data-c2=transmission] .viewport{background:var(--course-bg)}
+html[data-c2=transmission] .viewport>.c2-viewbar{position:absolute;inset:0 0 auto}
+html[data-c2=transmission] .scene-bottom{bottom:100px}
+html[data-c2=transmission] .viewport.c2-expanded>.c2-viewbar{position:absolute}
+html[data-c2=transmission] .scene-heading{top:68px;left:24px}
+html[data-c2=transmission] .scene-heading h1{font-size:28px;font-weight:650}
+html[data-c2=transmission] #canvasWrap{top:140px}
+html[data-c2=transmission] .topbar{gap:12px}
+
+
+
+/* Expansion never re-parents a canvas or resets a lesson. */
+html[data-c2] .c2-view.c2-expanded{width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;min-height:0!important;margin:0!important;border:0;border-radius:0;display:flex;flex-direction:column;overflow:auto;background:var(--course-bg);padding:0}
+html[data-c2] .c2-view.c2-fallback{position:fixed!important;inset:0!important;z-index:5000!important}
+html[data-c2] .c2-expanded .c2-viewbar{position:sticky;top:0;flex-shrink:0}
+html[data-c2] .c2-expanded .c2-view-motion{display:flex}
+html[data-c2] .c2-expanded>.stage,html[data-c2] .c2-expanded #fb-stage{flex:1;min-height:300px;height:auto!important}
+html[data-c2] .c2-expanded .grip-stage{flex:1;height:auto!important;min-height:300px}
+html[data-c2=fourbar] .fb-main.c2-expanded :is(.fb-mechanics,.fb-force-stats,.fb-feedback){display:none}
+
+html[data-c2=transmission] .viewport.c2-expanded #canvasWrap{position:absolute;inset:140px 0 120px}
+
+
+
+@media(max-width:1100px){
+  html[data-c2] .c2-nav{gap:8px;padding-inline:14px}.c2-links a{padding:8px}.c2-home small{display:none}
+  html[data-c2] .c2-course{display:none}
+  html[data-c2] :is(.mast,.fb-header){flex-wrap:wrap;gap:12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{grid-template-columns:minmax(0,1fr) 300px}
+
+
+
+  html[data-c2] .c2-view-label{letter-spacing:0;font-size:12px}
+}
+@media(max-width:820px){
+  html[data-c2] body{height:auto;min-height:100dvh;overflow:auto}
+  html[data-c2] .c2-viewbar{gap:6px;flex-wrap:wrap;padding:8px 10px}
+  html[data-c2] .c2-view-actions{margin-left:auto}
+  html[data-c2] :is(.mast,.fb-header,.topbar){flex-wrap:wrap;height:auto;gap:12px}
+  html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:25px}
+  html[data-c2] .c2-learning-actions{margin-left:auto}
+
+
+
+
+
+
+
+
+
+
+
+  html[data-c2=mechanisms] .shell,html[data-c2=fourbar] .fb-shell{padding:16px 12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:block}
+  html[data-c2=mechanisms] .c2-control-column{max-height:none;margin-top:14px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-size:20px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:360px}
+  html[data-c2=transmission]{overflow:auto;height:auto}
+  html[data-c2=transmission] body{display:block;padding-inline:12px}
+  html[data-c2=transmission] .topbar{padding-block:16px}
+  html[data-c2=transmission] .workspace{display:block;height:auto}
+  html[data-c2=transmission] .viewport{height:580px;margin-bottom:14px}
+  html[data-c2=transmission] .control-panel{height:auto;overflow:visible}
+  html[data-c2=transmission] .panel-scroll{overflow:visible;max-height:none}
+  html[data-c2=transmission] .scene-heading{top:105px}
+  html[data-c2=transmission] #canvasWrap{top:185px}
+  html[data-c2] .c2-dialog-head{padding:16px}.c2-dialog-body{padding-inline:20px}
+  html[data-c2] .c2-dialog h2{font-size:19px}
+}
+@media(max-width:600px){
+  html[data-c2] .c2-nav{height:112px;align-content:center}.c2-nav .c2-home{font-size:13px}.c2-nav .c2-links{order:3}
+  html[data-c2] body{padding-top:112px!important}
+  html[data-c2] .c2-nav .c2-links a{font-size:12px;padding:7px 8px}
+  html[data-c2] .c2-nav .c2-links small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){html[data-c2] *,html[data-c2] *::before,html[data-c2] *::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mechanisms use one canvas and one parameter column, like transmission. */
+html[data-c2=mechanisms] .mast { min-height: 88px; margin-bottom: 10px; }
+html[data-c2=mechanisms] .mast .toolbar { justify-content: flex-end; }
+html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: max(540px,calc(100dvh - 260px)); }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { display: flex; flex-direction: column; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage { flex: 1; min-height: 240px; height: auto; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: 100%; max-height: none; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats { grid-template-columns: repeat(3,minmax(0,1fr)); padding: 12px; gap: 10px; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat { border-bottom: 0; padding-bottom: 0; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value { font-size: 21px; }
+html[data-c2=mechanisms] .lab-head { padding: 16px 16px 8px; flex-wrap: wrap; }
+html[data-c2=mechanisms] .lab-head h2 { font-size: 18px; }
+.mechanism-observation { padding: 0 16px 14px; border-bottom: 1px solid var(--course-line); }
+.mechanism-observation h3 { margin: 4px 0 6px; font-size: 15px; }
+.mechanism-observation p { margin: 0; font-size: 13px; line-height: 1.7; color: var(--course-muted); }
+.c2-mechanism-transport { display: flex; align-items: center; gap: 7px; padding: 9px 14px; border-top: 1px solid var(--course-line); background: var(--course-surface); }
+.c2-mechanism-transport label { margin-left: auto; font-size: 13px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons { display: flex; gap: 4px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons button { min-height: 30px; padding: 4px 8px; }
+html[data-c2=mechanisms] .viewbar { margin: 6px 12px; min-height: 0; }
+@media(max-width:820px) {
+  html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: auto; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { height: 520px; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: auto; }
+  .c2-mechanism-transport { flex-wrap: wrap; }
+}
+</style><script>/* 三维区底色（全课程统一）：近白中性灰，适合印刷教材截图；深色模式用深石墨色。
+ * 取值以 shared/lab-shell/lab-shell.css 里的 --stage-bg / --stage-floor / --stage-shadow 为准（深浅色一起切换）；
+ * 页面样式还没载入时（运行时才挂外壳的页面、第二章被嵌入前的原版实验页）用下面同值的后备。
+ * 用法：StageTone.bg() → '#f5f6f8'；StageTone.color(THREE) → THREE.Color；
+ *       StageTone.paint(scene, THREE) 设底色并让雾跟着变；StageTone.contactShadow(THREE, {size}) 模型下方的柔和接触阴影。
+ * 第二章：原版实验页被嵌入时，外壳把自己的取值经 postMessage 传进来（embed-bridge.js 调 StageTone.use）。
+ */
+(() => {
+  'use strict';
+  if (window.StageTone) return;
+  const FALLBACK = {
+    light: {bg: '#f5f6f8', floor: '#eceef1', shadow: 'rgba(28,36,48,.20)'},
+    dark: {bg: '#1a1f27', floor: '#222833', shadow: 'rgba(0,0,0,.55)'},
+  };
+  const root = document.documentElement;
+  let cache = null, override = null;
+  const theme = () => (root.dataset.theme === 'dark' ? 'dark' : 'light');
+  const read = () => {
+    const t = theme(), f = FALLBACK[t], cs = getComputedStyle(root);
+    const v = n => cs.getPropertyValue(n).trim();
+    return {theme: t, bg: v('--stage-bg') || f.bg, floor: v('--stage-floor') || f.floor, shadow: v('--stage-shadow') || f.shadow, ...(override?.[t] || {})};
+  };
+  const get = () => (cache && cache.theme === theme() ? cache : (cache = read()));
+  addEventListener('course-theme-change', () => { cache = null; });
+
+  /* 电脑上（鼠标操作、宽屏）让三维画布保留最后一帧，“保存三维截图”随时读得到；
+     不少页面是“画面有变化才重画”，不保留的话读到的是空白。手机上不开，省一次每帧拷贝。 */
+  try {
+    if (matchMedia('(pointer:fine) and (min-width:901px)').matches) {
+      const original = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (type, attrs) {
+        return original.call(this, type, /^(webgl|webgl2|experimental-webgl)$/.test(type) ? {...(attrs || {}), preserveDrawingBuffer: true} : attrs);
+      };
+    }
+  } catch { /* 保持默认 */ }
+
+  /* 三维截图：把 root 里正在显示的三维画布存成一张 PNG（铺统一底色，不含页面上的按钮和文字标签）。
+     画布内容只在“刚画完的那一帧”里读得到，所以排在页面自己的绘制之后读；读到空白就催一次重绘、下一帧再试。 */
+  const blank = canvas => {
+    const probe = document.createElement('canvas'); probe.width = probe.height = 24;
+    const g = probe.getContext('2d', {willReadFrequently: true}); g.drawImage(canvas, 0, 0, 24, 24);
+    const d = g.getImageData(0, 0, 24, 24).data;
+    for (let i = 3; i < d.length; i += 4) if (d[i]) return false;
+    return true;
+  };
+  function capture(scope = document.body, {scale = 1} = {}) {
+    const list = [...scope.querySelectorAll('canvas')].filter(c => { const r = c.getBoundingClientRect(); return r.width > 80 && r.height > 80 && getComputedStyle(c).visibility !== 'hidden'; });
+    const canvas = list.sort((a, b) => (b.dataset.engine ? 1 : 0) - (a.dataset.engine ? 1 : 0) || b.width * b.height - a.width * a.height)[0];
+    return new Promise(resolve => {
+      if (!canvas) return resolve(null);
+      let tries = 0;
+      const grab = () => {
+        try {
+          if (blank(canvas) && ++tries < 8) { if (tries === 1 || tries === 4) dispatchEvent(new Event('resize')); return requestAnimationFrame(grab); }
+          const out = document.createElement('canvas'); out.width = Math.round(canvas.width * scale); out.height = Math.round(canvas.height * scale);
+          const g = out.getContext('2d'); g.fillStyle = get().bg; g.fillRect(0, 0, out.width, out.height);
+          g.imageSmoothingQuality = 'high'; g.drawImage(canvas, 0, 0, out.width, out.height);
+          resolve(out.toDataURL('image/png'));
+        } catch { resolve(null); }
+      };
+      requestAnimationFrame(grab);
+    });
+  }
+
+  window.StageTone = {
+    get, capture,
+    bg: () => get().bg,
+    floor: () => get().floor,
+    /** 底色的 THREE.Color（传入页面自己的 THREE，模块化页面也能用）。 */
+    color: (T = window.THREE, key = 'bg') => new T.Color(get()[key]),
+    /** 设场景底色，雾（若有）随底色。返回 scene 便于链式调用。 */
+    paint(scene, T = window.THREE) {
+      if (!scene) return scene;
+      const c = get().bg;
+      if (scene.background?.isColor) scene.background.set(c); else scene.background = new T.Color(c);
+      if (scene.fog?.color) scene.fog.color.set(c);
+      return scene;
+    },
+    /** 模型下方的柔和接触阴影：一张径向渐变贴图的平面（不受光照影响，深浅色自动换）。
+     *  size 为直径（场景单位），up 为 'y' 或 'z'（哪个轴朝上）。返回 Mesh，自己 position 到模型脚下。 */
+    contactShadow(T = window.THREE, {size = 1, up = 'y', strength = 1} = {}) {
+      const c = document.createElement('canvas'); c.width = c.height = 128;
+      const g = c.getContext('2d'), grad = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      grad.addColorStop(0, 'rgba(0,0,0,1)'); grad.addColorStop(.45, 'rgba(0,0,0,.55)'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grad; g.fillRect(0, 0, 128, 128);
+      const tex = new T.CanvasTexture(c);
+      const mat = new T.MeshBasicMaterial({map: tex, color: 0x000000, transparent: true, depthWrite: false, toneMapped: false});
+      const mesh = new T.Mesh(new T.PlaneGeometry(size, size), mat);
+      if (up === 'y') mesh.rotation.x = -Math.PI / 2;
+      mesh.renderOrder = -1; mesh.userData.contactShadow = true;
+      const tone = () => { mat.opacity = (theme() === 'dark' ? .5 : .16) * strength; };
+      tone(); addEventListener('course-theme-change', tone);
+      return mesh;
+    },
+    /** 外部指定取值（第二章嵌入时由外壳传入）；传 null 取消。 */
+    use(values) { override = values; cache = null; },
+    refresh() { cache = null; return get(); },
+  };
+})();
+
+/* Optional Canvas 2D projection of the same articulated scene when WebGL is unavailable.
+ * Component silhouettes preserve the original state/kinematics; no lighting or clipping.
+ */
+window.createChapterRenderer = options => {
+  const T=window.THREE;
+  const probe=document.createElement('canvas');
+  let context=null;
+  try{context=probe.getContext('webgl2')||probe.getContext('webgl');}catch{}
+  if(context){context.getExtension('WEBGL_lose_context')?.loseContext();try{return new T.WebGLRenderer(options);}catch{}}
+  const canvas=options?.canvas||document.createElement('canvas'),ctx=canvas.getContext('2d');
+  if(!ctx)throw new Error('Canvas 2D is unavailable');
+  const cache=new WeakMap();let width=1,height=1,viewport=null,scissor=false;
+  function hull(points){
+    points.sort((a,b)=>a.x-b.x||a.y-b.y);
+    const cross=(o,a,b)=>(a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x),lo=[],hi=[];
+    for(const p of points){while(lo.length>1&&cross(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}
+    for(const p of points.slice().reverse()){while(hi.length>1&&cross(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}
+    return lo.slice(0,-1).concat(hi.slice(0,-1));
+  }
+  const renderer={
+    isFallback:true,domElement:canvas,shadowMap:{},info:{render:{calls:0,triangles:0}},
+    setPixelRatio(){},getPixelRatio(){return 1},setClearColor(){},dispose(){},
+    setSize(w,h,style=true){width=Math.max(1,w);height=Math.max(1,h);canvas.width=width;canvas.height=height;viewport=null;if(style){canvas.style.width=w+'px';canvas.style.height=h+'px';}},
+    setViewport(x,y,w,h){viewport={x,y:height-y-h,w,h};},setScissor(){},setScissorTest(value){scissor=value;},
+    clear(){ctx.clearRect(0,0,width,height);},
+    render(scene,camera){
+      if(!scissor)this.clear();
+      const vp=viewport||{x:0,y:0,w:width,h:height},dark=document.documentElement.dataset.theme==='dark';
+      ctx.save();ctx.beginPath();ctx.rect(vp.x,vp.y,vp.w,vp.h);ctx.clip();
+      ctx.fillStyle=window.StageTone?.bg()||(dark?'#1a1f27':'#f5f6f8');ctx.fillRect(vp.x,vp.y,vp.w,vp.h);
+      scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const shapes=[];
+      scene.traverseVisible(o=>{
+        if(!o.isMesh||o.isInstancedMesh)return;
+        const mat=Array.isArray(o.material)?o.material[0]:o.material;
+        if(!mat||mat.isShadowMaterial||mat.visible===false||mat.opacity===0)return;
+        const attr=o.geometry?.attributes?.position;if(!attr)return;
+        let vertices=cache.get(o.geometry);
+        if(!vertices){vertices=[];const step=Math.max(1,Math.floor(attr.count/96));for(let i=0;i<attr.count;i+=step)vertices.push(new T.Vector3().fromBufferAttribute(attr,i));cache.set(o.geometry,vertices);}
+        const points=vertices.map(p=>p.clone().applyMatrix4(o.matrixWorld).project(camera)).filter(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.z>=-1&&p.z<=1);
+        if(points.length<3)return;
+        const z=points.reduce((sum,p)=>sum+p.z,0)/points.length;
+        shapes.push({points:hull(points.map(p=>({x:vp.x+(p.x+1)*vp.w/2,y:vp.y+(1-p.y)*vp.h/2}))),z,color:mat.color?'#'+mat.color.getHexString():'#78a4c8'});
+      });
+      shapes.sort((a,b)=>b.z-a.z);
+      for(const shape of shapes){if(!shape.points.length)continue;ctx.beginPath();shape.points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();ctx.fillStyle=shape.color;ctx.globalAlpha=.85;ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=dark?'#b9d0e9':'#36516e';ctx.lineWidth=.6;ctx.stroke();}
+      this.info.render.calls=shapes.length;this.info.render.triangles=0;ctx.restore();
+      if(canvas.parentElement&&!canvas.parentElement.querySelector('.c2-render-fallback')){
+        const note=document.createElement('div');note.className='c2-render-fallback';note.textContent='二维备用投影 · 参数与动作仍可操作，剖切与光照不显示';note.setAttribute('role','status');canvas.parentElement.append(note);
+      }
+    }
+  };
+  return renderer;
+};
+</script><link rel="stylesheet" href="assets/power-lesson.css"><script data-course-navigation src="../../../../../shared/navigation.js"></script><link data-course-theme rel="stylesheet" href="../../../../../shared/styles/theme.css"><script data-course-theme src="../../../../../shared/theme.js"></script></head>
+  <body>
+    <noscript
+      ><div class="noscript">
+        此教学材料需要浏览器启用 JavaScript，所有计算和音效均在本地完成。
+      </div></noscript
+    >
+    <main class="wrap">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brandmark" aria-hidden="true">◎</span
+          ><span>MOTION LAB <span style="color: #4b6477">/</span> 电驱动教学</span>
+        </div>
+        <div class="top-actions">
+          <div class="annotation-controls">
+            <button
+              id="annotationsBtn"
+              aria-pressed="false"
+              title="一键隐藏模型中的全部标注，再次点击恢复"
+            >
+              隐藏标注
+            </button>
+            <button
+              id="annotationSettingsBtn"
+              aria-expanded="false"
+              aria-controls="annotationSettings"
+              title="选择显示哪些标注"
+              aria-label="选择显示哪些标注"
+            >
+              ▾
+            </button>
+            <section
+              id="annotationSettings"
+              class="annotation-settings"
+              aria-label="模型标注设置"
+              hidden
+            >
+              <div class="annotation-settings-head">
+                <strong>选择显示哪些标注</strong><button id="annotationsShowAll">全部显示</button>
+              </div>
+              <div class="annotation-options">
+                <label><input type="checkbox" data-annotation="names" checked />部件名称</label>
+                <label
+                  ><input type="checkbox" data-annotation="polarity" checked />正负极 A/B</label
+                >
+                <label><input type="checkbox" data-annotation="poles" checked />N/S 磁极</label>
+                <label><input type="checkbox" data-annotation="particles" checked />电流粒子</label>
+                <label><input type="checkbox" data-annotation="field" checked />磁场 B 箭头</label>
+                <label
+                  ><input type="checkbox" data-annotation="current" checked />电流 I 箭头</label
+                >
+                <label><input type="checkbox" data-annotation="force" checked />受力 F 箭头</label>
+                <label><input type="checkbox" data-annotation="torque" checked />转矩 τ 箭头</label>
+                <label><input type="checkbox" data-annotation="drive" checked />传动方向线</label>
+                <label
+                  ><input type="checkbox" data-annotation="status" checked />模型状态提示</label
+                >
+              </div>
+              <p>同时应用于电机与机械臂模型；切页保留选择。</p>
+            </section>
+          </div>
+          <span class="tiny"><i class="statusdot"></i>OFFLINE READY</span
+          ><button id="soundBtn" aria-pressed="false" title="开关合成电机音效（S）">
+            ♫ 音效关闭
+          </button>
+          <div class="sound-pop" id="soundPop">
+            <label for="volume">音量</label
+            ><input id="volume" type="range" min="0" max="40" value="12" aria-label="音效音量" />
+          </div>
+          <button id="fullscreenBtn" title="全屏演示" aria-label="全屏演示">
+            <span class="fullscreen-icon">⛶</span>
+          </button>
+        </div>
+      </header>
+      <div class="intro">
+        <div>
+          <div class="eyebrow">ELECTROMECHANICS / 01</div>
+          <h1>有刷直流电机 <small>从电磁力到机器人运动</small></h1>
+          <p>改变电压与负载，观察电能如何成为可控的机械运动。</p>
+        </div>
+        <span class="tag">永磁定子 · 机械换向 · 稳态实验</span>
+      </div>
+      <div class="metrics" aria-label="电机轴稳态数据">
+        <div class="metric">
+          <div class="metric-label">电机轴转速 <span>ROTATIONAL SPEED</span></div>
+          <div class="metric-value">
+            <span id="rpmValue">2,387</span><span class="unit">rpm</span>
+          </div>
+          <div class="metric-note" id="directionText">从输出轴端看：逆时针 ↺</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">电机轴输出转矩 <span>SHAFT TORQUE</span></div>
+          <div class="metric-value">
+            <span id="torqueValue">0.420</span><span class="unit">N·m</span>
+          </div>
+          <div class="metric-note">电磁转矩 Tₑ = <span id="emTorque">0.450</span> N·m</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">电机轴机械功率 <span>MECHANICAL POWER</span></div>
+          <div class="metric-value">
+            <span id="powerValue">105.0</span><span class="unit">W</span>
+          </div>
+          <div class="metric-note">P轴 = T轴 × 2πn / 60</div>
+        </div>
+      </div>
+      <div class="supply-strip" aria-label="实时电机端子极性与电流">
+        <span class="supply-heading">电机端子</span><b id="supplyA" class="polarity-tag">A ＋</b
+        ><b id="supplyB" class="polarity-tag">B −</b
+        ><span id="supplyFlow">＋ → A → 绕组 → B → −</span
+        ><span class="supply-read"
+          ><span id="supplyVoltage">UAB = +24.0 V</span> ·
+          <span id="supplyCurrent">I = 7.50 A</span></span
+        >
+      </div>
+      <div class="lesson" id="lessonText" role="status">
+        先拖动电机查看内部，再调高负载：观察电流上升、转速下降，轴功率如何变化。
+      </div>
+      <div class="learning-nav">
+        <div class="pills" role="group" aria-label="教学模式">
+          <button id="exploreModeBtn" aria-pressed="true">◎ 自由探索</button
+          ><button id="studentModeBtn" aria-pressed="false">⊞ 学生任务：组装与接线</button>
+        </div>
+        <p>自己装好电机，预测方向，再通电验证。</p>
+      </div>
+      <div class="main-grid">
+        <section class="panel" id="motorPanel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <span class="index">01</span> 电机构造 <span class="panel-sub">可旋转剖切模型</span>
+            </div>
+            <div class="pills" role="group" aria-label="电机显示模式">
+              <button id="cutMode" aria-pressed="true">剖切</button
+              ><button id="wholeMode" aria-pressed="false">完整</button
+              ><button id="wireMode" aria-pressed="false">隐藏壳体</button>
+            </div>
+          </div>
+          <div class="stage" id="stage">
+            <svg
+              id="structureOverlay"
+              class="structure-overlay"
+              aria-label="电机部件名称和约定正电流方向"
+            ></svg
+            ><canvas
+              id="motorCanvas"
+              tabindex="0"
+              aria-label="有刷直流电机三维剖切。拖动改变视角，方向键旋转，滚轮缩放。可使用下方部件按钮了解结构。"
+            ></canvas>
+            <div class="fallback" id="fallback">
+              <svg viewBox="0 0 760 340" role="img" aria-label="电机结构二维备用视图">
+                <defs>
+                  <linearGradient id="fallbackMetal" x2="0" y2="1">
+                    <stop stop-color="#455b6e" />
+                    <stop offset=".5" stop-color="#192a38" />
+                    <stop offset="1" stop-color="#344b5e" />
+                  </linearGradient>
+                </defs>
+                <path d="M150 80H600V265H150Z" fill="#172735" stroke="#4b657b" />
+                <path d="M150 80H600V125H150Z" fill="url(#fallbackMetal)" />
+                <rect x="215" y="128" width="310" height="98" rx="15" fill="#344758" />
+                <g stroke="#e5a15c" stroke-width="6">
+                  <path d="M215 139H525M215 153H525M215 209H525M215 223H525" />
+                </g>
+                <rect x="105" y="171" width="565" height="18" fill="#8a9caa" />
+                <rect x="155" y="153" width="48" height="55" fill="#b27b48" />
+                <rect x="162" y="125" width="33" height="28" fill="#597180" />
+                <rect x="162" y="208" width="33" height="28" fill="#597180" />
+                <rect x="270" y="92" width="210" height="27" fill="#ae6377" />
+                <rect x="270" y="240" width="210" height="18" fill="#6085c5" />
+                <g fill="#b6c9d9" font-size="14">
+                  <text x="276" y="66">永磁体 N / S</text>
+                  <text x="300" y="294">铜线圈与电枢铁芯</text>
+                  <text x="111" y="294">电刷 / 换向器</text>
+                  <text x="594" y="156">输出轴</text>
+                </g>
+              </svg>
+            </div>
+            <div class="stage-top">
+              <div>
+                <span class="badge" id="renderBadge">CUTAWAY · 65%</span>
+                <div style="margin-top: 8px">
+                  <span class="terminal-pill" id="mainTermA" style="color: var(--red)">A ＋</span>
+                  <span class="terminal-pill" id="mainTermB" style="color: var(--blue)">B −</span>
+                </div>
+              </div>
+              <div class="axis-chip">
+                <span class="annotation-current-readout"
+                  >平均电枢电流 <span id="liveCurrentValue">7.50</span> A</span
+                >
+                <div class="magnetic-legend">
+                  <span>固定磁极</span><b class="north-key">N</b><span>→</span
+                  ><b class="south-key">S</b>
+                </div>
+              </div>
+            </div>
+            <div
+              class="assembly-zones hidden"
+              id="assemblyZones"
+              role="group"
+              aria-label="电机组装插槽"
+            >
+              <button class="assembly-zone" id="slot-stator" data-slot="stator">
+                <span class="zone-num">01</span><span class="zone-state">定子</span></button
+              ><button class="assembly-zone" id="slot-armature" data-slot="armature">
+                <span class="zone-num">02</span><span class="zone-state">电枢</span></button
+              ><button class="assembly-zone" id="slot-support" data-slot="support">
+                <span class="zone-num">03</span><span class="zone-state">支承</span></button
+              ><button class="assembly-zone" id="slot-brush" data-slot="brush">
+                <span class="zone-num">04</span><span class="zone-state">电刷</span>
+              </button>
+            </div>
+            <div id="faultMeters" class="fault-meter hidden" aria-label="故障测量仪表">
+              <div>
+                A/B 端电压<b><span id="faultMeterV">—</span><span class="m-unit">V</span></b>
+              </div>
+              <div>
+                电枢电流<b><span id="faultMeterI">—</span><span class="m-unit">A</span></b>
+              </div>
+              <div>
+                轴端负载<b><span id="faultMeterLoad">—</span><span class="m-unit">N·m</span></b>
+              </div>
+            </div>
+            <button class="view-reset" id="viewReset">↺ 复位视角</button>
+            <div class="stage-bottom">
+              <span class="view-hint">点击部件名放大 · 拖动旋转 · 滚轮缩放</span
+              ><span id="motionBadge" class="vecLegend">慢放 18.0 rpm</span>
+            </div>
+          </div>
+          <div class="part-row" role="group" aria-label="查看电机部件">
+            <button data-part="all" aria-pressed="true">全部部件</button
+            ><button data-part="magnet" aria-pressed="false">永磁定子</button
+            ><button data-part="rotor" aria-pressed="false">电枢与铜线圈</button
+            ><button data-part="comm" aria-pressed="false">分裂环换向器</button
+            ><button data-part="brush" aria-pressed="false">碳刷与接线端</button>
+          </div>
+          <div class="em-legend" aria-label="三维电磁示教图例">
+            <div class="em-keys">
+              <span class="em-key-b">B 磁场 N→S</span><span class="em-key-i">I 电流</span
+              ><span class="em-key-f">F 导线受力</span><span class="em-key-t">τ 转矩</span>
+            </div>
+            <div class="em-angle-tools">
+              <span id="motorEMRead">θ 30° · 单线圈正向</span><label for="emAngle">示教角</label
+              ><select id="emAngle">
+                <option value="run">运行</option>
+                <option value="0">0°</option>
+                <option value="45">45°</option>
+                <option value="90">90°</option>
+                <option value="135">135°</option></select
+              ><button id="emToggle" aria-pressed="true">磁场 / 受力</button>
+            </div>
+            <small>F = Iℓ × B，两个受力形成转矩。箭头长度示意；上方读数为多线圈平均模型。</small>
+          </div>
+          <div class="part-description">
+            <strong id="partName">观察电机内部</strong
+            ><span id="partText"
+              >定子固定，电枢、线圈与换向器同轴旋转；碳刷保持静止并接触换向器。</span
+            >
+          </div>
+          <div class="assembly-tray hidden" id="assemblyTray">
+            <div class="tray-head">
+              <strong>零件托盘 / 选择并安装</strong><span>拖放到对应插槽，或“点零件 → 点插槽”</span>
+            </div>
+            <div class="assembly-parts">
+              <button
+                id="kit-stator"
+                class="assembly-part"
+                data-kit="stator"
+                draggable="true"
+                aria-pressed="false"
+              >
+                <svg viewBox="0 0 110 45" aria-hidden="true">
+                  <path d="M18 9H43V36H18Z" fill="#a9566c" stroke="#f19cb0" />
+                  <path d="M67 9H92V36H67Z" fill="#4a6ba2" stroke="#95b9fa" />
+                  <path d="M44 22H65" stroke="#b89aff" stroke-width="1.5" />
+                  <path d="M59 18L66 22L59 26" fill="none" stroke="#b89aff" />
+                  <text x="30" y="28" font-size="14" fill="#ffd2dc" text-anchor="middle">N</text>
+                  <text x="80" y="28" font-size="14" fill="#d8e8ff" text-anchor="middle">
+                    S
+                  </text></svg
+                ><strong>永磁定子</strong><small>N / S 磁体与固定座</small>
+              </button>
+              <button
+                id="kit-armature"
+                class="assembly-part"
+                data-kit="armature"
+                draggable="true"
+                aria-pressed="false"
+              >
+                <svg viewBox="0 0 110 45" aria-hidden="true">
+                  <path d="M6 22H105" stroke="#b4c9d8" stroke-width="5" />
+                  <rect
+                    x="26"
+                    y="11"
+                    width="55"
+                    height="23"
+                    rx="6"
+                    fill="#42596c"
+                    stroke="#8a9eae"
+                  />
+                  <path
+                    d="M28 14H80M28 18H80M28 26H80M28 30H80"
+                    stroke="#e8a25c"
+                    stroke-width="1.5"
+                  />
+                  <rect x="85" y="13" width="11" height="19" rx="2" fill="#c48648" />
+                  <path d="M85 22H96" stroke="#111923" /></svg
+                ><strong>电枢总成</strong><small>转轴＋绕组＋换向器</small>
+              </button>
+              <button
+                id="kit-support"
+                class="assembly-part"
+                data-kit="support"
+                draggable="true"
+                aria-pressed="false"
+              >
+                <svg viewBox="0 0 110 45" aria-hidden="true">
+                  <g stroke="#9cb2c4">
+                    <circle cx="31" cy="22" r="18" fill="#314859" />
+                    <circle cx="31" cy="22" r="10" fill="#0c1721" />
+                    <circle cx="78" cy="22" r="18" fill="#314859" />
+                    <circle cx="78" cy="22" r="10" fill="#0c1721" />
+                  </g>
+                  <g fill="#cfb57d">
+                    <circle cx="31" cy="8" r="2" />
+                    <circle cx="17" cy="22" r="2" />
+                    <circle cx="45" cy="22" r="2" />
+                    <circle cx="78" cy="8" r="2" />
+                    <circle cx="64" cy="22" r="2" />
+                    <circle cx="92" cy="22" r="2" />
+                  </g></svg
+                ><strong>轴承与端盖</strong><small>两端支承，轴可转动</small>
+              </button>
+              <button
+                id="kit-brush"
+                class="assembly-part"
+                data-kit="brush"
+                draggable="true"
+                aria-pressed="false"
+              >
+                <svg viewBox="0 0 110 45" aria-hidden="true">
+                  <rect
+                    x="21"
+                    y="13"
+                    width="17"
+                    height="19"
+                    rx="2"
+                    fill="#62727a"
+                    stroke="#b0bdc5"
+                  />
+                  <rect
+                    x="73"
+                    y="13"
+                    width="17"
+                    height="19"
+                    rx="2"
+                    fill="#62727a"
+                    stroke="#b0bdc5"
+                  />
+                  <path d="M10 22H21M90 22H101" stroke="#d49e5f" stroke-width="3" />
+                  <path
+                    d="M38 22L43 18L47 26L51 18L55 26L59 18L63 26L68 22H73"
+                    fill="none"
+                    stroke="#a8bcca"
+                    stroke-width="1.2"
+                  /></svg
+                ><strong>固定电刷组件</strong><small>碳刷＋弹簧＋接线端</small>
+              </button>
+            </div>
+            <div class="student-help" id="trayHelp">先选择“永磁定子”，再点工作台上的 01 插槽。</div>
+          </div>
+
+          <div
+            class="current-strip"
+            style="
+              padding: 12px 21px 15px;
+              border-top: 1px solid var(--line);
+              font-size: 11px;
+              color: var(--muted);
+            "
+          >
+            <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap">
+              <span
+                ><span id="liveCurrentDetail">平均电枢电流 7.50 A · 约定正电流方向</span>
+                <span style="color: var(--cyan)">I →</span></span
+              ><span id="circuitRead" style="font-family: var(--mono); color: #bad5e2"
+                >A＋ → 电刷 → 换向器 → 线圈 → 电刷 → B−</span
+              >
+            </div>
+            <div class="legend" style="margin-top: 9px">
+              <span><i class="swatch" style="background: var(--red)"></i>磁极 N</span
+              ><span><i class="swatch" style="background: var(--blue)"></i>磁极 S</span
+              ><span><i class="swatch" style="background: var(--amber)"></i>铜绕组 / 换向器</span
+              ><span><i class="swatch" style="background: #8097a8"></i>铁芯 / 转轴</span>
+            </div>
+          </div>
+        </section>
+        <aside class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <span class="index">CTRL</span><span id="controlHeading">实验控制台</span>
+            </div>
+            <span class="panel-sub">24 V 教学模型</span>
+          </div>
+          <div class="control-body">
+            <div class="field">
+              <label class="field-label" for="voltage"
+                >端电压幅值 U <output class="read" id="voltageRead">24.0 V</output></label
+              ><input id="voltage" type="range" min="0" max="24" step=".5" value="24" />
+              <div class="range-labels"><span>0 V</span><span>24 V</span></div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="load"
+                >轴端阻性负载 Tᴸ <output class="read" id="loadRead">0.420 N·m</output></label
+              ><input id="load" type="range" min="0" max="1.4" step=".01" value=".42" />
+              <div class="range-labels"><span>0 N·m</span><span>1.40 N·m</span></div>
+            </div>
+            <div class="field">
+              <div class="field-label">
+                接线极性 <span style="font-size: 10px; color: var(--muted)">固定磁极 N / S</span>
+              </div>
+              <div class="polarity" role="group" aria-label="电源极性">
+                <button id="forwardBtn" aria-pressed="true">
+                  <span class="terminal">A＋</span>
+                  <span class="terminal neg">B−</span> 正向</button
+                ><button id="reverseBtn" aria-pressed="false">
+                  <span class="terminal neg">A−</span> <span class="terminal">B＋</span> 反向
+                </button>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="cutaway"
+                >壳体剖切程度 <output class="read" id="cutRead">65%</output></label
+              ><input id="cutaway" type="range" min="0" max="100" value="65" />
+              <div class="range-labels"><span>完整外壳</span><span>最大开窗</span></div>
+            </div>
+            <div class="control-bottom">
+              <hr class="controls-divider" />
+              <div class="mini-stats">
+                <div><span>电枢电流 |I|</span><b id="currentRead">7.50 A</b></div>
+                <div><span>反电动势 |E|</span><b id="emfRead">15.00 V</b></div>
+                <div><span>电输入 P入</span><b id="inputRead">180.0 W</b></div>
+                <div><span>电机轴效率</span><b id="effRead">58.3%</b></div>
+              </div>
+              <div class="control-actions">
+                <button class="primary" id="pauseBtn" aria-pressed="false">Ⅱ 暂停动画</button
+                ><button id="resetBtn">重置实验</button>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  gap: 8px;
+                  margin-top: 12px;
+                  font-size: 11px;
+                  color: var(--muted);
+                "
+              >
+                <label for="playback">观察时标</label
+                ><select
+                  id="playback"
+                  style="
+                    border: 1px solid var(--line);
+                    background: #14232f;
+                    color: var(--text);
+                    border-radius: 5px;
+                    padding: 3px 6px;
+                    font-size: 11px;
+                  "
+                >
+                  <option value="80">慢放 1 / 80</option>
+                  <option value="133" selected>慢放 1 / 133</option>
+                  <option value="400">慢放 1 / 400</option>
+                </select>
+              </div>
+              <div class="condition" id="condition" role="status">● 运行中 · 稳态工作点</div>
+              <div class="visual-speed">
+                动画为慢放示意，真实转速见上方读数。<br /><span id="timescaleRead"
+                  >当前显示约为实际转速的 1 / 133</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="student-console hidden" id="studentConsole">
+            <div class="student-phase" aria-label="学生任务步骤">
+              <span id="phaseAssembly" class="is-current">01 装配</span
+              ><span aria-hidden="true">→</span><span id="phaseWire">02 接线</span
+              ><span aria-hidden="true">→</span><span id="phasePredict">03 预测与验证</span>
+            </div>
+            <div class="student-top">
+              <div class="student-instruction" id="studentInstruction">先安装永磁定子</div>
+              <div class="student-feedback" id="studentFeedback" role="status" aria-live="polite">
+                从零件托盘选择一个部件，再点工作台上的对应插槽；电脑也可以直接拖放。
+              </div>
+              <div class="assembly-progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+              <div class="student-completion" id="studentCompletion">
+                装配进度 0 / 4 · 当前电源断开
+              </div>
+            </div>
+            <div class="student-wiring">
+              <fieldset id="wiringFieldset" disabled>
+                <legend>接好直流电源</legend>
+                <div class="wire-pickers">
+                  <label for="wirePositive"
+                    ><span style="color: var(--red)">电源正极 ＋</span
+                    ><select id="wirePositive">
+                      <option value="">未接线</option>
+                      <option value="A">接端子 A</option>
+                      <option value="B">接端子 B</option>
+                    </select></label
+                  ><label for="wireNegative"
+                    ><span style="color: var(--blue)">电源负极 −</span
+                    ><select id="wireNegative">
+                      <option value="">未接线</option>
+                      <option value="A">接端子 A</option>
+                      <option value="B">接端子 B</option>
+                    </select></label
+                  >
+                </div>
+                <svg
+                  id="studentWireSvg"
+                  viewBox="0 0 280 90"
+                  style="display: block; width: 100%; height: 84px; margin-top: 5px"
+                  role="img"
+                  aria-label="电源正负极与电机端子的接线示意"
+                >
+                  <path
+                    d="M60 18V26M220 18V26M95 60V68M185 60V68"
+                    stroke="#586f83"
+                    stroke-width="2"
+                  />
+                  <path
+                    id="studentPositivePath"
+                    d="M60 24V58"
+                    stroke="#ef8092"
+                    stroke-width="2.5"
+                    fill="none"
+                  />
+                  <path
+                    id="studentNegativeUnder"
+                    d="M220 24V58"
+                    stroke="#111a24"
+                    stroke-width="6"
+                    fill="none"
+                  />
+                  <path
+                    id="studentNegativePath"
+                    d="M220 24V58"
+                    stroke="#7faafa"
+                    stroke-width="2.5"
+                    fill="none"
+                  />
+                  <g fill="#132737" stroke="#70899d">
+                    <circle cx="60" cy="16" r="9" />
+                    <circle cx="220" cy="16" r="9" />
+                    <circle cx="95" cy="69" r="9" />
+                    <circle cx="185" cy="69" r="9" />
+                  </g>
+                  <g text-anchor="middle" font-size="12">
+                    <text x="60" y="20" fill="#ef8092">＋</text>
+                    <text x="220" y="20" fill="#7faafa">−</text>
+                    <text x="95" y="73" fill="#e3edf6">A</text>
+                    <text x="185" y="73" fill="#e3edf6">B</text>
+                  </g>
+                </svg>
+                <div id="studentCircuitState" class="wiring-state">装好四个模块后开放接线。</div>
+              </fieldset>
+            </div>
+            <div class="student-wiring">
+              <h3>先预测，再通电</h3>
+              <div class="student-hint-line">从输出轴端看，当前接线会让电机怎样转？</div>
+              <div class="prediction-options" role="group" aria-label="预测电机转向">
+                <button data-predict="1" aria-pressed="false" disabled>↺ 逆时针</button
+                ><button data-predict="-1" aria-pressed="false" disabled>↻ 顺时针</button
+                ><button data-predict="0" aria-pressed="false" disabled>不会转</button>
+              </div>
+              <div class="student-hint-line">
+                N / S 磁极固定。接线改变电流方向，再用 F = Iℓ × B 判断受力。
+              </div>
+            </div>
+            <div class="student-bottom">
+              <div class="student-actions">
+                <button id="studentPower" class="primary" disabled>检查并通电</button
+                ><button id="studentHint">给我提示</button>
+              </div>
+              <div id="studentRunReadout" class="student-run-readout hidden"></div>
+              <div id="studentRecap" class="student-recap hidden">
+                <strong>✓ 完成装配、接线与转向验证</strong><span id="studentRecapText"></span>
+              </div>
+              <div class="student-secondary">
+                <button id="studentRestart">重新组装</button
+                ><button id="studentExit">返回自由探索</button>
+              </div>
+              <p class="student-scope">
+                模块按示教顺序安装，用于理解结构依赖，非工厂装配工艺。电枢总成已包含绕组与换向器；电刷与端盖固定，不能跟着转子旋转。
+              </p>
+            </div>
+          </div>
+          <div id="faultConsole" class="fault-console hidden">
+            <div class="fault-phase">
+              <span id="faultPhaseInspect" class="active">01 测量判断</span
+              ><span id="faultPhaseRepair">02 断电修复</span
+              ><span id="faultPhaseVerify">03 通电验证</span>
+            </div>
+            <div class="fault-heading">
+              <span id="faultCaseTitle">故障挑战 1 / 3</span
+              ><span id="faultPowerState" class="fault-power-state">电源接通</span>
+            </div>
+            <div id="faultFeedback" class="fault-feedback" role="status" aria-live="polite">
+              电机没有正常转动。先测量并检查，再提交你的判断。
+            </div>
+            <div id="faultInspectPane">
+              <div class="fault-checks" role="group" aria-label="检查项目">
+                <button data-check="voltage"><span>V</span>测量电压</button
+                ><button data-check="current"><span>A</span>测量电流</button
+                ><button data-check="wire"><span>⌁</span>检查接线</button
+                ><button data-check="brush"><span>▥</span>检查电刷</button
+                ><button data-check="load"><span>↻</span>检查负载</button
+                ><button data-check="reference"><span>◎</span>查看正常参考</button>
+              </div>
+              <div id="faultLog" class="fault-log" role="status">
+                仪表待测量。至少检查两项独立证据，再判断根因。
+              </div>
+              <div class="fault-diagnosis">
+                <label for="faultDiagnosis">你认为主要故障是什么？</label
+                ><select id="faultDiagnosis">
+                  <option value="">请选择判断</option>
+                  <option value="brush">电刷接触不良</option>
+                  <option value="open">接线开路</option>
+                  <option value="overload">负载过大</option></select
+                ><button id="faultSubmit" class="primary">提交诊断</button>
+              </div>
+            </div>
+            <div id="faultRepairPane" class="fault-repair hidden">
+              <p id="faultRepairPrompt">先断开电源，再操作要修复的部位。</p>
+              <button id="repairBrush" disabled>▥ 恢复电刷压力并清理接触面</button
+              ><button id="repairWire" disabled>⌁ 重新接好 A 端导线</button>
+              <div class="field">
+                <label class="field-label" for="repairLoad"
+                  >调整轴端负载 <output id="repairLoadRead" class="read">0.75 N·m</output></label
+                ><input
+                  id="repairLoad"
+                  type="range"
+                  min="0"
+                  max="1.2"
+                  step=".01"
+                  value=".75"
+                  disabled
+                />
+                <div class="range-labels"><span>0 N·m</span><span>1.20 N·m</span></div>
+                <p style="margin-bottom: 0">
+                  12 V、正常接触下的理论堵转转矩为 0.60 N·m。可先恢复到 0.18 N·m 示教负载。
+                </p>
+              </div>
+              <p id="faultRepairLog">操作记录：尚未修复。</p>
+            </div>
+            <div id="faultRecap" class="fault-recap hidden">
+              <b>✓ 根因已排除，电机恢复运行</b>
+              <div id="faultBeforeAfter"></div>
+              <div id="faultExplanation" style="margin-top: 6px"></div>
+            </div>
+            <div class="fault-main-actions">
+              <button id="faultPower" class="primary">断开电源</button
+              ><button id="faultNext" disabled>下一故障 →</button>
+            </div>
+            <div class="fault-secondary">
+              <button id="faultHint">诊断提示</button><button id="faultExit">返回自由探索</button>
+            </div>
+            <div id="faultHistory" class="fault-model-note">已完成 0 / 3 个故障。</div>
+            <p class="fault-model-note">
+              虚拟故障模型：电刷不良等效为串联接触电阻；开路时持续电流为零；过载按堵转约束计算。验证两个稳态，不模拟维修手法、电弧或升温过程。
+            </p>
+          </div>
+        </aside>
+      </div>
+      <div class="section-row">
+        <div>
+          <h2>把原理看清楚</h2>
+          <p>电流方向、磁场方向与受力方向始终遵循同一坐标约定。</p>
+        </div>
+        <div class="experiments" role="group" aria-label="教学实验预设">
+          <button data-preset="noLoad">空载观察</button
+          ><button data-preset="loaded">加大负载</button
+          ><button data-preset="stall">堵转实验</button
+          ><button data-preset="reverse">反接换向</button>
+        </div>
+      </div>
+      <div class="explain-grid">
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="index">02</span> 电流 × 磁场 → 转矩</div>
+            <span class="panel-sub">从输出轴端看</span>
+          </div>
+          <div class="principle-body">
+            <svg
+              id="principleSvg"
+              class="principle-svg"
+              viewBox="0 0 400 330"
+              role="img"
+              aria-labelledby="principleTitle principleDesc"
+            >
+              <title id="principleTitle">单线圈电磁受力与机械换向</title>
+              <desc id="principleDesc">
+                磁场从左侧N极指向右侧S极。点表示电流出屏，叉表示入屏。右侧导线出屏时受力向上，左侧导线入屏时受力向下，形成逆时针转矩；反接电源后方向相反。
+              </desc>
+              <defs>
+                <marker
+                  id="fieldArrow"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="5"
+                  markerHeight="5"
+                  orient="auto"
+                >
+                  <path d="M0 0L10 5L0 10Z" fill="#a58ce8" />
+                </marker>
+                <marker
+                  id="forceArrow"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="5"
+                  markerHeight="5"
+                  orient="auto"
+                >
+                  <path d="M0 0L10 5L0 10Z" fill="#f4ba6c" />
+                </marker>
+                <marker
+                  id="torqueArrow"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="5"
+                  markerHeight="5"
+                  orient="auto"
+                >
+                  <path d="M0 0L10 5L0 10Z" fill="#bcf386" />
+                </marker>
+                <marker
+                  id="currentArrow"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="4"
+                  markerHeight="4"
+                  orient="auto"
+                >
+                  <path d="M0 0L10 5L0 10Z" fill="#58dfed" />
+                </marker>
+              </defs>
+              <rect x="31" y="52" width="49" height="186" rx="12" fill="#693c4d" stroke="#cc788e" />
+              <rect
+                x="320"
+                y="52"
+                width="49"
+                height="186"
+                rx="12"
+                fill="#304979"
+                stroke="#7faafa"
+              />
+              <text x="55" y="147" text-anchor="middle" fill="#ffd2dc" font-size="24">N</text>
+              <text x="345" y="147" text-anchor="middle" fill="#c7ddff" font-size="24">S</text>
+              <g
+                stroke="#a58ce8"
+                stroke-width="1.2"
+                fill="none"
+                opacity=".4"
+                marker-end="url(#fieldArrow)"
+              >
+                <path d="M82 81H316" />
+                <path d="M82 112H316" />
+                <path d="M82 145H316" />
+                <path d="M82 178H316" />
+                <path d="M82 210H316" />
+              </g>
+              <text x="200" y="36" text-anchor="middle" fill="#bba2ed" font-size="12">
+                气隙磁场 B：N → S
+              </text>
+              <circle cx="200" cy="145" r="88" fill="#102330" fill-opacity=".64" stroke="#415969" />
+              <circle
+                cx="200"
+                cy="145"
+                r="81"
+                fill="none"
+                stroke="#293f50"
+                stroke-dasharray="2 7"
+              />
+              <path
+                id="coilLink"
+                d="M139 180L261 110"
+                stroke="#9b734b"
+                stroke-width="10"
+                fill="none"
+              />
+              <path
+                id="coilLinkThin"
+                d="M139 180L261 110"
+                stroke="#eab477"
+                stroke-width="2"
+                fill="none"
+              />
+              <g id="coilEndA">
+                <circle r="12" fill="#0e222d" stroke="#58dfed" stroke-width="2" />
+                <circle class="out-dot" r="3.4" fill="#58dfed" />
+                <path class="in-cross" d="M-5-5L5 5M-5 5L5-5" stroke="#58dfed" stroke-width="2" />
+              </g>
+              <g id="coilEndB">
+                <circle r="12" fill="#0e222d" stroke="#58dfed" stroke-width="2" />
+                <circle class="out-dot" r="3.4" fill="#58dfed" />
+                <path class="in-cross" d="M-5-5L5 5M-5 5L5-5" stroke="#58dfed" stroke-width="2" />
+              </g>
+              <g
+                id="forceGroup"
+                stroke="#f4ba6c"
+                fill="none"
+                stroke-width="2.5"
+                marker-end="url(#forceArrow)"
+              >
+                <path id="forceA" />
+                <path id="forceB" />
+              </g>
+              <text id="forceLabelA" fill="#f4ba6c" font-size="13">F</text>
+              <text id="forceLabelB" fill="#f4ba6c" font-size="13">F</text>
+              <g id="ringGroup">
+                <path id="segmentA" fill="none" stroke="#d6a371" stroke-width="9" />
+                <path id="segmentB" fill="none" stroke="#92714d" stroke-width="9" />
+              </g>
+              <circle cx="200" cy="145" r="12" fill="#44596a" stroke="#8aa0b2" />
+              <circle cx="200" cy="145" r="3" fill="#bed2e1" />
+              <rect x="152" y="137" width="16" height="16" rx="2" fill="#657680" stroke="#9bafba" />
+              <rect x="232" y="137" width="16" height="16" rx="2" fill="#657680" stroke="#9bafba" />
+              <g fill="none" stroke-width="2">
+                <path id="leadA" d="M240 153V263H236" stroke="#ef8092" />
+                <path id="leadB" d="M160 153V263H164" stroke="#7faafa" />
+                <path d="M164 263H236" stroke="#527082" />
+              </g>
+              <g
+                id="currentArrows"
+                stroke="#58dfed"
+                stroke-width="1.5"
+                fill="none"
+                marker-end="url(#currentArrow)"
+              >
+                <path id="currentLeadA" d="M248 239V219" />
+                <path id="currentLeadB" d="M152 219V239" />
+              </g>
+              <text id="currentILabel" x="255" y="231" fill="#58dfed" font-size="11">I</text>
+              <rect x="176" y="249" width="48" height="28" rx="5" fill="#132333" stroke="#527082" />
+              <text id="batterySignLeft" x="183" y="268" fill="#7faafa" font-size="15">−</text>
+              <text id="batterySignRight" x="208" y="268" fill="#ef8092" font-size="15">+</text>
+              <text x="200" y="294" text-anchor="middle" fill="#91a8ba" font-size="11">
+                电刷固定 · 分裂环随线圈转动
+              </text>
+              <path
+                id="torqueArc"
+                d="M268 214A97 97 0 0 0 295 122"
+                stroke="#bcf386"
+                stroke-width="2"
+                fill="none"
+                marker-end="url(#torqueArrow)"
+              />
+              <text id="torqueLabel" x="292" y="238" fill="#bcf386" font-size="11">τ ↺</text>
+              <text x="200" y="319" text-anchor="middle" fill="#58dfed" font-size="11">
+                ⊙ 电流出屏　⊗ 电流入屏　（约定正电流）
+              </text>
+            </svg>
+            <div class="principle-info">
+              <div>
+                <div style="color: var(--amber)">安培力 / 左手定则</div>
+                <div class="equation">F = I ℓ × B</div>
+                <p>两侧有效导线电流相反，受力相反，形成同向力偶。</p>
+              </div>
+              <div>
+                <div style="color: var(--lime)">转矩的来源</div>
+                <div class="equation">τ = Σ r × F</div>
+                <p id="commText">每过半周，换向器交换线圈接线，让转矩保持同向。</p>
+              </div>
+              <div>
+                <span>示教转子角度 </span
+                ><b id="angleValue" style="color: var(--text); font-family: var(--mono)">30°</b>
+                <div class="moment-track"><span id="momentBar"></span></div>
+                <div id="momentLabel">单线圈相对转矩 87%</div>
+              </div>
+            </div>
+          </div>
+          <div class="angle-control">
+            <span>换向观察</span
+            ><input
+              id="rotorAngle"
+              type="range"
+              min="0"
+              max="360"
+              step="1"
+              value="30"
+              aria-label="手动设置转子角度，调整后暂停动画"
+            /><button id="stepBtn">步进 15°</button>
+          </div>
+          <div class="note">
+            此处放大一个等效线圈，均匀磁场用于判断力的方向。换向发生在死点附近；真实电机通常用多线圈、多换向片与转动惯量越过死点。此图的单线圈转矩脉动不替代上方多线圈平均计算。
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="index">03</span> 转速 · 转矩 · 功率</div>
+            <span class="panel-sub" id="curveVoltage">U = 24.0 V</span>
+          </div>
+          <div class="plot-area">
+            <svg
+              id="curve"
+              class="plot-svg"
+              role="img"
+              aria-label="当前电压下的轴端转速转矩直线、轴机械功率抛物线和当前工作点。横轴为轴转矩，左轴转速，右轴功率。"
+            ></svg>
+            <div id="plotTooltip" class="plot-tooltip"></div>
+          </div>
+          <div class="plot-legend">
+            <span><i class="dotline"></i>轴转速</span
+            ><span><i class="dotline" style="background: var(--lime)"></i>轴机械功率</span
+            ><span>● 当前工作点</span><span style="color: #71899c">触摸 / 悬停读取曲线</span>
+          </div>
+          <div class="note" id="curveCaption">
+            电压不变时，负载越大，转速越低；机械功率在约一半堵转转矩处达到峰值。曲线全范围仅供教学，不代表连续工作区。
+          </div>
+          <div style="padding: 14px 20px 16px; border-top: 1px solid var(--line)">
+            <div class="field-label" style="margin: 0">
+              功率不等于转矩 <span style="font: 13px var(--mono); color: var(--lime)">P = Tω</span>
+            </div>
+            <div style="font-size: 11px; color: var(--muted); margin-top: 5px">
+              堵转时可以有很大电流和转矩，但转速为零，所以轴机械功率为零。电能主要转化为绕组热量。
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="section-row">
+        <div>
+          <h2>把有刷电机装进机械臂</h2>
+          <p>从正负极、电刷与电枢，追踪传动轴到肩关节和末端运动。</p>
+        </div>
+        <span class="tag">肩关节内置电机 · 两级齿轮减速</span>
+      </div>
+      <section class="panel application">
+        <div class="app-illustration">
+          <canvas
+            id="robotCanvas"
+            class="robot-canvas"
+            tabindex="0"
+            aria-label="机器人三维运动与齿轮传动。拖动旋转视角，滚轮缩放，方向键微调。"
+          ></canvas
+          ><svg id="robotOverlay" class="robot-overlay" aria-label="机器人传动部位名称"></svg>
+          <div class="robot-scene-top">
+            <span class="badge" id="robotSceneBadge">ARTICULATED ARM · 肩关节剖切</span>
+            <div class="robot-scene-view">
+              <button id="robotCut" aria-pressed="true">驱动剖视</button
+              ><button id="robotDetail" aria-pressed="false">齿轮特写</button
+              ><button id="robotMotorDetail" aria-pressed="false">电机特写</button
+              ><button id="robotAddGearMini" aria-label="增加一个惰轮">＋ 齿轮</button
+              ><button id="robotRemoveGearMini" aria-label="减少一个惰轮" disabled>− 齿轮</button
+              ><button id="robotCameraReset">复位视角</button>
+            </div>
+          </div>
+          <div class="robot-electrical-badge">
+            <span>肩关节电机</span
+            ><span class="magnetic-legend robot-magnet-legend"
+              ><span>磁极</span><b class="north-key">N</b><b class="south-key">S</b></span
+            ><b id="robotTermA" class="polarity-tag">A ＋</b
+            ><b id="robotTermB" class="polarity-tag">B −</b
+            ><small id="robotCurrentFlow">电刷 A → 电枢 → 电刷 B</small>
+          </div>
+          <div class="robot-scene-footer">
+            <div>
+              <span id="robotScenePosition">肩关节 θ = 55.0°</span>
+              <div class="robot-micro-controls">
+                <button id="robotPlayMini">Ⅱ 暂停</button
+                ><button id="robotReverseMini">↔ 反向</button>
+              </div>
+              <div class="robot-scene-hint">点击部件名放大 · 拖动查看</div>
+              <div id="robotEMLegend" class="robot-em-key" hidden>
+                <span class="em-key-b">B 磁场 N→S</span> · <span class="em-key-i">I 电流</span> ·
+                <span class="em-key-f">F 受力</span> ·
+                <span class="em-key-t">τ 转矩</span>
+              </div>
+              <div class="robot-scene-hint" id="robotMotionHint"></div>
+            </div>
+            <div class="robot-speed-box">
+              <small>输出机构速度（真实值）</small><strong id="robotSceneSpeed">716.2 °/s</strong>
+              <div id="robotViewClock" class="robot-scene-hint">应用慢放 1 / 20</div>
+            </div>
+          </div>
+          <svg
+            id="armSvg"
+            class="hidden"
+            viewBox="0 0 610 290"
+            role="img"
+            aria-label="机械臂关节减速驱动示意"
+          >
+            <ellipse cx="270" cy="255" rx="139" ry="15" fill="#050c11" />
+            <path d="M151 238L214 213H321L350 234L302 254H181Z" fill="#2d485a" stroke="#698699" />
+            <path d="M205 231V173H285V232" fill="#2d4658" stroke="#708998" />
+            <circle cx="245" cy="170" r="40" fill="#334e60" stroke="#7c98a9" stroke-width="2" />
+            <circle cx="245" cy="170" r="25" fill="#17323f" stroke="#58dfed" />
+            <g id="armMoving">
+              <path d="M237 150L350 75L370 105L257 187Z" fill="#465e70" stroke="#8599a7" />
+              <path d="M252 150L351 86" stroke="#658293" stroke-width="4" />
+              <circle cx="360" cy="90" r="24" fill="#2a4658" stroke="#8ba1b0" />
+              <circle cx="360" cy="90" r="12" fill="#142d39" stroke="#58dfed" />
+              <path d="M379 78L457 113L447 135L370 108Z" fill="#4b6373" stroke="#8ba1b0" />
+              <path
+                d="M451 118L472 124L484 110M450 131L470 140L483 130"
+                stroke="#90a3ad"
+                stroke-width="7"
+                fill="none"
+              />
+            </g>
+            <circle cx="245" cy="170" r="9" fill="#8ca6b9" />
+            <rect x="184" y="163" width="28" height="19" rx="4" fill="#2d6169" stroke="#58dfed" />
+            <path d="M168 172H184" stroke="#58dfed" stroke-width="5" />
+            <g fill="#9fb3c2" font-size="11">
+              <text x="97" y="31">机械臂关节 / 减速传动示意</text>
+              <text x="133" y="204">电机</text>
+              <text x="265" y="214">关节减速器</text>
+            </g>
+            <path d="M273 131A50 50 0 0 1 294 182" stroke="#bcf386" fill="none" stroke-width="2" />
+            <text x="398" y="229" fill="#bcf386" font-size="12">θ̇ = −6n出 (°/s)</text>
+          </svg>
+        </div>
+        <div class="app-controls">
+          <div class="robot-drive-panel">
+            <h3>驱动与运动控制</h3>
+            <div class="robot-drive-buttons">
+              <button id="robotPlay" class="primary">Ⅱ 暂停演示</button
+              ><button id="robotReverse">↔ 反向驱动</button
+              ><button id="robotPowerOff">■ 断电停止</button>
+            </div>
+            <div class="robot-drive-time">
+              <label for="robotSlow">应用观察时标</label
+              ><select id="robotSlow">
+                <option value="10">慢放 1 / 10</option>
+                <option value="20" selected>慢放 1 / 20</option>
+                <option value="80">慢放 1 / 80</option></select
+              ><button id="robotResetPose" style="font-size: 10px; padding: 4px 7px">
+                重置位置
+              </button>
+            </div>
+            <div class="robot-voltage">
+              <label class="field-label" for="robotVoltage"
+                >电机端电压 <output id="robotVoltageRead" class="read">24.0 V</output></label
+              ><input id="robotVoltage" type="range" min="0" max="24" step=".5" value="24" />
+            </div>
+            <p class="robot-info" id="robotMotionState">
+              电机与减速器内置在肩关节，输出法兰直接驱动上臂。
+            </p>
+          </div>
+          <div class="robot-teaching-tabs" role="tablist" aria-label="机械臂教学面板">
+            <button id="armMotionTab" role="tab" aria-selected="true">运行与使用</button
+            ><button id="armDriveTab" role="tab" aria-selected="false">完整传动</button>
+          </div>
+          <div id="armMotionPane" role="tabpanel">
+            <div class="arm-task">
+              <div>
+                <strong>施工机械臂 · 往返巡检定位</strong
+                ><span id="armTaskStatus">单次手动驱动 · 20°–105° 软限位</span>
+              </div>
+              <button id="armCycle" aria-pressed="false">↔ 往返巡检</button>
+            </div>
+            <div class="field arm-load">
+              <label for="robotLoad" class="field-label"
+                >电机轴等效阻性负载
+                <output id="robotLoadRead" class="read">0.420 N·m</output></label
+              ><input id="robotLoad" type="range" min="0" max="1.4" step=".01" value=".42" />
+              <p class="robot-transmission-note">
+                增大负载，观察电流上升、转速下降；超过启动能力会堵转。这里不按姿态计算重力矩。
+              </p>
+            </div>
+            <div class="app-values">
+              <div>
+                输出转速<b><span id="outRpm">119.4</span><small>rpm</small></b>
+              </div>
+              <div>
+                输出转矩<b><span id="outTorque">7.14</span><small>N·m</small></b>
+              </div>
+              <div>
+                输出功率<b><span id="outPower">89.3</span><small>W</small></b>
+              </div>
+            </div>
+            <div id="robotPoseRead" class="robot-pose">肩关节 55.0° · 末端位姿</div>
+            <p class="app-caption" id="appCaption">减速器输出法兰与上臂刚性连接。</p>
+            <p class="app-caption">n出 = n轴 / g　 T出 = ηg · g · T轴　 P出 = ηg · P轴</p>
+            <p class="app-caption" id="appScope">
+              只做当前电机工作点的传动换算，未闭环求解车体动力学；实际牵引力还受地面附着和轮载限制。应用动画按统一观察时标慢放。
+            </p>
+            <p class="robot-info">
+              用法：先运行观察整臂，再切换“完整传动”核对两级齿轮和轴速。巡检模式在 30° 与 85°
+              间往返，端点先断电停留再反接，正负极随之交换。
+            </p>
+          </div>
+          <div id="armDrivePane" class="hidden" role="tabpanel">
+            <div class="arm-circuit">
+              <h3>① 电能进入肩关节电机</h3>
+              <div class="circuit-cells">
+                <span>直流驱动电源<b id="driveSupply">24.0 V</b></span
+                ><i>→</i
+                ><span
+                  ><b id="driveTerminals">A ＋ / B −</b
+                  ><small id="driveCurrent">I = 7.50 A</small></span
+                ><i>→</i><span>电刷 · 换向器<b>电枢绕组</b></span>
+              </div>
+              <p id="driveCircuitFlow" class="robot-info">
+                传统电流从正极进入电刷，流经换向器和绕组，再从另一电刷返回负极。
+              </p>
+            </div>
+            <div id="driveStageRead" class="drive-stage-list"></div>
+            <div class="drive-table-wrap">
+              <table class="drive-table">
+                <thead>
+                  <tr>
+                    <th>传动位置</th>
+                    <th>转速 rpm</th>
+                    <th>转矩 N·m</th>
+                    <th>功率 W</th>
+                  </tr>
+                </thead>
+                <tbody id="driveStageTable"></tbody>
+              </table>
+              <p class="robot-transmission-note">
+                中间级损失按两级效率相同分配：η₁ = η₂ = √ηg；整体读数仍为
+                ηg。正负号按各轴统一方向约定。
+              </p>
+            </div>
+            <div class="robot-pose">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  gap: 10px;
+                  align-items: center;
+                "
+              >
+                <span>肩关节减速器</span><b id="robotGearCountRead">4 个齿轮 / 2 次外啮合</b>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 7px">
+                <button id="robotAddGear" style="font-size: 11px; padding: 6px">＋ 增加齿轮</button
+                ><button id="robotRemoveGear" style="font-size: 11px; padding: 6px" disabled>
+                  − 减少齿轮
+                </button>
+              </div>
+              <p class="robot-transmission-note" id="robotIdlerNote">
+                可加入 0–2 个惰轮；每加一个，输出转向反转，总减速比不变。效率按下方设定值计算。
+              </p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="gearRatio"
+                >减速比 g = n电机 / n输出 <output class="read" id="gearRead">80 : 1</output></label
+              ><input id="gearRatio" type="range" min="1" max="100" step="1" value="80" />
+              <div class="range-labels"><span>直驱 1 : 1</span><span>100 : 1</span></div>
+            </div>
+            <div class="app-detail">
+              <div>
+                <label class="field-label" for="gearEff">传动效率 ηg</label>
+                <div class="numeric">
+                  <input id="gearEff" type="number" min="50" max="100" step="1" value="85" /><span
+                    >%</span
+                  >
+                </div>
+              </div>
+              <div id="armField" class="hidden">
+                <label class="field-label" for="armRadius">等效力臂 L</label>
+                <div class="numeric">
+                  <input
+                    id="armRadius"
+                    type="number"
+                    min=".05"
+                    max="1"
+                    step=".01"
+                    value=".30"
+                  /><span>m</span>
+                </div>
+              </div>
+            </div>
+            <p class="robot-transmission-note">
+              ③
+              输出齿轮与关节法兰同轴固定，法兰与上臂刚性连接。肘、腕相对角固定，随上臂沿关节链运动；电机高速旋转经减速后成为关节摆动。
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="panel energy">
+        <div class="energy-title">
+          每一瓦都能对上
+          <span style="color: var(--muted); font-size: 11px">/ 电机稳态能量平衡</span>
+          <p id="balanceText">180.0 W = 105.0 W + 67.5 W + 7.5 W</p>
+        </div>
+        <div>
+          <div class="energy-bar" aria-label="轴功率、绕组铜耗和粘性摩擦损耗的占比">
+            <span id="energyMech" style="background: var(--cyan); width: 58.3%"></span
+            ><span id="energyCopper" style="background: var(--amber); width: 37.5%"></span
+            ><span id="energyFriction" style="background: #6b8197; width: 4.2%"></span
+            ><span id="energyContact" style="background: var(--red); width: 0"></span>
+          </div>
+          <div class="energy-keys">
+            <span><i class="swatch"></i>轴输出<b id="mechEnergy">105.0 W</b></span
+            ><span
+              ><i class="swatch" style="background: var(--amber)"></i>铜耗 I²R<b id="copperEnergy"
+                >67.5 W</b
+              ></span
+            ><span
+              ><i class="swatch" style="background: #6b8197"></i>粘性摩擦 bω²<b id="frictionEnergy"
+                >7.5 W</b
+              ></span
+            ><span id="contactEnergyKey" class="hidden"
+              ><i class="swatch" style="background: var(--red)"></i>接触损耗 I²Rc<b
+                id="contactEnergy"
+                >0.0 W</b
+              ></span
+            >
+          </div>
+        </div>
+      </section>
+      <details class="panel details">
+        <summary>教学模型、坐标约定与参考资料　＋</summary>
+        <div class="details-content">
+          <div>
+            <h3>数值来自同一个平均模型</h3>
+            <p>
+              本页采用永磁有刷直流电机的稳态方程。参数为教学假设，不对应某一具体产品。电压幅值 0–24
+              V；电阻 R = 1.20 Ω；Kt = 0.060 N·m/A；Ke = 0.060 V·s/rad；粘性阻尼 b = 0.00012
+              N·m·s/rad。Kt 与 Ke 在 SI 单位下取相同数值。
+            </p>
+            <div class="formula-list">
+              U = RI + E,　E = Keω<br />Tₑ = KtI = T轴 + bω<br />ω = max[0, (KtU/R − Tᴸ)/(KtKe/R +
+              b)]<br />P入 = UI = T轴ω + I²R + bω²
+            </div>
+            <p>
+              负载是随转向改变方向的阻性负载，阻碍转动。未达到堵转时 T轴 =
+              Tᴸ；超出能力时转子停住，可传递转矩上限为
+              KtU/R，超出部分由约束承受，不显示成虚假的电机输出。0 V 按无外力驱动静止处理。
+            </p>
+            <p>
+              曲线和读数使用幅值；反接时电流、角速度和转矩的有符号值同时反向，所以电动工况功率仍非负。这里切换的是两个稳态，未仿真反接制动、再生、电感与加速瞬态，也未建立温升模型。大电流和堵转状态仅用于教学，不代表可连续运行。
+            </p>
+          </div>
+          <div>
+            <h3>看懂剖切与换向</h3>
+            <p>
+              三维结构放大一个线圈与二片分裂环，帮助识别部件。数值采用多线圈平均特性；二者不能用来推断单线圈的瞬时速度。剖切同时移除近侧部分磁体以显露绕组，仅改变可见性，不改变计算中的完整磁路。
+            </p>
+            <p>
+              二维图从输出轴端看，向右为 +x、向上为 +y、出屏为 +z。磁场沿 +x，从 N 指向
+              S。出屏的正电流在磁场中受力向上，入屏时受力向下。正向时右侧导线出屏、左侧入屏，形成逆时针转矩。
+            </p>
+            <p>
+              示教角 θ 从向右方向逆时针计。单线圈转矩幅值与 |cos θ|
+              成正比，90°、270°为零转矩位置；理想换向在此交换线圈电流，电刷处接触间隙被简化。暂停仅冻结动画，步进和角度条用于观察，稳态数据保持。
+            </p>
+            <p>
+              音效使用本地 Web Audio
+              合成，音高与转速联动，反映运行趋势；不模拟真实声压、频谱或故障特征。默认静音，点击开启后播放。
+            </p>
+            <h3>故障模型</h3>
+            <p>
+              电刷接触不良用额外串联接触电阻 Rc 示教：U = I(R + Rc) + Keω，接触损耗为 I²Rc。开路时 I
+              = 0；过载时按静态堵转约束处理。故障挑战采用 12 V，正常示教负载为 0.18 N·m；Rc = 6 Ω
+              只是本题故障参数，不是产品测量值。修复前后比较稳态，不模拟电弧、温升或机械加减速过程。
+            </p>
+            <h3>原理核对来源</h3>
+            <p>
+              <a
+                href="https://www.nidec.com/en/products/small-precision-motors/contents/technology/motor/basic/00004/"
+                target="_blank"
+                rel="noopener"
+                >Nidec · 永磁直流电机与转矩原理 ↗</a
+              ><br /><a
+                href="https://support.maxongroup.com/hc/en-us/articles/360013761160-Motor-data-and-simulation"
+                target="_blank"
+                rel="noopener"
+                >maxon · 电机数据、常数与阻尼模型 ↗</a
+              ><br /><a
+                href="https://www.maxongroup.com/medias/sys_master/8798985748510.pdf"
+                target="_blank"
+                rel="noopener"
+                >maxon Academy · 等效电路与转速转矩关系 ↗</a
+              >
+            </p>
+          </div>
+        </div>
+      </details>
+      <footer class="footer">
+        <span>MOTION LAB / 有刷直流电机交互教学材料</span
+        ><span>快捷键：空格 暂停　R 反接　C 剖切　S 音效　 ·　无需联网</span>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="assets/app.js?v=original-model-2"></script>
+  <script data-root="../" data-lab="motor">(() => {
+  'use strict';
+  const script=document.currentScript,config=script.dataset;
+  const root=config.root||'../',active=config.lab;
+  const links=[{"id":"2-1","title":"动力装置的基本原理","demo":"course/chapters/02/tasks/2-1/index.html"},{"id":"2-2","title":"动力的传递与变换","demo":"course/chapters/02/tasks/2-2/index.html"},{"id":"2-3","title":"工作机构与施工动作","demo":"course/chapters/02/tasks/2-3/index.html"}];
+  const task={motor:'2-1',diesel:'2-1',transmission:'2-2',mechanisms:'2-3',fourbar:'2-3'}[active];
+  document.documentElement.dataset.c2=active;
+  const nav=document.createElement('nav');
+  nav.className='c2-nav';
+  nav.setAttribute('aria-label','本章导航');
+  nav.innerHTML=`<a class="c2-home" href="${root}course/chapters/02/overview/index.html">← 第二章 · 动力与工作机构</a><div class="c2-links">${links.map(({id,title,demo})=>`<a href="${root+demo}" ${id===task?'aria-current="page"':''}>${id} ${title}</a>`).join('')}</div>`;
+  document.body.prepend(nav);
+  if(active==='mechanisms'){
+    const lessons=document.querySelector('.lessons');if(lessons){const details=document.createElement('details');details.className='c2-lesson-notes';const summary=document.createElement('summary');summary.textContent='本实验要点 · 传力、导程与偏心振动';lessons.before(details);details.append(summary,lessons);}
+  }
+})();
+</script><script>window.Chapter2Guides = {
+  motor: {
+    title: '认识直流电机',
+    goals: ['分辨保持不动的磁铁和随轴转动的线圈。', '说出电机怎样给机器人关节提供转动。'],
+    steps: [['看外形', '点击“完整”，找到伸出外壳的输出轴。'], ['看内部', '切回剖切，点选定子、转子和电刷。'], ['换接线', '保持视角，点右侧正向或反向接线，再单步或播放，对比输出轴转向。']],
+    reflection: '电机转起来时，哪些部件在动？哪些保持不动？',
+    boundary: '按原模型的慢速示意观察。',
+    help: ['拖动旋转，滚轮缩放，点击部件名称近看。', '右侧接线按钮会暂停模型，方便保持同一姿态比较电流与受力标记，再单步看转向。', '剖切、完整和隐藏壳体可切换观察范围。下方可播放、单步或复位；右上角可全屏和恢复。']
+  },
+  diesel: {
+    title: '认识柴油机',
+    goals: ['沿活塞、连杆和曲轴找到动力传递的路径。', '用单缸和四缸模型比较活塞做功的时刻。'],
+    steps: [['看单缸', '在剖切状态下点选活塞和曲轴。'], ['选冲程', '点右侧进气、压缩、做功和排气，比较活塞方向与气门开闭。拖动滑条连续观察。'], ['换四缸', '选择观察气缸，再定位它的冲程。播放时留意各缸轮流做功，以及它们共用的曲轴。']],
+    reflection: '活塞只会上下运动，为什么曲轴可以一直转？',
+    boundary: '气流和燃烧颜色是教学提示。',
+    help: ['选择单缸或四缸，拖动模型旋转，滚轮缩放。', '点选冲程会暂停并定位原模型；四缸先选观察气缸。滑条直接转动共用曲轴。', '点部件标签或右侧索引近看。拆解期间先合成复原，再观察冲程。下方可播放、单步或复位；右上角可全屏和恢复。']
+  }
+};
+
+/* Chapter-wide presentation controls; experiments retain ownership of their state. */
+(() => {
+  'use strict';
+  const lab=document.documentElement.dataset.c2, lesson=window.Chapter2Guides?.[lab];
+  if(!lesson)return;
+  const $=selector=>document.querySelector(selector);
+  const make=(tag,cls,text)=>{const el=document.createElement(tag);el.className=cls||'';if(text)el.textContent=text;return el;};
+  const button=(text,fn,cls='')=>{const el=make('button','c2-button '+cls,text);el.type='button';el.addEventListener('click',fn);return el;};
+  const pause=()=>document.dispatchEvent(new Event('course:pause'));
+  const header={motor:'.top-actions',diesel:'.header-actions',transmission:'.top-actions',mechanisms:'.mast .toolbar',fourbar:'.fb-header nav'}[lab];
+  const actions=make('div','c2-learning-actions');
+  const helpOriginal=$('#helpBtn');
+  if(helpOriginal){helpOriginal.textContent='原理与实验说明';helpOriginal.classList.add('c2-original-help');}
+  const guide=button('学习引导',()=>openDialog('guide'),'c2-guide-button');guide.id='c2-guide';
+  const help=button('操作说明',()=>openDialog('help'));help.id='c2-help';
+  actions.append(guide,help);$(header)?.append(actions);
+  const dialog=make('dialog','c2-dialog');dialog.id='c2-learning-dialog';dialog.setAttribute('aria-labelledby','c2-dialog-title');
+  const dialogHead=make('div','c2-dialog-head'),title=make('h2');title.id='c2-dialog-title';
+  dialogHead.append(title,button('关闭',()=>dialog.close()));
+  const body=make('div','c2-dialog-body'),foot=make('div','c2-dialog-foot');
+  foot.append(button('开始观察',()=>dialog.close(),'c2-primary'));dialog.append(dialogHead,body,foot);document.body.append(dialog);
+  let opener;
+  function openDialog(kind){
+    pause();opener=kind==='guide'?guide:help;body.replaceChildren();
+    title.textContent=kind==='guide'?lesson.title:'操作说明';
+    function section(name,content){const h=make('h3','',name);body.append(h,content);}
+    if(kind==='guide'){
+      const goals=make('ul');lesson.goals.forEach(t=>goals.append(make('li','',t)));section('本节学什么',goals);
+      const steps=make('ol','c2-steps');lesson.steps.forEach(([name,text])=>{const item=make('li');item.append(make('strong','',name),make('p','',text));steps.append(item);});section('按这三步观察',steps);
+      section('观察后，试着说明',make('p','c2-reflection',lesson.reflection));body.append(make('p','c2-boundary',lesson.boundary));
+    }else{
+      const list=make('ol');lesson.help.forEach(t=>list.append(make('li','',t)));body.append(list);
+      if(helpOriginal&&lab!=='diesel')body.append(button('原理与实验说明 ↗',()=>{dialog.close();helpOriginal.click();}));
+    }
+    dialog.showModal();
+  }
+  dialog.addEventListener('close',()=>opener?.focus());
+  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+  // Keep legacy document shortcuts out of both guide and help dialogs.
+  document.addEventListener('keydown',e=>{if(dialog.open&&e.key!=='Escape')e.stopImmediatePropagation();},true);
+
+  // Keep each mechanism in a single observation workstation.
+  if(lab==='mechanisms'){
+    const labs=$('.labs'),panels=[...labs.children].filter(e=>e.classList.contains('lab'));
+    const tabs=make('div','c2-experiments');tabs.setAttribute('role','group');tabs.setAttribute('aria-label','工作机构展示方式');
+    panels.forEach(panel=>{
+      const model=make('section','c2-model-column'),control=make('aside','c2-control-column');
+      [...panel.children].forEach(el=>(el.matches('.stats,.controls,.lab-foot')?control:model).append(el));panel.append(model,control);
+    });
+    const transport=make('div','c2-mechanism-transport');
+    for(const element of [$('#play'),$('#reverse'),$('#reset'),$('#speed').closest('label')])transport.append(element);
+    const prompts=[
+      ['看液压缸怎样带动动臂','单步伸出液压缸，沿销轴观察 A、B、C 三根杆怎样联动。杆长滑块用于重新设置尺寸，播放时各杆的长度固定。'],
+      ['看转动怎样变成升降','先用“丝杠转 1 圈”比较位移，再改变导程重复观察。切换同步同转，比较丝杠与螺母的相对运动。'],
+    ];
+    panels.forEach((panel,i)=>{
+      const control=panel.querySelector('.c2-control-column');
+      const guide=make('section','mechanism-observation');
+      guide.append(make('h3','',prompts[i][0]),make('p','',prompts[i][1]));
+      control.prepend(panel.querySelector('.lab-head'),guide);
+    });
+    ['液压连杆','丝杠升降'].forEach((name,i)=>tabs.append(button(name,()=>select(i))));
+    function select(i){
+      panels[i].querySelector('.c2-model-column').append(transport);
+      document.dispatchEvent(new CustomEvent('mechanism:select',{detail:i===0?'boom':'screw'}));
+      labs.dataset.presentation='single';
+      panels.forEach((panel,n)=>{panel.hidden=n!==i;});
+      [...tabs.children].forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));
+      dispatchEvent(new Event('resize'));
+    }
+    labs.before(tabs);select(0);
+  }
+
+  let expanded=null,inerted=[],returnFocus=null,oldOverflow='';
+  const viewButtons=new Map();
+  function release(){
+    if(!expanded)return;
+    expanded.classList.remove('c2-expanded','c2-fallback');
+    inerted.forEach(([el,value])=>el.inert=value);inerted=[];
+    document.body.style.overflow=oldOverflow;document.body.classList.remove('c2-has-expanded');
+    expanded=null;sync();returnFocus?.focus();dispatchEvent(new Event('resize'));
+  }
+  function sync(){viewButtons.forEach((b,target)=>{const on=expanded===target;b.textContent=on?'⤢ 恢复':'⛶ 全屏';b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?'恢复页面布局':'全屏观察'+target.dataset.c2Title);});}
+  async function toggle(target,b){
+    if(expanded){if(document.fullscreenElement)await document.exitFullscreen();else release();return;}
+    expanded=target;returnFocus=b;oldOverflow=document.body.style.overflow;target.classList.add('c2-expanded');document.body.classList.add('c2-has-expanded');
+    document.body.style.overflow='hidden';
+    try{if(!target.requestFullscreen)throw new Error('Fullscreen unsupported');await target.requestFullscreen();}
+    catch{target.classList.add('c2-fallback');}
+    if(expanded!==target)return;
+    for(let node=target;node&&node!==document.body;node=node.parentElement){for(const sibling of node.parentElement.children){if(sibling!==node&&!sibling.matches('script,style,link')){inerted.push([sibling,sibling.inert]);sibling.inert=true;}}}
+    sync();b.focus();dispatchEvent(new Event('resize'));
+  }
+  document.addEventListener('fullscreenchange',()=>{if(expanded&&!document.fullscreenElement&&!expanded.classList.contains('c2-fallback'))release();});
+  document.addEventListener('keydown',e=>{if(expanded?.classList.contains('c2-fallback')&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();release();}},true);
+
+  function view(target,name,tools,play,step){
+    if(!target)return;
+    target.classList.add('c2-view');target.dataset.c2Title=name;
+    const bar=make('div','c2-viewbar'),label=make('span','c2-view-label',name),controls=make('div','c2-view-actions');
+    if(tools)controls.append(tools);
+    const motion=make('div','c2-view-motion');
+    if(play){const source=$(play);if(source){const proxy=button('',()=>source.click());const update=()=>{proxy.textContent=source.getAttribute('aria-label')||source.textContent.trim();proxy.disabled=source.disabled;};update();new MutationObserver(update).observe(source,{attributes:true,childList:true,subtree:true,characterData:true});motion.append(proxy);}}
+    if(step){const source=$(step);if(source){const proxy=button(source.textContent.trim(),()=>source.click());const update=()=>proxy.disabled=source.disabled;update();new MutationObserver(update).observe(source,{attributes:true});motion.append(proxy);}}
+    controls.append(motion);
+    const full=button('⛶ 全屏',()=>toggle(target,full),'c2-fullscreen');viewButtons.set(target,full);controls.append(full);bar.append(label,controls);target.prepend(bar);
+  }
+  if(lab==='motor')view($('#motorPanel'),'电机结构观察',$('#motorPanel .pills'));
+  if(lab==='diesel')view($('.workspace'),'柴油机结构观察',$('.view-tools'));
+  if(lab==='transmission')view($('.viewport'),'动力传动 · 结构观察',$('.scene-tools'),'#playBtn','#stepBtn');
+  if(lab==='mechanisms'){
+    view($('#boom-lab .c2-model-column'),'液压连杆 · 结构观察',$('#boom-lab .view-buttons'),'#play','#boom-step');
+    view($('#screw-lab .c2-model-column'),'丝杠升降 · 结构观察',$('#screw-lab .view-buttons'),'#play','#screw-step');
+  }
+  if(lab==='fourbar'){
+    view($('.fb-main'),'四杆机构 · 闭合与传力',null,'#fb-play','#fb-plus');
+    view($('.fb-gripper'),'夹爪 · 联动观察',null,'#fb-play','#fb-plus');
+    $('#fb-fit').textContent='全景';
+  }
+  // Older whole-page fullscreen remains in the source for compatibility only.
+  ['#fullscreenBtn','#fullBtn','#fullscreen','[data-enlarge]'].forEach(selector=>document.querySelectorAll(selector).forEach(el=>el.hidden=true));
+  sync();
+})();
+</script><script>/* 原版三维实验页的“嵌入模式”桥接。
+ * 页面被第二章任务页（index.html）用 iframe 打开时：只留下三维视图，其余原有界面隐藏；
+ * 外层面板通过 postMessage 发命令（点击、设值、调用接口），这里定时回报模型状态。
+ * 单独打开原页面时不做任何改动。file:// 下同样可用（只用 postMessage，不跨文档读 DOM）。
+ */
+(() => {
+  'use strict';
+  const embedded = window.parent !== window || /[?&]embed\b/.test(location.search);
+  if (!embedded) return;
+  const $ = s => document.querySelector(s);
+  const lab = () => document.documentElement.dataset.c2;
+  const text = s => ($(s)?.textContent || '').trim();
+  const pressed = s => $(s)?.getAttribute('aria-pressed') === 'true';
+  const json = v => JSON.parse(JSON.stringify(v ?? null));
+
+  /* 每个原版页面：保留哪个三维视图、隐藏其中哪些原有浮层、回报哪些状态 */
+  const LABS = {
+    motor: {
+      keep: '#stage',
+      hideInside: ['.view-hint', '.c2-viewbar'],
+      probe() {
+        const s = window.motorLab.getState(), m = window.motorLab.getModel(), st = window.motorLab.getStudent();
+        const view = ['cutMode', 'wholeMode', 'wireMode'].find(id => pressed('#' + id)) || 'cutMode';
+        return {voltage: s.voltage, load: s.load, dir: s.dir, paused: s.paused, part: s.part, showEM: s.showEM, cut: s.cut,
+          n: m.n, I: m.I, T: m.T, P: m.P, eff: m.eff, stall: m.stall, stalled: m.stalled, view,
+          partText: s.part !== 'all' ? text('.part-description') : '',
+          // 组装模式（原版“学生任务：组装与接线”）
+          student: {...st, step: $('#studentConsole')?.dataset.uiStep || '', feedback: text('#studentFeedback')}};
+      },
+    },
+    diesel: {
+      keep: '#viewport',
+      probe() {
+        const s = window.engineLab.getState();
+        const stroke = $('#strokes [aria-pressed="true"]');
+        return {mode: s.mode, observed: s.observed, angle: s.angle, running: s.running, speed: s.speed, explode: s.explode,
+          targetExplode: s.targetExplode, cut: s.cut, labels: s.labels, effects: s.effects, vehicle: s.vehicle,
+          installation: s.installation, audio: s.audioEnabled, selected: s.selected,
+          stroke: stroke ? +stroke.dataset.stroke : null, rpm: text('#rpmReadout'),
+          partName: s.selected ? text('#partName') : '', partDesc: s.selected ? text('#partDesc') : ''};
+      },
+    },
+    transmission: {
+      keep: '#canvasWrap',
+      // transmission.html#gear / #hyd / #air
+      setup() { const m = location.hash.slice(1); if (['gear', 'hyd', 'air'].includes(m)) window.MechanicsLab.switchMode(m); },
+      probe() {
+        const x = window.MechanicsLab.snapshot(), st = x.state;
+        return {mode: x.mode, playing: x.playing, speed: x.speed, params: x.params[x.mode], tr: x.transmission,
+          state: {x: st.x, v: st.v, pA: st.pA, pB: st.pB, force: st.force, status: st.status, command: st.command, cycles: st.cycles, auto: st.auto},
+          focused: x.view.focused, watch: text('#watchTitle')};
+      },
+    },
+    mechanisms: {
+      keep: () => (location.hash === '#screw' ? '#screw-stage' : '#boom-stage'),
+      hideInside: ['.stage-hint', '.stage-top', '.c2-viewbar'],
+      setup() {
+        const i = location.hash === '#screw' ? 1 : 0;
+        const tab = document.querySelectorAll('.c2-experiments button')[i];
+        tab?.click();
+      },
+      probe() {
+        const x = window.mechanismLab.snapshot();
+        return {active: x.activeMechanism, play: x.play, dir: x.dir, speed: x.speed, theta: x.theta, a: x.a, b: x.b, c: x.c,
+          lead: x.lead, rpm: x.rpm, starts: x.starts, ns: x.ns, nn: x.nn, mode: x.mode, relative: x.relative, height: x.height,
+          vibration: x.vibration, ecc: x.ecc, trace: x.trace, forces: x.forces, range: x.range,
+          moment: x.model?.moment, mu: x.model?.mu, len: x.model?.len,
+          stroke: +($('#stroke')?.value || 0), strokeMin: +($('#stroke')?.min || 0), strokeMax: +($('#stroke')?.max || 0),
+          amplitude: x.vibrationMetrics?.amplitude};
+      },
+    },
+  };
+
+  const css = `
+    html.c2-embed, html.c2-embed body { overflow:hidden !important; margin:0 !important; padding:0 !important; min-width:0 !important; min-height:0 !important; }
+    html.c2-embed body { background:var(--stage-bg, #f5f6f8) !important; }
+    html.c2-embed .c2-embed-hide { display:none !important; }
+    html.c2-embed [data-c2-path] { transform:none !important; filter:none !important; contain:none !important; overflow:visible !important; }
+    html.c2-embed [data-c2-keep="main"] {
+      position:fixed !important; inset:0 !important; width:100vw !important; height:100vh !important;
+      max-width:none !important; max-height:none !important; min-width:0 !important; min-height:0 !important;
+      margin:0 !important; border:0 !important; border-radius:0 !important; z-index:2147480000 !important; box-shadow:none !important;
+    }
+    html.c2-embed [data-c2-keep="inset"] {
+      position:fixed !important; right:14px !important; bottom:14px !important; left:auto !important; top:auto !important;
+      width:min(30vw,280px) !important; height:min(34vh,210px) !important; min-height:0 !important; margin:0 !important;
+      border:1px solid var(--course-line, #cbdbea) !important; border-radius:12px !important; overflow:hidden !important;
+      z-index:2147480001 !important; box-shadow:0 6px 18px rgba(25,53,80,.18) !important;
+    }
+    html.c2-embed dialog { z-index:2147483000; }
+  `;
+
+  function isolate(cfg) {
+    const pick = v => (typeof v === 'function' ? v() : v);
+    const main = $(pick(cfg.keep)), inset = cfg.inset ? $(pick(cfg.inset)) : null;
+    if (!main) return false;
+    document.documentElement.classList.add('c2-embed');
+    /* 嵌入外壳后：三维区里的部件标签不小于 13px，字体与外壳一致 */
+    const type = '\n.part-label,.tag,button.tag,span.tag{font-size:13px!important;letter-spacing:0!important;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC","Segoe UI",system-ui,sans-serif!important}';
+    const style = document.createElement('style'); style.textContent = css + type; document.head.append(style);
+    const keeps = [main, inset].filter(Boolean);
+    main.dataset.c2Keep = 'main'; if (inset) inset.dataset.c2Keep = 'inset';
+    for (const k of keeps) for (let n = k; n && n !== document.body; n = n.parentElement) {
+      if (n !== k) n.dataset.c2Path = '1';
+      n.hidden = false; n.inert = false; n.classList.remove('hidden');
+    }
+    for (const k of keeps) {
+      for (let n = k; n && n !== document.body; n = n.parentElement) {
+        const parent = n.parentElement; if (!parent) break;
+        for (const sib of parent.children) {
+          if (sib.dataset.c2Path || sib.dataset.c2Keep || sib.matches('script,style,link,dialog,canvas.c2-keep-canvas')) continue;
+          sib.classList.add('c2-embed-hide');
+        }
+      }
+    }
+    for (const sel of cfg.hideInside || []) main.querySelectorAll(sel).forEach(e => e.classList.add('c2-embed-hide'));
+    // 画布多为透明：铺上外壳统一的三维区底色（--stage-bg 由外壳传入），不沿用原页面的网格、渐变底
+    for (const k of keeps) k.style.setProperty('background', 'var(--stage-bg, #f5f6f8)', 'important');
+    // 隐藏页面级的浮动按钮（深色模式切换等）
+    document.querySelectorAll('body > button, body > .toast, #course-theme-toggle').forEach(e => { if (!e.dataset.c2Keep) e.classList.add('c2-embed-hide'); });
+    return true;
+  }
+
+  const post = msg => window.parent.postMessage({c2: 'lab', lab: lab(), ...msg}, '*');
+  function setValue(el, value) {
+    if (!el) return;
+    if (el.type === 'checkbox') { if (el.checked !== Boolean(value)) el.click(); return; }
+    el.value = value;
+    el.dispatchEvent(new Event('input', {bubbles: true}));
+    el.dispatchEvent(new Event('change', {bubbles: true}));
+  }
+  function call(path, args) {
+    const parts = path.split('.'); let ctx = window, fn = window;
+    for (const p of parts) { ctx = fn; fn = fn?.[p]; }
+    return typeof fn === 'function' ? fn.apply(ctx, args || []) : undefined;
+  }
+  addEventListener('message', e => {
+    const d = e.data;
+    if (!d || d.c2 !== 'cmd') return;
+    try {
+      if (d.op === 'click') { const list = document.querySelectorAll(d.sel); (list[d.index || 0])?.click(); }
+      else if (d.op === 'clickText') { [...document.querySelectorAll(d.sel)].find(e => e.textContent.trim().startsWith(d.text))?.click(); }
+      else if (d.op === 'set') setValue($(d.sel), d.value);
+      else if (d.op === 'call') call(d.path, d.args);
+      else if (d.op === 'event') document.dispatchEvent(new Event(d.name));
+      else if (d.op === 'theme') {
+        if (d.stage) {
+          // 外壳的三维区取值：CSS 变量给页面样式用，StageTone 给三维场景用；再按主题重绘
+          const t = d.value === 'dark' ? 'dark' : 'light', v = d.stage[t] || {};
+          for (const [k, val] of Object.entries(v)) if (val) document.documentElement.style.setProperty('--stage-' + k, val);
+          window.StageTone?.use(d.stage);
+        }
+        window.CourseTheme?.set?.(d.value);
+      }
+      else if (d.op === 'resize') dispatchEvent(new Event('resize'));
+      else if (d.op === 'capture') (window.StageTone?.capture?.(document.body) || Promise.resolve(null)).then(url => post({type: 'shot', url}));
+    } catch (err) { console.warn('[c2 bridge]', d, err); }
+    setTimeout(send, 30);
+  });
+
+  let probe = null;
+  function send() {
+    if (!probe) return;
+    try { post({type: 'state', data: json(probe())}); } catch (err) { /* 模型尚未就绪 */ }
+  }
+  addEventListener('load', () => {
+    const cfg = LABS[lab()];
+    if (!cfg) return;
+    cfg.setup?.();
+    isolate(cfg);
+    probe = cfg.probe;
+    // 不依赖 requestAnimationFrame：后台标签页里它不会执行
+    dispatchEvent(new Event('resize')); post({type: 'ready'}); send();
+    setTimeout(() => dispatchEvent(new Event('resize')), 300);
+    setInterval(send, 160);
+  });
+})();
+</script><script src="assets/power-lesson.js"></script></body>
+</html>

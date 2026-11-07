@@ -1,0 +1,26 @@
+/* 1-2：第一章展厅放进统一外壳；同时压住 shared/workshop/ui.css、hero-gallery.css 的全局规则对外壳的影响 */
+html.lab-native .c2-top, html.lab-native .c2-bar, html.lab-native .c2-main { font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Segoe UI",sans-serif; }
+html.lab-native .c2-panel p, html.lab-native .c2-bar h1, html.lab-native .c2-panel h2 { line-height:1.5; }
+
+/* 三维区：原展厅的英文图注和右下角工具条不要（看法开关在左上角、播放在底部） */
+html.lab-native #scene.c2-native-stage { min-height:0 !important; }
+html.lab-native #scene .hero-caption, html.lab-native #scene .scene-tools { display:none !important; }
+
+/* 三维区上方：挑展品 */
+.c1-picker { display:flex; gap:6px; flex:1; }
+.c1-picker[hidden] { display:none; }
+.c1-picker button {
+  flex:1; display:inline-flex; align-items:center; justify-content:center; gap:8px; height:42px; padding:0 14px;
+  border:1px solid var(--hair); border-radius:12px; background:var(--surface-2); color:var(--course-muted);
+  font:inherit; font-size:14px; font-weight:600; cursor:pointer; transition:border-color .15s, color .15s, background .15s;
+}
+.c1-picker button svg { width:30px; height:28px; flex:none; fill:currentColor; }
+.c1-picker button:hover { color:var(--course-accent); border-color:var(--course-accent); }
+.c1-picker button[aria-checked=true] { color:var(--course-accent); border-color:var(--course-accent); background:var(--course-surface); box-shadow:0 0 0 1.5px var(--course-accent) inset; }
+
+/* 面板：部件按钮铺成两列 */
+html.lab-native .c2-panel .c1-dyn { display:contents; }
+html.lab-native .c2-panel .c1-dyn .c2-chips { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+html.lab-native .c2-panel .c1-dyn .c2-chip { text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+html.lab-native .c2-panel .c1-sliders { display:grid; gap:8px 14px; }
+html.lab-native .c2-panel .c1-sliders.c1-two { grid-template-columns:1fr 1fr; }

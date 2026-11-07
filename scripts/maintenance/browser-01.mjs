@@ -1,0 +1,11 @@
+const fs=await import('node:fs/promises');
+const task=await taskSpace('course-revision-20261026');
+console.log('SPACE',task.spaceId);
+const page=task.page('p1');
+await page.cdp('Page.addScriptToEvaluateOnNewDocument',{source:'window.__errors=[];addEventListener("error",e=>__errors.push(e.message));addEventListener("unhandledrejection",e=>__errors.push(String(e.reason)));'});
+await page.cdp('Emulation.setDeviceMetricsOverride',{width:1600,height:1000,deviceScaleFactor:1,mobile:false});
+await page.goto('file:///C:/Users/Administrator/Documents/GitHub/website/course/chapters/01/tasks/1-2/index.html');
+console.log(await page.snapshot());
+console.log(await page.evaluate(()=>({errors:window.__errors,state:window.GalleryLab?.state()})));
+await fs.mkdir('C:/Users/Administrator/Documents/GitHub/website/artifacts/screenshots/revision',{recursive:true});
+await page.screenshot({path:'C:/Users/Administrator/Documents/GitHub/website/artifacts/screenshots/revision/machinery.png'});

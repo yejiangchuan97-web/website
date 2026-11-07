@@ -1,0 +1,1 @@
+await import("../../../course/chapters/03/tasks/3-3/src/drive.build.mjs");await import("../../../course/chapters/03/tasks/3-4/src/tools.build.mjs");await import("../../../course/chapters/03/tasks/3-5/src/mobile.build.mjs");

@@ -1,0 +1,172 @@
+- generic [ref=e2]:
+  - navigation "本章导航" [ref=e3]:
+    - link "← 第一章 · 走进智能建造" [ref=e4] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/overview/index.html
+    - link "1-2 认识施工机械：从作业到装置" [ref=e5] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/tasks/1-2/index.html
+    - link "1-3 认识施工机器人：反馈与人机分工" [ref=e6] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/tasks/1-3/index.html
+    - button "切换深色" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: TASK 1-2 / READ THE JOB, READ THE MACHINE
+        - heading "认识施工机械：从作业到装置" [level=1] [ref=e11]
+        - paragraph [ref=e12]: 从施工任务出发，找到工作装置，改变动作，用观察证据说明设备的主要用途。
+      - generic [ref=e13]:
+        - button "操作说明" [ref=e14] [cursor=pointer]
+        - button "⛶ 全屏" [ref=e15] [cursor=pointer]
+    - generic [ref=e16]:
+      - navigation "作业任务" [ref=e17]:
+        - button "01 吊运成捆钢筋" [pressed] [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: "01"
+          - text: 吊运成捆钢筋
+        - button "02 人员到楼层" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: "02"
+          - text: 人员到楼层
+        - button "03 钢筋定尺切断" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: "03"
+          - text: 钢筋定尺切断
+        - button "04 钢筋成形弯曲" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: "04"
+          - text: 钢筋成形弯曲
+        - button "迁移 土料装车" [ref=e26] [cursor=pointer]:
+          - generic [ref=e27]: 迁移
+          - text: 土料装车
+      - button "观察记录 ↗" [ref=e28] [cursor=pointer]
+    - navigation "可选设备：先读作业，再看装置" [ref=e29]:
+      - button "01 挖掘机" [pressed] [ref=e30] [cursor=pointer]:
+        - generic [ref=e33]: "01"
+        - generic [ref=e34]: 挖掘机
+      - button "02 推土机" [ref=e35] [cursor=pointer]:
+        - generic [ref=e38]: "02"
+        - generic [ref=e39]: 推土机
+      - button "03 装载机" [ref=e40] [cursor=pointer]:
+        - generic [ref=e43]: "03"
+        - generic [ref=e44]: 装载机
+      - button "04 塔式起重机" [ref=e45] [cursor=pointer]:
+        - generic [ref=e48]: "04"
+        - generic [ref=e49]: 塔式起重机
+      - button "05 混凝土泵车" [ref=e50] [cursor=pointer]:
+        - generic [ref=e53]: "05"
+        - generic [ref=e54]: 混凝土泵车
+      - button "06 施工升降机" [ref=e55] [cursor=pointer]:
+        - generic [ref=e58]: "06"
+        - generic [ref=e59]: 施工升降机
+      - button "07 钢筋切断机" [ref=e60] [cursor=pointer]:
+        - generic [ref=e63]: "07"
+        - generic [ref=e64]: 钢筋切断机
+      - button "08 钢筋弯曲机" [ref=e65] [cursor=pointer]:
+        - generic [ref=e68]: "08"
+        - generic [ref=e69]: 钢筋弯曲机
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]: EXHIBIT / 机械结构观察
+          - generic [ref=e74]:
+            - button "全景" [ref=e75] [cursor=pointer]
+            - button "侧面" [ref=e76] [cursor=pointer]
+            - button "俯视" [ref=e77] [cursor=pointer]
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=e78]:
+          - generic:
+            - text: FIG 01 / 08
+            - heading "挖掘机" [level=2]
+            - paragraph: HYDRAULIC EXCAVATOR
+          - generic [ref=e80]:
+            - button "↻ 环绕" [ref=e81] [cursor=pointer]
+            - button "放大" [ref=e82] [cursor=pointer]: ＋
+            - button "缩小" [ref=e83] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=e84] [cursor=pointer]
+            - button "聚焦部件" [ref=e85] [cursor=pointer]
+          - button "履带行走部" [ref=e86] [cursor=pointer]: "01"
+          - button "动力与配重" [ref=e87] [cursor=pointer]: "02"
+          - button "驾驶室" [ref=e88] [cursor=pointer]: "03"
+          - button "动臂" [ref=e89] [cursor=pointer]: "04"
+          - button "斗杆" [ref=e90] [cursor=pointer]: "05"
+          - button "铲斗与斗齿" [ref=e91] [cursor=pointer]: "06"
+        - generic [ref=e92]:
+          - button "▶ 播放动作" [ref=e93] [cursor=pointer]
+          - button "单步" [ref=e94] [cursor=pointer]
+          - generic [ref=e95]:
+            - generic [ref=e96]: 动作进度（秒）
+            - slider "动作进度（秒）" [ref=e97]: "0"
+            - status [ref=e98]: 0.00 / 8.00 s
+          - button "复位" [ref=e99] [cursor=pointer]
+        - generic [ref=e100]:
+          - generic [ref=e101]: 定位工作装置 → 观察动作 → 记录用途依据
+          - generic [ref=e102]: 三维观察
+      - complementary "操作与状态" [ref=e103]:
+        - generic [ref=e104]:
+          - text: 当前作业 · 吊运成捆钢筋
+          - heading "起升并改变空间位置" [level=3] [ref=e105]
+          - paragraph [ref=e106]: 把加工区的一捆钢筋从地面吊运到指定作业位置。先确认是吊运构件，不是运送人员。
+          - generic [ref=e107]:
+            - generic [ref=e108]: ○ 定位工作装置
+            - generic [ref=e109]: ○ 动作变化证据
+          - paragraph [ref=e110]: 这台设备改变的是什么？成捆材料需要的是受控吊运，不是挖取、切断或泵送。
+          - link "填写用途说明 ↓" [ref=e111] [cursor=pointer]:
+            - /url: "#learning-output"
+        - heading "挖掘机" [level=2] [ref=e112]
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - button "机构动作" [pressed] [ref=e115] [cursor=pointer]
+            - button "结构观察" [ref=e116] [cursor=pointer]
+          - generic [ref=e117]:
+            - heading "单独调节机构 课堂姿态范围" [level=3] [ref=e118]:
+              - text: 单独调节机构
+              - generic [ref=e119]: 课堂姿态范围
+            - generic [ref=e120]:
+              - generic [ref=e121]:
+                - text: 回转
+                - status "回转 0" [ref=e122]: 0 °
+              - slider [ref=e123]: "0"
+            - generic [ref=e124]:
+              - generic [ref=e125]:
+                - text: 动臂
+                - status "动臂 3" [ref=e126]: 9 °
+              - slider [ref=e127]: "9"
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - text: 斗杆
+                - status "斗杆 -10" [ref=e130]: 3 °
+              - slider [ref=e131]: "3"
+            - generic [ref=e132]:
+              - generic [ref=e133]:
+                - text: 铲斗
+                - status "铲斗 -20" [ref=e134]: "-5 °"
+              - slider [ref=e135]: "-5"
+        - status [ref=e136]: 观察履带、回转平台、动臂、斗杆与铲斗怎样配合挖掘。
+        - generic [ref=e138]:
+          - generic [ref=e139]:
+            - heading "部件索引" [level=3] [ref=e140]
+            - generic [ref=e141]: 06 ASSEMBLIES
+          - paragraph [ref=e142]: 选择下方部件，在展品上查看位置；点击「近看」进入局部。
+          - generic [ref=e143]:
+            - button "01 履带行走部 ↗" [ref=e144] [cursor=pointer]:
+              - generic [ref=e145]: "01"
+              - text: 履带行走部
+              - generic [ref=e146]: ↗
+            - button "02 动力与配重 ↗" [ref=e147] [cursor=pointer]:
+              - generic [ref=e148]: "02"
+              - text: 动力与配重
+              - generic [ref=e149]: ↗
+            - button "03 驾驶室 ↗" [ref=e150] [cursor=pointer]:
+              - generic [ref=e151]: "03"
+              - text: 驾驶室
+              - generic [ref=e152]: ↗
+            - button "04 动臂 ↗" [ref=e153] [cursor=pointer]:
+              - generic [ref=e154]: "04"
+              - text: 动臂
+              - generic [ref=e155]: ↗
+            - button "05 斗杆 ↗" [ref=e156] [cursor=pointer]:
+              - generic [ref=e157]: "05"
+              - text: 斗杆
+              - generic [ref=e158]: ↗
+            - button "06 铲斗与斗齿 ↗" [ref=e159] [cursor=pointer]:
+              - generic [ref=e160]: "06"
+              - text: 铲斗与斗齿
+              - generic [ref=e161]: ↗
+    - generic [ref=e162]:
+      - generic [ref=e163]: 原创教学结构模型 · 展示部件与运动关系，不计算额定能力、地基承载或现场安全距离。
+      - link "课程总览 ↗" [ref=e164] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/home/index.html#chapter-1

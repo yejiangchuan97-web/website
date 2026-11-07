@@ -1,0 +1,67 @@
+[
+  {
+    "id": "excavator",
+    "title": "CET200",
+    "author": "VMC Motion Technologies Co., Ltd.",
+    "source": "https://github.com/vmc-motion/cet200",
+    "licenseId": "Apache-2.0",
+    "file": "shared/models/machinery/excavator.glb",
+    "runtime": "shared/models/machinery/excavator.data.js",
+    "license": "shared/models/machinery/LICENSE.html",
+    "provenance": "shared/models/machinery/excavator.source.json",
+    "sha256": "06e7b8b7198a609087117ee17f7ee6976f9055e311a2de28c5b557708977fa67",
+    "bytes": 1806928
+  },
+  {
+    "id": "dozer",
+    "title": "Bulldozer",
+    "author": "Innerscene Corp",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/bulldozer-d4b3bb86",
+    "licenseId": "CC0-1.0",
+    "file": "shared/models/machinery/dozer.glb",
+    "runtime": "shared/models/machinery/dozer.data.js",
+    "license": "shared/models/machinery/LICENSE.html",
+    "provenance": "shared/models/machinery/dozer.source.json",
+    "sha256": "2cff7ac57578ce2779fe6be7fcd786d9ede9aea834997b0a7b5faf919eb9326a",
+    "bytes": 6873444
+  },
+  {
+    "id": "loader",
+    "title": "Wheel loader",
+    "author": "Innerscene Corp",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/wheel-loader-da80dfd2",
+    "licenseId": "CC0-1.0",
+    "file": "shared/models/machinery/loader.glb",
+    "runtime": "shared/models/machinery/loader.data.js",
+    "license": "shared/models/machinery/LICENSE.html",
+    "provenance": "shared/models/machinery/loader.source.json",
+    "sha256": "c2c0d277e3e7ff31c2b6883e2ba80ebfa81f26cd60d866f7a5e154e4aaaf2578",
+    "bytes": 6289604
+  },
+  {
+    "id": "crane",
+    "title": "Tower crane",
+    "author": "Innerscene Corp",
+    "source": "https://www.innerscene.com/tools/library/3d-parts/tower-crane-898f1b82",
+    "licenseId": "CC0-1.0",
+    "file": "shared/models/machinery/crane.glb",
+    "runtime": "shared/models/machinery/crane.data.js",
+    "license": "shared/models/machinery/LICENSE.html",
+    "provenance": "shared/models/machinery/crane.source.json",
+    "sha256": "1bf64c2f2065f3933966574c5de7db839cb54704e37763a9760b49027ad7e98d",
+    "bytes": 8183844
+  },
+  {
+    "id": "excavator-tracks",
+    "title": "CET200 track belt",
+    "author": "VMC Motion Technologies Co., Ltd.",
+    "source": "https://github.com/vmc-motion/cet200",
+    "licenseId": "Apache-2.0",
+    "file": "shared/models/machinery/excavator-tracks.glb",
+    "runtime": "shared/models/machinery/excavator-tracks.data.js",
+    "license": "shared/models/machinery/LICENSE.html",
+    "provenance": "shared/models/machinery/excavator-tracks.source.json",
+    "sha256": "2092ba05dbc919eb0887efe19720cd9d1d6b3fc51937dd7fc7fe14481412f029",
+    "bytes": 3064476
+  }
+]

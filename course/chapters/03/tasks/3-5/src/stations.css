@@ -1,0 +1,34 @@
+/* 3-5：底盘/行走方式选择横排在三维区上方 */
+.c2-stage-top .platform-picker:not([hidden]) { display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)); grid-template-rows:none !important; gap:8px; width:100%; margin:0 !important; height:auto !important; }
+.c2-stage-top .platform-picker button {
+  min-height:0 !important; height:auto !important; padding:7px 12px !important; margin:0 !important; text-align:left;
+  border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); box-shadow:var(--shadow-sm); cursor:pointer;
+}
+.c2-stage-top .platform-picker button.active { border-color:var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; }
+
+/* 3-5：面板里的原有卡片不再加外框 */
+.c2-panel .learning-card { margin:0; padding:0; border:0; background:none; box-shadow:none; }
+.c2-panel .learning-card .card-heading { display:flex; justify-content:space-between; align-items:center; font-size:13px; }
+.c2-panel .manual-controls > summary { display:none; }
+.c2-panel .jogpad { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+.c2-panel .jogpad button { height:36px; border-radius:10px; border:1px solid var(--hair); background:var(--course-surface); cursor:pointer; }
+.c2-panel .jogpad button:active { background:var(--course-accent); color:#fff; }
+.c2-panel :is(.chapter-picker, .level-picker) { display:flex; flex-wrap:wrap; gap:5px; }
+.c2-panel :is(.chapter-picker, .level-picker) button { height:30px; min-width:34px; padding:0 9px; border-radius:9px; border:1px solid var(--hair); background:var(--course-surface); cursor:pointer; }
+.c2-panel :is(.chapter-picker, .level-picker) button.active { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); font-weight:700; }
+.c2-panel .game-actions { display:flex; gap:6px; }
+.c2-stage-top .platform-picker button { display:grid !important; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:10px; align-items:center; color:var(--ink, inherit) !important; }
+.c2-stage-top .platform-picker button.active { color:var(--course-accent) !important; }
+.c2-stage-top .platform-picker .mechanism-icon { grid-row:span 2; width:44px; height:auto; margin:0 !important; }
+.c2-stage-top .platform-picker .mechanism-icon svg { width:44px; height:22px; display:block; }
+.c2-stage-top .platform-picker button > :not(.mechanism-icon) { margin:0 !important; text-align:left; line-height:1.3; }
+.c2-stage-top .platform-picker .mechanism-icon, .c2-stage-top .platform-picker .mechanism-icon svg { color:currentColor !important; background:none !important; }
+
+/* 三维区：去掉图号“FIG. 03.05”、英文镜头标记和重复的操作提示；看法切换放到左上角 */
+html.lab-native .stage .stage-bar > span, html.lab-native .stage :is(#cameraBadge, #stageHint) { display:none !important; }
+html.lab-native .stage .stage-bar { justify-content:flex-start; }
+html.lab-native .stage .stage-bar .view-controls button { font-size:13px; padding:5px 10px; }
+html.lab-native .stage .scene-compass { right:60px; }
+
+/* 选中的底盘卡片：副标题用正常的次要文字色（原来是浅色字压在浅蓝底上，看不见） */
+.c2-stage-top .platform-picker button.active small { color:var(--course-muted) !important; }

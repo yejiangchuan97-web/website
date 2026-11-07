@@ -1,0 +1,80 @@
+/* Shared blue/white and navy palette; loaded after lesson styles. */
+html[data-theme="light"], html[data-theme="light"] body, html[data-theme="light"] #chapter-shell {
+  --bg:#edf4fc; --paper:#fff; --surface:#fff; --panel:#fff; --panel2:#f3f7fc;
+  --soft:#f0f5fc; --stage:#edf4fc; --ink:#193550; --text:#193550;
+  --muted:#57718b; --line:#cbdbea; --blue:#2467c9; --accent:#2467c9;
+  --blue-soft:#e6f0ff; --accent-soft:#e6f0ff;
+  --course-bg:#edf4fc; --course-surface:#fff; --course-ink:#193550;
+  --course-muted:#57718b; --course-line:#cbdbea; --course-accent:#2467c9;
+  color-scheme:light;
+}
+html[data-theme="dark"], html[data-theme="dark"] body, html[data-theme="dark"] #chapter-shell {
+  --bg:#101d2e; --paper:#172a40; --surface:#172a40; --panel:#172a40; --panel2:#20364f;
+  --soft:#20364f; --stage:#14263c; --ink:#e1edfa; --text:#e1edfa;
+  --muted:#a6bad1; --line:#36516e; --blue:#8abaff; --accent:#8abaff;
+  --blue-soft:#233f62; --accent-soft:#233f62;
+  --course-bg:#101d2e; --course-surface:#172a40; --course-ink:#e1edfa;
+  --course-muted:#a6bad1; --course-line:#36516e; --course-accent:#8abaff;
+  color-scheme:dark;
+}
+/* Former controls stay hidden while old lesson markup is being maintained. */
+#theme, #themeBtn, #themeButton, #fb-theme, #c-theme, #c1-theme, #c4-theme,
+#c5-theme, #c6-theme, #c7-theme, #lightTheme, #darkTheme,
+button[data-theme], button[data-theme-button], button[data-theme-toggle], .theme-picker {
+  display:none !important;
+}
+html body #course-theme-toggle.course-theme-toggle {
+  display:inline-flex !important; position:static; align-items:center; justify-content:center;
+  flex:0 0 auto; box-sizing:border-box; width:auto; height:36px; min-height:36px; min-width:112px; padding:6px 12px;
+  margin:0 0 0 auto; border:1px solid var(--course-line); border-radius:8px;
+  background:var(--course-surface); color:var(--course-ink);
+  font:600 13px/1.4 "Microsoft YaHei","Segoe UI",sans-serif; letter-spacing:0;
+  cursor:pointer; white-space:nowrap; box-shadow:none; transform:none;
+}
+html body #course-theme-toggle.course-theme-toggle:hover { border-color:var(--course-accent); color:var(--course-accent); }
+html body #course-theme-toggle.course-theme-toggle:focus-visible { outline:3px solid var(--course-accent); outline-offset:3px; }
+html body #course-theme-toggle.course-theme-toggle.course-theme-floating { position:fixed; top:12px; right:12px; z-index:100; }
+html body :is(.course-nav,.c2-nav,.c-header,.c4-nav,.c5-nav,.c6-nav,.c7-nav) {
+  background:var(--course-surface); color:var(--course-ink); border-color:var(--course-line);
+}
+html body :is(.course-nav,.c2-nav,.c-header,.c4-nav,.c5-nav,.c6-nav,.c7-nav) a { color:var(--course-muted); }
+html body :is(.course-nav,.c2-nav,.c-header,.c4-nav,.c5-nav,.c6-nav,.c7-nav) a[aria-current="page"] {
+  background:var(--blue-soft); color:var(--course-accent);
+}
+/* The older chapter covers use fixed colors rather than semantic variables. */
+html[data-theme="dark"] body:has(#entry-screen) { background:var(--course-bg); color:var(--course-ink); }
+html[data-theme="dark"] #entry-screen { background:radial-gradient(ellipse at 79% 37%,#233f62,var(--course-bg) 74%); color:var(--course-ink); }
+html[data-theme="dark"] #entry-screen :is(.task-card,.model-label,.header-tools button,.exhibit-heading button,.exhibit-bottom button) {
+  background:var(--course-surface); color:var(--course-ink); border-color:var(--course-line);
+}
+html[data-theme="dark"] #entry-screen :is(p,small,.entry-footer,.exhibit-heading,.exhibit-bottom) { color:var(--course-muted); }
+html[data-theme="dark"] #entry-screen :is(h1 span,.task-links a,.entry-secondary,.entry-footer a) { color:var(--course-accent); }
+html[data-theme="dark"] body:has(#entry-screen) dialog { background:var(--course-surface); color:var(--course-ink); }
+/* Motor lab originally shipped only a dark palette. Keep its diagrams unchanged. */
+html[data-c2="motor"][data-theme="light"] { --cyan:#2467c9; --amber:#966018; --red:#b83950; --lime:#357748; --purple:#7446ad; }
+html[data-c2="motor"][data-theme="light"] :is(button,select,input,.card,.panel,.readout,.badge) {
+  background:var(--course-surface); color:var(--course-ink); border-color:var(--course-line);
+}
+@media(max-width:700px) {
+  html body #course-theme-toggle.course-theme-toggle { min-width:100px; min-height:40px; font-size:12px; padding:6px 8px; }
+  .c2-nav,.c4-nav,.c5-nav,.c6-nav,.c7-nav,.course-nav { flex-wrap:wrap; }
+}
+@media(prefers-reduced-motion:reduce) { .course-theme-toggle { transition:none !important; } }
+
+html[data-c5="tying"][data-theme="light"], html[data-c5="tying"][data-theme="light"] body { --teal:#2467c9; --teal-dark:#184d98; --teal-soft:#e6f0ff; --secondary:#57718b; }
+html[data-c5="tying"][data-theme="dark"], html[data-c5="tying"][data-theme="dark"] body { --teal:#8abaff; --teal-dark:#b5d3ff; --teal-soft:#233f62; --secondary:#a6bad1; }
+html[data-c2="motor"][data-theme="light"] :is(.brand h1,.panel-title,.legend,.lesson,.simple-model-options,.control-section h3) { color:var(--course-ink); }
+html[data-c2="motor"][data-theme="light"] #motorPanel>.stage { background:var(--course-bg); }
+html[data-theme="light"] .c2-activities { background:var(--course-bg); }
+html[data-theme="light"] .c2-activities button { background:var(--course-surface); color:var(--course-ink); border-color:var(--course-line); }
+html[data-theme="light"] .c2-activities button[aria-selected="true"] { background:var(--blue-soft); color:var(--course-accent); }
+html[data-theme="dark"] :is(#c5-content,#c6-content,#c7-content,#c4-content) { background:var(--course-bg); }
+html[data-theme="light"] :is(#c5-content,#c6-content,#c7-content,#c4-content) { background:var(--course-bg); }
+
+html[data-c2="motor"][data-theme="light"] .simple-readouts { background:var(--soft); }
+html[data-c2="motor"][data-theme="light"] :is(.metric-label,.metric-value .unit,.simple-options>summary) { color:var(--course-muted); }
+html[data-c2="motor"][data-theme="light"] .metric-value { color:var(--course-ink); }
+html[data-c2="motor"][data-theme="light"] .field-label .read { color:var(--course-accent); }
+
+html[data-theme="dark"] #entry-screen .task-select { color:var(--course-ink); }
+html[data-c2="motor"][data-theme="light"] :is(button[aria-pressed="true"],button[aria-selected="true"],button.active) { background:var(--blue-soft); color:var(--course-accent); border-color:var(--course-accent); }

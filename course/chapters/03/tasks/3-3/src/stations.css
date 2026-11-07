@@ -1,0 +1,55 @@
+/* 3-3：底栏放原页面的运行按钮和输入/输出/传动比读数 */
+.c2-strip .transport { display:flex; align-items:center; gap:6px; margin:0 !important; flex:0 0 auto; }
+.c2-strip .transport .step-pair { display:flex; gap:4px; }
+.c2-strip .transport button { height:34px; padding:0 12px; border-radius:10px; border:1px solid var(--hair); background:var(--surface-2); color:var(--course-ink); font-size:13px; white-space:nowrap; cursor:pointer; }
+.c2-strip .transport button.primary { border:0; background:linear-gradient(135deg,#3a82e4,#1f5bbd); color:#fff; font-weight:700; min-width:84px; }
+.c2-strip .transport .speed-label { display:flex; align-items:center; gap:4px; font-size:12.5px; color:var(--course-muted); white-space:nowrap; }
+.c2-strip .readouts { display:flex; gap:6px; flex:1; min-width:0; margin:0 !important; }
+.c2-strip .readouts .readout { flex:1; min-width:0; padding:4px 12px; border-radius:11px; background:var(--surface-2); border:0; box-shadow:none; margin:0; }
+.c2-strip .readouts output { font-size:20px; font-weight:800; color:var(--course-ink); }
+.c2-strip .readouts .detail { font-size:11.5px; color:var(--course-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.c2-strip:has(.transport) .c2-readouts { display:flex; gap:10px; align-items:center; }
+
+/* 3-3：面板里的观察与实验 */
+.c2-panel .dial-pair { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.c2-panel .dial-card { margin:0; padding:6px; border-radius:12px; background:var(--surface-2); }
+.c2-panel .experiment { display:flex; flex-direction:column; gap:6px; margin:0; padding:0; border:0; background:none; box-shadow:none; }
+.c2-panel .experiment-controls { display:flex; gap:6px; align-items:center; }
+.c2-panel .legend { margin:0; padding:0; border:0; background:none; box-shadow:none; }
+.c2-panel .legend-title { display:none; }
+.c2-panel .legend-buttons { display:flex; flex-wrap:wrap; gap:6px; }
+.c2-panel .legend-buttons button { height:30px; padding:0 11px; border-radius:15px; border:1px solid var(--hair); background:var(--course-surface); font-size:13px; cursor:pointer; }
+.c2-panel .legend-buttons button.active { border-color:var(--focus); background:var(--focus); color:#2b1a00; font-weight:700; }
+.c2-panel .mission { margin:4px 0 0; padding:10px; border-radius:12px; border:1px solid var(--hair); background:var(--surface-2); }
+.c2-panel .mission h3 { margin:0 0 4px; font-size:14.5px; color:var(--course-ink); }
+.c2-panel .choices { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
+.c2-panel .choices button { height:32px; padding:0 12px; border-radius:9px; border:1px solid var(--hair); background:var(--course-surface); cursor:pointer; }
+.c2-panel .choices button.active, .c2-panel .choices button[aria-pressed="true"] { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); font-weight:700; }
+.c2-panel .c2-challenge.c3-current:not(.done) { border-color:var(--course-accent); box-shadow:0 0 0 1px var(--course-accent) inset; }
+
+/* 3-3：三关挑战一行三张，点卡片进入该关 */
+.c3-levels .c2-challenges { grid-template-columns:repeat(3, minmax(0,1fr)); }
+.c3-levels .c2-challenge { flex-direction:column; align-items:center; text-align:center; gap:4px; padding:8px 6px; cursor:pointer; }
+.c3-levels .c2-challenge:hover { border-color:var(--course-accent); }
+.c3-levels .c2-ch-text { align-items:center; }
+.c3-levels .c2-ch-text b { font-size:12.5px; }
+.c3-levels .c2-ch-text span:empty { display:none; }
+.c3-levels .c2-challenge.done .c2-ch-text span { font-size:11.5px; }
+
+/* 3-3：各零件转角两列排 */
+.c2-panel .motion-rows { display:grid !important; grid-template-columns:1fr 1fr; gap:6px; }
+.c2-panel .motion-rows > * { margin:0 !important; padding:5px 8px !important; border-radius:9px; background:var(--surface-2); border:0 !important; min-width:0; }
+.c2-panel .equation { margin:0; padding:7px 10px; border-radius:10px; background:var(--blue-soft); font-size:12.5px; }
+/* 运动转换：三种机构的选型对比，当前机构高亮 */
+.c3-pick { display:grid; gap:4px; }
+.c3-pick-row { display:grid; grid-template-columns:40px 1fr; column-gap:8px; row-gap:1px; align-items:baseline; padding:6px 9px; border-radius:9px; border:1px solid transparent; color:var(--muted, #667); font-size:12px; }
+.c3-pick-row b { color:var(--ink, inherit); font-size:13px; }
+.c3-pick-row em { grid-column:2; font-style:normal; font-size:11px; opacity:.85; }
+.c3-pick-row em::before { content:'用在：'; }
+.c3-pick-row.on { border-color:var(--course-accent); background:var(--blue-soft); color:var(--ink, inherit); }
+.c3-pick-row.on b, .c3-pick-row.on em { color:var(--course-accent); }
+
+/* 三维区：去掉英文图号（PLANETARY / 01 等）和重复的旋转提示；右上角让给全屏按钮 */
+html.lab-native .figure :is(#figNumber, .orbit-hint) { display:none !important; }
+html.lab-native .figure .fighead { right:60px; justify-content:flex-end; }
+html.lab-native .figure .fighead b { font-size:13px; }

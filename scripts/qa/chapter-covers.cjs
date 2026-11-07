@@ -1,0 +1,90 @@
+// Run with playwright-cli run-code --filename scripts/qa/chapter-covers.cjs.
+// Set the base through the current page URL (source HTTP, package HTTP or file://).
+async page => {
+ await page.route('**/*',route=>route.continue()); // Disable HTTP cache after rebuilding generated pages.
+ const checks=[],errors=[];
+ const root=new URL('../../../../',page.url()).href;
+ const variant=root.startsWith('file:')?'package-file':root.includes('/artifacts/site/')?'package-http':'source';
+ const shots=`artifacts/screenshots/chapter-covers/${variant}`;
+ const chapter=n=>new URL(`course/chapters/${String(n).padStart(2,'0')}/overview/index.html`,root).href;
+ const ok=(value,name)=>{if(!value)throw new Error(name);checks.push(name);};
+ page.on('pageerror',error=>errors.push(String(error)));
+ await page.setViewportSize({width:1600,height:900});
+ await page.goto(chapter(1));
+ await page.waitForFunction(()=>!!window.ChapterEntry);
+ const state=()=>page.evaluate(()=>ChapterEntry.state());
+ ok((await state()).selected==='1-2'&&(await state()).paused,'first task selected and model initially paused');
+ ok((await state()).machines.join(',')==='excavator,six-axis'&&(await state()).visible.every(Boolean),'excavator and six-axis arm are visible together');
+ ok(await page.locator('.course-home').isVisible(),'home link prominent in header');
+ await page.screenshot({path:`${shots}/chapter-1.png`});
+ await page.locator('[data-task="1-3"] .task-select').click();
+ ok((await state()).selected==='1-3','second task preview selects matching model');
+ ok((await page.locator('#story-actions a').getAttribute('href')).endsWith('/tasks/1-3/index.html'),'preview destination matches selected task');
+ await page.locator('#motion').click();
+ await page.waitForFunction(()=>ChapterEntry.state().time>.1);
+ await page.locator('#motion').click();
+ ok((await state()).paused&&(await state()).time>0,'play and pause advance the model');
+ await page.locator('#stage').focus();
+ const az=(await state()).az;
+ await page.keyboard.press('ArrowRight');
+ ok((await state()).az!==az,'keyboard rotates camera');
+ await page.keyboard.press('+');
+ ok((await state()).zoom<1,'keyboard zoom works');
+ await page.locator('#reset-model').click();
+ let s=await state();
+ ok(s.time===0&&s.paused&&s.zoom===1&&s.resources.created-s.resources.disposed===1,'reset restores pose, camera and single live model');
+ await page.locator('[data-part="1-2"]').click();
+ ok((await state()).selected==='1-2'&&(await state()).visible.every(Boolean),'model label selects a task without hiding either exhibit');
+ await page.locator('[data-part="1-3"]').click();
+ await page.locator('#show-guide').click();
+ ok(await page.locator('#entry-guide').isVisible(),'learning guide opens');
+ await page.keyboard.press('Escape');
+ ok(!await page.locator('#entry-guide').isVisible(),'Escape closes guide');
+ ok(await page.locator('#show-guide').evaluate(el=>el===document.activeElement),'dialog returns keyboard focus');
+ await page.locator('#theme').click();
+ ok(await page.locator('html').getAttribute('data-theme')==='dark','dark theme switches');
+ await page.screenshot({path:`${shots}/chapter-1-dark.png`});
+ await page.locator('#theme').click();
+ await page.locator('#story-actions a').click();
+ ok(page.url().includes('/tasks/1-3/'),'task entry navigates');
+ await page.goto(chapter(1));
+ await page.locator('.course-home').click();
+ ok(page.url()===new URL('course/home/index.html',root).href,'header returns to beginning of course home, without chapter hash');
+ await page.goto(chapter(1));
+ await page.locator('.entry-brand').click();
+ ok(page.url()===new URL('course/home/index.html',root).href,'brand also returns to course home');
+ await page.goto(chapter(1));
+ await page.locator('.entry-footer a').click();
+ ok(page.url()===chapter(2),'next chapter link navigates');
+ for(let n=2;n<=8;n++){
+  await page.goto(chapter(n));
+  await page.screenshot({path:`${shots}/chapter-${n}.png`});
+  checks.push(`chapter ${n}: ${await page.title()}; cover header=${await page.locator('.entry-header').count()}`);
+ }
+ await page.setViewportSize({width:390,height:844});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto(chapter(1));
+ ok((await state()).paused,'reduced motion starts paused');
+ ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile has no horizontal overflow');
+ await page.locator('[data-task="1-3"] .task-select').click();
+ ok((await state()).selected==='1-3','mobile task selection works');
+ await page.screenshot({path:`${shots}/chapter-1-mobile.png`,fullPage:true});
+ await page.addInitScript(()=>{
+  const get=HTMLCanvasElement.prototype.getContext;
+  HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/i.test(type)?null:get.call(this,type,...args);};
+ });
+ await page.setViewportSize({width:1600,height:900});
+ await page.goto(chapter(1));
+ ok((await state()).fallback,'no WebGL renders fallback');
+ await page.locator('[data-task="1-3"] .task-select').click();
+ await page.locator('[data-part="1-3"]').click();
+ ok((await state()).selected==='1-3'&&!(await page.locator('#part-detail').innerText()).startsWith('选择部件'),'fallback retains selection and part feedback');
+ await page.locator('#motion').click();
+ await page.waitForFunction(()=>ChapterEntry.state().time>.1);
+ await page.locator('#reset-model').click();
+ ok((await state()).time===0&&(await state()).paused,'fallback plays and resets');
+ await page.screenshot({path:`${shots}/chapter-1-fallback.png`});
+ ok(await page.evaluate(()=>!performance.getEntriesByType('resource').some(r=>/^https?:/.test(r.name)&&new URL(r.name).origin!==location.origin)),'no external runtime resources');
+ ok(errors.length===0,'no uncaught browser errors');
+ return {base:root,passed:checks.length,checks,errors};
+}

@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>机械运动实验台 · 液压、连杆与丝杠</title>
+<style>
+:root{color-scheme:light;--ink:#19363e;--muted:#62776e;--line:#d8e2d8;--green:#267765;--orange:#d8793f;--red:#b9473c;--paper:#f2f5ef}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.5 'Microsoft YaHei','PingFang SC',system-ui,sans-serif}button,select,input{font:inherit}button{background:#fff;border:1px solid #cddbd0;color:var(--ink);border-radius:6px;padding:5px 10px;cursor:pointer;min-height:29px}button:hover{background:#eaf2e9}button.primary,button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #74ab99;outline-offset:2px}button:disabled{opacity:.45;cursor:default}select{color:var(--ink);border:1px solid #cfdbd1;background:#fff;border-radius:5px;height:26px;padding:2px 5px;max-width:100%}input[type=range]{width:100%;accent-color:var(--green);margin:3px 0 0;height:15px;display:block;cursor:ew-resize}input[type=checkbox]{accent-color:var(--green);vertical-align:middle;margin:0 5px 1px 0}.shell{max-width:1640px;margin:auto;padding:17px 24px 10px}.mast{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.eyebrow{font-size:11px;letter-spacing:2.2px;color:var(--green);font-weight:700}h1{margin:3px 0;font-size:25px;line-height:1.3;letter-spacing:.4px}.sub{font-size:12px;color:var(--muted)}.toolbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.toolbar label{font-size:13px;color:var(--muted)}.labs{display:grid;grid-template-columns:1.14fr 1fr;gap:15px}.lab{border:1px solid var(--line);background:#fff;border-radius:11px;overflow:hidden;min-width:0;box-shadow:0 3px 16px #183a3210}.lab-head{padding:10px 15px 7px;display:flex;justify-content:space-between;gap:8px;align-items:center}h2{font-size:17px;margin:0;font-weight:650}.num{color:#8caa93;font:italic 22px Georgia,serif;margin-right:8px}.badge{font-size:12px;border:1px solid #d5e5d7;color:var(--green);border-radius:20px;padding:3px 7px;background:#f2f8ef;white-space:nowrap}.badge.danger{color:var(--red);background:#fff1e9;border-color:#edcabb}.viewbar{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:0 10px 5px;flex-wrap:wrap}.view-buttons{display:flex;gap:3px;flex-wrap:wrap}.viewbar button{font-size:12px;padding:3px 8px;min-height:25px;border-color:#dfe8de}.viewbar .enlarge{margin-left:auto}.stage{position:relative;margin:0 10px;background:radial-gradient(ellipse at 50% 65%,#e5eee022,transparent 70%),#f7faf3;border:1px solid #e3ebdf;border-radius:7px;height:274px;overflow:hidden;touch-action:none}.stage canvas{display:block;width:100%;height:100%;cursor:grab}.stage canvas:active{cursor:grabbing}.stage-overlay{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;left:0;top:0;white-space:nowrap;background:#fffffff0;border:1px solid #d9e4d6;color:#2b5148;padding:1px 5px;border-radius:4px;font-size:12px;line-height:1.45;box-shadow:0 1px 3px #274a3910}.tag.a{color:#a45126;border-color:#edc6a8}.tag.b{color:#226c70}.tag.c{color:#5f6198}.tag.red{color:#ad4638;border-color:#ebc1b6}.stage-hint{position:absolute;bottom:6px;left:9px;right:9px;display:flex;justify-content:space-between;gap:10px;color:#6c846d;font-size:11px;pointer-events:none}.stage-top{position:absolute;top:7px;left:9px;right:9px;display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#69806b;pointer-events:none}.quad-names{display:none;position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,transparent calc(50% - .5px),#cbdacb calc(50% - .5px),#cbdacb calc(50% + .5px),transparent calc(50% + .5px)),linear-gradient(to bottom,transparent calc(50% - .5px),#cbdacb calc(50% - .5px),#cbdacb calc(50% + .5px),transparent calc(50% + .5px))}.quad-names span{position:absolute;font-size:12px;background:#ffffffb8;color:#4f6e5b;padding:1px 5px}.quad-names span:nth-child(1){top:5px;left:5px}.quad-names span:nth-child(2){top:5px;left:calc(50% + 5px)}.quad-names span:nth-child(3){top:calc(50% + 5px);left:5px}.quad-names span:nth-child(4){top:calc(50% + 5px);left:calc(50% + 5px)}.stage.quad .quad-names{display:block}.stage.quad .stage-overlay,.stage.quad .stage-top,.stage.quad .stage-hint{display:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);padding:7px 16px;gap:8px}.stat{border-right:1px solid #dfe8df}.stat:last-child{border:0}.stat-title{color:var(--muted);font-size:12px}.stat-value{font:25px/1.25 Georgia,serif;font-variant-numeric:tabular-nums;letter-spacing:.2px}.stat-value small{font:12px system-ui;color:var(--muted);margin-left:4px}.controls{padding:8px 15px 7px;border-top:1px solid #e2eae0;display:grid;grid-template-columns:1fr 1fr;gap:7px 14px;background:#fdfefb;min-height:151px;align-content:start}.control{min-width:0;display:block}.control-head{display:flex;justify-content:space-between;gap:5px;font-size:12px;align-items:center;min-height:16px}.control-head output{font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}.control select{width:100%;font-size:12px;margin-top:2px}.control.wide{grid-column:1/-1}.control-inline{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center}.lengths{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.key{font-weight:750;margin-right:4px}.key.a{color:#ba622b}.key.b{color:#267e82}.key.c{color:#6267a0}.inline-toggles{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px}.examples{display:flex;gap:5px;flex-wrap:wrap}.examples button{font-size:12px;padding:3px 8px;min-height:24px}.force-line{grid-column:1/-1;color:#55735d;font-size:12px;min-height:28px}.lab-foot{padding:0 15px 9px;color:#627869;font-size:12px;min-height:27px}.red-text{color:var(--red)!important}.lessons{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;border-top:1px solid #d6e1d4;margin-top:11px;padding-top:9px}.lesson h3{font-size:13px;margin:0 0 2px}.lesson p{font-size:12px;color:var(--muted);margin:0;line-height:1.6}.formula{font:italic 18px Georgia,serif;color:var(--ink);margin-right:6px}.footer{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#758775;margin-top:8px}.footer a{color:#567d69;text-underline-offset:2px}.footer details{max-width:65%}.footer summary{cursor:pointer;text-align:right}.footer details[open] summary{text-align:left}.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#1f4244;color:#fff;padding:9px 16px;border-radius:8px;font-size:14px;max-width:90vw;z-index:30;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}.vibration-line{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}.vibration-line .control-head{font-size:12px}.wave-wrap{display:flex;align-items:center;gap:6px;justify-content:space-between;min-height:18px}.wave-wrap canvas{width:100px;height:20px}.wave-wrap span{font-size:11px;color:#6c806c}.error{font-size:15px;color:#a24b34;padding:45px 20px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}dialog{border:1px solid #c9d9ca;border-radius:12px;padding:0;width:94vw;max-width:1500px;height:90vh;max-height:none;background:var(--paper);color:var(--ink);box-shadow:0 20px 80px #132a3155}dialog::backdrop{background:#17383977}.modal-head{height:55px;display:flex;align-items:center;justify-content:space-between;padding:10px 18px}.modal-head h2{font-size:19px}.modal-body{height:calc(100% - 64px)}.modal-body .stage{height:100%;margin:0 10px}.modal-body .tag{font-size:15px}.modal-body .stage-hint,.modal-body .stage-top{font-size:14px}.modal-head .toolbar{gap:5px}.modal-head .toolbar button{font-size:13px}.modal-head .view-buttons{gap:4px}
+@media(min-width:821px) and (max-height:850px){.shell{padding-top:12px}.mast{margin-bottom:9px}.stage{height:247px}.lab-head{padding-top:8px;padding-bottom:5px}.stats{padding-top:5px;padding-bottom:5px}.controls{gap:5px 12px;padding-top:6px;padding-bottom:5px}.lab-foot{padding-bottom:6px;min-height:23px}.lessons{margin-top:8px;padding-top:7px}.footer{margin-top:6px}.force-line{min-height:25px}}
+@media(min-width:1500px) and (min-height:900px){.shell{padding-top:28px}.mast{margin-bottom:20px}.stage{height:380px}.lab-head{padding-top:16px;padding-bottom:12px}h1{font-size:29px}.stats{padding-top:12px;padding-bottom:12px}.controls{padding:12px 18px;gap:10px 18px;min-height:176px}.control-head,.inline-toggles{font-size:14px}.control select{font-size:13px}.lab-foot{font-size:13px}.lessons{padding-top:14px;margin-top:18px}.lesson h3{font-size:15px}.lesson p{font-size:14px}.footer{font-size:12px;margin-top:14px}.tag{font-size:14px}.stage-top,.stage-hint{font-size:12px}}
+@media(max-width:1100px){.shell{padding:12px 15px 8px}.labs{gap:10px;grid-template-columns:1.1fr 1fr}.mast{gap:8px}h1{font-size:22px}.toolbar{gap:4px}.toolbar button{padding:4px 7px;font-size:13px}.lab-head{padding-left:12px;padding-right:12px}h2{font-size:15px}.badge{font-size:11px;padding:3px 5px}.stage{height:250px}.viewbar button{padding:3px 6px;font-size:11px}.controls{padding-left:12px;padding-right:12px;gap:7px 10px;min-height:156px}.force-line{font-size:11px}.lab-foot{font-size:11px}.stat-value{font-size:24px}.lengths{gap:8px}.lessons{gap:13px}.inline-toggles{gap:8px;font-size:11px}.examples button{font-size:11px;padding:3px 5px}.control-head{font-size:11px}.wave-wrap span{font-size:10px}}
+@media(min-width:821px) and (max-width:1100px) and (max-height:850px){.stage{height:244px}}
+@media(max-width:820px){.mast{flex-direction:column;align-items:flex-start;gap:10px}.toolbar{gap:6px}.labs{grid-template-columns:1fr;gap:15px}.stage{height:330px}.lab-head{padding:12px 15px 8px}h2{font-size:17px}.viewbar button{font-size:13px;padding:4px 8px;min-height:29px}.controls{min-height:0;padding:12px 15px;gap:10px 14px}.control-head,.inline-toggles{font-size:13px}.force-line,.lab-foot{font-size:12px}.examples button{font-size:12px;padding:5px 8px}.lessons{grid-template-columns:1fr;gap:10px}.lesson h3{font-size:14px}.lesson p{font-size:13px}.footer{flex-direction:column;font-size:12px}.footer details{max-width:100%}.footer summary{text-align:left}.stage-top,.stage-hint{font-size:12px}.wave-wrap span{font-size:11px}.modal-head{height:100px;align-items:flex-start;gap:8px;flex-direction:column}.modal-body{height:calc(100% - 110px)}}
+@media(max-width:430px){.shell{padding:14px 10px 10px}h1{font-size:23px}.stage{height:285px;margin:0 7px}.stage-top{font-size:11px}.stage-hint{font-size:11px}.lab-head{padding-left:12px;padding-right:12px}.controls{padding-left:12px;padding-right:12px}.lengths{gap:10px}.control-head{font-size:12px}.control select{font-size:12px}.tag{font-size:11px}.badge{font-size:11px}.viewbar{margin-left:7px;margin-right:7px}.viewbar button{font-size:12px;padding:3px 6px}.stats{padding-left:13px;padding-right:13px}.vibration-line{gap:8px}.vibration-line .control-head{font-size:11px}.wave-wrap canvas{width:70px}.toolbar button{font-size:13px}.toolbar select{font-size:13px}input[type=range]{height:19px}.footer details{max-width:100%}}
+.parts-strip{display:flex;align-items:center;flex-wrap:wrap;gap:3px 5px;padding:5px 11px 4px;min-height:30px;border-bottom:1px solid #e9eee5;background:#fbfdf9}.parts-label{font-size:11px;color:#6c836d;white-space:nowrap}.part-name{background:transparent;border:0;border-radius:3px;padding:2px 4px;min-height:21px;font-size:12px;color:#315d51;text-decoration:underline;text-decoration-color:#a4bfb0;text-underline-offset:3px}.part-name:hover{background:#e5efe2;color:#194c3e}.tag-button{pointer-events:auto;cursor:pointer;min-height:0;font:inherit;font-size:12px;padding:1px 5px;text-align:left;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}.tag-button:hover{background:#e9f4e3;border-color:#9dbb9e}.tag-button::after{content:' ↗';font-size:.8em}.part-modal{max-width:1500px}.part-modal-head{height:59px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;border-bottom:1px solid var(--line)}.part-modal-head h2{font-size:20px;margin:0}.part-modal-head p{font-size:12px;margin:2px 0 0;color:var(--muted)}.part-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:0;height:calc(100% - 60px)}.part-viewport{display:flex;flex-direction:column;min-width:0;min-height:0;padding:10px;gap:8px}.part-toolbar{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}.part-toolbar button{font-size:13px;padding:4px 8px;min-height:28px}.part-toolbar .view-buttons{gap:3px}.part-viewport .stage{flex:1;min-height:180px;height:auto;margin:0}.part-viewport .stage-hint{font-size:13px}.part-aside{border-left:1px solid var(--line);background:#fcfef9;padding:18px;overflow-y:auto;min-height:0}.part-aside .eyebrow{font-size:11px;letter-spacing:1.4px}.part-aside h3{font-size:23px;margin:5px 0 10px;color:#224d45}.part-summary{font-size:15px;line-height:1.8;margin:0 0 15px}.part-aside dl{margin:0}.part-aside dt{font-size:13px;font-weight:700;color:#416e59;margin:12px 0 4px}.part-aside dd{font-size:14px;line-height:1.85;margin:0}.part-param{margin:14px 0;background:#eaf2e4;border-radius:6px;padding:10px;color:#315c48;font-size:14px;line-height:1.8;font-variant-numeric:tabular-nums}.part-note{font-size:12px;color:#6e8071;margin-top:13px;line-height:1.7}.part-picker{width:100%;height:31px;font-size:14px;margin-top:16px}.part-view-mode{display:flex;gap:4px}.part-tools{display:flex;gap:3px}.part-tools button{min-width:30px}.part-viewport .quad-names span{font-size:13px}.part-stage-caption{font-size:12px;color:#6a836c;display:flex;justify-content:space-between;gap:8px}.part-modal .stage-overlay{display:none}
+@media(min-width:821px) and (max-height:850px){.lab>.stage{height:217px}.parts-strip{min-height:30px}.part-viewport .stage{height:auto}}
+@media(min-width:821px) and (max-width:1100px) and (max-height:850px){.lab>.stage{height:211px}.parts-strip{gap:2px 3px;padding-left:8px;padding-right:8px}.part-name{font-size:11px;padding:2px 3px}.parts-label{font-size:10px}}
+@media(max-width:820px){.parts-strip{padding:7px 12px;gap:4px 6px}.parts-label{font-size:12px}.part-name{font-size:13px;min-height:28px;padding:4px 5px}.part-layout{grid-template-columns:1fr;grid-template-rows:minmax(220px,48%) minmax(0,1fr)}.part-aside{border-left:0;border-top:1px solid var(--line);padding:13px 16px}.part-aside h3{font-size:20px;margin-bottom:6px}.part-summary{font-size:14px;margin-bottom:8px}.part-aside dt{margin-top:8px}.part-modal-head{padding:8px 13px}.part-modal-head h2{font-size:18px}.part-toolbar button{font-size:12px;padding:3px 5px;min-height:26px}.part-toolbar{gap:4px}.part-stage-caption{font-size:11px}.part-viewport{padding:7px;gap:5px}.part-view-mode button{font-size:12px}.part-viewport .stage{min-height:130px}.part-picker{margin-top:10px}}
+@media(pointer:coarse){.tag-button{padding:4px 6px;min-height:25px}.part-name{min-height:32px}.part-modal button{min-height:32px}}
+.hide-labels .stage-overlay{display:none!important}.study-head{height:65px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line)}.study-head h2{font-size:20px;margin-top:2px}.study-head .toolbar button{font-size:13px}.study-layout{height:calc(100% - 66px);display:grid;grid-template-columns:minmax(0,1fr) 326px}.study-visual{padding:10px;display:flex;flex-direction:column;gap:8px;min-height:0;min-width:0}.study-tools{display:flex;align-items:center;justify-content:space-between;gap:5px;flex-wrap:wrap}.study-tools button{font-size:13px;min-height:27px;padding:3px 8px}.study-visual>.stage{flex:1;min-height:180px;height:auto;margin:0}.study-aside{padding:13px 16px;overflow-y:auto;border-left:1px solid var(--line);background:#fcfef9;min-height:0}.study-tabs{display:flex;gap:5px}.study-tabs button{flex:1}.study-aside h3{font-size:15px;margin:14px 0 6px}.study-section-row{display:flex;justify-content:space-between;align-items:center;gap:5px;font-size:14px}.study-section-row button{font-size:12px;padding:3px 7px;min-height:25px}.study-control{display:block;margin-top:10px}.study-control>span{display:flex;align-items:center;justify-content:space-between;font-size:13px}.study-control output{font-weight:650;font-variant-numeric:tabular-nums}.study-readout{background:#eaf3e4;border:1px solid #dce8d5;border-radius:6px;font-size:13px;color:#356748;padding:9px;margin-top:10px;line-height:1.8}.study-help{font-size:12px;color:var(--muted);line-height:1.8;margin:0 0 8px}.study-actions,.study-install{display:flex;gap:5px;flex-wrap:wrap}.study-actions button,.study-install button{font-size:13px;padding:4px 8px;min-height:27px}.study-progress{display:flex;align-items:center;gap:9px;margin:10px 0 8px}.study-progress progress{width:100%;height:8px;accent-color:var(--green)}.study-progress span{font-size:13px;white-space:nowrap}.study-kit{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:9px}.study-kit button{font-size:12px;padding:6px 7px;text-align:left;min-height:32px}.study-kit button.selected{border-color:#ca8a3f;background:#fff0d9;color:#85521f}.study-kit button.installed::before{content:'✓ ';color:var(--green)}.study-kit button[draggable=true]{cursor:grab}.study-feedback{font-size:13px;line-height:1.8;color:#2d7252;background:#eaf4e5;padding:8px;border-radius:6px;margin:9px 0 6px}.study-feedback.wrong{color:#9d4435;background:#fff0e9}.study-part-info{font-size:13px;line-height:1.8;color:var(--muted);margin:4px 0}.study-note{font-size:12px;color:var(--muted);line-height:1.8;margin-top:9px}.study-note summary{cursor:pointer}.study-note a{color:var(--green)}.study-motion{display:flex;gap:5px;align-items:center;flex-wrap:wrap}.study-motion button{font-size:13px;padding:5px 8px;min-height:29px}.study-position{flex:1;min-width:145px;font-size:12px;display:flex;align-items:center;gap:8px}.study-position span{white-space:nowrap}.study-position input{flex:1}.study-speed{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}.study-speed select{font-size:12px;height:27px}.study-caption{font-size:13px;color:var(--muted);min-height:18px;line-height:1.6}.study-slot{pointer-events:auto;cursor:pointer;min-height:23px;font-size:12px;padding:3px 5px;border-style:dashed;background:#eef5e9e8;border-color:#83ae91;color:#2c6a49}.study-slot.done{border-style:solid;background:#dfeedae8}.study-slot.part-label{border-style:solid;background:#ffffffe8;color:#4e6d55}.study-visual .stage-top,.study-visual .stage-hint{font-size:12px}.study-entry{font-weight:600!important;color:#a6652f!important}.study-entry:hover{background:#fff1df!important}html[data-theme=dark]{color-scheme:dark;--ink:#e0ebe6;--muted:#9eb5aa;--line:#344b45;--green:#70c4a4;--paper:#111c23;--orange:#e59c65;--red:#f4a394}html[data-theme=dark] body{background:var(--paper)}html[data-theme=dark] button,html[data-theme=dark] select{background:#243730;border-color:#425b4d;color:var(--ink)}html[data-theme=dark] button:hover{background:#344e41}html[data-theme=dark] button.primary,html[data-theme=dark] button[aria-pressed=true]{background:#84c8ad;color:#112c22;border-color:#84c8ad}html[data-theme=dark] .lab{background:#17272b;border-color:#344b45}html[data-theme=dark] .controls,html[data-theme=dark] .parts-strip,html[data-theme=dark] .part-aside,html[data-theme=dark] .study-aside{background:#192a2a;border-color:#344b45}html[data-theme=dark] .stage{background:#101b25;border-color:#344b45}html[data-theme=dark] .tag{background:#1e3330ee;color:#d2ead7;border-color:#59745d}html[data-theme=dark] .tag.a{color:#ffd2a7;border-color:#a77c50}html[data-theme=dark] .tag.b{color:#a6e5e1}html[data-theme=dark] .tag.c{color:#d3c9f0}html[data-theme=dark] .tag.red{color:#ffb9a9}html[data-theme=dark] .stage-top,html[data-theme=dark] .stage-hint,html[data-theme=dark] .stage-top span,html[data-theme=dark] .stage-hint span{color:#a6bfa9}html[data-theme=dark] .badge{background:#203e31;color:#afe3b3;border-color:#486c50}html[data-theme=dark] .badge.danger{background:#4b3328;color:#f3c09b;border-color:#775340}html[data-theme=dark] .part-name{background:transparent;color:#b4dcc6}html[data-theme=dark] .part-param,html[data-theme=dark] .study-readout,html[data-theme=dark] .study-feedback{background:#244132;border-color:#3d5d46;color:#c0e3bb}html[data-theme=dark] .study-feedback.wrong{background:#4a3028;color:#f6bba9}html[data-theme=dark] .study-kit button.selected{background:#644626;border-color:#d8a266;color:#ffe2b7}html[data-theme=dark] dialog{background:#16252a;border-color:#4c6858}html[data-theme=dark] .study-slot{background:#21412fe8;border-color:#91c89c;color:#d3f3d5}html[data-theme=dark] .study-slot.done{background:#365a37ee}html[data-theme=dark] .study-slot.part-label{background:#263c31ee}html[data-theme=dark] .part-aside h3,html[data-theme=dark] .part-aside dt{color:#a8d9ba}html[data-theme=dark] .force-line,html[data-theme=dark] .lab-foot,html[data-theme=dark] .page-foot,html[data-theme=dark] .footer,html[data-theme=dark] .part-note,html[data-theme=dark] .part-stage-caption{color:#aec2b1}html[data-theme=dark] .quad-names span{background:#1c322adb;color:#d3e8d7}html[data-theme=dark] .study-entry{color:#f4c38b!important}html[data-theme=dark] .study-entry:hover{background:#3b3928!important}
+#enlarged[open]{display:flex;flex-direction:column;overflow:hidden}#enlarged .modal-head{height:auto;min-height:55px;flex:0 0 auto;gap:8px;flex-wrap:wrap}#enlarged .modal-body{height:auto;flex:1;min-height:0;padding-bottom:10px}#enlarged .modal-body .stage{height:100%;min-height:0}.modal-motion{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:6px 15px;flex-wrap:wrap;padding:5px 18px 10px}.modal-motion button{min-height:32px}.modal-motion label{display:flex;align-items:center;gap:6px}.modal-motion>span{font-size:13px;color:var(--muted)}@media(max-width:820px){#enlarged .modal-head{align-items:flex-start;padding:10px 12px;gap:7px}.modal-motion{padding:2px 12px 10px;gap:7px}.modal-motion button{font-size:13px;padding:5px 8px}.modal-motion>span{font-size:12px}.modal-motion .toolbar{gap:5px}.modal-motion label{font-size:12px}}
+@media(max-width:1100px){.study-layout{grid-template-columns:minmax(0,1fr) 295px}.study-head h2{font-size:18px}.study-head .toolbar button{font-size:12px;padding:4px 7px}}
+@media(max-width:820px){.study-dialog{height:94dvh}.study-head{height:88px;align-items:flex-start;flex-direction:column;padding:8px 12px;gap:4px}.study-head h2{font-size:17px}.study-layout{height:calc(100% - 89px);grid-template-columns:1fr;grid-template-rows:minmax(250px,48%) minmax(0,1fr)}.study-aside{border-left:0;border-top:1px solid var(--line);padding:10px 13px}.study-visual{padding:7px;gap:5px}.study-visual>.stage{min-height:130px}.study-tools button{font-size:12px;padding:3px 5px;min-height:25px}.study-motion button{font-size:12px;padding:4px 5px;min-height:26px}.study-position{font-size:11px;min-width:130px}.study-speed{font-size:11px}.study-caption{font-size:11px;min-height:15px}.study-visual .stage-top,.study-visual .stage-hint{font-size:10px}.study-aside h3{margin-top:10px}.study-kit button{min-height:35px}.study-aside .study-control input{height:20px}.study-slot{font-size:11px;min-height:23px}}
+
+.physics-dialog{max-width:950px;height:auto;max-height:92dvh}.physics-content{padding:16px 22px;overflow:auto;max-height:calc(92dvh - 66px)}.physics-columns{display:grid;grid-template-columns:1fr 1fr;gap:28px}.physics-columns h3{font-size:16px;margin:0 0 12px}.physics-content p{font-size:13px;color:var(--muted);line-height:1.85}.physics-notes{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}.physics-notes strong{font-size:14px}.physics-content a{color:var(--green)}.physics-columns input{height:20px}.physics-columns output{min-width:40px;text-align:right}@media(max-width:680px){.physics-columns{grid-template-columns:1fr;gap:20px}.physics-content{padding:13px}.physics-dialog .study-head{height:auto;min-height:62px}.physics-dialog .study-head h2{font-size:16px}}
+
+.extension-entry{display:inline-flex;align-items:center;justify-content:center;min-height:29px;padding:5px 9px;border:1px solid var(--line);background:var(--paper);color:var(--green);border-radius:6px;font-size:13px;text-decoration:none;white-space:nowrap}.extension-entry:hover{filter:brightness(.95)}.viewbar .extension-entry{font-size:12px;min-height:25px;padding:3px 7px}
+@media print{.toolbar,.viewbar,.examples,.toast,.stage-hint{display:none}.shell{padding:0}.lab{box-shadow:none}.stage{height:250px}.footer details{display:none}.lessons{break-inside:avoid}}
+</style><style data-chapter2-layout>/* Chapter 2 follows the course gallery palette and compact navigation. */
+html[data-c2] body{padding-top:54px!important;box-sizing:border-box;height:100dvh}
+.c2-nav{position:fixed;inset:0 0 auto;height:54px;z-index:1000;display:flex;align-items:center;gap:28px;padding:0 28px;background:#101b29;color:#e2edf8;border-bottom:1px solid #2c4055;font:16px/1.4 "Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;box-sizing:border-box}
+.c2-nav *{box-sizing:border-box}.c2-nav a{color:inherit;text-decoration:none}.c2-home{display:flex;align-items:center;gap:10px;white-space:nowrap;font-weight:700;flex-shrink:0}.c2-home>b{display:grid;place-items:center;width:36px;height:36px;background:#244e75;border-radius:7px 12px 7px 7px;font-size:29px;color:white;font-weight:400}.c2-home small{display:block;font-size:12px;color:#7892aa;font-weight:400;margin-top:3px}.c2-links{display:flex;gap:8px;margin:auto;min-width:0;overflow-x:auto}.c2-links a{padding:9px 15px;border:1px solid transparent;white-space:nowrap;border-radius:6px;font-size:15px}.c2-links small{font:13px Consolas,monospace;color:#7294b5;margin-right:7px}.c2-links a:hover{background:#e7f0fc}.c2-links [aria-current]{background:#e1edff;color:#245fae;border-color:#bfd4ef;font-weight:700}.c2-course{font-size:14px;white-space:nowrap;color:#527a9f!important}.c2-nav a:focus-visible{outline:3px solid #e9ad50;outline-offset:2px}
+html[data-c2=transmission]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--green:#286dde;--mint:#e2edff;--paper:#eff5fc}
+html[data-c2=mechanisms]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--green:#286dde;--panel:#f3f7fd}
+html[data-c2=fourbar]:not(.dark){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--card:#fff;--panel:#f3f7fd;--accent:#286dde;--soft:#e2edff}
+html[data-c2=mechanisms] .shell{max-width:1600px}
+@media(max-width:900px){.c2-nav{padding:0 12px;gap:12px}.c2-links{gap:2px}.c2-links a{padding:8px 10px}.c2-course{display:none}}
+@media(max-width:600px){.c2-nav{height:96px;flex-wrap:wrap;padding:8px 10px;gap:4px;align-content:center}.c2-home>b{width:27px;height:27px;font-size:25px}.c2-home{font-size:14px}.c2-home small{font-size:11px}.c2-links{width:100%;order:2;margin:0}.c2-links a{font-size:13px;padding:7px 9px}.c2-links small{font-size:11px;margin-right:4px}html[data-c2] body{padding-top:96px!important}}
+@media print{.c2-nav{display:none}html[data-c2] body{padding-top:0!important}}
+/* Keep existing labs' controls accessible under the chapter navigation. */
+.c2-lesson-notes{margin-top:10px;border:1px solid #d4e1ef;border-radius:7px;background:#ffffffbb;padding:8px 14px}.c2-lesson-notes>summary{font-size:14px;color:#52799b;cursor:pointer}
+@media(min-width:821px){html[data-c2=mechanisms] .lab>.stage{height:clamp(200px,calc(100dvh - 660px),300px)}html[data-c2=mechanisms] .shell{padding-top:15px;padding-bottom:10px}html[data-c2=mechanisms] .lessons{margin-top:10px}html[data-c2=mechanisms] .lesson p{font-size:12px}html[data-c2=fourbar] #fb-stage{height:clamp(235px,calc(100dvh - 600px),336px)}html[data-c2=fourbar] .fb-shell{padding-top:16px;padding-bottom:12px}html[data-c2=fourbar] .fb-header{margin-bottom:14px}}
+
+.c2-nav .c2-home small{color:#8da8c4}.c2-nav .c2-links small{color:#89a5c0}.c2-nav .c2-links a:hover{background:#1a2e45}.c2-nav .c2-links [aria-current]{background:#203f62;color:#d9edff;border-color:#3a638c}.c2-nav .c2-course{color:#9bbcdc!important}.c2-lesson-notes{border-color:#30485d;background:#142331}.c2-lesson-notes>summary{color:#acc5db}
+html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes{background:#f5f9ff;border-color:#d4e1ef}html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes>summary{color:#52799b}
+
+/* Chapter 2 workstation, shared with both built and directly maintained pages. */
+.c2-render-fallback{position:absolute;left:10px;bottom:32px;z-index:4;max-width:calc(100% - 20px);padding:5px 8px;border:1px solid var(--course-line);border-radius:5px;background:var(--course-surface);color:var(--course-muted);font:12px/1.5 "Microsoft YaHei",sans-serif;pointer-events:none}
+html[data-c2] body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif}
+html[data-c2][data-theme]{--green:var(--course-accent)}
+html[data-c2=mechanisms][data-theme] :is(.lab .controls,.lab .lab-foot,.c2-lesson-notes),html[data-c2=fourbar][data-theme] :is(.fb-card,.fb-tools){background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] :is(.toolbar,.view-buttons,.controls) button,html[data-c2=fourbar][data-theme] :is(.fb-tools,.fb-motion) button{background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] button[aria-pressed=true],html[data-c2=fourbar][data-theme] button[aria-pressed=true]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-accent)}
+html[data-c2][data-theme] input[type=range],html[data-c2][data-theme] input[type=checkbox]{accent-color:var(--course-accent)}
+html[data-c2=transmission][data-theme] .topbar nav{background:var(--soft)}
+html[data-c2] [hidden]{display:none!important}
+html[data-c2] .c2-nav{gap:18px;padding-inline:24px}
+html[data-c2] .c2-nav .c2-home{color:var(--course-ink)}
+html[data-c2] .c2-nav :is(.c2-home small,.c2-links small,.c2-course){color:var(--course-muted)!important}
+html[data-c2] .c2-nav .c2-links a[aria-current]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-line)}
+html[data-c2] .c2-nav .c2-links a:hover{background:var(--soft);color:var(--course-ink)}
+html[data-c2] :is(.c2-button,.c2-experiments button){font:500 14px/1.4 "Microsoft YaHei",sans-serif;min-height:36px;padding:7px 12px;border:1px solid var(--course-line);border-radius:7px;background:var(--course-surface);color:var(--course-ink);white-space:nowrap;cursor:pointer;box-shadow:none;letter-spacing:0}
+html[data-c2] .c2-button:hover{border-color:var(--course-accent);background:var(--blue-soft)}
+html[data-c2] .c2-button:focus-visible{outline:3px solid var(--course-accent);outline-offset:3px}
+html[data-c2] :is(.c2-guide-button,.c2-primary){color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+.c2-learning-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+html[data-c2] .c2-original-help{display:none}
+html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:30px;line-height:1.3;letter-spacing:0}
+html[data-c2] :is(.sub,.fb-header p,.brand p){font-size:14px;line-height:1.7;color:var(--course-muted)}
+html[data-c2] .c2-view{position:relative;background:var(--course-surface);border:1px solid var(--course-line);border-radius:12px;overflow:hidden;min-width:0}
+html[data-c2] .c2-viewbar{position:relative;z-index:6;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 14px;border-bottom:1px solid var(--course-line);background:var(--course-surface);color:var(--course-muted);flex:none}
+.c2-view-label{font-size:13px;white-space:nowrap;letter-spacing:.5px}
+.c2-view-actions,.c2-view-motion{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+html[data-c2] .c2-viewbar .c2-button{min-height:32px;padding:5px 10px;font-size:13px}
+html[data-c2] .c2-viewbar :is(.view-tools,.scene-tools){position:static;inset:auto;margin:0;display:flex;gap:5px;box-shadow:none;align-items:center}
+html[data-c2] .c2-viewbar .live{display:none}
+html[data-c2] .c2-viewbar .c2-view-motion{display:none}
+
+html[data-c2] .c2-dialog{width:min(700px,calc(100vw - 32px));height:auto;max-height:85dvh;max-width:700px;padding:0;border:1px solid var(--course-line);border-radius:14px;background:var(--course-surface);color:var(--course-ink);box-shadow:0 24px 80px #06182a55;overflow:auto;font-size:15px;line-height:1.8}
+.c2-dialog::backdrop{background:#071a2bb3;backdrop-filter:blur(3px)}
+.c2-dialog-head,.c2-dialog-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 24px;background:var(--course-surface)}
+.c2-dialog-head{border-bottom:1px solid var(--course-line)}
+html[data-c2] .c2-dialog h2{font-size:22px;margin:0;line-height:1.5}
+html[data-c2] .c2-dialog h3{font-size:16px;margin:20px 0 8px;color:var(--course-accent)}
+.c2-dialog-body{padding:0 28px 8px}.c2-dialog-body ul,.c2-dialog-body ol{padding-left:24px}.c2-dialog-body li{margin:10px 0}.c2-steps p{margin:4px 0;color:var(--course-muted)}
+.c2-reflection{padding:12px 16px;border-left:3px solid var(--course-accent);background:var(--blue-soft)}
+.c2-boundary{font-size:13px;color:var(--course-muted);border-top:1px solid var(--course-line);padding-top:14px}
+.c2-dialog-foot{justify-content:flex-end;border-top:1px solid var(--course-line)}
+
+/* Diesel: reserve a stable heading area and keep playback beside the model. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mechanics: one large observation area with controls, optional side-by-side. */
+html[data-c2=mechanisms] .shell{padding:18px 24px;max-width:1648px}
+.c2-experiments{display:flex;gap:8px;margin:4px 0 14px}
+html[data-c2] .c2-experiments [aria-pressed=true]{color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+html[data-c2=mechanisms] .labs[data-presentation=single]{display:block}
+html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;background:transparent;border:0;box-shadow:none;overflow:visible}
+html[data-c2=mechanisms] .c2-control-column{border:1px solid var(--course-line);border-radius:12px;background:var(--course-surface);overflow:auto;max-height:calc(100dvh - 300px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:clamp(300px,calc(100dvh - 450px),510px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline{grid-template-columns:1fr}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline>button{justify-self:end}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-head{flex-wrap:wrap}
+html[data-c2=mechanisms] .labs[data-presentation=single] .controls{grid-template-columns:1fr;padding:20px;gap:18px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .lengths{grid-template-columns:1fr;gap:16px}
+html[data-c2=mechanisms] .labs[data-presentation=single] :is(.control-head,.control select,.inline-toggles,.force-line,.lab-foot){font-size:14px;line-height:1.7}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats{padding:16px;grid-template-columns:1fr;gap:12px;background:var(--soft)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat{border:0;border-bottom:1px solid var(--course-line);padding-bottom:8px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-family:inherit;font-size:24px;line-height:1.5}
+html[data-c2=mechanisms] .lab .stage{background:var(--course-bg);border-color:var(--course-line)}
+html[data-c2=mechanisms] .lab-head{padding:14px 16px 10px}
+html[data-c2=mechanisms] .viewbar{margin:0 14px 10px}
+html[data-c2=mechanisms] .viewbar button{font-size:13px;min-height:30px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .stage{height:300px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-control-column{border:0}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-view{border:0;border-radius:0}
+html[data-c2=mechanisms] .c2-lesson-notes{margin-top:16px}
+
+html[data-c2=fourbar] .fb-shell{max-width:1648px;padding:18px 24px}
+html[data-c2=fourbar] #fb-stage{height:clamp(300px,calc(100dvh - 530px),420px)}
+html[data-c2=fourbar] .fb-card{border-color:var(--course-line)}
+html[data-c2=fourbar] .fb-stage{background:var(--course-bg)}
+html[data-c2=fourbar] .fb-header nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+html[data-c2=fourbar] .fb-gripper .c2-viewbar{padding-inline:10px}.fb-gripper .c2-view-label{font-size:12px}
+html[data-c2=transmission] .viewport{background:var(--course-bg)}
+html[data-c2=transmission] .viewport>.c2-viewbar{position:absolute;inset:0 0 auto}
+html[data-c2=transmission] .scene-bottom{bottom:100px}
+html[data-c2=transmission] .viewport.c2-expanded>.c2-viewbar{position:absolute}
+html[data-c2=transmission] .scene-heading{top:68px;left:24px}
+html[data-c2=transmission] .scene-heading h1{font-size:28px;font-weight:650}
+html[data-c2=transmission] #canvasWrap{top:140px}
+html[data-c2=transmission] .topbar{gap:12px}
+
+
+
+/* Expansion never re-parents a canvas or resets a lesson. */
+html[data-c2] .c2-view.c2-expanded{width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;min-height:0!important;margin:0!important;border:0;border-radius:0;display:flex;flex-direction:column;overflow:auto;background:var(--course-bg);padding:0}
+html[data-c2] .c2-view.c2-fallback{position:fixed!important;inset:0!important;z-index:5000!important}
+html[data-c2] .c2-expanded .c2-viewbar{position:sticky;top:0;flex-shrink:0}
+html[data-c2] .c2-expanded .c2-view-motion{display:flex}
+html[data-c2] .c2-expanded>.stage,html[data-c2] .c2-expanded #fb-stage{flex:1;min-height:300px;height:auto!important}
+html[data-c2] .c2-expanded .grip-stage{flex:1;height:auto!important;min-height:300px}
+html[data-c2=fourbar] .fb-main.c2-expanded :is(.fb-mechanics,.fb-force-stats,.fb-feedback){display:none}
+
+html[data-c2=transmission] .viewport.c2-expanded #canvasWrap{position:absolute;inset:140px 0 120px}
+
+
+
+@media(max-width:1100px){
+  html[data-c2] .c2-nav{gap:8px;padding-inline:14px}.c2-links a{padding:8px}.c2-home small{display:none}
+  html[data-c2] .c2-course{display:none}
+  html[data-c2] :is(.mast,.fb-header){flex-wrap:wrap;gap:12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{grid-template-columns:minmax(0,1fr) 300px}
+
+
+
+  html[data-c2] .c2-view-label{letter-spacing:0;font-size:12px}
+}
+@media(max-width:820px){
+  html[data-c2] body{height:auto;min-height:100dvh;overflow:auto}
+  html[data-c2] .c2-viewbar{gap:6px;flex-wrap:wrap;padding:8px 10px}
+  html[data-c2] .c2-view-actions{margin-left:auto}
+  html[data-c2] :is(.mast,.fb-header,.topbar){flex-wrap:wrap;height:auto;gap:12px}
+  html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:25px}
+  html[data-c2] .c2-learning-actions{margin-left:auto}
+
+
+
+
+
+
+
+
+
+
+
+  html[data-c2=mechanisms] .shell,html[data-c2=fourbar] .fb-shell{padding:16px 12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:block}
+  html[data-c2=mechanisms] .c2-control-column{max-height:none;margin-top:14px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-size:20px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:360px}
+  html[data-c2=transmission]{overflow:auto;height:auto}
+  html[data-c2=transmission] body{display:block;padding-inline:12px}
+  html[data-c2=transmission] .topbar{padding-block:16px}
+  html[data-c2=transmission] .workspace{display:block;height:auto}
+  html[data-c2=transmission] .viewport{height:580px;margin-bottom:14px}
+  html[data-c2=transmission] .control-panel{height:auto;overflow:visible}
+  html[data-c2=transmission] .panel-scroll{overflow:visible;max-height:none}
+  html[data-c2=transmission] .scene-heading{top:105px}
+  html[data-c2=transmission] #canvasWrap{top:185px}
+  html[data-c2] .c2-dialog-head{padding:16px}.c2-dialog-body{padding-inline:20px}
+  html[data-c2] .c2-dialog h2{font-size:19px}
+}
+@media(max-width:600px){
+  html[data-c2] .c2-nav{height:112px;align-content:center}.c2-nav .c2-home{font-size:13px}.c2-nav .c2-links{order:3}
+  html[data-c2] body{padding-top:112px!important}
+  html[data-c2] .c2-nav .c2-links a{font-size:12px;padding:7px 8px}
+  html[data-c2] .c2-nav .c2-links small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){html[data-c2] *,html[data-c2] *::before,html[data-c2] *::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mechanisms use one canvas and one parameter column, like transmission. */
+html[data-c2=mechanisms] .mast { min-height: 88px; margin-bottom: 10px; }
+html[data-c2=mechanisms] .mast .toolbar { justify-content: flex-end; }
+html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: max(540px,calc(100dvh - 260px)); }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { display: flex; flex-direction: column; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage { flex: 1; min-height: 240px; height: auto; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: 100%; max-height: none; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats { grid-template-columns: repeat(3,minmax(0,1fr)); padding: 12px; gap: 10px; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat { border-bottom: 0; padding-bottom: 0; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value { font-size: 21px; }
+html[data-c2=mechanisms] .lab-head { padding: 16px 16px 8px; flex-wrap: wrap; }
+html[data-c2=mechanisms] .lab-head h2 { font-size: 18px; }
+.mechanism-observation { padding: 0 16px 14px; border-bottom: 1px solid var(--course-line); }
+.mechanism-observation h3 { margin: 4px 0 6px; font-size: 15px; }
+.mechanism-observation p { margin: 0; font-size: 13px; line-height: 1.7; color: var(--course-muted); }
+.c2-mechanism-transport { display: flex; align-items: center; gap: 7px; padding: 9px 14px; border-top: 1px solid var(--course-line); background: var(--course-surface); }
+.c2-mechanism-transport label { margin-left: auto; font-size: 13px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons { display: flex; gap: 4px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons button { min-height: 30px; padding: 4px 8px; }
+html[data-c2=mechanisms] .viewbar { margin: 6px 12px; min-height: 0; }
+@media(max-width:820px) {
+  html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: auto; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { height: 520px; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: auto; }
+  .c2-mechanism-transport { flex-wrap: wrap; }
+}
+</style><script>/* 三维区底色（全课程统一）：近白中性灰，适合印刷教材截图；深色模式用深石墨色。
+ * 取值以 shared/lab-shell/lab-shell.css 里的 --stage-bg / --stage-floor / --stage-shadow 为准（深浅色一起切换）；
+ * 页面样式还没载入时（运行时才挂外壳的页面、第二章被嵌入前的原版实验页）用下面同值的后备。
+ * 用法：StageTone.bg() → '#f5f6f8'；StageTone.color(THREE) → THREE.Color；
+ *       StageTone.paint(scene, THREE) 设底色并让雾跟着变；StageTone.contactShadow(THREE, {size}) 模型下方的柔和接触阴影。
+ * 第二章：原版实验页被嵌入时，外壳把自己的取值经 postMessage 传进来（embed-bridge.js 调 StageTone.use）。
+ */
+(() => {
+  'use strict';
+  if (window.StageTone) return;
+  const FALLBACK = {
+    light: {bg: '#f5f6f8', floor: '#eceef1', shadow: 'rgba(28,36,48,.20)'},
+    dark: {bg: '#1a1f27', floor: '#222833', shadow: 'rgba(0,0,0,.55)'},
+  };
+  const root = document.documentElement;
+  let cache = null, override = null;
+  const theme = () => (root.dataset.theme === 'dark' ? 'dark' : 'light');
+  const read = () => {
+    const t = theme(), f = FALLBACK[t], cs = getComputedStyle(root);
+    const v = n => cs.getPropertyValue(n).trim();
+    return {theme: t, bg: v('--stage-bg') || f.bg, floor: v('--stage-floor') || f.floor, shadow: v('--stage-shadow') || f.shadow, ...(override?.[t] || {})};
+  };
+  const get = () => (cache && cache.theme === theme() ? cache : (cache = read()));
+  addEventListener('course-theme-change', () => { cache = null; });
+
+  /* 电脑上（鼠标操作、宽屏）让三维画布保留最后一帧，“保存三维截图”随时读得到；
+     不少页面是“画面有变化才重画”，不保留的话读到的是空白。手机上不开，省一次每帧拷贝。 */
+  try {
+    if (matchMedia('(pointer:fine) and (min-width:901px)').matches) {
+      const original = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (type, attrs) {
+        return original.call(this, type, /^(webgl|webgl2|experimental-webgl)$/.test(type) ? {...(attrs || {}), preserveDrawingBuffer: true} : attrs);
+      };
+    }
+  } catch { /* 保持默认 */ }
+
+  /* 三维截图：把 root 里正在显示的三维画布存成一张 PNG（铺统一底色，不含页面上的按钮和文字标签）。
+     画布内容只在“刚画完的那一帧”里读得到，所以排在页面自己的绘制之后读；读到空白就催一次重绘、下一帧再试。 */
+  const blank = canvas => {
+    const probe = document.createElement('canvas'); probe.width = probe.height = 24;
+    const g = probe.getContext('2d', {willReadFrequently: true}); g.drawImage(canvas, 0, 0, 24, 24);
+    const d = g.getImageData(0, 0, 24, 24).data;
+    for (let i = 3; i < d.length; i += 4) if (d[i]) return false;
+    return true;
+  };
+  function capture(scope = document.body, {scale = 1} = {}) {
+    const list = [...scope.querySelectorAll('canvas')].filter(c => { const r = c.getBoundingClientRect(); return r.width > 80 && r.height > 80 && getComputedStyle(c).visibility !== 'hidden'; });
+    const canvas = list.sort((a, b) => (b.dataset.engine ? 1 : 0) - (a.dataset.engine ? 1 : 0) || b.width * b.height - a.width * a.height)[0];
+    return new Promise(resolve => {
+      if (!canvas) return resolve(null);
+      let tries = 0;
+      const grab = () => {
+        try {
+          if (blank(canvas) && ++tries < 8) { if (tries === 1 || tries === 4) dispatchEvent(new Event('resize')); return requestAnimationFrame(grab); }
+          const out = document.createElement('canvas'); out.width = Math.round(canvas.width * scale); out.height = Math.round(canvas.height * scale);
+          const g = out.getContext('2d'); g.fillStyle = get().bg; g.fillRect(0, 0, out.width, out.height);
+          g.imageSmoothingQuality = 'high'; g.drawImage(canvas, 0, 0, out.width, out.height);
+          resolve(out.toDataURL('image/png'));
+        } catch { resolve(null); }
+      };
+      requestAnimationFrame(grab);
+    });
+  }
+
+  window.StageTone = {
+    get, capture,
+    bg: () => get().bg,
+    floor: () => get().floor,
+    /** 底色的 THREE.Color（传入页面自己的 THREE，模块化页面也能用）。 */
+    color: (T = window.THREE, key = 'bg') => new T.Color(get()[key]),
+    /** 设场景底色，雾（若有）随底色。返回 scene 便于链式调用。 */
+    paint(scene, T = window.THREE) {
+      if (!scene) return scene;
+      const c = get().bg;
+      if (scene.background?.isColor) scene.background.set(c); else scene.background = new T.Color(c);
+      if (scene.fog?.color) scene.fog.color.set(c);
+      return scene;
+    },
+    /** 模型下方的柔和接触阴影：一张径向渐变贴图的平面（不受光照影响，深浅色自动换）。
+     *  size 为直径（场景单位），up 为 'y' 或 'z'（哪个轴朝上）。返回 Mesh，自己 position 到模型脚下。 */
+    contactShadow(T = window.THREE, {size = 1, up = 'y', strength = 1} = {}) {
+      const c = document.createElement('canvas'); c.width = c.height = 128;
+      const g = c.getContext('2d'), grad = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      grad.addColorStop(0, 'rgba(0,0,0,1)'); grad.addColorStop(.45, 'rgba(0,0,0,.55)'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grad; g.fillRect(0, 0, 128, 128);
+      const tex = new T.CanvasTexture(c);
+      const mat = new T.MeshBasicMaterial({map: tex, color: 0x000000, transparent: true, depthWrite: false, toneMapped: false});
+      const mesh = new T.Mesh(new T.PlaneGeometry(size, size), mat);
+      if (up === 'y') mesh.rotation.x = -Math.PI / 2;
+      mesh.renderOrder = -1; mesh.userData.contactShadow = true;
+      const tone = () => { mat.opacity = (theme() === 'dark' ? .5 : .16) * strength; };
+      tone(); addEventListener('course-theme-change', tone);
+      return mesh;
+    },
+    /** 外部指定取值（第二章嵌入时由外壳传入）；传 null 取消。 */
+    use(values) { override = values; cache = null; },
+    refresh() { cache = null; return get(); },
+  };
+})();
+
+/* Optional Canvas 2D projection of the same articulated scene when WebGL is unavailable.
+ * Component silhouettes preserve the original state/kinematics; no lighting or clipping.
+ */
+window.createChapterRenderer = options => {
+  const T=window.THREE;
+  const probe=document.createElement('canvas');
+  let context=null;
+  try{context=probe.getContext('webgl2')||probe.getContext('webgl');}catch{}
+  if(context){context.getExtension('WEBGL_lose_context')?.loseContext();try{return new T.WebGLRenderer(options);}catch{}}
+  const canvas=options?.canvas||document.createElement('canvas'),ctx=canvas.getContext('2d');
+  if(!ctx)throw new Error('Canvas 2D is unavailable');
+  const cache=new WeakMap();let width=1,height=1,viewport=null,scissor=false;
+  function hull(points){
+    points.sort((a,b)=>a.x-b.x||a.y-b.y);
+    const cross=(o,a,b)=>(a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x),lo=[],hi=[];
+    for(const p of points){while(lo.length>1&&cross(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}
+    for(const p of points.slice().reverse()){while(hi.length>1&&cross(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}
+    return lo.slice(0,-1).concat(hi.slice(0,-1));
+  }
+  const renderer={
+    isFallback:true,domElement:canvas,shadowMap:{},info:{render:{calls:0,triangles:0}},
+    setPixelRatio(){},getPixelRatio(){return 1},setClearColor(){},dispose(){},
+    setSize(w,h,style=true){width=Math.max(1,w);height=Math.max(1,h);canvas.width=width;canvas.height=height;viewport=null;if(style){canvas.style.width=w+'px';canvas.style.height=h+'px';}},
+    setViewport(x,y,w,h){viewport={x,y:height-y-h,w,h};},setScissor(){},setScissorTest(value){scissor=value;},
+    clear(){ctx.clearRect(0,0,width,height);},
+    render(scene,camera){
+      if(!scissor)this.clear();
+      const vp=viewport||{x:0,y:0,w:width,h:height},dark=document.documentElement.dataset.theme==='dark';
+      ctx.save();ctx.beginPath();ctx.rect(vp.x,vp.y,vp.w,vp.h);ctx.clip();
+      ctx.fillStyle=window.StageTone?.bg()||(dark?'#1a1f27':'#f5f6f8');ctx.fillRect(vp.x,vp.y,vp.w,vp.h);
+      scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const shapes=[];
+      scene.traverseVisible(o=>{
+        if(!o.isMesh||o.isInstancedMesh)return;
+        const mat=Array.isArray(o.material)?o.material[0]:o.material;
+        if(!mat||mat.isShadowMaterial||mat.visible===false||mat.opacity===0)return;
+        const attr=o.geometry?.attributes?.position;if(!attr)return;
+        let vertices=cache.get(o.geometry);
+        if(!vertices){vertices=[];const step=Math.max(1,Math.floor(attr.count/96));for(let i=0;i<attr.count;i+=step)vertices.push(new T.Vector3().fromBufferAttribute(attr,i));cache.set(o.geometry,vertices);}
+        const points=vertices.map(p=>p.clone().applyMatrix4(o.matrixWorld).project(camera)).filter(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.z>=-1&&p.z<=1);
+        if(points.length<3)return;
+        const z=points.reduce((sum,p)=>sum+p.z,0)/points.length;
+        shapes.push({points:hull(points.map(p=>({x:vp.x+(p.x+1)*vp.w/2,y:vp.y+(1-p.y)*vp.h/2}))),z,color:mat.color?'#'+mat.color.getHexString():'#78a4c8'});
+      });
+      shapes.sort((a,b)=>b.z-a.z);
+      for(const shape of shapes){if(!shape.points.length)continue;ctx.beginPath();shape.points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();ctx.fillStyle=shape.color;ctx.globalAlpha=.85;ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=dark?'#b9d0e9':'#36516e';ctx.lineWidth=.6;ctx.stroke();}
+      this.info.render.calls=shapes.length;this.info.render.triangles=0;ctx.restore();
+      if(canvas.parentElement&&!canvas.parentElement.querySelector('.c2-render-fallback')){
+        const note=document.createElement('div');note.className='c2-render-fallback';note.textContent='二维备用投影 · 参数与动作仍可操作，剖切与光照不显示';note.setAttribute('role','status');canvas.parentElement.append(note);
+      }
+    }
+  };
+  return renderer;
+};
+</script><script data-course-navigation src="../../../../../shared/navigation.js"></script><link data-course-theme rel="stylesheet" href="../../../../../shared/styles/theme.css"><script data-course-theme src="../../../../../shared/theme.js"></script></head><body>
+<main class="shell">
+<header class="mast"><div><div class="eyebrow">MECHANISM LAB / 可旋转的机械原理实验台</div><h1>直线、转动与传力</h1><div class="sub">液压缸 → 动臂 → 连杆轨迹　｜　相对转动 + 约束 → 丝杠升降　｜　点击零件名称看三维说明</div></div><div class="toolbar"><label>倍速 <select id="speed" aria-label="播放倍速"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label><button id="play" class="primary" aria-pressed="false">▶ 开始演示</button><button id="reverse">反向</button><button id="reset">复位</button><button id="fullscreen">全屏</button></div></header>
+<div class="labs">
+<section class="lab" id="boom-lab" aria-labelledby="boom-title"><div class="lab-head"><h2 id="boom-title"><span class="num">01</span>液压缸 · 动臂 A/B/C · 传力</h2><span id="boom-status" class="badge">正常传力</span></div>
+<div class="viewbar" data-for="boom"><div class="view-buttons"><button data-view="front" aria-pressed="false">正视</button><button data-view="side" aria-pressed="false">侧视</button><button data-view="top" aria-pressed="false">俯视</button><button data-view="iso" aria-pressed="true">轴测</button><button data-view="quad" aria-pressed="false">四视图</button></div><a class="extension-entry" href="fourbar.html">四杆扩展 ↗</a><button class="enlarge" data-enlarge="boom">⤢ 放大</button></div>
+<div class="stage" id="boom-stage" role="img" aria-label="可旋转三维液压驱动四杆机构，带轨迹、力线和力臂"><div class="stage-overlay" id="boom-overlay"></div><div class="stage-top"><span>橙 A 动臂 · 青 B 连杆 · 紫 C 从动臂</span><span id="hyd-force-caption">准静态负载 / 力线方向</span></div><div class="stage-hint"><span>拖动旋转 · 滚轮缩放 · 视图按钮可键盘操作</span><span id="boom-view-hint">观察铰点与层间装配</span></div><div class="quad-names"><span>正视 / 运动平面</span><span>侧视 / 装配层次</span><span>俯视 / 销轴与厚度</span><span>轴测 / 立体结构</span></div></div>
+<nav class="parts-strip" id="boom-parts" aria-label="液压连杆零件，点击名称放大"><span class="parts-label">零件 ↗</span></nav>
+<div class="stats"><div class="stat"><div class="stat-title">动臂转角 θ</div><div class="stat-value"><span id="theta-value">48.0</span><small>°</small></div></div><div class="stat"><div class="stat-title">液压缸力臂 r</div><div class="stat-value"><span id="moment-value">20.0</span><small>mm</small></div></div><div class="stat"><div class="stat-title">B/C 传动角 μ（取锐角）</div><div class="stat-value"><span id="mu-value">60.0</span><small>°</small></div></div></div>
+<div class="controls">
+<div class="control wide control-inline"><label class="control"><span class="control-head"><span>液压缸伸出 x（相对当前最短位）</span><output id="stroke-out" for="stroke">0 mm</output></span><input id="stroke" type="range" min="0" max="50" step="0.01" value="10" aria-label="液压缸伸出量，毫米"></label><button id="boom-step">伸出 2 mm</button></div>
+<div class="lengths"><label class="control"><span class="control-head"><span><b class="key a">A</b>动臂</span><output id="a-out">100 mm</output></span><input id="a" type="range" min="60" max="120" value="100" aria-label="动臂 A 长度，毫米"></label><label class="control"><span class="control-head"><span><b class="key b">B</b>连杆</span><output id="b-out">170 mm</output></span><input id="b" type="range" min="100" max="210" value="170" aria-label="连杆 B 长度，毫米"></label><label class="control"><span class="control-head"><span><b class="key c">C</b>从动臂</span><output id="c-out">120 mm</output></span><input id="c" type="range" min="70" max="160" value="120" aria-label="从动臂 C 长度，毫米"></label></div>
+<div class="control wide" style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><div class="inline-toggles"><label><input id="trace" type="checkbox" checked>P 点轨迹</label><label><input id="forces" type="checkbox" checked>力线 / 力臂</label></div><div class="examples"><button id="normal-pose">正常姿态</button><button id="hyd-dead">液压不利姿态</button><button id="link-dead">连杆不利姿态</button></div></div>
+<div class="force-line" id="force-readout">M_A = F缸 · r；输出臂切向力比例 F_t / F_B = sin μ。</div>
+</div><div class="lab-foot" id="boom-explain">缸沿自身轴线伸缩，通过销轴改变动臂角度；自动播放在死点之前折返。</div></section>
+<section class="lab" id="screw-lab" aria-labelledby="screw-title"><div class="lab-head"><h2 id="screw-title"><span class="num">02</span>丝杠 · 相对转动 · 导程</h2><span id="screw-status" class="badge">螺母止转 / 可升降</span></div>
+<div class="viewbar" data-for="screw"><div class="view-buttons"><button data-view="front" aria-pressed="false">正视</button><button data-view="side" aria-pressed="false">侧视</button><button data-view="top" aria-pressed="false">俯视</button><button data-view="iso" aria-pressed="true">轴测</button><button data-view="quad" aria-pressed="false">四视图</button></div><button class="enlarge" data-enlarge="screw">⤢ 放大</button></div>
+<div class="stage" id="screw-stage" role="img" aria-label="可旋转三维丝杠升降机，可比较螺母止转和同步同转，开启偏心激励演示振动"><div class="stage-overlay" id="screw-overlay"></div><div class="stage-top"><span id="screw-turns">丝杠 3.00 圈 · 螺母 0.00 圈</span><span id="vib-top">理想对中 · 无偏心激励</span></div><div class="stage-hint"><span>拖动旋转 · 滚轮缩放 · 100 mm 行程</span><span>轴向支承 + 止转导向</span></div><div class="quad-names"><span>正视 / 升降位移</span><span>侧视 / 导向约束</span><span>俯视 / 相对转动</span><span>轴测 / 装配结构</span></div></div>
+<nav class="parts-strip" id="screw-parts" aria-label="丝杠升降机零件，点击名称放大"><span class="parts-label">零件 ↗</span></nav>
+<div class="stats"><div class="stat"><div class="stat-title">相对圈数 N相对</div><div class="stat-value"><span id="turns-value">3.00</span><small>圈</small></div></div><div class="stat"><div class="stat-title">轴向位移 s</div><div class="stat-value"><span id="height-value">24.0</span><small>mm</small></div></div><div class="stat"><div class="stat-title">运行时相对线速度</div><div class="stat-value"><span id="velocity-value">8.0</span><small>mm/s</small></div></div></div>
+<div class="controls">
+<label class="control"><span class="control-head"><span>导程 L</span><output id="lead-out">8 mm/转</output></span><input id="lead" type="range" min="2" max="12" value="8" aria-label="导程，毫米每转"></label><label class="control"><span class="control-head"><span>丝杠转速 n</span><output id="rpm-out">60 r/min</output></span><input id="rpm" type="range" min="30" max="300" step="10" value="60" aria-label="丝杠转速，每分钟转数"></label>
+<label class="control"><span class="control-head">运动条件对照</span><select id="mode" aria-label="丝杠运动条件"><option value="guided">螺母止转 → 有相对转动</option><option value="sync">同步同转 → 无相对转动</option></select></label><label class="control"><span class="control-head">螺纹头数 / 螺距</span><select id="starts" aria-label="螺纹头数"><option value="1">单头，p = 8 mm</option><option value="2">双头，p = 4 mm</option></select></label>
+<div class="control wide control-inline"><label class="control"><span class="control-head"><span>手动相对圈数 N相对</span><output id="turns-out">3.00 圈</output></span><input id="turns" type="range" min="0" max="12.5" step=".01" value="3" aria-label="丝杠与螺母的相对圈数"></label><button id="screw-step">丝杠转 1 圈</button></div>
+<div class="vibration-line"><div><label style="font-size:12px"><input id="vibration" type="checkbox">偏心激励 → 径向振动</label><div class="wave-wrap"><canvas id="wave" width="220" height="44" aria-label="径向振动波形"></canvas><span id="vibration-out">A = 0 μm</span></div></div><label class="control"><span class="control-head"><span>偏心距 e（显示放大 25×）</span><output id="ecc-out">0.60 mm</output></span><input id="ecc" type="range" min="0" max="1" step=".05" value=".6" aria-label="旋转质量偏心距，毫米"></label></div>
+</div><div class="lab-foot" id="screw-explain">N相对 = N丝杠 − N螺母；3.00 圈 × 8 mm/转 = 24.0 mm。</div></section>
+</div>
+<section class="lessons" aria-label="教学要点"><div class="lesson"><h3>① 直线驱动转动，也受死点限制</h3><p><span class="formula">M_A = F缸 · r</span>力线过转轴时 r = 0。B/C 共线时 μ = 0，给定连杆轴向力对 C 的转矩为零；两种死点分别观察。</p></div><div class="lesson"><h3>② 导程把相对圈数变成距离</h3><p><span class="formula">s = (N丝杠 − N螺母) · L</span><br>导向限制螺母转动，支承限制丝杠轴向移动；同转无相对圈数增量，就无升降增量。</p></div><div class="lesson"><h3>③ 旋转不必然振动，偏心会产生激励</h3><p><span class="formula">F₀ = m_e · e · ω²</span>开启偏心后观察径向振动；升降属于轴向运动。振动幅值还由支承质量、刚度和阻尼共同决定。</p></div></section>
+<footer class="footer"><span>离线单文件 · 空格播放 / 暂停 · R 复位 · 参数操作会暂停 · 两套机构独立演示</span><details><summary>模型、符号与参考</summary><div>长度为 mm；固定轴距 180 mm；液压连接点为 A 杆长的 70%，缸底铰点 (20, −50) mm。采用四杆的一种装配支路，联立计算 C 轴制动负载所需缸力；力箭头只表示方向。流量决定速度、供压上限决定能否运动；在“物理实验”中修改参数。忽略构件自重与惯性，采用准静态力学。传动角取 B/C 夹角的锐角；本页“连杆死点”特指 B/C 共线，驱动方向变化时应重新判断。死点按钮为几何定位，不能表示机构可靠当前驱动自行越过。<br>丝杠 s 为相对零位的有符号运动学位移；正向按升起约定。同步同转采用独立驱动螺母与丝杠，并通过止推环承托平台，为人为指定的理想对照，不是解除导向后必然发生的运动。多头关系 L = z·p；调导程保持相对圈数，超行程时限位。<br>振动：1 kg 偏心旋转质量，2 kg 空载等效质量，加上负载质量 F / 9.81，刚度 5000 N/m，阻尼 20 N·s/m，单自由度受迫响应，使用数值积分展示过渡过程，稳态幅值作参考；不表示丝杠临界转速或弯曲模态。整机位于弹性支承上，径向位移及偏心标记可视化放大 25×，不改变轴向位移读数。倍速只改变显示时间。<br>参考：<a href="https://www.mechref.org/dyn/four_bar_linkages_applications/" target="_blank" rel="noopener">Illinois MechRef 四杆机构</a>；<a href="https://ocw.metu.edu.tr/pluginfile.php/6885/mod_resource/content/1/ch7/sec1/AltTransmissionAngle.html" target="_blank" rel="noopener">METU 传动角与死点</a>；<a href="https://www.thomsonlinear.com/en/products/motorized-lead-screws/" target="_blank" rel="noopener">Thomson 约束与丝杠运动</a>；<a href="https://www.thomsonlinear.com/en/support/tips/difference-between-screw-pitch-and-lead" target="_blank" rel="noopener">导程与螺距</a>；<a href="https://cdn.skfmediahub.skf.com/api/public/0901d1968019d09f/pdf_preview_medium/0901d1968019d09f_pdf_preview_medium.pdf" target="_blank" rel="noopener">SKF 动平衡</a>。三维引擎 Three.js，MIT 许可，版权随脚本保留。</div></details></footer>
+</main>
+<dialog id="enlarged" aria-labelledby="modal-title"><div class="modal-head"><h2 id="modal-title">放大观察</h2><div class="toolbar"><div class="view-buttons" id="modal-views"><button data-view="front">正视</button><button data-view="side">侧视</button><button data-view="top">俯视</button><button data-view="iso">轴测</button><button data-view="quad">四视图</button></div><button id="close-modal">关闭</button></div></div><div class="modal-motion"><div class="toolbar"><button id="modal-play" class="primary" aria-pressed="false">▶ 独立演示</button><button id="modal-reverse">反向</button><button id="modal-step">单步</button><label>演示倍速 <select id="modal-speed" aria-label="当前放大模型的演示倍速"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div><span id="modal-motion-note">独立控制当前模型</span></div><div class="modal-body" id="modal-body"></div></dialog>
+<dialog id="part-dialog" class="part-modal" aria-labelledby="part-modal-title"><header class="part-modal-head"><div><h2 id="part-modal-title">三维零件放大</h2><p>点击零件名称查看结构与作用；可拖动旋转，滚轮或按钮缩放。</p></div><button id="part-close" type="button">关闭</button></header><div class="part-layout"><div class="part-viewport"><div class="part-toolbar"><div class="view-buttons" data-for="part"><button data-view="front" aria-pressed="false">正视</button><button data-view="side" aria-pressed="false">侧视</button><button data-view="top" aria-pressed="false">俯视</button><button data-view="iso" aria-pressed="true">轴测</button><button data-view="quad" aria-pressed="false">四视图</button></div><div class="part-tools"><button id="part-zoom-out" aria-label="缩小零件">−</button><button id="part-zoom-in" aria-label="放大零件">＋</button><button id="part-home">适合窗口</button></div></div><div class="stage" id="part-stage" role="region" aria-label="零件三维模型，可用视图按钮切换角度"><div class="stage-overlay" id="part-overlay"></div><div class="stage-hint"><span>拖动旋转 · 滚轮缩放</span><span>同一模型的当前结构快照</span></div><div class="quad-names"><span>正视</span><span>侧视</span><span>俯视</span><span>轴测</span></div></div><div class="part-stage-caption"><div class="part-view-mode"><button id="part-isolated" aria-pressed="true">单独零件</button><button id="part-context" aria-pressed="false">装配位置</button></div><span id="part-view-note">只显示所选零件</span></div></div><aside class="part-aside"><div class="eyebrow" id="part-category">PART ANATOMY / 零件说明</div><h3 id="part-name">零件名称</h3><p class="part-summary" id="part-summary"></p><dl><dt>结构与连接</dt><dd id="part-structure"></dd><dt>运动与约束</dt><dd id="part-motion"></dd><dt>课堂观察</dt><dd id="part-observe"></dd></dl><div class="part-param" id="part-parameter"></div><p class="part-note" id="part-note"></p><label for="part-picker" class="sr-only">切换零件</label><select id="part-picker" class="part-picker" aria-label="切换查看其他零件"></select></aside></div></dialog>
+<dialog id="study-dialog" class="study-dialog" aria-labelledby="study-title">
+<header class="study-head"><div><div class="eyebrow">SECTION / EXPLODED / ASSEMBLY</div><h2 id="study-title">剖视与组装实验室</h2></div><div class="toolbar"><button type="button" data-theme-toggle>深色背景</button><button type="button" data-labels-toggle>隐藏部件名</button><button id="study-close" type="button">关闭</button></div></header>
+<div class="study-layout"><div class="study-visual">
+<div class="study-tools"><div class="view-buttons" data-for="study"><button data-view="front">正视</button><button data-view="side">侧视</button><button data-view="top">俯视</button><button data-view="iso" aria-pressed="true">轴测</button><button data-view="quad">四视图</button></div><div class="toolbar"><button id="study-focus" aria-pressed="false">放大活塞</button><button id="study-zoom-out" aria-label="缩小">−</button><button id="study-zoom-in" aria-label="放大">＋</button><button id="study-fit">适合窗口</button></div></div>
+<div class="stage" id="study-stage" role="region" aria-label="可旋转的剖视与爆炸装配三维模型"><div class="stage-overlay" id="study-overlay"></div><div class="stage-top"><span id="study-mode-note">剖视 · 观察内部结构</span><span id="study-value">运动数据</span></div><div class="stage-hint"><span>拖动旋转 · 滚轮缩放 · 可点击安装位</span><span id="study-live-hint">剖切方向可调</span></div><div class="quad-names"><span>正视</span><span>侧视</span><span>俯视</span><span>轴测</span></div></div>
+<div class="study-motion"><button id="study-play" class="primary" aria-pressed="false">▶ 内部运动</button><button id="study-minus">回收 2 mm</button><button id="study-plus">伸出 2 mm</button><label class="study-speed">慢放 <select id="study-speed"><option value=".25">0.25×</option><option value=".5" selected>0.5×</option><option value="1">1×</option></select></label><label class="study-position"><span id="study-position-label">活塞行程</span><input type="range" id="study-position" min="0" max="100" step=".1" value="50" aria-label="内部运动位置"></label></div>
+<div class="study-caption" id="study-caption"></div>
+</div>
+<aside class="study-aside"><div class="study-tabs"><button id="study-hyd" aria-pressed="true">液压缸</button><button id="study-screw" aria-pressed="false">丝杠 / 螺母</button></div>
+<h3>观察结构</h3><div class="study-section-row"><label><input id="study-section" type="checkbox" checked>剖视内部</label><button id="study-demo-reset">恢复装配</button></div>
+<label class="study-control"><span>剖切方向 <output id="study-cut-out">0°</output></span><input id="study-cut" type="range" min="0" max="360" step="5" value="0" aria-label="剖切方向，度"></label>
+<label class="study-control"><span>爆炸程度 <output id="study-explode-out">0%</output></span><input id="study-explode" type="range" min="0" max="100" step="1" value="0" aria-label="爆炸程度"></label>
+<div class="study-readout" id="study-readout"></div>
+<h3>学生组装练习</h3><p class="study-help">选择零件，再点击画面中的安装位；也可拖动零件按钮到安装位，或使用下方“装入”按钮。</p>
+<div class="study-actions"><button id="study-start" class="primary">开始组装</button><button id="study-auto">自动示范</button><button id="study-undo">撤回一步</button></div>
+<div class="study-progress"><progress id="study-progress" value="6" max="6" aria-label="组装完成度"></progress><span id="study-count">6 / 6</span></div>
+<div id="study-kit" class="study-kit" aria-label="待安装零件"></div>
+<div class="study-install"><button id="study-install">装入当前零件</button><button id="study-restart">重新练习</button></div>
+<p id="study-feedback" class="study-feedback" role="status" aria-live="polite">点击“开始组装”进入练习。</p><p id="study-part-info" class="study-part-info"></p>
+<details class="study-note"><summary>教学模型说明</summary><p>剖视展示内部空间和运动关系，爆炸图展示零件之间的装配关系。液压缸油腔颜色表示空间变化；速度按流量与有效面积计算，未求解流场；丝杠螺纹采用 30° 梯形牙型，同导程、同旋向，并留有间隙；装配时螺母沿轴线旋入，每圈前进一个导程。轴承与导套有通孔，平台避让丝杠。组装练习检查安装位置与前置依赖，是教学顺序，不能替代实际工艺规程；不模拟拧紧扭矩、密封预紧与接触碰撞。</p><p>液压缸内部按本页当前缸长和行程构建；丝杠圈数与位移使用原页面的运动模型。<a href="https://www.parker.com/literature/Industrial%20Cylinder/cylinder/cat/english/0106c001b.pdf" target="_blank" rel="noopener">结构参考：Parker 液压缸零件</a>。</p></details>
+</aside></div></dialog>
+
+<dialog id="physics-dialog" class="physics-dialog" aria-labelledby="physics-title"><header class="study-head"><div><div class="eyebrow">FLOW / FORCE / ENERGY</div><h2 id="physics-title">物理实验 · 改变条件，观察能否运动</h2></div><button id="physics-close">关闭</button></header><div class="physics-content"><div class="physics-columns"><section><h3>液压缸 → 四杆 → 输出制动器</h3><label class="study-control"><span>供油流量 Q / L·min⁻¹ <output id="physical-flow-out"></output></span><input id="physical-flow" type="range" min=".02" max=".2" step=".01"></label><label class="study-control"><span>供压上限 / MPa <output id="physical-pressure-out"></output></span><input id="physical-pressure" type="range" min=".5" max="10" step=".1"></label><label class="study-control"><span>C 轴制动负载 / N·m <output id="physical-brake-out"></output></span><input id="physical-brake" type="range" min="0" max="8" step=".2"></label><div class="study-readout" id="hyd-physics-readout"></div><p>制动器始终阻碍输出运动。按四杆瞬时几何和静力平衡求所需缸力，供压不足时停住；流量决定速度，压力随负载建立。回油背压取 0.1 MPa，密封阻力取 15 N。到限位前阀口减流，再换向；自动限位距几何死点保留 0.02 mm 缸行程。</p></section><section><h3>丝杠 → 轴向负载 → 摩擦与制动</h3><label class="study-control"><span>总轴向负载 / N <output id="physical-load-out"></output></span><input id="physical-load" type="range" min="0" max="500" step="10"></label><label class="study-control"><span>电机可用转矩 / N·m <output id="physical-torque-out"></output></span><input id="physical-torque" type="range" min=".05" max="1" step=".05"></label><label class="study-control"><span>螺纹摩擦系数 μ <output id="physical-friction-out"></output></span><input id="physical-friction" type="range" min=".05" max=".3" step=".01"></label><div class="study-readout" id="screw-physics-readout"></div><p>按 30° 梯形螺纹、中径 13.2 mm 计算：T↑ = F dₘ tan(λ + ρ) / 2；η = tan λ / tan(λ + ρ)。下降 T↓ 为负时需要伺服制动。轴端止推支承承担轴向反力，导杆承担止转反力。负载块仅是载荷标记，尺寸不表示真实负载体积。</p></section></div><div class="physics-notes"><strong>模型范围</strong><p>机构采用刚体、理想销轴及准静态受力模型；忽略构件自重、惯性、销轴摩擦、油液压缩性与泄漏。加减速为受控运动指令；手动滑块用于定位姿态。螺纹采用有间隙的几何啮合与等效摩擦模型，不进行接触应力或碰撞求解。</p><p>偏心振动另按 m ẍ + c ẋ + k x = mₑ e (ω² cos φ + α sin φ) 积分，包含启动与变速过渡；2 kg 为空载等效质量，叠加轴向负载对应质量 F / 9.81，k = 5000 N/m，c = 20 N·s/m，mₑ = 1 kg。在静平衡位置附近，弹簧支承上的整机与负载一起横向响应，丝杠与螺母保持同轴。波形显示实际计算响应，纵轴自动缩放；A 为设定恒转速下的稳态参考。</p><p>教学参数用于比较原理，不对应某款产品的额定性能。参考：<a href="https://www.parker.com/content/dam/Parker-com/Literature/Industrial-Cylinder/cylinder/cat/english/Parker_Mobile_Cylinder_Products_Catalog_HY18-1000.pdf" target="_blank" rel="noopener">Parker 液压缸</a> · <a href="https://www.thk.com/us/en/products/other_power_transmission_elements/lead_screw_nut/selection/0002/" target="_blank" rel="noopener">THK 效率与推力</a>。</p></div><button id="physical-reset">恢复物理参数</button></div></dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script></script><script src="../../../../../shared/vendor/three-13767d3750.js"></script><script>
+</script><script>'use strict';
+(()=>{
+const $=id=>document.getElementById(id),T=THREE,PI=Math.PI,rad=d=>d*PI/180,deg=r=>r*180/PI,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),f=(v,n=1)=>(Math.abs(v)<1e-7?0:v).toFixed(n),V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z);
+const defaults={a:100,b:170,c:120,theta:48,lead:8,rpm:60,starts:1,ns:3,nn:0,mode:'guided',ecc:.6,vibration:false};
+const s={...defaults,play:false,speed:1,dir:1,hydDir:1,screwDir:1,trace:true,forces:true,hold:false,step:null};
+const anchor={x:20,y:-50},D=180,ratio=.7,hydDead=deg(Math.atan2(anchor.y,anchor.x))+180;
+let activeMechanism='boom';
+let range,last=0,uiTime=0,timer,activeModal=null,visible=true,dirty=true,phaseTime=0,partStage=null;
+const modalDemo={play:false,speeds:{boom:1,screw:1}};
+function notify(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.remove('show'),3200)}
+function cylinderLength(theta,a=s.a){const R=a*ratio;return Math.hypot(R*Math.cos(rad(theta))-anchor.x,R*Math.sin(rad(theta))-anchor.y)}
+function getRange(m=s){const loR=Math.abs(m.b-m.c),hiR=m.b+m.c,base=D*D+m.a*m.a,two=2*D*m.a;const lo=loR<=Math.abs(D-m.a)?0:deg(Math.acos(clamp((base-loR*loR)/two,-1,1)));const hi=hiR>=D+m.a?180:deg(Math.acos(clamp((base-hiR*hiR)/two,-1,1)));const min=Math.max(10,lo),max=Math.min(hydDead,hi);return {min,max,lmin:cylinderLength(min,m.a),lmax:cylinderLength(max,m.a)}}
+function thetaFromLength(l,a=s.a){const R=a*ratio,ar=Math.hypot(anchor.x,anchor.y),phi=Math.atan2(anchor.y,anchor.x);return deg(phi+Math.acos(clamp((R*R+ar*ar-l*l)/(2*R*ar),-1,1)))}
+function solve(theta,m=s){
+ const t=rad(theta),p={x:m.a*Math.cos(t),y:m.a*Math.sin(t)},dx=D-p.x,dy=-p.y,d=Math.hypot(dx,dy),u=(m.b*m.b-m.c*m.c+d*d)/(2*d),h2=m.b*m.b-u*u;if(h2<-.00001)return null;const h=Math.sqrt(Math.max(0,h2)),q={x:p.x+(u*dx-h*dy)/d,y:p.y+(u*dy+h*dx)/d},hx=p.x*ratio,hy=p.y*ratio,len=Math.hypot(hx-anchor.x,hy-anchor.y),ux=(hx-anchor.x)/len,uy=(hy-anchor.y)/len;
+ const signedR=hx*uy-hy*ux,moment=Math.abs(signedR),sinMu=clamp(Math.abs((q.x-p.x)*q.y-(q.y-p.y)*(q.x-D))/(m.b*m.c),0,1),mu=deg(Math.asin(sinMu));
+ const footDot=(-anchor.x)*ux+(-anchor.y)*uy,foot={x:anchor.x+footDot*ux,y:anchor.y+footDot*uy},P={x:(p.x+q.x)/2-(q.y-p.y)/m.b*22,y:(p.y+q.y)/2+(q.x-p.x)/m.b*22};return {p,q,P,H:{x:hx,y:hy},len,moment,signedR,mu,sinMu,foot,unit:{x:ux,y:uy}};
+}
+function vibration(m=s,config=phys){const omega=m.rpm*2*PI/60,F0=m.vibration?m.ecc/1000*omega*omega:0,k=5000,M=2+config.load/9.81,c=20,amplitude=F0/Math.hypot(k-M*omega*omega,c*omega)*1000,lag=Math.atan2(c*omega,k-M*omega*omega);return {omega,F0,amplitude,lag,frequency:m.rpm/60,mass:M,naturalFrequency:Math.sqrt(k/M)/(2*PI)}}
+const mats={},unitBox=new T.BoxGeometry(1,1,1),unitCyl=new T.CylinderGeometry(1,1,1,48),unitBall=new T.SphereGeometry(1,16,10),axisY=V(0,1,0);
+function mat(color,metalness=.15,roughness=.38){const key=color+':'+metalness+':'+roughness;if(!mats[key])mats[key]=new T.MeshStandardMaterial({color,metalness,roughness});return mats[key]}
+const C={base:'#617a72',dark:'#24393f',steel:'#a9b7bd',a:'#d5672b',b:'#237e88',c:'#646aa4',hyd:'#b58b42',nut:'#c59650',lock:'#257b5b'};
+function mesh(parent,g,m){const o=new T.Mesh(g,m);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+function box(parent,at,size,color){const o=mesh(parent,unitBox,mat(color));o.position.copy(at);o.scale.set(...size);return o}
+function cylinder(parent,a,b,r,color,r2=null){let g=unitCyl;if(r2!==null)g=new T.CylinderGeometry(r2/r,1,1,24);const o=mesh(parent,g,mat(color,.5));o.position.copy(a).add(b).multiplyScalar(.5);const delta=b.clone().sub(a);o.scale.set(r,delta.length(),r);o.quaternion.setFromUnitVectors(axisY,delta.normalize());return o}
+function ball(parent,at,r,color){const o=mesh(parent,unitBall,mat(color,.4));o.position.copy(at);o.scale.setScalar(r);return o}
+function setCylinder(o,a,b,r){o.position.copy(a).add(b).multiplyScalar(.5);const v=b.clone().sub(a);o.scale.set(r,Math.max(v.length(),.001),r);o.quaternion.setFromUnitVectors(axisY,v.normalize())}
+function line(parent,color,segments=96,dashed=false){const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(new Float32Array(segments*3),3));const material=dashed?new T.LineDashedMaterial({color,dashSize:3,gapSize:2,transparent:true,opacity:.8}):new T.LineBasicMaterial({color});const o=new T.Line(geometry,material);o.frustumCulled=false;parent.add(o);o.userData.max=segments;return o}
+function setLine(o,points){const a=o.geometry.attributes.position;for(let i=0;i<points.length;i++)a.setXYZ(i,points[i].x,points[i].y,points[i].z);a.needsUpdate=true;o.geometry.setDrawRange(0,points.length);if(o.material.isLineDashedMaterial)o.computeLineDistances()}
+function clean(group){for(const c of [...group.children]){group.remove(c);c.traverse(o=>{if(o.geometry&&![unitBox,unitCyl,unitBall].includes(o.geometry))o.geometry.dispose();if(o.material&&o.material.isLineBasicMaterial)o.material.dispose()})}}
+function bolt(parent,x,y,z){cylinder(parent,V(x,y,z),V(x,y+1.4,z),2.4,'#e0e7d8');box(parent,V(x,y+1.6,z),[2.3,.25,.45],'#698672')}
+function boredPrism(radius,bore,height,sides=0){const shape=new T.Shape();if(sides){for(let i=0;i<sides;i++){const t=i*PI*2/sides;if(i)shape.lineTo(radius*Math.cos(t),radius*Math.sin(t));else shape.moveTo(radius*Math.cos(t),radius*Math.sin(t))}shape.closePath()}else shape.absarc(0,0,radius,0,PI*2,false);const hole=new T.Path();hole.absarc(0,0,bore,0,PI*2,true);shape.holes.push(hole);const g=new T.ExtrudeGeometry(shape,{depth:height,bevelEnabled:false,curveSegments:48});g.rotateX(-PI/2);g.translate(0,-height/2,0);return g}
+function studioEnvironment(){const cv=document.createElement('canvas');cv.width=512;cv.height=256;const cx=cv.getContext('2d');cx.fillStyle='#69727b';cx.fillRect(0,0,512,256);const grad=cx.createLinearGradient(0,0,0,256);grad.addColorStop(0,'#d3e0e9');grad.addColorStop(.5,'#87949f');grad.addColorStop(1,'#252d37');cx.fillStyle=grad;cx.fillRect(0,0,512,256);for(const [x,w] of [[40,90],[270,45],[410,65]]){const gr=cx.createLinearGradient(x,0,x+w,0);gr.addColorStop(0,'#8394a3');gr.addColorStop(.2,'#ffffff');gr.addColorStop(.8,'#ffffff');gr.addColorStop(1,'#8394a3');cx.fillStyle=gr;cx.fillRect(x,32,w,145)}const texture=new T.CanvasTexture(cv);texture.mapping=T.EquirectangularReflectionMapping;texture.colorSpace=T.SRGBColorSpace;return texture}
+const studioMap=studioEnvironment();
+function capGeometry(ro,bore,h,holes=[]){const sh=new T.Shape();sh.absarc(0,0,ro,0,PI*2,false);for(const [x,z,r] of [...(bore?[[0,0,bore]]:[]),...holes]){const hole=new T.Path();hole.absarc(x,-z,r,0,PI*2,true);sh.holes.push(hole)}const g=new T.ExtrudeGeometry(sh,{depth:h,bevelEnabled:false,curveSegments:48});g.rotateX(-PI/2);g.translate(0,-h/2,0);return g}
+function plateGeometry(w,d,h,bore=0,holes=[]){const sh=new T.Shape();sh.moveTo(-w/2,-d/2);sh.lineTo(w/2,-d/2);sh.lineTo(w/2,d/2);sh.lineTo(-w/2,d/2);sh.closePath();for(const [x,z,r] of [...(bore?[[0,0,bore]]:[]),...holes]){const hole=new T.Path();hole.absarc(x,-z,r,0,PI*2,true);sh.holes.push(hole)}const g=new T.ExtrudeGeometry(sh,{depth:h,bevelEnabled:false,curveSegments:48});g.rotateX(-PI/2);g.translate(0,-h/2,0);return g}
+const views={front:[0,0],side:[90,0],top:[0,89.9],iso:[28,19]};
+class Stage{
+ constructor(name,target,span){this.name=name;this.el=$(name+'-stage');this.overlay=$(name+'-overlay');this.target=target;this.span=span;this.yaw=28;this.elev=19;this.zoom=1;this.view='iso';this.tags=[];this.scene=new T.Scene();this.scene.background=window.StageTone.color(T);this.scene.add(new T.HemisphereLight('#eaf4ff','#555c50',1.15));const light=new T.DirectionalLight('#fff4df',3.2);light.position.set(-100,350,250);light.castShadow=true;light.shadow.mapSize.set(1024,1024);Object.assign(light.shadow.camera,{left:-330,right:330,top:330,bottom:-330,near:1,far:1000});light.shadow.bias=-.0003;light.shadow.normalBias=.3;light.shadow.radius=3;this.scene.add(light);const fill=new T.DirectionalLight('#e8f8ff',1.1);fill.position.set(200,80,-250);this.scene.add(fill);this.camera=new T.OrthographicCamera(-100,100,100,-100,.1,2500);
+  this.renderer=window.createChapterRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.6));this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=.87;this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;if(!this.renderer.isFallback){const pmrem=new T.PMREMGenerator(this.renderer);this.scene.environment=pmrem.fromEquirectangular(studioMap).texture;pmrem.dispose();}this.el.prepend(this.renderer.domElement);this.root=new T.Group();this.scene.add(this.root);this.dynamic=new T.Group();this.root.add(this.dynamic);this.trace=line(this.root,'#6fa1a0',220,true);
+  let pointer=null;this.el.addEventListener('pointerdown',e=>{if(e.target!==this.renderer.domElement)return;pointer={x:e.clientX,y:e.clientY};this.el.setPointerCapture(e.pointerId)});this.el.addEventListener('pointermove',e=>{if(!pointer)return;this.yaw+=(e.clientX-pointer.x)*.42;this.elev=clamp(this.elev+(e.clientY-pointer.y)*.33,-20,88);pointer={x:e.clientX,y:e.clientY};this.view='free';this.el.classList.remove('quad');this.mark();dirty=true});for(const type of ['pointerup','pointercancel','lostpointercapture'])this.el.addEventListener(type,()=>pointer=null);
+  this.el.addEventListener('wheel',e=>{e.preventDefault();this.zoom=clamp(this.zoom*Math.exp(-e.deltaY*.001),.65,2);dirty=true},{passive:false});new ResizeObserver(()=>{this.resize();dirty=true}).observe(this.el);this.resize();
+ }
+ resize(){this.width=Math.max(this.el.clientWidth,10);this.height=Math.max(this.el.clientHeight,10);this.renderer.setSize(this.width,this.height,false)}
+ mark(){document.querySelectorAll(`[data-for="${this.name}"] [data-view]`).forEach(e=>e.setAttribute('aria-pressed',e.dataset.view===this.view?'true':'false'));if(activeModal===this.name)$('modal-views').querySelectorAll('button').forEach(e=>e.setAttribute('aria-pressed',String(e.dataset.view===this.view)))}
+ setView(view){this.view=view;this.el.classList.toggle('quad',view==='quad');if(views[view]){[this.yaw,this.elev]=views[view];this.zoom=1}this.mark();dirty=true}
+ cameraFor(yaw,elev,width,height){const a=rad(yaw),b=rad(elev),r=700;this.camera.position.copy(this.target).add(V(r*Math.sin(a)*Math.cos(b),r*Math.sin(b),r*Math.cos(a)*Math.cos(b)));this.camera.up.set(0,1,0);this.camera.lookAt(this.target);const aspect=width/height,h=this.span/this.zoom;this.camera.left=-h*aspect/2;this.camera.right=h*aspect/2;this.camera.top=h/2;this.camera.bottom=-h/2;this.camera.updateProjectionMatrix();this.camera.updateMatrixWorld()}
+ tag(text,point,style='',part=null){const el=document.createElement(part?'button':'span');el.className='tag '+style+(part?' tag-button':'');el.textContent=text;if(part){el.type='button';el.dataset.part=part;el.setAttribute('aria-haspopup','dialog');el.setAttribute('aria-label','放大查看'+text+'的三维模型与说明');el.addEventListener('click',()=>openPart(part))}this.overlay.append(el);this.tags.push({el,point});return this.tags[this.tags.length-1]}
+ labels(){const rects=[];for(const item of this.tags){const p=item.point().clone().project(this.camera);if(p.z>1){item.el.style.display='none';continue}item.el.style.display='';let x=(p.x+1)/2*this.width+5,y=(1-p.y)/2*this.height-15,w=item.el.offsetWidth,h=item.el.offsetHeight;x=clamp(x,3,this.width-w-3);y=clamp(y,25,this.height-h-25);for(let n=0;n<8;n++){if(!rects.some(r=>x<r.x+r.w+3&&x+w+3>r.x&&y<r.y+r.h+3&&y+h+3>r.y))break;y+=h+3;if(y>this.height-h-24)y=25}rects.push({x,y,w,h});item.el.style.transform=`translate(${x}px,${y}px)`}}
+ render(){const r=this.renderer;r.setScissorTest(false);r.setViewport(0,0,this.width,this.height);r.clear();if(this.view==='quad'){r.setScissorTest(true);const configs=['front','side','top','iso'];for(let i=0;i<4;i++){const w=Math.floor(this.width/2),h=Math.floor(this.height/2),x=i%2*w,y=i<2?h:0;this.cameraFor(...views[configs[i]],w,h);r.setViewport(x,y,w,h);r.setScissor(x,y,w,h);r.render(this.scene,this.camera)}r.setScissorTest(false)}else{this.cameraFor(this.yaw,this.elev,this.width,this.height);r.render(this.scene,this.camera);this.labels()}}
+}
+let boom,screw;
+try{boom=new Stage('boom',V(95,24,0),270);screw=new Stage('screw',V(0,87,0),228)}catch(err){for(const id of ['boom-stage','screw-stage'])$(id).insertAdjacentHTML('beforeend','<div class="error">当前浏览器未能启动三维图形。请使用启用硬件加速的 Edge / Chrome 浏览器打开本文件。</div>');console.error(err);return}
+const B={},S={};
+function addGround(st,y){const ground=mesh(st.root,new T.PlaneGeometry(1600,1200),new T.ShadowMaterial({color:'#1c2430',opacity:.2}));ground.name='ground';ground.rotation.x=-PI/2;ground.position.set(st.target.x,y,0);ground.castShadow=false;return ground}
+function buildBoomBase(){
+ const g=boom.root,start=g.children.length;box(g,V(90,-72,0),[300,9,96],C.base);box(g,V(90,-77,0),[302,4,97],'#819b80');
+ for(const x of [-45,225])for(const z of [-37,37]){box(g,V(x,-82,z),[18,7,16],'#47614f');bolt(g,x,-66.5,z)}
+ for(const x of [0,180]){box(g,V(x,-62,0),[42,12,88],'#a4b9a0');for(const z of [-32,34]){box(g,V(x,-36,z),[16,50,12],'#b7c8ac');const housing=mesh(g,boredPrism(11,4.2,14),mat('#668077',.55,.32));housing.rotation.x=PI/2;housing.position.set(x,0,z)}cylinder(g,V(x,0,-40),V(x,0,44),4,'#d9e3d5');bolt(g,x-14,-55,-21);bolt(g,x+14,-55,21)}
+ box(g,V(anchor.x,-60,-25),[30,14,28],'#9ab18d');cylinder(g,V(anchor.x,anchor.y,-40),V(anchor.x,anchor.y,-10),5,C.steel);
+ const drum=mesh(g,boredPrism(14,5.1,5),mat('#47545b',.7,.27));drum.rotation.x=PI/2;drum.position.set(180,0,-29);box(g,V(192,0,-29),[7,14,10],'#b56a35');B.frame=g.children.slice(start);addGround(boom,-86);
+ B.foot=line(g,'#bd4e42',3);B.forceLine=line(g,'#b85a50',3);B.muArc=line(g,'#9b7766',48);B.thetaArc=line(g,'#bd8653',48);
+ B.hydForce=new T.ArrowHelper(V(0,1,0),V(),31,0xc64f42,7,3);g.add(B.hydForce);B.linkForce=new T.ArrowHelper(V(1,0,0),V(),28,0xbc5a45,6,3);g.add(B.linkForce);B.tangent=new T.ArrowHelper(V(1,0,0),V(),20,0x238066,5,3);g.add(B.tangent);
+ boom.tag('O₁',()=>V(-6,0,31),'','pin');boom.tag('O₂',()=>V(184,0,31),'','pin');boom.tag('A 动臂',()=>{const m=solve(s.theta);return V(m.p.x*.38,m.p.y*.38,27)},'a','arm-a');boom.tag('B 连杆',()=>{const m=solve(s.theta);return V(m.p.x*.2+m.q.x*.8,m.p.y*.2+m.q.y*.8,17)},'b','link-b');boom.tag('C 从动臂',()=>{const m=solve(s.theta);return V((m.q.x+180)/2,m.q.y/2,-2)},'c','rocker-c');boom.tag('P',()=>{const m=solve(s.theta);return V(m.P.x,m.P.y,15)},'b');B.rTag=boom.tag('r',()=>{const m=solve(s.theta);return V(m.foot.x/2,m.foot.y/2,-12)},'red');boom.tag('液压缸',()=>{const m=solve(s.theta);return V(anchor.x+(m.H.x-anchor.x)*.38,anchor.y+(m.H.y-anchor.y)*.38,-30)},'a','hydraulic');
+}
+function arm(parent,length,color,z,mountHole=false){const group=new T.Group();parent.add(group);group.position.z=z;group.userData.jointLength=length;const shape=new T.Shape();shape.moveTo(0,-6);shape.lineTo(length,-6);shape.absarc(length,0,6,-PI/2,PI/2,false);shape.lineTo(0,6);shape.absarc(0,0,6,PI/2,PI*1.5,false);shape.closePath();for(const x of [0,length,...(mountHole?[length*ratio]:[])]){const hole=new T.Path();hole.absarc(x,0,4.25,0,PI*2,true);shape.holes.push(hole)}const body=new T.ExtrudeGeometry(shape,{depth:8,bevelEnabled:true,bevelSize:.25,bevelThickness:.25,bevelSegments:2,curveSegments:28});body.translate(0,0,-4);mesh(group,body,mat(color));for(const x of [0,length]){const b=mesh(group,boredPrism(5.2,4.2,1.2),mat(C.steel,.5));b.rotation.x=PI/2;b.position.set(x,0,4.5)}return group}
+function rebuildBoom(){range=getRange();s.theta=clamp(s.theta,range.min,range.max);clean(boom.dynamic);const g=boom.dynamic;B.a=arm(g,s.a,C.a,18,true);B.b=arm(g,s.b,C.b,6);B.c=arm(g,s.c,C.c,-6);B.pPin=cylinder(g,V(),V(0,0,1),4,C.steel);B.qPin=cylinder(g,V(),V(0,0,1),4,C.steel);B.hPin=cylinder(g,V(),V(0,0,1),4,C.steel);B.body=mesh(g,boredPrism(1,7.8/9,1),mat(C.hyd,.55,.32));B.cap=mesh(g,boredPrism(1,3.85/14,1),mat('#967541',.6,.3));B.lug=mesh(g,boredPrism(6,4.2,8),mat(C.steel,.8,.24));B.lug.rotation.x=PI/2;B.rearLug=mesh(g,boredPrism(8,5.2,8),mat(C.steel,.75,.3));B.rearLug.rotation.x=PI/2;B.rearLug.position.set(anchor.x,anchor.y,-25);B.rod=cylinder(g,V(),V(0,1,0),3.7,'#e6ece5');B.pole=cylinder(g,V(),V(0,1,0),1.3,C.b);B.marker=ball(g,V(),3,'#e6b04f');
+ const trace=[];for(let i=0;i<200;i++){const m=solve(range.min+(range.max-range.min)*i/199);if(m)trace.push(V(m.P.x,m.P.y,14))}setLine(boom.trace,trace);updateBoom();dirty=true}
+function updateBoom(){
+ const m=solve(s.theta);if(!m)return;B.a.rotation.z=rad(s.theta);B.b.position.set(m.p.x,m.p.y,6);B.b.rotation.z=Math.atan2(m.q.y-m.p.y,m.q.x-m.p.x);B.c.position.set(D,0,-6);B.c.rotation.z=Math.atan2(m.q.y,m.q.x-D);
+ setCylinder(B.pPin,V(m.p.x,m.p.y,-1),V(m.p.x,m.p.y,26),4);setCylinder(B.qPin,V(m.q.x,m.q.y,-14),V(m.q.x,m.q.y,14),4);setCylinder(B.hPin,V(m.H.x,m.H.y,-35),V(m.H.x,m.H.y,25),4);
+ const av=V(anchor.x,anchor.y,-25),unit=V(m.unit.x,m.unit.y,0),base=av.clone().addScaledVector(unit,5),bodyEnd=av.clone().addScaledVector(unit,range.lmin*.78+5),head=V(m.H.x,m.H.y,-25).addScaledVector(unit,-4);
+ setCylinder(B.body,base,bodyEnd,9);setCylinder(B.cap,bodyEnd.clone().addScaledVector(unit,-3),bodyEnd.clone().addScaledVector(unit,3),14);const rodLength=range.lmin-14;setCylinder(B.rod,head.clone().addScaledVector(unit,-rodLength),head,3.7);B.lug.position.set(m.H.x,m.H.y,-25);
+ setCylinder(B.pole,V((m.p.x+m.q.x)/2,(m.p.y+m.q.y)/2,8),V(m.P.x,m.P.y,8),1.3);B.marker.position.set(m.P.x,m.P.y,8);
+ setLine(B.foot,[V(0,0,30),V(m.foot.x,m.foot.y,30)]);setLine(B.forceLine,[V(anchor.x,anchor.y,30),V(m.H.x+m.unit.x*35,m.H.y+m.unit.y*35,30)]);
+ B.hydForce.position.set(m.H.x,m.H.y,32);const h=hydraulicMetrics(),direction=s.hydDir;B.hydForce.setDirection(unit.clone().multiplyScalar(direction));const bDir=V(m.q.x-m.p.x,m.q.y-m.p.y,0).normalize();B.linkForce.position.set(m.q.x,m.q.y,29);B.linkForce.setDirection(bDir.clone().multiplyScalar(Math.sign(direction*m.signedR/h.rA)||1));B.tangent.position.set(m.q.x,m.q.y,30);const tangent=V(-m.q.y,m.q.x-D,0).normalize();if(tangent.dot(bDir)<0)tangent.negate();B.tangent.setDirection(tangent);B.tangent.setLength(Math.max(.01,28*m.sinMu),Math.min(5,8*m.sinMu),2);B.tangent.visible=s.forces&&m.sinMu>.001;
+ const qFrom=Math.atan2(m.p.y-m.q.y,m.p.x-m.q.x),qTo=Math.atan2(-m.q.y,D-m.q.x);let diff=qTo-qFrom;while(diff>PI)diff-=2*PI;while(diff<-PI)diff+=2*PI;setLine(B.muArc,Array.from({length:40},(_,i)=>V(m.q.x+18*Math.cos(qFrom+diff*i/39),m.q.y+18*Math.sin(qFrom+diff*i/39),30)));setLine(B.thetaArc,Array.from({length:40},(_,i)=>V(23*Math.cos(rad(s.theta)*i/39),23*Math.sin(rad(s.theta)*i/39),29)));
+ for(const ob of [B.foot,B.forceLine,B.hydForce,B.linkForce,B.muArc])ob.visible=s.forces;B.rTag.el.style.visibility=s.forces?'visible':'hidden';boom.trace.visible=s.trace;
+}
+function buildScrew(){
+ S.rig=new T.Group();screw.root.add(S.rig);const g=S.rig;box(g,V(0,1,0),[112,8,88],C.base);box(g,V(0,-5,0),[114,4,90],'#819b80');for(const x of [-45,45])for(const z of [-32,32]){bolt(g,x,5,z);box(g,V(x,-11,z),[15,8,13],'#4e6552')}
+ S.guides=[];for(const x of [-30,30]){S.guides.push(cylinder(g,V(x,12,-8),V(x,184,-8),3.2,C.steel));box(g,V(x,9,-8),[16,8,18],C.base);box(g,V(x,183,-8),[16,7,18],C.base);bolt(g,x,13,-13)}box(g,V(0,189,-8),[86,7,24],'#bbcdaf');
+ S.motor=new T.Group();g.add(S.motor);box(S.motor,V(0,15,0),[28,23,27],C.dark);for(let i=0;i<5;i++)box(S.motor,V(0,7+i*4,0),[31,1.2,29],'#779587');for(const x of [-11,11])for(const z of [-11,11])box(g,V(x,4,z),[5,5,5],'#4d6256');
+ S.rotor=new T.Group();S.motor.add(S.rotor);S.coupling=mesh(S.rotor,boredPrism(7,4.6,10),mat(C.steel,.8,.25));S.coupling.position.y=31;S.journals=[];S.shaft=cylinder(S.rotor,V(0,44,0),V(0,178,0),5.8,'#abbfb0');S.journals.push(cylinder(S.rotor,V(0,26,0),V(0,44,0),4.5,C.steel),cylinder(S.rotor,V(0,178,0),V(0,187,0),4.5,C.steel));S.rotationMark=box(S.rotor,V(5,30,0),[2,7,3],C.a);S.weight=ball(S.rotor,V(4,30,0),2.5,C.a);
+ S.bearings=new T.Group();g.add(S.bearings);for(const y of [38,182]){const bearing=mesh(S.bearings,boredPrism(10,4.6,6),mat('#506963',.55));bearing.position.y=y;const housing=mesh(S.bearings,plateGeometry(25,22,8,10.1),mat('#5c756e'));housing.position.y=y;for(const x of [-10,10])box(S.bearings,V(x,y,-8),[5,8,6],'#5c756e')}
+ S.threads=new T.Group();S.rotor.add(S.threads);S.carriage=new T.Group();g.add(S.carriage);const deck=mesh(S.carriage,plateGeometry(77,47,6,14.5,[[-30,-8,3.4],[30,-8,3.4]]),mat('#8ca093'));deck.position.y=6;box(S.carriage,V(0,-5,19),[78,5,7],'#71877b');for(const x of [-30,30]){const sleeve=mesh(S.carriage,boredPrism(6,3.35,17),mat('#527c70',.5));sleeve.position.set(x,.5,-8);bolt(S.carriage,x,4,6)}
+ S.nut=new T.Group();S.carriage.add(S.nut);mesh(S.nut,boredPrism(14,7.65,18,6),mat(C.nut,.45));S.nut.position.set(0,0,0);box(S.nut,V(14,1,0),[2,9,3],C.a);const flange=mesh(S.nut,boredPrism(16,7.65,2),mat(C.nut,.5));flange.position.y=10.2;const thrust=mesh(S.carriage,boredPrism(16,14.4,.5),mat(C.steel,.75,.2));thrust.position.y=9.1;S.payload=box(S.carriage,V(25,14,9),[13,10,11],'#56636a');
+ S.lock=box(S.carriage,V(20,3,0),[12,3,5],C.lock);S.rule=new T.Group();g.add(S.rule);box(S.rule,V(49,108,-8),[8,104,1],'#edf3e4');for(let n=0;n<=100;n+=5)box(S.rule,V(47+(n%20===0?0:1.5),58+n,-6.7),[n%20===0?5:2,.5,.4],'#819a7c');S.positionMark=box(g,V(42,69,-6),[8,1.6,2],C.a);
+ addGround(screw,-31);box(screw.root,V(0,-28,0),[126,5,94],'#374c52');S.springs=[];for(const x of [-42,42]){const spring=line(screw.root,'#879b9d',14);S.springs.push({x,spring})}screw.trace.visible=false;
+ screw.tag('轴向支承',()=>V(-13,182,8),'','bearings');screw.tag('止转导向',()=>V(30,115,-8),'b','guides');S.nutTag=screw.tag('螺母 / 升降台',()=>V(10,62+(s.ns-s.nn)*s.lead,20),'a','nut');screw.tag('电机',()=>V(-24,14,10),'','motor');S.heightTag=screw.tag('s = 24.0 mm',()=>V(50,58+(s.ns-s.nn)*s.lead,-5),'a');S.lockTag=screw.tag('止转锁销',()=>V(24,63+(s.ns-s.nn)*s.lead,5),'b','lock');screw.tag('丝杠',()=>V(-6,140,5),'a','spindle');
+ rebuildThreads();updateScrew();
+}
+function rebuildThreads(){clean(S.threads);for(let z=0;z<s.starts;z++){const margin=s.lead/s.starts*.35;mesh(S.threads,ridgeGeometry(44+margin,178-margin,s.lead,s.starts,5.8,7.4,z*2*PI/s.starts),mat('#a2a8a5',.8,.27))}if(S.inner){clean(S.inner);S.nut.remove(S.inner)}S.inner=new T.Group();S.nut.add(S.inner);for(let z=0;z<s.starts;z++){const margin=s.lead/s.starts*.35;mesh(S.inner,ridgeGeometry(-9+margin,9-margin,s.lead,s.starts,7.65,6.15,58/s.lead*2*PI+PI/s.starts+z*2*PI/s.starts),mat('#c5a16a',.65,.28))}dirty=true}
+function updateScrew(){const h=(s.ns-s.nn)*s.lead,offset=phys.x*1000*25;S.rig.position.x=offset;S.motor.position.x=0;S.bearings.position.x=0;S.rotor.rotation.y=s.ns*2*PI;S.carriage.position.y=58+h;S.nut.rotation.y=s.nn*2*PI;S.nut.position.x=0;S.lock.rotation.z=s.mode==='sync'?PI/4:0;S.lock.position.y=s.mode==='sync'?20:3;S.lock.material=mat(s.mode==='sync'?'#c58a58':C.lock);S.positionMark.position.y=58+h;S.weight.position.x=s.vibration?4+s.ecc*25:4;S.weight.visible=s.vibration;S.heightTag.el.textContent='s = '+f(h)+' mm';S.lockTag.el.textContent=s.mode==='sync'?'止转锁销脱开':'止转锁销';S.nutTag.el.textContent=s.mode==='sync'?'同步螺母 / 止推环':'螺母 / 升降台';S.payload.visible=phys.load>0;for(const {x,spring} of S.springs){setLine(spring,Array.from({length:12},(_,i)=>V(x+(i===0?0:i===11?offset:(i%2?3:-3)+offset*i/11),-25+i*10/11,0)))}}
+function wave(){const canvas=$('wave'),ctx=canvas.getContext('2d'),v=vibration();ctx.clearRect(0,0,220,44);ctx.strokeStyle='#ccdac7';ctx.beginPath();ctx.moveTo(0,22);ctx.lineTo(220,22);ctx.stroke();ctx.strokeStyle=s.vibration?'#c38144':'#91a68d';ctx.lineWidth=2;ctx.beginPath();for(let i=0;i<220;i++){const y=22-(s.vibration?Math.min(17,v.amplitude*100)*Math.sin(i/220*4*PI-s.ns*2*PI+v.lag):0);if(i)ctx.lineTo(i,y);else ctx.moveTo(i,y)}ctx.stroke();}
+function ui(){const m=solve(s.theta),v=vibration(),nr=s.ns-s.nn,hydDanger=m.moment<1e-4,linkDanger=m.mu<.01;
+ $('theta-value').textContent=f(s.theta);$('moment-value').textContent=f(m.moment);$('mu-value').textContent=f(m.mu);$('stroke').max=Math.max(0,range.lmax-range.lmin);$('stroke').value=m.len-range.lmin;$('stroke-out').textContent=f(m.len-range.lmin)+' mm / 缸长 '+f(m.len);
+ for(const k of ['a','b','c']){$(k).value=s[k];$(k+'-out').textContent=s[k]+' mm'}
+ $('force-readout').textContent=`F缸 = 1 kN → M_A = ${f(m.moment)} N·m；F_t / F_B = sin μ = ${f(m.sinMu,3)}（独立单位力示意）`;
+ $('boom-status').textContent=hydDanger?'液压死点 · r = 0':linkDanger?'连杆死点 · μ = 0':m.moment<8||m.mu<15?'接近不利传力姿态':'正常传力';$('boom-status').classList.toggle('danger',hydDanger||linkDanger||m.moment<8||m.mu<15);
+ $('boom-explain').textContent=hydDanger?'缸力线穿过 O₁，力矩为零；此处不能靠缸力自行启动或越过。':linkDanger?'B/C 共线：给定 B 轴向力对 C 的力矩为零；死点处保持几何展示。':'缸沿自身轴线伸缩，销轴将直线运动变为转动；自动播放在死点之前折返。';$('boom-explain').classList.toggle('red-text',hydDanger||linkDanger);
+ $('lead').value=s.lead;$('lead-out').textContent=s.lead+' mm/转';$('rpm').value=s.rpm;$('rpm-out').textContent=s.rpm+' r/min';$('turns').max=100/s.lead;$('turns').value=nr;$('turns-out').textContent=f(nr,2)+' 圈';$('turns-value').textContent=f(nr,2);$('height-value').textContent=f(nr*s.lead);$('velocity-value').textContent=f(s.mode==='sync'?0:s.rpm*s.lead/60);$('starts').value=s.starts;$('mode').value=s.mode;
+ $('starts').options[0].textContent='单头，p = '+f(s.lead)+' mm';$('starts').options[1].textContent='双头，p = '+f(s.lead/2)+' mm';$('screw-turns').textContent=`丝杠 ${f(s.ns,2)} 圈 · 螺母 ${f(s.nn,2)} 圈`;
+ $('screw-status').textContent=s.mode==='sync'?'同步同转 / 无升降增量':'螺母止转 / 可升降';$('screw-status').classList.toggle('danger',s.mode==='sync');$('screw-explain').textContent=s.mode==='sync'?'理想同步对照：两者同转，ΔN相对 = 0，原有高度保持；不是自由螺母运动预测。':`N相对 = N丝杠 − N螺母；${f(nr,2)} 圈 × ${s.lead} mm/转 = ${f(nr*s.lead)} mm。`;
+ $('ecc').value=s.ecc;$('ecc-out').textContent=f(s.ecc,2)+' mm';$('vibration').checked=s.vibration;$('vibration-out').textContent=`A = ${f(v.amplitude*1000)} μm${s.vibration?' / '+f(v.frequency)+' Hz':''}`;$('vib-top').textContent=s.vibration?'径向位移放大 25× · 与升降分开':'理想对中 · 无偏心激励';physicalWave();updatePhysicsUI();
+}
+document.addEventListener('course:pause',()=>pause());
+document.addEventListener('mechanism:select',event=>{pause();activeMechanism=event.detail;dirty=true});
+function pause(){modalDemo.play=false;phys.hydV=0;phys.screwRate=0;s.play=false;s.step=null;$('play').textContent='▶ 开始演示';$('play').setAttribute('aria-pressed','false');updateModalControls()}
+function play(value){s.play=value;s.step=null;$('play').textContent=value?'Ⅱ 暂停演示':'▶ 开始演示';$('play').setAttribute('aria-pressed',String(value));dirty=true}
+function draw(){updateBoom();updateScrew();ui();dirty=true}
+for(const k of ['a','b','c'])$(k).addEventListener('input',e=>{const v=+e.target.value;pause();s[k]=v;s.hold=false;rebuildBoom();draw()});
+$('stroke').addEventListener('input',e=>{const val=+e.target.value;pause();s.theta=clamp(thetaFromLength(range.lmin+val),range.min,range.max);s.hold=false;draw()});
+$('boom-step').addEventListener('click',()=>{pause();s.hold=false;const l=cylinderLength(s.theta),target=clamp(l+2*s.hydDir,range.lmin,range.lmax);s.theta=clamp(thetaFromLength(target),range.min,range.max);draw()});
+function pose(kind){
+ pause();
+ range=getRange();
+ const margin=Math.min(.25,(range.max-range.min)/10);
+ const lo=range.min+margin,hi=range.max-margin;
+ if(kind==='hyd')s.theta=hi;
+ else if(kind==='link'){
+  let best=solve(lo);s.theta=lo;
+  for(let i=1;i<=200;i++){
+   const angle=lo+(hi-lo)*i/200,candidate=solve(angle);
+   if(candidate&&candidate.mu<best.mu){best=candidate;s.theta=angle;}
+  }
+ }else s.theta=clamp(48,lo,hi);
+ s.hold=false;draw();boom.setView('front');
+ notify(kind==='normal'?'回到正常观察姿态，保留当前杆长':kind==='hyd'?'在当前杆长范围内观察液压缸的较小力臂':'在当前杆长范围内定位最小传动角，观察 B/C 的传力方向');
+}
+$('normal-pose').addEventListener('click',()=>pose('normal'));$('hyd-dead').addEventListener('click',()=>pose('hyd'));$('link-dead').addEventListener('click',()=>pose('link'));
+$('trace').addEventListener('change',e=>{s.trace=e.target.checked;draw()});$('forces').addEventListener('change',e=>{s.forces=e.target.checked;draw()});
+$('lead').addEventListener('input',e=>{const val=+e.target.value;pause();s.lead=val;if((s.ns-s.nn)*val>100){s.ns=s.nn+100/val;notify('导程增大后触及 100 mm 限位，已限制相对圈数')}rebuildThreads();draw()});
+$('rpm').addEventListener('input',e=>{const val=+e.target.value;pause();s.rpm=val;draw()});$('starts').addEventListener('change',e=>{pause();s.starts=+e.target.value;rebuildThreads();draw()});$('mode').addEventListener('change',e=>{pause();s.mode=e.target.value;draw();notify(s.mode==='sync'?'人为设定同步同转：保留原高度，播放时观察无升降增量':'恢复螺母止转：相对旋转产生轴向位移')});
+$('turns').addEventListener('input',e=>{const val=+e.target.value;pause();s.ns=s.nn+clamp(val,0,100/s.lead);draw()});
+$('vibration').addEventListener('change',e=>{pause();s.vibration=e.target.checked;if(s.vibration){s.rpm=240;notify('已设为 240 r/min 便于观察；偏心产生激励，径向响应显示放大 25×')}draw()});$('ecc').addEventListener('input',e=>{const v=+e.target.value;pause();s.ecc=v;draw()});
+$('screw-step').addEventListener('click',()=>{pause();const nr=s.ns-s.nn,target=s.mode==='sync'?s.ns+s.screwDir:s.nn+clamp(nr+s.screwDir,0,100/s.lead);if(Math.abs(target-s.ns)<1e-7){notify('已到行程限位，请先反向');return}s.step={remaining:target-s.ns};dirty=true});
+$('play').addEventListener('click',()=>play(!s.play));$('reverse').addEventListener('click',()=>{s.dir*=-1;s.hydDir*=-1;s.screwDir*=-1;s.step=null;dirty=true;notify('已切换运动方向')});$('speed').addEventListener('change',e=>s.speed=+e.target.value);
+function reset(){pause();Object.assign(phys,physicalDefaults,{hydV:0,screwRate:0,x:0,v:0,history:[],hydState:'待机',screwState:'待机'});Object.assign(s,defaults,{dir:1,hydDir:1,screwDir:1,speed:1,hold:false});$('speed').value='1';rebuildBoom();rebuildThreads();boom.setView('iso');screw.setView('iso');draw();notify('已恢复初始参数与视角')}$('reset').addEventListener('click',reset);
+$('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch{notify('请使用浏览器全屏功能（通常为 F11）')}});document.addEventListener('fullscreenchange',()=>$('fullscreen').textContent=document.fullscreenElement?'退出全屏':'全屏');
+for(const bar of document.querySelectorAll('.viewbar'))for(const btn of bar.querySelectorAll('[data-view]'))btn.addEventListener('click',()=>({boom,screw}[bar.dataset.for]).setView(btn.dataset.view));
+function updateModalControls(){if(!activeModal)return;const hyd=activeModal==='boom',running=modalDemo.play||(!hyd&&!!s.step);$('modal-play').textContent=running?'Ⅱ 暂停演示':hyd?'▶ 演示液压连杆':'▶ 演示丝杠升降';$('modal-play').setAttribute('aria-pressed',String(running));$('modal-step').textContent=hyd?'伸缩 2 mm':'转动 1 圈';$('modal-speed').value=String(modalDemo.speeds[activeModal]);$('modal-motion-note').textContent=hyd?'独立控制液压连杆 · 丝杠保持静止':'独立控制丝杠 · 液压连杆保持静止'}
+function stopModalDemo(){modalDemo.play=false;s.step=null;if(activeModal==='boom')phys.hydV=0;else if(activeModal==='screw')phys.screwRate=0;updateModalControls();dirty=true}
+function toggleModalDemo(){if(!activeModal)return;if(modalDemo.play||s.step)stopModalDemo();else{modalDemo.play=true;updateModalControls();dirty=true}}
+function closeModal(){if(!activeModal)return;stopModalDemo();const st={boom,screw}[activeModal],lab=$(activeModal+'-lab');lab.querySelector('.viewbar').after(st.el);activeModal=null;if($('enlarged').open)$('enlarged').close();st.resize();dirty=true}
+for(const btn of document.querySelectorAll('[data-enlarge]'))btn.addEventListener('click',()=>{pause();activeModal=btn.dataset.enlarge;const stage={boom,screw}[activeModal];$('modal-title').textContent=activeModal==='boom'?'液压驱动与连杆传力 · 放大观察':'丝杠相对转动与振动 · 放大观察';$('modal-body').append(stage.el);$('enlarged').showModal();stage.resize();stage.mark();updateModalControls();dirty=true});$('close-modal').addEventListener('click',closeModal);$('enlarged').addEventListener('cancel',e=>{e.preventDefault();closeModal()});$('enlarged').addEventListener('close',()=>{if(!$('enlarged').open)closeModal()});for(const btn of $('modal-views').querySelectorAll('button'))btn.addEventListener('click',()=>{if(activeModal)({boom,screw}[activeModal]).setView(btn.dataset.view)});
+$('modal-play').addEventListener('click',toggleModalDemo);$('modal-reverse').addEventListener('click',()=>{if(!activeModal)return;if(activeModal==='boom')s.hydDir*=-1;else{s.screwDir*=-1;s.step=null}updateModalControls();dirty=true});$('modal-step').addEventListener('click',()=>{if(!activeModal)return;stopModalDemo();$(activeModal==='boom'?'boom-step':'screw-step').click();updateModalControls()});$('modal-speed').addEventListener('change',e=>{if(activeModal)modalDemo.speeds[activeModal]=+e.target.value});
+document.addEventListener('keydown',e=>{if($('physics-dialog').open||$('part-dialog').open||$('study-dialog').open||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName)||e.ctrlKey||e.altKey||e.metaKey)return;if(activeModal){if(e.code==='Space'){e.preventDefault();toggleModalDemo()}return}if(e.code==='Space'){e.preventDefault();play(!s.play)}if(e.key.toLowerCase()==='r')reset()});document.addEventListener('visibilitychange',()=>{visible=!document.hidden;last=0});
+function advance(dt,moveBoom=s.play&&activeMechanism==='boom',moveScrew=activeMechanism==='screw'&&(s.play||!!s.step)){if(moveBoom&&!s.hold)s.hydDir=hydraulicAdvance(dt,s.hydDir);if(moveScrew){const oldRate=phys.screwRate,r=screwAdvance(dt,s.step?Math.sign(s.step.remaining):s.screwDir,!!s.step);s.screwDir=r.dir;if(r.done){s.step=null;updateModalControls()}vibrationAdvance(dt,oldRate)}}
+// SI force / power calculations; geometric coordinates and velocity displays use mm.
+const physicalDefaults={flow:.06,pressure:6,brake:2,load:100,torque:.5,friction:.12};
+const phys={...physicalDefaults,hydV:0,screwRate:0,x:0,v:0,history:[],time:0,hydState:'待机',screwState:'待机'};
+function hydraulicMetrics(theta=s.theta,dir=s.hydDir,m=s,config=phys){
+ const g=solve(theta,m),Ap=PI*7.8**2,Arod=PI*3.7**2,Ann=Ap-Arod,Ain=dir>0?Ap:Ann,Aout=dir>0?Ann:Ap;
+ const u={x:(g.q.x-g.p.x)/m.b,y:(g.q.y-g.p.y)/m.b},rA=g.p.x*u.y-g.p.y*u.x,rC=(g.q.x-D)*u.y-g.q.y*u.x;
+ const singular=g.moment<1e-5||Math.abs(rC)<1e-5,linkForce=config.brake===0?0:config.brake/Math.max(Math.abs(rC)/1000,1e-12),loadForce=linkForce*Math.abs(rA)/Math.max(g.moment,1e-12),seal=15,back=.1;
+ const required=(loadForce+seal+back*Aout)/Ain,capacity=Math.max(0,config.pressure*Ain-back*Aout-seal),blocked=singular||required>config.pressure+1e-9;
+ return {Ap,Ann,Ain,Aout,required,capacity,loadForce,linkForce,seal,back,blocked,singular,ratio:rA/rC,rA,rC,velocity:config.flow*1e6/60/Ain,pressure:Math.min(config.pressure,required),cylinderForce:Math.min(loadForce,capacity),moment:g.moment/1000*Math.min(loadForce,capacity),outputTorque:config.brake};
+}
+function screwMetrics(dir=s.screwDir,m=s,config=phys){
+ const dm=13.2/1000,lambda=Math.atan(m.lead/1000/(PI*dm)),rho=Math.atan(config.friction/Math.cos(rad(15))),raise=config.load*dm/2*Math.tan(lambda+rho),lower=config.load*dm/2*Math.tan(rho-lambda),required=dir>0?raise:lower,efficiency=Math.tan(lambda)/Math.tan(lambda+rho);
+ return {lambda,rho,raise,lower,required,efficiency,selfLocking:rho>lambda,blocked:m.mode!=='sync'&&Math.abs(required)>config.torque+1e-9,axialSpeed:m.mode==='sync'?0:phys.screwRate*m.lead,idealPower:config.load*m.rpm*m.lead/60000,inputPower:raise*m.rpm*2*PI/60,torqueCapacity:config.torque};
+}
+function approach(value,target,step){return value<target?Math.min(target,value+step):Math.max(target,value-step)}
+function hydraulicAdvance(dt,dir){
+ const g=solve(s.theta),h=hydraulicMetrics(s.theta,dir),lo=range.lmin+.02,hi=range.lmax-.02,dist=dir>0?hi-g.len:g.len-lo,a=20;
+ if(h.blocked){phys.hydV=0;phys.hydState=h.singular?'死点：不能自行越过':'供压不足 · 溢流停住';return dir}
+ const target=dir*Math.min(h.velocity,.75*Math.sqrt(2*a*Math.max(0,dist)),4*Math.max(0,dist));phys.hydV=approach(phys.hydV,target,a*dt);
+ const next=g.len+phys.hydV*dt;
+ if((dir>0&&next>=hi-.0001)||(dir<0&&next<=lo+.0001)){s.theta=thetaFromLength(dir>0?hi:lo);phys.hydV=0;phys.hydState='限位减速 / 换向';return -dir}
+ s.theta=clamp(thetaFromLength(clamp(next,lo,hi)),range.min,range.max);phys.hydState=dir>0?'无杆腔进油 · 伸出':'有杆腔进油 · 回收';return dir;
+}
+function screwAdvance(dt,dir,step=false){
+ const q=screwMetrics(dir),max=100/s.lead,n=s.ns-s.nn,a=3,previous=phys.screwRate;
+ if(q.blocked){phys.screwRate=0;phys.screwState='电机转矩不足 · 停住';return {dir,done:false}}
+ const dist=step?Math.abs(s.step.remaining):s.mode==='sync'?Infinity:dir>0?max-n:n,target=dir*Math.min(s.rpm/60,.75*Math.sqrt(2*a*Math.max(0,dist)),4*Math.max(0,dist));
+ phys.screwRate=approach(phys.screwRate,target,a*dt);let delta=(previous+phys.screwRate)/2*dt,done=false;
+ if(step&&(Math.abs(delta)>=dist||dist<.0001)&&Math.sign(delta)===dir){delta=dir*dist;done=true;phys.screwRate=0}
+ if(s.mode==='sync'){s.ns+=delta;s.nn+=delta}else{const next=n+delta;if(next>=max-.0001||next<=.0001){s.ns=s.nn+(next>=max-.0001?max:0);phys.screwRate=0;dir=next>=max-.0001?-1:1;done=step}else s.ns+=delta}
+ if(step){s.step.remaining-=delta;if(Math.abs(s.step.remaining)<1e-8){done=true;phys.screwRate=0}}
+ phys.screwState=s.mode==='sync'?'双驱动同步对照':q.required<0?'重载下行 · 伺服制动':dir>0?'驱动提升':'受控下降';return {dir,done};
+}
+function vibrationAdvance(dt,oldRate){
+ // Whole lift is a rigid mass on lateral elastic supports. Integrate transients.
+ const count=Math.max(1,Math.ceil(dt*480)),h=dt/count,rate=phys.screwRate,alpha=dt?(rate-oldRate)*2*PI/dt:0,e=s.vibration?s.ecc/1000:0,M=2+phys.load/9.81;
+ for(let i=0;i<count;i++){const w=(oldRate+(rate-oldRate)*(i+.5)/count)*2*PI,phase=(s.ns-rate*(dt-(i+.5)*h))*2*PI,force=e*(w*w*Math.cos(phase)+alpha*Math.sin(phase)),acc=(x,v)=>(force-20*v-5000*x)/M;
+  const x=phys.x,v=phys.v,k1x=v,k1v=acc(x,v),k2x=v+h*k1v/2,k2v=acc(x+h*k1x/2,v+h*k1v/2),k3x=v+h*k2v/2,k3v=acc(x+h*k2x/2,v+h*k2v/2),k4x=v+h*k3v,k4v=acc(x+h*k3x,v+h*k3v);
+  phys.x+=h*(k1x+2*k2x+2*k3x+k4x)/6;phys.v+=h*(k1v+2*k2v+2*k3v+k4v)/6;phys.force=force;
+ }
+ phys.time+=dt;phys.history.push(phys.x*1000);if(phys.history.length>220)phys.history.shift();
+}
+function updatePhysicsUI(){
+ const h=hydraulicMetrics(),q=screwMetrics(),active=s.play||s.step||(study.play&&study.type==='screw')||(modalDemo.play&&activeModal==='screw');
+ $('force-readout').textContent=`负载 C：${f(phys.brake)} N·m；所需缸力 ${f(h.loadForce,0)} N；需压 ${h.singular?'∞':f(h.required,2)} / 上限 ${f(phys.pressure)} MPa${h.blocked?' · 停住':''}`;
+ $('hyd-force-caption').textContent='准静态负载 / 力线方向';$('velocity-value').textContent=f(active?(s.mode==='sync'?0:phys.screwRate*s.lead):0);
+ if(!s.hold){$('boom-status').textContent=h.blocked?h.singular?'死点 / 不能越过':'供压不足 / 停住':'可传力 / 供压充足';$('boom-status').classList.toggle('danger',h.blocked)}
+ $('boom-explain').textContent=h.singular?'死点：力臂或输出传力臂为零，有限缸力不能维持指定输出负载。':h.blocked?'所需压力超过设定上限，自动演示停住；可减小制动负载、提高供压或反向退出。':`v = Q / A；相同流量回收较快、最大拉力较小。伸出 ${f(hydraulicMetrics(s.theta,1).velocity)} / 回收 ${f(hydraulicMetrics(s.theta,-1).velocity)} mm/s。`;
+ $('rpm-out').textContent=s.rpm+' r/min 设定';$('screw-status').textContent=q.blocked?'电机转矩不足':s.mode==='sync'?'双驱动同步 / 无升降':q.selfLocking?'螺母止转 / 摩擦自锁':'螺母止转 / 需制动保持';$('screw-status').classList.toggle('danger',q.blocked);
+ $('vib-top').textContent=s.vibration?'整机弹性支承响应放大 25×':'理想对中 · 无偏心激励';$('vibration-out').textContent=`x = ${f(phys.x*1e6)} μm / 稳态 A ${f(vibration().amplitude*1000)} μm`;
+ if($('physics-dialog').open){for(const k of Object.keys(physicalDefaults)){$('physical-'+k).value=phys[k];$('physical-'+k+'-out').textContent=f(phys[k],k==='flow'?3:k==='friction'?2:1)}
+  $('hyd-physics-readout').innerHTML=`缸径 15.6 / 杆径 7.4 mm<br>A无杆 = ${f(h.Ap,2)}；A有杆 = ${f(h.Ann,2)} mm²<br>需压 ${h.singular?'∞':f(h.required,3)} / 设定上限 ${f(phys.pressure,1)} MPa<br>当前速度 ${f(phys.hydV,2)} mm/s；${h.blocked?'供压不足或死点':phys.hydState}<br>v = Q / A，F净 = p进 A进 − p回 A回 − F密封`;
+  $('screw-physics-readout').innerHTML=`螺旋升角 ${f(deg(q.lambda),2)}°；等效摩擦角 ${f(deg(q.rho),2)}°<br>提升需矩 ${f(q.raise,3)} / 电机上限 ${f(phys.torque,2)} N·m<br>下降需矩 ${f(q.lower,3)} N·m${q.lower<0?'（需制动）':''}<br>提升效率 ${f(q.efficiency*100,1)}%；${q.selfLocking?'摩擦自锁条件成立':'可反驱，需制动'}<br>实际转速 ${f(phys.screwRate*60,1)} r/min`;
+ }
+}
+function physicalWave(){const ctx=$('wave').getContext('2d'),hist=phys.history,max=Math.max(.002,...hist.map(Math.abs));ctx.clearRect(0,0,220,44);ctx.strokeStyle='#9aacaa';ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(0,22);ctx.lineTo(220,22);ctx.stroke();ctx.strokeStyle='#c38144';ctx.lineWidth=1.7;ctx.beginPath();hist.forEach((x,i)=>{const px=220-hist.length+i,py=22-x/max*18;if(i)ctx.lineTo(px,py);else ctx.moveTo(px,py)});ctx.stroke()}
+function initPhysics(){const b=document.createElement('button');b.id='physics-open';b.textContent='物理实验';document.querySelector('.mast>.toolbar').append(b);b.addEventListener('click',()=>{$('physics-dialog').showModal();updatePhysicsUI()});$('physics-close').addEventListener('click',()=>$('physics-dialog').close());for(const k of Object.keys(physicalDefaults))$('physical-'+k).addEventListener('input',e=>{pause();phys[k]=+e.target.value;draw();updatePhysicsUI()});$('physical-reset').addEventListener('click',()=>{pause();Object.assign(phys,physicalDefaults);draw();updatePhysicsUI()});}
+
+// Named parts reference the same meshes used by the live mechanisms.
+const parts=[
+ {id:'hydraulic',lab:'boom',name:'液压缸',short:'液压缸',objects:()=>[B.body,B.cap,B.rod,B.hPin,B.lug,B.rearLug],summary:'把沿缸轴线的伸缩运动，通过铰点转换成动臂的转动。',structure:'由缸筒、前端盖、活塞杆及杆端铰点组成；缸底连接机架，杆端连接动臂 A。',motion:'活塞杆沿缸轴线平移，液压缸整体随两端铰点改变倾角。缸长与动臂角度由连接几何共同决定。',observe:'比较“正常姿态”和“液压死点”：当缸力线经过 O₁，力臂 r = 0，缸力对 A 的转矩为零。',parameter:()=>{const m=solve(s.theta);return `当前两铰点距离：${f(m.len)} mm<br>相对伸出量：${f(m.len-range.lmin)} mm<br>力臂 r：${f(m.moment)} mm`},note:'这里显示外观组件；点击“剖视 / 组装”可查看内部活塞、密封圈和两侧油腔，并操作组装。'},
+ {id:'arm-a',lab:'boom',name:'动臂 A',short:'动臂 A',objects:()=>[B.a],summary:'接受液压缸作用，并把转动传递给中间连杆 B。',structure:'一端绕固定轴 O₁ 转动，另一端与 B 铰接；液压缸连接在距 O₁ 为 A 杆长 70% 的位置。',motion:'A 的杆长保持不变，随液压缸伸缩改变角度；它是本教学机构中的输入构件。',observe:'改变 A 的长度，再保持相近缸伸出量，比较动臂角度、缸力臂和 P 点轨迹。',parameter:()=>`杆长 A：${s.a} mm<br>当前角度 θ：${f(s.theta)}°<br>液压连接点距 O₁：${f(s.a*ratio)} mm`,note:'零件外形包含端部衬套示意；销轴可在“销轴”中单独查看。'},
+ {id:'link-b',lab:'boom',name:'中间连杆 B',short:'连杆 B',objects:()=>[B.b,B.pole,B.marker],summary:'连接动臂 A 与从动臂 C，把两者的运动联结起来。',structure:'两端分别与 A、C 通过销轴连接；P 是固定在连杆上的轨迹示踪点，金色小球用于观察。',motion:'B 同时发生平移与转动。它的姿态由 A 的输入和四杆闭合约束确定，P 不是独立运动点。',observe:'打开 P 点轨迹并改变 B 杆长，比较轨迹形状；点“连杆死点”观察 B/C 共线。',parameter:()=>{const m=solve(s.theta);return `杆长 B：${s.b} mm<br>P 点平面坐标：(${f(m.P.x)}, ${f(m.P.y)}) mm<br>B/C 传动角 μ：${f(m.mu)}°`},note:'包含示踪杆和 P 点标记；示踪组件只帮助观察运动，不是额外驱动。'},
+ {id:'rocker-c',lab:'boom',name:'从动臂 C',short:'从动臂 C',objects:()=>[B.c],summary:'接受连杆 B 的作用，绕固定轴 O₂ 转动。',structure:'一端连接机架上的固定轴 O₂，另一端与 B 铰接；O₁ 与 O₂ 的间距固定为 180 mm。',motion:'C 的转角由 A、B、C 杆长及输入位置决定，并不与 A 的角度成固定比例。',observe:'传动角 μ 趋近 0° 时，给定 B 轴向力对 C 的转矩趋近零；μ 趋近 90° 时切向分量更大。',parameter:()=>{const m=solve(s.theta);return `杆长 C：${s.c} mm<br>输出角 γ：${f(deg(Math.atan2(m.q.y,m.q.x-D)))}°<br>切向力比例 sin μ：${f(m.sinMu,3)}`},note:'角度与传力数据取自同一个四杆几何模型。'},
+ {id:'pin',lab:'boom',name:'销轴与铰接',short:'销轴',objects:()=>[B.pPin],summary:'连接相邻构件，让构件能够绕共同轴线相对转动。',structure:'这里放大 A/B 连接处的一根销轴。圆柱轴穿过连接处，两根杆在不同深度层上装配。',motion:'理想平面铰链允许一个相对转动自由度，同时约束铰点间的相对平移。',observe:'切换侧视或俯视，观察销轴方向与 A/B/C 运动平面的关系。',parameter:()=>`示例位置：A/B 连接铰点<br>销轴方向：垂直于机构运动平面<br>当前铰点：(${f(solve(s.theta).p.x)}, ${f(solve(s.theta).p.y)}) mm`,note:'采用理想无间隙销轴；未展开挡圈、润滑及配合公差。'},
+ {id:'frame',lab:'boom',name:'机架与固定轴座',short:'机架',objects:()=>B.frame,summary:'提供固定基准，支承两个转轴和液压缸底部铰点。',structure:'包括底板、脚垫、立柱、固定轴座、固定销轴及底部紧固件。',motion:'机架在本演示中固定不动，O₁、O₂ 的位置也保持不变；液压缸和运动杆绕这些基准运动。',observe:'切换“装配位置”，辨认固定件和运动件；观察缸底与动臂转轴并不在同一点。',parameter:()=>`固定轴距 O₁O₂：180 mm<br>缸底平面坐标：(20, −50) mm<br>固定件：底板、轴座与支架`,note:'为教学支架结构示意，未进行承载或强度计算。'},
+ {id:'spindle',lab:'screw',name:'丝杠',short:'丝杠',objects:()=>[S.shaft,S.threads,...S.journals],summary:'通过螺纹把与螺母之间的相对转数转换成轴向距离。',structure:'由轴身和外螺纹组成；下端经联轴器接受电机转动，支承组件限定轴向位置。',motion:'正常模式中丝杠旋转、螺母止转，螺母沿轴向移动。正向按本页升起的方向约定。',observe:'保持相对圈数，改变导程 L，看升降位移如何变化；双头时观察两条螺旋线与 p = L/2。',parameter:()=>`导程 L：${s.lead} mm/转<br>头数 z：${s.starts}；螺距 p：${f(s.lead/s.starts)} mm<br>设定转速：${s.rpm} r/min`,note:'螺纹为三维螺旋外形示意；放大视图取当前导程、头数和旋转姿态。'},
+ {id:'nut',lab:'screw',name:'丝杠螺母',short:'螺母',objects:()=>[S.nut],summary:'与丝杠配合，是本升降机构中传递轴向位移的构件。',structure:'六角外形与上端连接法兰构成螺母外形；螺母安装在升降台中央。',motion:'正常模式中限制螺母转动，丝杠的相对转动产生平移；同步同转对照中，相对转数不变。',observe:'切换“同步同转”，即使丝杠与螺母都在转，升降位移增量仍为零；这是一种人为指定的对照条件。',parameter:()=>`当前模式：${s.mode==='guided'?'螺母止转':'同步同转'}<br>相对圈数：${f(s.ns-s.nn,2)} 圈<br>轴向位移：${f((s.ns-s.nn)*s.lead)} mm`,note:'这里显示螺母外形；点击“剖视 / 组装”可近看内外螺纹配合，通过“装配位置”查看整体连接。'},
+ {id:'guides',lab:'screw',name:'导向杆',short:'导向杆',objects:()=>S.guides,summary:'引导升降台沿竖直方向运动，并与滑套一起限制其转动。',structure:'两根平行圆柱导杆安装在上下固定座之间；升降台两侧的滑套沿导杆滑动。',motion:'导杆固定不动，升降台沿导杆平移。正常模式中，止转连接把这项约束传递给螺母。',observe:'从侧视和俯视区分中心丝杠与两侧导杆：导杆提供导向，丝杠提供螺旋运动转换。',parameter:()=>`导向杆：两根，彼此平行<br>导杆中心距：60 mm（示意尺寸）<br>升降行程：0–100 mm`,note:'本视图单独显示两根导杆；滑套随“升降台”一起查看。'},
+ {id:'bearings',lab:'screw',name:'轴向支承组件',short:'轴向支承',objects:()=>[S.bearings],summary:'支承旋转轴，并在本模型中约束丝杠的轴向移动。',structure:'包括上下支承座和轴端支承外形；座体连接固定机架，轴在支承处旋转。',motion:'允许丝杠旋转，同时为轴向位置提供基准；配合螺母止转，确定哪一个构件产生升降。',observe:'对照导向约束：轴向支承约束丝杠的轴向位置，导向与止转连接限制螺母转动，两者作用不同。',parameter:()=>`装配位置：丝杠上下端<br>功能：径向支承 / 轴向定位示意<br>旋转件：丝杠；固定件：支承座`,note:'为支承组件的组合外形示意；未展开滚动体及实际固定端—浮动端设计。'},
+ {id:'motor',lab:'screw',name:'驱动电机',short:'电机',objects:()=>S.motor.children.filter(o=>o!==S.rotor),summary:'为丝杠提供旋转输入，转速决定单位时间内的输入圈数。',structure:'本视图显示电机壳体与散热筋；轴端通过联轴器连接丝杠。',motion:'电机壳体固定，转动从输出轴传给丝杠。偏心演示中，支承的径向响应会使组件产生微小振动。',observe:'调节转速 n，比较升降速度；打开偏心激励，区分轴向升降与径向振动。',parameter:()=>`设定转速 n：${s.rpm} r/min<br>旋转频率：${f(s.rpm/60)} Hz<br>偏心演示：${s.vibration?'开启':'关闭'}`,note:'未剖开定子和转子；显示的是电机外壳及散热筋。'},
+ {id:'coupler',lab:'screw',name:'联轴器',short:'联轴器',objects:()=>[S.coupling,S.rotationMark],summary:'连接电机输出端与丝杠，将旋转从驱动端传过去。',structure:'位于电机上方与丝杠下端之间，橙色标记帮助观察旋转相位。',motion:'本模型中联轴器与丝杠同速旋转；它不是改变导程或传动比的部件。',observe:'从侧视看动力传递路径，从俯视观察标记转动。不要把标记的旋转与升降位移混为一谈。',parameter:()=>`模型传动比：1 : 1<br>设定转速：${s.rpm} r/min<br>丝杠输入圈数：${f(s.ns,2)} 圈`,note:'采用联轴器外形示意，未展开夹紧、键连接或弹性结构。'},
+ {id:'lock',lab:'screw',name:'止转锁销',short:'止转锁销',objects:()=>[S.lock],summary:'示意螺母与导向升降台之间的止转连接。',structure:'位于螺母与升降台之间。锁止状态下，把螺母的转动约束传递给受导杆限制的升降台。',motion:'正常模式中止转连接生效；同步同转对照中显示脱开，并人为指定螺母与丝杠同速旋转。',observe:'锁销的意义在于约束相对自由度。解除止转本身并不能预测自由螺母会以什么速度旋转。',parameter:()=>`当前连接状态：${s.mode==='guided'?'锁止':'脱开（同步对照）'}<br>螺母转数：${f(s.nn,2)} 圈<br>相对圈数：${f(s.ns-s.nn,2)} 圈`,note:'用矩形锁止件表示这项约束；外形不代表实际锁销加工图。'},
+ {id:'platform',lab:'screw',name:'升降台与滑套',short:'升降台',objects:()=>S.carriage.children.filter(o=>o!==S.nut&&o!==S.lock),summary:'承载教学负载，并随螺母的轴向位移一起升降。',structure:'包括承载板、边板、两侧导向滑套与紧固件；螺母安装在中央连接处。',motion:'导向杆和滑套限制其转动及侧向移动，使它主要沿竖直方向平移。',observe:'改变相对圈数或导程，观察承载板高度；在同步同转对照中，高度保持。',parameter:()=>`当前升降位移：${f((s.ns-s.nn)*s.lead)} mm<br>可用行程：0–100 mm<br>相对圈数：${f(s.ns-s.nn,2)} 圈`,note:'单独查看时保留滑套与紧固件，不包含已单列的螺母和止转锁销。'}
+];
+let selectedPart=null,partContext=false,partModel=null,partBounds=null;
+function cloneForPart(original,world=false){
+ original.updateWorldMatrix(true,true);const copy=original.clone(true),sources=[];original.traverse(o=>sources.push(o));let i=0;
+ copy.traverse(o=>{const source=sources[i++];o.userData.partSource=source.uuid;if(o.geometry)o.geometry=o.geometry.clone();if(o.material)o.material=Array.isArray(o.material)?o.material.map(m=>m.clone()):o.material.clone()});
+ if(world)original.matrixWorld.decompose(copy.position,copy.quaternion,copy.scale);return copy;
+}
+function clearPartModel(){if(!partModel)return;partStage.root.remove(partModel);const geometries=new Set(),materials=new Set();partModel.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m)});for(const g of geometries)g.dispose();for(const m of materials)m.dispose();partModel=null}
+function treeVisible(o){for(let p=o;p;p=p.parent)if(!p.visible)return false;return true}
+function fitPart(){
+ if(!partBounds||!partStage)return;const center=partBounds.getCenter(V());partStage.target.copy(center);const w=partStage.width,h=partStage.height,quad=partStage.view==='quad',aspect=quad?Math.floor(w/2)/Math.max(1,Math.floor(h/2)):w/h;
+ const corners=[];for(const x of [partBounds.min.x,partBounds.max.x])for(const y of [partBounds.min.y,partBounds.max.y])for(const z of [partBounds.min.z,partBounds.max.z])corners.push(V(x,y,z));let needed=1;
+ for(const [yaw,elev] of quad?Object.values(views):[[partStage.yaw,partStage.elev]]){partStage.cameraFor(yaw,elev,quad?w/2:w,quad?h/2:h);for(const c of corners){const q=c.clone().applyMatrix4(partStage.camera.matrixWorldInverse);needed=Math.max(needed,Math.abs(q.y)*2,Math.abs(q.x)*2/aspect)}}
+ partStage.span=Math.max(16,needed*1.22);partStage.zoom=1;dirty=true;
+}
+function renderPartModel(){
+ const entry=parts.find(p=>p.id===selectedPart);if(!entry||!partStage)return;clearPartModel();partModel=new T.Group();partStage.root.add(partModel);const originals=entry.objects().filter(Boolean),selected=new Set();for(const obj of originals)obj.traverse(o=>selected.add(o.uuid));
+ if(partContext){const source={boom,screw}[entry.lab].root,copy=cloneForPart(source,true);copy.traverse(o=>{if(o.name==='ground')o.visible=false;if(o.type==='ArrowHelper'||o.isLine||o.isLineSegments)o.visible=false;if(!o.isMesh)return;const on=selected.has(o.userData.partSource);for(const m of Array.isArray(o.material)?o.material:[o.material]){if(on){m.transparent=false;m.opacity=1;if(m.emissive){m.emissive.set('#7f713e');m.emissiveIntensity=.08}o.renderOrder=2}else{m.color.set('#81998a');m.transparent=true;m.opacity=.13;m.depthWrite=false;o.renderOrder=0}}});partModel.add(copy)}
+ else for(const obj of originals)partModel.add(cloneForPart(obj,true));
+ partModel.updateMatrixWorld(true);partBounds=new T.Box3();partModel.traverse(o=>{if(!o.isMesh||!treeVisible(o))return;if(!o.geometry.boundingBox)o.geometry.computeBoundingBox();partBounds.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld))});
+ if(partBounds.isEmpty())partBounds.setFromCenterAndSize(V(),V(20,20,20));fitPart();$('part-isolated').setAttribute('aria-pressed',String(!partContext));$('part-context').setAttribute('aria-pressed',String(partContext));$('part-view-note').textContent=partContext?'彩色：所选零件；淡色：装配环境':'只显示所选零件 / 零件组';dirty=true;
+}
+function openPart(id){
+ const entry=parts.find(p=>p.id===id);if(!entry)return;pause();ui();selectedPart=id;partContext=false;
+ $('part-name').textContent=entry.name;$('part-modal-title').textContent='三维零件放大 · '+entry.name;$('part-category').textContent=entry.lab==='boom'?'PART 01 / 液压连杆机构':'PART 02 / 丝杠升降机构';for(const k of ['summary','structure','motion','observe','note'])$('part-'+k).textContent=entry[k];$('part-parameter').innerHTML=entry.parameter();$('part-picker').value=id;
+ const dialog=$('part-dialog');if(!dialog.open)dialog.showModal();if(!partStage){partStage=new Stage('part',V(),100);partStage.trace.visible=false;partStage.root.remove(partStage.trace)}partStage.resize();partStage.setView('iso');renderPartModel();requestAnimationFrame(()=>{if(dialog.open){partStage.resize();fitPart()}});
+}
+function initParts(){
+ const picker=$('part-picker');for(const lab of ['boom','screw']){const group=document.createElement('optgroup');group.label=lab==='boom'?'液压连杆机构':'丝杠升降机构';for(const entry of parts.filter(p=>p.lab===lab)){const b=document.createElement('button');b.type='button';b.className='part-name';b.dataset.part=entry.id;b.textContent=entry.short;b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-label','放大查看'+entry.name+'的三维模型与说明');b.addEventListener('click',()=>openPart(entry.id));$(lab+'-parts').append(b);const option=document.createElement('option');option.value=entry.id;option.textContent=entry.name;group.append(option)}picker.append(group)}
+ for(const lab of ['boom','screw'])$(lab+'-stage').setAttribute('role','region');
+ picker.addEventListener('change',e=>openPart(e.target.value));$('part-close').addEventListener('click',()=>$('part-dialog').close());$('part-dialog').addEventListener('close',()=>{clearPartModel();selectedPart=null;dirty=true});
+ for(const b of document.querySelectorAll('[data-for="part"] [data-view]'))b.addEventListener('click',()=>{if(partStage){partStage.setView(b.dataset.view);fitPart()}});
+ $('part-isolated').addEventListener('click',()=>{partContext=false;renderPartModel()});$('part-context').addEventListener('click',()=>{partContext=true;renderPartModel()});$('part-zoom-in').addEventListener('click',()=>{if(partStage){partStage.zoom=clamp(partStage.zoom*1.2,.65,2);dirty=true}});$('part-zoom-out').addEventListener('click',()=>{if(partStage){partStage.zoom=clamp(partStage.zoom/1.2,.65,2);dirty=true}});$('part-home').addEventListener('click',()=>{if(partStage){partStage.setView('iso');fitPart()}});
+}
+
+
+const study={type:'hyd',stage:null,model:null,pieces:[],section:true,cut:0,explode:0,target:0,exercise:false,installed:new Set(),history:[],selected:null,play:false,dir:1,speed:.5,auto:false,autoTime:0,errors:0,hyd:null,screw:null,theme:'light',labels:true,focus:false,detailTags:[]};
+function stagesAll(){return [boom,screw,partStage,study.stage].filter(Boolean)}
+function setTheme(theme){study.theme=theme==='dark'?'dark':'light';document.documentElement.dataset.theme=study.theme;for(const st of stagesAll()){window.StageTone.paint(st.scene,T);st.scene.traverse(o=>{if(o.name==='ground'){o.material.color.set(study.theme==='dark'?'#02070b':'#1c2430');o.material.opacity=study.theme==='dark'?.4:.2}if(o.isGridHelper||o.type==='GridHelper'){const m=o.material;m.transparent=true;m.opacity=study.theme==='dark'?.22:1}})}for(const b of document.querySelectorAll('[data-theme-toggle]')){b.textContent=study.theme==='dark'?'浅色背景':'深色背景';b.setAttribute('aria-pressed',String(study.theme==='dark'))}dirty=true}
+function setLabels(show){study.labels=show;document.documentElement.classList.toggle('hide-labels',!show);for(const b of document.querySelectorAll('[data-labels-toggle]')){b.textContent=show?'隐藏部件名':'显示部件名';b.setAttribute('aria-pressed',String(!show))}dirty=true}
+function own(object){object.traverse(o=>{if(o.material)o.material=Array.isArray(o.material)?o.material.map(m=>m.clone()):o.material.clone()});return object}
+function studyMesh(parent,g,color,metal=.25){return mesh(parent,g,new T.MeshStandardMaterial({color,roughness:.3,metalness:metal,side:T.DoubleSide}))}
+function tubeSection(ro,ri,h){return boredPrism(ro,ri,h)}
+function studyCylinder(parent,a,b,r,color){return own(cylinder(parent,a,b,r,color))}
+function studyBox(parent,at,size,color){return own(box(parent,at,size,color))}
+function studyRing(parent,at,ro,ri,h,color){const o=studyMesh(parent,tubeSection(ro,ri,h),color);o.position.copy(at);return o}
+function cutFaces(parent,ro,ri,h,center,color){const root=new T.Group();parent.add(root);root.position.y=center;root.userData.cutFace=true;for(const sign of [-1,1]){const w=ro-ri;studyBox(root,V(sign*(ro+ri)/2,0,.008),[w,h,.035],color);const ps=[];for(let y=-h/2+1;y<h/2-1;y+=2){const y2=y+sign*w;if(y2>=-h/2&&y2<=h/2)ps.push(sign*ri,y,.04,sign*ro,y2,.04)}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(ps,3));const obj=new T.LineSegments(geo,new T.LineBasicMaterial({color:'#8d653c'}));root.add(obj)}return root}
+function ridgeGeometry(y0,y1,lead,starts,r0,r1,phase=0){const pitch=lead/starts,flank=Math.abs(r1-r0)*Math.tan(rad(15)),base=pitch/4+flank/2,crest=pitch/4-flank/2,steps=Math.max(20,Math.ceil((y1-y0)/lead*64)),vertices=[],indices=[],profile=[[r0,-base],[r1,-crest],[r1,crest],[r0,base]];for(let i=0;i<=steps;i++){const y=y0+(y1-y0)*i/steps,t=y/lead*2*PI+phase;for(const [r,dy] of profile)vertices.push(r*Math.cos(t),y+dy,r*Math.sin(t))}for(let i=0;i<steps;i++)for(let k=0;k<4;k++){const a=i*4+k,b=i*4+(k+1)%4,c=a+4,d=b+4;indices.push(a,b,c,b,d,c)}indices.push(0,2,1,0,3,2);const j=steps*4;indices.push(j,j+1,j+2,j,j+2,j+3);const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(vertices,3));g.setIndex(indices);g.computeVertexNormals();return g}
+function piece(id,name,offset,deps,info){const g=new T.Group();g.userData.piece=id;study.model.add(g);const p={id,name,group:g,offset:V(...offset),deps,info,t:0,center:V(),clip:[],faces:[],baseColors:new Map()};study.pieces.push(p);return p}
+function makeClippable(p,obj){obj.traverse(o=>{if(o.isMesh){const material=o.material;const plane=new T.Plane(V(0,0,-1),0);material.clippingPlanes=study.section?[plane]:[];material.clipShadows=true;p.clip.push({material,plane})}})}
+function buildHydStudy(){
+ const L=range.lmin*.78,yEnd=5+L,travel=range.lmax-range.lmin,h={L,yEnd,travel};study.hyd=h;study.screw=null;
+ const body=piece('barrel','缸筒',[0,0,0],[],'提供活塞运动的内孔和两侧油腔；先安装缸筒作为基准。');h.body=body;
+ const shell=studyRing(body.group,V(0,5+L/2,0),9,7.8,L,'#bd9550');makeClippable(body,shell);body.faces.push(cutFaces(body.group,9,7.8,L,5+L/2,'#e4be75'));
+ for(const y of [11,yEnd-7]){studyCylinder(body.group,V(8,y,-2),V(15,y,-2),1.7,'#668f9b');studyRing(body.group,V(14.8,y,-2),2,1,2,'#c3d5cf').rotation.z=PI/2}
+ const rear=piece('rear','后端盖',[0,-30,0],['barrel'],'封闭无杆腔，并与缸筒连接。');h.rear=rear;const holes=[[-8.5,-8.5,1],[8.5,-8.5,1],[-8.5,8.5,1],[8.5,8.5,1]];const rearCap=studyMesh(rear.group,capGeometry(14,0,4,holes),'#967844',.55);rearCap.position.y=4;makeClippable(rear,rearCap);rear.faces.push(cutFaces(rear.group,14,0,4,4,'#d8b76d'));
+ const rod=piece('pistonrod','活塞杆组件',[0,L+25,0],['rear'],'预装好的活塞、活塞密封圈与活塞杆；整体放入缸筒。');h.rod=rod;
+ h.piston=studyCylinder(rod.group,V(0,8,0),V(0,13,0),7.5,'#dd9d48');h.piston.userData.feature='piston';h.rodMesh=studyCylinder(rod.group,V(0,10,0),V(0,range.lmin-4,0),3.7,'#d6e3df');h.seals=[];for(const shift of [-1.9,1.9]){const ring=studyRing(rod.group,V(0,10+shift,0),7.8,7.35,.85,'#26332f');h.seals.push({ring,shift})}h.lands=[];for(const [a,b] of [[-2.5,-2.325],[-1.475,1.475],[2.325,2.5]]){const land=studyCylinder(rod.group,V(0,10+a,0),V(0,10+b,0),7.5,'#cfb478');h.lands.push({land,a,b})}
+ const front=piece('gland','前端盖 / 导向密封',[0,34,0],['pistonrod'],'固定于缸口，导向活塞杆并密封有杆腔。');h.front=front;const gland=studyMesh(front.group,capGeometry(14,4.85,6,holes),'#ae8842',.55);gland.position.y=yEnd;makeClippable(front,gland);front.faces.push(cutFaces(front.group,14,4.85,6,yEnd,'#e4be75'));for(const yy of [yEnd-2,yEnd+.5]){const guide=studyRing(front.group,V(0,yy,0),4.8,3.8,1.4,'#6d8181');makeClippable(front,guide)}const rodSeal=studyRing(front.group,V(0,yEnd+2,0),4.8,3.7,1,'#344d45');makeClippable(front,rodSeal);
+ const ties=piece('ties','拉杆与紧固件',[0,120,0],['gland'],'最后夹紧前后端盖。这里仅检查装配关系，不模拟拧紧力矩。');for(const x of [-8.5,8.5])for(const z of [-8.5,8.5]){studyCylinder(ties.group,V(x,2,z),V(x,yEnd+3,z),.9,'#b1c6bb');studyCylinder(ties.group,V(x,yEnd+2,z),V(x,yEnd+5,z),1.7,'#d3dacf')}
+ const pin=piece('pin','连接耳 / 销轴',[0,40,0],['ties'],'连接运动端铰点；安装后允许绕销轴相对转动。');h.pin=pin;h.lug=studyMesh(pin.group,boredPrism(5.7,3.55,6),'#a9b7bc',.75);h.lug.rotation.x=PI/2;h.lug.position.y=range.lmin;h.pinMesh=studyCylinder(pin.group,V(0,range.lmin,-12),V(0,range.lmin,12),3.4,'#c3d4c9');
+ h.fluid=new T.Group();body.group.add(h.fluid);h.fluidA=studyCylinder(h.fluid,V(0,7,0),V(0,9,0),7.55,'#4aabc4');h.fluidB=studyRing(h.fluid,V(0,30,0),7.55,3.9,1,'#db9d54');for(const ob of [h.fluidA,h.fluidB]){ob.material.transparent=true;ob.material.opacity=.22;ob.material.depthWrite=false;makeClippable(body,ob)}
+ h.fluidB.geometry.computeBoundingBox();h.fluidBUnitHeight=h.fluidB.geometry.boundingBox.max.y-h.fluidB.geometry.boundingBox.min.y;h.fluidARange=[7,8];h.fluidBRange=[13,yEnd-3];h.flats=new T.Group();h.fluid.add(h.flats);h.flatA=studyBox(h.flats,V(0,10,.04),[15.1,1,.04],'#66bbd2');h.flatB=[];for(const sign of [-1,1])h.flatB.push(studyBox(h.flats,V(sign*5.725,30,.04),[3.65,1,.04],'#e5b15f'));for(const o of [h.flatA,...h.flatB]){o.material.transparent=true;o.material.opacity=.78;o.material.depthWrite=false}
+}
+function buildScrewStudy(){
+ study.hyd=null;const h={};study.screw=h;
+ const frame=piece('frame','机架 / 导向杆',[0,0,0],[],'固定基准与平行导杆；升降台通过导杆限制转动。');studyBox(frame.group,V(0,0,-8),[78,7,49],'#a4b99c');for(const x of [-26,26]){studyCylinder(frame.group,V(x,3,-8),V(x,170,-8),2.4,'#b5cdc1');studyBox(frame.group,V(x,170,-8),[11,7,14],'#9ab48d')}const lower=studyRing(frame.group,V(0,20,0),11,4.6,6,'#5d706a');studyBox(frame.group,V(-12,20,-7),[6,9,12],'#607b6f');studyBox(frame.group,V(12,20,-7),[6,9,12],'#607b6f');studyBox(frame.group,V(0,8,0),[24,15,23],'#426460');
+ const bearings=piece('bearings','上支承 / 顶梁',[0,65,0],['carriage','coupler'],'螺母与升降台从轴端装入后，再闭合上支承与顶梁；下支承固定在机架上。');studyRing(bearings.group,V(0,164,0),11,4.6,6,'#5b766b');const top=studyMesh(bearings.group,plateGeometry(66,30,6,11.2,[[ -26,-8,2.6],[26,-8,2.6]]),'#718c7d');top.position.y=164;
+ const spindle=piece('spindle','丝杠轴',[0,170,0],['frame'],'外螺纹与螺母内螺纹具有相同导程和旋向。');h.spindle=spindle;h.rotor=new T.Group();spindle.group.add(h.rotor);const core=studyCylinder(h.rotor,V(0,27,0),V(0,157,0),5.8,'#c5d4cf');makeClippable(spindle,core);for(const [a,b] of [[15,27],[157,170]]){const journal=studyCylinder(h.rotor,V(0,a,0),V(0,b,0),4.5,'#adb9bb');makeClippable(spindle,journal)}spindle.faces.push(cutFaces(spindle.group,5.8,0,130,92,'#c1cfc7'));h.outerThreads=[];for(let z=0;z<s.starts;z++){const margin=s.lead/s.starts*.35,thread=studyMesh(h.rotor,ridgeGeometry(27+margin,157-margin,s.lead,s.starts,5.8,7.4,z*2*PI/s.starts),'#aaa17e',.4);makeClippable(spindle,thread);h.outerThreads.push(thread)}
+ const nut=piece('nut','配合螺母',[0,145,0],['spindle'],'沿轴线旋入；每转一圈前进一个导程，不能横向穿入丝杠。内外螺纹留有间隙。');h.nut=nut;h.nutRotor=new T.Group();nut.group.add(h.nutRotor);const nutBody=studyMesh(h.nutRotor,boredPrism(14,7.65,18,6),'#cb904d',.35);makeClippable(nut,nutBody);const flange=studyRing(h.nutRotor,V(0,10,0),16,7.65,2,'#d5a059');makeClippable(nut,flange);h.nutFaces=cutFaces(nut.group,14*Math.cos(PI/6),7.65,18,0,'#f0c785');nut.faces.push(h.nutFaces);
+ h.innerThreads=[];for(let z=0;z<s.starts;z++){const margin=s.lead/s.starts*.35,inner=studyMesh(h.nutRotor,ridgeGeometry(-9+margin,9-margin,s.lead,s.starts,7.65,6.15,42/s.lead*2*PI+PI/s.starts+z*2*PI/s.starts),'#e6b374',.3);makeClippable(nut,inner);h.innerThreads.push(inner)}
+ const coupler=piece('coupler','分体联轴器',[0,0,0],['spindle'],'两半夹壳从径向合拢，夹紧电机轴与丝杠轴，避免封闭联轴器穿过支承。');h.coupler=coupler;h.couplerHalves=[];const sh=new T.Shape();sh.moveTo(0,-7);sh.absarc(0,0,7,-PI/2,PI/2,false);sh.lineTo(0,4.6);sh.absarc(0,0,4.6,PI/2,-PI/2,true);sh.closePath();const cg=new T.ExtrudeGeometry(sh,{depth:8,bevelEnabled:false,curveSegments:32});cg.rotateX(-PI/2);cg.translate(0,-4,0);for(const sign of [-1,1]){const half=new T.Group();coupler.group.add(half);half.position.y=13;if(sign<0)half.rotation.y=PI;studyMesh(half,cg.clone(),'#8b9e9f',.75);studyBox(half,V(6.7,0,0),[1.5,5,2],'#bd7634');h.couplerHalves.push({half,sign})}cg.dispose();
+ const carriage=piece('carriage','升降台 / 止转连接',[0,170,0],['nut','frame'],'把螺母与导向升降台连接，限制螺母随丝杠转动。');h.carriage=carriage;h.carrier=new T.Group();carriage.group.add(h.carrier);const deck=studyMesh(h.carrier,plateGeometry(64,42,5,14.5,[[-26,-8,2.6],[26,-8,2.6]]),'#8ca593');deck.position.y=6;makeClippable(carriage,deck);const thrust=studyRing(h.carrier,V(0,8.8,0),16,14.4,.5,'#a9b9ba');makeClippable(carriage,thrust);for(const x of [-26,26])studyRing(h.carrier,V(x,-3,-8),5,2.6,15,'#477664');h.lock=studyBox(h.carrier,V(19,2,0),[10,3,5],'#3c8d66');
+}
+function clearStudyModel(){if(!study.model)return;study.stage.root.remove(study.model);const gs=new Set(),ms=new Set();study.model.traverse(o=>{if(o.geometry&&![unitBox,unitCyl,unitBall].includes(o.geometry))gs.add(o.geometry);if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])ms.add(m)});for(const g of gs)g.dispose();for(const m of ms)m.dispose();study.model=null;study.stage.tags=[];study.stage.overlay.replaceChildren();study.detailTags=[]}
+function studyCenters(){for(const p of study.pieces){const b=new T.Box3().setFromObject(p.group);p.center.copy(b.getCenter(V())).addScaledVector(p.offset,-p.t)}}
+function addStudyLabels(){for(const p of study.pieces){const el=document.createElement('button');el.type='button';el.className='tag study-slot part-label';el.dataset.slot=p.id;el.addEventListener('click',()=>{if(study.exercise&&study.installed.size<study.pieces.length)installPiece(study.selected,p.id);else selectPiece(p.id)});el.addEventListener('dragover',e=>e.preventDefault());el.addEventListener('drop',e=>{e.preventDefault();installPiece(e.dataTransfer.getData('text/plain'),p.id)});study.stage.overlay.append(el);study.stage.tags.push({el,point:()=>study.exercise?p.center.clone():p.center.clone().addScaledVector(p.offset,p.t)});p.label=el}}
+function fitStudy(){if(!study.stage||!study.model)return;const st=study.stage;if(study.focus){const y=study.hyd?10+cylinderLength(s.theta)-range.lmin:42+(s.ns-s.nn)*s.lead;st.target.set(0,y,0);st.span=study.hyd?40:44;st.zoom=1;dirty=true;return}study.model.updateMatrixWorld(true);const bounds=new T.Box3();for(const p of study.pieces){const b=new T.Box3().setFromObject(p.group);bounds.union(b);const target=study.exercise?(study.installed.has(p.id)?0:1):study.target;bounds.union(b.clone().translate(p.offset.clone().multiplyScalar(target-p.t)))}st.target.copy(bounds.getCenter(V()));const size=bounds.getSize(V()),aspect=st.width/st.height;st.span=Math.max(size.y*1.4,Math.hypot(size.x,size.z)/aspect*1.4,40);st.zoom=1;dirty=true}
+function rebuildStudy(){clearStudyModel();study.focus=false;study.model=new T.Group();study.stage.root.add(study.model);study.pieces=[];if(study.type==='hyd')buildHydStudy();else buildScrewStudy();study.installed=new Set(study.pieces.map(p=>p.id));study.history=[];study.exercise=false;study.selected=null;study.play=false;study.auto=false;study.explode=study.target=0;updateStudyGeometry();studyCenters();addStudyLabels();const label=(text,point,style)=>study.detailTags.push(study.stage.tag(text,point,style));if(study.hyd){label('活塞',()=>V(7.8,10+cylinderLength(s.theta)-range.lmin,0),'a');label('活塞密封圈',()=>V(-7.7,11.9+cylinderLength(s.theta)-range.lmin,0),'b');label('活塞杆',()=>V(3.7,22+cylinderLength(s.theta)-range.lmin,0),'b')}else{label('外螺纹',()=>V(6.1,42+(s.ns-s.nn)*s.lead-3,0),'b');label('内螺纹',()=>V(8.2,42+(s.ns-s.nn)*s.lead+4,0),'a');label('配合间隙（示意）',()=>V(-7,42+(s.ns-s.nn)*s.lead,0),'a')}buildKit();updateStudyUI();fitStudy();setTheme(study.theme)}
+function cutPlaneForPiece(p){const normal=V(-Math.sin(rad(study.cut)),0,-Math.cos(rad(study.cut))),center=p.group.getWorldPosition(V());for(const {material,plane} of p.clip){plane.normal.copy(normal);plane.constant=-normal.dot(center);const next=study.section?[plane]:[];if(material.clippingPlanes?.length!==next.length){material.clippingPlanes=next;material.needsUpdate=true}}for(const face of p.faces){face.visible=study.section;face.rotation.y=rad(study.cut)}}
+function updateStudyGeometry(){
+ const h=study.hyd;if(h){const x=clamp(cylinderLength(s.theta)-range.lmin,0,h.travel),y=10+x,l=range.lmin+x;setCylinder(h.piston,V(0,y-2.5,0),V(0,y+2.5,0),7.35);for(const {land,a,b} of h.lands)setCylinder(land,V(0,y+a,0),V(0,y+b,0),7.5);setCylinder(h.rodMesh,V(0,y,0),V(0,l-4,0),3.7);h.lug.position.y=l;for(const {ring,shift} of h.seals)ring.position.y=y+shift;setCylinder(h.pinMesh,V(0,l,-12),V(0,l,12),3.4);setCylinder(h.fluidA,V(0,7,0),V(0,Math.max(7.01,y-2.5),0),7.55);const b0=y+2.5,b1=h.yEnd-3;h.fluidB.position.y=(b0+b1)/2;h.fluidB.scale.y=Math.max(.01,b1-b0)/h.fluidBUnitHeight;h.fluid.visible=study.section&&study.explode<.002&&(!study.exercise||study.installed.size===study.pieces.length);h.fluidARange=[7,y-2.5];h.fluidBRange=[b0,b1];h.rod.center.set(0,(y+l)/2,0);h.pin.center.set(0,l,0)}
+ const q=study.screw;if(q){q.coupler.group.rotation.y=s.ns*2*PI;for(const {half,sign} of q.couplerHalves)half.position.x=sign*25*q.coupler.t;const height=(s.ns-s.nn)*s.lead,center=42+height;q.rotor.rotation.y=s.ns*2*PI;q.nutRotor.rotation.y=s.nn*2*PI-q.nut.offset.y*q.nut.t/s.lead*2*PI;if(q.lock){q.lock.position.y=s.mode==='sync'?19:2;q.lock.rotation.z=s.mode==='sync'?PI/4:0}q.nut.group.userData.axisY=center;q.nut.group.position.y+=center-(q.lastCenter??0);q.lastCenter=center;q.nut.center.set(0,center,0);q.carrier.position.y=center;q.carriage.center.set(0,center-5,-6);q.nutFaces.position.y=0;q.nutFaces.rotation.y=rad(study.cut)}
+ if(h?.flats){h.flats.rotation.y=rad(study.cut);const [a0,a1]=h.fluidARange,[b0,b1]=h.fluidBRange;h.flatA.position.y=(a0+a1)/2;h.flatA.scale.y=Math.max(.01,a1-a0);for(const o of h.flatB){o.position.y=(b0+b1)/2;o.scale.y=Math.max(.01,b1-b0)}}if(study.focus&&study.stage){study.stage.target.y=h?10+cylinderLength(s.theta)-range.lmin:42+(s.ns-s.nn)*s.lead}
+ if(study.model){study.model.updateMatrixWorld(true);for(const p of study.pieces)cutPlaneForPiece(p)}dirty=true;
+}
+function positionStudyPieces(dt=0){const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;for(const p of study.pieces){const target=study.exercise?(study.installed.has(p.id)?0:1):study.target;if(p.animTarget!==target){p.animStart=p.t;p.animElapsed=0;p.animTarget=target}p.animElapsed=(p.animElapsed||0)+dt;const u=reduced?1:clamp(p.animElapsed/.8,0,1),e=u*u*(3-2*u);p.t=(p.animStart??p.t)+(target-(p.animStart??p.t))*e;if(Math.abs(p.t-target)<.0001)p.t=target;p.group.position.copy(p.offset).multiplyScalar(p.t);if(study.screw&&p===study.screw.nut)p.group.position.y+=42+(s.ns-s.nn)*s.lead;for(const [m,original] of p.baseColors){const selected=study.selected===p.id;if(m.emissive){m.emissive.set(selected?'#bc792f':'#000000');m.emissiveIntensity=selected?.17:0}}}study.explode=study.exercise?Math.max(0,...study.pieces.map(p=>p.t)):study.pieces[0]?.t??0;if(study.screw)study.screw.lastCenter=42+(s.ns-s.nn)*s.lead;updateStudyGeometry()}
+function studyReady(){return (!study.exercise||study.installed.size===study.pieces.length)&&study.pieces.every(p=>p.t<.002)}
+function feedback(msg,wrong=false){$('study-feedback').textContent=msg;$('study-feedback').classList.toggle('wrong',wrong)}
+function buildKit(){const kit=$('study-kit');kit.replaceChildren();for(const p of study.pieces){p.group.traverse(o=>{if(o.isMesh)for(const m of Array.isArray(o.material)?o.material:[o.material])p.baseColors.set(m,m.color.clone())});const button=document.createElement('button');button.type='button';button.textContent=p.name;button.dataset.kit=p.id;button.draggable=true;button.addEventListener('click',()=>selectPiece(p.id));button.addEventListener('dragstart',e=>{if(!study.exercise){e.preventDefault();return}selectPiece(p.id);e.dataTransfer.setData('text/plain',p.id)});kit.append(button)}}
+function selectPiece(id){const p=study.pieces.find(o=>o.id===id);if(!p)return;study.selected=id;$('study-part-info').textContent=p.name+'：'+p.info;if(study.exercise)feedback(study.installed.has(id)?p.name+'已安装；可撤回最近一步。':'已选择“'+p.name+'”，点击对应安装位或“装入当前零件”。');positionStudyPieces(0);updateStudyUI();dirty=true}
+function installPiece(id,slot){if(!study.exercise){feedback('请先点击“开始组装”。',true);return}const p=study.pieces.find(o=>o.id===id);if(!p){feedback('请先选择待安装零件。',true);return}if(id!==slot){study.errors++;feedback('位置不匹配：这里是“'+study.pieces.find(o=>o.id===slot)?.name+'”的安装位。',true);return}if(study.installed.has(id)){feedback(p.name+'已经安装。');return}const missing=p.deps.filter(dep=>!study.installed.has(dep));if(missing.length){study.errors++;feedback('还不能安装'+p.name+'，请先装：'+missing.map(dep=>study.pieces.find(o=>o.id===dep).name).join('、')+'。',true);return}if(p.deps.some(dep=>study.pieces.find(o=>o.id===dep).t>.002)){feedback('请等前一个零件就位，再安装'+p.name+'。');return}study.installed.add(id);study.history.push(id);study.selected=null;if(study.installed.size===study.pieces.length)feedback('✓ 装配完成！可以打开剖视并播放内部运动。');else feedback('✓ '+p.name+'安装正确。继续选择下一个零件。');updateStudyUI();dirty=true}
+function beginExercise(){study.focus=false;study.play=false;study.auto=false;study.exercise=true;study.installed.clear();study.history=[];study.selected=null;study.errors=0;for(const p of study.pieces){p.t=1;p.animTarget=null}phys.hydV=0;phys.screwRate=0;study.target=0;positionStudyPieces(0);feedback('已拆开。先找到作为固定基准的零件，再逐步安装。');updateStudyUI();fitStudy();dirty=true}
+function restoreStudy(){study.play=false;study.auto=false;study.exercise=false;study.installed=new Set(study.pieces.map(p=>p.id));study.history=[];study.selected=null;study.target=0;$('study-explode').value=0;feedback('已恢复完整装配；可播放内部运动。');updateStudyUI();dirty=true}
+function updateStudyUI(){
+ const h=study.hyd,ready=studyReady();$('study-focus').textContent=study.focus?'返回总览':h?'放大活塞':'放大配合';$('study-focus').setAttribute('aria-pressed',String(study.focus));$('study-focus').disabled=!ready;for(const p of study.pieces)p.label.style.visibility=study.focus?'hidden':'visible';for(const tag of study.detailTags)tag.el.style.visibility=study.focus?'visible':'hidden';$('study-title').textContent=study.type==='hyd'?'液压缸 · 活塞运动 / 剖视 / 组装':'丝杠与螺母 · 配合剖视 / 组装';$('study-hyd').setAttribute('aria-pressed',String(study.type==='hyd'));$('study-screw').setAttribute('aria-pressed',String(study.type==='screw'));$('study-section').checked=study.section;$('study-cut').value=study.cut;$('study-cut-out').textContent=study.cut+'°';$('study-explode-out').textContent=f(study.explode*100,0)+'%';if(!study.exercise)$('study-explode').value=study.target*100;$('study-explode').disabled=study.exercise;$('study-mode-note').textContent=study.exercise?'组装练习 · 彩色零件 / 目标安装位':study.explode>.002?'爆炸图 · 安装位置示意':study.section?'剖视 · 观察内部结构':'外观 · 完整装配';
+ $('study-play').disabled=!ready;$('study-plus').disabled=!ready;$('study-minus').disabled=!ready;$('study-position').disabled=!ready;$('study-play').textContent=study.play?'Ⅱ 暂停内部运动':'▶ 内部运动';$('study-play').setAttribute('aria-pressed',String(study.play));$('study-progress').max=study.pieces.length;$('study-progress').value=study.installed.size;$('study-count').textContent=study.installed.size+' / '+study.pieces.length;$('study-undo').disabled=!study.history.length;$('study-install').disabled=!study.exercise||!study.selected||study.installed.has(study.selected);$('study-start').textContent=study.exercise?'重新开始':'开始组装';
+ for(const p of study.pieces){const b=$('study-kit').querySelector(`[data-kit="${p.id}"]`);b.classList.toggle('selected',study.selected===p.id);b.classList.toggle('installed',study.exercise&&study.installed.has(p.id));b.setAttribute('aria-pressed',String(study.selected===p.id));p.label.textContent=study.exercise?(study.installed.has(p.id)?'✓ '+p.name:p.name+' · 安装位'):p.name;p.label.classList.toggle('done',study.exercise&&study.installed.has(p.id));p.label.classList.toggle('part-label',!study.exercise)}
+ if(h){const x=cylinderLength(s.theta)-range.lmin;$('study-value').textContent='活塞位移 '+f(x)+' mm';$('study-position-label').textContent='活塞行程';$('study-position').max=h.travel;$('study-position').value=x;$('study-plus').textContent='伸出 2 mm';$('study-minus').textContent='回收 2 mm';$('study-readout').innerHTML=`活塞伸出：${f(x)} / ${f(h.travel)} mm<br>蓝色：无杆腔；橙色：有杆腔<br>活塞与杆同位移，密封圈随活塞移动。<br>需压 ${f(hydraulicMetrics(s.theta,study.dir).required,2)} / 上限 ${f(phys.pressure)} MPa；${phys.hydState}`;$('study-caption').textContent='活塞分隔油腔；伸出和回收速度由流量 / 有效面积决定，负载过大时停止。爆炸或未装完时暂停。'}else{$('study-value').textContent='相对 '+f(s.ns-s.nn,2)+' 圈 / '+f((s.ns-s.nn)*s.lead)+' mm';$('study-position-label').textContent='相对圈数';$('study-position').max=100/s.lead;$('study-position').value=s.ns-s.nn;$('study-plus').textContent='正转 1 圈';$('study-minus').textContent='反转 1 圈';$('study-readout').innerHTML=`导程 L = ${s.lead} mm/转；${s.starts} 头<br>相对 ${f(s.ns-s.nn,2)} 圈 × ${s.lead} = ${f((s.ns-s.nn)*s.lead)} mm<br>浅色外螺纹 / 金色内螺纹，旋向与导程相同。`;$('study-caption').textContent='螺母止转，丝杠相对旋转产生升降；同步同转对照仍遵循原页模式。剖切不改变配合关系。'}
+}
+function studyMove(delta){study.play=false;phys.hydV=0;phys.screwRate=0;if(study.hyd){const x=clamp(cylinderLength(s.theta)-range.lmin+delta,0,study.hyd.travel);s.theta=thetaFromLength(range.lmin+x);s.hold=false}else if(s.mode==='sync'){s.ns+=delta;s.nn+=delta}else s.ns=s.nn+clamp(s.ns-s.nn+delta,0,100/s.lead);positionStudyPieces(0);updateBoom();updateScrew();ui();updateStudyUI();dirty=true}
+function studyTick(dt){if(!$('study-dialog').open)return;let moving=false;if(study.play&&studyReady()){const d=dt*study.speed,oldRate=phys.screwRate;if(study.hyd)study.dir=hydraulicAdvance(d,study.dir);else study.dir=screwAdvance(d,study.dir).dir;vibrationAdvance(d,oldRate);updateBoom();updateScrew();moving=true}
+
+ if(study.auto){study.autoTime+=dt;if(study.autoTime>.65){study.autoTime=0;const next=study.pieces.find(p=>!study.installed.has(p.id)&&p.deps.every(dep=>study.installed.has(dep)&&study.pieces.find(o=>o.id===dep).t<.002));if(next)installPiece(next.id,next.id);else if(study.installed.size===study.pieces.length)study.auto=false;moving=true}}
+ if(study.pieces.some(p=>Math.abs(p.t-(study.exercise?(study.installed.has(p.id)?0:1):study.target))>.0001))moving=true;
+ if(moving){positionStudyPieces(dt);updateStudyUI();dirty=true}
+}
+function openStudy(type){pause();study.type=type;const dialog=$('study-dialog');if(!dialog.open)dialog.showModal();if(!study.stage){study.stage=new Stage('study',V(0,70,0),160);study.stage.renderer.localClippingEnabled=true;study.stage.root.remove(study.stage.trace)}study.stage.resize();study.stage.setView('iso');rebuildStudy();feedback('可先观察剖视，再调爆炸程度，或点击“开始组装”。');requestAnimationFrame(()=>{study.stage.resize();fitStudy()})}
+function studySnapshot(){const h=study.hyd,q=study.screw;return {open:$('study-dialog').open,type:study.type,section:study.section,cut:study.cut,explode:study.explode,exercise:study.exercise,installed:[...study.installed],selected:study.selected,errors:study.errors,play:study.play,theme:study.theme,labels:study.labels,focus:study.focus,piston:h?{x:cylinderLength(s.theta)-range.lmin,center:h.piston.position.y,seals:h.seals.map(o=>o.ring.position.y),rodLength:h.rodMesh.scale.y,rear:h.fluidARange,front:h.fluidBRange,bodyEnd:h.yEnd}:null,nut:q?{relative:s.ns-s.nn,height:(s.ns-s.nn)*s.lead,lead:s.lead,starts:s.starts,center:q.nut.group.position.y-q.nut.offset.y*q.nut.t,innerThreads:q.innerThreads.length,outerThreads:q.outerThreads.length,shaftRotation:q.rotor.rotation.y,nutRotation:q.nutRotor.rotation.y}:null,pieces:study.pieces.map(p=>({id:p.id,deps:p.deps,offset:p.t}))}}
+function initWorkshop(){
+ const toolbar=document.querySelector('.mast>.toolbar');for(const [attr,text] of [['theme-toggle','深色背景'],['labels-toggle','隐藏部件名']]){const b=document.createElement('button');b.type='button';b.dataset[attr.replace(/-([a-z])/g,(_,c)=>c.toUpperCase())]='';b.textContent=text;toolbar.append(b)}
+ for(const lab of ['boom','screw']){const bar=document.querySelector(`.viewbar[data-for="${lab}"]`),b=document.createElement('button');b.className='study-entry';b.type='button';b.dataset.study=lab==='boom'?'hyd':'screw';b.textContent='剖视 / 组装';b.addEventListener('click',()=>openStudy(b.dataset.study));bar.insertBefore(b,bar.querySelector('.enlarge'))}
+ const partEntry=document.createElement('button');partEntry.type='button';partEntry.id='part-study';partEntry.className='study-entry';partEntry.textContent='剖视 / 组装';partEntry.addEventListener('click',()=>{const p=parts.find(p=>p.id===selectedPart);if(p)openStudy(p.lab==='boom'?'hyd':'screw')});document.querySelector('.part-tools').prepend(partEntry);
+ CourseTheme.register(setTheme);for(const b of document.querySelectorAll('[data-labels-toggle]'))b.addEventListener('click',()=>setLabels(!study.labels));
+ $('study-close').addEventListener('click',()=>$('study-dialog').close());$('study-dialog').addEventListener('close',()=>{study.play=false;study.auto=false;phys.hydV=0;phys.screwRate=0;if(selectedPart&&$('part-dialog').open){const p=parts.find(p=>p.id===selectedPart);$('part-parameter').innerHTML=p.parameter();renderPartModel()}dirty=true});
+ $('study-hyd').addEventListener('click',()=>openStudy('hyd'));$('study-screw').addEventListener('click',()=>openStudy('screw'));for(const b of document.querySelectorAll('[data-for="study"] [data-view]'))b.addEventListener('click',()=>{study.stage.setView(b.dataset.view);fitStudy()});$('study-fit').addEventListener('click',()=>{study.focus=false;fitStudy();updateStudyUI()});$('study-focus').addEventListener('click',()=>{study.focus=!study.focus;if(study.focus)study.stage.setView('front');fitStudy();updateStudyUI()});$('study-zoom-in').addEventListener('click',()=>{study.stage.zoom=clamp(study.stage.zoom*1.2,.65,2);dirty=true});$('study-zoom-out').addEventListener('click',()=>{study.stage.zoom=clamp(study.stage.zoom/1.2,.65,2);dirty=true});
+ $('study-section').addEventListener('change',e=>{study.section=e.target.checked;positionStudyPieces(0);updateStudyUI()});$('study-cut').addEventListener('input',e=>{study.cut=+e.target.value;positionStudyPieces(0);updateStudyUI()});$('study-explode').addEventListener('input',e=>{study.focus=false;study.play=false;study.target=+e.target.value/100;updateStudyUI();dirty=true;fitStudy()});$('study-demo-reset').addEventListener('click',restoreStudy);
+ $('study-start').addEventListener('click',beginExercise);$('study-restart').addEventListener('click',beginExercise);$('study-auto').addEventListener('click',()=>{if(!study.exercise||study.installed.size===study.pieces.length)beginExercise();study.auto=true;study.autoTime=0;feedback('自动示范进行中，注意安装次序与前置连接。')});$('study-undo').addEventListener('click',()=>{study.auto=false;const id=study.history.pop();if(id){study.installed.delete(id);study.selected=id;study.play=false;feedback('已撤回“'+study.pieces.find(p=>p.id===id).name+'”。');updateStudyUI();dirty=true}});$('study-install').addEventListener('click',()=>installPiece(study.selected,study.selected));
+ $('study-play').addEventListener('click',()=>{if(studyReady())study.play=!study.play;if(!study.play){phys.hydV=0;phys.screwRate=0}updateStudyUI();dirty=true});$('study-plus').addEventListener('click',()=>studyMove(study.hyd?2:1));$('study-minus').addEventListener('click',()=>studyMove(study.hyd?-2:-1));$('study-position').addEventListener('input',e=>{study.play=false;phys.hydV=0;phys.screwRate=0;if(study.hyd)s.theta=thetaFromLength(range.lmin+ +e.target.value);else s.ns=s.nn+ +e.target.value;positionStudyPieces(0);updateBoom();updateScrew();ui();updateStudyUI()});$('study-speed').addEventListener('change',e=>study.speed=+e.target.value);
+ setTheme(CourseTheme.get());setLabels(true);
+}
+
+function frame(now){const baseDt=last?Math.min(.05,(now-last)/1000):0,dt=baseDt*s.speed;last=now;if(visible&&(s.play||s.step||modalDemo.play)){if(activeModal)advance(baseDt*modalDemo.speeds[activeModal],activeModal==='boom'&&modalDemo.play,activeModal==='screw'&&(modalDemo.play||!!s.step));else advance(dt);updateBoom();updateScrew();dirty=true;if(now-uiTime>80){ui();uiTime=now}}if(visible)studyTick(dt);if(dirty&&visible){boom.render();screw.render();if(partStage&&$('part-dialog').open)partStage.render();if(study.stage&&$('study-dialog').open)study.stage.render();dirty=false;if(!s.play&&!s.step&&!modalDemo.play)ui()}requestAnimationFrame(frame)}
+buildBoomBase();rebuildBoom();buildScrew();initParts();initWorkshop();initPhysics();draw();requestAnimationFrame(frame);
+function renderedGeometry(){
+ boom.root.updateMatrixWorld(true);
+ const links=[B.a,B.b,B.c].map(node=>{
+  const start=node.localToWorld(V()),end=node.localToWorld(V(node.userData.jointLength,0,0));
+  return {length:start.distanceTo(end),start:start.toArray(),end:end.toArray()};
+ });
+ return {links,rodLength:B.rod.scale.y,barrelLength:B.body.scale.y};
+}
+window.mechanismLab={snapshot:()=>({...s,activeMechanism,geometry:renderedGeometry(),modal:{model:activeModal,play:modalDemo.play,speed:activeModal?modalDemo.speeds[activeModal]:null},range:{...range},model:solve(s.theta),vibrationMetrics:vibration(),relative:s.ns-s.nn,height:(s.ns-s.nn)*s.lead,views:{boom:boom.view,screw:screw.view}}),solve,getRange,cylinderLength,thetaFromLength,vibration,stages:{boom,screw},study:studySnapshot,physics:{hydraulicMetrics,screwMetrics,snapshot:()=>({...phys,history:undefined}),vibrationAdvance}};
+})();
+</script><script data-root="../" data-lab="mechanisms">(() => {
+  'use strict';
+  const script=document.currentScript,config=script.dataset;
+  const root=config.root||'../',active=config.lab;
+  const links=[{"id":"2-1","title":"动力装置的基本原理","demo":"course/chapters/02/tasks/2-1/index.html"},{"id":"2-2","title":"动力的传递与变换","demo":"course/chapters/02/tasks/2-2/index.html"},{"id":"2-3","title":"工作机构与施工动作","demo":"course/chapters/02/tasks/2-3/index.html"}];
+  const task={motor:'2-1',diesel:'2-1',transmission:'2-2',mechanisms:'2-3',fourbar:'2-3'}[active];
+  document.documentElement.dataset.c2=active;
+  const nav=document.createElement('nav');
+  nav.className='c2-nav';
+  nav.setAttribute('aria-label','本章导航');
+  nav.innerHTML=`<a class="c2-home" href="${root}course/chapters/02/overview/index.html">← 第二章 · 动力与工作机构</a><div class="c2-links">${links.map(({id,title,demo})=>`<a href="${root+demo}" ${id===task?'aria-current="page"':''}>${id} ${title}</a>`).join('')}</div>`;
+  document.body.prepend(nav);
+  if(active==='mechanisms'){
+    const lessons=document.querySelector('.lessons');if(lessons){const details=document.createElement('details');details.className='c2-lesson-notes';const summary=document.createElement('summary');summary.textContent='本实验要点 · 传力、导程与偏心振动';lessons.before(details);details.append(summary,lessons);}
+  }
+})();
+</script><script>window.Chapter2Guides = {
+  mechanisms: {
+    title: '工作机构：把动力变成施工动作',
+    goals: ['说明液压缸通过铰接连杆带动动臂的过程。', '比较丝杠和螺母的相对转动，解释导程与升降位移的关系。'],
+    steps: [['沿连接看动作', '选择“液压连杆”，单步伸出液压缸，观察动臂、连杆与从动臂；切换侧视，辨认销轴连接。'], ['换姿态比传力', '比较正常姿态与死点附近，观察力线、力臂和反馈。保留杆长，只改变输入，说明姿态对传力的影响。'], ['换约束看升降', '选择“丝杠升降”，比较螺母止转与同步同转；改变导程后转动一圈，核对相对圈数与轴向位移。']],
+    reflection: '液压缸同样伸出，动臂的转动是否处处相同？丝杠和螺母一起同速转动时，为什么可能没有升降？',
+    boundary: '几何、参考受力与振动均为教学模型。死点提示和数值保护不代表真实设备限位或通用安全阈值。',
+    help: ['切换“液压连杆／丝杠升降”选择实验，下方播放栏只运行当前装置。', '拖动旋转、滚轮缩放；正视、侧视、俯视、轴测和四视图用于观察不同连接。', '右侧滑杆可直接调节，单步按钮用于比较前后状态。点选零件名称查看三维部件说明。', '展示区“全屏／恢复”保留当前动作与视角；下方“复位”恢复实验。“物理实验”保留原有进阶探究。']
+  },
+  fourbar: {
+    title: '四杆扩展：输入、约束与输出',
+    goals: ['指出两个固定铰点与三根运动杆，理解闭合连接的约束。', '比较输入角、传动角和连杆点轨迹，区分姿态变化与重新装配。'],
+    steps: [['固定机架', '拖动橙色 U 点或输入角滑杆，确认 O₁、O₂ 始终固定，观察其余杆件随输入联动。'], ['看轨迹与传力', '选定 P 点并连续演示，观察轨迹；暂停后比较正常姿态、B/C 近共线和 A/B 死点的力线与反馈。'], ['比较装配', '在“杆长与装配”中选择预设或另一分支，再观察可达范围；对照右侧夹爪，说明输出杆怎样带动开合。']],
+    reflection: '为什么不能任意拖动四杆中的每个铰点？改变杆长或装配分支，与只改变输入角有什么不同？',
+    boundary: '参考轴向力仅用于分力演示，夹爪未计算接触或夹持力；数值隔离区不是实体限位。',
+    help: ['“拖动输入”模式下拖 U 驱动、拖 P 选轨迹点；切换“旋转视角”后拖动观察三维连接。', 'U 点获得键盘焦点后，左右方向键微调；也可用输入角滑杆、±5°或连续演示。', '“全景”恢复镜头，“清空轨迹”保留当前装配；应用杆长或切换分支会暂停并开始新的轨迹。', '主模型与夹爪均可全屏观察，Esc 恢复；全屏期间仍可暂停或单步。']
+  }
+};
+
+/* Chapter-wide presentation controls; experiments retain ownership of their state. */
+(() => {
+  'use strict';
+  const lab=document.documentElement.dataset.c2, lesson=window.Chapter2Guides?.[lab];
+  if(!lesson)return;
+  const $=selector=>document.querySelector(selector);
+  const make=(tag,cls,text)=>{const el=document.createElement(tag);el.className=cls||'';if(text)el.textContent=text;return el;};
+  const button=(text,fn,cls='')=>{const el=make('button','c2-button '+cls,text);el.type='button';el.addEventListener('click',fn);return el;};
+  const pause=()=>document.dispatchEvent(new Event('course:pause'));
+  const header={motor:'.top-actions',diesel:'.header-actions',transmission:'.top-actions',mechanisms:'.mast .toolbar',fourbar:'.fb-header nav'}[lab];
+  const actions=make('div','c2-learning-actions');
+  const helpOriginal=$('#helpBtn');
+  if(helpOriginal){helpOriginal.textContent='原理与实验说明';helpOriginal.classList.add('c2-original-help');}
+  const guide=button('学习引导',()=>openDialog('guide'),'c2-guide-button');guide.id='c2-guide';
+  const help=button('操作说明',()=>openDialog('help'));help.id='c2-help';
+  actions.append(guide,help);$(header)?.append(actions);
+  const dialog=make('dialog','c2-dialog');dialog.id='c2-learning-dialog';dialog.setAttribute('aria-labelledby','c2-dialog-title');
+  const dialogHead=make('div','c2-dialog-head'),title=make('h2');title.id='c2-dialog-title';
+  dialogHead.append(title,button('关闭',()=>dialog.close()));
+  const body=make('div','c2-dialog-body'),foot=make('div','c2-dialog-foot');
+  foot.append(button('开始观察',()=>dialog.close(),'c2-primary'));dialog.append(dialogHead,body,foot);document.body.append(dialog);
+  let opener;
+  function openDialog(kind){
+    pause();opener=kind==='guide'?guide:help;body.replaceChildren();
+    title.textContent=kind==='guide'?lesson.title:'操作说明';
+    function section(name,content){const h=make('h3','',name);body.append(h,content);}
+    if(kind==='guide'){
+      const goals=make('ul');lesson.goals.forEach(t=>goals.append(make('li','',t)));section('本节学什么',goals);
+      const steps=make('ol','c2-steps');lesson.steps.forEach(([name,text])=>{const item=make('li');item.append(make('strong','',name),make('p','',text));steps.append(item);});section('按这三步观察',steps);
+      section('观察后，试着说明',make('p','c2-reflection',lesson.reflection));body.append(make('p','c2-boundary',lesson.boundary));
+    }else{
+      const list=make('ol');lesson.help.forEach(t=>list.append(make('li','',t)));body.append(list);
+      if(helpOriginal&&lab!=='diesel')body.append(button('原理与实验说明 ↗',()=>{dialog.close();helpOriginal.click();}));
+    }
+    dialog.showModal();
+  }
+  dialog.addEventListener('close',()=>opener?.focus());
+  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+  // Keep legacy document shortcuts out of both guide and help dialogs.
+  document.addEventListener('keydown',e=>{if(dialog.open&&e.key!=='Escape')e.stopImmediatePropagation();},true);
+
+  // Keep each mechanism in a single observation workstation.
+  if(lab==='mechanisms'){
+    const labs=$('.labs'),panels=[...labs.children].filter(e=>e.classList.contains('lab'));
+    const tabs=make('div','c2-experiments');tabs.setAttribute('role','group');tabs.setAttribute('aria-label','工作机构展示方式');
+    panels.forEach(panel=>{
+      const model=make('section','c2-model-column'),control=make('aside','c2-control-column');
+      [...panel.children].forEach(el=>(el.matches('.stats,.controls,.lab-foot')?control:model).append(el));panel.append(model,control);
+    });
+    const transport=make('div','c2-mechanism-transport');
+    for(const element of [$('#play'),$('#reverse'),$('#reset'),$('#speed').closest('label')])transport.append(element);
+    const prompts=[
+      ['看液压缸怎样带动动臂','单步伸出液压缸，沿销轴观察 A、B、C 三根杆怎样联动。杆长滑块用于重新设置尺寸，播放时各杆的长度固定。'],
+      ['看转动怎样变成升降','先用“丝杠转 1 圈”比较位移，再改变导程重复观察。切换同步同转，比较丝杠与螺母的相对运动。'],
+    ];
+    panels.forEach((panel,i)=>{
+      const control=panel.querySelector('.c2-control-column');
+      const guide=make('section','mechanism-observation');
+      guide.append(make('h3','',prompts[i][0]),make('p','',prompts[i][1]));
+      control.prepend(panel.querySelector('.lab-head'),guide);
+    });
+    ['液压连杆','丝杠升降'].forEach((name,i)=>tabs.append(button(name,()=>select(i))));
+    function select(i){
+      panels[i].querySelector('.c2-model-column').append(transport);
+      document.dispatchEvent(new CustomEvent('mechanism:select',{detail:i===0?'boom':'screw'}));
+      labs.dataset.presentation='single';
+      panels.forEach((panel,n)=>{panel.hidden=n!==i;});
+      [...tabs.children].forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));
+      dispatchEvent(new Event('resize'));
+    }
+    labs.before(tabs);select(0);
+  }
+
+  let expanded=null,inerted=[],returnFocus=null,oldOverflow='';
+  const viewButtons=new Map();
+  function release(){
+    if(!expanded)return;
+    expanded.classList.remove('c2-expanded','c2-fallback');
+    inerted.forEach(([el,value])=>el.inert=value);inerted=[];
+    document.body.style.overflow=oldOverflow;document.body.classList.remove('c2-has-expanded');
+    expanded=null;sync();returnFocus?.focus();dispatchEvent(new Event('resize'));
+  }
+  function sync(){viewButtons.forEach((b,target)=>{const on=expanded===target;b.textContent=on?'⤢ 恢复':'⛶ 全屏';b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?'恢复页面布局':'全屏观察'+target.dataset.c2Title);});}
+  async function toggle(target,b){
+    if(expanded){if(document.fullscreenElement)await document.exitFullscreen();else release();return;}
+    expanded=target;returnFocus=b;oldOverflow=document.body.style.overflow;target.classList.add('c2-expanded');document.body.classList.add('c2-has-expanded');
+    document.body.style.overflow='hidden';
+    try{if(!target.requestFullscreen)throw new Error('Fullscreen unsupported');await target.requestFullscreen();}
+    catch{target.classList.add('c2-fallback');}
+    if(expanded!==target)return;
+    for(let node=target;node&&node!==document.body;node=node.parentElement){for(const sibling of node.parentElement.children){if(sibling!==node&&!sibling.matches('script,style,link')){inerted.push([sibling,sibling.inert]);sibling.inert=true;}}}
+    sync();b.focus();dispatchEvent(new Event('resize'));
+  }
+  document.addEventListener('fullscreenchange',()=>{if(expanded&&!document.fullscreenElement&&!expanded.classList.contains('c2-fallback'))release();});
+  document.addEventListener('keydown',e=>{if(expanded?.classList.contains('c2-fallback')&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();release();}},true);
+
+  function view(target,name,tools,play,step){
+    if(!target)return;
+    target.classList.add('c2-view');target.dataset.c2Title=name;
+    const bar=make('div','c2-viewbar'),label=make('span','c2-view-label',name),controls=make('div','c2-view-actions');
+    if(tools)controls.append(tools);
+    const motion=make('div','c2-view-motion');
+    if(play){const source=$(play);if(source){const proxy=button('',()=>source.click());const update=()=>{proxy.textContent=source.getAttribute('aria-label')||source.textContent.trim();proxy.disabled=source.disabled;};update();new MutationObserver(update).observe(source,{attributes:true,childList:true,subtree:true,characterData:true});motion.append(proxy);}}
+    if(step){const source=$(step);if(source){const proxy=button(source.textContent.trim(),()=>source.click());const update=()=>proxy.disabled=source.disabled;update();new MutationObserver(update).observe(source,{attributes:true});motion.append(proxy);}}
+    controls.append(motion);
+    const full=button('⛶ 全屏',()=>toggle(target,full),'c2-fullscreen');viewButtons.set(target,full);controls.append(full);bar.append(label,controls);target.prepend(bar);
+  }
+  if(lab==='motor')view($('#motorPanel'),'电机结构观察',$('#motorPanel .pills'));
+  if(lab==='diesel')view($('.workspace'),'柴油机结构观察',$('.view-tools'));
+  if(lab==='transmission')view($('.viewport'),'动力传动 · 结构观察',$('.scene-tools'),'#playBtn','#stepBtn');
+  if(lab==='mechanisms'){
+    view($('#boom-lab .c2-model-column'),'液压连杆 · 结构观察',$('#boom-lab .view-buttons'),'#play','#boom-step');
+    view($('#screw-lab .c2-model-column'),'丝杠升降 · 结构观察',$('#screw-lab .view-buttons'),'#play','#screw-step');
+  }
+  if(lab==='fourbar'){
+    view($('.fb-main'),'四杆机构 · 闭合与传力',null,'#fb-play','#fb-plus');
+    view($('.fb-gripper'),'夹爪 · 联动观察',null,'#fb-play','#fb-plus');
+    $('#fb-fit').textContent='全景';
+  }
+  // Older whole-page fullscreen remains in the source for compatibility only.
+  ['#fullscreenBtn','#fullBtn','#fullscreen','[data-enlarge]'].forEach(selector=>document.querySelectorAll(selector).forEach(el=>el.hidden=true));
+  sync();
+})();
+</script><script>/* 原版三维实验页的“嵌入模式”桥接。
+ * 页面被第二章任务页（index.html）用 iframe 打开时：只留下三维视图，其余原有界面隐藏；
+ * 外层面板通过 postMessage 发命令（点击、设值、调用接口），这里定时回报模型状态。
+ * 单独打开原页面时不做任何改动。file:// 下同样可用（只用 postMessage，不跨文档读 DOM）。
+ */
+(() => {
+  'use strict';
+  const embedded = window.parent !== window || /[?&]embed\b/.test(location.search);
+  if (!embedded) return;
+  const $ = s => document.querySelector(s);
+  const lab = () => document.documentElement.dataset.c2;
+  const text = s => ($(s)?.textContent || '').trim();
+  const pressed = s => $(s)?.getAttribute('aria-pressed') === 'true';
+  const json = v => JSON.parse(JSON.stringify(v ?? null));
+
+  /* 每个原版页面：保留哪个三维视图、隐藏其中哪些原有浮层、回报哪些状态 */
+  const LABS = {
+    motor: {
+      keep: '#stage',
+      hideInside: ['.view-hint', '.c2-viewbar'],
+      probe() {
+        const s = window.motorLab.getState(), m = window.motorLab.getModel(), st = window.motorLab.getStudent();
+        const view = ['cutMode', 'wholeMode', 'wireMode'].find(id => pressed('#' + id)) || 'cutMode';
+        return {voltage: s.voltage, load: s.load, dir: s.dir, paused: s.paused, part: s.part, showEM: s.showEM, cut: s.cut,
+          n: m.n, I: m.I, T: m.T, P: m.P, eff: m.eff, stall: m.stall, stalled: m.stalled, view,
+          partText: s.part !== 'all' ? text('.part-description') : '',
+          // 组装模式（原版“学生任务：组装与接线”）
+          student: {...st, step: $('#studentConsole')?.dataset.uiStep || '', feedback: text('#studentFeedback')}};
+      },
+    },
+    diesel: {
+      keep: '#viewport',
+      probe() {
+        const s = window.engineLab.getState();
+        const stroke = $('#strokes [aria-pressed="true"]');
+        return {mode: s.mode, observed: s.observed, angle: s.angle, running: s.running, speed: s.speed, explode: s.explode,
+          targetExplode: s.targetExplode, cut: s.cut, labels: s.labels, effects: s.effects, vehicle: s.vehicle,
+          installation: s.installation, audio: s.audioEnabled, selected: s.selected,
+          stroke: stroke ? +stroke.dataset.stroke : null, rpm: text('#rpmReadout'),
+          partName: s.selected ? text('#partName') : '', partDesc: s.selected ? text('#partDesc') : ''};
+      },
+    },
+    transmission: {
+      keep: '#canvasWrap',
+      // transmission.html#gear / #hyd / #air
+      setup() { const m = location.hash.slice(1); if (['gear', 'hyd', 'air'].includes(m)) window.MechanicsLab.switchMode(m); },
+      probe() {
+        const x = window.MechanicsLab.snapshot(), st = x.state;
+        return {mode: x.mode, playing: x.playing, speed: x.speed, params: x.params[x.mode], tr: x.transmission,
+          state: {x: st.x, v: st.v, pA: st.pA, pB: st.pB, force: st.force, status: st.status, command: st.command, cycles: st.cycles, auto: st.auto},
+          focused: x.view.focused, watch: text('#watchTitle')};
+      },
+    },
+    mechanisms: {
+      keep: () => (location.hash === '#screw' ? '#screw-stage' : '#boom-stage'),
+      hideInside: ['.stage-hint', '.stage-top', '.c2-viewbar'],
+      setup() {
+        const i = location.hash === '#screw' ? 1 : 0;
+        const tab = document.querySelectorAll('.c2-experiments button')[i];
+        tab?.click();
+      },
+      probe() {
+        const x = window.mechanismLab.snapshot();
+        return {active: x.activeMechanism, play: x.play, dir: x.dir, speed: x.speed, theta: x.theta, a: x.a, b: x.b, c: x.c,
+          lead: x.lead, rpm: x.rpm, starts: x.starts, ns: x.ns, nn: x.nn, mode: x.mode, relative: x.relative, height: x.height,
+          vibration: x.vibration, ecc: x.ecc, trace: x.trace, forces: x.forces, range: x.range,
+          moment: x.model?.moment, mu: x.model?.mu, len: x.model?.len,
+          stroke: +($('#stroke')?.value || 0), strokeMin: +($('#stroke')?.min || 0), strokeMax: +($('#stroke')?.max || 0),
+          amplitude: x.vibrationMetrics?.amplitude};
+      },
+    },
+  };
+
+  const css = `
+    html.c2-embed, html.c2-embed body { overflow:hidden !important; margin:0 !important; padding:0 !important; min-width:0 !important; min-height:0 !important; }
+    html.c2-embed body { background:var(--stage-bg, #f5f6f8) !important; }
+    html.c2-embed .c2-embed-hide { display:none !important; }
+    html.c2-embed [data-c2-path] { transform:none !important; filter:none !important; contain:none !important; overflow:visible !important; }
+    html.c2-embed [data-c2-keep="main"] {
+      position:fixed !important; inset:0 !important; width:100vw !important; height:100vh !important;
+      max-width:none !important; max-height:none !important; min-width:0 !important; min-height:0 !important;
+      margin:0 !important; border:0 !important; border-radius:0 !important; z-index:2147480000 !important; box-shadow:none !important;
+    }
+    html.c2-embed [data-c2-keep="inset"] {
+      position:fixed !important; right:14px !important; bottom:14px !important; left:auto !important; top:auto !important;
+      width:min(30vw,280px) !important; height:min(34vh,210px) !important; min-height:0 !important; margin:0 !important;
+      border:1px solid var(--course-line, #cbdbea) !important; border-radius:12px !important; overflow:hidden !important;
+      z-index:2147480001 !important; box-shadow:0 6px 18px rgba(25,53,80,.18) !important;
+    }
+    html.c2-embed dialog { z-index:2147483000; }
+  `;
+
+  function isolate(cfg) {
+    const pick = v => (typeof v === 'function' ? v() : v);
+    const main = $(pick(cfg.keep)), inset = cfg.inset ? $(pick(cfg.inset)) : null;
+    if (!main) return false;
+    document.documentElement.classList.add('c2-embed');
+    /* 嵌入外壳后：三维区里的部件标签不小于 13px，字体与外壳一致 */
+    const type = '\n.part-label,.tag,button.tag,span.tag{font-size:13px!important;letter-spacing:0!important;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC","Segoe UI",system-ui,sans-serif!important}';
+    const style = document.createElement('style'); style.textContent = css + type; document.head.append(style);
+    const keeps = [main, inset].filter(Boolean);
+    main.dataset.c2Keep = 'main'; if (inset) inset.dataset.c2Keep = 'inset';
+    for (const k of keeps) for (let n = k; n && n !== document.body; n = n.parentElement) {
+      if (n !== k) n.dataset.c2Path = '1';
+      n.hidden = false; n.inert = false; n.classList.remove('hidden');
+    }
+    for (const k of keeps) {
+      for (let n = k; n && n !== document.body; n = n.parentElement) {
+        const parent = n.parentElement; if (!parent) break;
+        for (const sib of parent.children) {
+          if (sib.dataset.c2Path || sib.dataset.c2Keep || sib.matches('script,style,link,dialog,canvas.c2-keep-canvas')) continue;
+          sib.classList.add('c2-embed-hide');
+        }
+      }
+    }
+    for (const sel of cfg.hideInside || []) main.querySelectorAll(sel).forEach(e => e.classList.add('c2-embed-hide'));
+    // 画布多为透明：铺上外壳统一的三维区底色（--stage-bg 由外壳传入），不沿用原页面的网格、渐变底
+    for (const k of keeps) k.style.setProperty('background', 'var(--stage-bg, #f5f6f8)', 'important');
+    // 隐藏页面级的浮动按钮（深色模式切换等）
+    document.querySelectorAll('body > button, body > .toast, #course-theme-toggle').forEach(e => { if (!e.dataset.c2Keep) e.classList.add('c2-embed-hide'); });
+    return true;
+  }
+
+  const post = msg => window.parent.postMessage({c2: 'lab', lab: lab(), ...msg}, '*');
+  function setValue(el, value) {
+    if (!el) return;
+    if (el.type === 'checkbox') { if (el.checked !== Boolean(value)) el.click(); return; }
+    el.value = value;
+    el.dispatchEvent(new Event('input', {bubbles: true}));
+    el.dispatchEvent(new Event('change', {bubbles: true}));
+  }
+  function call(path, args) {
+    const parts = path.split('.'); let ctx = window, fn = window;
+    for (const p of parts) { ctx = fn; fn = fn?.[p]; }
+    return typeof fn === 'function' ? fn.apply(ctx, args || []) : undefined;
+  }
+  addEventListener('message', e => {
+    const d = e.data;
+    if (!d || d.c2 !== 'cmd') return;
+    try {
+      if (d.op === 'click') { const list = document.querySelectorAll(d.sel); (list[d.index || 0])?.click(); }
+      else if (d.op === 'clickText') { [...document.querySelectorAll(d.sel)].find(e => e.textContent.trim().startsWith(d.text))?.click(); }
+      else if (d.op === 'set') setValue($(d.sel), d.value);
+      else if (d.op === 'call') call(d.path, d.args);
+      else if (d.op === 'event') document.dispatchEvent(new Event(d.name));
+      else if (d.op === 'theme') {
+        if (d.stage) {
+          // 外壳的三维区取值：CSS 变量给页面样式用，StageTone 给三维场景用；再按主题重绘
+          const t = d.value === 'dark' ? 'dark' : 'light', v = d.stage[t] || {};
+          for (const [k, val] of Object.entries(v)) if (val) document.documentElement.style.setProperty('--stage-' + k, val);
+          window.StageTone?.use(d.stage);
+        }
+        window.CourseTheme?.set?.(d.value);
+      }
+      else if (d.op === 'resize') dispatchEvent(new Event('resize'));
+      else if (d.op === 'capture') (window.StageTone?.capture?.(document.body) || Promise.resolve(null)).then(url => post({type: 'shot', url}));
+    } catch (err) { console.warn('[c2 bridge]', d, err); }
+    setTimeout(send, 30);
+  });
+
+  let probe = null;
+  function send() {
+    if (!probe) return;
+    try { post({type: 'state', data: json(probe())}); } catch (err) { /* 模型尚未就绪 */ }
+  }
+  addEventListener('load', () => {
+    const cfg = LABS[lab()];
+    if (!cfg) return;
+    cfg.setup?.();
+    isolate(cfg);
+    probe = cfg.probe;
+    // 不依赖 requestAnimationFrame：后台标签页里它不会执行
+    dispatchEvent(new Event('resize')); post({type: 'ready'}); send();
+    setTimeout(() => dispatchEvent(new Event('resize')), 300);
+    setInterval(send, 160);
+  });
+})();
+</script></body></html>

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "crazyflie",
+    "folder": "bitcraze_crazyflie_2",
+    "bytes": 301760,
+    "triangles": 9434,
+    "animations": [
+      {
+        "name": "悬停起伏示意",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.024999999999999994
+      },
+      {
+        "name": "机身姿态示意",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.08987854919801104
+      },
+      {
+        "name": "初始姿态",
+        "seconds": 6.0,
+        "frames": 2,
+        "max_qpos_delta": 0.0
+      }
+    ],
+    "method": "Forward kinematics; hand-authored demonstration; not a physics simulation",
+    "file": "shared/models/robots/crazyflie.glb",
+    "license": "shared/models/licenses/crazyflie.txt",
+    "sha256": "cae68666ee8b4a19af1711d7068beebf9c847ab1e1d4f29aada9f45fda64df44",
+    "runtime": "shared/models/robots/crazyflie.data.js",
+    "source": "https://github.com/google-deepmind/mujoco_menagerie",
+    "nature": "Licensed mesh; authored kinematic animation, not a validated controller"
+  },
+  {
+    "id": "iiwa",
+    "folder": "kuka_iiwa_14",
+    "bytes": 1472740,
+    "triangles": 74819,
+    "animations": [
+      {
+        "name": "协同关节活动",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.28
+      },
+      {
+        "name": "逐关节巡游",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.28
+      },
+      {
+        "name": "初始姿态",
+        "seconds": 6.0,
+        "frames": 2,
+        "max_qpos_delta": 0.0
+      }
+    ],
+    "method": "Forward kinematics; hand-authored demonstration; not a physics simulation",
+    "file": "shared/models/robots/iiwa.glb",
+    "license": "shared/models/licenses/iiwa.txt",
+    "sha256": "f5bef7aa7c5a27c9c46680c49ae08cbd50f25b721df3b7b584a36005cb01cf2b",
+    "runtime": "shared/models/robots/iiwa.data.js",
+    "source": "https://github.com/google-deepmind/mujoco_menagerie",
+    "nature": "Licensed mesh; authored kinematic animation, not a validated controller"
+  },
+  {
+    "id": "g1",
+    "folder": "unitree_g1",
+    "bytes": 7235404,
+    "triangles": 393270,
+    "animations": [
+      {
+        "name": "挥手示意",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.75
+      },
+      {
+        "name": "上肢关节活动",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.75
+      },
+      {
+        "name": "初始姿态",
+        "seconds": 6.0,
+        "frames": 2,
+        "max_qpos_delta": 0.0
+      }
+    ],
+    "method": "Forward kinematics; hand-authored demonstration; not a physics simulation",
+    "file": "shared/models/robots/g1.glb",
+    "license": "shared/models/licenses/g1.txt",
+    "sha256": "0b62acfaf7cf0474b2fc7ae7d5aab96c8c7c5f4d442c0109250145182a8ec508",
+    "runtime": "shared/models/robots/g1.data.js",
+    "source": "https://github.com/google-deepmind/mujoco_menagerie",
+    "nature": "Licensed mesh; authored kinematic animation, not a validated controller"
+  },
+  {
+    "id": "go2",
+    "folder": "unitree_go2",
+    "bytes": 4906396,
+    "triangles": 398432,
+    "animations": [
+      {
+        "name": "原地步态示意",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.35006145521806775
+      },
+      {
+        "name": "屈腿起伏",
+        "seconds": 6.0,
+        "frames": 121,
+        "max_qpos_delta": 0.2854689789091023
+      },
+      {
+        "name": "初始姿态",
+        "seconds": 6.0,
+        "frames": 2,
+        "max_qpos_delta": 0.0
+      }
+    ],
+    "method": "Forward kinematics; hand-authored demonstration; not a physics simulation",
+    "file": "shared/models/robots/go2.glb",
+    "license": "shared/models/licenses/go2.txt",
+    "sha256": "1b0ece6392e51413d7fcb631ab7fbaa585f0d52229c27f600df67b83df99711a",
+    "runtime": "shared/models/robots/go2.data.js",
+    "source": "https://github.com/google-deepmind/mujoco_menagerie",
+    "nature": "Licensed mesh; authored kinematic animation, not a validated controller"
+  },
+  {
+    "id": "sharpa",
+    "folder": "sharpa_wave",
+    "bytes": 9093640,
+    "triangles": 212032,
+    "uniqueSourceTriangles": 124951,
+    "animations": [
+      {
+        "name": "五指舒展与合拢",
+        "seconds": 8,
+        "frames": 81
+      },
+      {
+        "name": "手指依次活动",
+        "seconds": 8,
+        "frames": 81
+      }
+    ],
+    "method": "Source STL and MJCF hierarchy; authored kinematics, no physics simulation",
+    "file": "shared/models/robots/sharpa.glb",
+    "runtime": "shared/models/robots/sharpa.data.js",
+    "license": "shared/models/licenses/sharpa.txt",
+    "licenseId": "Apache-2.0",
+    "provenance": "shared/models/robots/sharpa-LICENSE.html",
+    "sha256": "58d7db28740bd51fa6c7bb7c8a981d3b380e8359144d5f1c1a1cb21ad0631c88",
+    "source": "https://github.com/google-deepmind/mujoco_menagerie/tree/98a70c569c4c1b6da467a20012f766ee1f8dc521/sharpa_wave",
+    "nature": "Licensed model mesh; authored finger demonstration, not a validated grasp controller"
+  }
+]

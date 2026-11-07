@@ -1,0 +1,19 @@
+[
+ ["eval","window.masonryLab.seek(3.5)"],
+ ["shot","qa/rebuild/robot-fit.png",".app"],
+ ["click","[data-view=detail]"],
+ ["shot","qa/rebuild/turn-close-light.png","#stage",4],
+ ["eval","window.masonryLab.seek(6.5)"],
+ ["shot","qa/rebuild/contact-close-light.png","#stage",4],
+ ["click",".mechanism-details summary"],
+ ["eval","document.getElementById('explode').value=1;document.getElementById('explode').dispatchEvent(new Event('input',{bubbles:true}))"],
+ ["shot","qa/rebuild/apart-close-light.png","#stage",4],
+ ["click","#theme"],
+ ["shot","qa/rebuild/apart-close-dark.png","#stage",4],
+ ["eval","document.getElementById('explode').value=0;document.getElementById('explode').dispatchEvent(new Event('input',{bubbles:true}));window.masonryLab.seek(6.5)"],
+ ["shot","qa/rebuild/contact-close-dark.png","#stage",4],
+ ["click","[data-view=iso]"],
+ ["click","[data-platform=mobile]"],
+ ["shot","qa/rebuild/mobile-station-dark.png",".app"],
+ ["eval","JSON.stringify(window.masonryLab.snapshot().scene)"]
+]

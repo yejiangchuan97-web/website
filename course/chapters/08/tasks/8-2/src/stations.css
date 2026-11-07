@@ -1,0 +1,149 @@
+/* 8-2 保养排查：三维区与面板的补充样式（外壳样式在 shared/lab-shell）。 */
+
+/* —— 三维区 —— */
+html.lab-native .m82-stage { overflow:hidden; background:linear-gradient(180deg,#f4f7fb 0%,#e3e9f0 100%); touch-action:none; outline:none; }
+html[data-theme="dark"].lab-native .m82-stage { background:linear-gradient(180deg,#16263a 0%,#0d1826 100%); }
+.m82-stage > canvas { display:block; width:100% !important; height:100% !important; cursor:grab; }
+.m82-stage > canvas:active { cursor:grabbing; }
+.m82-no3d { display:grid; place-items:center; color:var(--course-muted); font-size:14px; padding:24px; text-align:center; }
+.m82-overlay { position:absolute; inset:0; pointer-events:none; }
+
+/* 模型上的检查点：编号圆点 + 名称，状态用颜色区分 */
+.m82-pt {
+  position:absolute; left:0; top:0; pointer-events:auto; display:flex; align-items:center; gap:6px;
+  margin:-14px 0 0 -14px; padding:3px 10px 3px 3px; border-radius:16px; border:1px solid rgba(255,255,255,.7);
+  background:rgba(255,255,255,.88); backdrop-filter:blur(6px); box-shadow:0 4px 14px rgba(21,45,80,.18);
+  font:600 12.5px/1 inherit; color:#1e3550; cursor:pointer; white-space:nowrap; transition:opacity .2s, background .15s, box-shadow .15s;
+}
+.m82-pt i {
+  width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:12px; font-weight:700;
+  background:#3a82e4; color:#fff; box-shadow:0 0 0 3px rgba(58,130,228,.22);
+}
+.m82-pt[data-state="todo"] i { animation:m82-pulse 2.2s ease-in-out infinite; }
+.m82-pt[data-state="ok"] i { background:#2e9e6b; box-shadow:0 0 0 3px rgba(46,158,107,.22); }
+.m82-pt[data-state="ok"] i::before { content:'✓'; }
+.m82-pt[data-state="done"] i { background:#c8931f; box-shadow:0 0 0 3px rgba(200,147,31,.25); }
+.m82-pt[data-state="bad"] i { background:#d6453b; box-shadow:0 0 0 3px rgba(214,69,59,.25); }
+.m82-pt[data-state="bad"] i::before { content:'!'; }
+.m82-pt:is([data-state="ok"],[data-state="bad"]) i { font-size:0; }
+.m82-pt:is([data-state="ok"],[data-state="bad"]) i::before { font-size:12px; }
+.m82-pt:hover { background:#fff; box-shadow:0 6px 18px rgba(21,45,80,.26); }
+.m82-pt[hidden] { display:none; }
+html[data-theme="dark"] .m82-pt { background:rgba(20,34,52,.86); border-color:rgba(255,255,255,.12); color:#e3ecf7; }
+html[data-theme="dark"] .m82-pt:hover { background:rgba(30,48,72,.95); }
+@keyframes m82-pulse { 0%,100% { box-shadow:0 0 0 3px rgba(58,130,228,.22); } 50% { box-shadow:0 0 0 7px rgba(58,130,228,.08); } }
+@media (prefers-reduced-motion:reduce) { .m82-pt i { animation:none !important; } }
+
+/* —— 三维区上方：情境 —— */
+.m82-cases { display:flex; align-items:center; gap:6px; width:100%; flex-wrap:nowrap; }
+.m82-cases-label { font-size:12px; font-weight:700; color:var(--course-muted); padding:0 4px 0 2px; white-space:nowrap; }
+.m82-case {
+  flex:1 1 0; min-width:0; height:32px; padding:0 12px; border-radius:10px; border:1px solid var(--hair);
+  background:var(--course-surface); color:var(--course-ink); font:600 13px/1 inherit; cursor:pointer; white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis; box-shadow:var(--shadow-sm); transition:border-color .15s, background .15s, color .15s;
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+}
+.m82-case::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--ok); flex:none; }
+.m82-case.abn::before { background:var(--warn); }
+.m82-case.unk::before { background:var(--course-muted); }
+.m82-case:hover { border-color:var(--course-accent); }
+.m82-case[aria-checked="true"] { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); box-shadow:0 0 0 1px var(--course-accent) inset; }
+
+/* —— 面板：现场 —— */
+html[data-c3-task="8-2"] .c2-panel-head > p:empty { display:none; }
+.m82-pills { display:flex; flex-wrap:wrap; gap:6px; }
+.m82-pill { display:inline-flex; align-items:center; gap:5px; height:26px; padding:0 10px; border-radius:13px; background:var(--surface-2, var(--course-bg)); font-size:12px; color:var(--course-muted); }
+.m82-pill b { color:var(--course-ink); font-weight:650; font-variant-numeric:tabular-nums; }
+.m82-pill i { width:7px; height:7px; border-radius:50%; background:var(--course-muted); }
+.m82-pill[data-s="ok"] i { background:var(--ok); }
+.m82-pill[data-s="warn"] i { background:var(--warn); }
+.m82-pill[data-s="warn"] b { color:var(--warn); }
+
+/* —— 面板：维护流程（竖向步骤线） —— */
+.m82-flow { list-style:none; margin:0; padding:0; display:grid; gap:2px; counter-reset:m82; }
+.m82-step { position:relative; counter-increment:m82; }
+.m82-step:not(.m82-ends)::before { content:''; position:absolute; left:15px; top:30px; bottom:-6px; width:2px; background:var(--hair); border-radius:1px; }
+.m82-step.done:not(.m82-ends)::before { background:var(--ok); opacity:.55; }
+.m82-step-btn {
+  position:relative; display:flex; align-items:center; gap:10px; width:100%; min-height:32px; padding:3px 10px 3px 4px;
+  border:1px solid transparent; border-radius:10px; background:none; color:var(--course-ink); font:600 13.5px/1.3 inherit;
+  text-align:left; cursor:pointer; transition:background .15s, border-color .15s;
+}
+.m82-step-btn:not(.static):hover { background:var(--blue-soft); }
+html.lab-native .c2-panel .m82-step-btn.static { cursor:default; opacity:1; }
+.m82-step-text { flex:1; }
+.m82-dot {
+  flex:none; width:24px; height:24px; margin-left:3px; border-radius:50%; display:grid; place-items:center;
+  border:2px solid var(--hair); background:var(--course-surface); font-size:11.5px; font-weight:700; color:var(--course-muted);
+}
+.m82-dot::before { content:counter(m82); }
+.m82-step.done .m82-dot { border-color:var(--ok); background:var(--ok); color:#fff; }
+.m82-step.done .m82-dot::before { content:'✓'; }
+.m82-step.next .m82-step-btn { border-color:var(--course-accent); background:var(--blue-soft); }
+.m82-step.next .m82-dot { border-color:var(--course-accent); color:var(--course-accent); }
+.m82-step.bad .m82-dot { border-color:var(--bad); color:var(--bad); background:var(--course-surface); }
+.m82-step.bad .m82-dot::before { content:'!'; }
+.m82-pct { font-size:12px; color:var(--course-muted); font-variant-numeric:tabular-nums; }
+.m82-step.done .m82-pct { color:var(--ok); }
+
+.m82-chips, .m82-mats { display:flex; flex-wrap:wrap; gap:5px; padding:2px 0 6px 41px; }
+.m82-chip, .m82-mat {
+  display:inline-flex; align-items:center; gap:5px; height:28px; padding:0 9px 0 4px; border-radius:14px; border:1px solid var(--hair);
+  background:var(--course-surface); color:var(--course-ink); font:500 12.5px/1 inherit; cursor:pointer; transition:border-color .15s, background .15s;
+}
+.m82-mat { padding:0 10px; border-radius:8px; }
+.m82-chip i { width:20px; height:20px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:11px; font-weight:700; background:var(--blue-soft); color:var(--course-accent); }
+.m82-chip:hover, .m82-mat:hover { border-color:var(--course-accent); }
+.m82-chip[data-state="ok"] { border-color:var(--ok); }
+.m82-chip[data-state="ok"] i { background:var(--ok); color:#fff; }
+.m82-chip[data-state="done"] { border-color:#c8931f; background:var(--warn-soft); }
+.m82-chip[data-state="done"] i { background:#c8931f; color:#fff; }
+.m82-chip[data-state="bad"] { border-color:var(--bad); background:var(--bad-soft); color:var(--bad); }
+.m82-chip[data-state="bad"] i { background:var(--bad); color:#fff; }
+.m82-mat[aria-checked="true"] { border-color:var(--course-accent); color:var(--course-accent); background:var(--blue-soft); font-weight:650; }
+.m82-mat[aria-checked="true"]:not(.ok) { border-color:var(--bad); color:var(--bad); background:var(--bad-soft); }
+.m82-bar { height:5px; margin:0 10px 4px 41px; border-radius:3px; background:var(--hair); overflow:hidden; }
+.m82-bar span { display:block; height:100%; width:0; background:linear-gradient(90deg,var(--course-accent),var(--ok)); transition:width .4s; }
+.m82-tip { margin:0 10px 4px 41px; font-size:12px; line-height:1.45; color:var(--course-muted); }
+.m82-ends { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0 0 41px; }
+.m82-ends .c2-btn { width:100%; }
+.m82-hand { border-color:var(--warn) !important; color:var(--warn) !important; }
+.m82-verdict { margin-top:8px; padding:8px 11px; border-radius:10px; font-size:12.5px; line-height:1.45; font-weight:600; }
+.m82-verdict.ok { background:var(--ok-soft); color:var(--ok); }
+.m82-verdict.warn { background:var(--warn-soft); color:var(--warn); }
+
+/* —— 面板：交接记录 —— */
+.m82-records { list-style:none; margin:0; padding:0; display:grid; gap:4px; max-height:120px; overflow:auto; }
+.m82-records li { display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:center; padding:5px 9px; border-radius:8px; background:var(--surface-2, var(--course-bg)); font-size:12.5px; }
+.m82-rec-st { font-weight:650; }
+.m82-rec-case { color:var(--course-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.m82-records li.ok b { color:var(--ok); }
+.m82-records li.open b { color:var(--warn); }
+.m82-records li.m82-empty { display:block; color:var(--course-muted); background:none; padding:2px 0; }
+.m82-rec-tools { display:flex; gap:6px; margin-top:8px; }
+.m82-clear { color:var(--bad) !important; }
+
+@media (max-height:700px) {
+  .m82-step-btn { min-height:28px; padding-top:1px; padding-bottom:1px; }
+  .m82-dot { width:22px; height:22px; }
+  .m82-step:not(.m82-ends)::before { left:14px; top:26px; }
+  .m82-chip, .m82-mat { height:26px; }
+}
+
+/* —— 清洗工位（喷涂管路、砂浆管道） —— */
+.m82-note { margin:8px 0 0; font-size:11.5px; line-height:1.45; color:var(--course-muted); }
+.m82-step.running .m82-step-btn { border-color:var(--warn); background:var(--warn-soft); }
+.m82-step.running .m82-dot { border-color:var(--warn); color:var(--warn); animation:m82-pulse 1.6s ease-in-out infinite; }
+.m82-step.need:not(.done) .m82-step-text::after { content:' · 本单必做'; color:var(--warn); font-weight:700; }
+.m82-cup { display:flex; align-items:center; gap:7px; padding:2px 10px 4px 41px; font-size:12.5px; color:var(--course-muted); }
+.m82-cup i { width:16px; height:16px; border-radius:4px 4px 7px 7px; border:1.5px solid var(--hair); background:#cfe6f2; transition:background .4s; }
+.m82-cup i[data-k="paint"][data-paint="water"] { background:#3f8fd6; }
+.m82-cup i[data-k="paint"][data-paint="oil"] { background:#c4702a; }
+.m82-cup i[data-k="mid"][data-paint="water"] { background:#8dbde3; }
+.m82-cup i[data-k="mid"][data-paint="oil"] { background:#dca878; }
+.m82-seg { position:relative; overflow:hidden; padding-right:10px; }
+.m82-seg em { position:absolute; left:0; right:0; bottom:0; height:3px; background:linear-gradient(90deg,#8b7f6c,#c9a227 60%,#d6453b); clip-path:inset(0 calc((1 - var(--k,0)) * 100%) 0 0); }
+.m82-seg[data-state="ok"] em { display:none; }
+.m82-seg[data-state="done"] { border-color:var(--course-accent); background:var(--blue-soft); }
+.m82-seg[data-state="done"] i { background:var(--course-accent); color:#fff; }
+.m82-mat.ok[aria-checked="true"] { border-color:var(--ok); color:var(--ok); background:var(--ok-soft); }

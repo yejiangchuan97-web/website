@@ -1,0 +1,179 @@
+- generic [active] [ref=f8e1]:
+  - navigation "本章导航" [ref=f8e2]:
+    - link "← 第二章 · 动力与工作机构" [ref=f8e3] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/overview/index.html
+    - generic [ref=f8e4]:
+      - link "2-1 动力装置的基本原理" [ref=f8e5] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/tasks/2-1/index.html
+      - link "2-2 动力的传递与变换" [ref=f8e6] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/tasks/2-2/index.html
+      - link "2-3 工作机构与施工动作" [ref=f8e7] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/tasks/2-3/index.html
+    - button "深色模式" [ref=f8e8] [cursor=pointer]: ☾ 深色模式
+  - banner [ref=f8e9]:
+    - link "动力传动实验室" [ref=f8e10] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=f8e11]: ⚙
+      - generic [ref=f8e12]:
+        - text: 动力传动实验室
+        - generic [ref=f8e13]: MECHANICS / INTERACTIVE LAB
+    - navigation "装置切换" [ref=f8e14]:
+      - button "01机械传动" [ref=f8e15] [cursor=pointer]
+      - button "02液压推动" [ref=f8e16] [cursor=pointer]
+      - button "03气压推动" [ref=f8e17] [cursor=pointer]
+    - generic [ref=f8e19]:
+      - button "学习引导" [ref=f8e20] [cursor=pointer]
+      - button "操作说明" [ref=f8e21] [cursor=pointer]
+  - main [ref=f8e22]:
+    - region "三维模型视窗" [ref=f8e23]:
+      - generic [ref=f8e24]:
+        - generic [ref=f8e25]: 动力传动 · 结构观察
+        - generic [ref=f8e26]:
+          - generic [ref=f8e27]:
+            - button "正视" [ref=f8e28] [cursor=pointer]
+            - button "3D" [ref=f8e29] [cursor=pointer]
+            - button "⌂" [ref=f8e30] [cursor=pointer]
+          - button "全屏观察动力传动 · 结构观察" [ref=f8e31] [cursor=pointer]: ⛶ 全屏
+      - generic [ref=f8e32]:
+        - generic "可拖动旋转、滚轮缩放的三维机械模型" [ref=f8e33]
+        - group "常显组件名称":
+          - button "主动齿轮" [ref=f8e34]:
+            - generic [ref=f8e35]: "01"
+          - button "从动齿轮" [ref=f8e36]:
+            - generic [ref=f8e37]: "02"
+          - button "1号轴 · 输入" [ref=f8e38]:
+            - generic [ref=f8e39]: "03"
+          - button "2号轴 · 输出" [ref=f8e40]:
+            - generic [ref=f8e41]: "04"
+          - button "轴承座" [ref=f8e42]:
+            - generic [ref=f8e43]: "05"
+          - button "驱动电机" [ref=f8e44]:
+            - generic [ref=f8e45]: "06"
+          - button "平键" [ref=f8e46]:
+            - generic [ref=f8e47]: "07"
+          - button "轴端挡圈" [ref=f8e48]:
+            - generic [ref=f8e49]: "08"
+          - button "安装底座" [ref=f8e50]:
+            - generic [ref=f8e51]: "09"
+          - button "齿面啮合区" [ref=f8e52]:
+            - generic [ref=f8e53]: "10"
+      - generic:
+        - generic:
+          - generic: 主动轮
+          - generic: 从动轮
+          - generic: 接触 / 运动标记
+        - generic: 点击名称独立查看 · 拖动旋转 · 滚轮缩放
+      - generic [ref=f8e54]:
+        - generic [ref=f8e55]:
+          - generic [ref=f8e56]: 输入轴转速
+          - strong [ref=f8e57]: "18"
+          - emphasis [ref=f8e58]: rpm
+          - generic [ref=f8e59]: 1 号轴 · 动力输入
+        - generic [ref=f8e60]:
+          - generic [ref=f8e61]: 输出轴转速
+          - strong [ref=f8e62]: "-9.0"
+          - emphasis [ref=f8e63]: rpm
+          - generic [ref=f8e64]: 2 号轴 · 外啮合反向
+        - generic [ref=f8e65]:
+          - generic [ref=f8e66]: 输出转矩
+          - strong [ref=f8e67]: "15.52"
+          - emphasis [ref=f8e68]: N·m
+          - generic [ref=f8e69]: 传动效率 97%
+        - generic [ref=f8e70]:
+          - generic [ref=f8e71]: 传动比
+          - strong [ref=f8e72]: "2.00"
+          - emphasis [ref=f8e73]: ": 1"
+          - generic [ref=f8e74]: 输出 / 输入齿数
+    - complementary [ref=f8e75]:
+      - generic [ref=f8e76]: 观察与实验
+      - region "本实验的观察与操作" [ref=f8e78]:
+        - heading "齿轮怎样传递转动" [level=2] [ref=f8e79]
+        - paragraph [ref=f8e80]: 先找主动轮和从动轮，比较转向与转速。
+        - list [ref=f8e81]:
+          - listitem [ref=f8e82]: 改变齿数组合，观察大齿轮是否转得更慢。
+          - listitem [ref=f8e83]: 交换输入轴，再比较两根轴的运动。
+      - generic [ref=f8e84]:
+        - tablist [ref=f8e85]:
+          - tab "实验控制" [selected] [ref=f8e86] [cursor=pointer]
+          - tab "学习任务" [ref=f8e87] [cursor=pointer]
+          - tab "零件说明" [ref=f8e88] [cursor=pointer]
+        - generic [ref=f8e89]:
+          - group [ref=f8e90]:
+            - generic "部件索引 · 对应图中编号" [ref=f8e91] [cursor=pointer]
+          - generic [ref=f8e92]:
+            - text: 装置设置
+            - generic [ref=f8e93]: 01 / TRANSMISSION
+          - generic [ref=f8e94]:
+            - generic "传动方式" [ref=f8e95]:
+              - button "齿轮" [ref=f8e96] [cursor=pointer]
+              - button "带传动" [ref=f8e97] [cursor=pointer]
+              - button "链传动" [ref=f8e98] [cursor=pointer]
+            - generic [ref=f8e99]:
+              - generic [ref=f8e100]:
+                - generic [ref=f8e101]: 选择输入轴
+                - status [ref=f8e102]: 1号轴
+              - combobox "选择输入轴" [ref=f8e103] [cursor=pointer]:
+                - option "1 号轴（左）输入 → 2 号轴输出" [selected]
+                - option "2 号轴（右）输入 → 1 号轴输出"
+            - generic [ref=f8e104]:
+              - generic [ref=f8e105]:
+                - generic [ref=f8e106]: 输入轴转速
+                - status [ref=f8e107]: 18rpm
+              - slider "输入轴转速" [ref=f8e108] [cursor=pointer]: "18"
+              - generic [ref=f8e109]:
+                - generic [ref=f8e110]: 0 rpm
+                - generic [ref=f8e111]: 60 rpm
+            - generic [ref=f8e112]:
+              - generic [ref=f8e113]:
+                - generic [ref=f8e114]: 齿轮齿数组合
+                - status [ref=f8e115]: "2.00: 1"
+              - combobox "齿轮齿数组合" [ref=f8e116] [cursor=pointer]:
+                - option "1 号 20 齿 / 2 号 20 齿"
+                - option "1 号 20 齿 / 2 号 30 齿"
+                - option "1 号 20 齿 / 2 号 40 齿" [selected]
+                - option "1 号 20 齿 / 2 号 60 齿"
+            - generic [ref=f8e117]:
+              - generic [ref=f8e118]:
+                - generic [ref=f8e119]: 输入转矩
+                - status [ref=f8e120]: 8N·m
+              - slider "输入转矩" [ref=f8e121] [cursor=pointer]: "8"
+              - generic [ref=f8e122]:
+                - generic [ref=f8e123]: 1 N·m
+                - generic [ref=f8e124]: 30 N·m
+            - generic [ref=f8e125]:
+              - generic [ref=f8e126]:
+                - checkbox "显示节圆与接触点" [checked] [ref=f8e127]
+                - text: 显示节圆与接触点
+              - button "盘车 +15°" [ref=f8e128] [cursor=pointer]
+            - generic [ref=f8e129]:
+              - button "↶ 正向" [ref=f8e130] [cursor=pointer]
+              - button "↷ 反向" [ref=f8e131] [cursor=pointer]
+          - generic [ref=f8e132]:
+            - strong [ref=f8e135]: 外啮合 · 两轮反向
+            - paragraph [ref=f8e136]: 1 号轴输入 → 2 号轴输出 · 输入 15.1 W / 输出 14.6 W。模数 2.5 mm，压力角 20°，中心距 75.0 mm。
+          - generic [ref=f8e137]:
+            - generic [ref=f8e138]: 工作原理
+            - strong [ref=f8e139]: n出 = −n入 × z入 / z出
+            - paragraph [ref=f8e140]: 外啮合齿轮反向旋转。大齿轮转得更慢，输出转矩更大。
+          - generic [ref=f8e141]:
+            - generic [ref=f8e142]:
+              - generic [ref=f8e143]: 输入 / 输出转速幅值
+              - generic [ref=f8e144]: rpm
+            - generic "实时数据曲线" [ref=f8e145]
+            - generic [ref=f8e146]:
+              - generic [ref=f8e147]: 主动轮
+              - generic [ref=f8e149]: 从动轮
+  - contentinfo [ref=f8e151]:
+    - generic [ref=f8e152]:
+      - button "Ⅱ 暂停" [ref=f8e153] [cursor=pointer]
+      - button "单步 +0.1s" [ref=f8e154] [cursor=pointer]
+      - button "↺ 重置" [ref=f8e155] [cursor=pointer]
+    - generic [ref=f8e156]:
+      - generic [ref=f8e157]: 整体播放速率
+      - slider "整体播放速率" [ref=f8e158] [cursor=pointer]: "1"
+      - status [ref=f8e159]: 1.0×
+      - button "1×" [ref=f8e160] [cursor=pointer]
+    - generic [ref=f8e161]:
+      - generic [ref=f8e162]: 模拟时间
+      - strong [ref=f8e163]: 00:00.1
+      - generic [ref=f8e164]: 播放倍率不改变物理参数

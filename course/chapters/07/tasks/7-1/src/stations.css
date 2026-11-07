@@ -1,0 +1,63 @@
+/* 7-1：原页面的提示气泡改由外壳提示条显示 */
+.c7-muted-toast { display:none !important; }
+
+/* 7-1：A / B / C 检查点横排在三维区上方 */
+.c2-stage-top .point-list { display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; width:100%; padding:0 !important; margin:0; background:none !important; border:0 !important; }
+.c2-stage-top .point-list button {
+  display:flex; align-items:center; gap:10px; min-height:0; padding:7px 12px !important; margin:0; text-align:left;
+  border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); box-shadow:var(--shadow-sm); color:var(--ink, inherit); cursor:pointer;
+}
+.c2-stage-top .point-list button[aria-pressed="true"] { border-color:var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; }
+.c2-stage-top .point-letter { font-size:20px; line-height:1; font-weight:700; color:var(--course-accent); }
+.c2-stage-top .point-text { gap:2px; min-width:0; }
+.c2-stage-top .point-text strong { font-size:13.5px; }
+.c2-stage-top .point-text small { font-size:11.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.c2-stage-top .point-check { font-size:14px; }
+.c2-stage-top .point-check.complete { color:#1f8a5b; font-weight:700; }
+
+/* 7-1：三维区左上角视角条、右上角状态在外壳里的位置 */
+.c2-native-stage.scene-area { position:absolute; inset:0; border-radius:inherit; }
+.c2-native-stage .view-tools { top:12px; left:12px; border-radius:12px; box-shadow:var(--shadow-sm); flex-wrap:wrap; max-width:calc(100% - 200px); }
+.c2-native-stage .view-tools button { font-size:12px; padding:6px 10px; color:var(--ink, inherit); }
+.c2-native-stage .scene-live { top:20px; bottom:auto; right:16px; font-size:12px; }
+.c2-native-stage .scene-caption-overlay { bottom:12px; font-size:12px; }
+.c2-native-stage .parts-panel { top:64px; right:14px; border-radius:14px; }
+
+/* 7-1：面板里的原有内容 */
+.c2-panel #controlPanel { display:flex; flex-direction:column; gap:10px; flex:none; min-height:0; }
+.c2-panel #controlPanel .push { margin-top:0; }
+/* 与三维区左上角视角条重复的按钮去掉 */
+.c2-panel #controlPanel > .two-buttons:has(> [data-view]) { display:none; }
+/* 往下一步跳的大按钮去掉：工位条就是步骤 */
+.c2-panel #controlPanel > button.primary[data-action] { display:none; }
+.c2-panel #controlPanel .micro { font-size:12px; }
+.c2-panel #controlPanel .brief { font-size:13px; line-height:1.7; color:var(--muted); }
+.c2-panel .mission-card { border-radius:12px; padding:12px 14px; }
+.c2-panel .mission-card h3 { display:none; }
+.c2-panel .mission-card p { font-size:12.5px; line-height:1.7; }
+.c2-panel .mission-card dl { margin-top:8px; gap:6px 8px; font-size:12.5px; }
+.c2-panel #controlPanel > .micro:last-of-type { display:none; }
+.c2-panel .robot-options button { border-radius:12px; }
+.c2-panel .robot-options svg { height:34px; margin-bottom:4px; }
+.c2-panel .robot-options small { font-size:10.5px; }
+.c2-panel .robot-description { font-size:12px; }
+.c2-panel .route-meter { border-radius:12px; }
+.c2-panel .route-meter small, .c2-panel .route-meter > div:first-child { font-size:12px; }
+.c2-panel .preflight { border-radius:12px; }
+.c2-panel .check-row { font-size:12.5px; }
+.c2-panel .camera-view { height:auto; aspect-ratio:16/10; border-radius:12px; }
+.c2-panel .camera-badge, .c2-panel .camera-quality { font-size:10.5px; }
+.c2-panel .range-group label { font-size:12px; }
+.c2-panel .mode-row button, .c2-panel .camera-actions button { font-size:12.5px; border-radius:10px; }
+.c2-panel .photo-counts { font-size:12px; }
+.c2-panel .inline-link { font-size:12px; }
+.c2-panel .record-field select { font-size:12.5px; border-radius:10px; }
+.c2-panel .record-state { border-radius:12px; font-size:12.5px; }
+.c2-panel .photo-item { border-radius:10px; }
+.c2-panel .photo-item > span { font-size:12px; }
+.c2-panel #controlPanel button { border-radius:10px; }
+:root[data-theme="dark"] .c2-native-stage #liveReadout { color:#a9d0f5; }
+
+/* 三维区：右上角状态让出全屏按钮；左下角操作提示与外壳的一次性提示重复，去掉 */
+html.lab-native .scene-area .scene-live { right:60px; }
+html.lab-native .scene-area #viewHint { display:none !important; }

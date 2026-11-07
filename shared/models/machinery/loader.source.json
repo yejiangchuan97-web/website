@@ -1,0 +1,51 @@
+{
+  "sourcePage": "https://www.innerscene.com/tools/library/3d-parts/wheel-loader-da80dfd2",
+  "retrieved": "2026-11-01",
+  "publisher": {
+    "id": "wheel-loader-da80dfd2",
+    "shareId": "1PHS3zS5yQSeHU9crLq8iP",
+    "fileHash": "e424c39f450fbb4310729260599a211772f8d9099bc60d9fa2756f835689b895",
+    "fileName": "wheel-loader.glb",
+    "ext": "glb",
+    "size": 6289360,
+    "kind": "3d",
+    "title": "Wheel loader",
+    "description": "Wheel loader. Overall size 8.151 x 3.090 x 3.700 m; original unbranded model. Overall 8.2 x 3.1 x 3.7 m.\n\nNominal size: 8151.00 x 3090.00 x 3700.00 mm overall.\n\nglTF binary (GLB) mesh with materials, modeled in meters at real-world scale. Export to other formats from the viewer.\n\nNominal dimensions for layout, fit checks and visualization; they do not establish a manufacturing tolerance class, load rating or standards certification. Original Innerscene model, released CC0.",
+    "keywords": [
+      "excavator",
+      "bulldozer",
+      "loader",
+      "construction equipment",
+      "site",
+      "construction plant",
+      "wheel loader",
+      "loaders",
+      "front loader",
+      "front end loader",
+      "earthmoving",
+      "heavy equipment",
+      "machinery",
+      "digger"
+    ],
+    "tags": [
+      "vehicles",
+      "real-scale",
+      "textured",
+      "assembly"
+    ],
+    "creditName": "",
+    "license": "CC0-1.0",
+    "sourceName": "Innerscene - original model",
+    "sourceUrl": "https://www.innerscene.com/",
+    "approvedAt": "2026-10-08 20:33:16",
+    "expiresAt": "2030-10-08 20:33:16",
+    "downloads": 191,
+    "licenseNote": "",
+    "noticeUrl": "",
+    "sampleKey": null,
+    "sampleGroup": "",
+    "sampleOrder": null,
+    "format": "",
+    "listed": true
+  }
+}

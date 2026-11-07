@@ -1,0 +1,95 @@
+- generic [ref=e1]:
+  - navigation "本章导航" [ref=e2]:
+    - link "← 第五章 · 主体结构施工" [ref=e3] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/05/overview/index.html
+    - link "5-1 钢筋加工机械与绑扎作业面识读" [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/05/tasks/5-1/index.html
+    - link "5-2 钢筋绑扎机器人操作与人工复核" [ref=e5] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/05/tasks/5-2/index.html
+    - link "5-3 混凝土泵送、振捣与整平" [ref=e6] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/05/tasks/5-3/index.html
+    - button "深色模式" [active] [pressed] [ref=e7] [cursor=pointer]: ☀ 浅色模式
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: TASK 5-3 / CONCRETE WORKSHOP
+        - heading "混凝土楼面 · 三道工序接力" [level=1] [ref=e11]
+        - paragraph [ref=e12]: 在同一楼面观察泵送、振捣与整平。点进工位，操作部件，再回到楼面看结果。
+      - generic [ref=e13]:
+        - button "操作说明" [ref=e14] [cursor=pointer]
+        - button "⛶ 全屏" [ref=e15] [cursor=pointer]
+    - navigation "工位选择" [ref=e16]:
+      - button "01 泵送与布料" [pressed] [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: "01"
+        - generic [ref=e19]: 泵送与布料
+      - button "02 振捣与覆盖" [ref=e20] [cursor=pointer]:
+        - generic [ref=e21]: "02"
+        - generic [ref=e22]: 振捣与覆盖
+      - button "03 整平与标高" [ref=e23] [cursor=pointer]:
+        - generic [ref=e24]: "03"
+        - generic [ref=e25]: 整平与标高
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: 同一楼面 · 泵送与布料
+          - generic [ref=e30]:
+            - button "全景" [ref=e31] [cursor=pointer]
+            - button "近看" [ref=e32] [cursor=pointer]
+            - button "俯视" [ref=e33] [cursor=pointer]
+        - generic "拖动旋转，滚轮缩放；方向键调整视角，Home 复位" [ref=e34]:
+          - button "A1 · 待布料" [pressed] [ref=e36] [cursor=pointer]
+          - button "A2 · 待布料" [ref=e37] [cursor=pointer]
+          - button "A3 · 待布料" [ref=e38] [cursor=pointer]
+          - button "B1 · 待布料" [ref=e39] [cursor=pointer]
+          - button "B2 · 待布料" [ref=e40] [cursor=pointer]
+          - button "B3 · 待布料" [ref=e41] [cursor=pointer]
+          - button "C1 · 待布料" [ref=e42] [cursor=pointer]
+          - button "C2 · 待布料" [ref=e43] [cursor=pointer]
+          - button "C3 · 待布料" [ref=e44] [cursor=pointer]
+          - button "近看双缸泵送" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - text: 设定布料
+            - strong [ref=e48]: 0 / 9
+            - emphasis [ref=e49]: 按分区显示输送结果
+          - generic [ref=e50]:
+            - text: 振捣观察
+            - strong [ref=e51]: 0 / 9
+            - emphasis [ref=e52]: 不等于实际密实度
+          - generic [ref=e53]:
+            - text: 整平与基准
+            - strong [ref=e54]: 0 / 9
+            - emphasis [ref=e55]: 正确案例基准 0 区
+        - generic [ref=e56]:
+          - generic [ref=e57]: 拖动旋转 · 滚轮缩放 · 点击部件
+          - generic [ref=e58]: 三维观察
+      - complementary "操作与状态" [ref=e59]:
+        - generic [ref=e60]: 连续作业案例
+        - heading "把物料送到指定分区" [level=2] [ref=e61]
+        - paragraph [ref=e62]: 观察双缸交替和布料覆盖。单步或连续泵送会改变楼面分区状态。
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - button "泵送一个行程" [ref=e65] [cursor=pointer]
+            - button "连续泵送" [ref=e66] [cursor=pointer]
+          - button "剖开看双缸与切换阀" [ref=e67] [cursor=pointer]
+          - generic [ref=e68]:
+            - text: 当前楼面分区
+            - combobox "当前楼面分区" [ref=e69]:
+              - option "A1" [selected]
+              - option "A2"
+              - option "A3"
+              - option "B1"
+              - option "B2"
+              - option "B3"
+              - option "C1"
+              - option "C2"
+              - option "C3"
+          - button "重新开始三道工序" [ref=e70] [cursor=pointer]
+        - status [ref=e71]: 选择楼面分区，单步或连续泵送。
+        - generic [ref=e72]:
+          - generic [ref=e73]: A1 当前状态设定布料 0%振捣观察 0 步设计标高 +3.000 m整平后偏差 未整平基准偏移 0 mm
+          - generic [ref=e74]: 蓝：布料 灰：待振捣 绿：案例基准 橙：偏差
+    - generic [ref=e75]:
+      - generic [ref=e76]: 几何输送、覆盖和标高反馈为教学模拟；不计算真实流变、密实度、强度或工程验收结论。
+      - link "课程总览 ↗" [ref=e77] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/home/index.html#chapter-5

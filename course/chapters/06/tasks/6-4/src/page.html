@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7fafc"><title>室内喷涂工坊 · 智能建造</title><style>{{CSS}}</style></head>
+<body data-theme="light"><div class="app">
+<header class="topbar">
+<a class="brand" href="../README.md" aria-label="智能建造项目目录"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>智能建造<small>FIELD STUDIO</small></span></a>
+<div class="project-heading"><span>实训项目 06.04</span><h1>室内喷涂工坊</h1></div><div class="session-tag"><i></i>项目进行中</div>
+<div class="header-actions"><button id="reset" class="quiet">重新开工</button><button id="help" class="quiet">操作指南</button><button id="theme" class="icon-button" aria-label="切换明暗主题" title="切换明暗主题">◐</button></div>
+</header>
+<main class="workspace">
+<section class="world" aria-label="喷涂作业现场">
+<div class="scene-shell">
+<div id="scene" tabindex="0" role="application" aria-label="三维喷涂作业现场，拖动旋转、滚轮缩放，方向键旋转，加减键缩放"></div>
+<div class="scene-top"><div class="stage-badge"><i></i><span id="stageLabel">01 / 规划路线</span><span class="stage-divider"></span><span id="stageHint">把方案带到墙面上</span></div><div class="view-switch" aria-label="观察视角"><button data-view="orbit" class="active" aria-pressed="true">全景</button><button data-view="front" aria-pressed="false">正视</button><button data-view="top" aria-pressed="false">俯视</button><button data-view="nozzle" aria-pressed="false">喷头</button></div></div>
+<div class="mission-card"><div class="mission-eyebrow"><span class="wall-dot"></span>WALL A <span>3.6 × 2.4 m</span></div><h2 id="missionTitle">让每一条路径都有交叠</h2><p id="missionHint">调节喷距和道间距，为这面墙规划涂装路线。</p><div class="mission-foot"><span class="small-window" aria-hidden="true"></span>窗洞 800 × 800 mm · 保留保护区</div></div>
+<div class="scene-left-tools"><label class="hud-toggle"><input type="checkbox" id="pathToggle" checked><span>作业路径</span></label><label class="hud-toggle"><input type="checkbox" id="inspectToggle"><span>质检视图</span></label></div>
+<div id="inspectionLegend" class="inspection-legend" hidden><span><i style="background:#efad57"></i>漏喷</span><span><i style="background:#efbd6c"></i>涂层偏薄</span><span><i style="background:#a17ac7"></i>涂层偏厚</span><span><i style="background:#e8505e"></i>窗面受喷</span><span><i style="background:#4fbaa9"></i>厚薄合适</span></div>
+<div class="scene-live"><span class="live-dot"></span><span id="sceneStatus">等待开工</span><span class="live-separator"></span><span id="valveState">喷枪关闭</span><span id="liveSpeed">0 mm/s</span></div>
+<div class="orbit-hint"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4ZM10 2v5"/></svg><span>拖动环视 · 滚轮近看</span><span id="tcp">TCP · X 0.10 / Z 0.04 m</span></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+</div>
+<div class="control-deck">
+<div class="readouts" aria-label="实际作业读数"><div class="readout"><span><i class="mint-dot"></i>已喷覆盖</span><strong id="coverageValue">0.0<small>%</small></strong></div><div class="readout"><span><i class="orange-dot"></i>窗面污染</span><strong id="pollutionValue">0.0<small>%</small></strong></div><div class="readout"><span><i class="blue-dot"></i>厚薄合适</span><strong id="uniformityValue">0.0<small>%</small></strong></div></div>
+<div class="playback"><div class="progress-heading"><span id="passLabel">待执行路径</span><span id="progressText">0%</span></div><input id="progress" type="range" min="0" max="1000" step="1" value="0" disabled aria-label="实际作业进度"><div class="playback-bottom"><span>执行记录 · 随作业累积</span><div><select id="rate" aria-label="教学演示速度"><option value="8">8× 慢看</option><option value="20" selected>20× 演示</option><option value="40">40× 快览</option></select><button id="play" disabled>Ⅱ 暂停</button></div></div></div>
+</div>
+<nav id="steps" class="project-steps" aria-label="项目进程"><button data-stage="plan" class="active" aria-current="step"><span class="step-number">01</span><span>规划路线</span><i>›</i></button><button data-stage="trial" disabled><span class="step-number">02</span><span>试喷调机</span><i>›</i></button><button data-stage="spray" disabled><span class="step-number">03</span><span>执行喷涂</span><i>›</i></button><button data-stage="inspect" disabled><span class="step-number">04</span><span>巡检返修</span><i>›</i></button><button data-stage="deliver" disabled><span class="step-number">05</span><span>项目交付</span></button></nav>
+</section>
+<aside class="work-panel" aria-label="作业操作面板">
+<div class="panel-header"><div><span id="panelKicker" class="eyebrow">PLAN / 01</span><h2 id="panelTitle">规划你的第一面墙</h2></div><span class="panel-emblem" aria-hidden="true">↗</span></div><p id="panelHint" class="panel-intro">先安排喷枪与墙面的距离，再让相邻喷幅自然交叠。</p>
+<div class="panel-scroll">
+<section id="parameterPanel" class="parameter-panel" aria-label="喷涂参数">
+<div class="parameter"><label for="spacing">作业道间距<output id="spacingOut" for="spacing">500 mm</output></label><input id="spacing" type="range" min="100" max="600" step="10" value="500"><div class="range-bounds"><span>100</span><span>600 mm</span></div></div>
+<div class="parameter"><label for="distance">喷嘴距墙面<output id="distanceOut" for="distance">300 mm</output></label><input id="distance" type="range" min="200" max="450" step="10" value="300"><div class="range-bounds"><span>200</span><span>450 mm</span></div></div>
+<div class="parameter"><label for="speed">直线喷涂速度<output id="speedOut" for="speed">420 mm/s</output></label><input id="speed" type="range" min="150" max="600" step="10" value="420"><div class="range-bounds"><span>150</span><span>600 mm/s</span></div></div>
+<div class="guard-field"><label for="guard">窗洞保护策略</label><select id="guard"><option value="footprint">完整喷幅避让</option><option value="center" selected>只按喷嘴中心</option><option value="off">不停喷 · 观察污染</option></select></div>
+<div class="switches"><label class="switch-row" for="slow"><span>起收段减速<small>靠近两端时，降到一半速度</small></span><input id="slow" type="checkbox" checked></label><label class="switch-row" for="compensate"><span>流量随速度调整<small>减速时少出漆，涂层不会变厚</small></span><input id="compensate" type="checkbox"></label></div>
+<div class="color-field"><span>本次面漆</span><div id="color" class="color-swatches" role="group" aria-label="面漆颜色"><button data-color="#4ab4aa" class="active" style="--swatch:#4ab4aa" aria-label="薄荷青" aria-pressed="true"><span></span></button><button data-color="#5b8bd9" style="--swatch:#5b8bd9" aria-label="晴空蓝" aria-pressed="false"><span></span></button><button data-color="#dc9976" style="--swatch:#dc9976" aria-label="暖陶橙" aria-pressed="false"><span></span></button></div></div>
+<div id="planNote" class="plan-note">喷幅 400 mm · 需要留出相邻道的搭接。</div>
+</section>
+<section id="trialPanel" class="stage-panel" hidden><div class="section-heading"><span class="eyebrow">TRIAL RECORD</span><h3>试喷记录</h3></div><div id="trialResult" class="record-card">完成一段试喷，查看这组参数留下的涂层表现。</div><button id="retryTrial" class="secondary wide">↻ 重新试喷</button></section>
+<section id="inspectionPanel" class="stage-panel" hidden><div class="section-heading"><span class="eyebrow">WALL INSPECTION</span><h3>现场待处理</h3></div><p class="section-note">点选墙面或下方记录，定位需要处理的区域。返修时：擦净窗面、清掉厚薄不对的涂层后重喷、补齐漏喷。</p><div id="issueList" class="issue-list"></div><div class="repair-actions"><button id="repairSelected" class="secondary wide" disabled>处理当前区域</button><button id="repairAll" class="secondary wide">全部返修</button></div></section>
+<section id="deliveryPanel" class="stage-panel" hidden><div class="delivery-mark" aria-hidden="true">✓</div><span class="eyebrow">PROJECT RECORD</span><h3>把过程一起交付</h3><div id="deliverySummary" class="record-card"></div><button id="export" class="secondary wide">↓ 导出记录</button></section>
+</div>
+<div class="panel-action"><button id="actionPrimary" class="primary wide">确认路线，进入试喷 <span>→</span></button><p id="actionHint">每一次调整，都能在现场看见结果。</p></div>
+</aside></main>
+<footer class="app-footer"><span><i></i>教学模拟 · 参数用于观察覆盖和涂层厚薄（示意）</span><span>SPRAYING WORKSHOP <b>06.04</b></span></footer>
+</div>
+<dialog id="helpDialog"><button id="closeHelp" class="dialog-close" aria-label="关闭操作指南">×</button><span class="eyebrow">FIELD GUIDE</span><h2>亲手完成一面墙</h2><p>规划路线、试喷调机、执行喷涂、巡检返修，最后导出作业记录。先观察，再调整，让过程留下可检查的痕迹。</p><div class="guide-grid"><div><b>观察现场</b><p>拖动旋转场景，滚轮缩放；触屏可双指缩放。方向键旋转，加减键缩放；顶部按钮可切换正视、俯视与喷头近景。</p></div><div><b>控制作业</b><p>调节参数后开始试喷。正式喷涂时可暂停观察，用演示速度调整观察节奏。覆盖数据只记录已执行的作业。</p></div><div><b>巡检返修</b><p>打开质检视图，点选墙面或待处理记录，再进行局部处理。保护窗洞的同时，也要完成窗边补作业。</p></div><div><b>模型约定</b><p>本页使用固定扇角、矩形喷幅与涂层厚薄示意的教学模型。颜色和达标比例用于项目练习，不代表真实膜厚或工程验收结论。</p></div></div></dialog>
+<script>{{JS}}</script></body></html>

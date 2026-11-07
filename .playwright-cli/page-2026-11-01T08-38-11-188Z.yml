@@ -1,0 +1,70 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - link "⌘ 智能建筑机械与机器人 第八章 · 安全操作与维护" [ref=e4] [cursor=pointer]:
+      - /url: ../../../home/index.html
+      - generic [ref=e5]: ⌘
+      - generic [ref=e6]:
+        - text: 智能建筑机械与机器人
+        - generic [ref=e7]: 第八章 · 安全操作与维护
+    - paragraph [ref=e8]: 看风险 ／ 核条件 ／ 留记录
+    - generic [ref=e9]:
+      - link "← 返回课程首页" [ref=e10] [cursor=pointer]:
+        - /url: ../../../home/index.html
+      - button "学习导览" [ref=e11] [cursor=pointer]
+      - button "切换深色" [ref=e12] [cursor=pointer]
+      - button "全屏展示" [ref=e13] [cursor=pointer]: ⛶
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: CHAPTER 08 · SAFETY & MAINTENANCE
+      - generic [aria-hidden]: "08"
+      - heading "安全操作 与维护" [level=1] [ref=e18]: 安全操作与维护
+      - paragraph [ref=e19]: 从识别现场危险，到核对维护条件， 用复查与记录说明处理结果。
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: 任务 8-1 / 互动推演
+        - heading "安全操作" [level=2] [ref=e22]
+        - paragraph [ref=e23]: 暂停现场，发现危险；处理后复查，区分复位与重新启动。
+      - link "进入安全推演 ↗" [ref=e25] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/08/tasks/8-1/index.html
+      - paragraph [ref=e26]:
+        - text: 2 项学习任务
+        - generic [ref=e27]: ·
+        - text: 风险处置
+        - generic [ref=e28]: ·
+        - text: 维护复核
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: 第八章 · 安全与维护展台
+        - generic [ref=e33]:
+          - button "↺ 复位视角" [ref=e34] [cursor=pointer]
+          - button "重置展品" [ref=e35] [cursor=pointer]
+      - group "可操作教学模型：方向键旋转，加减键缩放，Home 复位" [ref=e36]:
+        - button "8-1 安全操作 · 安全与警戒" [pressed] [ref=e38] [cursor=pointer]
+        - button "8-2 保养排查 · 发动机点检" [ref=e39] [cursor=pointer]
+      - generic [ref=e40]: 拖动旋转 · 滚轮缩放 · 点击展品选任务
+      - status [ref=e42]: 安全与维护主题静态展品。拖动旋转、滚轮缩放；点击展品预览任务。
+  - navigation "本章任务入口" [ref=e43]:
+    - article [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]: 任务 8-1
+        - generic [ref=e47]: 互动推演
+      - button "安全操作" [pressed] [ref=e48] [cursor=pointer]
+      - paragraph [ref=e49]: 暂停现场，发现危险；处理后复查，区分复位与重新启动。
+      - link "进入安全推演 ↗" [ref=e51] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/08/tasks/8-1/index.html
+        - text: 进入安全推演
+        - generic [ref=e52]: ↗
+    - article [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]: 任务 8-2
+        - generic [ref=e56]: 互动工坊
+      - button "保养排查" [ref=e57] [cursor=pointer]
+      - paragraph [ref=e58]: 在喷涂、泵车、发动机与轴承工位核对条件、处理复查，保留待办与移交记录。
+      - link "进入维护工坊 ↗" [ref=e60] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/08/tasks/8-2/index.html
+        - text: 进入维护工坊
+        - generic [ref=e61]: ↗
+  - generic [ref=e62]:
+    - generic [ref=e63]: 原创教学概念展品 · 不表示现场安全条件或设备放行
+    - generic [ref=e65]: 识别危险 → 核对条件 → 处理复查 → 记录移交
+    - link "← 上一章 · 巡检与数据复核" [ref=e66] [cursor=pointer]:
+      - /url: ../../07/overview/index.html

@@ -1,0 +1,972 @@
+<!doctype html>
+<!-- Three.js: MIT License
+The MIT License
+
+Copyright © 2010-2023 Three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23087f68'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='44' fill='white'%3E%E2%9A%99%3C/text%3E%3C/svg%3E"
+    />
+    <title>动力传动实验室 · 三维交互演示</title>
+    <link rel="stylesheet" href="src/style.css">
+<link rel="stylesheet" href="src/enhancements.css">
+<link rel="stylesheet" href="src/learning.css">
+<link rel="stylesheet" href="src/classroom.css">
+  <style data-chapter2-layout>/* Chapter 2 follows the course gallery palette and compact navigation. */
+html[data-c2] body{padding-top:54px!important;box-sizing:border-box;height:100dvh}
+.c2-nav{position:fixed;inset:0 0 auto;height:54px;z-index:1000;display:flex;align-items:center;gap:28px;padding:0 28px;background:#101b29;color:#e2edf8;border-bottom:1px solid #2c4055;font:16px/1.4 "Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;box-sizing:border-box}
+.c2-nav *{box-sizing:border-box}.c2-nav a{color:inherit;text-decoration:none}.c2-home{display:flex;align-items:center;gap:10px;white-space:nowrap;font-weight:700;flex-shrink:0}.c2-home>b{display:grid;place-items:center;width:36px;height:36px;background:#244e75;border-radius:7px 12px 7px 7px;font-size:29px;color:white;font-weight:400}.c2-home small{display:block;font-size:12px;color:#7892aa;font-weight:400;margin-top:3px}.c2-links{display:flex;gap:8px;margin:auto;min-width:0;overflow-x:auto}.c2-links a{padding:9px 15px;border:1px solid transparent;white-space:nowrap;border-radius:6px;font-size:15px}.c2-links small{font:13px Consolas,monospace;color:#7294b5;margin-right:7px}.c2-links a:hover{background:#e7f0fc}.c2-links [aria-current]{background:#e1edff;color:#245fae;border-color:#bfd4ef;font-weight:700}.c2-course{font-size:14px;white-space:nowrap;color:#527a9f!important}.c2-nav a:focus-visible{outline:3px solid #e9ad50;outline-offset:2px}
+html[data-c2=transmission]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--green:#286dde;--mint:#e2edff;--paper:#eff5fc}
+html[data-c2=mechanisms]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--green:#286dde;--panel:#f3f7fd}
+html[data-c2=fourbar]:not(.dark){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--card:#fff;--panel:#f3f7fd;--accent:#286dde;--soft:#e2edff}
+html[data-c2=mechanisms] .shell{max-width:1600px}
+@media(max-width:900px){.c2-nav{padding:0 12px;gap:12px}.c2-links{gap:2px}.c2-links a{padding:8px 10px}.c2-course{display:none}}
+@media(max-width:600px){.c2-nav{height:96px;flex-wrap:wrap;padding:8px 10px;gap:4px;align-content:center}.c2-home>b{width:27px;height:27px;font-size:25px}.c2-home{font-size:14px}.c2-home small{font-size:11px}.c2-links{width:100%;order:2;margin:0}.c2-links a{font-size:13px;padding:7px 9px}.c2-links small{font-size:11px;margin-right:4px}html[data-c2] body{padding-top:96px!important}}
+@media print{.c2-nav{display:none}html[data-c2] body{padding-top:0!important}}
+/* Keep existing labs' controls accessible under the chapter navigation. */
+.c2-lesson-notes{margin-top:10px;border:1px solid #d4e1ef;border-radius:7px;background:#ffffffbb;padding:8px 14px}.c2-lesson-notes>summary{font-size:14px;color:#52799b;cursor:pointer}
+@media(min-width:821px){html[data-c2=mechanisms] .lab>.stage{height:clamp(200px,calc(100dvh - 660px),300px)}html[data-c2=mechanisms] .shell{padding-top:15px;padding-bottom:10px}html[data-c2=mechanisms] .lessons{margin-top:10px}html[data-c2=mechanisms] .lesson p{font-size:12px}html[data-c2=fourbar] #fb-stage{height:clamp(235px,calc(100dvh - 600px),336px)}html[data-c2=fourbar] .fb-shell{padding-top:16px;padding-bottom:12px}html[data-c2=fourbar] .fb-header{margin-bottom:14px}}
+
+.c2-nav .c2-home small{color:#8da8c4}.c2-nav .c2-links small{color:#89a5c0}.c2-nav .c2-links a:hover{background:#1a2e45}.c2-nav .c2-links [aria-current]{background:#203f62;color:#d9edff;border-color:#3a638c}.c2-nav .c2-course{color:#9bbcdc!important}.c2-lesson-notes{border-color:#30485d;background:#142331}.c2-lesson-notes>summary{color:#acc5db}
+html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes{background:#f5f9ff;border-color:#d4e1ef}html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes>summary{color:#52799b}
+
+/* Chapter 2 workstation, shared with both built and directly maintained pages. */
+.c2-render-fallback{position:absolute;left:10px;bottom:32px;z-index:4;max-width:calc(100% - 20px);padding:5px 8px;border:1px solid var(--course-line);border-radius:5px;background:var(--course-surface);color:var(--course-muted);font:12px/1.5 "Microsoft YaHei",sans-serif;pointer-events:none}
+html[data-c2] body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif}
+html[data-c2][data-theme]{--green:var(--course-accent)}
+html[data-c2=mechanisms][data-theme] :is(.lab .controls,.lab .lab-foot,.c2-lesson-notes),html[data-c2=fourbar][data-theme] :is(.fb-card,.fb-tools){background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] :is(.toolbar,.view-buttons,.controls) button,html[data-c2=fourbar][data-theme] :is(.fb-tools,.fb-motion) button{background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] button[aria-pressed=true],html[data-c2=fourbar][data-theme] button[aria-pressed=true]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-accent)}
+html[data-c2][data-theme] input[type=range],html[data-c2][data-theme] input[type=checkbox]{accent-color:var(--course-accent)}
+html[data-c2=transmission][data-theme] .topbar nav{background:var(--soft)}
+html[data-c2] [hidden]{display:none!important}
+html[data-c2] .c2-nav{gap:18px;padding-inline:24px}
+html[data-c2] .c2-nav .c2-home{color:var(--course-ink)}
+html[data-c2] .c2-nav :is(.c2-home small,.c2-links small,.c2-course){color:var(--course-muted)!important}
+html[data-c2] .c2-nav .c2-links a[aria-current]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-line)}
+html[data-c2] .c2-nav .c2-links a:hover{background:var(--soft);color:var(--course-ink)}
+html[data-c2] :is(.c2-button,.c2-experiments button){font:500 14px/1.4 "Microsoft YaHei",sans-serif;min-height:36px;padding:7px 12px;border:1px solid var(--course-line);border-radius:7px;background:var(--course-surface);color:var(--course-ink);white-space:nowrap;cursor:pointer;box-shadow:none;letter-spacing:0}
+html[data-c2] .c2-button:hover{border-color:var(--course-accent);background:var(--blue-soft)}
+html[data-c2] .c2-button:focus-visible{outline:3px solid var(--course-accent);outline-offset:3px}
+html[data-c2] :is(.c2-guide-button,.c2-primary){color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+.c2-learning-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+html[data-c2] .c2-original-help{display:none}
+html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:30px;line-height:1.3;letter-spacing:0}
+html[data-c2] :is(.sub,.fb-header p,.brand p){font-size:14px;line-height:1.7;color:var(--course-muted)}
+html[data-c2] .c2-view{position:relative;background:var(--course-surface);border:1px solid var(--course-line);border-radius:12px;overflow:hidden;min-width:0}
+html[data-c2] .c2-viewbar{position:relative;z-index:6;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 14px;border-bottom:1px solid var(--course-line);background:var(--course-surface);color:var(--course-muted);flex:none}
+.c2-view-label{font-size:13px;white-space:nowrap;letter-spacing:.5px}
+.c2-view-actions,.c2-view-motion{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+html[data-c2] .c2-viewbar .c2-button{min-height:32px;padding:5px 10px;font-size:13px}
+html[data-c2] .c2-viewbar :is(.view-tools,.scene-tools){position:static;inset:auto;margin:0;display:flex;gap:5px;box-shadow:none;align-items:center}
+html[data-c2] .c2-viewbar .live{display:none}
+html[data-c2] .c2-viewbar .c2-view-motion{display:none}
+
+html[data-c2] .c2-dialog{width:min(700px,calc(100vw - 32px));height:auto;max-height:85dvh;max-width:700px;padding:0;border:1px solid var(--course-line);border-radius:14px;background:var(--course-surface);color:var(--course-ink);box-shadow:0 24px 80px #06182a55;overflow:auto;font-size:15px;line-height:1.8}
+.c2-dialog::backdrop{background:#071a2bb3;backdrop-filter:blur(3px)}
+.c2-dialog-head,.c2-dialog-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 24px;background:var(--course-surface)}
+.c2-dialog-head{border-bottom:1px solid var(--course-line)}
+html[data-c2] .c2-dialog h2{font-size:22px;margin:0;line-height:1.5}
+html[data-c2] .c2-dialog h3{font-size:16px;margin:20px 0 8px;color:var(--course-accent)}
+.c2-dialog-body{padding:0 28px 8px}.c2-dialog-body ul,.c2-dialog-body ol{padding-left:24px}.c2-dialog-body li{margin:10px 0}.c2-steps p{margin:4px 0;color:var(--course-muted)}
+.c2-reflection{padding:12px 16px;border-left:3px solid var(--course-accent);background:var(--blue-soft)}
+.c2-boundary{font-size:13px;color:var(--course-muted);border-top:1px solid var(--course-line);padding-top:14px}
+.c2-dialog-foot{justify-content:flex-end;border-top:1px solid var(--course-line)}
+
+/* Diesel: reserve a stable heading area and keep playback beside the model. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mechanics: one large observation area with controls, optional side-by-side. */
+html[data-c2=mechanisms] .shell{padding:18px 24px;max-width:1648px}
+.c2-experiments{display:flex;gap:8px;margin:4px 0 14px}
+html[data-c2] .c2-experiments [aria-pressed=true]{color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+html[data-c2=mechanisms] .labs[data-presentation=single]{display:block}
+html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;background:transparent;border:0;box-shadow:none;overflow:visible}
+html[data-c2=mechanisms] .c2-control-column{border:1px solid var(--course-line);border-radius:12px;background:var(--course-surface);overflow:auto;max-height:calc(100dvh - 300px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:clamp(300px,calc(100dvh - 450px),510px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline{grid-template-columns:1fr}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline>button{justify-self:end}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-head{flex-wrap:wrap}
+html[data-c2=mechanisms] .labs[data-presentation=single] .controls{grid-template-columns:1fr;padding:20px;gap:18px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .lengths{grid-template-columns:1fr;gap:16px}
+html[data-c2=mechanisms] .labs[data-presentation=single] :is(.control-head,.control select,.inline-toggles,.force-line,.lab-foot){font-size:14px;line-height:1.7}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats{padding:16px;grid-template-columns:1fr;gap:12px;background:var(--soft)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat{border:0;border-bottom:1px solid var(--course-line);padding-bottom:8px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-family:inherit;font-size:24px;line-height:1.5}
+html[data-c2=mechanisms] .lab .stage{background:var(--course-bg);border-color:var(--course-line)}
+html[data-c2=mechanisms] .lab-head{padding:14px 16px 10px}
+html[data-c2=mechanisms] .viewbar{margin:0 14px 10px}
+html[data-c2=mechanisms] .viewbar button{font-size:13px;min-height:30px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .stage{height:300px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-control-column{border:0}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-view{border:0;border-radius:0}
+html[data-c2=mechanisms] .c2-lesson-notes{margin-top:16px}
+
+html[data-c2=fourbar] .fb-shell{max-width:1648px;padding:18px 24px}
+html[data-c2=fourbar] #fb-stage{height:clamp(300px,calc(100dvh - 530px),420px)}
+html[data-c2=fourbar] .fb-card{border-color:var(--course-line)}
+html[data-c2=fourbar] .fb-stage{background:var(--course-bg)}
+html[data-c2=fourbar] .fb-header nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+html[data-c2=fourbar] .fb-gripper .c2-viewbar{padding-inline:10px}.fb-gripper .c2-view-label{font-size:12px}
+html[data-c2=transmission] .viewport{background:var(--course-bg)}
+html[data-c2=transmission] .viewport>.c2-viewbar{position:absolute;inset:0 0 auto}
+html[data-c2=transmission] .scene-bottom{bottom:100px}
+html[data-c2=transmission] .viewport.c2-expanded>.c2-viewbar{position:absolute}
+html[data-c2=transmission] .scene-heading{top:68px;left:24px}
+html[data-c2=transmission] .scene-heading h1{font-size:28px;font-weight:650}
+html[data-c2=transmission] #canvasWrap{top:140px}
+html[data-c2=transmission] .topbar{gap:12px}
+
+
+
+/* Expansion never re-parents a canvas or resets a lesson. */
+html[data-c2] .c2-view.c2-expanded{width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;min-height:0!important;margin:0!important;border:0;border-radius:0;display:flex;flex-direction:column;overflow:auto;background:var(--course-bg);padding:0}
+html[data-c2] .c2-view.c2-fallback{position:fixed!important;inset:0!important;z-index:5000!important}
+html[data-c2] .c2-expanded .c2-viewbar{position:sticky;top:0;flex-shrink:0}
+html[data-c2] .c2-expanded .c2-view-motion{display:flex}
+html[data-c2] .c2-expanded>.stage,html[data-c2] .c2-expanded #fb-stage{flex:1;min-height:300px;height:auto!important}
+html[data-c2] .c2-expanded .grip-stage{flex:1;height:auto!important;min-height:300px}
+html[data-c2=fourbar] .fb-main.c2-expanded :is(.fb-mechanics,.fb-force-stats,.fb-feedback){display:none}
+
+html[data-c2=transmission] .viewport.c2-expanded #canvasWrap{position:absolute;inset:140px 0 120px}
+
+
+
+@media(max-width:1100px){
+  html[data-c2] .c2-nav{gap:8px;padding-inline:14px}.c2-links a{padding:8px}.c2-home small{display:none}
+  html[data-c2] .c2-course{display:none}
+  html[data-c2] :is(.mast,.fb-header){flex-wrap:wrap;gap:12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{grid-template-columns:minmax(0,1fr) 300px}
+
+
+
+  html[data-c2] .c2-view-label{letter-spacing:0;font-size:12px}
+}
+@media(max-width:820px){
+  html[data-c2] body{height:auto;min-height:100dvh;overflow:auto}
+  html[data-c2] .c2-viewbar{gap:6px;flex-wrap:wrap;padding:8px 10px}
+  html[data-c2] .c2-view-actions{margin-left:auto}
+  html[data-c2] :is(.mast,.fb-header,.topbar){flex-wrap:wrap;height:auto;gap:12px}
+  html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:25px}
+  html[data-c2] .c2-learning-actions{margin-left:auto}
+
+
+
+
+
+
+
+
+
+
+
+  html[data-c2=mechanisms] .shell,html[data-c2=fourbar] .fb-shell{padding:16px 12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:block}
+  html[data-c2=mechanisms] .c2-control-column{max-height:none;margin-top:14px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-size:20px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:360px}
+  html[data-c2=transmission]{overflow:auto;height:auto}
+  html[data-c2=transmission] body{display:block;padding-inline:12px}
+  html[data-c2=transmission] .topbar{padding-block:16px}
+  html[data-c2=transmission] .workspace{display:block;height:auto}
+  html[data-c2=transmission] .viewport{height:580px;margin-bottom:14px}
+  html[data-c2=transmission] .control-panel{height:auto;overflow:visible}
+  html[data-c2=transmission] .panel-scroll{overflow:visible;max-height:none}
+  html[data-c2=transmission] .scene-heading{top:105px}
+  html[data-c2=transmission] #canvasWrap{top:185px}
+  html[data-c2] .c2-dialog-head{padding:16px}.c2-dialog-body{padding-inline:20px}
+  html[data-c2] .c2-dialog h2{font-size:19px}
+}
+@media(max-width:600px){
+  html[data-c2] .c2-nav{height:112px;align-content:center}.c2-nav .c2-home{font-size:13px}.c2-nav .c2-links{order:3}
+  html[data-c2] body{padding-top:112px!important}
+  html[data-c2] .c2-nav .c2-links a{font-size:12px;padding:7px 8px}
+  html[data-c2] .c2-nav .c2-links small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){html[data-c2] *,html[data-c2] *::before,html[data-c2] *::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mechanisms use one canvas and one parameter column, like transmission. */
+html[data-c2=mechanisms] .mast { min-height: 88px; margin-bottom: 10px; }
+html[data-c2=mechanisms] .mast .toolbar { justify-content: flex-end; }
+html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: max(540px,calc(100dvh - 260px)); }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { display: flex; flex-direction: column; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage { flex: 1; min-height: 240px; height: auto; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: 100%; max-height: none; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats { grid-template-columns: repeat(3,minmax(0,1fr)); padding: 12px; gap: 10px; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat { border-bottom: 0; padding-bottom: 0; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value { font-size: 21px; }
+html[data-c2=mechanisms] .lab-head { padding: 16px 16px 8px; flex-wrap: wrap; }
+html[data-c2=mechanisms] .lab-head h2 { font-size: 18px; }
+.mechanism-observation { padding: 0 16px 14px; border-bottom: 1px solid var(--course-line); }
+.mechanism-observation h3 { margin: 4px 0 6px; font-size: 15px; }
+.mechanism-observation p { margin: 0; font-size: 13px; line-height: 1.7; color: var(--course-muted); }
+.c2-mechanism-transport { display: flex; align-items: center; gap: 7px; padding: 9px 14px; border-top: 1px solid var(--course-line); background: var(--course-surface); }
+.c2-mechanism-transport label { margin-left: auto; font-size: 13px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons { display: flex; gap: 4px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons button { min-height: 30px; padding: 4px 8px; }
+html[data-c2=mechanisms] .viewbar { margin: 6px 12px; min-height: 0; }
+@media(max-width:820px) {
+  html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: auto; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { height: 520px; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: auto; }
+  .c2-mechanism-transport { flex-wrap: wrap; }
+}
+</style><script>/* 三维区底色（全课程统一）：近白中性灰，适合印刷教材截图；深色模式用深石墨色。
+ * 取值以 shared/lab-shell/lab-shell.css 里的 --stage-bg / --stage-floor / --stage-shadow 为准（深浅色一起切换）；
+ * 页面样式还没载入时（运行时才挂外壳的页面、第二章被嵌入前的原版实验页）用下面同值的后备。
+ * 用法：StageTone.bg() → '#f5f6f8'；StageTone.color(THREE) → THREE.Color；
+ *       StageTone.paint(scene, THREE) 设底色并让雾跟着变；StageTone.contactShadow(THREE, {size}) 模型下方的柔和接触阴影。
+ * 第二章：原版实验页被嵌入时，外壳把自己的取值经 postMessage 传进来（embed-bridge.js 调 StageTone.use）。
+ */
+(() => {
+  'use strict';
+  if (window.StageTone) return;
+  const FALLBACK = {
+    light: {bg: '#f5f6f8', floor: '#eceef1', shadow: 'rgba(28,36,48,.20)'},
+    dark: {bg: '#1a1f27', floor: '#222833', shadow: 'rgba(0,0,0,.55)'},
+  };
+  const root = document.documentElement;
+  let cache = null, override = null;
+  const theme = () => (root.dataset.theme === 'dark' ? 'dark' : 'light');
+  const read = () => {
+    const t = theme(), f = FALLBACK[t], cs = getComputedStyle(root);
+    const v = n => cs.getPropertyValue(n).trim();
+    return {theme: t, bg: v('--stage-bg') || f.bg, floor: v('--stage-floor') || f.floor, shadow: v('--stage-shadow') || f.shadow, ...(override?.[t] || {})};
+  };
+  const get = () => (cache && cache.theme === theme() ? cache : (cache = read()));
+  addEventListener('course-theme-change', () => { cache = null; });
+
+  /* 电脑上（鼠标操作、宽屏）让三维画布保留最后一帧，“保存三维截图”随时读得到；
+     不少页面是“画面有变化才重画”，不保留的话读到的是空白。手机上不开，省一次每帧拷贝。 */
+  try {
+    if (matchMedia('(pointer:fine) and (min-width:901px)').matches) {
+      const original = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (type, attrs) {
+        return original.call(this, type, /^(webgl|webgl2|experimental-webgl)$/.test(type) ? {...(attrs || {}), preserveDrawingBuffer: true} : attrs);
+      };
+    }
+  } catch { /* 保持默认 */ }
+
+  /* 三维截图：把 root 里正在显示的三维画布存成一张 PNG（铺统一底色，不含页面上的按钮和文字标签）。
+     画布内容只在“刚画完的那一帧”里读得到，所以排在页面自己的绘制之后读；读到空白就催一次重绘、下一帧再试。 */
+  const blank = canvas => {
+    const probe = document.createElement('canvas'); probe.width = probe.height = 24;
+    const g = probe.getContext('2d', {willReadFrequently: true}); g.drawImage(canvas, 0, 0, 24, 24);
+    const d = g.getImageData(0, 0, 24, 24).data;
+    for (let i = 3; i < d.length; i += 4) if (d[i]) return false;
+    return true;
+  };
+  function capture(scope = document.body, {scale = 1} = {}) {
+    const list = [...scope.querySelectorAll('canvas')].filter(c => { const r = c.getBoundingClientRect(); return r.width > 80 && r.height > 80 && getComputedStyle(c).visibility !== 'hidden'; });
+    const canvas = list.sort((a, b) => (b.dataset.engine ? 1 : 0) - (a.dataset.engine ? 1 : 0) || b.width * b.height - a.width * a.height)[0];
+    return new Promise(resolve => {
+      if (!canvas) return resolve(null);
+      let tries = 0;
+      const grab = () => {
+        try {
+          if (blank(canvas) && ++tries < 8) { if (tries === 1 || tries === 4) dispatchEvent(new Event('resize')); return requestAnimationFrame(grab); }
+          const out = document.createElement('canvas'); out.width = Math.round(canvas.width * scale); out.height = Math.round(canvas.height * scale);
+          const g = out.getContext('2d'); g.fillStyle = get().bg; g.fillRect(0, 0, out.width, out.height);
+          g.imageSmoothingQuality = 'high'; g.drawImage(canvas, 0, 0, out.width, out.height);
+          resolve(out.toDataURL('image/png'));
+        } catch { resolve(null); }
+      };
+      requestAnimationFrame(grab);
+    });
+  }
+
+  window.StageTone = {
+    get, capture,
+    bg: () => get().bg,
+    floor: () => get().floor,
+    /** 底色的 THREE.Color（传入页面自己的 THREE，模块化页面也能用）。 */
+    color: (T = window.THREE, key = 'bg') => new T.Color(get()[key]),
+    /** 设场景底色，雾（若有）随底色。返回 scene 便于链式调用。 */
+    paint(scene, T = window.THREE) {
+      if (!scene) return scene;
+      const c = get().bg;
+      if (scene.background?.isColor) scene.background.set(c); else scene.background = new T.Color(c);
+      if (scene.fog?.color) scene.fog.color.set(c);
+      return scene;
+    },
+    /** 模型下方的柔和接触阴影：一张径向渐变贴图的平面（不受光照影响，深浅色自动换）。
+     *  size 为直径（场景单位），up 为 'y' 或 'z'（哪个轴朝上）。返回 Mesh，自己 position 到模型脚下。 */
+    contactShadow(T = window.THREE, {size = 1, up = 'y', strength = 1} = {}) {
+      const c = document.createElement('canvas'); c.width = c.height = 128;
+      const g = c.getContext('2d'), grad = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      grad.addColorStop(0, 'rgba(0,0,0,1)'); grad.addColorStop(.45, 'rgba(0,0,0,.55)'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grad; g.fillRect(0, 0, 128, 128);
+      const tex = new T.CanvasTexture(c);
+      const mat = new T.MeshBasicMaterial({map: tex, color: 0x000000, transparent: true, depthWrite: false, toneMapped: false});
+      const mesh = new T.Mesh(new T.PlaneGeometry(size, size), mat);
+      if (up === 'y') mesh.rotation.x = -Math.PI / 2;
+      mesh.renderOrder = -1; mesh.userData.contactShadow = true;
+      const tone = () => { mat.opacity = (theme() === 'dark' ? .5 : .16) * strength; };
+      tone(); addEventListener('course-theme-change', tone);
+      return mesh;
+    },
+    /** 外部指定取值（第二章嵌入时由外壳传入）；传 null 取消。 */
+    use(values) { override = values; cache = null; },
+    refresh() { cache = null; return get(); },
+  };
+})();
+
+/* Optional Canvas 2D projection of the same articulated scene when WebGL is unavailable.
+ * Component silhouettes preserve the original state/kinematics; no lighting or clipping.
+ */
+window.createChapterRenderer = options => {
+  const T=window.THREE;
+  const probe=document.createElement('canvas');
+  let context=null;
+  try{context=probe.getContext('webgl2')||probe.getContext('webgl');}catch{}
+  if(context){context.getExtension('WEBGL_lose_context')?.loseContext();try{return new T.WebGLRenderer(options);}catch{}}
+  const canvas=options?.canvas||document.createElement('canvas'),ctx=canvas.getContext('2d');
+  if(!ctx)throw new Error('Canvas 2D is unavailable');
+  const cache=new WeakMap();let width=1,height=1,viewport=null,scissor=false;
+  function hull(points){
+    points.sort((a,b)=>a.x-b.x||a.y-b.y);
+    const cross=(o,a,b)=>(a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x),lo=[],hi=[];
+    for(const p of points){while(lo.length>1&&cross(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}
+    for(const p of points.slice().reverse()){while(hi.length>1&&cross(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}
+    return lo.slice(0,-1).concat(hi.slice(0,-1));
+  }
+  const renderer={
+    isFallback:true,domElement:canvas,shadowMap:{},info:{render:{calls:0,triangles:0}},
+    setPixelRatio(){},getPixelRatio(){return 1},setClearColor(){},dispose(){},
+    setSize(w,h,style=true){width=Math.max(1,w);height=Math.max(1,h);canvas.width=width;canvas.height=height;viewport=null;if(style){canvas.style.width=w+'px';canvas.style.height=h+'px';}},
+    setViewport(x,y,w,h){viewport={x,y:height-y-h,w,h};},setScissor(){},setScissorTest(value){scissor=value;},
+    clear(){ctx.clearRect(0,0,width,height);},
+    render(scene,camera){
+      if(!scissor)this.clear();
+      const vp=viewport||{x:0,y:0,w:width,h:height},dark=document.documentElement.dataset.theme==='dark';
+      ctx.save();ctx.beginPath();ctx.rect(vp.x,vp.y,vp.w,vp.h);ctx.clip();
+      ctx.fillStyle=window.StageTone?.bg()||(dark?'#1a1f27':'#f5f6f8');ctx.fillRect(vp.x,vp.y,vp.w,vp.h);
+      scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const shapes=[];
+      scene.traverseVisible(o=>{
+        if(!o.isMesh||o.isInstancedMesh)return;
+        const mat=Array.isArray(o.material)?o.material[0]:o.material;
+        if(!mat||mat.isShadowMaterial||mat.visible===false||mat.opacity===0)return;
+        const attr=o.geometry?.attributes?.position;if(!attr)return;
+        let vertices=cache.get(o.geometry);
+        if(!vertices){vertices=[];const step=Math.max(1,Math.floor(attr.count/96));for(let i=0;i<attr.count;i+=step)vertices.push(new T.Vector3().fromBufferAttribute(attr,i));cache.set(o.geometry,vertices);}
+        const points=vertices.map(p=>p.clone().applyMatrix4(o.matrixWorld).project(camera)).filter(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.z>=-1&&p.z<=1);
+        if(points.length<3)return;
+        const z=points.reduce((sum,p)=>sum+p.z,0)/points.length;
+        shapes.push({points:hull(points.map(p=>({x:vp.x+(p.x+1)*vp.w/2,y:vp.y+(1-p.y)*vp.h/2}))),z,color:mat.color?'#'+mat.color.getHexString():'#78a4c8'});
+      });
+      shapes.sort((a,b)=>b.z-a.z);
+      for(const shape of shapes){if(!shape.points.length)continue;ctx.beginPath();shape.points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();ctx.fillStyle=shape.color;ctx.globalAlpha=.85;ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=dark?'#b9d0e9':'#36516e';ctx.lineWidth=.6;ctx.stroke();}
+      this.info.render.calls=shapes.length;this.info.render.triangles=0;ctx.restore();
+      if(canvas.parentElement&&!canvas.parentElement.querySelector('.c2-render-fallback')){
+        const note=document.createElement('div');note.className='c2-render-fallback';note.textContent='二维备用投影 · 参数与动作仍可操作，剖切与光照不显示';note.setAttribute('role','status');canvas.parentElement.append(note);
+      }
+    }
+  };
+  return renderer;
+};
+</script><script data-course-navigation src="../../../../../shared/navigation.js"></script><link data-course-theme rel="stylesheet" href="../../../../../shared/styles/theme.css"><script data-course-theme src="../../../../../shared/theme.js"></script></head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="动力传动实验室"
+        ><span class="brand-icon">⚙</span
+        ><span
+          >动力传动<span class="brand-light">实验室</span
+          ><small>MECHANICS / INTERACTIVE LAB</small></span
+        ></a
+      >
+      <nav aria-label="装置切换">
+        <button class="tab active" data-mode="gear">
+          <span>01</span>机械传动</button
+        ><button class="tab" data-mode="hyd"><span>02</span>液压推动</button
+        ><button class="tab" data-mode="air"><span>03</span>气压推动</button>
+      </nav>
+      <div class="top-actions">
+        <button
+          class="theme-toggle"
+          id="themeBtn"
+          aria-label="切换到深色背景"
+          aria-pressed="false"
+        >
+          <span class="theme-icon">☾</span
+          ><span class="theme-text">深色</span></button
+        ><button class="ghost help" id="helpBtn">
+          原理与说明 <span>↗</span>
+        </button>
+      </div>
+    </header>
+    <main class="workspace">
+      <section class="viewport" aria-label="三维模型视窗">
+        <div class="scene-heading">
+          <div class="eyebrow" id="eyebrow">ROTARY TRANSMISSION</div>
+          <h1 id="sceneTitle">让动力，传递起来。</h1>
+          <p id="sceneSubtitle">观察齿面啮合，理解转速与转矩的交换。</p>
+        </div>
+        <div class="scene-tools">
+          <span class="live"
+            ><i></i><span id="runningText">模拟运行中</span></span
+          ><button class="icon-btn" id="frontBtn" title="正视图">正视</button
+          ><button class="icon-btn" id="isoBtn" title="三维视角">3D</button
+          ><button class="icon-btn" id="homeBtn" title="复位视角 (Home)">
+            ⌂</button
+          ><button class="icon-btn" id="fullBtn" title="全屏">⛶</button>
+        </div>
+        <div id="canvasWrap">
+          <canvas
+            id="scene"
+            aria-label="可拖动旋转、滚轮缩放的三维机械模型"
+            tabindex="0"
+          ></canvas>
+          <div id="webglError" hidden>
+            此浏览器未启用 WebGL。请用 Chrome 或 Edge 打开，并启用图形加速。
+          </div>
+          <svg
+            class="component-leaders"
+            id="componentLeaders"
+            aria-hidden="true"
+          ></svg>
+          <div
+            class="component-layer"
+            id="componentLabels"
+            role="group"
+            aria-label="常显组件名称"
+          ></div>
+        </div>
+        <div class="scene-bottom">
+          <div class="legend" id="legend"></div>
+          <span class="gesture"
+            >组件名称常显 <b>·</b> 拖动旋转 <b>·</b> 滚轮缩放</span
+          >
+        </div>
+        <div class="metrics" id="metrics"></div>
+      </section>
+      <aside class="control-panel">
+        <div class="panel-heading">
+          <span>观察与实验</span>
+        </div>
+        <section class="observation-guide" aria-label="本实验的观察与操作">
+          <h2 id="watchTitle"></h2>
+          <p id="watchHint"></p>
+          <ol id="watchSteps"></ol>
+        </section>
+        <div class="panel-scroll">
+          <details class="component-index-panel">
+            <summary>部件索引 · 点选近看</summary>
+            <label class="all-labels"><input id="allComponentLabels" type="checkbox">显示全部标注</label>
+            <div id="componentIndex" class="component-index-list"></div>
+          </details>
+          <div class="section-label">
+            装置设置 <span id="modeCode">01 / TRANSMISSION</span>
+          </div>
+          <div id="modeControls"></div>
+          <div class="state-card">
+            <div class="state-top">
+              <span class="state-dot"></span
+              ><strong id="stateText">连续传动</strong>
+            </div>
+            <p id="stateDetail"></p>
+          </div>
+          <div class="principle">
+            <span>工作原理</span><strong id="formula"></strong>
+            <p id="principleText"></p>
+          </div>
+          <div class="mini-chart">
+            <div>
+              <span id="chartTitle">转速对比</span
+              ><span id="chartUnit">rpm</span>
+            </div>
+            <canvas id="chart" aria-label="实时数据曲线"></canvas>
+            <div class="chart-legend" id="chartLegend"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="transport">
+      <div class="playback">
+        <button id="playBtn" class="play" title="播放 / 暂停 (空格)">
+          Ⅱ <span>暂停</span></button
+        ><button id="stepBtn" class="ghost" title="暂停并前进 0.1 秒">
+          单步 <span>+0.1s</span></button
+        ><button id="resetBtn" class="ghost" title="重置当前实验 (R)">
+          ↺ 重置
+        </button>
+      </div>
+      <div class="speed-control">
+        <label for="speed">整体播放速率</label
+        ><input
+          id="speed"
+          type="range"
+          min="0.1"
+          max="2"
+          step="0.1"
+          value="1"
+        /><output id="speedOut">1.0×</output
+        ><button class="ghost" id="normalBtn" title="恢复 1 倍播放">1×</button>
+      </div>
+      <div class="sim-clock">
+        <span>模拟时间</span><strong id="clock">00:00.0</strong
+        ><small>播放倍率不改变物理参数</small>
+      </div>
+    </footer>
+    <dialog id="helpDialog">
+      <div class="dialog-head">
+        <div>
+          <div class="eyebrow">MODEL NOTES</div>
+          <h2>看得见运动，也读得懂原理。</h2>
+        </div>
+        <button class="icon-btn" id="closeHelp" aria-label="关闭说明">✕</button>
+      </div>
+      <div class="dialog-content">
+        <p>
+          三维教学模型。动画、流量、体积和读数由同一个物理状态驱动；各模型在对应假设内满足传动关系与守恒关系。
+        </p>
+        <h3>01 / 齿轮、带与链</h3>
+        <p>
+          直齿轮采用 20° 压力角渐开线、相同模数及标准中心距；外啮合两轮反向，n₂
+          = −n₁ z₁/z₂。开式平带依靠摩擦，两轮同向；设定无打滑，n₁d₁ =
+          n₂d₂。滚子链依靠滚子与链齿的几何啮合，两轮同向，平均速比等于齿数比。链的显示采用节线近似，忽略多边形效应引起的瞬时速度波动；带的弹性、打滑及张紧动态未模拟。
+        </p>
+        <p>
+          机械传动的转矩按恒定效率估算：齿轮 97%、带 95%、链 98%。输出转矩 T₂ =
+          η T₁ |n₁/n₂|，输入功率 P = T₁ω₁。细虚线为节圆 / 节线，不是实体零件。
+        </p>
+        <h3>02 / 双作用液压缸</h3>
+        <p>
+          A = πD²/4，B = π(D²−d²)/4。伸出 v = Q/A，缩回 |v| =
+          Q/B。液压油按不可压缩、无泄漏处理，采用准静态模型：入口压力由阻力、100
+          N 摩擦力及 0.1 MPa
+          回油背压共同决定。压力设置是溢流上限，不是固定工作压力。负载超限或到达终点时，缸口流量为零，泵流量经溢流支路回油；中位为封闭中位，泵仍经溢流阀回油。显示“进油量”为累计进入缸腔的油量，不包括溢流量。
+        </p>
+        <h3>03 / 双作用气缸</h3>
+        <p>
+          采用等温集中参数双腔模型：p<sub>绝对</sub>V =
+          mRT；阀口采用含临界阻塞的可压缩流量关系。按两腔压差、12 kg
+          等效质量、25 N 摩擦及 300 N·s/m
+          阻尼积分活塞运动，展示充气建压、压缩、排气与负载停滞。负载为双向运动阻力。封闭中位会保留空气，活塞可能因压差和惯性继续微动，不能视为机械锁。端点为刚性挡块。未计温升、泄漏、软管容积和行程缓冲。
+        </p>
+        <p>
+          所有压力读数均为<b>表压</b>。气量统一折算至
+          <b>20°C、101.325 kPa 绝压</b>，以 NL / NL·min⁻¹
+          显示（本页约定参考状态，非 0°C 标准状态）；气体实际腔容积另以 mL
+          显示。气动流量旋钮为 0.7 MPa
+          绝压上游、临界流动下的额定供气能力，实际流量随压差变化。A/B 均含 5 mm
+          等效死容积。
+        </p>
+        <h3>操作</h3>
+        <p>
+          1 / 2 / 3 切换装置；空格播放或暂停；R 重置当前实验；Home
+          复位视角。拖动旋转，滚轮或双指捏合缩放，Shift 拖动平移。单步始终前进
+          0.1
+          秒模拟时间。切换装置保留各自状态；更换几何尺寸或传动方式会重置当前实验，避免状态突变。桌面固定视窗，小屏仅控制区内部滚动。
+        </p>
+        <h3>零件观察与学生任务</h3>
+        <p>
+          点击组件名称会独立展示对应零件，并暂停整机；可拖动观察各个方向，开启自动旋转，或从零件说明中切换其他组件。Esc
+          或“返回整体”恢复整机。机械传动可切换 1、2
+          号轴为输入，盘车按钮使输入轴正向转过 15°。
+        </p>
+        <p>
+          “学习任务”包含轴系装配、输入轴对换、液压接管和气缸加载四项练习。装配题以预装轴承座、轴、键、齿轮、轴环的教学顺序进行，齿轮配对检查模数与压力角；结果只验证本页的连接、顺序与运动关系，不代替实际装配公差与强度检验。模型外观采用教学比例。通过记录保存在本机，可导出文本实验记录。
+        </p>
+        <h3>参考资料与组件</h3>
+        <p>
+          <a
+            href="https://khkgears.net/new/gear_knowledge/gear_technical_reference/calculation_gear_dimensions.html"
+            target="_blank"
+            rel="noopener"
+            >KHK · 齿轮尺寸与传动关系</a
+          ><br /><a
+            href="https://www.festo.com/net/supportportal/files/10203/actuators"
+            target="_blank"
+            rel="noopener"
+            >Festo · 气缸压力与作用力</a
+          ><br /><a
+            href="https://www.festo.com/de/en/s/air-consumption"
+            target="_blank"
+            rel="noopener"
+            >Festo · 气缸耗气量</a
+          >
+        </p>
+        <p class="muted">
+          渲染：Three.js r160，MIT
+          License。所有依赖均已内嵌；文件可离线运行。模型用于原理教学，不替代工程选型与安全验证。
+        </p>
+      </div>
+    </dialog>
+    <script src="../../../../../shared/vendor/three-13767d3750.js"></script>
+    <script src="src/model.js"></script>
+    <script src="src/annotations.js"></script>
+    <script src="src/focus.js"></script>
+    <script src="src/knowledge.js"></script>
+    <script src="src/learning.js"></script>
+    <script src="src/app.js"></script>
+  <script data-root="../" data-lab="transmission">(() => {
+  'use strict';
+  const script=document.currentScript,config=script.dataset;
+  const root=config.root||'../',active=config.lab;
+  const links=[{"id":"2-1","title":"动力装置的基本原理","demo":"course/chapters/02/tasks/2-1/index.html"},{"id":"2-2","title":"动力的传递与变换","demo":"course/chapters/02/tasks/2-2/index.html"},{"id":"2-3","title":"工作机构与施工动作","demo":"course/chapters/02/tasks/2-3/index.html"}];
+  const task={motor:'2-1',diesel:'2-1',transmission:'2-2',mechanisms:'2-3',fourbar:'2-3'}[active];
+  document.documentElement.dataset.c2=active;
+  const nav=document.createElement('nav');
+  nav.className='c2-nav';
+  nav.setAttribute('aria-label','本章导航');
+  nav.innerHTML=`<a class="c2-home" href="${root}course/chapters/02/overview/index.html">← 第二章 · 动力与工作机构</a><div class="c2-links">${links.map(({id,title,demo})=>`<a href="${root+demo}" ${id===task?'aria-current="page"':''}>${id} ${title}</a>`).join('')}</div>`;
+  document.body.prepend(nav);
+  if(active==='mechanisms'){
+    const lessons=document.querySelector('.lessons');if(lessons){const details=document.createElement('details');details.className='c2-lesson-notes';const summary=document.createElement('summary');summary.textContent='本实验要点 · 传力、导程与偏心振动';lessons.before(details);details.append(summary,lessons);}
+  }
+})();
+</script><script>window.Chapter2Guides = {
+  transmission: {
+    title: '动力传动：比较三种传递方式',
+    goals: ['沿动力输入到输出，识别机械、液压和气压传动的关键部件。', '每次只改变一个条件，用运动与读数说明变化。'],
+    steps: [['齿轮传动', '选择“机械传动”，改变齿数组合与输入轴，比较两轴转向、转速和转矩；点选齿轮查看啮合关系。'], ['液压推动', '切换到液压实验，改变流量与方向阀，观察活塞速度、两腔压力和伸缩方向。'], ['气压推动', '切换到气压实验，改变供气能力与负载，观察先建压、后运动的过程。']],
+    reflection: '减速后转矩怎样变化？液压或气压装置中，哪些调节主要影响运动速度，哪些条件影响能否推动负载？',
+    boundary: '读数来自简化教学模型；效率、负载和压力条件不能直接用作真实设备设计或安全判定。',
+    help: ['用上方标签切换机械、液压或气压实验；右侧保留各装置的完整实验控制。', '拖动模型旋转、滚轮缩放；点击部件标签可进入局部观察。', '独立观察零件时可返回整体；完整原理与原有实验任务见“原理与实验说明”。', '全屏时保留观察与播放入口；恢复页面不清空当前参数。']
+  }
+};
+
+/* Chapter-wide presentation controls; experiments retain ownership of their state. */
+(() => {
+  'use strict';
+  const lab=document.documentElement.dataset.c2, lesson=window.Chapter2Guides?.[lab];
+  if(!lesson)return;
+  const $=selector=>document.querySelector(selector);
+  const make=(tag,cls,text)=>{const el=document.createElement(tag);el.className=cls||'';if(text)el.textContent=text;return el;};
+  const button=(text,fn,cls='')=>{const el=make('button','c2-button '+cls,text);el.type='button';el.addEventListener('click',fn);return el;};
+  const pause=()=>document.dispatchEvent(new Event('course:pause'));
+  const header={motor:'.top-actions',diesel:'.header-actions',transmission:'.top-actions',mechanisms:'.mast .toolbar',fourbar:'.fb-header nav'}[lab];
+  const actions=make('div','c2-learning-actions');
+  const helpOriginal=$('#helpBtn');
+  if(helpOriginal){helpOriginal.textContent='原理与实验说明';helpOriginal.classList.add('c2-original-help');}
+  const guide=button('学习引导',()=>openDialog('guide'),'c2-guide-button');guide.id='c2-guide';
+  const help=button('操作说明',()=>openDialog('help'));help.id='c2-help';
+  actions.append(guide,help);$(header)?.append(actions);
+  const dialog=make('dialog','c2-dialog');dialog.id='c2-learning-dialog';dialog.setAttribute('aria-labelledby','c2-dialog-title');
+  const dialogHead=make('div','c2-dialog-head'),title=make('h2');title.id='c2-dialog-title';
+  dialogHead.append(title,button('关闭',()=>dialog.close()));
+  const body=make('div','c2-dialog-body'),foot=make('div','c2-dialog-foot');
+  foot.append(button('开始观察',()=>dialog.close(),'c2-primary'));dialog.append(dialogHead,body,foot);document.body.append(dialog);
+  let opener;
+  function openDialog(kind){
+    pause();opener=kind==='guide'?guide:help;body.replaceChildren();
+    title.textContent=kind==='guide'?lesson.title:'操作说明';
+    function section(name,content){const h=make('h3','',name);body.append(h,content);}
+    if(kind==='guide'){
+      const goals=make('ul');lesson.goals.forEach(t=>goals.append(make('li','',t)));section('本节学什么',goals);
+      const steps=make('ol','c2-steps');lesson.steps.forEach(([name,text])=>{const item=make('li');item.append(make('strong','',name),make('p','',text));steps.append(item);});section('按这三步观察',steps);
+      section('观察后，试着说明',make('p','c2-reflection',lesson.reflection));body.append(make('p','c2-boundary',lesson.boundary));
+    }else{
+      const list=make('ol');lesson.help.forEach(t=>list.append(make('li','',t)));body.append(list);
+      if(helpOriginal&&lab!=='diesel')body.append(button('原理与实验说明 ↗',()=>{dialog.close();helpOriginal.click();}));
+    }
+    dialog.showModal();
+  }
+  dialog.addEventListener('close',()=>opener?.focus());
+  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+  // Keep legacy document shortcuts out of both guide and help dialogs.
+  document.addEventListener('keydown',e=>{if(dialog.open&&e.key!=='Escape')e.stopImmediatePropagation();},true);
+
+  // Keep each mechanism in a single observation workstation.
+  if(lab==='mechanisms'){
+    const labs=$('.labs'),panels=[...labs.children].filter(e=>e.classList.contains('lab'));
+    const tabs=make('div','c2-experiments');tabs.setAttribute('role','group');tabs.setAttribute('aria-label','工作机构展示方式');
+    panels.forEach(panel=>{
+      const model=make('section','c2-model-column'),control=make('aside','c2-control-column');
+      [...panel.children].forEach(el=>(el.matches('.stats,.controls,.lab-foot')?control:model).append(el));panel.append(model,control);
+    });
+    const transport=make('div','c2-mechanism-transport');
+    for(const element of [$('#play'),$('#reverse'),$('#reset'),$('#speed').closest('label')])transport.append(element);
+    const prompts=[
+      ['看液压缸怎样带动动臂','单步伸出液压缸，沿销轴观察 A、B、C 三根杆怎样联动。杆长滑块用于重新设置尺寸，播放时各杆的长度固定。'],
+      ['看转动怎样变成升降','先用“丝杠转 1 圈”比较位移，再改变导程重复观察。切换同步同转，比较丝杠与螺母的相对运动。'],
+    ];
+    panels.forEach((panel,i)=>{
+      const control=panel.querySelector('.c2-control-column');
+      const guide=make('section','mechanism-observation');
+      guide.append(make('h3','',prompts[i][0]),make('p','',prompts[i][1]));
+      control.prepend(panel.querySelector('.lab-head'),guide);
+    });
+    ['液压连杆','丝杠升降'].forEach((name,i)=>tabs.append(button(name,()=>select(i))));
+    function select(i){
+      panels[i].querySelector('.c2-model-column').append(transport);
+      document.dispatchEvent(new CustomEvent('mechanism:select',{detail:i===0?'boom':'screw'}));
+      labs.dataset.presentation='single';
+      panels.forEach((panel,n)=>{panel.hidden=n!==i;});
+      [...tabs.children].forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));
+      dispatchEvent(new Event('resize'));
+    }
+    labs.before(tabs);select(0);
+  }
+
+  let expanded=null,inerted=[],returnFocus=null,oldOverflow='';
+  const viewButtons=new Map();
+  function release(){
+    if(!expanded)return;
+    expanded.classList.remove('c2-expanded','c2-fallback');
+    inerted.forEach(([el,value])=>el.inert=value);inerted=[];
+    document.body.style.overflow=oldOverflow;document.body.classList.remove('c2-has-expanded');
+    expanded=null;sync();returnFocus?.focus();dispatchEvent(new Event('resize'));
+  }
+  function sync(){viewButtons.forEach((b,target)=>{const on=expanded===target;b.textContent=on?'⤢ 恢复':'⛶ 全屏';b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?'恢复页面布局':'全屏观察'+target.dataset.c2Title);});}
+  async function toggle(target,b){
+    if(expanded){if(document.fullscreenElement)await document.exitFullscreen();else release();return;}
+    expanded=target;returnFocus=b;oldOverflow=document.body.style.overflow;target.classList.add('c2-expanded');document.body.classList.add('c2-has-expanded');
+    document.body.style.overflow='hidden';
+    try{if(!target.requestFullscreen)throw new Error('Fullscreen unsupported');await target.requestFullscreen();}
+    catch{target.classList.add('c2-fallback');}
+    if(expanded!==target)return;
+    for(let node=target;node&&node!==document.body;node=node.parentElement){for(const sibling of node.parentElement.children){if(sibling!==node&&!sibling.matches('script,style,link')){inerted.push([sibling,sibling.inert]);sibling.inert=true;}}}
+    sync();b.focus();dispatchEvent(new Event('resize'));
+  }
+  document.addEventListener('fullscreenchange',()=>{if(expanded&&!document.fullscreenElement&&!expanded.classList.contains('c2-fallback'))release();});
+  document.addEventListener('keydown',e=>{if(expanded?.classList.contains('c2-fallback')&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();release();}},true);
+
+  function view(target,name,tools,play,step){
+    if(!target)return;
+    target.classList.add('c2-view');target.dataset.c2Title=name;
+    const bar=make('div','c2-viewbar'),label=make('span','c2-view-label',name),controls=make('div','c2-view-actions');
+    if(tools)controls.append(tools);
+    const motion=make('div','c2-view-motion');
+    if(play){const source=$(play);if(source){const proxy=button('',()=>source.click());const update=()=>{proxy.textContent=source.getAttribute('aria-label')||source.textContent.trim();proxy.disabled=source.disabled;};update();new MutationObserver(update).observe(source,{attributes:true,childList:true,subtree:true,characterData:true});motion.append(proxy);}}
+    if(step){const source=$(step);if(source){const proxy=button(source.textContent.trim(),()=>source.click());const update=()=>proxy.disabled=source.disabled;update();new MutationObserver(update).observe(source,{attributes:true});motion.append(proxy);}}
+    controls.append(motion);
+    const full=button('⛶ 全屏',()=>toggle(target,full),'c2-fullscreen');viewButtons.set(target,full);controls.append(full);bar.append(label,controls);target.prepend(bar);
+  }
+  if(lab==='motor')view($('#motorPanel'),'电机结构观察',$('#motorPanel .pills'));
+  if(lab==='diesel')view($('.workspace'),'柴油机结构观察',$('.view-tools'));
+  if(lab==='transmission')view($('.viewport'),'动力传动 · 结构观察',$('.scene-tools'),'#playBtn','#stepBtn');
+  if(lab==='mechanisms'){
+    view($('#boom-lab .c2-model-column'),'液压连杆 · 结构观察',$('#boom-lab .view-buttons'),'#play','#boom-step');
+    view($('#screw-lab .c2-model-column'),'丝杠升降 · 结构观察',$('#screw-lab .view-buttons'),'#play','#screw-step');
+  }
+  if(lab==='fourbar'){
+    view($('.fb-main'),'四杆机构 · 闭合与传力',null,'#fb-play','#fb-plus');
+    view($('.fb-gripper'),'夹爪 · 联动观察',null,'#fb-play','#fb-plus');
+    $('#fb-fit').textContent='全景';
+  }
+  // Older whole-page fullscreen remains in the source for compatibility only.
+  ['#fullscreenBtn','#fullBtn','#fullscreen','[data-enlarge]'].forEach(selector=>document.querySelectorAll(selector).forEach(el=>el.hidden=true));
+  sync();
+})();
+</script><script>/* 原版三维实验页的“嵌入模式”桥接。
+ * 页面被第二章任务页（index.html）用 iframe 打开时：只留下三维视图，其余原有界面隐藏；
+ * 外层面板通过 postMessage 发命令（点击、设值、调用接口），这里定时回报模型状态。
+ * 单独打开原页面时不做任何改动。file:// 下同样可用（只用 postMessage，不跨文档读 DOM）。
+ */
+(() => {
+  'use strict';
+  const embedded = window.parent !== window || /[?&]embed\b/.test(location.search);
+  if (!embedded) return;
+  const $ = s => document.querySelector(s);
+  const lab = () => document.documentElement.dataset.c2;
+  const text = s => ($(s)?.textContent || '').trim();
+  const pressed = s => $(s)?.getAttribute('aria-pressed') === 'true';
+  const json = v => JSON.parse(JSON.stringify(v ?? null));
+
+  /* 每个原版页面：保留哪个三维视图、隐藏其中哪些原有浮层、回报哪些状态 */
+  const LABS = {
+    motor: {
+      keep: '#stage',
+      hideInside: ['.view-hint', '.c2-viewbar'],
+      probe() {
+        const s = window.motorLab.getState(), m = window.motorLab.getModel(), st = window.motorLab.getStudent();
+        const view = ['cutMode', 'wholeMode', 'wireMode'].find(id => pressed('#' + id)) || 'cutMode';
+        return {voltage: s.voltage, load: s.load, dir: s.dir, paused: s.paused, part: s.part, showEM: s.showEM, cut: s.cut,
+          n: m.n, I: m.I, T: m.T, P: m.P, eff: m.eff, stall: m.stall, stalled: m.stalled, view,
+          partText: s.part !== 'all' ? text('.part-description') : '',
+          // 组装模式（原版“学生任务：组装与接线”）
+          student: {...st, step: $('#studentConsole')?.dataset.uiStep || '', feedback: text('#studentFeedback')}};
+      },
+    },
+    diesel: {
+      keep: '#viewport',
+      probe() {
+        const s = window.engineLab.getState();
+        const stroke = $('#strokes [aria-pressed="true"]');
+        return {mode: s.mode, observed: s.observed, angle: s.angle, running: s.running, speed: s.speed, explode: s.explode,
+          targetExplode: s.targetExplode, cut: s.cut, labels: s.labels, effects: s.effects, vehicle: s.vehicle,
+          installation: s.installation, audio: s.audioEnabled, selected: s.selected,
+          stroke: stroke ? +stroke.dataset.stroke : null, rpm: text('#rpmReadout'),
+          partName: s.selected ? text('#partName') : '', partDesc: s.selected ? text('#partDesc') : ''};
+      },
+    },
+    transmission: {
+      keep: '#canvasWrap',
+      // transmission.html#gear / #hyd / #air
+      setup() { const m = location.hash.slice(1); if (['gear', 'hyd', 'air'].includes(m)) window.MechanicsLab.switchMode(m); },
+      probe() {
+        const x = window.MechanicsLab.snapshot(), st = x.state;
+        return {mode: x.mode, playing: x.playing, speed: x.speed, params: x.params[x.mode], tr: x.transmission,
+          state: {x: st.x, v: st.v, pA: st.pA, pB: st.pB, force: st.force, status: st.status, command: st.command, cycles: st.cycles, auto: st.auto},
+          focused: x.view.focused, watch: text('#watchTitle')};
+      },
+    },
+    mechanisms: {
+      keep: () => (location.hash === '#screw' ? '#screw-stage' : '#boom-stage'),
+      hideInside: ['.stage-hint', '.stage-top', '.c2-viewbar'],
+      setup() {
+        const i = location.hash === '#screw' ? 1 : 0;
+        const tab = document.querySelectorAll('.c2-experiments button')[i];
+        tab?.click();
+      },
+      probe() {
+        const x = window.mechanismLab.snapshot();
+        return {active: x.activeMechanism, play: x.play, dir: x.dir, speed: x.speed, theta: x.theta, a: x.a, b: x.b, c: x.c,
+          lead: x.lead, rpm: x.rpm, starts: x.starts, ns: x.ns, nn: x.nn, mode: x.mode, relative: x.relative, height: x.height,
+          vibration: x.vibration, ecc: x.ecc, trace: x.trace, forces: x.forces, range: x.range,
+          moment: x.model?.moment, mu: x.model?.mu, len: x.model?.len,
+          stroke: +($('#stroke')?.value || 0), strokeMin: +($('#stroke')?.min || 0), strokeMax: +($('#stroke')?.max || 0),
+          amplitude: x.vibrationMetrics?.amplitude};
+      },
+    },
+  };
+
+  const css = `
+    html.c2-embed, html.c2-embed body { overflow:hidden !important; margin:0 !important; padding:0 !important; min-width:0 !important; min-height:0 !important; }
+    html.c2-embed body { background:var(--stage-bg, #f5f6f8) !important; }
+    html.c2-embed .c2-embed-hide { display:none !important; }
+    html.c2-embed [data-c2-path] { transform:none !important; filter:none !important; contain:none !important; overflow:visible !important; }
+    html.c2-embed [data-c2-keep="main"] {
+      position:fixed !important; inset:0 !important; width:100vw !important; height:100vh !important;
+      max-width:none !important; max-height:none !important; min-width:0 !important; min-height:0 !important;
+      margin:0 !important; border:0 !important; border-radius:0 !important; z-index:2147480000 !important; box-shadow:none !important;
+    }
+    html.c2-embed [data-c2-keep="inset"] {
+      position:fixed !important; right:14px !important; bottom:14px !important; left:auto !important; top:auto !important;
+      width:min(30vw,280px) !important; height:min(34vh,210px) !important; min-height:0 !important; margin:0 !important;
+      border:1px solid var(--course-line, #cbdbea) !important; border-radius:12px !important; overflow:hidden !important;
+      z-index:2147480001 !important; box-shadow:0 6px 18px rgba(25,53,80,.18) !important;
+    }
+    html.c2-embed dialog { z-index:2147483000; }
+  `;
+
+  function isolate(cfg) {
+    const pick = v => (typeof v === 'function' ? v() : v);
+    const main = $(pick(cfg.keep)), inset = cfg.inset ? $(pick(cfg.inset)) : null;
+    if (!main) return false;
+    document.documentElement.classList.add('c2-embed');
+    /* 嵌入外壳后：三维区里的部件标签不小于 13px，字体与外壳一致 */
+    const type = '\n.part-label,.tag,button.tag,span.tag{font-size:13px!important;letter-spacing:0!important;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC","Segoe UI",system-ui,sans-serif!important}';
+    const style = document.createElement('style'); style.textContent = css + type; document.head.append(style);
+    const keeps = [main, inset].filter(Boolean);
+    main.dataset.c2Keep = 'main'; if (inset) inset.dataset.c2Keep = 'inset';
+    for (const k of keeps) for (let n = k; n && n !== document.body; n = n.parentElement) {
+      if (n !== k) n.dataset.c2Path = '1';
+      n.hidden = false; n.inert = false; n.classList.remove('hidden');
+    }
+    for (const k of keeps) {
+      for (let n = k; n && n !== document.body; n = n.parentElement) {
+        const parent = n.parentElement; if (!parent) break;
+        for (const sib of parent.children) {
+          if (sib.dataset.c2Path || sib.dataset.c2Keep || sib.matches('script,style,link,dialog,canvas.c2-keep-canvas')) continue;
+          sib.classList.add('c2-embed-hide');
+        }
+      }
+    }
+    for (const sel of cfg.hideInside || []) main.querySelectorAll(sel).forEach(e => e.classList.add('c2-embed-hide'));
+    // 画布多为透明：铺上外壳统一的三维区底色（--stage-bg 由外壳传入），不沿用原页面的网格、渐变底
+    for (const k of keeps) k.style.setProperty('background', 'var(--stage-bg, #f5f6f8)', 'important');
+    // 隐藏页面级的浮动按钮（深色模式切换等）
+    document.querySelectorAll('body > button, body > .toast, #course-theme-toggle').forEach(e => { if (!e.dataset.c2Keep) e.classList.add('c2-embed-hide'); });
+    return true;
+  }
+
+  const post = msg => window.parent.postMessage({c2: 'lab', lab: lab(), ...msg}, '*');
+  function setValue(el, value) {
+    if (!el) return;
+    if (el.type === 'checkbox') { if (el.checked !== Boolean(value)) el.click(); return; }
+    el.value = value;
+    el.dispatchEvent(new Event('input', {bubbles: true}));
+    el.dispatchEvent(new Event('change', {bubbles: true}));
+  }
+  function call(path, args) {
+    const parts = path.split('.'); let ctx = window, fn = window;
+    for (const p of parts) { ctx = fn; fn = fn?.[p]; }
+    return typeof fn === 'function' ? fn.apply(ctx, args || []) : undefined;
+  }
+  addEventListener('message', e => {
+    const d = e.data;
+    if (!d || d.c2 !== 'cmd') return;
+    try {
+      if (d.op === 'click') { const list = document.querySelectorAll(d.sel); (list[d.index || 0])?.click(); }
+      else if (d.op === 'clickText') { [...document.querySelectorAll(d.sel)].find(e => e.textContent.trim().startsWith(d.text))?.click(); }
+      else if (d.op === 'set') setValue($(d.sel), d.value);
+      else if (d.op === 'call') call(d.path, d.args);
+      else if (d.op === 'event') document.dispatchEvent(new Event(d.name));
+      else if (d.op === 'theme') {
+        if (d.stage) {
+          // 外壳的三维区取值：CSS 变量给页面样式用，StageTone 给三维场景用；再按主题重绘
+          const t = d.value === 'dark' ? 'dark' : 'light', v = d.stage[t] || {};
+          for (const [k, val] of Object.entries(v)) if (val) document.documentElement.style.setProperty('--stage-' + k, val);
+          window.StageTone?.use(d.stage);
+        }
+        window.CourseTheme?.set?.(d.value);
+      }
+      else if (d.op === 'resize') dispatchEvent(new Event('resize'));
+      else if (d.op === 'capture') (window.StageTone?.capture?.(document.body) || Promise.resolve(null)).then(url => post({type: 'shot', url}));
+    } catch (err) { console.warn('[c2 bridge]', d, err); }
+    setTimeout(send, 30);
+  });
+
+  let probe = null;
+  function send() {
+    if (!probe) return;
+    try { post({type: 'state', data: json(probe())}); } catch (err) { /* 模型尚未就绪 */ }
+  }
+  addEventListener('load', () => {
+    const cfg = LABS[lab()];
+    if (!cfg) return;
+    cfg.setup?.();
+    isolate(cfg);
+    probe = cfg.probe;
+    // 不依赖 requestAnimationFrame：后台标签页里它不会执行
+    dispatchEvent(new Event('resize')); post({type: 'ready'}); send();
+    setTimeout(() => dispatchEvent(new Event('resize')), 300);
+    setInterval(send, 160);
+  });
+})();
+</script></body>
+</html>

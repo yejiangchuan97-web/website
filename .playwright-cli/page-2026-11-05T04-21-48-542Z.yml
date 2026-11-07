@@ -1,0 +1,96 @@
+- generic [ref=f19e2]:
+  - navigation "本章导航" [ref=f19e3]:
+    - link "← 第二章 · 动力与工作机构" [ref=f19e4] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/overview/index.html
+    - link "2-1 动力装置的基本原理" [ref=f19e5] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/tasks/2-1/index.html
+    - link "2-2 动力的传递与变换" [ref=f19e6] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/tasks/2-2/index.html
+    - link "2-3 工作机构与施工动作" [ref=f19e7] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/02/tasks/2-3/index.html
+    - button "深色模式" [ref=f19e8] [cursor=pointer]: ☾ 深色模式
+  - main [ref=f19e9]:
+    - generic [ref=f19e10]:
+      - generic [ref=f19e11]:
+        - text: TASK 2-1 / POWER SOURCES
+        - heading "认识动力装置" [level=1] [ref=f19e12]
+        - paragraph [ref=f19e13]: 看看电机和柴油机怎样让轴转起来，为认识机器人的驱动装置做准备。
+      - generic [ref=f19e14]:
+        - button "学习引导" [ref=f19e15] [cursor=pointer]
+        - button "操作说明" [ref=f19e16] [cursor=pointer]
+    - navigation "动力装置" [ref=f19e17]:
+      - button "01 直流电机" [pressed] [ref=f19e18] [cursor=pointer]:
+        - generic [ref=f19e21]: "01"
+        - generic [ref=f19e22]: 直流电机
+      - button "02 单缸柴油机" [ref=f19e23] [cursor=pointer]:
+        - generic [ref=f19e26]: "02"
+        - generic [ref=f19e27]: 单缸柴油机
+      - button "03 四缸柴油机" [ref=f19e28] [cursor=pointer]:
+        - generic [ref=f19e31]: "03"
+        - generic [ref=f19e32]: 四缸柴油机
+    - generic [ref=f19e33]:
+      - generic [ref=f19e34]:
+        - generic [ref=f19e35]:
+          - generic [ref=f19e36]: EXHIBIT / 机械结构观察
+          - generic [ref=f19e37]:
+            - button "全景" [ref=f19e38] [cursor=pointer]
+            - button "侧面" [ref=f19e39] [cursor=pointer]
+            - button "俯视" [ref=f19e40] [cursor=pointer]
+            - button "全屏观察三维模型" [ref=f19e41] [cursor=pointer]:
+              - text: ⛶
+              - generic [ref=f19e42]: 全屏
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=f19e43]:
+          - generic:
+            - text: FIG 01 / 03
+            - heading "直流电机" [level=2]
+            - paragraph: DC MOTOR
+          - generic [ref=f19e45]:
+            - button "↻ 环绕" [ref=f19e46] [cursor=pointer]
+            - button "放大" [ref=f19e47] [cursor=pointer]: ＋
+            - button "缩小" [ref=f19e48] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=f19e49] [cursor=pointer]
+            - button "聚焦部件" [ref=f19e50] [cursor=pointer]
+          - button "外壳和磁铁" [ref=f19e51] [cursor=pointer]: "01"
+          - button "转子和线圈" [ref=f19e52] [cursor=pointer]: "02"
+          - button "输出轴" [ref=f19e53] [cursor=pointer]: "03"
+          - button "电刷和换向器" [ref=f19e54] [cursor=pointer]: "04"
+        - generic [ref=f19e55]:
+          - button "▶ 播放动作" [ref=f19e56] [cursor=pointer]
+          - button "单步" [ref=f19e57] [cursor=pointer]
+          - generic [ref=f19e58]:
+            - generic [ref=f19e59]: 动作进度（秒）
+            - slider "动作进度（秒）" [ref=f19e60]: "0"
+            - status [ref=f19e61]: 0.00 / 8.00 s
+          - button "复位" [ref=f19e62] [cursor=pointer]
+        - generic [ref=f19e63]:
+          - generic [ref=f19e64]: 拖动旋转 · 滚轮缩放 · 点击编号认识部件
+          - generic [ref=f19e65]: 三维观察
+        - status [ref=f19e66]
+      - complementary "操作与状态" [ref=f19e67]:
+        - heading "直流电机" [level=2] [ref=f19e68]
+        - paragraph [ref=f19e69]: 通电后，线圈在磁铁的作用下带着转子转动，输出轴随之转动。机器人关节常用电机提供动力。
+        - status [ref=f19e70]: 通电后，线圈在磁铁的作用下带着转子转动，输出轴随之转动。机器人关节常用电机提供动力。
+        - generic [ref=f19e72]:
+          - heading "部件索引" [level=3] [ref=f19e74]
+          - paragraph [ref=f19e75]: 点击编号或部件名称，看看它在哪里。
+          - generic [ref=f19e76]:
+            - button "01 外壳和磁铁 ↗" [ref=f19e77] [cursor=pointer]:
+              - generic [ref=f19e78]: "01"
+              - text: 外壳和磁铁
+              - generic [ref=f19e79]: ↗
+            - button "02 转子和线圈 ↗" [ref=f19e80] [cursor=pointer]:
+              - generic [ref=f19e81]: "02"
+              - text: 转子和线圈
+              - generic [ref=f19e82]: ↗
+            - button "03 输出轴 ↗" [ref=f19e83] [cursor=pointer]:
+              - generic [ref=f19e84]: "03"
+              - text: 输出轴
+              - generic [ref=f19e85]: ↗
+            - button "04 电刷和换向器 ↗" [ref=f19e86] [cursor=pointer]:
+              - generic [ref=f19e87]: "04"
+              - text: 电刷和换向器
+              - generic [ref=f19e88]: ↗
+    - generic [ref=f19e89]:
+      - generic [ref=f19e90]: 教学剖面模型 · 动作用于观察部件怎样配合。
+      - link "课程总览 ↗" [ref=f19e91] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/home/index.html#chapter-2

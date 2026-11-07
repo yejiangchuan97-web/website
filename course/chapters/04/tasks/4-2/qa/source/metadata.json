@@ -1,0 +1,57 @@
+{
+  "title": "PCL 公开点云示例 · table_scene_lms400",
+  "sourceURL": "https://raw.githubusercontent.com/PointCloudLibrary/data/084fa0e260580cc765ded83de4ec3f495f1d6f1e/tutorials/table_scene_lms400.pcd",
+  "licenseURL": "https://raw.githubusercontent.com/PointCloudLibrary/data/master/LICENSE",
+  "tutorialURL": "https://pointclouds.org/documentation/tutorials/statistical_outlier.html",
+  "sha256": "e285d415641e0d9de695b611db874cc8fe995e8089b77a50d6056d24d8cbcc58",
+  "originalFile": "table_scene_lms400.pcd",
+  "originalBytes": 5649007,
+  "sourceGitBlob": "5631e4b0d659bfea286819b97fdec93f6de88600",
+  "sourceCommit": "084fa0e260580cc765ded83de4ec3f495f1d6f1e",
+  "originalCount": 460400,
+  "originalFiniteCount": 460400,
+  "retainedCount": 12116,
+  "selectionMethod": "原始索引顺序逐行检查有限 XYZ，保留第 0、38、76… 个有效点；固定步长 38；sourceIndex 为原文件零基索引；不补点、不平滑、不重建。",
+  "coordinateUnit": "unspecified",
+  "hasRGB": false,
+  "sourceFields": [
+    "x",
+    "y",
+    "z",
+    "intensity",
+    "distance",
+    "sid"
+  ],
+  "retainedFields": [
+    "x",
+    "y",
+    "z",
+    "intensity",
+    "sourceIndex"
+  ],
+  "omittedFields": [
+    "distance",
+    "sid"
+  ],
+  "coordinateTransform": "无；point 保存原始 float32 坐标值转换为可精确表示的 JavaScript Number。显示居中/缩放应由渲染器独立应用，不覆盖本文件。",
+  "captureMetadata": "官方教程/文件头未提供完整采集履历、坐标单位、姿态标定；不据文件名推定全部采集信息。",
+  "colorMeaning": "文件无 RGB；intensity 为原文件附加字段，未提供可跨设备比较的标定含义。高度或来源色属于后续显示映射。",
+  "bounds": {
+    "min": [
+      -1.1262999773025513,
+      -0.6922000050544739,
+      -1.9211000204086304
+    ],
+    "max": [
+      0.929669976234436,
+      0.5332900285720825,
+      -1.0252000093460083
+    ]
+  },
+  "originalHeader": "# .PCD v0.7 - Point Cloud Data file format\nVERSION 0.7\nFIELDS x y z intensity distance sid\nSIZE 4 4 4 4 4 4\nTYPE F F F F F F\nCOUNT 1 1 1 1 1 1\nWIDTH 460400\nHEIGHT 1\nVIEWPOINT 0 0 0 1 0 0 0\nPOINTS 460400\nDATA binary_compressed\n",
+  "compressedSize": 5644903,
+  "uncompressedSize": 11049600,
+  "trailingZeroPaddingBytes": 3870,
+  "licenseSha256": "d5b7c6e4809fd41dd59b6340b89331e721bb1b3d934c2131516f60a8056fd8cd",
+  "retrievedOn": "2026-10-16"
+}

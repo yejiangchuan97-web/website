@@ -1,0 +1,257 @@
+- generic [active] [ref=e1]:
+  - navigation "第二章实验导航" [ref=e2]:
+    - link "⌘ 动力与工作机构 第二章 · 返回章节总览" [ref=e3] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/02/overview/index.html
+      - generic [ref=e4]: ⌘
+      - generic [ref=e5]:
+        - text: 动力与工作机构
+        - generic [ref=e6]: 第二章 · 返回章节总览
+    - generic [ref=e7]:
+      - link "2-1A直流电机" [ref=e8] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-1/index.html
+      - link "2-1B柴油机" [ref=e9] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-1/diesel.html
+      - link "2-2动力传动" [ref=e10] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-2/index.html
+      - link "2-3A工作机构" [ref=e11] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-3/index.html
+      - link "2-3B四杆扩展" [ref=e12] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-3/fourbar.html
+    - link "课程总览 ↗" [ref=e13] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/home/index.html#chapter-2
+    - button "深色模式" [ref=e14] [cursor=pointer]: ☾ 深色模式
+  - banner [ref=e15]:
+    - link "柴油机交互实验室首页" [ref=e16] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e17]:
+        - text: D
+        - generic [ref=e18]: ↗
+      - generic [ref=e19]:
+        - text: 机械原理
+        - generic [ref=e20]: INTERACTIVE LAB
+    - generic [ref=e21]:
+      - generic [ref=e22]: 直列四缸柴油机
+      - generic [ref=e23]: 四冲程
+    - button "使用说明 ?" [ref=e25] [cursor=pointer]:
+      - text: 使用说明
+      - generic [ref=e26]: "?"
+  - tablist "柴油机学习活动" [ref=e27]:
+    - tab "结构与运行" [selected] [ref=e28] [cursor=pointer]
+    - tab "多缸协同" [ref=e29] [cursor=pointer]
+    - tab "四冲程观察" [ref=e30] [cursor=pointer]
+  - tabpanel "结构与运行" [ref=e31]:
+    - region "柴油机三维交互视窗" [ref=e32]:
+      - generic:
+        - generic: ENGINE ANATOMY / 01
+        - heading "看见动力的接续。" [level=1]
+        - paragraph: 四缸错峰做功，共用一根曲轴。
+        - generic: INLINE 4 · 180° 做功间隔
+      - generic [ref=e33]:
+        - generic:
+          - button "整体气缸体" [ref=e35] [cursor=pointer]
+          - button "共用多拐曲轴" [ref=e36] [cursor=pointer]
+          - button "各缸喷油器" [ref=e37] [cursor=pointer]
+          - button "涡轮增压器" [ref=e38] [cursor=pointer]
+          - button "散热器与水管" [ref=e39] [cursor=pointer]
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - button "透视" [ref=e42] [cursor=pointer]
+          - button "正视" [ref=e43] [cursor=pointer]
+          - button "侧视" [ref=e44] [cursor=pointer]
+          - button "俯视" [ref=e45] [cursor=pointer]
+        - button "重置视角与缩放" [ref=e46] [cursor=pointer]
+      - generic:
+        - generic: 正在运行
+        - generic: /
+        - generic: 机体剖切
+      - generic:
+        - generic:
+          - strong: 第 1 缸 · 空气压缩升温
+          - generic: 共用曲轴 -50° · 本缸 310° · 180° 做功间隔
+        - generic: FLOW FX
+      - generic:
+        - generic: 四缸 · 共轨直喷 · 涡轮增压
+        - generic: 原理示意模型 / 非制造图纸
+      - generic:
+        - generic: ◉ 拖动旋转
+        - generic: ↕ 滚轮缩放
+        - generic: ⇧ + 拖动平移
+      - generic:
+        - generic: "Y"
+        - generic: Z
+        - generic: X
+    - complementary [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]: 实验控制台
+        - generic [ref=e52]: LIVE MODEL
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]: 00 发动机配置
+          - generic [ref=e56]: SHARED CRANK
+        - generic "发动机缸数" [ref=e57]:
+          - button "单缸 SINGLE" [ref=e58] [cursor=pointer]:
+            - text: 单缸
+            - generic [ref=e59]: SINGLE
+          - button "直列四缸 INLINE 4" [pressed] [ref=e60] [cursor=pointer]:
+            - text: 直列四缸
+            - generic [ref=e61]: INLINE 4
+          - button "直列六缸 INLINE 6" [ref=e62] [cursor=pointer]:
+            - text: 直列六缸
+            - generic [ref=e63]: INLINE 6
+        - paragraph [ref=e64]: 1 → 3 → 4 → 2 错峰做功，点击气缸卡片切换观察缸。
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]: 01 装配与结构
+          - generic [ref=e68]: 已装配
+        - button "一键拆解 ↗" [ref=e69] [cursor=pointer]:
+          - generic [ref=e74]: 一键拆解
+          - generic [ref=e75]: ↗
+        - generic [ref=e76]:
+          - generic [ref=e77]: 拆解程度
+          - status [ref=e78]: 0%
+        - slider "拆解程度" [ref=e79] [cursor=pointer]: "0"
+        - generic [ref=e80]:
+          - generic [ref=e81] [cursor=pointer]:
+            - text: 机体剖切
+            - generic [ref=e82]: 打开外壳，观察内部机构
+          - checkbox "机体剖切 打开外壳，观察内部机构" [checked] [ref=e83] [cursor=pointer]
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: 剖切位置
+            - status [ref=e87]: 50%
+          - slider "剖切位置" [ref=e88] [cursor=pointer]: "0"
+          - generic [ref=e89]:
+            - generic [ref=e90]: 剖切方向
+            - status [ref=e91]: 0°
+          - slider "剖切方向" [ref=e92] [cursor=pointer]: "0"
+        - generic [ref=e93]:
+          - generic [ref=e94] [cursor=pointer]: 零件标注
+          - checkbox "零件标注" [checked] [ref=e95] [cursor=pointer]
+        - generic [ref=e96]:
+          - generic [ref=e97] [cursor=pointer]: 气流与燃烧特效
+          - checkbox "气流与燃烧特效" [checked] [ref=e98] [cursor=pointer]
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - generic [ref=e101]: 02 运行与节奏
+          - button "单步 +15°" [ref=e102] [cursor=pointer]
+        - generic [ref=e103]:
+          - button "暂停运行" [ref=e104] [cursor=pointer]
+          - generic [ref=e109]:
+            - strong [ref=e110]: 0.50×
+            - generic [ref=e111]: 教学演示倍率
+          - generic [ref=e112]: 15 rpm
+        - slider "运行速率" [ref=e113] [cursor=pointer]: "0.5"
+        - generic [ref=e114]:
+          - generic [ref=e115]: 0.1× 慢速
+          - generic [ref=e116]: 1×
+          - generic [ref=e117]: 2× 快速
+        - generic [ref=e118]:
+          - generic [ref=e119]: 曲轴转角
+          - generic [ref=e120]:
+            - button "90°" [ref=e121] [cursor=pointer]
+            - button "450°" [ref=e122] [cursor=pointer]
+            - status [ref=e123]: "-50°"
+        - slider "曲轴转角，拖动暂停并定位" [ref=e124] [cursor=pointer]: "0"
+        - paragraph [ref=e125]: 拖动转角可暂停并观察任意时刻
+        - generic [ref=e126]:
+          - text: 特效观察
+          - generic [ref=e127]:
+            - button "进气气流" [ref=e128] [cursor=pointer]
+            - button "喷油雾化" [ref=e129] [cursor=pointer]
+            - button "压燃瞬间" [ref=e130] [cursor=pointer]
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - generic [ref=e133] [cursor=pointer]: 观察缸同步音效
+            - checkbox "观察缸同步音效" [ref=e134] [cursor=pointer]
+          - generic [ref=e135]:
+            - generic [ref=e136]: 音量
+            - status [ref=e137]: 30%
+          - slider "发动机音效音量" [ref=e138] [cursor=pointer]: "30"
+          - generic [ref=e139]:
+            - generic [ref=e140]: 音效已关闭
+            - generic "音效输出电平" [ref=e141]
+          - button "近景运行 · 气流与音效 ↗" [ref=e147] [cursor=pointer]
+          - paragraph [ref=e148]: 进气 → 压缩 → 压燃 → 排气，按冲程同步
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]: 03 零件索引
+          - generic [ref=e152]: 点击平滑放大
+        - generic [ref=e153]:
+          - generic [ref=e154]: 按系统查看
+          - combobox "按系统查看" [ref=e155]:
+            - option "整机 · 全部系统" [selected]
+            - text: 机体与密封
+            - option "曲柄连杆"
+            - option "配气与正时"
+            - option "燃油供给"
+            - option "进排气与增压"
+            - option "冷却循环"
+            - option "润滑循环"
+            - option "启动与电气"
+          - generic [ref=e156]: 先从模型或零件索引选择部件
+          - generic [ref=e157]:
+            - button "拆下所选部件" [disabled] [ref=e158]
+            - button "独立观察" [disabled] [ref=e159]
+          - button "全部部件复位 · 显示整机" [ref=e160] [cursor=pointer]
+          - searchbox "搜索多缸发动机部件" [ref=e161]
+        - generic [ref=e162]:
+          - button "01整体气缸体" [ref=e163] [cursor=pointer]
+          - button "02湿式缸套" [ref=e164] [cursor=pointer]
+          - button "03缸垫与火圈" [ref=e165] [cursor=pointer]
+          - button "04整体缸盖" [ref=e166] [cursor=pointer]
+          - button "05气门室盖" [ref=e167] [cursor=pointer]
+          - button "06油底壳" [ref=e168] [cursor=pointer]
+          - button "07活塞与燃烧碗" [ref=e169] [cursor=pointer]
+          - button "08活塞环组" [ref=e170] [cursor=pointer]
+          - button "09活塞销" [ref=e171] [cursor=pointer]
+          - button "10连杆与轴瓦" [ref=e172] [cursor=pointer]
+          - button "11共用多拐曲轴" [ref=e173] [cursor=pointer]
+          - button "12主轴瓦与轴承盖" [ref=e174] [cursor=pointer]
+          - button "13飞轮与齿圈" [ref=e175] [cursor=pointer]
+          - button "14进排气门与弹簧" [ref=e176] [cursor=pointer]
+          - button "15摇臂与滚轮" [ref=e177] [cursor=pointer]
+          - button "16凸轮轴" [ref=e178] [cursor=pointer]
+          - button "172∶1 正时齿轮" [ref=e179] [cursor=pointer]
+          - button "18各缸喷油器" [ref=e180] [cursor=pointer]
+          - button "19共轨与高压油管" [ref=e181] [cursor=pointer]
+          - button "20高压油泵" [ref=e182] [cursor=pointer]
+          - button "21燃油滤清器" [ref=e183] [cursor=pointer]
+          - button "22进气歧管" [ref=e184] [cursor=pointer]
+          - button "23排气歧管" [ref=e185] [cursor=pointer]
+          - button "24涡轮增压器" [ref=e186] [cursor=pointer]
+          - button "25空气滤清器" [ref=e187] [cursor=pointer]
+          - button "26中冷器与增压管" [ref=e188] [cursor=pointer]
+          - button "27散热器与水管" [ref=e189] [cursor=pointer]
+          - button "28水泵与节温器" [ref=e190] [cursor=pointer]
+          - button "29冷却风扇" [ref=e191] [cursor=pointer]
+          - button "30机油泵与集滤器" [ref=e192] [cursor=pointer]
+          - button "31机油滤清器与油冷器" [ref=e193] [cursor=pointer]
+          - button "32启动机" [ref=e194] [cursor=pointer]
+          - button "33发电机与附件皮带" [ref=e195] [cursor=pointer]
+          - button "34悬置与紧固件" [ref=e196] [cursor=pointer]
+        - paragraph [ref=e197]: 34 / 34 组部件 · 4 缸配置
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - generic [ref=e200]: 04 整机应用
+          - generic [ref=e201]: 单缸装机演示
+        - button "装入运行中的挖掘机" [ref=e202] [cursor=pointer]
+        - generic [ref=e207]:
+          - generic [ref=e208] [cursor=pointer]: 透视动力舱
+          - checkbox "透视动力舱" [checked] [disabled] [ref=e209] [cursor=pointer]
+        - generic [ref=e210]:
+          - generic [ref=e211] [cursor=pointer]: 履带循环转动
+          - checkbox "履带循环转动" [checked] [disabled] [ref=e212] [cursor=pointer]
+        - generic [ref=e213]:
+          - button "前进" [disabled] [pressed] [ref=e214]
+          - button "后退" [disabled] [ref=e215]
+          - generic [ref=e216]:
+            - generic [ref=e217]: ⟳
+            - generic [ref=e218]: 装机后可运行
+        - paragraph [ref=e219]: 点击将切换至原有单缸动力舱演示
+      - generic [ref=e220]:
+        - text: 720° / 一个完整工作循环
+        - button "重置" [ref=e222] [cursor=pointer]
+  - contentinfo [ref=e223]:
+    - generic [ref=e224]: DIESEL ENGINE LAB © 2026
+    - generic [ref=e225]: 旋转观察 · 拆解探索 · 理解机械
+    - button "模型说明 ↗" [ref=e226] [cursor=pointer]

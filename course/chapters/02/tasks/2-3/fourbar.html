@@ -1,0 +1,879 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>四杆机构扩展 · 固定机架与连续装配分支</title><style>:root{color-scheme:light;--ink:#1d3940;--muted:#657d75;--line:#d8e3d9;--paper:#f2f5ef;--card:#fff;--panel:#f7faf4;--accent:#267968;--soft:#edf5e9;--red:#ad4938}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.65 'Microsoft YaHei','PingFang SC',system-ui,sans-serif}button,input,select{font:inherit;color:inherit}button,.button{cursor:pointer;border:1px solid var(--line);border-radius:6px;padding:5px 10px;background:var(--card);min-height:31px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}button:hover,.button:hover{background:var(--soft)}button.primary,button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--card)}button:focus-visible,input:focus-visible,select:focus-visible,.button:focus-visible{outline:3px solid #7bb5a0;outline-offset:2px}input[type=range]{width:100%;accent-color:var(--accent);height:19px;margin:5px 0 0;cursor:ew-resize}input[type=checkbox]{accent-color:var(--accent)}input[type=number],select{border:1px solid var(--line);border-radius:5px;padding:4px 6px;background:var(--card);min-width:0}input[type=number]{width:100%;height:30px}select{max-width:100%;height:30px}.fb-shell{max-width:1510px;margin:auto;padding:20px 24px}.fb-header{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:17px}.eyebrow{color:var(--accent);font-size:11px;letter-spacing:2px;font-weight:700}h1{font-size:26px;line-height:1.4;margin:4px 0}.fb-header p{margin:0;color:var(--muted);font-size:13px}nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.fb-layout{display:grid;grid-template-columns:minmax(0,1fr) 352px;gap:15px;align-items:start}.fb-card{border:1px solid var(--line);border-radius:11px;background:var(--card);overflow:hidden;box-shadow:0 3px 15px #214a3910}.card-head{display:flex;align-items:center;justify-content:space-between;padding:12px 15px 7px;gap:8px}h2{font-size:16px;line-height:1.5;margin:0;font-weight:650}h2 i{font:italic 20px Georgia,serif;color:#8ca791;margin-right:7px}.badge{background:var(--soft);border:1px solid var(--line);color:var(--accent);border-radius:14px;padding:2px 7px;font-size:12px;white-space:nowrap}.badge.warn{color:var(--red)}.fb-tools{display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px;margin:4px 12px 8px}.fb-tools>div{display:flex;gap:4px}.fb-tools button{min-height:26px;padding:3px 8px;font-size:12px}.fb-stage{position:relative;height:402px;margin:0 12px;overflow:hidden;border:1px solid var(--line);border-radius:7px;background:var(--panel);touch-action:none}.fb-stage canvas{display:block;width:100%;height:100%;cursor:crosshair}.fb-stage.orbit canvas{cursor:grab}.fb-stage.orbit canvas:active{cursor:grabbing}.fb-overlay{position:absolute;inset:0;pointer-events:none;overflow:hidden}.fb-tag,.fb-handle{position:absolute;left:0;top:0;white-space:nowrap;line-height:1.45;background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px;font-size:12px;min-height:0}.fb-handle{pointer-events:auto;cursor:grab;font-size:13px;font-weight:700;box-shadow:0 2px 8px #29402d13}.fb-handle.input{color:#b55e27;border-color:#e0ab87}.fb-handle.point{color:#287f83;border-color:#88b5b4}.fb-handle:active{cursor:grabbing}.key-a{color:#b85b28}.key-b{color:#267a7f}.key-c{color:#6467a2}.fb-canvas-hint{position:absolute;bottom:7px;left:10px;right:10px;display:flex;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted);pointer-events:none}.fb-motion{padding:12px 15px 5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}.fb-motion label{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}.fb-angle{display:block;padding:4px 16px 8px}.fb-angle>span{display:flex;justify-content:space-between;font-size:13px}.fb-angle output{font-weight:700;font-variant-numeric:tabular-nums}.fb-stats{display:grid;grid-template-columns:1.3fr .8fr 1fr;border-top:1px solid var(--line);padding:9px 16px;gap:12px}.fb-stats>div+div{border-left:1px solid var(--line);padding-left:12px}.fb-stats span{font-size:12px;color:var(--muted);display:block}.fb-stats strong{font-size:18px;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.fb-feedback{font-size:13px;margin:0;padding:0 16px 12px;color:var(--accent);min-height:30px}.fb-feedback.warn{color:var(--red)}.fb-aside{display:flex;flex-direction:column;gap:12px}.fb-settings{padding-bottom:9px}.fb-field{display:block;margin:8px 15px;font-size:13px}.fb-field select{display:block;width:100%;margin-top:4px}.fb-dims{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;padding:3px 15px}.fb-dims label{font-size:12px;color:var(--muted)}.fb-dims input{display:block;margin-top:3px}#fb-apply{margin:8px 15px 0;width:calc(100% - 30px);font-size:13px}.fb-small{font-size:12px;color:var(--muted);line-height:1.7;margin:6px 15px}.fb-slider{display:block;margin:9px 15px;font-size:13px}.fb-slider>span{display:flex;justify-content:space-between;gap:8px}.fb-slider output{font-weight:600}.fb-trace-actions{display:flex;align-items:center;justify-content:space-between;margin:10px 15px;font-size:13px}.fb-trace-actions button{font-size:12px;min-height:27px}.fb-trace-controls{padding-bottom:6px}.fb-gripper{grid-column:2;grid-row:2}.grip-stage{height:240px;margin-top:5px}.grip-stage canvas{cursor:grab}.grip-overlay{position:absolute;top:7px;left:8px;right:8px;display:flex;justify-content:space-between;font-size:10px;color:var(--muted);pointer-events:none}.fb-gripper>p{font-size:12px;color:var(--muted);line-height:1.85;margin:9px 15px 12px}.fb-notes{grid-column:1;grid-row:2;padding:15px 18px}.fb-notes h2{font-size:16px}.fb-notes p{font-size:13px;color:var(--muted);line-height:1.9;margin:9px 0}.fb-notes .fb-equation{font:italic 19px/1.8 Georgia,serif;color:var(--ink)}.fb-notes details{font-size:12px;color:var(--muted)}.fb-notes summary{cursor:pointer}.fb-notes a{color:var(--accent)}.no-labels .fb-tag{display:none}.no-labels .fb-handle{font-size:0;width:19px;height:19px;min-height:19px;border-radius:50%;padding:0}.no-labels .fb-handle::before{content:'';width:7px;height:7px;background:currentColor;border-radius:50%}.dark{color-scheme:dark;--ink:#dce9e3;--muted:#9bb6aa;--line:#3a544a;--paper:#111d23;--card:#1b2d2d;--panel:#111e26;--accent:#84cbb0;--soft:#294737;--red:#efa58a}.dark button.primary,.dark button[aria-pressed=true]{background:#84cbb0;color:#18352b;border-color:#84cbb0}.dark .fb-handle.input{color:#efb483}.dark .fb-handle.point{color:#9ed5d5}.dark .key-a{color:#efb483}.dark .key-b{color:#9ed5d5}.dark .key-c{color:#bebeea}@media(min-width:1450px){.fb-stage{height:440px}.grip-stage{height:252px}}@media(max-width:1100px){.fb-shell{padding:15px}.fb-layout{grid-template-columns:minmax(0,1fr) 310px;gap:12px}.fb-header{gap:10px}h1{font-size:24px}.fb-header nav{max-width:320px}.fb-stage{height:380px}.grip-stage{height:210px}.fb-stats strong{font-size:15px}.fb-stats{gap:7px;padding:8px 12px}.fb-stats>div+div{padding-left:7px}.fb-tools button{font-size:11px;padding:3px 6px}.fb-motion{gap:5px}.fb-motion button{padding:4px 7px;font-size:13px}}@media(max-width:800px){.fb-shell{padding:15px 10px}.fb-header{align-items:flex-start;flex-direction:column;gap:10px}h1{font-size:25px}.fb-layout{display:flex;flex-direction:column;gap:13px}.fb-main,.fb-aside,.fb-gripper,.fb-notes{width:100%}.fb-aside{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fb-stage{height:340px;margin:0 8px}.grip-stage{height:250px}.fb-header nav{max-width:none}.fb-tools{margin-left:8px;margin-right:8px}.fb-gripper{order:2}.fb-aside{order:3}.fb-notes{order:4}.fb-canvas-hint{font-size:10px}.card-head{padding:10px 12px 7px}.card-head h2{font-size:15px}.fb-stats strong{font-size:16px}.fb-notes .fb-equation{font-size:16px}}@media(max-width:520px){.fb-aside{display:flex}.fb-stage{height:305px}.grip-stage{height:230px}.fb-tools>div{gap:3px}.fb-tools button{padding:3px 5px;font-size:11px}.fb-tools{gap:5px}.fb-stats{grid-template-columns:1fr .65fr .95fr;gap:6px}.fb-stats strong{font-size:14px}.fb-stats span{font-size:10px}.fb-tag{font-size:11px}.fb-handle{font-size:12px}.fb-canvas-hint{left:6px;right:6px;gap:4px}.fb-motion{padding:9px 12px 4px}.fb-angle{padding-left:12px;padding-right:12px}.fb-feedback{font-size:12px;padding:0 12px 10px}.fb-notes{padding:13px}.fb-notes .fb-equation{font-size:14px}.fb-header p{font-size:12px}.badge{font-size:11px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}@media print{nav,.fb-tools,.fb-motion{display:none}.fb-card{break-inside:avoid;box-shadow:none}.fb-shell{padding:0}}
+:root .fb-aside{grid-column:2;grid-row:1}.fb-aside .fb-gripper{order:0;grid-column:auto;grid-row:auto}.fb-notes{grid-column:1/-1;grid-row:2;padding:12px 18px}.fb-notes>summary{font-size:14px;cursor:pointer;color:var(--muted)}.fb-option-details,.fb-point-details{margin:5px 15px 8px;font-size:13px;color:var(--muted)}.fb-option-details>summary,.fb-point-details>summary{cursor:pointer;padding:5px 0}.fb-option-details .fb-field,.fb-point-details .fb-slider{margin-left:0;margin-right:0}.fb-option-details .fb-dims{padding-left:0;padding-right:0}.fb-option-details #fb-apply{margin-left:0;width:100%}.fb-aside .grip-stage{height:205px}.fb-aside .fb-gripper>p{line-height:1.65;margin-top:7px;margin-bottom:9px}@media(min-width:801px) and (max-height:850px){.fb-shell{padding-top:12px;padding-bottom:12px}.fb-header{margin-bottom:10px}h1{font-size:25px}.fb-stage{height:300px}.fb-aside .grip-stage{height:155px}.fb-motion{padding-top:8px}.fb-aside{gap:9px}.fb-notes{padding:9px 15px}.fb-stats{padding-top:7px;padding-bottom:7px}.fb-aside .card-head{padding-top:9px;padding-bottom:5px}.fb-aside .fb-field{margin-top:5px;margin-bottom:5px}.fb-aside .fb-small{margin-top:4px;margin-bottom:4px}.fb-feedback{padding-bottom:8px}.fb-layout{gap:11px}}@media(max-width:800px){:root .fb-aside{display:flex}.fb-aside .fb-gripper{order:0}.fb-aside .grip-stage{height:220px}.fb-aside .fb-settings{order:1}.fb-aside .fb-trace-controls{order:2}.fb-notes{width:100%}}
+
+.grip-focus{position:absolute;bottom:6px;right:7px;min-height:22px;padding:2px 6px;font-size:11px;z-index:2}
+
+.fb-force-legend{position:absolute;top:7px;left:8px;max-width:calc(100% - 16px);padding:2px 5px;border-radius:4px;font-size:10px;line-height:1.5;color:var(--muted);background:var(--card);pointer-events:none;opacity:.92}.force-key,.force-tag{color:#b64133}.tangent-key,.tangent-tag{color:#167d59}.arm-key,.arm-tag{color:#2d7191}.mu-tag{color:#a67615}.dark .force-key,.dark .force-tag{color:#f5a191}.dark .tangent-key,.dark .tangent-tag{color:#82d8b4}.dark .arm-key,.dark .arm-tag{color:#91cce3}.dark .mu-tag{color:#edc36d}.mechanic-tag{font-size:11px}.fb-mechanics{padding:3px 15px 9px;background:var(--panel);border-top:1px solid var(--line)}.fb-lesson-bar{display:flex;gap:5px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:11px}.fb-lesson-bar button{font-size:12px;min-height:25px;padding:3px 7px}.fb-lesson-bar label{display:flex;gap:4px;align-items:center;margin-left:auto}.fb-lesson-bar select{height:25px;font-size:12px;padding:2px 4px}.fb-mechanics h3{margin:5px 0 2px;font-size:13px;line-height:1.5;font-weight:650}.fb-mechanics>p{font-size:12px;line-height:1.7;margin:0;min-height:34px;color:var(--muted)}.fb-mechanics-meta{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}.fb-mechanics[data-kind=output],.fb-mechanics[data-kind=both]{box-shadow:inset 3px 0 #c96d4e;background:color-mix(in srgb,var(--panel),#cb7440 7%)}.fb-mechanics[data-kind=input],.fb-mechanics[data-kind=caution]{box-shadow:inset 3px 0 #bd9a4d}.fb-mechanics[data-kind=output] h3,.fb-mechanics[data-kind=both] h3{color:var(--red)}.fb-mechanics-notes>summary{margin-top:8px;cursor:pointer}.fb-feedback{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:max-content;max-width:90vw;min-height:0;border:1px solid var(--line);border-radius:7px;padding:7px 12px;background:var(--card);box-shadow:0 3px 20px #163c2725;z-index:20;opacity:0;pointer-events:none}.fb-feedback.warn{opacity:1}.fb-force-stats{grid-template-columns:1fr 1.1fr 1.2fr}.fb-force-stats strong{font-size:20px;font-weight:650}@media(min-width:801px) and (max-height:850px){.fb-stage{height:258px}.fb-force-stats{padding-top:6px;padding-bottom:6px}.fb-force-stats strong{font-size:18px}.fb-mechanics{padding-top:3px;padding-bottom:6px}.fb-mechanics>p{font-size:11px;min-height:31px}.fb-mechanics h3{margin-top:4px;font-size:12px}.fb-mechanics-meta{font-size:10px;margin-top:3px}}@media(min-width:801px) and (min-height:851px) and (max-height:1000px){.fb-stage{height:336px}.grip-stage{height:205px}}@media(max-width:800px){.fb-force-stats strong{font-size:17px}.fb-mechanics{padding:7px 12px 10px}.fb-lesson-bar label{margin-left:0}.fb-mechanics-meta{font-size:10px}.fb-force-legend{font-size:9px}.fb-mechanics>p{min-height:0}.fb-stage{min-height:270px}.grip-stage{min-height:0}}
+.fb-mechanics-leaders{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.fb-mechanics-leaders path{fill:none;stroke-width:.8;stroke-dasharray:2 2}.no-labels .fb-mechanics-leaders{display:none!important}
+</style><style data-chapter2-layout>/* Chapter 2 follows the course gallery palette and compact navigation. */
+html[data-c2] body{padding-top:54px!important;box-sizing:border-box;height:100dvh}
+.c2-nav{position:fixed;inset:0 0 auto;height:54px;z-index:1000;display:flex;align-items:center;gap:28px;padding:0 28px;background:#101b29;color:#e2edf8;border-bottom:1px solid #2c4055;font:16px/1.4 "Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;box-sizing:border-box}
+.c2-nav *{box-sizing:border-box}.c2-nav a{color:inherit;text-decoration:none}.c2-home{display:flex;align-items:center;gap:10px;white-space:nowrap;font-weight:700;flex-shrink:0}.c2-home>b{display:grid;place-items:center;width:36px;height:36px;background:#244e75;border-radius:7px 12px 7px 7px;font-size:29px;color:white;font-weight:400}.c2-home small{display:block;font-size:12px;color:#7892aa;font-weight:400;margin-top:3px}.c2-links{display:flex;gap:8px;margin:auto;min-width:0;overflow-x:auto}.c2-links a{padding:9px 15px;border:1px solid transparent;white-space:nowrap;border-radius:6px;font-size:15px}.c2-links small{font:13px Consolas,monospace;color:#7294b5;margin-right:7px}.c2-links a:hover{background:#e7f0fc}.c2-links [aria-current]{background:#e1edff;color:#245fae;border-color:#bfd4ef;font-weight:700}.c2-course{font-size:14px;white-space:nowrap;color:#527a9f!important}.c2-nav a:focus-visible{outline:3px solid #e9ad50;outline-offset:2px}
+html[data-c2=transmission]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--green:#286dde;--mint:#e2edff;--paper:#eff5fc}
+html[data-c2=mechanisms]:not([data-theme=dark]){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--green:#286dde;--panel:#f3f7fd}
+html[data-c2=fourbar]:not(.dark){--ink:#193550;--muted:#617b93;--line:#d4e1ef;--paper:#eff5fc;--card:#fff;--panel:#f3f7fd;--accent:#286dde;--soft:#e2edff}
+html[data-c2=mechanisms] .shell{max-width:1600px}
+@media(max-width:900px){.c2-nav{padding:0 12px;gap:12px}.c2-links{gap:2px}.c2-links a{padding:8px 10px}.c2-course{display:none}}
+@media(max-width:600px){.c2-nav{height:96px;flex-wrap:wrap;padding:8px 10px;gap:4px;align-content:center}.c2-home>b{width:27px;height:27px;font-size:25px}.c2-home{font-size:14px}.c2-home small{font-size:11px}.c2-links{width:100%;order:2;margin:0}.c2-links a{font-size:13px;padding:7px 9px}.c2-links small{font-size:11px;margin-right:4px}html[data-c2] body{padding-top:96px!important}}
+@media print{.c2-nav{display:none}html[data-c2] body{padding-top:0!important}}
+/* Keep existing labs' controls accessible under the chapter navigation. */
+.c2-lesson-notes{margin-top:10px;border:1px solid #d4e1ef;border-radius:7px;background:#ffffffbb;padding:8px 14px}.c2-lesson-notes>summary{font-size:14px;color:#52799b;cursor:pointer}
+@media(min-width:821px){html[data-c2=mechanisms] .lab>.stage{height:clamp(200px,calc(100dvh - 660px),300px)}html[data-c2=mechanisms] .shell{padding-top:15px;padding-bottom:10px}html[data-c2=mechanisms] .lessons{margin-top:10px}html[data-c2=mechanisms] .lesson p{font-size:12px}html[data-c2=fourbar] #fb-stage{height:clamp(235px,calc(100dvh - 600px),336px)}html[data-c2=fourbar] .fb-shell{padding-top:16px;padding-bottom:12px}html[data-c2=fourbar] .fb-header{margin-bottom:14px}}
+
+.c2-nav .c2-home small{color:#8da8c4}.c2-nav .c2-links small{color:#89a5c0}.c2-nav .c2-links a:hover{background:#1a2e45}.c2-nav .c2-links [aria-current]{background:#203f62;color:#d9edff;border-color:#3a638c}.c2-nav .c2-course{color:#9bbcdc!important}.c2-lesson-notes{border-color:#30485d;background:#142331}.c2-lesson-notes>summary{color:#acc5db}
+html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes{background:#f5f9ff;border-color:#d4e1ef}html[data-c2=mechanisms][data-theme=light] .c2-lesson-notes>summary{color:#52799b}
+
+/* Chapter 2 workstation, shared with both built and directly maintained pages. */
+.c2-render-fallback{position:absolute;left:10px;bottom:32px;z-index:4;max-width:calc(100% - 20px);padding:5px 8px;border:1px solid var(--course-line);border-radius:5px;background:var(--course-surface);color:var(--course-muted);font:12px/1.5 "Microsoft YaHei",sans-serif;pointer-events:none}
+html[data-c2] body{font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif}
+html[data-c2][data-theme]{--green:var(--course-accent)}
+html[data-c2=mechanisms][data-theme] :is(.lab .controls,.lab .lab-foot,.c2-lesson-notes),html[data-c2=fourbar][data-theme] :is(.fb-card,.fb-tools){background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] :is(.toolbar,.view-buttons,.controls) button,html[data-c2=fourbar][data-theme] :is(.fb-tools,.fb-motion) button{background:var(--course-surface);color:var(--course-ink);border-color:var(--course-line)}
+html[data-c2=mechanisms][data-theme] button[aria-pressed=true],html[data-c2=fourbar][data-theme] button[aria-pressed=true]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-accent)}
+html[data-c2][data-theme] input[type=range],html[data-c2][data-theme] input[type=checkbox]{accent-color:var(--course-accent)}
+html[data-c2=transmission][data-theme] .topbar nav{background:var(--soft)}
+html[data-c2] [hidden]{display:none!important}
+html[data-c2] .c2-nav{gap:18px;padding-inline:24px}
+html[data-c2] .c2-nav .c2-home{color:var(--course-ink)}
+html[data-c2] .c2-nav :is(.c2-home small,.c2-links small,.c2-course){color:var(--course-muted)!important}
+html[data-c2] .c2-nav .c2-links a[aria-current]{background:var(--blue-soft);color:var(--course-accent);border-color:var(--course-line)}
+html[data-c2] .c2-nav .c2-links a:hover{background:var(--soft);color:var(--course-ink)}
+html[data-c2] :is(.c2-button,.c2-experiments button){font:500 14px/1.4 "Microsoft YaHei",sans-serif;min-height:36px;padding:7px 12px;border:1px solid var(--course-line);border-radius:7px;background:var(--course-surface);color:var(--course-ink);white-space:nowrap;cursor:pointer;box-shadow:none;letter-spacing:0}
+html[data-c2] .c2-button:hover{border-color:var(--course-accent);background:var(--blue-soft)}
+html[data-c2] .c2-button:focus-visible{outline:3px solid var(--course-accent);outline-offset:3px}
+html[data-c2] :is(.c2-guide-button,.c2-primary){color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+.c2-learning-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+html[data-c2] .c2-original-help{display:none}
+html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:30px;line-height:1.3;letter-spacing:0}
+html[data-c2] :is(.sub,.fb-header p,.brand p){font-size:14px;line-height:1.7;color:var(--course-muted)}
+html[data-c2] .c2-view{position:relative;background:var(--course-surface);border:1px solid var(--course-line);border-radius:12px;overflow:hidden;min-width:0}
+html[data-c2] .c2-viewbar{position:relative;z-index:6;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 14px;border-bottom:1px solid var(--course-line);background:var(--course-surface);color:var(--course-muted);flex:none}
+.c2-view-label{font-size:13px;white-space:nowrap;letter-spacing:.5px}
+.c2-view-actions,.c2-view-motion{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+html[data-c2] .c2-viewbar .c2-button{min-height:32px;padding:5px 10px;font-size:13px}
+html[data-c2] .c2-viewbar :is(.view-tools,.scene-tools){position:static;inset:auto;margin:0;display:flex;gap:5px;box-shadow:none;align-items:center}
+html[data-c2] .c2-viewbar .live{display:none}
+html[data-c2] .c2-viewbar .c2-view-motion{display:none}
+
+html[data-c2] .c2-dialog{width:min(700px,calc(100vw - 32px));height:auto;max-height:85dvh;max-width:700px;padding:0;border:1px solid var(--course-line);border-radius:14px;background:var(--course-surface);color:var(--course-ink);box-shadow:0 24px 80px #06182a55;overflow:auto;font-size:15px;line-height:1.8}
+.c2-dialog::backdrop{background:#071a2bb3;backdrop-filter:blur(3px)}
+.c2-dialog-head,.c2-dialog-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 24px;background:var(--course-surface)}
+.c2-dialog-head{border-bottom:1px solid var(--course-line)}
+html[data-c2] .c2-dialog h2{font-size:22px;margin:0;line-height:1.5}
+html[data-c2] .c2-dialog h3{font-size:16px;margin:20px 0 8px;color:var(--course-accent)}
+.c2-dialog-body{padding:0 28px 8px}.c2-dialog-body ul,.c2-dialog-body ol{padding-left:24px}.c2-dialog-body li{margin:10px 0}.c2-steps p{margin:4px 0;color:var(--course-muted)}
+.c2-reflection{padding:12px 16px;border-left:3px solid var(--course-accent);background:var(--blue-soft)}
+.c2-boundary{font-size:13px;color:var(--course-muted);border-top:1px solid var(--course-line);padding-top:14px}
+.c2-dialog-foot{justify-content:flex-end;border-top:1px solid var(--course-line)}
+
+/* Diesel: reserve a stable heading area and keep playback beside the model. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mechanics: one large observation area with controls, optional side-by-side. */
+html[data-c2=mechanisms] .shell{padding:18px 24px;max-width:1648px}
+.c2-experiments{display:flex;gap:8px;margin:4px 0 14px}
+html[data-c2] .c2-experiments [aria-pressed=true]{color:var(--course-accent);background:var(--blue-soft);border-color:var(--course-accent)}
+html[data-c2=mechanisms] .labs[data-presentation=single]{display:block}
+html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;background:transparent;border:0;box-shadow:none;overflow:visible}
+html[data-c2=mechanisms] .c2-control-column{border:1px solid var(--course-line);border-radius:12px;background:var(--course-surface);overflow:auto;max-height:calc(100dvh - 300px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:clamp(300px,calc(100dvh - 450px),510px)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline{grid-template-columns:1fr}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-inline>button{justify-self:end}
+html[data-c2=mechanisms] .labs[data-presentation=single] .control-head{flex-wrap:wrap}
+html[data-c2=mechanisms] .labs[data-presentation=single] .controls{grid-template-columns:1fr;padding:20px;gap:18px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .lengths{grid-template-columns:1fr;gap:16px}
+html[data-c2=mechanisms] .labs[data-presentation=single] :is(.control-head,.control select,.inline-toggles,.force-line,.lab-foot){font-size:14px;line-height:1.7}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats{padding:16px;grid-template-columns:1fr;gap:12px;background:var(--soft)}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat{border:0;border-bottom:1px solid var(--course-line);padding-bottom:8px}
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-family:inherit;font-size:24px;line-height:1.5}
+html[data-c2=mechanisms] .lab .stage{background:var(--course-bg);border-color:var(--course-line)}
+html[data-c2=mechanisms] .lab-head{padding:14px 16px 10px}
+html[data-c2=mechanisms] .viewbar{margin:0 14px 10px}
+html[data-c2=mechanisms] .viewbar button{font-size:13px;min-height:30px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .stage{height:300px}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-control-column{border:0}
+html[data-c2=mechanisms] .labs[data-presentation=compare] .c2-view{border:0;border-radius:0}
+html[data-c2=mechanisms] .c2-lesson-notes{margin-top:16px}
+
+html[data-c2=fourbar] .fb-shell{max-width:1648px;padding:18px 24px}
+html[data-c2=fourbar] #fb-stage{height:clamp(300px,calc(100dvh - 530px),420px)}
+html[data-c2=fourbar] .fb-card{border-color:var(--course-line)}
+html[data-c2=fourbar] .fb-stage{background:var(--course-bg)}
+html[data-c2=fourbar] .fb-header nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+html[data-c2=fourbar] .fb-gripper .c2-viewbar{padding-inline:10px}.fb-gripper .c2-view-label{font-size:12px}
+html[data-c2=transmission] .viewport{background:var(--course-bg)}
+html[data-c2=transmission] .viewport>.c2-viewbar{position:absolute;inset:0 0 auto}
+html[data-c2=transmission] .scene-bottom{bottom:100px}
+html[data-c2=transmission] .viewport.c2-expanded>.c2-viewbar{position:absolute}
+html[data-c2=transmission] .scene-heading{top:68px;left:24px}
+html[data-c2=transmission] .scene-heading h1{font-size:28px;font-weight:650}
+html[data-c2=transmission] #canvasWrap{top:140px}
+html[data-c2=transmission] .topbar{gap:12px}
+
+
+
+/* Expansion never re-parents a canvas or resets a lesson. */
+html[data-c2] .c2-view.c2-expanded{width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;min-height:0!important;margin:0!important;border:0;border-radius:0;display:flex;flex-direction:column;overflow:auto;background:var(--course-bg);padding:0}
+html[data-c2] .c2-view.c2-fallback{position:fixed!important;inset:0!important;z-index:5000!important}
+html[data-c2] .c2-expanded .c2-viewbar{position:sticky;top:0;flex-shrink:0}
+html[data-c2] .c2-expanded .c2-view-motion{display:flex}
+html[data-c2] .c2-expanded>.stage,html[data-c2] .c2-expanded #fb-stage{flex:1;min-height:300px;height:auto!important}
+html[data-c2] .c2-expanded .grip-stage{flex:1;height:auto!important;min-height:300px}
+html[data-c2=fourbar] .fb-main.c2-expanded :is(.fb-mechanics,.fb-force-stats,.fb-feedback){display:none}
+
+html[data-c2=transmission] .viewport.c2-expanded #canvasWrap{position:absolute;inset:140px 0 120px}
+
+
+
+@media(max-width:1100px){
+  html[data-c2] .c2-nav{gap:8px;padding-inline:14px}.c2-links a{padding:8px}.c2-home small{display:none}
+  html[data-c2] .c2-course{display:none}
+  html[data-c2] :is(.mast,.fb-header){flex-wrap:wrap;gap:12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{grid-template-columns:minmax(0,1fr) 300px}
+
+
+
+  html[data-c2] .c2-view-label{letter-spacing:0;font-size:12px}
+}
+@media(max-width:820px){
+  html[data-c2] body{height:auto;min-height:100dvh;overflow:auto}
+  html[data-c2] .c2-viewbar{gap:6px;flex-wrap:wrap;padding:8px 10px}
+  html[data-c2] .c2-view-actions{margin-left:auto}
+  html[data-c2] :is(.mast,.fb-header,.topbar){flex-wrap:wrap;height:auto;gap:12px}
+  html[data-c2] :is(.mast,.fb-header,.topbar) h1{font-size:25px}
+  html[data-c2] .c2-learning-actions{margin-left:auto}
+
+
+
+
+
+
+
+
+
+
+
+  html[data-c2=mechanisms] .shell,html[data-c2=fourbar] .fb-shell{padding:16px 12px}
+  html[data-c2=mechanisms] .labs[data-presentation=single]>.lab{display:block}
+  html[data-c2=mechanisms] .c2-control-column{max-height:none;margin-top:14px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value{font-size:20px}
+  html[data-c2=mechanisms] .labs[data-presentation=single] .stage{height:360px}
+  html[data-c2=transmission]{overflow:auto;height:auto}
+  html[data-c2=transmission] body{display:block;padding-inline:12px}
+  html[data-c2=transmission] .topbar{padding-block:16px}
+  html[data-c2=transmission] .workspace{display:block;height:auto}
+  html[data-c2=transmission] .viewport{height:580px;margin-bottom:14px}
+  html[data-c2=transmission] .control-panel{height:auto;overflow:visible}
+  html[data-c2=transmission] .panel-scroll{overflow:visible;max-height:none}
+  html[data-c2=transmission] .scene-heading{top:105px}
+  html[data-c2=transmission] #canvasWrap{top:185px}
+  html[data-c2] .c2-dialog-head{padding:16px}.c2-dialog-body{padding-inline:20px}
+  html[data-c2] .c2-dialog h2{font-size:19px}
+}
+@media(max-width:600px){
+  html[data-c2] .c2-nav{height:112px;align-content:center}.c2-nav .c2-home{font-size:13px}.c2-nav .c2-links{order:3}
+  html[data-c2] body{padding-top:112px!important}
+  html[data-c2] .c2-nav .c2-links a{font-size:12px;padding:7px 8px}
+  html[data-c2] .c2-nav .c2-links small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){html[data-c2] *,html[data-c2] *::before,html[data-c2] *::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mechanisms use one canvas and one parameter column, like transmission. */
+html[data-c2=mechanisms] .mast { min-height: 88px; margin-bottom: 10px; }
+html[data-c2=mechanisms] .mast .toolbar { justify-content: flex-end; }
+html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: max(540px,calc(100dvh - 260px)); }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { display: flex; flex-direction: column; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stage { flex: 1; min-height: 240px; height: auto; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: 100%; max-height: none; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stats { grid-template-columns: repeat(3,minmax(0,1fr)); padding: 12px; gap: 10px; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat { border-bottom: 0; padding-bottom: 0; }
+html[data-c2=mechanisms] .labs[data-presentation=single] .stat-value { font-size: 21px; }
+html[data-c2=mechanisms] .lab-head { padding: 16px 16px 8px; flex-wrap: wrap; }
+html[data-c2=mechanisms] .lab-head h2 { font-size: 18px; }
+.mechanism-observation { padding: 0 16px 14px; border-bottom: 1px solid var(--course-line); }
+.mechanism-observation h3 { margin: 4px 0 6px; font-size: 15px; }
+.mechanism-observation p { margin: 0; font-size: 13px; line-height: 1.7; color: var(--course-muted); }
+.c2-mechanism-transport { display: flex; align-items: center; gap: 7px; padding: 9px 14px; border-top: 1px solid var(--course-line); background: var(--course-surface); }
+.c2-mechanism-transport label { margin-left: auto; font-size: 13px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons { display: flex; gap: 4px; }
+html[data-c2=mechanisms] .c2-viewbar .view-buttons button { min-height: 30px; padding: 4px 8px; }
+html[data-c2=mechanisms] .viewbar { margin: 6px 12px; min-height: 0; }
+@media(max-width:820px) {
+  html[data-c2=mechanisms] .labs[data-presentation=single] > .lab { height: auto; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-model-column { height: 520px; }
+  html[data-c2=mechanisms] .labs[data-presentation=single] .c2-control-column { height: auto; }
+  .c2-mechanism-transport { flex-wrap: wrap; }
+}
+</style><script>/* 三维区底色（全课程统一）：近白中性灰，适合印刷教材截图；深色模式用深石墨色。
+ * 取值以 shared/lab-shell/lab-shell.css 里的 --stage-bg / --stage-floor / --stage-shadow 为准（深浅色一起切换）；
+ * 页面样式还没载入时（运行时才挂外壳的页面、第二章被嵌入前的原版实验页）用下面同值的后备。
+ * 用法：StageTone.bg() → '#f5f6f8'；StageTone.color(THREE) → THREE.Color；
+ *       StageTone.paint(scene, THREE) 设底色并让雾跟着变；StageTone.contactShadow(THREE, {size}) 模型下方的柔和接触阴影。
+ * 第二章：原版实验页被嵌入时，外壳把自己的取值经 postMessage 传进来（embed-bridge.js 调 StageTone.use）。
+ */
+(() => {
+  'use strict';
+  if (window.StageTone) return;
+  const FALLBACK = {
+    light: {bg: '#f5f6f8', floor: '#eceef1', shadow: 'rgba(28,36,48,.20)'},
+    dark: {bg: '#1a1f27', floor: '#222833', shadow: 'rgba(0,0,0,.55)'},
+  };
+  const root = document.documentElement;
+  let cache = null, override = null;
+  const theme = () => (root.dataset.theme === 'dark' ? 'dark' : 'light');
+  const read = () => {
+    const t = theme(), f = FALLBACK[t], cs = getComputedStyle(root);
+    const v = n => cs.getPropertyValue(n).trim();
+    return {theme: t, bg: v('--stage-bg') || f.bg, floor: v('--stage-floor') || f.floor, shadow: v('--stage-shadow') || f.shadow, ...(override?.[t] || {})};
+  };
+  const get = () => (cache && cache.theme === theme() ? cache : (cache = read()));
+  addEventListener('course-theme-change', () => { cache = null; });
+
+  /* 电脑上（鼠标操作、宽屏）让三维画布保留最后一帧，“保存三维截图”随时读得到；
+     不少页面是“画面有变化才重画”，不保留的话读到的是空白。手机上不开，省一次每帧拷贝。 */
+  try {
+    if (matchMedia('(pointer:fine) and (min-width:901px)').matches) {
+      const original = HTMLCanvasElement.prototype.getContext;
+      HTMLCanvasElement.prototype.getContext = function (type, attrs) {
+        return original.call(this, type, /^(webgl|webgl2|experimental-webgl)$/.test(type) ? {...(attrs || {}), preserveDrawingBuffer: true} : attrs);
+      };
+    }
+  } catch { /* 保持默认 */ }
+
+  /* 三维截图：把 root 里正在显示的三维画布存成一张 PNG（铺统一底色，不含页面上的按钮和文字标签）。
+     画布内容只在“刚画完的那一帧”里读得到，所以排在页面自己的绘制之后读；读到空白就催一次重绘、下一帧再试。 */
+  const blank = canvas => {
+    const probe = document.createElement('canvas'); probe.width = probe.height = 24;
+    const g = probe.getContext('2d', {willReadFrequently: true}); g.drawImage(canvas, 0, 0, 24, 24);
+    const d = g.getImageData(0, 0, 24, 24).data;
+    for (let i = 3; i < d.length; i += 4) if (d[i]) return false;
+    return true;
+  };
+  function capture(scope = document.body, {scale = 1} = {}) {
+    const list = [...scope.querySelectorAll('canvas')].filter(c => { const r = c.getBoundingClientRect(); return r.width > 80 && r.height > 80 && getComputedStyle(c).visibility !== 'hidden'; });
+    const canvas = list.sort((a, b) => (b.dataset.engine ? 1 : 0) - (a.dataset.engine ? 1 : 0) || b.width * b.height - a.width * a.height)[0];
+    return new Promise(resolve => {
+      if (!canvas) return resolve(null);
+      let tries = 0;
+      const grab = () => {
+        try {
+          if (blank(canvas) && ++tries < 8) { if (tries === 1 || tries === 4) dispatchEvent(new Event('resize')); return requestAnimationFrame(grab); }
+          const out = document.createElement('canvas'); out.width = Math.round(canvas.width * scale); out.height = Math.round(canvas.height * scale);
+          const g = out.getContext('2d'); g.fillStyle = get().bg; g.fillRect(0, 0, out.width, out.height);
+          g.imageSmoothingQuality = 'high'; g.drawImage(canvas, 0, 0, out.width, out.height);
+          resolve(out.toDataURL('image/png'));
+        } catch { resolve(null); }
+      };
+      requestAnimationFrame(grab);
+    });
+  }
+
+  window.StageTone = {
+    get, capture,
+    bg: () => get().bg,
+    floor: () => get().floor,
+    /** 底色的 THREE.Color（传入页面自己的 THREE，模块化页面也能用）。 */
+    color: (T = window.THREE, key = 'bg') => new T.Color(get()[key]),
+    /** 设场景底色，雾（若有）随底色。返回 scene 便于链式调用。 */
+    paint(scene, T = window.THREE) {
+      if (!scene) return scene;
+      const c = get().bg;
+      if (scene.background?.isColor) scene.background.set(c); else scene.background = new T.Color(c);
+      if (scene.fog?.color) scene.fog.color.set(c);
+      return scene;
+    },
+    /** 模型下方的柔和接触阴影：一张径向渐变贴图的平面（不受光照影响，深浅色自动换）。
+     *  size 为直径（场景单位），up 为 'y' 或 'z'（哪个轴朝上）。返回 Mesh，自己 position 到模型脚下。 */
+    contactShadow(T = window.THREE, {size = 1, up = 'y', strength = 1} = {}) {
+      const c = document.createElement('canvas'); c.width = c.height = 128;
+      const g = c.getContext('2d'), grad = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      grad.addColorStop(0, 'rgba(0,0,0,1)'); grad.addColorStop(.45, 'rgba(0,0,0,.55)'); grad.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grad; g.fillRect(0, 0, 128, 128);
+      const tex = new T.CanvasTexture(c);
+      const mat = new T.MeshBasicMaterial({map: tex, color: 0x000000, transparent: true, depthWrite: false, toneMapped: false});
+      const mesh = new T.Mesh(new T.PlaneGeometry(size, size), mat);
+      if (up === 'y') mesh.rotation.x = -Math.PI / 2;
+      mesh.renderOrder = -1; mesh.userData.contactShadow = true;
+      const tone = () => { mat.opacity = (theme() === 'dark' ? .5 : .16) * strength; };
+      tone(); addEventListener('course-theme-change', tone);
+      return mesh;
+    },
+    /** 外部指定取值（第二章嵌入时由外壳传入）；传 null 取消。 */
+    use(values) { override = values; cache = null; },
+    refresh() { cache = null; return get(); },
+  };
+})();
+
+/* Optional Canvas 2D projection of the same articulated scene when WebGL is unavailable.
+ * Component silhouettes preserve the original state/kinematics; no lighting or clipping.
+ */
+window.createChapterRenderer = options => {
+  const T=window.THREE;
+  const probe=document.createElement('canvas');
+  let context=null;
+  try{context=probe.getContext('webgl2')||probe.getContext('webgl');}catch{}
+  if(context){context.getExtension('WEBGL_lose_context')?.loseContext();try{return new T.WebGLRenderer(options);}catch{}}
+  const canvas=options?.canvas||document.createElement('canvas'),ctx=canvas.getContext('2d');
+  if(!ctx)throw new Error('Canvas 2D is unavailable');
+  const cache=new WeakMap();let width=1,height=1,viewport=null,scissor=false;
+  function hull(points){
+    points.sort((a,b)=>a.x-b.x||a.y-b.y);
+    const cross=(o,a,b)=>(a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x),lo=[],hi=[];
+    for(const p of points){while(lo.length>1&&cross(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}
+    for(const p of points.slice().reverse()){while(hi.length>1&&cross(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}
+    return lo.slice(0,-1).concat(hi.slice(0,-1));
+  }
+  const renderer={
+    isFallback:true,domElement:canvas,shadowMap:{},info:{render:{calls:0,triangles:0}},
+    setPixelRatio(){},getPixelRatio(){return 1},setClearColor(){},dispose(){},
+    setSize(w,h,style=true){width=Math.max(1,w);height=Math.max(1,h);canvas.width=width;canvas.height=height;viewport=null;if(style){canvas.style.width=w+'px';canvas.style.height=h+'px';}},
+    setViewport(x,y,w,h){viewport={x,y:height-y-h,w,h};},setScissor(){},setScissorTest(value){scissor=value;},
+    clear(){ctx.clearRect(0,0,width,height);},
+    render(scene,camera){
+      if(!scissor)this.clear();
+      const vp=viewport||{x:0,y:0,w:width,h:height},dark=document.documentElement.dataset.theme==='dark';
+      ctx.save();ctx.beginPath();ctx.rect(vp.x,vp.y,vp.w,vp.h);ctx.clip();
+      ctx.fillStyle=window.StageTone?.bg()||(dark?'#1a1f27':'#f5f6f8');ctx.fillRect(vp.x,vp.y,vp.w,vp.h);
+      scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);const shapes=[];
+      scene.traverseVisible(o=>{
+        if(!o.isMesh||o.isInstancedMesh)return;
+        const mat=Array.isArray(o.material)?o.material[0]:o.material;
+        if(!mat||mat.isShadowMaterial||mat.visible===false||mat.opacity===0)return;
+        const attr=o.geometry?.attributes?.position;if(!attr)return;
+        let vertices=cache.get(o.geometry);
+        if(!vertices){vertices=[];const step=Math.max(1,Math.floor(attr.count/96));for(let i=0;i<attr.count;i+=step)vertices.push(new T.Vector3().fromBufferAttribute(attr,i));cache.set(o.geometry,vertices);}
+        const points=vertices.map(p=>p.clone().applyMatrix4(o.matrixWorld).project(camera)).filter(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.z>=-1&&p.z<=1);
+        if(points.length<3)return;
+        const z=points.reduce((sum,p)=>sum+p.z,0)/points.length;
+        shapes.push({points:hull(points.map(p=>({x:vp.x+(p.x+1)*vp.w/2,y:vp.y+(1-p.y)*vp.h/2}))),z,color:mat.color?'#'+mat.color.getHexString():'#78a4c8'});
+      });
+      shapes.sort((a,b)=>b.z-a.z);
+      for(const shape of shapes){if(!shape.points.length)continue;ctx.beginPath();shape.points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();ctx.fillStyle=shape.color;ctx.globalAlpha=.85;ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=dark?'#b9d0e9':'#36516e';ctx.lineWidth=.6;ctx.stroke();}
+      this.info.render.calls=shapes.length;this.info.render.triangles=0;ctx.restore();
+      if(canvas.parentElement&&!canvas.parentElement.querySelector('.c2-render-fallback')){
+        const note=document.createElement('div');note.className='c2-render-fallback';note.textContent='二维备用投影 · 参数与动作仍可操作，剖切与光照不显示';note.setAttribute('role','status');canvas.parentElement.append(note);
+      }
+    }
+  };
+  return renderer;
+};
+</script><script data-course-navigation src="../../../../../shared/navigation.js"></script><link data-course-theme rel="stylesheet" href="../../../../../shared/styles/theme.css"><script data-course-theme src="../../../../../shared/theme.js"></script></head><body>
+<main class="fb-shell"><header class="fb-header"><div><div class="eyebrow">EXTENSION 01 / 四杆闭合实验</div><h1>固定机架，拖动输入曲柄</h1><p>杆长与连接方式共同决定输出 · 拖动 U，观察联动；选定 P，记录连杆点轨迹。</p></div><nav><a class="button" href="mechanisms.html">← 总实验台</a><button id="fb-theme">深色背景</button><button id="fb-labels" aria-pressed="false">隐藏名称</button></nav></header>
+<div class="fb-layout"><section class="fb-card fb-main"><div class="card-head"><h2><i>01</i> 四杆机构 · 固定 O₁ / O₂</h2><span id="fb-state" class="badge" role="status">同一装配分支</span></div>
+<div class="fb-tools"><div><button data-fb-view="front" aria-pressed="true">正视</button><button data-fb-view="iso">三维轴测</button><button id="fb-fit">适合窗口</button><button id="fb-forces" aria-pressed="true">传动角 / 力线</button></div><div><button data-fb-mode="drag" aria-pressed="true">拖动输入</button><button data-fb-mode="orbit">旋转视角</button></div></div>
+<div id="fb-stage" class="fb-stage" tabindex="0" aria-label="三维四杆机构，拖动橙色 U 点输入；也可使用下方角度滑块"><div id="fb-overlay" class="fb-overlay"><button id="fb-handle-u" class="fb-handle input" aria-label="输入曲柄端点 U，可拖动或用左右方向键改变角度">U · 拖动输入</button><button id="fb-handle-p" class="fb-handle point" aria-label="连杆上的轨迹点 P，可拖动选点">P · 轨迹点</button><span id="fb-label-o1" class="fb-tag">O₁ 固定</span><span id="fb-label-o2" class="fb-tag">O₂ 固定</span><span id="fb-label-v" class="fb-tag">V 闭合铰点</span><span id="fb-label-ground" class="fb-tag">D 固定机架</span><span id="fb-tag-mu" class="fb-tag mechanic-tag mu-tag"></span><span id="fb-tag-force" class="fb-tag mechanic-tag force-tag"></span><span id="fb-tag-ft" class="fb-tag mechanic-tag tangent-tag"></span><span id="fb-tag-on-a" class="fb-tag mechanic-tag force-tag"></span><span id="fb-tag-rc" class="fb-tag mechanic-tag arm-tag"></span><span id="fb-tag-ra" class="fb-tag mechanic-tag force-tag"></span><span id="fb-label-a" class="fb-tag key-a">A 输入</span><span id="fb-label-b" class="fb-tag key-b">B 连杆</span><span id="fb-label-c" class="fb-tag key-c">C 输出</span></div><div id="fb-force-legend" class="fb-force-legend"><span class="force-key">红：B 的作用力</span>　<span class="tangent-key">绿：切向</span>　灰：径向　<span class="arm-key">蓝：力臂</span> · 虚线为辅助线</div><div class="fb-canvas-hint"><span>拖 U 驱动 · 拖 P 选点 · 滚轮缩放</span><span id="fb-branch-caption">分支 +</span></div></div>
+<div class="fb-motion"><button id="fb-play" class="primary" aria-pressed="false">▶ 同支连续演示</button><button id="fb-reverse">反向</button><button id="fb-minus">−5°</button><button id="fb-plus">+5°</button><label>角速度 <select id="fb-speed"><option value="15">15°/s</option><option value="30" selected>30°/s</option><option value="60">60°/s</option></select></label></div>
+<label class="fb-angle"><span>输入角 θ <output id="fb-angle-out">50.0°</output></span><input id="fb-angle" type="range" min="0" max="360" step=".1" value="50" aria-label="输入曲柄角度"></label>
+<div class="fb-stats fb-force-stats"><div><span>传动角 μ（B/C 锐角）</span><strong id="fb-mu"></strong></div><div><span>切向力占比 |F_t| / 100 N</span><strong id="fb-effective"></strong></div><div><span>C 轴转矩（逆时针为正）</span><strong id="fb-torque"></strong></div></div><section id="fb-mechanics" class="fb-mechanics" aria-label="随当前姿态更新的传力讲解"><div class="fb-lesson-bar"><span>教学预设 · 新实验</span><button id="fb-lesson-normal">正常</button><button id="fb-lesson-output">B/C 近共线</button><button id="fb-lesson-input">A/B 死点</button><label>参考力 <select id="fb-force-case" aria-label="连杆 B 的参考轴向受力"><option value="1">受压 100 N</option><option value="-1">受拉 100 N</option></select></label></div><h3 id="fb-teaching-title" aria-live="polite"></h3><p id="fb-teaching-text"></p><div class="fb-mechanics-meta">杆长 A/B/C：<span id="fb-lengths"></span> · γ <span id="fb-output"></span> · 闭合误差 <span id="fb-error"></span></div></section><p id="fb-feedback" class="fb-feedback" role="status" aria-live="polite">拖动橙色 U 点；两个机架铰点在运动中保持不动。</p>
+</section><aside class="fb-aside"><section class="fb-card fb-gripper"><div class="card-head"><h2><i>04</i> 同类联动 → 夹爪开合</h2><span id="fb-gap" class="badge"></span></div><div id="grip-stage" class="fb-stage grip-stage" aria-label="镜像四杆夹持工具，夹爪刚性连接在输出杆 C 上"><div class="grip-overlay"><span>左右理想 1∶−1 同步输入</span><span>拖动可转动观察</span></div><button id="fb-grip-focus" class="grip-focus" aria-pressed="false">放大夹口</button></div><p>两侧沿用当前杆长与装配支路，以理想同步输入作镜像联动。夹爪刚性连接 C，净距来自闭合解；不求解夹持力或接触。</p></section><section class="fb-card fb-settings"><div class="card-head"><h2><i>02</i> 杆长与装配</h2></div><details class="fb-option-details"><summary>修改杆长 / 实验预设</summary><label class="fb-field">实验预设<select id="fb-preset"><option value="crank">可整周输入 · 曲柄摇杆</option><option value="limited">有限摆动 · 边界停住</option><option value="parallel">平行四边形 · 两支比较</option></select></label><form id="fb-dimensions"><div class="fb-dims"><label>A 输入 / mm<input id="fb-a" type="number" min="30" max="300" step="1" required value="60"></label><label>B 连杆 / mm<input id="fb-b" type="number" min="30" max="300" step="1" required value="160"></label><label>C 输出 / mm<input id="fb-c" type="number" min="30" max="300" step="1" required value="110"></label><label>机架 D / mm<input id="fb-d" type="number" min="30" max="300" step="1" required value="180"></label></div><button id="fb-apply" type="submit">应用杆长 · 新实验</button></form></details><label class="fb-field">装配交点选择<select id="fb-branch"><option value="1">分支 + · U→O₂ 左侧</option><option value="-1">分支 − · U→O₂ 右侧</option></select></label><p id="fb-domain" class="fb-small"></p><p class="fb-small">同支运动；换分支 / 杆长将暂停并重置轨迹。</p></section>
+<section class="fb-card fb-trace-controls"><div class="card-head"><h2><i>03</i> 连杆点 P 的轨迹</h2></div><details class="fb-point-details"><summary>P 的局部坐标（也可直接拖 P）</summary><label class="fb-slider"><span>沿 B 的位置 U → V <output id="fb-along-out">55%</output></span><input id="fb-along" type="range" min="0" max="1" step=".01" value=".55"></label><label class="fb-slider"><span>相对 B 的法向偏置 <output id="fb-offset-out">24 mm</output></span><input id="fb-offset" type="range" min="-60" max="60" step="1" value="24"></label></details><div class="fb-trace-actions"><label><input id="fb-trace" type="checkbox" checked>记录轨迹</label><button id="fb-clear">清空轨迹</button></div><p id="fb-trace-count" class="fb-small">0 个采样点</p></section>
+</aside>
+<details class="fb-card fb-notes"><summary>传动角、死点与闭合关系 · 教学说明</summary><details class="fb-mechanics-notes"><summary>传动角、两种死点与参考力工况</summary><p>本页 μ 取 B/C 两条轴线的锐角，必要时画出延长线。假设 B 为无自重、无惯性的二力杆，P 点仅作无载示踪。参考工况取 B 受压 / 受拉的轴向力 |F_B| = 100 N；这是方向与分力示例，不是从电机转矩或夹持负载求出的真实力。几何播放与参考受力独立，参考箭头不用于决定播放方向。</p><p>V 点所受力沿 B：F = F_t + F_r。切向分量 |F_t| = |F_B| sin μ，输出力臂 |r_C| = C sin μ，|M_C| = |F_B| C sin μ；计算转矩时 mm 换算为 m。逆时针为正。径向分量不产生 C 轴转矩，主要影响轴承反力。给定 F_B、C 时，μ 越接近 90°，可用转矩越大；μ→0 时，B/C 共线，有限 F_B 的输出转矩趋零。若指定输出转矩不变，所需 F_B 会随 μ 减小而增大。sin μ 是切向力比例，不是能量效率。</p><p>A/B 共线是另一种情况：B 的力线经过 O₁，C 反驱 A 时，对 A 的力臂为零。A 作主动曲柄通常仍可在同一支路通过，C 在此瞬时停转并换向；此时 B/C 传动角不一定小。图中 r_A 只在接近 A/B 共线时标出。不要把“死点”解释成所有驱动方向都无法运动。</p><p>15°、40°和 A/B 夹角 5°仅用于分级教学提示，并非通用设计限值。B/C 共线、两交点合并处仍使用原有数值隔离，不画成已达到 μ=0 的精确姿态；杆长、机架与装配支路始终不变。参考：<a href="https://ocw.metu.edu.tr/pluginfile.php/3961/mod_resource/content/12/ch7/7-1.htm" target="_blank" rel="noopener">METU 四杆传动角及摇杆死点</a> · <a href="https://rbb.union.edu/courses/mer312/content/data/Lectures/MER312%20L14%20Graphical%20Synthsys%20Intro.pdf" target="_blank" rel="noopener">Union College 力分解与传动角</a>。</p></details><p class="fb-equation">|O₁U| = A　 |UV| = B　 |VO₂| = C　 |O₁O₂| = D</p><p>给定 θ 后，V 必须同时位于以 U 为圆心、B 为半径和以 O₂ 为圆心、C 为半径的圆上；选择其中一个交点，才确定装配支路。P 固定在连杆局部坐标中，随 B 一起运动。</p><p>尺寸编辑属于重新装配实验。演示和拖动只改变输入角，始终保留杆长及分支符号。不可达区不能跨越；两交点合并或圆心近重合时，在隔离区前停住并允许反向，绝不自动换支。几何交叉由不同深度层区分，未做实体碰撞和动力学仿真。</p><details><summary>连续性保护与参考</summary><p>采用解析圆交点和当前输入角所在的连续可达区间；交点到 U→O₂ 轴线的距离 h 不低于 0.75 mm，两圆心距离不低于 1 mm。这是数值隔离设置，不能解释成真实机构的实体限位。全周可达且无奇异点的机构可连续旋转；边界处减速停止。</p><p><a href="https://ingmec.ual.es/tmm/L02_05_example1.html" target="_blank" rel="noopener">阿尔梅里亚大学：四杆机构闭合分析</a> · <a href="https://ocw.metu.edu.tr/course/view.php?id=340&lang=en" target="_blank" rel="noopener">METU：机械原理与闭环运动分析</a>。Three.js r160，MIT 许可。</p></details></details>
+</div></main><script></script><script src="../../../../../shared/vendor/three-13767d3750.js"></script><script>
+</script><script>'use strict';
+// Pure position analysis. Units: mm and radians. No rendering or per-link easing.
+globalThis.FourbarKinematics=(()=>{
+ const TAU=Math.PI*2,clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),mod=x=>((x%TAU)+TAU)%TAU;
+ const guards={height:.75,centers:1};
+ function solve(m,theta,branch=1,point={along:.55,offset:24}){
+  const u={x:m.a*Math.cos(theta),y:m.a*Math.sin(theta)},dx=m.d-u.x,dy=-u.y,r=Math.hypot(dx,dy);
+  if(r<1e-9||r>m.b+m.c+1e-8||r<Math.abs(m.b-m.c)-1e-8)return null;
+  const t=(m.b*m.b-m.c*m.c+r*r)/(2*r),h2=m.b*m.b-t*t;if(h2< -1e-7)return null;
+  const h=Math.sqrt(Math.max(0,h2)),ex=dx/r,ey=dy/r,v={x:u.x+t*ex-branch*h*ey,y:u.y+t*ey+branch*h*ex},bx=(v.x-u.x)/m.b,by=(v.y-u.y)/m.b;
+  const p={x:u.x+point.along*(v.x-u.x)-point.offset*by,y:u.y+point.along*(v.y-u.y)+point.offset*bx},gamma=Math.atan2(v.y,v.x-m.d),beta=Math.atan2(by,bx);
+  const lengths=[Math.hypot(u.x,u.y),Math.hypot(v.x-u.x,v.y-u.y),Math.hypot(v.x-m.d,v.y)],error=Math.max(...lengths.map((x,i)=>Math.abs(x-[m.a,m.b,m.c][i]))),cross=dx*(v.y-u.y)-dy*(v.x-u.x);
+  return {u,v,p,h,r,gamma,beta,lengths,error,cross,branch};
+ }
+ function intervals(m,g=guards){
+  if(!['a','b','c','d'].every(k=>Number.isFinite(m[k])&&m[k]>0)||Math.min(m.b,m.c)<=g.height)return [];
+  const rb=Math.sqrt(m.b*m.b-g.height*g.height),rc=Math.sqrt(m.c*m.c-g.height*g.height),low=Math.max(g.centers,Math.abs(rb-rc)),high=rb+rc,base=m.d*m.d+m.a*m.a,two=2*m.d*m.a,cosLo=(base-high*high)/two,cosHi=(base-low*low)/two;
+  if(cosLo>1||cosHi< -1||cosLo>cosHi)return [];
+  const a=Math.acos(clamp(cosHi,-1,1)),b=Math.acos(clamp(cosLo,-1,1));
+  if(b-a<1e-8)return [];if(a<1e-10&&Math.PI-b<1e-10)return [{lo:0,hi:TAU,cyclic:true}];
+  if(Math.PI-b<1e-10)return [{lo:a,hi:TAU-a,cyclic:false}];
+  return [{lo:a,hi:b,cyclic:false},{lo:TAU-b,hi:TAU-a,cyclic:false}];
+ }
+ function cell(m,theta){
+  const rows=intervals(m);if(rows[0]?.cyclic)return {lo:-Infinity,hi:Infinity,cyclic:true};
+  const k=Math.floor(theta/TAU),expanded=[];for(let j=k-2;j<=k+2;j++)for(const row of rows)expanded.push({lo:row.lo+j*TAU,hi:row.hi+j*TAU});expanded.sort((a,b)=>a.lo-b.lo);
+  const merged=[];for(const row of expanded){const last=merged.at(-1);if(last&&row.lo<=last.hi+1e-9)last.hi=Math.max(last.hi,row.hi);else merged.push({...row,cyclic:false})}
+  return merged.find(row=>theta>=row.lo-1e-8&&theta<=row.hi+1e-8)||null;
+ }
+ function nearest(m,theta){const rows=intervals(m);if(!rows.length)return null;if(rows[0].cyclic)return {theta,cell:cell(m,theta)};let best=null;for(let j=Math.floor(theta/TAU)-1;j<=Math.floor(theta/TAU)+1;j++)for(const row of rows){const t=clamp(theta,row.lo+j*TAU,row.hi+j*TAU);if(best===null||Math.abs(t-theta)<Math.abs(best-theta))best=t}return {theta:best,cell:cell(m,best)}}
+ function move(m,from,to,branch,point){const c=cell(m,from);if(!c)return null;const theta=clamp(to,c.lo,c.hi),pose=solve(m,theta,branch,point);if(!pose)return null;return {theta,pose,cell:c,limited:Math.abs(theta-to)>1e-9}}
+ function unwrap(angle,near){return near+Math.atan2(Math.sin(angle-near),Math.cos(angle-near))}
+ function gripper(m,pose){const length=.7*m.c+20,pivot=length+8,tip={x:-pivot+length*Math.sin(pose.gamma),y:-length*Math.cos(pose.gamma)},cs=Math.cos(pose.gamma),sn=Math.sin(pose.gamma),vertices=[];
+  for(const x of [-5,5])for(const y of [-length,0])vertices.push({x,y});for(const x of [-1.5,13.5])for(const y of [-length-4.5,-length+4.5])vertices.push({x,y});for(let n=-2;n<=2;n++)for(const x of [13.1,14.1])for(const y of [-length+n*1.5-.5,-length+n*1.5+.5])vertices.push({x,y});
+  const leftInner=vertices.map(p=>({x:-pivot+p.x*cs-p.y*sn,y:p.x*sn+p.y*cs})).reduce((a,b)=>a.x>b.x?a:b);return {length,pivot,leftTip:tip,rightTip:{x:-tip.x,y:tip.y},leftInner,rightInner:{x:-leftInner.x,y:leftInner.y},gap:-2*leftInner.x}}
+ function mechanics(m,p,theta,force=100){
+  const b={x:(p.v.x-p.u.x)/m.b,y:(p.v.y-p.u.y)/m.b},c={x:(p.v.x-m.d)/m.c,y:p.v.y/m.c},a={x:p.u.x/m.a,y:p.u.y/m.a},t={x:-c.y,y:c.x};
+  const sOut=c.x*b.y-c.y*b.x,sIn=a.x*b.y-a.y*b.x,mu=Math.asin(clamp(Math.abs(sOut),0,1)),nu=Math.asin(clamp(Math.abs(sIn),0,1)),ft=force*sOut,fr=force*(b.x*c.x+b.y*c.y),rOut=m.c*sOut,rIn=m.a*sIn;
+  const footC={x:p.u.x+b.x*((m.d-p.u.x)*b.x-p.u.y*b.y),y:p.u.y+b.y*((m.d-p.u.x)*b.x-p.u.y*b.y)},footA={x:p.u.x-b.x*(p.u.x*b.x+p.u.y*b.y),y:p.u.y-b.y*(p.u.x*b.x+p.u.y*b.y)};
+  return {mu,nu,sinMu:Math.abs(sOut),sinNu:Math.abs(sIn),force,unitB:b,unitC:c,tangent:t,onC:{x:force*b.x,y:force*b.y},onA:{x:-force*b.x,y:-force*b.y},tangential:{x:ft*t.x,y:ft*t.y},radial:{x:fr*c.x,y:fr*c.y},ft,fr,rOut,rIn,footC,footA,torqueC:force*rOut/1000,driveTorqueA:force*rIn/1000,speedRatio:Math.abs(rOut)>1e-10?rIn/rOut:null,forceFor1Nm:Math.abs(rOut)>1e-10?1000/Math.abs(rOut):null,outputNear:mu<15*Math.PI/180,outputCaution:mu<40*Math.PI/180,inputNear:nu<5*Math.PI/180};
+ }
+ function inputDeadCenters(m,branch=1){
+  const results=[];for(const sign of [1,-1]){const radius=m.a+sign*m.b;if(Math.abs(radius)<1e-9)continue;const cs=(radius*radius+m.d*m.d-m.c*m.c)/(2*m.d*radius);if(Math.abs(cs)>1+1e-10)continue;for(const theta of [Math.acos(clamp(cs,-1,1)),mod(-Math.acos(clamp(cs,-1,1)))]){const p=solve(m,theta,branch);if(p&&cell(m,theta)&&mechanics(m,p,theta).sinNu<1e-7&&!results.some(t=>Math.abs(t-theta)<1e-7))results.push(theta)}}return results.sort((a,b)=>a-b);
+ }
+ return {TAU,guards,mod,solve,intervals,cell,nearest,move,unwrap,gripper,mechanics,inputDeadCenters};
+})();
+</script><script>'use strict';
+(()=>{
+const K=FourbarKinematics,T=THREE,$=id=>document.getElementById(id),V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z),r=d=>d*Math.PI/180,d=r=>r*180/Math.PI,fmt=(x,n=1)=>x.toFixed(n),clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),TAU=K.TAU;
+const presets={crank:{a:60,b:160,c:110,d:180},limited:{a:110,b:130,c:90,d:180},parallel:{a:80,b:180,c:80,d:180}};
+const state={m:{...presets.crank},theta:r(50),branch:1,point:{along:.55,offset:24},play:false,dir:1,speed:30,velocity:0,record:true,trace:[],revision:0,limited:false,mode:'drag',labels:true,gripFocus:false,showForces:true,forceSign:1};
+let pose=K.solve(state.m,state.theta,state.branch,state.point),domain=K.cell(state.m,state.theta),dirty=true,last=0,drag=null,model,grips;
+const colors={a:0xd67234,b:0x318b90,c:0x7174a9,steel:0xb6c4c7,base:0x789185,pin:0xd5deda,point:0xe1ae49},materials=new Map();
+function material(color,metal=.35){const key=color+':'+metal;if(!materials.has(key))materials.set(key,new T.MeshStandardMaterial({color,metalness:metal,roughness:.36}));return materials.get(key)}
+const cylinderGeo=new T.CylinderGeometry(1,1,1,32),boxGeo=new T.BoxGeometry(1,1,1),sphereGeo=new T.SphereGeometry(1,24,16),yAxis=V(0,1,0);
+function mesh(root,geo,mat){const o=new T.Mesh(geo,mat);o.castShadow=o.receiveShadow=true;root.add(o);return o}
+function box(root,p,size,color){const o=mesh(root,boxGeo,material(color));o.position.copy(p);o.scale.set(...size);return o}
+function cylinder(root,a,b,rad,color){const o=mesh(root,cylinderGeo,material(color,.7)),delta=b.clone().sub(a);o.position.copy(a).add(b).multiplyScalar(.5);o.quaternion.setFromUnitVectors(yAxis,delta.clone().normalize());o.scale.set(rad,delta.length(),rad);return o}
+function sphere(root,p,rad,color){const o=mesh(root,sphereGeo,material(color,.55));o.position.copy(p);o.scale.setScalar(rad);return o}
+function capsule(length,width=6,holes=true){const s=new T.Shape();s.moveTo(0,-width);s.lineTo(length,-width);s.absarc(length,0,width,-Math.PI/2,Math.PI/2);s.lineTo(0,width);s.absarc(0,0,width,Math.PI/2,Math.PI*1.5);s.closePath();if(holes)for(const x of [0,length]){const hole=new T.Path();hole.absarc(x,0,3.25,0,TAU,true);s.holes.push(hole)}const g=new T.ExtrudeGeometry(s,{depth:6,bevelEnabled:false,curveSegments:28});g.translate(0,0,-3);return g}
+function ring(ro,ri,thickness){const sh=new T.Shape();sh.absarc(0,0,ro,0,TAU,false);const hole=new T.Path();hole.absarc(0,0,ri,0,TAU,true);sh.holes.push(hole);const g=new T.ExtrudeGeometry(sh,{depth:thickness,bevelEnabled:false,curveSegments:32});g.translate(0,0,-thickness/2);return g}
+function arm(root,length,color,z){const o=mesh(root,capsule(length),material(color,.32));o.position.z=z;for(const x of [0,length]){const bush=mesh(o,ring(4.4,3.15,1),material(colors.steel,.8));bush.position.set(x,0,3.6)}o.userData.length=length;return o}
+function dispose(root){const gs=new Set(),ms=new Set();root.traverse(o=>{if(o.geometry&&![cylinderGeo,boxGeo,sphereGeo].includes(o.geometry))gs.add(o.geometry);if(o.material&&!Array.from(materials.values()).includes(o.material))ms.add(o.material)});gs.forEach(g=>g.dispose());ms.forEach(m=>m.dispose());root.removeFromParent()}
+function studio(){const c=document.createElement('canvas');c.width=512;c.height=256;const x=c.getContext('2d'),g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,'#cfdde8');g.addColorStop(.5,'#8d9aa5');g.addColorStop(1,'#293b47');x.fillStyle=g;x.fillRect(0,0,512,256);x.fillStyle='#f5f8ff';x.fillRect(20,30,100,160);x.fillRect(275,30,45,160);x.fillRect(400,45,65,130);const tex=new T.CanvasTexture(c);tex.mapping=T.EquirectangularReflectionMapping;tex.colorSpace=T.SRGBColorSpace;return tex}
+const env=studio();
+class View{
+ constructor(id){this.el=$(id);this.scene=new T.Scene();this.root=new T.Group();this.scene.add(this.root);this.scene.add(new T.HemisphereLight(0xf1f7ff,0x75816f,1.3));const key=new T.DirectionalLight(0xfff6e6,3.3);key.position.set(-180,280,450);key.castShadow=true;key.shadow.mapSize.set(1024,1024);Object.assign(key.shadow.camera,{left:-700,right:700,top:500,bottom:-500,near:1,far:1500});key.shadow.normalBias=.25;this.scene.add(key);const fill=new T.DirectionalLight(0xdef2ff,1);fill.position.set(300,-120,250);this.scene.add(fill);this.renderer=window.createChapterRenderer({antialias:true,preserveDrawingBuffer:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=.9;this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;if(!this.renderer.isFallback){const pm=new T.PMREMGenerator(this.renderer);this.scene.environment=pm.fromEquirectangular(env).texture;pm.dispose();}this.el.prepend(this.renderer.domElement);this.camera=new T.OrthographicCamera(-100,100,100,-100,.1,3000);this.target=V(90,30,0);this.span=300;this.zoom=1;this.yaw=0;this.elev=0;this.ray=new T.Raycaster();new ResizeObserver(()=>{this.resize();dirty=true}).observe(this.el);this.resize();this.el.addEventListener('wheel',e=>{e.preventDefault();this.zoom=clamp(this.zoom*Math.exp(-e.deltaY*.001),.6,3);dirty=true},{passive:false});
+ }
+ resize(){this.width=Math.max(10,this.el.clientWidth);this.height=Math.max(10,this.el.clientHeight);this.renderer.setSize(this.width,this.height,false)}
+ cameraSetup(){const a=r(this.yaw),b=r(this.elev);this.camera.position.copy(this.target).add(V(1000*Math.sin(a)*Math.cos(b),1000*Math.sin(b),1000*Math.cos(a)*Math.cos(b)));this.camera.up.set(0,1,0);this.camera.lookAt(this.target);const aspect=this.width/this.height,h=Math.max(this.span,((this.fitWidth||0)+55)/aspect*1.07)/this.zoom;Object.assign(this.camera,{left:-h*aspect/2,right:h*aspect/2,top:h/2,bottom:-h/2});this.camera.updateProjectionMatrix();this.camera.updateMatrixWorld()}
+ screen(p){this.cameraSetup();const q=p.clone().project(this.camera),rect=this.el.getBoundingClientRect();return {x:rect.left+(q.x+1)*this.width/2,y:rect.top+(1-q.y)*this.height/2}}
+ planePoint(x,y,z){this.cameraSetup();const rect=this.el.getBoundingClientRect();this.ray.setFromCamera(new T.Vector2((x-rect.left)/this.width*2-1,-(y-rect.top)/this.height*2+1),this.camera);return this.ray.ray.intersectPlane(new T.Plane(V(0,0,1),-z),V())}
+ render(){this.cameraSetup();this.renderer.render(this.scene,this.camera)}
+}
+let main,grip;
+try{main=new View('fb-stage');grip=new View('grip-stage')}catch(error){$('fb-feedback').textContent='浏览器未能启动三维图形，请使用开启硬件加速的 Edge / Chrome。';console.error(error);return}
+function fixture(root,m){const g=mesh(root,capsule(m.d,9),material(colors.base));g.position.z=-26;for(const x of [0,m.d]){const bearing=mesh(root,ring(9,3.15,6),material(0x526e64,.5));bearing.position.set(x,0,-18);cylinder(root,V(x,0,-29),V(x,0,16),3,colors.steel);const nut=mesh(root,ring(4.3,2.7,2),material(colors.pin,.8));nut.position.set(x,0,17)}return g}
+function linkage(root,m,withPoint=false){const group=new T.Group();root.add(group);fixture(group,m);const a=arm(group,m.a,colors.a,10),b=arm(group,m.b,colors.b,1),c=arm(group,m.c,colors.c,-8),pinU=new T.Group(),pinV=new T.Group();group.add(pinU,pinV);cylinder(pinU,V(0,0,-3),V(0,0,16),3,colors.pin);cylinder(pinV,V(0,0,-13),V(0,0,6),3,colors.pin);const result={group,a,b,c,pinU,pinV};if(withPoint){result.handle=sphere(group,V(),4.8,colors.a);const x=state.point.along*m.b,y=state.point.offset;result.marker=sphere(b,V(x,y,8),3.5,colors.point);if(Math.abs(y)>6)cylinder(b,V(x,Math.sign(y)*6,6),V(x,y,6),1.2,colors.steel)}return result}
+function setPose(object,sol,m){object.a.rotation.z=state.theta;object.b.position.set(sol.u.x,sol.u.y,1);object.b.rotation.z=sol.beta;object.c.position.set(m.d,0,-8);object.c.rotation.z=sol.gamma;object.pinU.position.set(sol.u.x,sol.u.y,0);object.pinV.position.set(sol.v.x,sol.v.y,0);if(object.handle)object.handle.position.set(sol.u.x,sol.u.y,18)}
+function sampleAngles(){return domain.cyclic?Array.from({length:181},(_,i)=>i*TAU/180):Array.from({length:181},(_,i)=>domain.lo+(domain.hi-domain.lo)*i/180)}
+function gripFocus(){const g=K.gripper(state.m,pose);grip.target.set(0,-g.length*Math.cos(pose.gamma)+6*Math.sin(pose.gamma),0);grip.span=Math.max(85,(2*g.pivot+40)/(grip.width/grip.height));grip.zoom=1}
+function fit(view){if(!view||!domain)return;if(view===grip&&state.gripFocus){gripFocus();return}const points=[];for(const theta of sampleAngles()){const p=K.solve(state.m,theta,state.branch,state.point);if(!p)continue;if(view===main)for(const q of [{x:0,y:0},{x:state.m.d,y:0},p.u,p.v,p.p])points.push(V(q.x,q.y,0));else{const g=K.gripper(state.m,p);for(const sign of [-1,1])for(const q of [{x:0,y:0},{x:state.m.d,y:0},p.u,p.v])points.push(V(sign*(q.x-state.m.d-g.pivot),q.y,0));points.push(V(g.leftTip.x,g.leftTip.y,0),V(g.rightTip.x,g.rightTip.y,0))}}
+ if(!points.length)return;const bounds=new T.Box3().setFromPoints(points);view.target.copy(bounds.getCenter(V()));view.cameraSetup();let w=0,h=0;for(const p of points)for(const z of [-30,20]){const q=V(p.x,p.y,z).applyMatrix4(view.camera.matrixWorldInverse);w=Math.max(w,Math.abs(q.x)*2);h=Math.max(h,Math.abs(q.y)*2)}view.fitWidth=w;view.span=Math.max(h+40,(w+55)/(view.width/view.height),100)*1.07;view.zoom=1;dirty=true;
+}
+function rebuild(keepView=false){if(model)dispose(model.group);if(grips)dispose(grips.group);model=linkage(main.root,state.m,true);const back=mesh(model.group,new T.PlaneGeometry(state.m.d+state.m.a*2+80,2*Math.max(state.m.a,state.m.c)+90),new T.ShadowMaterial({color:0x354f50,opacity:.23}));back.position.set(state.m.d/2,0,-33);back.castShadow=false;
+ const grid=new T.GridHelper(700,35,0xb0c4b7,0xe2e9e0);grid.rotation.x=Math.PI/2;grid.position.set(state.m.d/2,0,-34);grid.material.transparent=true;grid.material.opacity=.5;model.group.add(grid);
+ grips={group:new T.Group(),copies:[]};grip.root.add(grips.group);const geo=K.gripper(state.m,pose);for(const sign of [1,-1]){const outer=new T.Group();grips.group.add(outer);outer.scale.x=sign;outer.position.x=-sign*(state.m.d+geo.pivot);const rig=linkage(outer,state.m);const jaw=new T.Group();rig.c.add(jaw);box(jaw,V(0,-geo.length/2,0),[10,geo.length,6],colors.c);box(jaw,V(6,-geo.length,0),[15,9,9],0x526864);for(let n=-2;n<=2;n++)box(jaw,V(13.6,-geo.length+n*1.5,0),[1,1,10],0xd0d8d0);grips.copies.push(rig)}
+ const baseY=-Math.max(state.m.a,state.m.c)*1.05-20;box(grips.group,V(0,baseY,-26),[2*(state.m.d+geo.pivot)+40,10,16],colors.base);for(const x of [-(state.m.d+geo.pivot),-geo.pivot,geo.pivot,state.m.d+geo.pivot])box(grips.group,V(x,baseY/2,-26),[9,-baseY,10],colors.base);
+ const positions=new Float32Array(4096*3),geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(positions,3));geometry.setDrawRange(0,0);model.trace=new T.Line(geometry,new T.LineBasicMaterial({color:0xc58e2d,transparent:true,opacity:.8}));main.root.add(model.trace);if(oldTrace){oldTrace.geometry.dispose();oldTrace.material.dispose();oldTrace.removeFromParent()}oldTrace=model.trace;buildTeaching();updateGeometry();if(!keepView){fit(main);fit(grip)}theme(document.documentElement.classList.contains('dark'));
+}
+let oldTrace=null;
+function resetTrace(){state.trace=[];if(state.record)state.trace.push({x:pose.p.x,y:pose.p.y,theta:state.theta});state.revision++;updateTrace()}
+function record(){if(!state.record)return;const last=state.trace.at(-1);if(!last||Math.hypot(pose.p.x-last.x,pose.p.y-last.y)>.12||Math.abs(state.theta-last.theta)>.01){state.trace.push({x:pose.p.x,y:pose.p.y,theta:state.theta});if(state.trace.length>4096)state.trace.shift()}}
+function updateTrace(){if(!model?.trace)return;const attr=model.trace.geometry.attributes.position;state.trace.forEach((p,i)=>attr.setXYZ(i,p.x,p.y,9));attr.needsUpdate=true;model.trace.geometry.setDrawRange(0,state.trace.length);model.trace.visible=state.record}
+function updateGeometry(){setPose(model,pose,state.m);grips.copies.forEach(rig=>setPose(rig,pose,state.m));if(state.gripFocus)gripFocus();updateTrace();updateTeachingGeometry();dirty=true}
+function feedback(text,warn=false){$('fb-feedback').textContent=text;$('fb-feedback').classList.toggle('warn',warn)}
+function stop(){state.play=false;state.velocity=0;updateUI();dirty=true}
+function changeAngle(target,manual=false){const step=K.move(state.m,state.theta,target,state.branch,state.point);if(!step)return;if(manual){state.play=false;state.velocity=0}const previous=state.theta,n=Math.max(1,Math.ceil(Math.abs(step.theta-previous)/r(.75)));for(let i=1;i<=n;i++){state.theta=previous+(step.theta-previous)*i/n;pose=K.solve(state.m,state.theta,state.branch,state.point);record()}domain=K.cell(state.m,state.theta);state.limited=step.limited;if(step.limited){state.play=false;state.velocity=0;feedback('到达当前连续可达区间的边界：已停住并保持分支，请反向。',true)}else if(manual)feedback('正在按闭合关系拖动；机架铰点、杆长和装配支路保持不变。');updateGeometry();updateUI()}
+function apply(m,theta=state.theta,branch=state.branch,message='已应用杆长：新实验开始，旧轨迹已清空。'){
+ const next=K.nearest(m,theta);if(!next){feedback('这组杆长没有可安全求解的闭合姿态，未应用；当前模型及杆长保持原值。',true);return false}state.play=false;state.velocity=0;state.m={...m};state.theta=next.theta;state.branch=branch;pose=K.solve(state.m,state.theta,branch,state.point);domain=next.cell;state.limited=false;resetTrace();rebuild();updateUI(true);feedback(message+(Math.abs(next.theta-theta)>1e-8?' 原输入角在新杆长下不可达，已定位到最近可达姿态。':''));return true;
+}
+function pointChange(along,offset,keepView=false){state.play=false;state.velocity=0;state.point={along:clamp(along,0,1),offset:clamp(offset,-60,60)};pose=K.solve(state.m,state.theta,state.branch,state.point);resetTrace();rebuild(keepView);updateUI();feedback('P 的局部位置已改变，已清空轨迹；继续拖 U 记录新曲线。')}
+function updateUI(fields=false){$('fb-play').textContent=state.play?'Ⅱ 暂停演示':'▶ 同支连续演示';$('fb-play').setAttribute('aria-pressed',String(state.play));const cyclic=domain.cyclic,angle=cyclic?d(K.mod(state.theta)):d(state.theta);$('fb-angle').min=cyclic?0:d(domain.lo);$('fb-angle').max=cyclic?360:d(domain.hi);$('fb-angle').value=angle;$('fb-angle-out').textContent=fmt(angle)+'°';$('fb-lengths').textContent=pose.lengths.map(x=>fmt(x,1)).join(' / ')+' mm';$('fb-output').textContent=fmt(d(pose.gamma))+'°';$('fb-error').textContent=pose.error<1e-8?'< 10⁻⁸ mm':pose.error.toExponential(2)+' mm';$('fb-state').textContent=state.limited?'边界停止 / 分支锁定':'分支 '+(state.branch>0?'+':'−')+' / 杆长恒定';$('fb-state').classList.toggle('warn',state.limited);$('fb-branch').value=state.branch;$('fb-label-ground').textContent='D = '+state.m.d+' mm · 机架固定';$('fb-branch-caption').textContent='V 在 U→O₂ '+(state.branch>0?'左侧（+）':'右侧（−）');$('fb-domain').textContent=cyclic?'当前输入可连续整周旋转；无须切换装配支路。':'本次连续输入区间：'+fmt(d(domain.lo))+'° ～ '+fmt(d(domain.hi))+'°；到边界前减速停止。';$('fb-along').value=state.point.along;$('fb-offset').value=state.point.offset;$('fb-along-out').textContent=fmt(state.point.along*100,0)+'%';$('fb-offset-out').textContent=fmt(state.point.offset,0)+' mm';$('fb-trace-count').textContent=state.trace.length+' 个采样点 · 新实验 '+state.revision;$('fb-gap').textContent='水平净距 '+fmt(K.gripper(state.m,pose).gap)+' mm';if(fields)for(const k of ['a','b','c','d'])$('fb-'+k).value=state.m[k];updateTeachingUI()}
+function place(el,p,offset=V(7,-16,0)){const pos=main.screen(p),rect=main.el.getBoundingClientRect(),x=clamp(pos.x-rect.left+offset.x,3,main.width-el.offsetWidth-3),y=clamp(pos.y-rect.top+offset.y,3,main.height-el.offsetHeight-22);el.style.transform=`translate(${x}px,${y}px)`}
+function labels(){place($('fb-handle-u'),V(pose.u.x,pose.u.y,18));place($('fb-handle-p'),V(pose.p.x,pose.p.y,9));place($('fb-label-o1'),V(0,0,20),V(-55,12));place($('fb-label-o2'),V(state.m.d,0,20),V(7,12));place($('fb-label-v'),V(pose.v.x,pose.v.y,7),V(8,-24));place($('fb-label-ground'),V(state.m.d/2,0,-23),V(-35,14));place($('fb-label-a'),V(pose.u.x*.45,pose.u.y*.45,14));place($('fb-label-b'),V((pose.u.x+pose.v.x)/2,(pose.u.y+pose.v.y)/2,5),V(0,-25));place($('fb-label-c'),V((pose.v.x+state.m.d)/2,pose.v.y/2,-4));teachingLabels()}
+function theme(dark){document.documentElement.classList.toggle('dark',dark);for(const view of [main,grip]){view.scene.background=new T.Color(dark?0x14263c:0xedf4fc);view.scene.traverse(o=>{if(o.isGridHelper||o.type==='GridHelper')o.material.opacity=dark?.15:.5})}$('fb-theme').textContent=dark?'浅色背景':'深色背景';dirty=true}
+function orbit(view,dx,dy){view.yaw=clamp(view.yaw+dx*.4,-75,75);view.elev=clamp(view.elev+dy*.35,-65,65);dirty=true}
+function down(e,view){if(view===grip&&e.target.closest('button'))return;if(e.button!==0&&e.pointerType!=='touch')return;const screenU=main.screen(V(pose.u.x,pose.u.y,18)),screenP=main.screen(V(pose.p.x,pose.p.y,9));let kind=view===grip||state.mode==='orbit'?'orbit':null;if(!kind){if(e.target===$('fb-handle-u')||Math.hypot(e.clientX-screenU.x,e.clientY-screenU.y)<26)kind='input';else if(e.target===$('fb-handle-p')||Math.hypot(e.clientX-screenP.x,e.clientY-screenP.y)<24)kind='point';else return}e.preventDefault();if(kind!=='orbit')stop();const p=view.planePoint(e.clientX,e.clientY,kind==='point'?9:18);drag={kind,view,id:e.pointerId,x:e.clientX,y:e.clientY,angleOffset:p?state.theta-Math.atan2(p.y,p.x):0,pointerAngle:state.theta};view.el.setPointerCapture(e.pointerId);}
+for(const view of [main,grip]){view.el.addEventListener('pointerdown',e=>down(e,view));view.el.addEventListener('pointermove',e=>{if(!drag||drag.view!==view||drag.id!==e.pointerId)return;if(drag.kind==='orbit')orbit(view,e.clientX-drag.x,e.clientY-drag.y);else{const point=view.planePoint(e.clientX,e.clientY,drag.kind==='point'?9:18);if(!point)return;if(drag.kind==='input'){drag.pointerAngle=K.unwrap(Math.atan2(point.y,point.x)+drag.angleOffset,drag.pointerAngle);changeAngle(drag.pointerAngle,true);}else{const dx=point.x-pose.u.x,dy=point.y-pose.u.y,bx=Math.cos(pose.beta),by=Math.sin(pose.beta);pointChange((dx*bx+dy*by)/state.m.b,-dx*by+dy*bx,true)}}drag.x=e.clientX;drag.y=e.clientY});for(const type of ['pointerup','pointercancel','lostpointercapture'])view.el.addEventListener(type,e=>{if(drag?.id===e.pointerId)drag=null})}
+$('fb-dimensions').addEventListener('submit',e=>{e.preventDefault();const m=Object.fromEntries(['a','b','c','d'].map(k=>[k,+$('fb-'+k).value]));if(apply(m))$('fb-preset').selectedIndex=-1});$('fb-preset').addEventListener('change',e=>apply(presets[e.target.value],r(50),1,'已加载新预设：按当前闭合关系开始独立实验。'));$('fb-branch').addEventListener('change',e=>apply(state.m,state.theta,+e.target.value,'已按你的选择重新装配到另一分支，旧轨迹清空；后续运动锁定该分支。'));
+$('fb-play').addEventListener('click',()=>{state.play=!state.play;state.velocity=0;state.limited=false;if(state.play)feedback('输入曲柄连续驱动；其余杆件由同一装配支路的闭合解确定。');updateUI();dirty=true});$('fb-reverse').addEventListener('click',()=>{state.dir*=-1;state.limited=false;feedback('已反向；保留当前杆长和同一装配支路。');updateUI()});$('fb-speed').addEventListener('change',e=>state.speed=+e.target.value);$('fb-minus').addEventListener('click',()=>changeAngle(state.theta-r(5),true));$('fb-plus').addEventListener('click',()=>changeAngle(state.theta+r(5),true));$('fb-angle').addEventListener('input',e=>changeAngle(domain.cyclic?K.unwrap(r(+e.target.value),state.theta):r(+e.target.value),true));$('fb-along').addEventListener('input',e=>pointChange(+e.target.value,state.point.offset));$('fb-offset').addEventListener('input',e=>pointChange(state.point.along,+e.target.value));$('fb-trace').addEventListener('change',e=>{state.record=e.target.checked;resetTrace();updateGeometry();updateUI()});$('fb-clear').addEventListener('click',()=>{resetTrace();updateGeometry();updateUI();feedback('已清空 P 的历史轨迹，从当前姿态重新记录。')});
+for(const b of document.querySelectorAll('[data-fb-view]'))b.addEventListener('click',()=>{[main.yaw,main.elev]=b.dataset.fbView==='front'?[0,0]:[24,18];document.querySelectorAll('[data-fb-view]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));fit(main);dirty=true});for(const b of document.querySelectorAll('[data-fb-mode]'))b.addEventListener('click',()=>{state.mode=b.dataset.fbMode;main.el.classList.toggle('orbit',state.mode==='orbit');document.querySelectorAll('[data-fb-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));dirty=true});$('fb-grip-focus').addEventListener('click',()=>{state.gripFocus=!state.gripFocus;$('fb-grip-focus').textContent=state.gripFocus?'看全结构':'放大夹口';$('fb-grip-focus').setAttribute('aria-pressed',String(state.gripFocus));if(state.gripFocus){grip.yaw=0;grip.elev=0}fit(grip);dirty=true});$('fb-fit').addEventListener('click',()=>{fit(main);fit(grip)});CourseTheme.register(value => theme(value === 'dark'));$('fb-labels').addEventListener('click',()=>{state.labels=!state.labels;document.documentElement.classList.toggle('no-labels',!state.labels);$('fb-labels').textContent=state.labels?'隐藏名称':'显示名称';$('fb-labels').setAttribute('aria-pressed',String(!state.labels));dirty=true});
+document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey)return;const tag=e.target.tagName;if((e.target===$('fb-handle-u')||e.target===main.el)&&['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();changeAngle(state.theta+r(e.key==='ArrowLeft'?-2:2),true)}else if(!/INPUT|SELECT|TEXTAREA|BUTTON/.test(tag)&&e.code==='Space'){e.preventDefault();$('fb-play').click()}});document.addEventListener('visibilitychange',()=>{last=0});
+function tick(time){const dt=last?Math.min(.04,(time-last)/1000):0;last=time;if(!document.hidden&&state.play){const dist=domain.cyclic?Infinity:state.dir>0?domain.hi-state.theta:state.theta-domain.lo,a=r(100),target=state.dir*Math.min(r(state.speed),.65*Math.sqrt(2*a*Math.max(0,dist)),dist*4);state.velocity+=clamp(target-state.velocity,-a*dt,a*dt);const next=state.theta+state.velocity*dt;changeAngle(next);if(!domain.cyclic&&dist<r(.003)){state.play=false;state.velocity=0;state.limited=true;feedback('在分支合并 / 不可达区之前减速停止；请反向，或明确选择新装配分支。',true);updateUI()}}if(dirty&&!document.hidden){main.render();grip.render();labels();dirty=false}requestAnimationFrame(tick)}
+// This module is injected in the fourbar-app IIFE. All diagrams use the live closure solution.
+function teachingMetrics(){return K.mechanics(state.m,pose,state.theta,100*state.forceSign)}
+function teachingLine(parent,color,size=64,dashed=false){const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(new Float32Array(size*3),3));const m=dashed?new T.LineDashedMaterial({color,dashSize:3,gapSize:2,transparent:true,opacity:.75}):new T.LineBasicMaterial({color});m.toneMapped=false;const line=new T.Line(g,m);line.frustumCulled=false;parent.add(line);return line}
+function teachingPoints(line,points){const a=line.geometry.attributes.position;points.forEach((p,i)=>a.setXYZ(i,p.x,p.y,p.z??27));a.needsUpdate=true;line.geometry.setDrawRange(0,points.length);if(line.material.isLineDashedMaterial)line.computeLineDistances()}
+function buildTeaching(){const g=new T.Group();g.name='force-annotations';model.group.add(g);const arrow=color=>{const a=new T.ArrowHelper(V(1,0,0),V(),25,color,5,3);a.line.visible=false;a.cone.material.toneMapped=false;a.shaft=mesh(a,cylinderGeo,new T.MeshBasicMaterial({color,toneMapped:false}));g.add(a);return a};model.teaching={group:g,force:arrow(0xd45343),onA:arrow(0xd45343),tangent:arrow(0x24966e),radial:arrow(0x8799a5),arc:teachingLine(g,0xcb942b),axisC:teachingLine(g,0x8799a5,2,true),forceLine:teachingLine(g,0xd45343,2,true),armC:teachingLine(g,0x397f9d,2,true),armA:teachingLine(g,0xd45343,2,true),components:teachingLine(g,0x8aaca3,3,true),ringA:mesh(g,new T.TorusGeometry(12,.7,8,48),new T.MeshBasicMaterial({color:0xe69a46,toneMapped:false})),ringC:mesh(g,new T.TorusGeometry(12,.7,8,48),new T.MeshBasicMaterial({color:0xe26345,toneMapped:false}))};for(const [name,object] of Object.entries(model.teaching))object.name=name==='group'?'force-annotations':'mechanics-'+name;}
+function diagramArrow(arrow,at,vector){const length=Math.hypot(vector.x,vector.y)*.25;arrow.visible=length>.015;if(!arrow.visible)return;const head=Math.min(5,length*.32),body=length-head;arrow.position.set(at.x,at.y,27);arrow.setDirection(V(vector.x,vector.y,0).normalize());arrow.setLength(length,head,Math.min(3,length*.18));arrow.shaft.position.set(0,body/2,0);arrow.shaft.scale.set(Math.min(.35,length*.02),body,Math.min(.35,length*.02))}
+function updateTeachingGeometry(){const h=model.teaching;if(!h)return;const m=teachingMetrics(),b=m.unitB,c=m.unitC,v=pose.v,u=pose.u;h.group.visible=state.showForces;if(!state.showForces)return;diagramArrow(h.force,v,m.onC);diagramArrow(h.onA,u,m.onA);diagramArrow(h.tangent,v,m.tangential);diagramArrow(h.radial,v,m.radial);
+ const ta=-u.x*b.x-u.y*b.y,tc=(state.m.d-u.x)*b.x-u.y*b.y,lo=Math.min(-32,ta-16,tc-16),hi=Math.max(state.m.b+36,ta+16,tc+16);teachingPoints(h.forceLine,[V(u.x+b.x*lo,u.y+b.y*lo,26),V(u.x+b.x*hi,u.y+b.y*hi,26)]);teachingPoints(h.axisC,[V(v.x-c.x*25,v.y-c.y*25,26),V(v.x+c.x*25,v.y+c.y*25,26)]);teachingPoints(h.armC,[V(state.m.d,0,26),V(m.footC.x,m.footC.y,26)]);teachingPoints(h.armA,[V(0,0,26),V(m.footA.x,m.footA.y,26)]);h.armA.visible=m.inputNear;
+ teachingPoints(h.components,[V(v.x+m.tangential.x*.25,v.y+m.tangential.y*.25,26),V(v.x+m.onC.x*.25,v.y+m.onC.y*.25,26),V(v.x+m.radial.x*.25,v.y+m.radial.y*.25,26)]);
+ const sign=state.forceSign,fx=b.x*sign,fy=b.y*sign,side=(fx*c.x+fy*c.y)>=0?1:-1,from=Math.atan2(c.y*side,c.x*side),to=Math.atan2(fy,fx),difference=Math.atan2(Math.sin(to-from),Math.cos(to-from));h.arcData={middle:from+difference/2,radius:18};teachingPoints(h.arc,Array.from({length:49},(_,i)=>V(v.x+18*Math.cos(from+difference*i/48),v.y+18*Math.sin(from+difference*i/48),28)));h.ringA.position.set(0,0,28);h.ringC.position.set(state.m.d,0,28);h.ringA.visible=m.inputNear;h.ringC.visible=m.outputNear;
+}
+function teachingCopy(m){
+ if(m.outputNear&&m.inputNear)return {kind:'both',title:'两侧均接近共线：不要自动选支',text:`μ＝${fmt(d(m.mu),2)}°，A/B 夹角 ν＝${fmt(d(m.nu),2)}°，两侧力臂都很小；输出转矩与反驱能力均退化。仍保留同一装配支路，边界前停住。`};
+ if(m.outputNear)return {kind:'output',title:'接近 B/C 共线：给定连杆力的输出转矩变小',text:`μ＝${fmt(d(m.mu),2)}°；100 N 中仅 ${fmt(Math.abs(m.ft),2)} N 是切向分量。若保持 1 N·m 输出，需约 ${m.forceFor1Nm?fmt(m.forceFor1Nm,0):'∞'} N 连杆力；μ→0 时，有限轴向力不能产生输出转矩。`};
+ if(m.inputNear)return {kind:'input',title:'A/B 近共线：C 反驱 A 的死点',text:`B 的力线接近穿过 O₁，反驱 A 的力臂仅 ${fmt(Math.abs(m.rIn),2)} mm。A 作主动曲柄仍可通过，C 在此瞬时停转 / 换向；此时 μ＝${fmt(d(m.mu),1)}°，不能混同 B/C 共线。`};
+ if(m.outputCaution)return {kind:'caution',title:'μ 正在减小：更多分力沿 C 传给轴承',text:`100 N 参考连杆力中，切向分量为 ${fmt(Math.abs(m.ft),1)} N；同样输出转矩需要更大的连杆力和关节载荷。μ 越小，该工况下传力越不利；sin μ 不是能量效率。`};
+ return {kind:'normal',title:'观察 μ 与切向分量：同一参考轴向力，输出随姿态改变',text:`μ 是 B/C 轴线的锐角。100 N 中有 ${fmt(Math.abs(m.ft),1)} N 作用于 C 的切向；μ 接近 90°时，该分量最大。力的方向与转矩正负随当前参考工况显示，sin μ 不是效率。`};
+}
+function updateTeachingUI(){const m=teachingMetrics(),copy=teachingCopy(m);$('fb-mu').textContent=fmt(d(m.mu),1)+'°';$('fb-effective').textContent=fmt(m.sinMu*100,1)+'%';$('fb-torque').textContent=fmt(m.torqueC,3)+' N·m';$('fb-teaching-title').textContent=copy.title;$('fb-teaching-text').textContent=copy.text;$('fb-mechanics').dataset.kind=copy.kind;$('fb-forces').setAttribute('aria-pressed',String(state.showForces));$('fb-force-case').value=state.forceSign;
+ $('fb-tag-mu').textContent='μ = '+fmt(d(m.mu),1)+'°';$('fb-tag-rc').textContent='r_C = '+fmt(Math.abs(m.rOut))+' mm';$('fb-tag-ra').textContent='r_A ≈ '+fmt(Math.abs(m.rIn),2)+' mm';$('fb-tag-ft').textContent='F_t '+fmt(Math.abs(m.ft),1)+' N';$('fb-tag-force').textContent='F_B';$('fb-tag-on-a').textContent='B→A';
+ for(const id of ['fb-tag-mu','fb-tag-rc','fb-tag-force','fb-tag-on-a'])$(id).style.visibility=state.showForces?'visible':'hidden';$('fb-tag-ft').style.visibility=state.showForces&&Math.abs(m.ft)>.06?'visible':'hidden';$('fb-tag-ra').style.visibility=state.showForces&&m.inputNear?'visible':'hidden';$('fb-force-legend').hidden=!state.showForces;
+ const suffix=copy.kind==='input'?'A/B 近共线':copy.kind==='output'?'B/C 近共线':copy.kind==='both'?'两侧近共线':null;if(suffix){$('fb-state').textContent='分支 '+(state.branch>0?'+':'−')+' · '+suffix;$('fb-state').classList.add('warn')}
+}
+function teachingLabels(){if(!model.teaching)return;const leaders=$('fb-mechanics-leaders');leaders.style.display=state.showForces?'':'none';if(!state.showForces)return;const m=teachingMetrics(),h=model.teaching,v=pose.v,u=pose.u,mid=h.arcData.middle,entries=[['fb-tag-mu',V(v.x+18*Math.cos(mid),v.y+18*Math.sin(mid),29),V(7,-20)],['fb-tag-rc',V((state.m.d+m.footC.x)/2,m.footC.y/2,27),V(8,10)],['fb-tag-force',V(v.x+m.onC.x*.25,v.y+m.onC.y*.25,27),V(6,-20)],['fb-tag-on-a',V(u.x+m.onA.x*.25,u.y+m.onA.y*.25,27),V(-28,-22)],['fb-tag-ft',V(v.x+m.tangential.x*.25,v.y+m.tangential.y*.25,27),V(6,5)],['fb-tag-ra',V(0,0,28),V(-40,-40)]];
+ const bounds=main.el.getBoundingClientRect(),previous=Array.from($('fb-overlay').querySelectorAll('.fb-tag:not(.mechanic-tag),.fb-handle')).filter(el=>getComputedStyle(el).display!=='none').map(el=>{const r=el.getBoundingClientRect();return {x:r.left-bounds.left,y:r.top-bounds.top,w:r.width,h:r.height}});const legend=$('fb-force-legend').getBoundingClientRect();previous.push({x:legend.left-bounds.left,y:legend.top-bounds.top,w:legend.width,h:legend.height});
+ for(const [id,point,offset] of entries){const el=$(id),line=$('leader-'+id);line.style.display=el.style.visibility==='hidden'?'none':'';if(el.style.visibility==='hidden')continue;const s=main.screen(point),ax=s.x-bounds.left,ay=s.y-bounds.top,w=el.offsetWidth,h=el.offsetHeight,candidates=[[ax+offset.x,ay+offset.y]];for(const gap of [7,23,39,55])candidates.push([ax+gap,ay-h/2],[ax-w-gap,ay-h/2],[ax-w/2,ay-h-gap],[ax-w/2,ay+gap],[ax+gap,ay-h-gap],[ax-w-gap,ay-h-gap],[ax+gap,ay+gap],[ax-w-gap,ay+gap]);let best;
+  for(const [cx,cy] of candidates){const x=clamp(cx,3,main.width-w-3),y=clamp(cy,3,main.height-h-25),overlap=previous.reduce((sum,o)=>sum+Math.max(0,Math.min(x+w+3,o.x+o.w)-Math.max(x-3,o.x))*Math.max(0,Math.min(y+h+3,o.y+o.h)-Math.max(y-3,o.y)),0),distance=Math.hypot(x+w/2-ax,y+h/2-ay),score=overlap*1000+distance+.05*Math.hypot(x-ax-offset.x,y-ay-offset.y);if(!best||score<best.score)best={x,y,score}}
+  el.style.transform=`translate(${best.x}px,${best.y}px)`;previous.push({x:best.x,y:best.y,w,h});const ex=clamp(ax,best.x,best.x+w),ey=clamp(ay,best.y,best.y+h);line.setAttribute('d',`M${ax},${ay} L${ex},${ey}`);line.style.stroke=getComputedStyle(el).color;line.style.opacity=Math.hypot(ax-ex,ay-ey)>4?'.7':'0';
+ }
+}
+function initTeaching(){
+ const ns='http://www.w3.org/2000/svg',leaders=document.createElementNS(ns,'svg');leaders.id='fb-mechanics-leaders';leaders.setAttribute('class','fb-mechanics-leaders');for(const id of ['fb-tag-mu','fb-tag-rc','fb-tag-force','fb-tag-on-a','fb-tag-ft','fb-tag-ra']){const line=document.createElementNS(ns,'path');line.id='leader-'+id;leaders.appendChild(line)}$('fb-overlay').prepend(leaders);
+ $('fb-forces').addEventListener('click',()=>{state.showForces=!state.showForces;updateTeachingGeometry();updateTeachingUI();dirty=true});$('fb-force-case').addEventListener('change',e=>{state.forceSign=+e.target.value;updateTeachingGeometry();updateTeachingUI();dirty=true});
+ $('fb-lesson-normal').addEventListener('click',()=>{state.showForces=true;apply(presets.crank,r(50),1,'教学预设：正常姿态，参考力保持 100 N；已开始新实验。');$('fb-preset').value='crank';state.dir=1});
+ $('fb-lesson-output').addEventListener('click',()=>{state.showForces=true;apply(presets.limited,r(50),1,'教学预设：载入有限摆动杆长，观察 B/C 接近共线；已清空旧轨迹。');$('fb-preset').value='limited';state.dir=1;changeAngle(domain.hi-r(.001),true)});
+ $('fb-lesson-input').addEventListener('click',()=>{state.showForces=true;apply(presets.crank,r(50),1,'教学预设：曲柄摇杆的 A/B 共线姿态；A 可主动通过，C 不能从此位置反驱 A。');$('fb-preset').value='crank';state.dir=1;const centers=K.inputDeadCenters(state.m,1);if(centers.length)changeAngle(centers[0],true)});
+}
+
+rebuild();resetTrace();initTeaching();updateUI(true);theme(CourseTheme.get() === 'dark');requestAnimationFrame(tick);
+document.addEventListener('course:pause',()=>{state.play=false;state.velocity=0;updateUI();dirty=true});
+window.fourbarLab={snapshot:()=>({m:{...state.m},theta:state.theta,thetaDegrees:d(state.theta),branch:state.branch,play:state.play,dir:state.dir,point:{...state.point},pose:JSON.parse(JSON.stringify(pose)),domain:{...domain},limited:state.limited,trace:state.trace.map(p=>({...p})),revision:state.revision,gripFocus:state.gripFocus,showForces:state.showForces,forceSign:state.forceSign,mechanics:teachingMetrics(),lesson:teachingCopy(teachingMetrics()).kind,fixed:[{x:0,y:0},{x:state.m.d,y:0}],gripper:K.gripper(state.m,pose),renderedLengths:[model.a.userData.length,model.b.userData.length,model.c.userData.length]}),setAngle:degrees=>changeAngle(r(degrees),true),project:name=>main.screen(name==='u'?V(pose.u.x,pose.u.y,18):name==='p'?V(pose.p.x,pose.p.y,9):V(0,0,18)),projectAngle:degrees=>main.screen(V(state.m.a*Math.cos(r(degrees)),state.m.a*Math.sin(r(degrees)),18)),model:K,views:{main,grip}};
+})();
+</script><script data-root="../" data-lab="fourbar">(() => {
+  'use strict';
+  const script=document.currentScript,config=script.dataset;
+  const root=config.root||'../',active=config.lab;
+  const links=[{"id":"2-1","title":"动力装置的基本原理","demo":"course/chapters/02/tasks/2-1/index.html"},{"id":"2-2","title":"动力的传递与变换","demo":"course/chapters/02/tasks/2-2/index.html"},{"id":"2-3","title":"工作机构与施工动作","demo":"course/chapters/02/tasks/2-3/index.html"}];
+  const task={motor:'2-1',diesel:'2-1',transmission:'2-2',mechanisms:'2-3',fourbar:'2-3'}[active];
+  document.documentElement.dataset.c2=active;
+  const nav=document.createElement('nav');
+  nav.className='c2-nav';
+  nav.setAttribute('aria-label','本章导航');
+  nav.innerHTML=`<a class="c2-home" href="${root}course/chapters/02/overview/index.html">← 第二章 · 动力与工作机构</a><div class="c2-links">${links.map(({id,title,demo})=>`<a href="${root+demo}" ${id===task?'aria-current="page"':''}>${id} ${title}</a>`).join('')}</div>`;
+  document.body.prepend(nav);
+  if(active==='mechanisms'){
+    const lessons=document.querySelector('.lessons');if(lessons){const details=document.createElement('details');details.className='c2-lesson-notes';const summary=document.createElement('summary');summary.textContent='本实验要点 · 传力、导程与偏心振动';lessons.before(details);details.append(summary,lessons);}
+  }
+})();
+</script><script>window.Chapter2Guides = {
+  mechanisms: {
+    title: '工作机构：把动力变成施工动作',
+    goals: ['说明液压缸通过铰接连杆带动动臂的过程。', '比较丝杠和螺母的相对转动，解释导程与升降位移的关系。'],
+    steps: [['沿连接看动作', '选择“液压连杆”，单步伸出液压缸，观察动臂、连杆与从动臂；切换侧视，辨认销轴连接。'], ['换姿态比传力', '比较正常姿态与死点附近，观察力线、力臂和反馈。保留杆长，只改变输入，说明姿态对传力的影响。'], ['换约束看升降', '选择“丝杠升降”，比较螺母止转与同步同转；改变导程后转动一圈，核对相对圈数与轴向位移。']],
+    reflection: '液压缸同样伸出，动臂的转动是否处处相同？丝杠和螺母一起同速转动时，为什么可能没有升降？',
+    boundary: '几何、参考受力与振动均为教学模型。死点提示和数值保护不代表真实设备限位或通用安全阈值。',
+    help: ['切换“液压连杆／丝杠升降”选择实验，下方播放栏只运行当前装置。', '拖动旋转、滚轮缩放；正视、侧视、俯视、轴测和四视图用于观察不同连接。', '右侧滑杆可直接调节，单步按钮用于比较前后状态。点选零件名称查看三维部件说明。', '展示区“全屏／恢复”保留当前动作与视角；下方“复位”恢复实验。“物理实验”保留原有进阶探究。']
+  },
+  fourbar: {
+    title: '四杆扩展：输入、约束与输出',
+    goals: ['指出两个固定铰点与三根运动杆，理解闭合连接的约束。', '比较输入角、传动角和连杆点轨迹，区分姿态变化与重新装配。'],
+    steps: [['固定机架', '拖动橙色 U 点或输入角滑杆，确认 O₁、O₂ 始终固定，观察其余杆件随输入联动。'], ['看轨迹与传力', '选定 P 点并连续演示，观察轨迹；暂停后比较正常姿态、B/C 近共线和 A/B 死点的力线与反馈。'], ['比较装配', '在“杆长与装配”中选择预设或另一分支，再观察可达范围；对照右侧夹爪，说明输出杆怎样带动开合。']],
+    reflection: '为什么不能任意拖动四杆中的每个铰点？改变杆长或装配分支，与只改变输入角有什么不同？',
+    boundary: '参考轴向力仅用于分力演示，夹爪未计算接触或夹持力；数值隔离区不是实体限位。',
+    help: ['“拖动输入”模式下拖 U 驱动、拖 P 选轨迹点；切换“旋转视角”后拖动观察三维连接。', 'U 点获得键盘焦点后，左右方向键微调；也可用输入角滑杆、±5°或连续演示。', '“全景”恢复镜头，“清空轨迹”保留当前装配；应用杆长或切换分支会暂停并开始新的轨迹。', '主模型与夹爪均可全屏观察，Esc 恢复；全屏期间仍可暂停或单步。']
+  }
+};
+
+/* Chapter-wide presentation controls; experiments retain ownership of their state. */
+(() => {
+  'use strict';
+  const lab=document.documentElement.dataset.c2, lesson=window.Chapter2Guides?.[lab];
+  if(!lesson)return;
+  const $=selector=>document.querySelector(selector);
+  const make=(tag,cls,text)=>{const el=document.createElement(tag);el.className=cls||'';if(text)el.textContent=text;return el;};
+  const button=(text,fn,cls='')=>{const el=make('button','c2-button '+cls,text);el.type='button';el.addEventListener('click',fn);return el;};
+  const pause=()=>document.dispatchEvent(new Event('course:pause'));
+  const header={motor:'.top-actions',diesel:'.header-actions',transmission:'.top-actions',mechanisms:'.mast .toolbar',fourbar:'.fb-header nav'}[lab];
+  const actions=make('div','c2-learning-actions');
+  const helpOriginal=$('#helpBtn');
+  if(helpOriginal){helpOriginal.textContent='原理与实验说明';helpOriginal.classList.add('c2-original-help');}
+  const guide=button('学习引导',()=>openDialog('guide'),'c2-guide-button');guide.id='c2-guide';
+  const help=button('操作说明',()=>openDialog('help'));help.id='c2-help';
+  actions.append(guide,help);$(header)?.append(actions);
+  const dialog=make('dialog','c2-dialog');dialog.id='c2-learning-dialog';dialog.setAttribute('aria-labelledby','c2-dialog-title');
+  const dialogHead=make('div','c2-dialog-head'),title=make('h2');title.id='c2-dialog-title';
+  dialogHead.append(title,button('关闭',()=>dialog.close()));
+  const body=make('div','c2-dialog-body'),foot=make('div','c2-dialog-foot');
+  foot.append(button('开始观察',()=>dialog.close(),'c2-primary'));dialog.append(dialogHead,body,foot);document.body.append(dialog);
+  let opener;
+  function openDialog(kind){
+    pause();opener=kind==='guide'?guide:help;body.replaceChildren();
+    title.textContent=kind==='guide'?lesson.title:'操作说明';
+    function section(name,content){const h=make('h3','',name);body.append(h,content);}
+    if(kind==='guide'){
+      const goals=make('ul');lesson.goals.forEach(t=>goals.append(make('li','',t)));section('本节学什么',goals);
+      const steps=make('ol','c2-steps');lesson.steps.forEach(([name,text])=>{const item=make('li');item.append(make('strong','',name),make('p','',text));steps.append(item);});section('按这三步观察',steps);
+      section('观察后，试着说明',make('p','c2-reflection',lesson.reflection));body.append(make('p','c2-boundary',lesson.boundary));
+    }else{
+      const list=make('ol');lesson.help.forEach(t=>list.append(make('li','',t)));body.append(list);
+      if(helpOriginal&&lab!=='diesel')body.append(button('原理与实验说明 ↗',()=>{dialog.close();helpOriginal.click();}));
+    }
+    dialog.showModal();
+  }
+  dialog.addEventListener('close',()=>opener?.focus());
+  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+  // Keep legacy document shortcuts out of both guide and help dialogs.
+  document.addEventListener('keydown',e=>{if(dialog.open&&e.key!=='Escape')e.stopImmediatePropagation();},true);
+
+  // Keep each mechanism in a single observation workstation.
+  if(lab==='mechanisms'){
+    const labs=$('.labs'),panels=[...labs.children].filter(e=>e.classList.contains('lab'));
+    const tabs=make('div','c2-experiments');tabs.setAttribute('role','group');tabs.setAttribute('aria-label','工作机构展示方式');
+    panels.forEach(panel=>{
+      const model=make('section','c2-model-column'),control=make('aside','c2-control-column');
+      [...panel.children].forEach(el=>(el.matches('.stats,.controls,.lab-foot')?control:model).append(el));panel.append(model,control);
+    });
+    const transport=make('div','c2-mechanism-transport');
+    for(const element of [$('#play'),$('#reverse'),$('#reset'),$('#speed').closest('label')])transport.append(element);
+    const prompts=[
+      ['看液压缸怎样带动动臂','单步伸出液压缸，沿销轴观察 A、B、C 三根杆怎样联动。杆长滑块用于重新设置尺寸，播放时各杆的长度固定。'],
+      ['看转动怎样变成升降','先用“丝杠转 1 圈”比较位移，再改变导程重复观察。切换同步同转，比较丝杠与螺母的相对运动。'],
+    ];
+    panels.forEach((panel,i)=>{
+      const control=panel.querySelector('.c2-control-column');
+      const guide=make('section','mechanism-observation');
+      guide.append(make('h3','',prompts[i][0]),make('p','',prompts[i][1]));
+      control.prepend(panel.querySelector('.lab-head'),guide);
+    });
+    ['液压连杆','丝杠升降'].forEach((name,i)=>tabs.append(button(name,()=>select(i))));
+    function select(i){
+      panels[i].querySelector('.c2-model-column').append(transport);
+      document.dispatchEvent(new CustomEvent('mechanism:select',{detail:i===0?'boom':'screw'}));
+      labs.dataset.presentation='single';
+      panels.forEach((panel,n)=>{panel.hidden=n!==i;});
+      [...tabs.children].forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));
+      dispatchEvent(new Event('resize'));
+    }
+    labs.before(tabs);select(0);
+  }
+
+  let expanded=null,inerted=[],returnFocus=null,oldOverflow='';
+  const viewButtons=new Map();
+  function release(){
+    if(!expanded)return;
+    expanded.classList.remove('c2-expanded','c2-fallback');
+    inerted.forEach(([el,value])=>el.inert=value);inerted=[];
+    document.body.style.overflow=oldOverflow;document.body.classList.remove('c2-has-expanded');
+    expanded=null;sync();returnFocus?.focus();dispatchEvent(new Event('resize'));
+  }
+  function sync(){viewButtons.forEach((b,target)=>{const on=expanded===target;b.textContent=on?'⤢ 恢复':'⛶ 全屏';b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?'恢复页面布局':'全屏观察'+target.dataset.c2Title);});}
+  async function toggle(target,b){
+    if(expanded){if(document.fullscreenElement)await document.exitFullscreen();else release();return;}
+    expanded=target;returnFocus=b;oldOverflow=document.body.style.overflow;target.classList.add('c2-expanded');document.body.classList.add('c2-has-expanded');
+    document.body.style.overflow='hidden';
+    try{if(!target.requestFullscreen)throw new Error('Fullscreen unsupported');await target.requestFullscreen();}
+    catch{target.classList.add('c2-fallback');}
+    if(expanded!==target)return;
+    for(let node=target;node&&node!==document.body;node=node.parentElement){for(const sibling of node.parentElement.children){if(sibling!==node&&!sibling.matches('script,style,link')){inerted.push([sibling,sibling.inert]);sibling.inert=true;}}}
+    sync();b.focus();dispatchEvent(new Event('resize'));
+  }
+  document.addEventListener('fullscreenchange',()=>{if(expanded&&!document.fullscreenElement&&!expanded.classList.contains('c2-fallback'))release();});
+  document.addEventListener('keydown',e=>{if(expanded?.classList.contains('c2-fallback')&&e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();release();}},true);
+
+  function view(target,name,tools,play,step){
+    if(!target)return;
+    target.classList.add('c2-view');target.dataset.c2Title=name;
+    const bar=make('div','c2-viewbar'),label=make('span','c2-view-label',name),controls=make('div','c2-view-actions');
+    if(tools)controls.append(tools);
+    const motion=make('div','c2-view-motion');
+    if(play){const source=$(play);if(source){const proxy=button('',()=>source.click());const update=()=>{proxy.textContent=source.getAttribute('aria-label')||source.textContent.trim();proxy.disabled=source.disabled;};update();new MutationObserver(update).observe(source,{attributes:true,childList:true,subtree:true,characterData:true});motion.append(proxy);}}
+    if(step){const source=$(step);if(source){const proxy=button(source.textContent.trim(),()=>source.click());const update=()=>proxy.disabled=source.disabled;update();new MutationObserver(update).observe(source,{attributes:true});motion.append(proxy);}}
+    controls.append(motion);
+    const full=button('⛶ 全屏',()=>toggle(target,full),'c2-fullscreen');viewButtons.set(target,full);controls.append(full);bar.append(label,controls);target.prepend(bar);
+  }
+  if(lab==='motor')view($('#motorPanel'),'电机结构观察',$('#motorPanel .pills'));
+  if(lab==='diesel')view($('.workspace'),'柴油机结构观察',$('.view-tools'));
+  if(lab==='transmission')view($('.viewport'),'动力传动 · 结构观察',$('.scene-tools'),'#playBtn','#stepBtn');
+  if(lab==='mechanisms'){
+    view($('#boom-lab .c2-model-column'),'液压连杆 · 结构观察',$('#boom-lab .view-buttons'),'#play','#boom-step');
+    view($('#screw-lab .c2-model-column'),'丝杠升降 · 结构观察',$('#screw-lab .view-buttons'),'#play','#screw-step');
+  }
+  if(lab==='fourbar'){
+    view($('.fb-main'),'四杆机构 · 闭合与传力',null,'#fb-play','#fb-plus');
+    view($('.fb-gripper'),'夹爪 · 联动观察',null,'#fb-play','#fb-plus');
+    $('#fb-fit').textContent='全景';
+  }
+  // Older whole-page fullscreen remains in the source for compatibility only.
+  ['#fullscreenBtn','#fullBtn','#fullscreen','[data-enlarge]'].forEach(selector=>document.querySelectorAll(selector).forEach(el=>el.hidden=true));
+  sync();
+})();
+</script><script>/* 原版三维实验页的“嵌入模式”桥接。
+ * 页面被第二章任务页（index.html）用 iframe 打开时：只留下三维视图，其余原有界面隐藏；
+ * 外层面板通过 postMessage 发命令（点击、设值、调用接口），这里定时回报模型状态。
+ * 单独打开原页面时不做任何改动。file:// 下同样可用（只用 postMessage，不跨文档读 DOM）。
+ */
+(() => {
+  'use strict';
+  const embedded = window.parent !== window || /[?&]embed\b/.test(location.search);
+  if (!embedded) return;
+  const $ = s => document.querySelector(s);
+  const lab = () => document.documentElement.dataset.c2;
+  const text = s => ($(s)?.textContent || '').trim();
+  const pressed = s => $(s)?.getAttribute('aria-pressed') === 'true';
+  const json = v => JSON.parse(JSON.stringify(v ?? null));
+
+  /* 每个原版页面：保留哪个三维视图、隐藏其中哪些原有浮层、回报哪些状态 */
+  const LABS = {
+    motor: {
+      keep: '#stage',
+      hideInside: ['.view-hint', '.c2-viewbar'],
+      probe() {
+        const s = window.motorLab.getState(), m = window.motorLab.getModel(), st = window.motorLab.getStudent();
+        const view = ['cutMode', 'wholeMode', 'wireMode'].find(id => pressed('#' + id)) || 'cutMode';
+        return {voltage: s.voltage, load: s.load, dir: s.dir, paused: s.paused, part: s.part, showEM: s.showEM, cut: s.cut,
+          n: m.n, I: m.I, T: m.T, P: m.P, eff: m.eff, stall: m.stall, stalled: m.stalled, view,
+          partText: s.part !== 'all' ? text('.part-description') : '',
+          // 组装模式（原版“学生任务：组装与接线”）
+          student: {...st, step: $('#studentConsole')?.dataset.uiStep || '', feedback: text('#studentFeedback')}};
+      },
+    },
+    diesel: {
+      keep: '#viewport',
+      probe() {
+        const s = window.engineLab.getState();
+        const stroke = $('#strokes [aria-pressed="true"]');
+        return {mode: s.mode, observed: s.observed, angle: s.angle, running: s.running, speed: s.speed, explode: s.explode,
+          targetExplode: s.targetExplode, cut: s.cut, labels: s.labels, effects: s.effects, vehicle: s.vehicle,
+          installation: s.installation, audio: s.audioEnabled, selected: s.selected,
+          stroke: stroke ? +stroke.dataset.stroke : null, rpm: text('#rpmReadout'),
+          partName: s.selected ? text('#partName') : '', partDesc: s.selected ? text('#partDesc') : ''};
+      },
+    },
+    transmission: {
+      keep: '#canvasWrap',
+      // transmission.html#gear / #hyd / #air
+      setup() { const m = location.hash.slice(1); if (['gear', 'hyd', 'air'].includes(m)) window.MechanicsLab.switchMode(m); },
+      probe() {
+        const x = window.MechanicsLab.snapshot(), st = x.state;
+        return {mode: x.mode, playing: x.playing, speed: x.speed, params: x.params[x.mode], tr: x.transmission,
+          state: {x: st.x, v: st.v, pA: st.pA, pB: st.pB, force: st.force, status: st.status, command: st.command, cycles: st.cycles, auto: st.auto},
+          focused: x.view.focused, watch: text('#watchTitle')};
+      },
+    },
+    mechanisms: {
+      keep: () => (location.hash === '#screw' ? '#screw-stage' : '#boom-stage'),
+      hideInside: ['.stage-hint', '.stage-top', '.c2-viewbar'],
+      setup() {
+        const i = location.hash === '#screw' ? 1 : 0;
+        const tab = document.querySelectorAll('.c2-experiments button')[i];
+        tab?.click();
+      },
+      probe() {
+        const x = window.mechanismLab.snapshot();
+        return {active: x.activeMechanism, play: x.play, dir: x.dir, speed: x.speed, theta: x.theta, a: x.a, b: x.b, c: x.c,
+          lead: x.lead, rpm: x.rpm, starts: x.starts, ns: x.ns, nn: x.nn, mode: x.mode, relative: x.relative, height: x.height,
+          vibration: x.vibration, ecc: x.ecc, trace: x.trace, forces: x.forces, range: x.range,
+          moment: x.model?.moment, mu: x.model?.mu, len: x.model?.len,
+          stroke: +($('#stroke')?.value || 0), strokeMin: +($('#stroke')?.min || 0), strokeMax: +($('#stroke')?.max || 0),
+          amplitude: x.vibrationMetrics?.amplitude};
+      },
+    },
+  };
+
+  const css = `
+    html.c2-embed, html.c2-embed body { overflow:hidden !important; margin:0 !important; padding:0 !important; min-width:0 !important; min-height:0 !important; }
+    html.c2-embed body { background:var(--stage-bg, #f5f6f8) !important; }
+    html.c2-embed .c2-embed-hide { display:none !important; }
+    html.c2-embed [data-c2-path] { transform:none !important; filter:none !important; contain:none !important; overflow:visible !important; }
+    html.c2-embed [data-c2-keep="main"] {
+      position:fixed !important; inset:0 !important; width:100vw !important; height:100vh !important;
+      max-width:none !important; max-height:none !important; min-width:0 !important; min-height:0 !important;
+      margin:0 !important; border:0 !important; border-radius:0 !important; z-index:2147480000 !important; box-shadow:none !important;
+    }
+    html.c2-embed [data-c2-keep="inset"] {
+      position:fixed !important; right:14px !important; bottom:14px !important; left:auto !important; top:auto !important;
+      width:min(30vw,280px) !important; height:min(34vh,210px) !important; min-height:0 !important; margin:0 !important;
+      border:1px solid var(--course-line, #cbdbea) !important; border-radius:12px !important; overflow:hidden !important;
+      z-index:2147480001 !important; box-shadow:0 6px 18px rgba(25,53,80,.18) !important;
+    }
+    html.c2-embed dialog { z-index:2147483000; }
+  `;
+
+  function isolate(cfg) {
+    const pick = v => (typeof v === 'function' ? v() : v);
+    const main = $(pick(cfg.keep)), inset = cfg.inset ? $(pick(cfg.inset)) : null;
+    if (!main) return false;
+    document.documentElement.classList.add('c2-embed');
+    /* 嵌入外壳后：三维区里的部件标签不小于 13px，字体与外壳一致 */
+    const type = '\n.part-label,.tag,button.tag,span.tag{font-size:13px!important;letter-spacing:0!important;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC","Segoe UI",system-ui,sans-serif!important}';
+    const style = document.createElement('style'); style.textContent = css + type; document.head.append(style);
+    const keeps = [main, inset].filter(Boolean);
+    main.dataset.c2Keep = 'main'; if (inset) inset.dataset.c2Keep = 'inset';
+    for (const k of keeps) for (let n = k; n && n !== document.body; n = n.parentElement) {
+      if (n !== k) n.dataset.c2Path = '1';
+      n.hidden = false; n.inert = false; n.classList.remove('hidden');
+    }
+    for (const k of keeps) {
+      for (let n = k; n && n !== document.body; n = n.parentElement) {
+        const parent = n.parentElement; if (!parent) break;
+        for (const sib of parent.children) {
+          if (sib.dataset.c2Path || sib.dataset.c2Keep || sib.matches('script,style,link,dialog,canvas.c2-keep-canvas')) continue;
+          sib.classList.add('c2-embed-hide');
+        }
+      }
+    }
+    for (const sel of cfg.hideInside || []) main.querySelectorAll(sel).forEach(e => e.classList.add('c2-embed-hide'));
+    // 画布多为透明：铺上外壳统一的三维区底色（--stage-bg 由外壳传入），不沿用原页面的网格、渐变底
+    for (const k of keeps) k.style.setProperty('background', 'var(--stage-bg, #f5f6f8)', 'important');
+    // 隐藏页面级的浮动按钮（深色模式切换等）
+    document.querySelectorAll('body > button, body > .toast, #course-theme-toggle').forEach(e => { if (!e.dataset.c2Keep) e.classList.add('c2-embed-hide'); });
+    return true;
+  }
+
+  const post = msg => window.parent.postMessage({c2: 'lab', lab: lab(), ...msg}, '*');
+  function setValue(el, value) {
+    if (!el) return;
+    if (el.type === 'checkbox') { if (el.checked !== Boolean(value)) el.click(); return; }
+    el.value = value;
+    el.dispatchEvent(new Event('input', {bubbles: true}));
+    el.dispatchEvent(new Event('change', {bubbles: true}));
+  }
+  function call(path, args) {
+    const parts = path.split('.'); let ctx = window, fn = window;
+    for (const p of parts) { ctx = fn; fn = fn?.[p]; }
+    return typeof fn === 'function' ? fn.apply(ctx, args || []) : undefined;
+  }
+  addEventListener('message', e => {
+    const d = e.data;
+    if (!d || d.c2 !== 'cmd') return;
+    try {
+      if (d.op === 'click') { const list = document.querySelectorAll(d.sel); (list[d.index || 0])?.click(); }
+      else if (d.op === 'clickText') { [...document.querySelectorAll(d.sel)].find(e => e.textContent.trim().startsWith(d.text))?.click(); }
+      else if (d.op === 'set') setValue($(d.sel), d.value);
+      else if (d.op === 'call') call(d.path, d.args);
+      else if (d.op === 'event') document.dispatchEvent(new Event(d.name));
+      else if (d.op === 'theme') {
+        if (d.stage) {
+          // 外壳的三维区取值：CSS 变量给页面样式用，StageTone 给三维场景用；再按主题重绘
+          const t = d.value === 'dark' ? 'dark' : 'light', v = d.stage[t] || {};
+          for (const [k, val] of Object.entries(v)) if (val) document.documentElement.style.setProperty('--stage-' + k, val);
+          window.StageTone?.use(d.stage);
+        }
+        window.CourseTheme?.set?.(d.value);
+      }
+      else if (d.op === 'resize') dispatchEvent(new Event('resize'));
+      else if (d.op === 'capture') (window.StageTone?.capture?.(document.body) || Promise.resolve(null)).then(url => post({type: 'shot', url}));
+    } catch (err) { console.warn('[c2 bridge]', d, err); }
+    setTimeout(send, 30);
+  });
+
+  let probe = null;
+  function send() {
+    if (!probe) return;
+    try { post({type: 'state', data: json(probe())}); } catch (err) { /* 模型尚未就绪 */ }
+  }
+  addEventListener('load', () => {
+    const cfg = LABS[lab()];
+    if (!cfg) return;
+    cfg.setup?.();
+    isolate(cfg);
+    probe = cfg.probe;
+    // 不依赖 requestAnimationFrame：后台标签页里它不会执行
+    dispatchEvent(new Event('resize')); post({type: 'ready'}); send();
+    setTimeout(() => dispatchEvent(new Event('resize')), 300);
+    setInterval(send, 160);
+  });
+})();
+</script></body></html>

@@ -1,0 +1,13 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {integrateChapter6} from '../../../../../../shared/装饰装修施工/chapter-layout.mjs';
+import {labShell, hasStations} from '../../../../../../shared/lab-shell/native-layout.mjs';
+import * as Model from './model.mjs';
+import * as GameModel from './game.model.mjs';
+const file=p=>fileURLToPath(new URL(p,import.meta.url)),read=p=>readFileSync(file(p),'utf8');
+const inline=(name,path,exports)=>`const ${name}=(()=>{\n${read(path).replace(/^import .*;\r?\n/gm,'').replace(/^export /gm,'')}\nreturn {${Object.keys(exports).join(',')}};})();`;
+const values={CSS:read('./hero.css'),JS:read('../../../../../../shared/vendor/three-r160.min.js')+'\n'+inline('M','./model.mjs',Model)+'\n'+inline('Game','./game.model.mjs',GameModel)+'\n'+['../../../../../../shared/robot-arm/six-axis-arm.js','./robot3d.js','./scene3d.js','./hero.app.js'].map(read).join('\n')};
+const html=read('./hero.page.html').replace(/\{\{(CSS|JS)\}\}/g,(_,key)=>key==='JS'?values[key].replace(/<\/script/gi,'<\\/script'):values[key]);
+for(const name of ['../index.html'])writeFileSync(file(name),hasStations('6-2')?labShell(html,'6-2'):integrateChapter6(html,'tiling'));
+console.log('Built 6-2 · 3D floor tiling workshop · standalone index.html · shared theme');
+if(process.argv.includes('--audit'))console.log('Renderer: Three.js. SVG painter/line audits do not certify this scene. Run qa/hero-model.test.mjs and the documented browser/geometry checks.');

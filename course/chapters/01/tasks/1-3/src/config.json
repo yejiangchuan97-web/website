@@ -1,0 +1,60 @@
+{
+  "mode": "gallery",
+  "title": "认识施工机器人",
+  "kicker": "TASK 1-3 / CONSTRUCTION ROBOTS",
+  "lead": "选择一种施工机器人，旋转查看结构，播放动作或单独调节部件。",
+  "boundary": "许可机型网格 · 动作为预制教学演示，不代表实机控制、抓握或施工性能。",
+  "help": "点击上方名称切换展品。拖动模型旋转视角，滚轮缩放；点击部件编号或右侧部件索引查看结构。播放、暂停、单步和时间轴用于观察动作；在“结构观察”中展开总成、近看部件，点击复位恢复整机。",
+  "items": [
+    {
+      "id": "crazyflie",
+      "drone": "cesium",
+      "title": "无人机",
+      "subtitle": "CESIUM DRONE",
+      "description": "观察整流机壳、四臂机架、电机与前置镜头，单独调节螺旋桨转角。",
+      "nature": "Cesium Drone · CC BY 4.0 · 旋翼结构演示",
+      "license": "shared/models/drone/LICENSE.html",
+      "application": "模型来自 Cesium 官方仓库，网格和贴图由 Ed Mackey 制作，采用 CC BY 4.0 许可。保留原始网格和贴图；螺旋桨慢速演示仅用于观察结构，不代表实机转速或飞行性能。"
+    },
+    {
+      "id": "iiwa",
+      "robot": "iiwa",
+      "title": "机械臂",
+      "description": "观察安装基座、关节连杆与工具连接端。",
+      "nature": "许可机型网格 · 预制运动学动作",
+      "license": "shared/models/licenses/iiwa.txt",
+      "application": "网格提取自原机器人图鉴，动作是作者编排的运动学演示，不代表真实控制性能。"
+    },
+    {
+      "id": "g1",
+      "robot": "g1",
+      "title": "人形机器人",
+      "description": "观察躯干、上肢和下肢机构，播放挥手等预制动作。",
+      "nature": "许可机型网格 · 预制运动学动作",
+      "license": "shared/models/licenses/g1.txt",
+      "application": "网格提取自原机器人图鉴，动作是作者编排的运动学演示，不代表真实控制性能。"
+    },
+    {
+      "id": "go2",
+      "robot": "go2",
+      "title": "机器狗",
+      "description": "观察四足关节与足端，比较步态和屈腿动作。",
+      "nature": "许可机型网格 · 预制运动学动作",
+      "license": "shared/models/licenses/go2.txt",
+      "application": "网格提取自原机器人图鉴，动作是作者编排的运动学演示，不代表真实控制性能。"
+    },
+    {
+      "id": "sharpa",
+      "robot": "sharpa",
+      "title": "机械手",
+      "subtitle": "SHARPA WAVE / DEXTEROUS HAND",
+      "description": "观察完整掌壳、五根手指与柔性指腹，分别调节手指弯曲，比较舒展和合拢的关节变化。",
+      "nature": "Sharpa Wave · Apache-2.0 许可网格",
+      "license": "shared/models/robots/sharpa-LICENSE.html",
+      "application": "采用 Sharpa Robotics 发布、MuJoCo Menagerie 收录的 Sharpa Wave 五指机械手网格与关节层级（Apache-2.0）。指腹改为课程蓝色；动作是课堂编排，不代表实机抓握性能。"
+    }
+  ],
+  "chapterTitle": "第一章 · 走进智能建造",
+  "tabLabel": "施工机器人展品",
+  "layout": "gallery-workstation"
+}

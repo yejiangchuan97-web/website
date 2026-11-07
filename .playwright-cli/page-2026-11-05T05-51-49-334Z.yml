@@ -1,0 +1,137 @@
+- generic [active] [ref=e1]:
+  - navigation "本章导航" [ref=e2]:
+    - link "← 第二章 · 动力与工作机构" [ref=e3] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/02/overview/index.html
+    - generic [ref=e4]:
+      - link "2-1 动力装置的基本原理" [ref=e5] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-1/index.html
+      - link "2-2 动力的传递与变换" [ref=e6] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-2/index.html
+      - link "2-3 工作机构与施工动作" [ref=e7] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-3/index.html
+    - button "深色模式" [ref=e8] [cursor=pointer]: ☾ 深色模式
+  - main [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]: MECHANISM LAB / 可旋转的机械原理实验台
+        - heading "直线、转动与传力" [level=1] [ref=e13]
+        - generic [ref=e14]: 液压缸 → 动臂 → 连杆轨迹 ｜ 相对转动 + 约束 → 丝杠升降 ｜ 点击零件名称看三维说明
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - text: 倍速
+          - combobox "播放倍速" [ref=e17]:
+            - option "0.5×"
+            - option "1×" [selected]
+            - option "2×"
+        - button "▶ 开始演示" [ref=e18] [cursor=pointer]
+        - button "反向" [ref=e19] [cursor=pointer]
+        - button "复位" [ref=e20] [cursor=pointer]
+        - button "隐藏部件名" [ref=e21] [cursor=pointer]
+        - button "物理实验" [ref=e22] [cursor=pointer]
+        - generic [ref=e23]:
+          - button "学习引导" [ref=e24] [cursor=pointer]
+          - button "操作说明" [ref=e25] [cursor=pointer]
+    - group "工作机构展示方式" [ref=e26]:
+      - button "液压连杆" [pressed] [ref=e27] [cursor=pointer]
+      - button "丝杠升降" [ref=e28] [cursor=pointer]
+      - button "并排对照" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - region [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: 液压连杆 · 结构观察
+            - button "全屏观察液压连杆 · 结构观察" [ref=e36] [cursor=pointer]: ⛶ 全屏
+          - generic [ref=e37]:
+            - heading "01液压缸 · 动臂 A/B/C · 传力" [level=2] [ref=e38]
+            - generic [ref=e39]: 可传力 / 供压充足
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - button "正视" [ref=e42] [cursor=pointer]
+              - button "侧视" [ref=e43] [cursor=pointer]
+              - button "俯视" [ref=e44] [cursor=pointer]
+              - button "轴测" [pressed] [ref=e45] [cursor=pointer]
+              - button "四视图" [ref=e46] [cursor=pointer]
+            - link "四杆扩展 ↗" [ref=e47] [cursor=pointer]:
+              - /url: fourbar.html
+            - button "剖视 / 组装" [ref=e48] [cursor=pointer]
+          - region "可旋转三维液压驱动四杆机构，带轨迹、力线和力臂" [ref=e49]:
+            - generic:
+              - button "放大查看O₁的三维模型与说明" [ref=e51] [cursor=pointer]: O₁ ↗
+              - button "放大查看O₂的三维模型与说明" [ref=e52] [cursor=pointer]: O₂ ↗
+              - button "放大查看A 动臂的三维模型与说明" [ref=e53] [cursor=pointer]: A 动臂 ↗
+              - button "放大查看B 连杆的三维模型与说明" [ref=e54] [cursor=pointer]: B 连杆 ↗
+              - button "放大查看C 从动臂的三维模型与说明" [ref=e55] [cursor=pointer]: C 从动臂 ↗
+              - generic: P
+              - generic: r
+              - button "放大查看液压缸的三维模型与说明" [ref=e56] [cursor=pointer]: 液压缸 ↗
+            - generic:
+              - generic: 橙 A 动臂 · 青 B 连杆 · 紫 C 从动臂
+              - generic: 准静态负载 / 力线方向
+            - generic:
+              - generic: 拖动旋转 · 滚轮缩放 · 视图按钮可键盘操作
+              - generic: 观察铰点与层间装配
+          - navigation "液压连杆零件，点击名称放大" [ref=e57]:
+            - generic [ref=e58]: 零件 ↗
+            - button "放大查看液压缸的三维模型与说明" [ref=e59] [cursor=pointer]: 液压缸
+            - button "放大查看动臂 A的三维模型与说明" [ref=e60] [cursor=pointer]: 动臂 A
+            - button "放大查看中间连杆 B的三维模型与说明" [ref=e61] [cursor=pointer]: 连杆 B
+            - button "放大查看从动臂 C的三维模型与说明" [ref=e62] [cursor=pointer]: 从动臂 C
+            - button "放大查看销轴与铰接的三维模型与说明" [ref=e63] [cursor=pointer]: 销轴
+            - button "放大查看机架与固定轴座的三维模型与说明" [ref=e64] [cursor=pointer]: 机架
+        - complementary [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: 动臂转角 θ
+              - generic [ref=e69]: 48.0°
+            - generic [ref=e70]:
+              - generic [ref=e71]: 液压缸力臂 r
+              - generic [ref=e72]: 32.1mm
+            - generic [ref=e73]:
+              - generic [ref=e74]: B/C 传动角 μ（取锐角）
+              - generic [ref=e75]: 52.2°
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]:
+                - generic [ref=e79]:
+                  - generic [ref=e80]: 液压缸伸出 x（相对当前最短位）
+                  - status "液压缸伸出 x（相对当前最短位） 10" [ref=e81]: 26.4 mm / 缸长 105.5
+                - slider "液压缸伸出量，毫米" [ref=e82]: "26.38"
+              - button "伸出 2 mm" [ref=e83] [cursor=pointer]
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - generic [ref=e86]:
+                  - generic [ref=e87]: A动臂
+                  - status "A动臂 100" [ref=e88]: 100 mm
+                - slider "动臂 A 长度，毫米" [ref=e89]: "100"
+              - generic [ref=e90]:
+                - generic [ref=e91]:
+                  - generic [ref=e92]: B连杆
+                  - status "B连杆 170" [ref=e93]: 170 mm
+                - slider "连杆 B 长度，毫米" [ref=e94]: "170"
+              - generic [ref=e95]:
+                - generic [ref=e96]:
+                  - generic [ref=e97]: C从动臂
+                  - status "C从动臂 120" [ref=e98]: 120 mm
+                - slider "从动臂 C 长度，毫米" [ref=e99]: "120"
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - checkbox "P 点轨迹" [checked] [ref=e103]
+                  - text: P 点轨迹
+                - generic [ref=e104]:
+                  - checkbox "力线 / 力臂" [checked] [ref=e105]
+                  - text: 力线 / 力臂
+              - generic [ref=e106]:
+                - button "正常姿态" [ref=e107] [cursor=pointer]
+                - button "液压死点" [ref=e108] [cursor=pointer]
+                - button "连杆死点" [ref=e109] [cursor=pointer]
+            - generic [ref=e110]: 负载 C：2.0 N·m；所需缸力 39 N；需压 0.36 / 上限 6.0 MPa
+          - generic [ref=e111]: v = Q / A；相同流量回收较快、最大拉力较小。伸出 5.2 / 回收 6.8 mm/s。
+      - text: ↗ ↗ ↗ ↗ ↗ ↗
+    - group [ref=e112]:
+      - generic "本实验要点 · 传力、导程与偏心振动" [ref=e113] [cursor=pointer]
+    - generic [ref=e114]:
+      - generic [ref=e115]: 离线单文件 · 空格播放 / 暂停 · R 复位 · 参数操作会暂停 · 两套机构独立演示
+      - group [ref=e116]:
+        - generic "模型、符号与参考" [ref=e117] [cursor=pointer]
+  - status

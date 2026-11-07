@@ -1,0 +1,87 @@
+/* 8-1：三维区上方的六类危险选择条 */
+.c8-hazards { display:grid; grid-template-columns:repeat(6, minmax(0, 1fr)); gap:6px; width:100%; }
+.c8-hazards[hidden] { display:none; }
+.c8-hazards button {
+  display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:7px; align-items:center;
+  min-width:0; height:auto; padding:6px 9px; margin:0; text-align:left; cursor:pointer;
+  border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink);
+  box-shadow:var(--shadow-sm); font:inherit; transition:border-color .15s, background .15s;
+}
+.c8-hazards button:hover { border-color:var(--course-accent); }
+.c8-hazards button[aria-checked="true"] { border-color:var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; }
+.c8-hazards .c8-ico { grid-row:span 2; font-size:18px; line-height:1; }
+.c8-hazards b { font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.c8-hazards button[aria-checked="true"] b { color:var(--course-accent); }
+.c8-dots { display:flex; gap:3px; font-style:normal; }
+.c8-dots em { width:14px; height:4px; border-radius:2px; background:var(--hair); }
+.c8-dots em.on { background:var(--warn); }
+.c8-hazards button.ok .c8-dots em { background:var(--ok); }
+
+/* 面板：当前危险卡 */
+.c8-card { padding:11px 12px; border-radius:12px; background:var(--surface-2); border:1px solid var(--hair); }
+.c8-card-head { display:flex; align-items:center; gap:8px; }
+.c8-card-head .c8-ico { font-size:18px; }
+.c8-card-head b { font-size:15px; }
+.c8-tag { margin-left:auto; padding:2px 8px; border-radius:10px; font-size:12px; background:var(--hair); color:var(--course-muted); }
+.c8-tag.mid { background:var(--warn-soft); color:var(--warn); }
+.c8-tag.ok { background:var(--ok-soft); color:var(--ok); }
+.c8-card p { margin:6px 0 0; font-size:13.5px; line-height:1.55; color:var(--course-ink); }
+.c8-card .c8-do { display:flex; gap:8px; color:var(--course-muted); }
+.c8-card .c8-do span { flex:none; padding:0 6px; border-radius:6px; font-size:12px; line-height:20px; background:var(--blue-soft); color:var(--course-accent); }
+.c2-group .c2-row { margin-top:8px; }
+.c2-group .c2-row .c2-btn { flex:1; }
+
+/* 发现记录：六格 */
+.c8-found { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; }
+.c8-found span { padding:6px 4px; border-radius:9px; border:1px dashed var(--course-line); text-align:center; font-size:12.5px; color:var(--course-muted); }
+.c8-found span.on { border:1px solid var(--ok-line); background:var(--ok-soft); color:var(--ok); font-weight:700; }
+
+/* 现场运行状态 + 急停 */
+.c8-run { display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:10px; align-items:center; padding:7px 12px; border-radius:12px; background:var(--surface-2); border:1px solid var(--hair); }
+.c8-run i { grid-row:span 2; width:12px; height:12px; border-radius:50%; background:var(--course-muted); }
+.c8-run.on i { background:var(--ok); box-shadow:0 0 0 4px var(--ok-soft); animation:c8-pulse 1.2s ease-in-out infinite; }
+.c8-run.ready i { background:var(--course-accent); box-shadow:0 0 0 4px var(--blue-soft); }
+.c8-run.off i { background:var(--bad); }
+.c8-run b { font-size:14px; }
+.c8-run span { font-size:12.5px; color:var(--course-muted); }
+@keyframes c8-pulse { 50% { opacity:.45; } }
+@media (prefers-reduced-motion: reduce) { .c8-run.on i { animation:none; } }
+.c2-group .c2-row:has(> .c8-run) { margin-top:0; align-items:stretch; flex-wrap:nowrap; }
+.c2-group .c2-row > .c8-run { flex:1; }
+.c2-group .c2-row .c2-btn.c8-stop { flex:0 0 84px; height:auto; min-height:44px; font-size:15px; letter-spacing:2px; }
+.c2-btn.c8-stop { border-color:#c2413b; background:#c2413b; color:#fff; font-weight:700; }
+.c2-btn.c8-stop:hover:not(:disabled) { color:#fff; border-color:#c2413b; filter:brightness(1.08); }
+
+/* 复位前核对 */
+.c8-checks { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.c8-check { display:flex; flex-direction:column; gap:1px; padding:5px 10px; border-radius:10px; background:var(--surface-2); border:1px solid var(--hair); font-size:12.5px; color:var(--course-muted); }
+.c8-check b { font-size:14px; color:var(--course-ink); }
+.c8-check.ok { border-color:var(--ok-line); background:var(--ok-soft); }
+.c8-check.ok b { color:var(--ok); }
+.c8-check.no b { color:var(--warn); }
+
+/* 未找到的危险：问号 */
+.c8-hazards .c8-ico.q { display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--hair); color:var(--course-muted); font-size:12px; font-weight:800; }
+.c8-hazards button:not(.found) b { color:var(--course-muted); font-weight:500; }
+.c8-card.empty p { margin:0; color:var(--course-muted); }
+.c8-card .c8-do.ev span { background:var(--ok-soft); color:var(--ok); }
+
+/* 能量隔离三行 */
+.c8-energy { display:grid; gap:6px; }
+.c8-erow { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:10px; padding:6px 10px; border-radius:12px; border:1px solid var(--hair); background:var(--surface-2); }
+.c8-erow.no { border-color:color-mix(in srgb, var(--warn) 45%, var(--hair)); }
+.c8-erow.ok { border-color:var(--ok-line); background:var(--ok-soft); }
+.c8-eico { font-size:20px; line-height:1; }
+.c8-einfo { display:flex; flex-direction:column; min-width:0; }
+.c8-einfo b { font-size:14px; }
+.c8-einfo span { font-size:12.5px; color:var(--warn); }
+.c8-erow.ok .c8-einfo span { color:var(--ok); }
+.c8-erow .c2-btn { min-width:84px; }
+
+/* 复查进度：六格 */
+.c8-steps { display:grid; grid-template-columns:repeat(6, 1fr); gap:5px; }
+.c8-steps span { display:grid; place-items:center; height:30px; border-radius:9px; border:1px dashed var(--course-line); font-size:15px; opacity:.45; }
+.c8-steps span.f { opacity:1; border:1px solid color-mix(in srgb, var(--warn) 55%, transparent); background:var(--warn-soft); }
+.c8-steps span.mid { opacity:1; border:1px solid color-mix(in srgb, var(--course-accent) 55%, transparent); background:var(--blue-soft); }
+.c8-steps span.ok { opacity:1; border:1px solid var(--ok-line); background:var(--ok-soft); }
+.c8-check.no b { color:var(--warn); }

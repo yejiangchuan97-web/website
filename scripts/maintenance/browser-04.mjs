@@ -1,0 +1,13 @@
+const task=await taskSpace(2),page=task.page('p1');
+await page.goto('file:///C:/Users/Administrator/Documents/GitHub/website/course/chapters/01/tasks/1-3/index.html');
+await page.waitForFunction(()=>window.GalleryLab&&!GalleryLab.state().loading,undefined,{timeout:15000});
+console.log(await page.snapshot());
+await page.click('[data-tab="g1"]');
+await page.waitForFunction(()=>GalleryLab.state().selected==='g1'&&!GalleryLab.state().loading,undefined,{timeout:15000});
+await page.click('#step');
+console.log(await page.evaluate(()=>({state:GalleryLab.state(),errors:window.__errors})));
+await page.screenshot({path:'C:/Users/Administrator/Documents/GitHub/website/artifacts/screenshots/revision/robots.png'});
+await page.goto('file:///C:/Users/Administrator/Documents/GitHub/website/course/chapters/05/tasks/5-3/%E5%8E%86%E5%8F%B2%E5%85%A5%E5%8F%A3.html');
+console.log(await page.snapshot());
+console.log(await page.evaluate(()=>({state:window.ConcreteLab?.state(),errors:window.__errors})));
+await page.screenshot({path:'C:/Users/Administrator/Documents/GitHub/website/artifacts/screenshots/revision/concrete.png'});

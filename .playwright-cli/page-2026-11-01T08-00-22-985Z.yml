@@ -1,0 +1,76 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - link "⌘ 智能建筑机械与机器人 第一章 · 走进智能建造" [ref=e4] [cursor=pointer]:
+      - /url: ../../../home/index.html
+      - generic [ref=e5]: ⌘
+      - generic [ref=e6]:
+        - text: 智能建筑机械与机器人
+        - generic [ref=e7]: 第一章 · 走进智能建造
+    - paragraph [ref=e8]: 认用途 ／ 看反馈 ／ 明分工
+    - generic [ref=e9]:
+      - link "← 返回课程首页" [ref=e10] [cursor=pointer]:
+        - /url: ../../../home/index.html
+      - button "学习导览" [ref=e11] [cursor=pointer]
+      - button "切换深色" [ref=e12] [cursor=pointer]
+      - button "全屏展示" [ref=e13] [cursor=pointer]: ⛶
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: CHAPTER 01 · CONSTRUCTION & ROBOTICS
+      - generic [aria-hidden]: "01"
+      - heading "走进 智能建造" [level=1] [ref=e18]: 走进智能建造
+      - paragraph [ref=e19]: 从施工任务认用途，再以反馈证据判断设备能力，最后说明人要负责什么。
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: 任务 1-2 / 认知课堂
+        - heading "认识施工机械：从作业到装置" [level=2] [ref=e22]
+        - paragraph [ref=e23]: 读作业、找装置、试动作，形成“装置—动作—用途”说明。
+      - link "进入认知课堂 ↗" [ref=e25] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/artifacts/site/course/chapters/01/tasks/1-2/index.html
+      - paragraph [ref=e26]:
+        - text: 2 项学习任务
+        - generic [ref=e27]: ·
+        - text: 用途认知
+        - generic [ref=e28]: ·
+        - text: 反馈与人机分工
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: 本章 · 机械与机器人展台
+        - generic [ref=e33]:
+          - button "↺ 复位视角" [ref=e34] [cursor=pointer]
+          - button "重置展品" [ref=e35] [cursor=pointer]
+      - group "可操作教学模型：方向键旋转，加减键缩放，Home 复位" [ref=e36]:
+        - button "履带行走部" [ref=e38] [cursor=pointer]
+        - button "动力与配重" [ref=e39] [cursor=pointer]
+        - button "驾驶室" [ref=e40] [cursor=pointer]
+        - button "动臂" [ref=e41] [cursor=pointer]
+        - button "斗杆" [ref=e42] [cursor=pointer]
+        - button "铲斗与斗齿" [ref=e43] [cursor=pointer]
+      - generic [ref=e44]:
+        - generic [ref=e45]: 拖动旋转 · 滚轮缩放 · 点击部件
+        - button "▷ 播放模型" [ref=e46] [cursor=pointer]
+      - status [ref=e47]: 选择部件，查看它在动作中的作用。
+  - navigation "本章任务入口" [ref=e48]:
+    - article [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]: 任务 1-2
+        - generic [ref=e52]: 观察 · 操作 · 说明
+      - button "认识施工机械：从作业到装置" [pressed] [ref=e53] [cursor=pointer]
+      - paragraph [ref=e54]: 读作业、找装置、试动作，形成“装置—动作—用途”说明。
+      - link "进入认知课堂 ↗" [ref=e56] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/artifacts/site/course/chapters/01/tasks/1-2/index.html
+        - text: 进入认知课堂
+        - generic [ref=e57]: ↗
+    - article [ref=e58]:
+      - generic [ref=e59]:
+        - generic [ref=e60]: 任务 1-3
+        - generic [ref=e61]: 观察 · 操作 · 说明
+      - button "认识施工机器人：反馈与人机分工" [ref=e62] [cursor=pointer]
+      - paragraph [ref=e63]: 比较同一扰动下的三种控制方式，界定自动响应与人工职责。
+      - link "进入认知课堂 ↗" [ref=e65] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/artifacts/site/course/chapters/01/tasks/1-3/index.html
+        - text: 进入认知课堂
+        - generic [ref=e66]: ↗
+  - generic [ref=e67]:
+    - generic [ref=e68]: 原创教学概念模型 · 动作仅作几何示意
+    - generic [ref=e70]: 观察装置 → 试验动作 → 比较反馈 → 明确职责
+    - link "下一章 · 动力与工作机构 ↗" [ref=e71] [cursor=pointer]:
+      - /url: ../../02/overview/index.html

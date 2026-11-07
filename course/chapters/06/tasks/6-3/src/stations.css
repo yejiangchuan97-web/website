@@ -1,0 +1,77 @@
+/* 6-3：原页面的动画循环只在 #app 可见时运行（IntersectionObserver）。
+ * 外壳把 #app 停放进隐藏容器后，让它保持 1px 的“可见”区域，原有的力反馈与试磨动画才会继续。 */
+html[data-c3-task="6-3"] .c3-legacy[hidden] {
+  display:block !important; position:fixed !important; left:0; top:0; width:1px; height:1px;
+  overflow:hidden; visibility:hidden; pointer-events:none; z-index:-1;
+}
+
+/* 原页面的全局 body 尺寸、按钮字号不再影响外壳 */
+html[data-c3-task="6-3"] body { width:auto; height:100dvh; }
+html[data-c3-task="6-3"] .c2-top button, html[data-c3-task="6-3"] .c2-bar button { font-size:inherit; }
+
+/* 三维区：原工坊画面铺满，四关各自的画面层照原样叠在底部 */
+html[data-c3-task="6-3"] .c2-native-stage.scene-area { border-radius:inherit; }
+html[data-c3-task="6-3"] .scene-area .view-toolbar { top:12px; left:12px; }
+html[data-c3-task="6-3"] .scene-area .hero-state { top:18px; right:16px; }
+html[data-c3-task="6-3"] .c2-view .c2-feedback { z-index:8; }
+html[data-c3-task="6-3"] .scene-area .hero-state #help { font-size:11px; padding:5px 8px; margin-left:0; border-radius:8px; }
+html[data-theme="dark"][data-c3-task="6-3"] .scene-area .hero-state #help { background:#1b2d3ee8; }
+
+/* 面板里的原有控件 */
+html[data-c3-task="6-3"] .c2-panel .s63-heading { display:none !important; }
+html[data-c3-task="6-3"] .c2-panel .control-section { margin:0 !important; }
+html[data-c3-task="6-3"] .c2-panel .control-section > label:not(.s63-heading, .check-row) {
+  display:flex; align-items:center; justify-content:space-between; margin:4px 0 6px; font-size:13px; font-weight:600; color:var(--course-ink);
+}
+html[data-c3-task="6-3"] .c2-panel .control-section > label + input[type=range] + .range-ends + label { margin-top:12px; }
+html[data-c3-task="6-3"] .c2-panel label.check-row {
+  display:flex; align-items:center; gap:8px; margin:8px 0 0; font-size:13px; font-weight:500; color:var(--course-ink); cursor:pointer;
+}
+html[data-c3-task="6-3"] .c2-panel :is(.micro, .connection) { margin:8px 0 0; font-size:11.5px; line-height:1.55; color:var(--course-muted); }
+html[data-c3-task="6-3"] .c2-panel .connection { padding-left:9px; border-left:2px solid var(--course-line); }
+html[data-c3-task="6-3"] .c2-panel > .c2-panel-body > .connection { margin:2px 0 4px; }
+html[data-c3-task="6-3"] .c2-panel .range-ends { display:flex; justify-content:space-between; font-size:10.5px; color:var(--course-muted); margin-top:2px; }
+html[data-c3-task="6-3"] .c2-panel output { color:var(--course-accent); font-weight:700; font-variant-numeric:tabular-nums; }
+
+/* 原按钮：统一成外壳的圆角按钮 */
+html[data-c3-task="6-3"] .c2-panel :is(.segmented, .two-buttons, .grit-options, .three-buttons, .fault-actions, .care-actions) {
+  display:grid; gap:6px; grid-template-rows:none !important; grid-auto-rows:auto !important; height:auto !important;
+}
+html[data-c3-task="6-3"] .c2-panel :is(.segmented, .two-buttons) { grid-template-columns:1fr 1fr; }
+html[data-c3-task="6-3"] .c2-panel .grit-options { grid-template-columns:1fr 1fr; }
+html[data-c3-task="6-3"] .c2-panel .three-buttons { grid-template-columns:repeat(3, 1fr); }
+html[data-c3-task="6-3"] .c2-panel :is(.fault-actions, .care-actions) { grid-template-columns:1fr 1fr; }
+html[data-c3-task="6-3"] .c2-panel .care-actions button:nth-child(-n+3) { grid-column:1 / -1; }
+html[data-c3-task="6-3"] .c2-panel .fault-actions #stopDust { grid-column:1 / -1; }
+html[data-c3-task="6-3"] .c2-panel button:not(.c2-btn, .c2-redo, .c2-ch-go, .c2-opt, .c2-switch, .c2-chip) {
+  min-height:34px; height:auto; padding:7px 11px; margin:0; border-radius:10px; border:1px solid var(--course-line);
+  background:var(--course-surface); color:var(--course-ink); font-size:13px; font-weight:600; line-height:1.3;
+  box-shadow:var(--shadow-sm); cursor:pointer; text-align:center; transition:background .15s, border-color .15s, color .15s;
+}
+html[data-c3-task="6-3"] .c2-panel button:not(.c2-btn, .c2-redo, .c2-ch-go, .c2-opt, .c2-switch, .c2-chip):hover:not(:disabled) { border-color:var(--course-accent); }
+html[data-c3-task="6-3"] .c2-panel button[aria-pressed="true"]:not(.c2-btn) { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); box-shadow:0 0 0 1px var(--course-accent) inset; }
+html[data-c3-task="6-3"] .c2-panel button.done:not(.c2-btn) { border-color:var(--ok-line); background:var(--ok-soft); color:var(--ok); }
+html[data-c3-task="6-3"] .c2-panel button.done:not(.c2-btn)::before { content:'✓ '; }
+html[data-c3-task="6-3"] .c2-panel button:disabled { opacity:.45; cursor:not-allowed; }
+html[data-c3-task="6-3"] .c2-panel button.primary { background:linear-gradient(135deg, var(--course-accent), var(--accent-2)); border-color:transparent; color:#fff; }
+html[data-theme="dark"][data-c3-task="6-3"] .c2-panel button.primary { background:linear-gradient(135deg,#8abaff,#5f97ea); color:#0f1d2e; }
+html[data-c3-task="6-3"] .c2-panel button.wide { width:100%; margin-top:6px; }
+html[data-c3-task="6-3"] .c2-panel .grit-options button { display:flex; flex-direction:column; align-items:flex-start; text-align:left; padding:6px 11px; }
+html[data-c3-task="6-3"] .c2-panel .grit-options small { font-size:11px; font-weight:500; color:var(--course-muted); }
+html[data-c3-task="6-3"] .c2-panel .grit-options button[aria-pressed="true"] small { color:inherit; opacity:.8; }
+html[data-c3-task="6-3"] .c2-panel .c2-group > h3 #abrasiveInfo {
+  min-height:0; margin-left:auto; padding:2px 9px; font-size:11.5px; font-weight:600; border-radius:999px; box-shadow:none;
+}
+html[data-c3-task="6-3"] .c2-panel .c2-group > [data-c2-adopted] + [data-c2-adopted] { margin-top:8px; }
+html[data-c3-task="6-3"] .c2-panel .c2-group > button.wide + button.wide { margin-top:6px; }
+
+/* 深色：原页面画面层沿用原页面自己的深色变量（hero.css），面板跟随外壳 */
+html[data-theme="dark"][data-c3-task="6-3"] .c2-panel button:not(.c2-btn, .c2-redo, .c2-ch-go, .c2-opt, .c2-switch, .c2-chip):not(.primary):not([aria-pressed="true"]):not(.done) { background:var(--surface-2); }
+
+/* 三维区：去掉“SD–03 / 打磨工作站”编号小字和重复的操作提示；右上角按钮让出全屏按钮 */
+html.lab-native .scene-area .hero-state { right:58px; }
+html.lab-native .scene-area :is(.hero-hint) { display:none !important; }
+html.lab-native .scene-area .hero-state > span { display:none !important; }
+
+/* 手机：暂停演示 / 依据与资料 挪到视角按钮下面一行，不和它们叠在一起 */
+@media (max-width:900px) { html.lab-native .c2-native-stage .hero-state { top:54px !important; bottom:auto !important; right:8px !important; left:auto !important; } }

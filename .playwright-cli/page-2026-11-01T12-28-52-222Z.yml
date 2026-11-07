@@ -1,0 +1,117 @@
+- generic [ref=e2]:
+  - navigation "本章导航" [ref=e3]:
+    - link "← 第一章 · 走进智能建造" [ref=e4] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/overview/index.html
+    - link "1-2 认识施工机械" [ref=e5] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/tasks/1-2/index.html
+    - link "1-3 认识施工机器人" [ref=e6] [cursor=pointer]:
+      - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/chapters/01/tasks/1-3/index.html
+    - button "切换深色" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: TASK 1-3 / CONSTRUCTION ROBOTS
+        - heading "认识施工机器人" [level=1] [ref=e11]
+        - paragraph [ref=e12]: 选择一种施工机器人，旋转查看结构，播放动作或单独调节部件。
+      - generic [ref=e13]:
+        - button "操作说明" [ref=e14] [cursor=pointer]
+        - button "⛶ 全屏" [ref=e15] [cursor=pointer]
+    - navigation "施工机器人展品" [ref=e16]:
+      - button "01 无人机" [pressed] [ref=e17] [cursor=pointer]:
+        - generic [ref=e20]: "01"
+        - generic [ref=e21]: 无人机
+      - button "02 机械臂" [ref=e22] [cursor=pointer]:
+        - generic [ref=e25]: "02"
+        - generic [ref=e26]: 机械臂
+      - button "03 人形机器人" [ref=e27] [cursor=pointer]:
+        - generic [ref=e30]: "03"
+        - generic [ref=e31]: 人形机器人
+      - button "04 机器狗" [ref=e32] [cursor=pointer]:
+        - generic [ref=e35]: "04"
+        - generic [ref=e36]: 机器狗
+      - button "05 履带巡检机器人" [ref=e37] [cursor=pointer]:
+        - generic [ref=e40]: "05"
+        - generic [ref=e41]: 履带巡检机器人
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: EXHIBIT / 机型网格观察
+          - generic [ref=e46]:
+            - button "全景" [ref=e47] [cursor=pointer]
+            - button "侧面" [ref=e48] [cursor=pointer]
+            - button "俯视" [ref=e49] [cursor=pointer]
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=e50]:
+          - generic:
+            - text: FIG 01 / 05
+            - heading "无人机" [level=2]
+            - paragraph: CRAZYFLIE 2
+          - generic [ref=e52]:
+            - button "↻ 环绕" [ref=e53] [cursor=pointer]
+            - button "放大" [ref=e54] [cursor=pointer]: ＋
+            - button "缩小" [ref=e55] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=e56] [cursor=pointer]
+            - button "聚焦部件" [ref=e57] [cursor=pointer]
+          - button "旋翼组" [ref=e58] [cursor=pointer]: "01"
+          - button "控制电路板" [ref=e59] [cursor=pointer]: "02"
+          - button "机架与电机外形" [ref=e60] [cursor=pointer]: "03"
+        - generic [ref=e61]:
+          - button "▶ 播放动作" [ref=e62] [cursor=pointer]
+          - button "单步" [ref=e63] [cursor=pointer]
+          - generic [ref=e64]:
+            - generic [ref=e65]: 动作进度（秒）
+            - slider "动作进度（秒）" [ref=e66]: "0"
+            - status [ref=e67]: 0.00 / 6.00 s
+          - button "复位" [ref=e68] [cursor=pointer]
+        - generic [ref=e69]:
+          - generic [ref=e70]: 拖动旋转 · 滚轮缩放 · 选择编号近看部件
+          - generic [ref=e71]: 三维观察
+      - complementary "操作与状态" [ref=e72]:
+        - heading "无人机" [level=2] [ref=e73]
+        - paragraph [ref=e74]: 四旋翼机架、旋翼与姿态预制演示。
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - button "机构动作" [pressed] [ref=e77] [cursor=pointer]
+            - button "结构观察" [ref=e78] [cursor=pointer]
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - text: 预制演示
+              - combobox "预制演示" [ref=e81]:
+                - option "悬停起伏示意" [selected]
+                - option "机身姿态示意"
+                - option "初始姿态"
+            - generic [ref=e82]:
+              - generic [ref=e83]: 演示速度
+              - generic [ref=e84]:
+                - button "0.25×" [ref=e85] [cursor=pointer]
+                - button "0.5×" [ref=e86] [cursor=pointer]
+                - button "1×" [pressed] [ref=e87] [cursor=pointer]
+            - generic [ref=e88]:
+              - text: 逐帧观察真实网格
+              - paragraph [ref=e89]: 此模型的预制动作改变整机姿态。旋翼保留原始网格，不虚构独立转速。
+              - button "查看部件结构 ↗" [ref=e90] [cursor=pointer]
+        - status [ref=e91]: 四旋翼机架、旋翼与姿态预制演示。
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - heading "部件索引" [level=3] [ref=e95]
+              - generic [ref=e96]: 03 ASSEMBLIES
+            - paragraph [ref=e97]: 选择下方部件，在展品上查看位置；点击「近看」进入局部。
+            - generic [ref=e98]:
+              - button "01 旋翼组 ↗" [ref=e99] [cursor=pointer]:
+                - generic [ref=e100]: "01"
+                - text: 旋翼组
+                - generic [ref=e101]: ↗
+              - button "02 控制电路板 ↗" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]: "02"
+                - text: 控制电路板
+                - generic [ref=e104]: ↗
+              - button "03 机架与电机外形 ↗" [ref=e105] [cursor=pointer]:
+                - generic [ref=e106]: "03"
+                - text: 机架与电机外形
+                - generic [ref=e107]: ↗
+          - group [ref=e108]:
+            - generic "应用与模型说明" [ref=e109] [cursor=pointer]
+    - generic [ref=e110]:
+      - generic [ref=e111]: 四款许可机型网格与原创履带巡检概念模型 · 动作为预制演示，不代表实机性能。
+      - link "课程总览 ↗" [ref=e112] [cursor=pointer]:
+        - /url: file:///C:/Users/Administrator/Documents/GitHub/website/artifacts/site/course/home/index.html#chapter-1

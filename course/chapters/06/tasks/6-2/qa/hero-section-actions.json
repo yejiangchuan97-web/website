@@ -1,0 +1,66 @@
+[
+  [
+    "until",
+    "window.tilingLab"
+  ],
+  [
+    "click",
+    "[data-stage=press]"
+  ],
+  [
+    "click",
+    "[data-mode=force]"
+  ],
+  [
+    "click",
+    "#pressMore summary"
+  ],
+  [
+    "click",
+    "#raisedBase"
+  ],
+  [
+    "click",
+    "#pressMore summary"
+  ],
+  [
+    "eval",
+    "for(let i=0;i<16;i++)document.querySelector('#pressStep').click();'force settled with raised base'"
+  ],
+  [
+    "click",
+    "#ruler"
+  ],
+  [
+    "wait",
+    350
+  ],
+  [
+    "shot",
+    "qa/hero-artifacts/force-ok-height-wrong.png",
+    "#app",
+    1
+  ],
+  [
+    "eval",
+    "(()=>{const s=tilingLab.snapshot();if(s.readings.press.heightOK||!s.readings.press.forceOK||!s.scene.substrate.raised||Math.abs(s.scene.substrate.mainTop-s.scene.substrate.mainMortarBottom)>1e-12||Math.abs(s.scene.substrate.sectionTop-s.scene.substrate.sectionMortarBottom)>1e-12)throw Error('height or substrate issue');return {pressure:s.readings.sensorForce,height:s.readings.press.error,substrate:s.scene.substrate}})()"
+  ],
+  [
+    "click",
+    "#theme"
+  ],
+  [
+    "wait",
+    350
+  ],
+  [
+    "shot",
+    "qa/hero-artifacts/section-dark-4x.png",
+    "#heroViewport",
+    4
+  ],
+  [
+    "eval",
+    "'FINAL SECTION PASS'"
+  ]
+]

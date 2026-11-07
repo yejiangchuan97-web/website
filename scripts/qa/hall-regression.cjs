@@ -1,0 +1,80 @@
+// playwright-cli run-code --filename scripts/qa/hall-regression.cjs
+// Open the desired source/package home URL before running; file:// is supported.
+async page => {
+ await page.route('**/*',route=>route.continue());
+ const root=new URL('../../',page.url()).href,home=new URL('course/home/index.html',root).href;
+ const variant=root.startsWith('file:')?'file':root.includes('/artifacts/site/')?'package':'source';
+ const shots=`artifacts/screenshots/cover-polish/${variant}`,checks=[],errors=[];
+ const ok=(value,name)=>{if(!value)throw new Error(name);checks.push(name);};
+ page.on('pageerror',e=>errors.push(String(e)));
+ const state=()=>page.evaluate(()=>CourseHome.state());
+ const go=async()=>{await page.goto(home);await page.waitForFunction(()=>!!window.CourseHome);};
+ const labelsFit=()=>page.evaluate(()=>{
+  const stage=document.getElementById('stage').getBoundingClientRect(),boxes=[...document.querySelectorAll('#labels a')].map(a=>a.getBoundingClientRect());
+  return boxes.every((a,i)=>a.left>=stage.left-1&&a.right<=stage.right+1&&a.top>=stage.top-1&&a.bottom<=stage.bottom+1&&boxes.every((b,j)=>i===j||a.right<=b.left||a.left>=b.right||a.bottom<=b.top||a.top>=b.bottom));
+ });
+ await page.setViewportSize({width:1414,height:964});await go();
+ ok(await page.locator('#course-title').textContent()==='智能建筑机械与机器人','book title is the main heading');
+ ok(await page.locator('#course-back,#chapter-grid').count()===0,'home has no back button or duplicate chapter grid');
+ ok((await state()).models.models===8&&await page.locator('#labels a').count()===8,'eight meshes and eight chapter labels');
+ ok((await state()).paused&&(await state()).models.time===0,'exhibits start paused');
+ ok(await labelsFit(),'desktop labels fit without overlap');
+ await page.screenshot({path:`${shots}/home.png`});
+ await page.evaluate(()=>{CourseScene.render();window.__before=document.querySelector('#stage canvas').toDataURL();});
+ await page.locator('#motion').click();await page.waitForFunction(()=>CourseHome.state().models.time>1);
+ await page.locator('#motion').click();
+ ok((await state()).paused&&(await state()).models.time>1,'demonstration starts and pause holds pose');
+ ok(await page.evaluate(()=>{CourseScene.render();return window.__before!==document.querySelector('#stage canvas').toDataURL();}),'rendered mesh image changes during part demonstration');
+ await page.screenshot({path:`${shots}/home-motion.png`});
+ await page.locator('#reset-motion').click();
+ ok((await state()).paused&&(await state()).models.time===0,'reset restores initial pose and pauses');
+ for(let n=1;n<=8;n++){
+  await page.locator(`#chapter-${n}`).click();
+  ok(page.url()===new URL(`course/chapters/${String(n).padStart(2,'0')}/overview/index.html`,root).href,`label ${n} opens corresponding chapter`);
+  await go();
+  const target=(await state()).models.targets.find(t=>t.id===n);
+  ok(await page.evaluate(p=>document.elementFromPoint(p.x,p.y)?.tagName==='CANVAS',target),`model ${n} target is on canvas`);
+  await page.mouse.click(target.x,target.y);
+  await page.waitForURL(new URL(`course/chapters/${String(n).padStart(2,'0')}/overview/index.html`,root).href);
+  ok(page.url().includes(`/chapters/${String(n).padStart(2,'0')}/overview/`),`mesh ${n} opens corresponding chapter`);
+  await go();
+ }
+ await page.locator('#chapter-1').focus();await page.keyboard.press('Enter');
+ await page.waitForURL(new URL('course/chapters/01/overview/index.html',root).href);
+ ok(page.url().includes('/01/overview/'),'keyboard enters a chapter');
+ const chapterState=async()=>{await page.waitForFunction(()=>!!window.ChapterEntry);return page.evaluate(()=>ChapterEntry.state());};
+ ok((await chapterState()).machines.join(',')==='excavator,six-axis'&&(await chapterState()).visible.every(Boolean),'chapter 1 displays both requested models');
+ await page.screenshot({path:`${shots}/chapter.png`});
+ await page.locator('[data-part="1-3"]').click();
+ ok((await chapterState()).selected==='1-3'&&(await chapterState()).visible.every(Boolean),'selecting arm retains both exhibits');
+ await page.locator('#motion').click();await page.waitForFunction(()=>ChapterEntry.state().time>.3);
+ await page.locator('#reset-model').click();
+ ok((await chapterState()).paused&&(await chapterState()).time===0,'pair demonstration resets both models');
+ await page.locator('#stage').focus();const az=(await chapterState()).az;await page.keyboard.press('ArrowRight');
+ ok((await chapterState()).az!==az,'chapter camera keyboard rotation works');
+ await page.locator('.course-home').click();ok(page.url()===home,'chapter returns to home beginning');
+ await page.locator('#catalog-open').click();await page.locator('#task-search').fill('5-3');
+ ok(await page.locator('.catalog-row').count()===1&&decodeURIComponent(await page.locator('.task-title').getAttribute('href')).includes('index.html'),'task search preserves formal 5-3 entry');
+ await page.locator('#catalog-close').click();await page.locator('#route-open').click();
+ ok(await page.locator('#learning-route a').count()===8,'learning route retains all chapters');await page.keyboard.press('Escape');
+ await page.locator('#course-theme-toggle').click();ok(await page.locator('html').getAttribute('data-theme')==='dark','home theme switch works');
+ await page.screenshot({path:`${shots}/home-dark.png`});await page.locator('#course-theme-toggle').click();
+ await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});await go();
+ ok((await state()).paused,'reduced-motion home starts paused');
+ ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile home has no horizontal overflow');
+ ok(await labelsFit(),'mobile labels fit without overlap');
+ await page.screenshot({path:`${shots}/home-mobile.png`,fullPage:true});
+ await page.locator('#chapter-1').click();
+ ok((await chapterState()).visible.every(Boolean),'mobile chapter retains both models');
+ ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'mobile chapter has no horizontal overflow');
+ await page.screenshot({path:`${shots}/chapter-mobile.png`,fullPage:true});
+ await page.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/i.test(type)?null:get.call(this,type,...args);};});
+ await go();ok(!(await state()).models.webgl&&await page.locator('#labels a').count()===8,'fallback retains eight chapter entries');
+ ok(await page.locator('#motion').isDisabled(),'fallback does not offer invisible 3D animation');
+ await page.screenshot({path:`${shots}/home-fallback.png`,fullPage:true});
+ await page.locator('#chapter-1').click();await page.locator('[data-part="1-3"]').click();
+ ok((await chapterState()).fallback&&(await chapterState()).selected==='1-3','chapter fallback retains both task choices');
+ ok(await page.evaluate(()=>!performance.getEntriesByType('resource').some(r=>/^https?:/.test(r.name)&&new URL(r.name).origin!==location.origin)),'no external runtime requests');
+ ok(errors.length===0,'no uncaught browser errors');
+ return {root,passed:checks.length,checks,errors};
+}

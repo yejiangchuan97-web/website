@@ -1,0 +1,112 @@
+[
+  [
+    "until",
+    "window.tilingLab && tilingLab.scene.stats().frameCount > 1"
+  ],
+  [
+    "shot",
+    "qa/hero-artifacts/overview-light.png",
+    "#app",
+    1
+  ],
+  [
+    "shot",
+    "qa/hero-artifacts/overview-light-4x.png",
+    "#heroViewport",
+    4
+  ],
+  [
+    "click",
+    "[data-view=head]"
+  ],
+  [
+    "click",
+    "#center"
+  ],
+  [
+    "click",
+    "[data-layout=quad]"
+  ],
+  [
+    "wait",
+    500
+  ],
+  [
+    "shot",
+    "qa/hero-artifacts/contact-light-4x.png",
+    "#heroViewport",
+    4,
+    [
+      310,
+      145,
+      480,
+      260
+    ]
+  ],
+  [
+    "click",
+    "[data-view=overview]"
+  ],
+  [
+    "eval",
+    "window.cameraBefore=tilingLab.scene.stats().camera.az;'stored camera'"
+  ],
+  [
+    "key",
+    "ArrowRight",
+    "#heroViewport canvas"
+  ],
+  [
+    "wait",
+    350
+  ],
+  [
+    "eval",
+    "if(tilingLab.scene.stats().camera.az===window.cameraBefore)throw Error('keyboard orbit failed');'keyboard orbit passed'"
+  ],
+  [
+    "drag",
+    "#heroViewport canvas",
+    0.3,
+    0.6,
+    0.5,
+    0.55,
+    10
+  ],
+  [
+    "wait",
+    250
+  ],
+  [
+    "eval",
+    "if(tilingLab.scene.stats().camera.az===window.cameraBefore)throw Error('drag orbit failed');'pointer orbit passed'"
+  ],
+  [
+    "click",
+    "#trial"
+  ],
+  [
+    "wait",
+    200
+  ],
+  [
+    "eval",
+    "(()=>{const c=document.querySelector('#heroViewport canvas'),gl=c.getContext('webgl2')||c.getContext('webgl');gl.getExtension('WEBGL_lose_context').loseContext();return 'forced context loss'})()"
+  ],
+  [
+    "wait",
+    300
+  ],
+  [
+    "eval",
+    "window.lossState=JSON.stringify(tilingLab.snapshot().state.tile);tilingLab.act('center');'checked blocked action'"
+  ],
+  [
+    "wait",
+    400
+  ],
+  [
+    "eval",
+    "(()=>{const s=tilingLab.snapshot();if(JSON.stringify(s.state.tile)!==window.lossState||s.playback.scheduled||!document.querySelector('#feedback').textContent.includes('显示暂停'))throw Error('context-loss did not hold');return 'CONTEXT LOSS HOLDS STATE'})()"
+  ]
+]

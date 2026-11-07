@@ -1,0 +1,15 @@
+[
+  {
+    "id": "cesium",
+    "title": "Cesium Drone",
+    "author": "Analytical Graphics, Inc.; mesh and textures by Ed Mackey",
+    "source": "https://github.com/CesiumGS/cesium/blob/fe279058966b376313914fb1cef051b6d9419429/Apps/SampleData/models/CesiumDrone/CesiumDrone.glb",
+    "licenseId": "CC-BY-4.0",
+    "file": "shared/models/drone/cesium.glb",
+    "runtime": "shared/models/drone/cesium.data.js",
+    "license": "shared/models/drone/LICENSE.html",
+    "provenance": "shared/models/drone/cesium.source.json",
+    "sha256": "77e8a8cfa4763ec83097f492cd48b2143e9c40797ff7211d5752604a35ac3d9d",
+    "bytes": 1169536
+  }
+]

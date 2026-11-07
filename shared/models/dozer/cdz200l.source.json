@@ -1,0 +1,18 @@
+{
+  "id": "cdz200l",
+  "title": "VMC Motion CDZ200L",
+  "author": "VMC Motion Technologies Co., Ltd.",
+  "source": "https://github.com/vmc-motion/cdz200l",
+  "licenseId": "Apache-2.0",
+  "file": "shared/models/dozer/cdz200l.glb",
+  "runtime": "shared/models/dozer/cdz200l.data.js",
+  "license": "shared/models/dozer/LICENSE.html",
+  "provenance": "shared/models/dozer/cdz200l.source.json",
+  "sha256": "d9aa1dfdc2d6309dea51187c7cd3284a3b7d0fb5c9b85c3f0761bbae8112aad3",
+  "bytes": 10669792,
+  "commit": "9cd45400e51f10e92d7e663212885ff59e9c0035",
+  "downloadUrl": "https://raw.githubusercontent.com/vmc-motion/cdz200l/9cd45400e51f10e92d7e663212885ff59e9c0035/exchange_formats/cdz200l.glb",
+  "retrieved": "2026-11-01",
+  "originalBytesUnchanged": true,
+  "adaptation": "Original CAD geometry is retained. Display materials are recolored; visible meshes are batched by assembly and material. Hidden_Colliders proxies are excluded, original CrawlerBelt meshes retained. Blade lift uses original CFrame axle and lift cylinder pin centres; angle and tilt assemblies retain their authored pose. This is a fictional machine and a kinematic classroom demonstration, not AGX simulation or verified real-world performance."
+}

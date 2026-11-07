@@ -1,0 +1,96 @@
+- generic [ref=f9e2]:
+  - navigation "本章导航" [ref=f9e3]:
+    - link "← 第二章 · 动力与工作机构" [ref=f9e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/02/overview/index.html
+    - link "2-1 动力装置的基本原理" [ref=f9e5] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-1/index.html
+    - link "2-2 动力的传递与变换" [ref=f9e6] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-2/index.html
+    - link "2-3 工作机构与施工动作" [ref=f9e7] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/02/tasks/2-3/index.html
+    - button "深色模式" [ref=f9e8] [cursor=pointer]: ☾ 深色模式
+  - main [ref=f9e9]:
+    - generic [ref=f9e10]:
+      - generic [ref=f9e11]:
+        - text: TASK 2-1 / POWER SOURCES
+        - heading "认识动力装置" [level=1] [ref=f9e12]
+        - paragraph [ref=f9e13]: 看看电机和柴油机怎样让轴转起来，为认识机器人的驱动装置做准备。
+      - generic [ref=f9e14]:
+        - button "学习引导" [ref=f9e15] [cursor=pointer]
+        - button "操作说明" [ref=f9e16] [cursor=pointer]
+    - navigation "动力装置" [ref=f9e17]:
+      - button "01 直流电机" [pressed] [ref=f9e18] [cursor=pointer]:
+        - generic [ref=f9e21]: "01"
+        - generic [ref=f9e22]: 直流电机
+      - button "02 单缸柴油机" [ref=f9e23] [cursor=pointer]:
+        - generic [ref=f9e26]: "02"
+        - generic [ref=f9e27]: 单缸柴油机
+      - button "03 四缸柴油机" [ref=f9e28] [cursor=pointer]:
+        - generic [ref=f9e31]: "03"
+        - generic [ref=f9e32]: 四缸柴油机
+    - generic [ref=f9e33]:
+      - generic [ref=f9e34]:
+        - generic [ref=f9e35]:
+          - generic [ref=f9e36]: EXHIBIT / 机械结构观察
+          - generic [ref=f9e37]:
+            - button "全景" [ref=f9e38] [cursor=pointer]
+            - button "侧面" [ref=f9e39] [cursor=pointer]
+            - button "俯视" [ref=f9e40] [cursor=pointer]
+            - button "全屏观察三维模型" [ref=f9e41] [cursor=pointer]:
+              - text: ⛶
+              - generic [ref=f9e42]: 全屏
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=f9e43]:
+          - generic:
+            - text: FIG 01 / 03
+            - heading "直流电机" [level=2]
+            - paragraph: DC MOTOR
+          - generic [ref=f9e45]:
+            - button "↻ 环绕" [ref=f9e46] [cursor=pointer]
+            - button "放大" [ref=f9e47] [cursor=pointer]: ＋
+            - button "缩小" [ref=f9e48] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=f9e49] [cursor=pointer]
+            - button "聚焦部件" [ref=f9e50] [cursor=pointer]
+          - button "外壳和磁铁" [ref=f9e51] [cursor=pointer]: "01"
+          - button "转子和线圈" [ref=f9e52] [cursor=pointer]: "02"
+          - button "输出轴" [ref=f9e53] [cursor=pointer]: "03"
+          - button "电刷和换向器" [ref=f9e54] [cursor=pointer]: "04"
+        - generic [ref=f9e55]:
+          - button "▶ 播放动作" [ref=f9e56] [cursor=pointer]
+          - button "单步" [ref=f9e57] [cursor=pointer]
+          - generic [ref=f9e58]:
+            - generic [ref=f9e59]: 动作进度（秒）
+            - slider "动作进度（秒）" [ref=f9e60]: "0"
+            - status [ref=f9e61]: 0.00 / 8.00 s
+          - button "复位" [ref=f9e62] [cursor=pointer]
+        - generic [ref=f9e63]:
+          - generic [ref=f9e64]: 拖动旋转 · 滚轮缩放 · 点击编号认识部件
+          - generic [ref=f9e65]: 三维观察
+        - status [ref=f9e66]
+      - complementary "操作与状态" [ref=f9e67]:
+        - heading "直流电机" [level=2] [ref=f9e68]
+        - paragraph [ref=f9e69]: 通电后，线圈在磁铁的作用下带着转子转动，输出轴随之转动。机器人关节常用电机提供动力。
+        - status [ref=f9e70]: 通电后，线圈在磁铁的作用下带着转子转动，输出轴随之转动。机器人关节常用电机提供动力。
+        - generic [ref=f9e72]:
+          - heading "部件索引" [level=3] [ref=f9e74]
+          - paragraph [ref=f9e75]: 点击编号或部件名称，看看它在哪里。
+          - generic [ref=f9e76]:
+            - button "01 外壳和磁铁 ↗" [ref=f9e77] [cursor=pointer]:
+              - generic [ref=f9e78]: "01"
+              - text: 外壳和磁铁
+              - generic [ref=f9e79]: ↗
+            - button "02 转子和线圈 ↗" [ref=f9e80] [cursor=pointer]:
+              - generic [ref=f9e81]: "02"
+              - text: 转子和线圈
+              - generic [ref=f9e82]: ↗
+            - button "03 输出轴 ↗" [ref=f9e83] [cursor=pointer]:
+              - generic [ref=f9e84]: "03"
+              - text: 输出轴
+              - generic [ref=f9e85]: ↗
+            - button "04 电刷和换向器 ↗" [ref=f9e86] [cursor=pointer]:
+              - generic [ref=f9e87]: "04"
+              - text: 电刷和换向器
+              - generic [ref=f9e88]: ↗
+    - generic [ref=f9e89]:
+      - generic [ref=f9e90]: 教学剖面模型 · 动作用于观察部件怎样配合。
+      - link "课程总览 ↗" [ref=f9e91] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/home/index.html#chapter-2

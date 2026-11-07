@@ -1,0 +1,134 @@
+- generic [ref=e2]:
+  - navigation "本章导航" [ref=e3]:
+    - link "← 第一章 · 走进智能建造" [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/overview/index.html
+    - link "1-2 认识施工机械" [ref=e5] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-2/index.html
+    - link "1-3 认识施工机器人" [ref=e6] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-3/index.html
+    - button "深色模式" [ref=e7] [cursor=pointer]: ☾ 深色模式
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: TASK 1-3 / CONSTRUCTION ROBOTS
+        - heading "认识施工机器人" [level=1] [ref=e11]
+        - paragraph [ref=e12]: 选择一种施工机器人，旋转查看结构，播放动作或单独调节部件。
+      - generic [ref=e13]:
+        - button "学习引导" [ref=e14] [cursor=pointer]
+        - button "操作说明" [ref=e15] [cursor=pointer]
+    - navigation "施工机器人展品" [ref=e16]:
+      - button "01 无人机" [pressed] [ref=e17] [cursor=pointer]:
+        - generic [ref=e20]: "01"
+        - generic [ref=e21]: 无人机
+      - button "02 机械臂" [ref=e22] [cursor=pointer]:
+        - generic [ref=e25]: "02"
+        - generic [ref=e26]: 机械臂
+      - button "03 人形机器人" [ref=e27] [cursor=pointer]:
+        - generic [ref=e30]: "03"
+        - generic [ref=e31]: 人形机器人
+      - button "04 机器狗" [ref=e32] [cursor=pointer]:
+        - generic [ref=e35]: "04"
+        - generic [ref=e36]: 机器狗
+      - button "05 机械手" [ref=e37] [cursor=pointer]:
+        - generic [ref=e40]: "05"
+        - generic [ref=e41]: 机械手
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: EXHIBIT / 机型网格观察
+          - generic [ref=e46]:
+            - button "全景" [ref=e47] [cursor=pointer]
+            - button "侧面" [ref=e48] [cursor=pointer]
+            - button "俯视" [ref=e49] [cursor=pointer]
+            - button "全屏观察三维模型" [ref=e50] [cursor=pointer]:
+              - text: ⛶
+              - generic [ref=e51]: 全屏
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=e52]:
+          - generic:
+            - text: FIG 01 / 05
+            - heading "无人机" [level=2]
+            - paragraph: CESIUM DRONE
+          - generic [ref=e54]:
+            - button "↻ 环绕" [ref=e55] [cursor=pointer]
+            - button "放大" [ref=e56] [cursor=pointer]: ＋
+            - button "缩小" [ref=e57] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=e58] [cursor=pointer]
+            - button "聚焦部件" [ref=e59] [cursor=pointer]
+          - button "整流机壳" [ref=e60] [cursor=pointer]: "01"
+          - button "机架与四臂" [ref=e61] [cursor=pointer]: "02"
+          - button "前置镜头" [ref=e62] [cursor=pointer]: "03"
+          - button "四个电机" [ref=e63] [cursor=pointer]: "04"
+          - button "四片螺旋桨" [ref=e64] [cursor=pointer]: "05"
+          - button "天线" [ref=e65] [cursor=pointer]: "06"
+        - generic [ref=e66]:
+          - button "▶ 播放动作" [ref=e67] [cursor=pointer]
+          - button "单步" [ref=e68] [cursor=pointer]
+          - generic [ref=e69]:
+            - generic [ref=e70]: 动作进度（秒）
+            - slider "动作进度（秒）" [ref=e71]: "0"
+            - status [ref=e72]: 0.00 / 8.00 s
+          - button "复位" [ref=e73] [cursor=pointer]
+        - generic [ref=e74]:
+          - generic [ref=e75]: 拖动旋转 · 滚轮缩放 · 选择编号近看部件
+          - generic [ref=e76]: 三维观察
+        - status [ref=e77]
+      - complementary "操作与状态" [ref=e78]:
+        - heading "无人机" [level=2] [ref=e79]
+        - paragraph [ref=e80]: 观察整流机壳、四臂机架、电机与前置镜头，单独调节螺旋桨转角。
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - button "机构动作" [pressed] [ref=e83] [cursor=pointer]
+            - button "结构观察" [ref=e84] [cursor=pointer]
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - generic [ref=e87]: 演示速度
+              - generic [ref=e88]:
+                - button "0.25×" [ref=e89] [cursor=pointer]
+                - button "0.5×" [ref=e90] [cursor=pointer]
+                - button "1×" [pressed] [ref=e91] [cursor=pointer]
+            - heading "单独调节机构 课堂姿态范围" [level=3] [ref=e92]:
+              - text: 单独调节机构
+              - generic [ref=e93]: 课堂姿态范围
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - text: 螺旋桨转角
+                - status "螺旋桨转角 0" [ref=e96]: 0 °
+              - slider [ref=e97]: "0"
+        - status [ref=e98]: 观察整流机壳、四臂机架、电机与前置镜头，单独调节螺旋桨转角。
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - heading "部件索引" [level=3] [ref=e102]
+              - generic [ref=e103]: 06 ASSEMBLIES
+            - paragraph [ref=e104]: 选择下方部件，在展品上查看位置；点击「近看」进入局部。
+            - generic [ref=e105]:
+              - button "01 整流机壳 ↗" [ref=e106] [cursor=pointer]:
+                - generic [ref=e107]: "01"
+                - text: 整流机壳
+                - generic [ref=e108]: ↗
+              - button "02 机架与四臂 ↗" [ref=e109] [cursor=pointer]:
+                - generic [ref=e110]: "02"
+                - text: 机架与四臂
+                - generic [ref=e111]: ↗
+              - button "03 前置镜头 ↗" [ref=e112] [cursor=pointer]:
+                - generic [ref=e113]: "03"
+                - text: 前置镜头
+                - generic [ref=e114]: ↗
+              - button "04 四个电机 ↗" [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]: "04"
+                - text: 四个电机
+                - generic [ref=e117]: ↗
+              - button "05 四片螺旋桨 ↗" [ref=e118] [cursor=pointer]:
+                - generic [ref=e119]: "05"
+                - text: 四片螺旋桨
+                - generic [ref=e120]: ↗
+              - button "06 天线 ↗" [ref=e121] [cursor=pointer]:
+                - generic [ref=e122]: "06"
+                - text: 天线
+                - generic [ref=e123]: ↗
+          - group [ref=e124]:
+            - generic "应用与模型说明" [ref=e125] [cursor=pointer]
+    - generic [ref=e126]:
+      - generic [ref=e127]: 许可机型网格 · 动作为预制教学演示，不代表实机控制、抓握或施工性能。
+      - link "课程总览 ↗" [ref=e128] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/home/index.html#chapter-1

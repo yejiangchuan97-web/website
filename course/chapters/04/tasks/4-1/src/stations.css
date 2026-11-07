@@ -1,0 +1,93 @@
+/* 4-1：原页面在 1000px 以上按 16:9 外框（cqw）排版；搬进外壳后统一换成固定字号 */
+
+/* 原页面给 body 写了居中的 16:9 网格：换回外壳的上下排列 */
+html.lab-native body { place-items:stretch; width:auto; }
+
+/* 三维区右上角的阶段与读数标记 */
+html.lab-native #viewport .scene-stamp { left:auto; right:16px; top:14px; align-items:flex-end; gap:2px; }
+html.lab-native #viewport .scene-stamp span { font-size:12px; color:var(--course-muted); }
+html.lab-native #viewport .scene-stamp strong { font-size:18px; color:var(--ink, inherit); font-variant-numeric:tabular-nums; }
+html.lab-native #viewport #loading { font-size:13px; }
+
+/* 同步曲线：三维区与时间轴之间 */
+.c41-waves { flex:0 0 auto; height:clamp(150px, 27vh, 236px); padding:8px 12px 6px; border-top:1px solid var(--hair); background:var(--course-surface); }
+html.lab-native .c41-waves .wave-section { height:100%; margin:0; padding:0; border:0; background:none; display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:6px; min-height:0; }
+html.lab-native .c41-waves .wave-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:0; }
+html.lab-native .c41-waves .compare-label { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; color:var(--course-muted); cursor:pointer; }
+html.lab-native .c41-waves .compare-label input { width:15px; height:15px; margin:0; accent-color:var(--course-accent); }
+html.lab-native .c41-waves .compare-label span { color:var(--course-accent); font-weight:600; }
+html.lab-native .c41-waves .chart-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; min-height:0; }
+html.lab-native .c41-waves .chart-card { display:flex; flex-direction:column; min-height:0; padding:6px 10px 4px; border-radius:12px; border:1px solid var(--hair); background:var(--course-surface); box-shadow:none; }
+html.lab-native .c41-waves .chart-title { flex-shrink:0; display:flex; justify-content:space-between; align-items:baseline; gap:4px; }
+html.lab-native .c41-waves .chart-title h3 { margin:0; font-size:12.5px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+html.lab-native .c41-waves .chart-title span { font-size:11px; color:var(--course-muted); }
+html.lab-native .c41-waves .chart-card svg { flex:1; height:0; min-height:0; width:100%; margin-top:2px; cursor:crosshair; }
+html.lab-native .c41-waves .chart-card svg text { font-size:10px; fill:var(--course-muted); }
+html.lab-native .c41-waves .chart-legend { flex-shrink:0; height:16px; font-size:11px; gap:10px; }
+html.lab-native .c41-waves .chart-legend i { width:7px; height:7px; margin-right:4px; }
+html.lab-native .c41-waves .wave-footer { display:flex; gap:12px; padding:0 2px; font-size:11px; color:var(--course-muted); }
+html.lab-native .c41-waves .wave-footer i { margin:0 4px 0 2px; }
+
+/* 底栏：时间轴 + 关键片段 */
+html.lab-native .c2-strip .timeline { display:flex; align-items:center; gap:8px; flex:1 1 auto; min-width:0; padding:0; margin:0; border:0; background:none; }
+html.lab-native .c2-strip .timeline #playButton { flex:0 0 auto; height:34px; padding:0 14px; border:0; border-radius:10px; font-size:13.5px; font-weight:700; color:#fff; background:linear-gradient(135deg,#3a82e0,#2467c9); box-shadow:0 4px 12px rgba(36,103,201,.25); cursor:pointer; white-space:nowrap; }
+html[data-theme="dark"].lab-native .c2-strip .timeline #playButton { background:linear-gradient(135deg,#8abaff,#5f97ea); color:#0f1d2e; }
+html.lab-native .c2-strip .timeline #stepButton { flex:0 0 auto; height:34px; padding:0 12px; border:0; border-radius:10px; background:var(--surface-2); color:inherit; font-size:13px; cursor:pointer; }
+html.lab-native .c2-strip .timeline #stepButton:hover { background:var(--blue-soft); }
+html.lab-native .c2-strip .timeline-track { flex:1 1 auto; min-width:120px; display:flex; flex-direction:column; gap:1px; }
+html.lab-native .c2-strip .timeline-track input { width:100%; height:16px; margin:0; }
+html.lab-native .c2-strip .time-scale { display:flex; justify-content:space-between; font-size:10px; color:var(--course-muted); }
+html.lab-native .c2-strip .timeline > output { flex:0 0 auto; min-width:56px; font-size:19px; text-align:right; }
+html.lab-native .c2-strip .rate { display:inline-flex; align-items:center; gap:4px; font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-strip .rate select { height:28px; padding:0 6px; }
+html.lab-native .c2-strip .phase-row { flex:0 0 auto; display:flex; align-items:center; padding:0 0 0 8px; margin:0; border:0; border-left:1px solid var(--hair); background:none; }
+html.lab-native .c2-strip #phaseButtons { display:flex; gap:4px; flex-wrap:nowrap; }
+html.lab-native .c2-strip #phaseButtons button { height:28px; padding:0 9px; border-radius:8px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-muted); font-size:12px; white-space:nowrap; cursor:pointer; }
+html.lab-native .c2-strip #phaseButtons button:hover { color:var(--course-accent); border-color:var(--course-accent); }
+html.lab-native .c2-strip #phaseButtons button[aria-pressed="true"] { background:var(--blue-soft); color:var(--course-accent); border-color:var(--course-accent); font-weight:700; }
+
+/* 面板：此刻的数据 */
+html.lab-native .c2-panel .readings { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:0; }
+html.lab-native .c2-panel .reading { padding:8px 10px; border-radius:12px; background:var(--surface-2); border:0; }
+html.lab-native .c2-panel .reading span { display:block; font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-panel .reading strong { font-size:24px; line-height:1.25; font-variant-numeric:tabular-nums; color:var(--course-accent); }
+html.lab-native .c2-panel .reading.reference strong { font-size:20px; color:inherit; }
+html.lab-native .c2-panel .reading small { font-size:12px; margin-left:3px; color:var(--course-muted); }
+html.lab-native .c2-panel .axis-readings { display:grid; gap:4px; margin:0; }
+html.lab-native .c2-panel .axis-row { display:grid; grid-template-columns:52px 1fr 50px; align-items:center; gap:8px; font-size:12.5px; line-height:1.4; }
+html.lab-native .c2-panel .axis-row output { font-size:14px; text-align:right; }
+html.lab-native .c2-panel :is(.axis-bar, .axis-bar i) { height:6px; border-radius:3px; }
+html.lab-native .c2-panel .live-explanation { position:static; margin:0; padding:7px 10px; border-left:3px solid var(--course-accent); border-radius:0 10px 10px 0; background:var(--blue-soft); font-size:13px; line-height:1.55; pointer-events:auto; min-height:0; }
+
+/* 面板：改变条件 */
+html.lab-native .c2-panel :is(#slopeControls, #driveControls, #bumpControls, #turnControls) { display:grid; gap:8px; }
+html.lab-native .c2-panel :is(#slopeControls, #driveControls, #bumpControls, #turnControls)[hidden] { display:none; }
+html.lab-native .c2-panel :is(.choice-row, .presets) { display:flex; gap:6px; margin:0; }
+html.lab-native .c2-panel :is(.choice-row, .presets) button {
+  flex:1; height:32px; padding:0 8px; border-radius:10px; font-size:13px; white-space:nowrap; cursor:pointer;
+  border:1px solid var(--hair); background:var(--course-surface); color:inherit;
+}
+html.lab-native .c2-panel :is(.choice-row, .presets) button:hover { border-color:var(--course-accent); }
+html.lab-native .c2-panel :is(.choice-row, .presets) button[aria-pressed="true"] { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); font-weight:700; }
+html.lab-native .c2-panel .range-label { display:flex; justify-content:space-between; align-items:baseline; font-size:13px; }
+html.lab-native .c2-panel .range-label output { font-size:15px; }
+html.lab-native .c2-panel input[type="range"] { height:16px; margin:0; width:100%; }
+html.lab-native .c2-panel .control-note { margin:0; font-size:12px; line-height:1.5; color:var(--course-muted); }
+html.lab-native .c2-panel .gravity-control { display:grid; gap:2px; margin:10px 0 0; padding-top:10px; border-top:1px dashed var(--hair); font-size:13px; }
+html.lab-native .c2-panel .gravity-control[hidden] { display:none; }
+html.lab-native .c2-panel .gravity-control label { display:flex; align-items:center; gap:6px; cursor:pointer; }
+html.lab-native .c2-panel .gravity-control > span { padding-left:22px; margin:0; font-size:11.5px; color:var(--course-muted); }
+
+/* 较矮窗口：曲线和读数收紧 */
+@media (max-height:700px) {
+  .c41-waves { height:clamp(140px, 25vh, 170px); padding-top:6px; }
+  html.lab-native .c41-waves .wave-footer { display:none; }
+  html.lab-native .c2-panel .reading { padding:6px 10px; }
+  html.lab-native .c2-panel .reading strong { font-size:21px; }
+}
+
+/* 三维区右上角的状态读数让出全屏按钮的位置 */
+html.lab-native #viewport .scene-stamp { right:60px; }
+
+/* 手机：场景读数挪到三维区右下角，不和左上角的视角按钮叠在一起 */
+@media (max-width:900px) { html.lab-native .c2-native-stage .scene-stamp { top:auto !important; bottom:10px !important; right:10px !important; left:auto !important; } }

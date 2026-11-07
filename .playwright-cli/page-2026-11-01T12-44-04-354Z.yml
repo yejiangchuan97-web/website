@@ -1,0 +1,83 @@
+- generic [ref=e2]:
+  - navigation "本章导航" [ref=e3]:
+    - link "← 第一章 · 走进智能建造" [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/overview/index.html
+    - link "1-2 认识施工机械" [ref=e5] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-2/index.html
+    - link "1-3 认识施工机器人" [ref=e6] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-3/index.html
+    - button "切换深色" [ref=e7] [cursor=pointer]
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: TASK 1-2 / CONSTRUCTION MACHINERY
+        - heading "认识施工机械" [level=1] [ref=e11]
+        - paragraph [ref=e12]: 选择一种施工机械，旋转查看结构，播放动作或单独调节部件。
+      - generic [ref=e13]:
+        - button "操作说明" [ref=e14] [cursor=pointer]
+        - button "⛶ 全屏" [ref=e15] [cursor=pointer]
+    - navigation "施工机械展品" [ref=e16]:
+      - button "01 挖掘机" [pressed] [ref=e17] [cursor=pointer]:
+        - generic [ref=e20]: "01"
+        - generic [ref=e21]: 挖掘机
+      - button "02 推土机" [ref=e22] [cursor=pointer]:
+        - generic [ref=e25]: "02"
+        - generic [ref=e26]: 推土机
+      - button "03 装载机" [ref=e27] [cursor=pointer]:
+        - generic [ref=e30]: "03"
+        - generic [ref=e31]: 装载机
+      - button "04 塔式起重机" [ref=e32] [cursor=pointer]:
+        - generic [ref=e35]: "04"
+        - generic [ref=e36]: 塔式起重机
+      - button "05 混凝土泵车" [ref=e37] [cursor=pointer]:
+        - generic [ref=e40]: "05"
+        - generic [ref=e41]: 混凝土泵车
+      - button "06 施工升降机" [ref=e42] [cursor=pointer]:
+        - generic [ref=e45]: "06"
+        - generic [ref=e46]: 施工升降机
+      - button "07 钢筋切断机" [ref=e47] [cursor=pointer]:
+        - generic [ref=e50]: "07"
+        - generic [ref=e51]: 钢筋切断机
+      - button "08 钢筋弯曲机" [ref=e52] [cursor=pointer]:
+        - generic [ref=e55]: "08"
+        - generic [ref=e56]: 钢筋弯曲机
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: 可操作三维场景
+          - generic [ref=e61]:
+            - button "全景" [ref=e62] [cursor=pointer]
+            - button "侧面" [ref=e63] [cursor=pointer]
+            - button "俯视" [ref=e64] [cursor=pointer]
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=e65]:
+          - generic:
+            - heading [level=2]
+            - paragraph
+          - generic [ref=e67]:
+            - button "↻ 环绕" [ref=e68] [cursor=pointer]
+            - button "放大" [ref=e69] [cursor=pointer]: ＋
+            - button "缩小" [ref=e70] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=e71] [cursor=pointer]
+            - button "聚焦部件" [ref=e72] [cursor=pointer]
+          - status [ref=e73]:
+            - generic [ref=e74]: 模型未载入。可重新选择展品。
+            - button "重新载入" [ref=e75] [cursor=pointer]
+        - generic [ref=e76]:
+          - button "▶ 播放动作" [disabled] [ref=e77]
+          - button "单步" [disabled] [ref=e78]
+          - generic [ref=e79]:
+            - generic [ref=e80]: 动作进度（秒）
+            - slider "动作进度（秒）" [disabled] [ref=e81]: "0"
+            - status [ref=e82]: 0.00 / 8.00 s
+          - button "复位" [ref=e83] [cursor=pointer]
+        - generic [ref=e84]:
+          - generic [ref=e85]: 拖动旋转 · 滚轮缩放 · 选择编号近看部件
+          - generic [ref=e86]: 三维观察
+      - complementary "操作与状态" [ref=e87]:
+        - heading [level=2]
+        - paragraph
+        - status [ref=e88]: 载入失败：CourseGLTFLoader is not defined
+    - generic [ref=e89]:
+      - generic [ref=e90]: 外部模型与共用教学模型 · 机构动作为课堂绑定，模型来源与许可见各展品说明。
+      - link "课程总览 ↗" [ref=e91] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/home/index.html#chapter-1

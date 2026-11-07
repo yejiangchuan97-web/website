@@ -1,0 +1,49 @@
+{
+  "sourcePage": "https://www.innerscene.com/tools/library/3d-parts/bulldozer-d4b3bb86",
+  "retrieved": "2026-11-01",
+  "publisher": {
+    "id": "bulldozer-d4b3bb86",
+    "shareId": "2rk8M9lhGTEu2NPMNJ3DYr",
+    "fileHash": "673e325a759a12e2e5e65ff3ae46b7fe0225cc6afd14d9a91523e4cc1527b305",
+    "fileName": "bulldozer.glb",
+    "ext": "glb",
+    "size": 6873204,
+    "kind": "3d",
+    "title": "Bulldozer",
+    "description": "Bulldozer. Overall size 5.289 x 3.720 x 3.285 m; original unbranded model. Overall 5.3 x 3.7 x 3.3 m.\n\nNominal size: 5289.00 x 3720.18 x 3284.72 mm overall.\n\nglTF binary (GLB) mesh with materials, modeled in meters at real-world scale. Export to other formats from the viewer.\n\nNominal dimensions for layout, fit checks and visualization; they do not establish a manufacturing tolerance class, load rating or standards certification. Original Innerscene model, released CC0.",
+    "keywords": [
+      "bulldozer",
+      "construction equipment",
+      "site",
+      "construction plant",
+      "original",
+      "bulldozers",
+      "dozer",
+      "crawler",
+      "heavy equipment",
+      "earthmoving",
+      "vehicle",
+      "construction vehicle"
+    ],
+    "tags": [
+      "vehicles",
+      "real-scale",
+      "textured",
+      "assembly"
+    ],
+    "creditName": "",
+    "license": "CC0-1.0",
+    "sourceName": "Innerscene - original model",
+    "sourceUrl": "https://www.innerscene.com/",
+    "approvedAt": "2026-10-08 20:29:09",
+    "expiresAt": "2030-10-08 20:29:09",
+    "downloads": 126,
+    "licenseNote": "",
+    "noticeUrl": "",
+    "sampleKey": null,
+    "sampleGroup": "",
+    "sampleOrder": null,
+    "format": "",
+    "listed": true
+  }
+}

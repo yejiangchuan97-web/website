@@ -1,0 +1,117 @@
+/* 5-1：原页面元素放进统一外壳后的样式。原页面尺寸以 .game 的 cqw 为单位，搬出 .game 后在这里改用固定像素。 */
+html.lab-native .c5-off { display:none !important; }
+/* 原页面给 body 写了居中和内边距（16:9 卡片版式），外壳下复位 */
+html.lab-native body { padding:0; align-items:stretch; justify-content:stretch; min-height:0; }
+
+/* 工位条：未解锁的工位 */
+.c2-station.c5-locked:not([aria-selected="true"]) { opacity:.55; }
+.c2-station.c5-locked .c2-check { display:none; }
+.c2-station.c5-locked .c2-name::after { content:" 🔒"; font-size:11px; }
+
+/* 三维区：原页面的浮层（视角按钮、图例、加工进度）按像素排 */
+html.lab-native #field { background:#f1f7ff; }
+html.lab-native #field .view-tools { top:10px; right:10px; border-radius:10px; padding:3px; }
+html.lab-native #field .view-tools button { font-size:13px; padding:5px 9px; border-radius:7px; }
+html.lab-native #field .view-tools span { font-size:12px; }
+html.lab-native #field .scene-legend { left:12px; bottom:12px; gap:12px; padding:6px 10px; border-radius:9px; }
+html.lab-native #field .scene-legend span { font-size:12px; gap:5px; }
+html.lab-native #field .scene-legend i { width:8px; height:8px; }
+html.lab-native #field .process-overlay { bottom:52px; gap:12px; padding:8px 14px; border-radius:11px; font-size:13px; box-shadow:var(--shadow-sm); }
+html.lab-native #field .process-overlay > div { width:140px; height:6px; }
+html.lab-native #field .process-overlay button { font-size:12.5px; padding:4px 10px; border-radius:7px; }
+html.lab-native #field .hotspot { font-size:13px; padding:6px 10px; gap:6px; border-radius:9px; min-height:32px; }
+html.lab-native #field .hotspot .pin { width:20px; height:20px; font-size:11px; }
+html.lab-native #field .hotspot:after { width:10px; height:10px; bottom:-6px; }
+
+/* 面板：订单卡、现场说明卡不再浮在三维区里 */
+html.lab-native .c2-panel :is(.order-card, .site-note) {
+  position:static; width:auto; padding:0; margin:0; border:0; background:none; box-shadow:none; z-index:auto;
+}
+html.lab-native .c2-panel .card-kicker { display:none; }
+html.lab-native .c2-panel .order-card:not([hidden]) { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:8px; align-items:stretch; }
+html.lab-native .c2-panel #orderDrawing { height:auto; aspect-ratio:190/105; margin:0; border-radius:10px; overflow:hidden; align-self:center; }
+html.lab-native .c2-panel .order-spec { grid-template-columns:1fr; gap:6px; }
+html.lab-native .c2-panel .order-spec span { display:flex; flex-direction:column; gap:1px; padding:5px 10px; border-radius:10px; background:var(--surface-2); font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-panel .order-spec b { font-size:15px; line-height:1.3; color:var(--course-ink); }
+html.lab-native .c2-panel .order-card > p { grid-column:1 / -1; margin:0; padding:0; border:0; font-size:12.5px; color:var(--course-muted); }
+
+html.lab-native .c2-panel .site-note h2 { margin:0 0 4px; font-size:15px; line-height:1.45; }
+html.lab-native .c2-panel .site-note p { margin:0; font-size:13px; line-height:1.6; color:var(--course-muted); }
+html.lab-native .c2-panel .site-note .text-button { margin-top:8px; }
+html.lab-native .c2-panel .site-note > span:last-child { display:inline-block; margin-left:10px; font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-panel .site-note > span:last-child[hidden] { display:none; }
+
+/* 手里的材料/工具：一张可拖动的卡 */
+html.lab-native .c2-panel .carry-card {
+  width:100%; display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:12px;
+  border:1px solid var(--hair); background:var(--surface-2); color:var(--course-ink); box-shadow:none;
+}
+html.lab-native .c2-panel .carry-card[aria-pressed="true"] { border:1px solid var(--course-accent); background:var(--blue-soft); box-shadow:0 0 0 1px var(--course-accent) inset; }
+html.lab-native .c2-panel .carry-card > span:first-child { width:56px; flex:0 0 56px; }
+html.lab-native .c2-panel .carry-card svg { width:100%; height:36px; }
+html.lab-native .c2-panel .carry-card small { font-size:11.5px; color:var(--course-muted); }
+html.lab-native .c2-panel .carry-card strong { margin:1px 0; font-size:14.5px; }
+html.lab-native .c2-panel .carry-card em { font-size:11.5px; color:var(--course-muted); white-space:normal; }
+
+/* 机械、位置、区标的小标签 */
+html.lab-native .c2-panel .task-tools { display:flex; flex-wrap:wrap; gap:6px; margin:0; }
+html.lab-native .c2-panel .task-chip {
+  height:32px; padding:0 11px; gap:6px; border-radius:9px; font-size:13px; font-weight:600;
+  border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); box-shadow:var(--shadow-sm);
+}
+html.lab-native .c2-panel .task-chip b { font-size:11.5px; color:var(--course-muted); }
+html.lab-native .c2-panel .task-chip:hover:not(:disabled) { border-color:var(--course-accent); }
+html.lab-native .c2-panel .task-chip.active { border-color:var(--course-accent); background:var(--blue-soft); color:var(--course-accent); }
+html.lab-native .c2-panel .task-chip.active b { color:var(--course-accent); }
+html.lab-native .c2-panel .task-chip.done { border-color:#b3dfcf; background:var(--good-soft, #edf9f3); color:var(--good, #187958); }
+html.lab-native .c2-panel .task-chip.done b { color:inherit; }
+html.lab-native .c2-panel .task-chip[data-zone] { border-color:var(--zone); color:var(--zone); background:var(--course-surface); height:34px; }
+html.lab-native .c2-panel .task-chip[data-zone][aria-pressed="true"] { background:var(--zone); color:#fff; }
+
+/* 加工设置（挡块、转角） */
+html.lab-native .c2-panel .machine-setting {
+  position:static; width:auto; margin:0; padding:10px 12px; border-radius:12px; z-index:auto;
+  border:1px solid var(--course-accent); background:var(--blue-soft); box-shadow:none;
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:4px 10px;
+}
+html.lab-native .c2-panel .machine-setting label { font-size:13.5px; font-weight:700; }
+html.lab-native .c2-panel .machine-setting output { margin:0; font-size:18px; }
+html.lab-native .c2-panel .machine-setting input { grid-column:1 / -1; width:100%; }
+html.lab-native .c2-panel .machine-setting p { grid-column:1 / -1; margin:0; font-size:12px; line-height:1.5; color:var(--course-muted); }
+
+/* 主操作按钮 */
+html.lab-native .c2-panel .c5-act { display:flex; }
+html.lab-native .c2-panel .c5-act .primary-button {
+  flex:1; height:38px; padding:0 16px; border:0; border-radius:11px; font-size:14px; font-weight:700; gap:6px;
+  color:#fff; background:linear-gradient(135deg,#3a82e4,#1f5bbd); box-shadow:0 4px 12px rgba(36,103,201,.28);
+}
+html.lab-native .c2-panel .c5-act .primary-button:hover:not(:disabled) { filter:none; transform:translateY(-1px); }
+html.lab-native .c2-panel .c2-group:has(.carry-card, .task-tools) { gap:8px; }
+
+@media (max-height:720px) {
+  html.lab-native .c2-panel .carry-card { padding:5px 10px; }
+  html.lab-native .c2-panel .carry-card svg { height:28px; }
+  html.lab-native .c2-panel .carry-card em { display:none; }
+  html.lab-native .c2-panel .c5-act .primary-button { height:34px; }
+}
+
+/* 深色模式：原页面的深色样式写在第五章版式里（data-c5），外壳下在此补上 */
+html[data-theme="dark"].lab-native { --ink:#e1ebf7; --muted:#acc0d8; --blue:#80b5ff; --line:#344b66; --pale:#20364e; --orange:#ecb371; --teal:#65cbbf; --green:#67ceac; }
+html[data-theme="dark"].lab-native #field { background:#20334a; }
+html[data-theme="dark"].lab-native :is(.hotspot, dialog) { background:#18293f; color:var(--ink); border-color:var(--line); }
+html[data-theme="dark"].lab-native :is(.scene-legend, .process-overlay, .view-tools) { background:#20354d; color:var(--ink); border-color:#46617f; }
+html[data-theme="dark"].lab-native :is(.hotspot.done) { background:#284667; color:#e8f1ff; }
+html[data-theme="dark"].lab-native :is(.scene-legend span, .process-overlay button, .summary-row, .help-steps p, .boundary-note) { color:#b8cce4; }
+html[data-theme="dark"].lab-native .process-overlay button { background:#304963; }
+html[data-theme="dark"].lab-native .boundary-note { background:#20364e; }
+html[data-theme="dark"].lab-native .c2-panel .task-chip.done { border-color:#2f6b57; background:#1d3a33; color:#7bd5b4; }
+html[data-theme="dark"].lab-native .c2-panel .c5-act .primary-button { background:linear-gradient(135deg,#8abaff,#5f97ea); color:#0f1d2e; }
+html[data-theme="dark"].lab-native :is(.rb-inspection, .ri-heading h3) { color:var(--ink); }
+html[data-theme="dark"].lab-native :is(.ri-hint, .ri-tool-copy p, .ri-footnote) { color:#afc5df; }
+html[data-theme="dark"].lab-native .ri-feedback { color:#7bd5b4; }
+html[data-theme="dark"].lab-native :is(.ri-toolbar, .ri-tab, .ri-state, .dialog-close) { background:#243c56; color:#dcecff; border-color:#46617f; }
+html[data-theme="dark"].lab-native .ri-tab[aria-selected="true"] { background:#2c6fbe; color:#fff; border-color:#80b5ff; }
+html[data-theme="dark"].lab-native .ri-action:disabled { background:#344c66; color:#bacde4; }
+
+/* 看法按钮放到三维区左上角（右上角是全屏按钮） */
+html.lab-native #field .view-tools { left:12px; right:auto; top:12px; }

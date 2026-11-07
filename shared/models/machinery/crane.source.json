@@ -1,0 +1,47 @@
+{
+  "sourcePage": "https://www.innerscene.com/tools/library/3d-parts/tower-crane-898f1b82",
+  "retrieved": "2026-11-01",
+  "publisher": {
+    "id": "tower-crane-898f1b82",
+    "shareId": "1VkItG4M7Bb82ovE35e4Ua",
+    "fileHash": "6e37057663aea5bd2f393283ef6f73b88ac7d2d37d9690bac8a85c1fb5ec62d7",
+    "fileName": "tower-crane.glb",
+    "ext": "glb",
+    "size": 8183604,
+    "kind": "3d",
+    "title": "Tower crane",
+    "description": "Tower crane. Overall size 38.128 x 4.550 x 26.810 m; original unbranded model. Overall 38.1 x 4.6 x 26.8 m.\n\nNominal size: 38128.38 x 4550.00 x 26810.40 mm overall.\n\nglTF binary (GLB) mesh with materials, modeled in meters at real-world scale. Export to other formats from the viewer.\n\nNominal dimensions for layout, fit checks and visualization; they do not establish a manufacturing tolerance class, load rating or standards certification. Original Innerscene model, released CC0.",
+    "keywords": [
+      "skyscraper",
+      "high rise",
+      "crane",
+      "tower crane",
+      "hoist",
+      "lifting",
+      "cranes",
+      "lifting equipment",
+      "construction",
+      "heavy equipment"
+    ],
+    "tags": [
+      "vehicles",
+      "real-scale",
+      "textured",
+      "assembly"
+    ],
+    "creditName": "",
+    "license": "CC0-1.0",
+    "sourceName": "Innerscene - original model",
+    "sourceUrl": "https://www.innerscene.com/",
+    "approvedAt": "2026-10-08 20:32:57",
+    "expiresAt": "2030-10-08 20:32:57",
+    "downloads": 121,
+    "licenseNote": "",
+    "noticeUrl": "",
+    "sampleKey": null,
+    "sampleGroup": "",
+    "sampleOrder": null,
+    "format": "",
+    "listed": true
+  }
+}

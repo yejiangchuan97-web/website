@@ -1,0 +1,473 @@
+{
+  "date": "2026-10-13",
+  "root_url": "https://my.feishu.cn/wiki/AzWbw1IkHiis57kieL1cKEYanAh",
+  "pages": 14,
+  "tasks": [
+    {
+      "id": "1-2",
+      "scene": 1,
+      "title": "认识施工机械",
+      "file": "course/chapters/01/tasks/1-2/README.md",
+      "source_page": "1.走进智能建造现场（4课时）",
+      "source_file": "resources/textbook/01_1.走进智能建造现场（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#I0XedxfLlo7K6exv1gUcgaUtnie",
+      "source_block_id": "I0XedxfLlo7K6exv1gUcgaUtnie",
+      "directory": "course/chapters/01/tasks/1-2",
+      "status": "已实现三维展示与动作观察",
+      "demo": "course/chapters/01/tasks/1-2/index.html",
+      "demos": [
+        {
+          "title": "进入机械展厅",
+          "file": "course/chapters/01/tasks/1-2/index.html"
+        }
+      ],
+      "kind": "三维展厅"
+    },
+    {
+      "id": "1-3",
+      "scene": 1,
+      "title": "认识施工机器人",
+      "file": "course/chapters/01/tasks/1-3/README.md",
+      "source_page": "1.走进智能建造现场（4课时）",
+      "source_file": "resources/textbook/01_1.走进智能建造现场（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZHmNwLwLXiKgvVktJjvcNHvWnHd#R6e8dVXKnodHvBxE26UciDdon2c",
+      "source_block_id": "R6e8dVXKnodHvBxE26UciDdon2c",
+      "directory": "course/chapters/01/tasks/1-3",
+      "status": "已实现三维展示与动作观察",
+      "demo": "course/chapters/01/tasks/1-3/index.html",
+      "demos": [
+        {
+          "title": "进入机器人展厅",
+          "file": "course/chapters/01/tasks/1-3/index.html"
+        }
+      ],
+      "kind": "三维展厅"
+    },
+    {
+      "id": "2-1",
+      "scene": 2,
+      "title": "动力装置的基本原理",
+      "file": "course/chapters/02/tasks/2-1/README.md",
+      "source_page": "2.建筑机械硬件基础（4课时）",
+      "source_file": "resources/textbook/02_2.建筑机械硬件基础（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#CdK8dZKRlovcodxLQcVcpj2vnNb",
+      "source_block_id": "CdK8dZKRlovcodxLQcVcpj2vnNb",
+      "directory": "course/chapters/02/tasks/2-1",
+      "status": "已实现交互工位",
+      "demo": "course/chapters/02/tasks/2-1/index.html",
+      "demos": [
+        { "title": "直流电机", "file": "course/chapters/02/tasks/2-1/index.html#motor" },
+        { "title": "柴油机", "file": "course/chapters/02/tasks/2-1/index.html#diesel" }
+      ],
+      "kind": "交互工位"
+    },
+    {
+      "id": "2-2",
+      "scene": 2,
+      "title": "动力的传递与变换",
+      "file": "course/chapters/02/tasks/2-2/README.md",
+      "source_page": "2.建筑机械硬件基础（4课时）",
+      "source_file": "resources/textbook/02_2.建筑机械硬件基础（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#COrVdAmDUotUZbxp5LWcLqtEnmd",
+      "source_block_id": "COrVdAmDUotUZbxp5LWcLqtEnmd",
+      "directory": "course/chapters/02/tasks/2-2",
+      "status": "已实现交互工位",
+      "demo": "course/chapters/02/tasks/2-2/index.html",
+      "demos": [
+        { "title": "齿轮 · 皮带 · 链条", "file": "course/chapters/02/tasks/2-2/index.html#gear" },
+        { "title": "液压缸", "file": "course/chapters/02/tasks/2-2/index.html#hyd" },
+        { "title": "气缸", "file": "course/chapters/02/tasks/2-2/index.html#air" }
+      ],
+      "kind": "交互工位"
+    },
+    {
+      "id": "2-3",
+      "scene": 2,
+      "title": "工作机构与施工动作",
+      "file": "course/chapters/02/tasks/2-3/README.md",
+      "source_page": "2.建筑机械硬件基础（4课时）",
+      "source_file": "resources/textbook/02_2.建筑机械硬件基础（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/W80iwtlYwiQL80kP8zWcgt48nyg#Oq3Ndd4jsoqH91xKA5BclpgDnlf",
+      "source_block_id": "Oq3Ndd4jsoqH91xKA5BclpgDnlf",
+      "directory": "course/chapters/02/tasks/2-3",
+      "status": "已实现交互工位",
+      "demo": "course/chapters/02/tasks/2-3/index.html",
+      "demos": [
+        { "title": "液压缸 · 动臂", "file": "course/chapters/02/tasks/2-3/index.html#boom" },
+        { "title": "丝杠 · 升降台", "file": "course/chapters/02/tasks/2-3/index.html#screw" }
+      ],
+      "kind": "交互工位"
+    },
+    {
+      "id": "3-1",
+      "scene": 3,
+      "title": "机器人构型与工作空间识读",
+      "file": "course/chapters/03/tasks/3-1/README.md",
+      "source_page": "3.机器人构型与工作空间识读（2课时）",
+      "source_file": "resources/textbook/03_3.机器人构型与工作空间识读（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/IZGawINShiKwmMkQHsvcOUd3nfc#doxcngeszW7gzynhcGDZWXfx14g",
+      "source_block_id": "doxcngeszW7gzynhcGDZWXfx14g",
+      "directory": "course/chapters/03/tasks/3-1",
+      "status": "已有演示",
+      "demo": "course/chapters/03/tasks/3-1/index.html",
+      "kind": "交互课堂"
+    },
+    {
+      "id": "3-2",
+      "scene": 3,
+      "title": "六轴机械臂本体、关节轴与低速点动",
+      "file": "course/chapters/03/tasks/3-2/README.md",
+      "source_page": "3.六轴机械臂本体与关节轴（2课时）",
+      "source_file": "resources/textbook/04_3.六轴机械臂本体与关节轴（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/NrlbwvO3Xij3kLksAg9c7h6YnJe#doxcnMn7GdKJwAxxrwHOPxGxsQd",
+      "source_block_id": "doxcnMn7GdKJwAxxrwHOPxGxsQd",
+      "directory": "course/chapters/03/tasks/3-2",
+      "status": "已有演示",
+      "demo": "course/chapters/03/tasks/3-2/index.html",
+      "kind": "交互课堂"
+    },
+    {
+      "id": "3-3",
+      "scene": 3,
+      "title": "关节驱动、减速器与传动机构",
+      "file": "course/chapters/03/tasks/3-3/README.md",
+      "source_page": "3.关节驱动、减速器与传动机构（2课时）",
+      "source_file": "resources/textbook/05_3.关节驱动、减速器与传动机构（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ZTnMwuMdPiEwgokrWIdcAa4pndV#doxcn89eh3qJdUefVejTCYeES2b",
+      "source_block_id": "doxcn89eh3qJdUefVejTCYeES2b",
+      "directory": "course/chapters/03/tasks/3-3",
+      "status": "已有演示",
+      "demo": "course/chapters/03/tasks/3-3/index.html",
+      "demos": [
+        {
+          "title": "减速器实验室",
+          "file": "course/chapters/03/tasks/3-3/reducers.html"
+        },
+        {
+          "title": "运动转换实验室",
+          "file": "course/chapters/03/tasks/3-3/conversion.html"
+        }
+      ],
+      "updated": "2026-10-21",
+      "kind": "交互课堂"
+    },
+    {
+      "id": "3-4",
+      "scene": 3,
+      "title": "末端执行器、TCP与工具控制",
+      "file": "course/chapters/03/tasks/3-4/README.md",
+      "source_page": "3.末端执行器、TCP与工具控制（2课时）",
+      "source_file": "resources/textbook/06_3.末端执行器、TCP与工具控制（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/JWU9wRinNirdnXkOSDEctDYZnPQ#doxcnQTnxd9IxSBZBK4xmGeqGCA",
+      "source_block_id": "doxcnQTnxd9IxSBZBK4xmGeqGCA",
+      "directory": "course/chapters/03/tasks/3-4",
+      "status": "已有演示",
+      "demo": "course/chapters/03/tasks/3-4/index.html",
+      "kind": "交互课堂"
+    },
+    {
+      "id": "3-5",
+      "scene": 3,
+      "title": "移动底盘与行走机构",
+      "file": "course/chapters/03/tasks/3-5/README.md",
+      "source_page": "3.机器人移动底盘与行走机构（2课时）",
+      "source_file": "resources/textbook/07_3.机器人移动底盘与行走机构（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/ENc1wwOsZiIIuCksjFzc6COJn4p#doxcnE05ESdggp2fTWFKPQp37mf",
+      "source_block_id": "doxcnE05ESdggp2fTWFKPQp37mf",
+      "directory": "course/chapters/03/tasks/3-5",
+      "status": "已有演示",
+      "demo": "course/chapters/03/tasks/3-5/index.html",
+      "kind": "交互课堂"
+    },
+    {
+      "id": "4-1",
+      "scene": 4,
+      "title": "机器人自身状态感知",
+      "file": "course/chapters/04/tasks/4-1/README.md",
+      "source_page": "4.机器人自身状态感知（2课时）",
+      "source_file": "resources/textbook/08_4.机器人自身状态感知（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/SZ6twI9H1iFHo3kX7JOcvTfxnCN",
+      "source_block_id": null,
+      "directory": "course/chapters/04/tasks/4-1",
+      "status": "已有演示",
+      "demo": "course/chapters/04/tasks/4-1/index.html",
+      "demos": [
+        {
+          "title": "状态与数据",
+          "file": "course/chapters/04/tasks/4-1/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "4-2",
+      "scene": 4,
+      "title": "机器人激光雷达感知",
+      "file": "course/chapters/04/tasks/4-2/README.md",
+      "source_page": "4.机器人激光雷达感知（2课时）",
+      "source_file": "resources/textbook/09_4.机器人激光雷达感知（2课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/Rg9fwaWHMimAfFkDg3xcFkmvnRb",
+      "source_block_id": null,
+      "directory": "course/chapters/04/tasks/4-2",
+      "status": "已有演示",
+      "demo": "course/chapters/04/tasks/4-2/index.html",
+      "demos": [
+        {
+          "title": "扫描与点云",
+          "file": "course/chapters/04/tasks/4-2/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "4-3",
+      "scene": 4,
+      "title": "任务一　标注安全帽并应用YOLO模型",
+      "file": "course/chapters/04/tasks/4-3/README.md",
+      "source_page": "4.YOLO施工视觉识别（4课时）",
+      "source_file": "resources/textbook/10_4.YOLO施工视觉识别（4课时）.txt",
+      "source_url": "https://my.feishu.cn/wiki/UXc0wYD4JiFgZ1kmKJWcKv4wn4c#RMOxdbvVDorkQwx8CTScWPpLnFc",
+      "source_block_id": "RMOxdbvVDorkQwx8CTScWPpLnFc",
+      "directory": "course/chapters/04/tasks/4-3",
+      "status": "已有演示",
+      "demo": "course/chapters/04/tasks/4-3/index.html",
+      "demos": [
+        {
+          "title": "标注实验",
+          "file": "course/chapters/04/tasks/4-3/index.html#annotation"
+        },
+        {
+          "title": "预测实验",
+          "file": "course/chapters/04/tasks/4-3/index.html#predict"
+        },
+        {
+          "title": "评估实验",
+          "file": "course/chapters/04/tasks/4-3/index.html#evaluate"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "5-1",
+      "scene": 5,
+      "title": "钢筋加工机械与绑扎作业面识读",
+      "file": "course/chapters/05/tasks/5-1/README.md",
+      "source_page": "5.主体结构施工协同",
+      "source_file": "resources/textbook/11_5.主体结构施工协同.txt",
+      "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcn0806AVCz2motDJFnl1RGVh",
+      "source_block_id": "doxcn0806AVCz2motDJFnl1RGVh",
+      "directory": "course/chapters/05/tasks/5-1",
+      "status": "已有演示",
+      "demo": "course/chapters/05/tasks/5-1/index.html",
+      "demos": [
+        {
+          "title": "加工与作业面",
+          "file": "course/chapters/05/tasks/5-1/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "5-2",
+      "scene": 5,
+      "title": "钢筋绑扎机器人操作与人工复核",
+      "file": "course/chapters/05/tasks/5-2/README.md",
+      "source_page": "5.主体结构施工协同",
+      "source_file": "resources/textbook/11_5.主体结构施工协同.txt",
+      "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcnpjZeYmLuiyF0C8Y56Qjw9d",
+      "source_block_id": "doxcnpjZeYmLuiyF0C8Y56Qjw9d",
+      "directory": "course/chapters/05/tasks/5-2",
+      "status": "已有演示",
+      "demo": "course/chapters/05/tasks/5-2/index.html",
+      "demos": [
+        {
+          "title": "绑扎与人工复核",
+          "file": "course/chapters/05/tasks/5-2/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "5-3",
+      "scene": 5,
+      "title": "混凝土泵送、振捣与整平",
+      "file": "course/chapters/05/tasks/5-3/README.md",
+      "source_page": "5.主体结构施工协同",
+      "source_file": "resources/textbook/11_5.主体结构施工协同.txt",
+      "source_url": "https://my.feishu.cn/wiki/UtqMwe7yti9zuJkBlLrcywi7nJe#doxcnUJuNK1D3ih5VKdcUdItnLc",
+      "source_block_id": "doxcnUJuNK1D3ih5VKdcUdItnLc",
+      "directory": "course/chapters/05/tasks/5-3",
+      "status": "已实现交互实训",
+      "demo": "course/chapters/05/tasks/5-3/index.html",
+      "demos": [
+        {
+          "title": "进入交互实训",
+          "file": "course/chapters/05/tasks/5-3/index.html"
+        }
+      ],
+      "kind": "交互实训"
+    },
+    {
+      "id": "6-1",
+      "scene": 6,
+      "title": "砌筑工程——人工工艺、砂浆机械与机器人进场",
+      "file": "course/chapters/06/tasks/6-1/README.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "resources/textbook/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcn2i9Sc5J7awcMQLj0zkDdGd",
+      "source_block_id": "doxcn2i9Sc5J7awcMQLj0zkDdGd",
+      "directory": "course/chapters/06/tasks/6-1",
+      "status": "已有演示",
+      "demo": "course/chapters/06/tasks/6-1/index.html",
+      "demos": [
+        {
+          "title": "砌筑课堂",
+          "file": "course/chapters/06/tasks/6-1/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "6-2",
+      "scene": 6,
+      "title": "地砖铺贴——工艺准备与铺贴机器人作业",
+      "file": "course/chapters/06/tasks/6-2/README.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "resources/textbook/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcnYWPJBkWDkwK9wd1Hl7Madf",
+      "source_block_id": "doxcnYWPJBkWDkwK9wd1Hl7Madf",
+      "directory": "course/chapters/06/tasks/6-2",
+      "status": "已有演示",
+      "demo": "course/chapters/06/tasks/6-2/index.html",
+      "demos": [
+        {
+          "title": "铺贴实训",
+          "file": "course/chapters/06/tasks/6-2/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "6-3",
+      "scene": 6,
+      "title": "腻子打磨——作业面检查、恒力执行与质量验收",
+      "file": "course/chapters/06/tasks/6-3/README.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "resources/textbook/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcnpA6kMYzniF9Du8e4saSp8f",
+      "source_block_id": "doxcnpA6kMYzniF9Du8e4saSp8f",
+      "directory": "course/chapters/06/tasks/6-3",
+      "status": "已有演示",
+      "demo": "course/chapters/06/tasks/6-3/index.html",
+      "demos": [
+        {
+          "title": "打磨工坊",
+          "file": "course/chapters/06/tasks/6-3/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "6-4",
+      "scene": 6,
+      "title": "室内喷涂——路径规划、参数控制与缺陷诊断",
+      "file": "course/chapters/06/tasks/6-4/README.md",
+      "source_page": "6.装饰装修施工分项",
+      "source_file": "resources/textbook/12_6.装饰装修施工分项.txt",
+      "source_url": "https://my.feishu.cn/wiki/BnHmwjoi8iqcQtkNwbRc33ufn7f#doxcnqHI5Lh81n0rtbYK00pSfiY",
+      "source_block_id": "doxcnqHI5Lh81n0rtbYK00pSfiY",
+      "directory": "course/chapters/06/tasks/6-4",
+      "status": "已有演示",
+      "demo": "course/chapters/06/tasks/6-4/index.html",
+      "demos": [
+        {
+          "title": "喷涂工坊",
+          "file": "course/chapters/06/tasks/6-4/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "7-1",
+      "scene": 7,
+      "title": "巡检机器人——轮式、四足与爬壁",
+      "file": "course/chapters/07/tasks/7-1/README.md",
+      "source_page": "7.监测管养质量管控",
+      "source_file": "resources/textbook/13_7.监测管养质量管控.txt",
+      "source_url": "https://my.feishu.cn/wiki/CUq8wHUSXi1OHokp4OgcWmvIn8f#doxcnNT7GYNEbGSSc4kbLiYlMbb",
+      "source_block_id": "doxcnNT7GYNEbGSSc4kbLiYlMbb",
+      "directory": "course/chapters/07/tasks/7-1",
+      "status": "已有演示",
+      "demo": "course/chapters/07/tasks/7-1/index.html",
+      "demos": [
+        {
+          "title": "桥梁巡检",
+          "file": "course/chapters/07/tasks/7-1/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "7-2",
+      "scene": 7,
+      "title": "建筑外立面无人机巡检与影像证据复核",
+      "file": "course/chapters/07/tasks/7-2/README.md",
+      "source_page": "7.监测管养质量管控",
+      "source_file": "resources/textbook/13_7.监测管养质量管控.txt",
+      "source_url": "https://my.feishu.cn/wiki/CUq8wHUSXi1OHokp4OgcWmvIn8f#NlmUdSbNeoawv7xnJpHci1WPnLe",
+      "source_block_id": "NlmUdSbNeoawv7xnJpHci1WPnLe",
+      "directory": "course/chapters/07/tasks/7-2",
+      "status": "已有演示",
+      "demo": "course/chapters/07/tasks/7-2/index.html",
+      "demos": [
+        {
+          "title": "无人机巡检与复核",
+          "file": "course/chapters/07/tasks/7-2/index.html"
+        }
+      ],
+      "kind": "交互课堂"
+    },
+    {
+      "id": "8-1",
+      "scene": 8,
+      "title": "安全操作",
+      "file": "course/chapters/08/tasks/8-1/README.md",
+      "source_page": "8.机械机器安全维护",
+      "source_file": "resources/textbook/14_8.机械机器安全维护.txt",
+      "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnkx4i6723YLOS5EF5AiMkJf",
+      "source_block_id": "doxcnkx4i6723YLOS5EF5AiMkJf",
+      "directory": "course/chapters/08/tasks/8-1",
+      "status": "已实现互动推演",
+      "demo": "course/chapters/08/tasks/8-1/index.html",
+      "demos": [
+        {
+          "title": "进入互动推演",
+          "file": "course/chapters/08/tasks/8-1/index.html"
+        }
+      ],
+      "kind": "互动推演"
+    },
+    {
+      "id": "8-2",
+      "scene": 8,
+      "title": "保养排查",
+      "file": "course/chapters/08/tasks/8-2/README.md",
+      "source_page": "8.机械机器安全维护",
+      "source_file": "resources/textbook/14_8.机械机器安全维护.txt",
+      "source_url": "https://my.feishu.cn/wiki/MaDFwaZpBiKYyrkg0wnc6UzQnNe#doxcnniSjeN1War1zoZtacmjqlb",
+      "source_block_id": "doxcnniSjeN1War1zoZtacmjqlb",
+      "directory": "course/chapters/08/tasks/8-2",
+      "status": "已实现互动工坊",
+      "demo": "course/chapters/08/tasks/8-2/index.html",
+      "demos": [
+        {
+          "title": "进入互动工坊",
+          "file": "course/chapters/08/tasks/8-2/index.html"
+        }
+      ],
+      "kind": "互动工坊"
+    }
+  ],
+  "layout_updated": "2026-10-21",
+  "revision": "2026-10-26: two galleries, concrete workstation, safety and maintenance"
+}

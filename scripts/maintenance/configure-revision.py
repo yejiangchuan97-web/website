@@ -1,0 +1,21 @@
+from pathlib import Path
+import json
+ROOT=Path(__file__).resolve().parents[2]
+def write(ident,data):
+    chapter=int(ident[-1]) if ident.startswith('overview') else int(ident.split('-')[0]);home=ROOT/f'course/chapters/{chapter:02d}'/('overview' if ident.startswith('overview') else 'tasks/'+ident)
+    src=home/'src';src.mkdir(parents=True,exist_ok=True)
+    data.update({'chapterTitle':{1:'第一章 · 走进智能建造',5:'第五章 · 主体结构施工',8:'第八章 · 安全操作与维护'}[chapter]})
+    (src/'config.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (src/'build.mjs').write_text("import {spawnSync} from 'node:child_process';\nimport {fileURLToPath} from 'node:url';\nconst script=fileURLToPath(new URL('"+('../../../../../' if ident.startswith('overview') else '../../../../../../')+"scripts/build-workshops.py',import.meta.url));\nconst result=spawnSync('python',[script,'"+ident+"'],{stdio:'inherit'});process.exit(result.status??1);\n",encoding='utf-8')
+machines=[('excavator','挖掘机','观察履带、回转平台、动臂、斗杆与铲斗怎样配合挖掘。','动臂抬升、斗杆伸收、铲斗收拢是不同动作；看完整结构，再看作业空间。'),('dozer','推土机','宽铲刀把土料向前推移，观察底盘与工作装置的分工。','推土与挖掘、装载的物料处理方式不同，不能只按是否有履带分类。'),('loader','装载机','观察轮式底盘、铰接车架、举升连杆与可翻转铲斗。','装载机通过铲取、举升和翻斗完成装料；铰接转向与铲斗翻转分开观察。'),('crane','塔式起重机','分别观察回转、变幅小车、吊钩和标准节塔身。','吊物路径和回转空间都需要关注。本展厅不计算吊载能力或现场安全距离。'),('pump','混凝土泵车','观察支腿、底盘、泵送装置、多节臂架与末端软管。','泵送是物料输送，布料是末端位置与覆盖；支腿结构示意不代表地基承载验算。'),('lift','施工升降机','沿导轨架观察吊笼升降、齿条驱动与吊笼门。','施工升降机沿导轨运行；具体载人或载物用途需看设备设计和许可。')]
+write('1-2',{'mode':'gallery','title':'工程机械三维展厅','kicker':'TASK 1-2 / MACHINERY GALLERY','lead':'六类代表设备。转动视角，找到工作装置，再单步观察典型动作。','boundary':'原创教学结构模型 · 展示部件与运动关系，不计算额定能力、地基承载或现场安全距离。','help':'选择设备，拖动旋转、缩放；点击部件标记查看作用，播放或单步观察。可随时复位。','items':[{'id':i,'machine':i,'title':t,'description':d,'application':a} for i,t,d,a in machines]})
+robots=[('crazyflie','无人机','四旋翼机架、旋翼与姿态预制演示。'),('iiwa','机械臂','观察安装基座、关节连杆与工具连接端。'),('g1','人形机器人','观察躯干、上肢和下肢机构，播放挥手等预制动作。'),('go2','机器狗','观察四足关节与足端，比较步态和屈腿动作。')]
+items=[{'id':i,'robot':i,'title':t,'description':d,'nature':'许可机型网格 · 预制运动学动作','license':f'shared/models/licenses/{i}.txt','application':'网格提取自原机器人图鉴，动作是作者编排的运动学演示，不代表真实控制性能。'} for i,t,d in robots]
+items.append({'id':'care','machine':'care','title':'护理辅助机器人','description':'通过托盘伸收、任务屏和呼叫灯，认识送物与呼叫服务。','nature':'原创教学概念模型','application':'仅展示院内送物与呼叫服务的概念结构，不冒充临床护理设备或医疗能力。'})
+write('1-3',{'mode':'gallery','title':'机器人三维展厅','kicker':'TASK 1-3 / ROBOTICS GALLERY','lead':'五种形态，五类任务。观察结构与预制动作，区分机型模型和教学概念。','boundary':'四款许可机型网格 + 一款原创护理辅助概念模型 · 所有动作均为教学演示。','help':'选择机器人，拖动观察结构，播放或单步查看动作。护理辅助展品是教学概念模型。','items':items})
+for ch,title,items,summary in [(1,'走进智能建造',[{'id':'1-2','machine':'excavator','title':'工程机械展厅','description':'六类设备的工作装置与典型动作。','entry':'course/chapters/01/tasks/1-2/index.html'},{'id':'1-3','machine':'care','title':'机器人展厅','description':'五类机器人形态与预制动作。','entry':'course/chapters/01/tasks/1-3/index.html'}],'从工作装置读懂施工动作，从结构与运动认识机器人形态。两座展厅可独立进入。'),(8,'安全操作与维护',[{'id':'8-1','machine':'excavator','title':'安全操作','description':'暂停现场、发现危险、处理与复查。','entry':'course/chapters/08/tasks/8-1/index.html'},{'id':'8-2','machine':'sprayer','title':'保养排查','description':'喷涂、泵车、发动机与轴承四个维护工位。','entry':'course/chapters/08/tasks/8-2/index.html'}],'看清危险与能量状态；按案例资料维护，用证据记录待处理事项。')]:
+    write(f'overview-{ch}',{'mode':'overview','title':f'第{ch}章 · {title}','kicker':f'CHAPTER {ch:02d} / WORKSTATIONS','lead':summary,'boundary':'课程展品为教学示意，可直接进入任意任务。','help':'选择展品，查看学习目标，再进入任务。','items':items,'summary':summary})
+write('5-3',{'mode':'concrete','title':'混凝土楼面 · 三道工序接力','kicker':'TASK 5-3 / CONCRETE WORKSHOP','lead':'在同一楼面观察泵送、振捣与整平。点进工位，操作部件，再回到楼面看结果。','boundary':'几何输送、覆盖和标高反馈为教学模拟；不计算真实流变、密实度、强度或工程验收结论。','help':'先布料，再在分区中振捣，最后调整激光基准并整平。每站可近看、单步和重置；观察模式可自由切换工序。'})
+write('8-1',{'mode':'safety','title':'安全操作 · 现场暂停推演','kicker':'TASK 8-1 / SITE SAFETY','lead':'暂停现场，找出六类危险。处理问题后复查，再区分复位与重新启动。','boundary':'危险区域与能量状态均为课堂案例，不给通用安全距离，也不生成真实作业放行。','help':'点击场景标记发现风险，按当前条件选择处理动作。急停复位不会自动启动；仍有待处理危险时不能重新运行。'})
+write('8-2',{'mode':'maintenance','title':'保养排查 · 班后维护工坊','kicker':'TASK 8-2 / MAINTENANCE WORKSHOP','lead':'喷涂、泵车、发动机与轴承四个工位。核对案例资料，再处理和复查。','boundary':'课堂设备与材料条件仅适用于当前案例；实际清洗剂、隔离、润滑品种与周期须按具体设备资料确认。','help':'选工位与案例，先检查状态，再核对资料和处理。堵塞、泄漏、材料不明等情况可以移交，未解决项目会保留。'})
+print('Configured five lessons and two chapter entrances')

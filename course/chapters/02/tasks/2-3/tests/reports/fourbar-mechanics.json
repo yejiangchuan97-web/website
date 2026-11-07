@@ -1,0 +1,21 @@
+{
+  "samples": 10744,
+  "maxForceError": 1.0251102761048552e-12,
+  "maxPowerError": 5.329070518200751e-15,
+  "maxVelocityError": 1.7106689398360686e-8,
+  "checks": [
+    "acute transmission and input angles",
+    "two-force member action/reaction",
+    "vector component closure and orthogonality",
+    "signed moments and mm-to-m units",
+    "input/output virtual power equality",
+    "finite difference speed ratio",
+    "load sign reversal",
+    "lever-arm distance to force line",
+    "reference output torque required force",
+    "A/B reverse-drive dead centers differ from small mu",
+    "rocker velocity reverses across A/B dead center",
+    "B/C tangent gives zero output torque",
+    "90-degree mu gives full tangential force"
+  ]
+}

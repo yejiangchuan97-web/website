@@ -1,0 +1,81 @@
+- generic [active] [ref=e1]:
+  - navigation "本章导航" [ref=e2]:
+    - link "← 第二章 · 动力与工作机构" [ref=e3] [cursor=pointer]:
+      - /url: ../course/chapters/02/overview/index.html
+    - generic [ref=e4]:
+      - link "2-1 动力装置的基本原理" [ref=e5] [cursor=pointer]:
+        - /url: ../course/chapters/02/tasks/2-1/index.html
+      - link "2-2 动力的传递与变换" [ref=e6] [cursor=pointer]:
+        - /url: ../course/chapters/02/tasks/2-2/index.html
+      - link "2-3 工作机构与施工动作" [ref=e7] [cursor=pointer]:
+        - /url: ../course/chapters/02/tasks/2-3/index.html
+  - banner [ref=e8]:
+    - link "动力传动实验室" [ref=e9] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e10]: ⚙
+      - generic [ref=e11]:
+        - text: 动力传动实验室
+        - generic [ref=e12]: MECHANICS / INTERACTIVE LAB
+    - navigation "装置切换" [ref=e13]:
+      - button "01机械传动" [ref=e14] [cursor=pointer]
+      - button "02液压推动" [ref=e15] [cursor=pointer]
+      - button "03气压推动" [ref=e16] [cursor=pointer]
+    - generic [ref=e17]:
+      - button "切换到深色背景" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: ☾
+        - generic [ref=e20]: 深色
+      - generic [ref=e21]:
+        - button "学习引导" [ref=e22] [cursor=pointer]
+        - button "操作说明" [ref=e23] [cursor=pointer]
+  - main [ref=e24]:
+    - region "三维模型视窗" [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: 动力传动 · 结构观察
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - button "正视" [ref=e30] [cursor=pointer]
+            - button "3D" [ref=e31] [cursor=pointer]
+            - button "⌂" [ref=e32] [cursor=pointer]
+          - button "全屏观察动力传动 · 结构观察" [ref=e33] [cursor=pointer]: ⛶ 全屏
+      - generic [ref=e34]:
+        - generic "可拖动旋转、滚轮缩放的三维机械模型" [ref=e35]
+        - group "常显组件名称"
+      - generic: 组件名称常显 · 拖动旋转 · 滚轮缩放
+    - complementary [ref=e37]:
+      - generic [ref=e38]: 观察与实验
+      - region "本实验的观察与操作" [ref=e40]:
+        - heading [level=2]
+        - paragraph
+        - list
+      - generic [ref=e41]:
+        - group [ref=e42]:
+          - generic "部件索引 · 点选近看" [ref=e43] [cursor=pointer]
+        - generic [ref=e44]:
+          - text: 装置设置
+          - generic [ref=e45]: 01 / TRANSMISSION
+        - generic [ref=e46]:
+          - strong [ref=e49]: 连续传动
+          - paragraph
+        - generic [ref=e50]:
+          - generic [ref=e51]: 工作原理
+          - strong
+          - paragraph
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]: 转速对比
+            - generic [ref=e55]: rpm
+          - generic "实时数据曲线" [ref=e56]
+  - contentinfo [ref=e57]:
+    - generic [ref=e58]:
+      - button "Ⅱ 暂停" [ref=e59] [cursor=pointer]
+      - button "单步 +0.1s" [ref=e60] [cursor=pointer]
+      - button "↺ 重置" [ref=e61] [cursor=pointer]
+    - generic [ref=e62]:
+      - generic [ref=e63]: 整体播放速率
+      - slider "整体播放速率" [ref=e64] [cursor=pointer]: "1"
+      - status [ref=e65]: 1.0×
+      - button "1×" [ref=e66] [cursor=pointer]
+    - generic [ref=e67]:
+      - generic [ref=e68]: 模拟时间
+      - strong [ref=e69]: 00:00.0
+      - generic [ref=e70]: 播放倍率不改变物理参数

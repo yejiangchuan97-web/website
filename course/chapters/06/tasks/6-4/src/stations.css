@@ -1,0 +1,84 @@
+/* 6-4：原页面控件搬进统一面板后的排版（原 style.css 按 328px 窄栏、8～11px 小字写的，这里统一到外壳字号） */
+html.lab-native .c2-panel .parameter { margin:0 0 4px !important; }
+html.lab-native .c2-panel .parameter > label,
+html.lab-native .c2-panel .guard-field label,
+html.lab-native .c2-panel .switch-row > span,
+html.lab-native .c2-panel .color-field { font-size:13.5px !important; font-weight:600; color:var(--course-ink); }
+html.lab-native .c2-panel .parameter output { font-size:13px !important; padding:2px 8px !important; border-radius:8px; color:var(--course-accent); background:var(--blue-soft); font-variant-numeric:tabular-nums; }
+html.lab-native .c2-panel .parameter input { width:100%; margin-top:2px !important; height:20px !important; }
+html.lab-native .c2-panel .range-bounds { display:none !important; }
+html.lab-native .c2-panel .plan-note {
+  margin:2px 0 0 !important; padding:8px 11px !important; border-radius:12px; font-size:12.5px !important; line-height:1.55 !important;
+  display:flex; justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:wrap;
+}
+html.lab-native .c2-panel .plan-note > span { display:inline !important; }
+html.lab-native .c2-panel .guard-field { border:0 !important; padding:0 !important; margin:0 0 4px !important; display:grid; grid-template-columns:auto 1fr; align-items:center; gap:10px; }
+html.lab-native .c2-panel .guard-field label { margin:0 !important; }
+html.lab-native .c2-panel .guard-field select { height:34px !important; font-size:13px !important; border-radius:10px; border:1px solid var(--hair) !important; background:var(--course-surface) !important; color:var(--course-ink); }
+html.lab-native .c2-panel .switches { display:block !important; padding:0 !important; }
+html.lab-native .c2-panel .switch-row { padding:6px 0 !important; border-bottom:0 !important; border-top:1px solid var(--hair); min-width:0 !important; }
+html.lab-native .c2-panel .switch-row small { display:none !important; }
+html.lab-native .c2-panel .switch-row input { width:34px !important; height:20px !important; }
+html.lab-native .c2-panel .switch-row input::after { width:16px !important; height:16px !important; }
+html.lab-native .c2-panel .switch-row input:checked { background:var(--course-accent) !important; }
+html.lab-native .c2-panel .switch-row input:checked::after { transform:translateX(14px) !important; }
+html.lab-native .c2-panel .color-field { padding:0 0 8px !important; }
+html.lab-native .c2-panel .color-swatches button { width:30px; height:30px; }
+
+/* 试喷记录、作业进度 */
+html.lab-native .c2-panel .record-card { margin:0 0 10px !important; padding:10px 12px !important; border-radius:12px; font-size:13px !important; line-height:1.6 !important; background:var(--surface-2); border:1px solid var(--hair); }
+html.lab-native .c2-panel .record-card p { margin:2px 0 0 !important; color:var(--course-muted); }
+html.lab-native .c2-panel .record-card strong { font-size:13.5px; }
+html.lab-native .c2-panel #retryTrial { height:34px; padding:0 14px; border-radius:10px; font-size:13.5px; font-weight:600; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); width:auto !important; }
+html.lab-native .c2-panel .c2-row { flex-wrap:wrap; }
+html.lab-native .c2-panel .playback { padding:0 !important; border:0 !important; display:block !important; }
+html.lab-native .c2-panel .progress-heading { font-size:13px !important; color:var(--course-muted); }
+html.lab-native .c2-panel .progress-heading #progressText { color:var(--course-accent); font-weight:700; font-variant-numeric:tabular-nums; }
+html.lab-native .c2-panel #progress { width:100%; margin:6px 0 8px !important; }
+html.lab-native .c2-panel .playback-bottom { display:flex !important; justify-content:flex-end !important; }
+html.lab-native .c2-panel .playback-bottom > span { display:none !important; }
+html.lab-native .c2-panel .playback-bottom > div { display:flex; gap:8px; }
+html.lab-native .c2-panel .playback-bottom select { height:34px; border-radius:10px; font-size:13px; padding:0 8px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); }
+html.lab-native .c2-panel #play { height:34px; padding:0 16px; border-radius:10px; font-size:13.5px; font-weight:600; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); }
+
+/* 墙面读数：三块等宽小方块 */
+html.lab-native .c2-panel .readouts { display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)) !important; gap:6px !important; }
+html.lab-native .c2-panel .readout { padding:8px 9px !important; border:1px solid var(--hair) !important; border-radius:12px; background:var(--surface-2); min-width:0; }
+html.lab-native .c2-panel .readout + .readout { border-left:1px solid var(--hair) !important; padding-left:9px !important; }
+html.lab-native .c2-panel .readout > span { font-size:12px !important; color:var(--course-muted); }
+html.lab-native .c2-panel .readout strong { font-size:20px !important; margin-top:4px !important; font-weight:650 !important; letter-spacing:0 !important; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace !important; color:var(--course-ink); }
+
+/* 巡检清单与返修 */
+html.lab-native .c2-panel .issue-list { gap:6px !important; }
+html.lab-native .c2-panel .issue-summary { font-size:12.5px !important; line-height:1.55 !important; margin:0 0 2px; color:var(--course-muted); }
+html.lab-native .c2-panel .issue-list > button { padding:8px 11px !important; border-radius:12px !important; font-size:13px !important; line-height:1.45 !important; border:1px solid var(--hair) !important; background:var(--course-surface) !important; color:var(--course-ink); }
+html.lab-native .c2-panel .issue-list > button:hover { border-color:var(--course-accent) !important; }
+html.lab-native .c2-panel .issue-item b { font-size:13px !important; }
+html.lab-native .c2-panel .issue-item small { font-size:11.5px !important; margin-top:1px !important; }
+html.lab-native .c2-panel .repair-actions { grid-template-columns:1fr 1fr; gap:6px !important; margin-top:8px !important; }
+html.lab-native .c2-panel .repair-actions button, html.lab-native .c2-panel #export {
+  min-height:34px; padding:4px 10px; border-radius:10px; font-size:13px; font-weight:600; white-space:normal; line-height:1.3;
+  border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink);
+}
+html.lab-native .c2-panel :is(.repair-actions button, #export, #retryTrial, #play):hover:not(:disabled) { border-color:var(--course-accent); color:var(--course-accent); }
+html.lab-native .c2-panel :is(.repair-actions button, #export, #retryTrial, #play):disabled { opacity:.45; cursor:not-allowed; }
+html.lab-native .c2-panel #export { width:100%; }
+html.lab-native .c2-panel #deliverySummary small { display:block; color:var(--course-muted); font-size:11.5px; }
+
+/* 未解锁的工位 */
+.c64-lock { display:grid; justify-items:center; gap:10px; padding:26px 16px; text-align:center; border:1px dashed var(--hair); border-radius:16px; background:var(--surface-2); }
+.c64-lock p { margin:0; font-size:14px; color:var(--course-muted); line-height:1.6; }
+.c64-lock-icon { font-size:26px; }
+.c64-content { display:contents; }
+.c64-content[hidden] { display:none !important; }
+
+/* 三维区里原有的小读数与提示：字号放大到可读 */
+html.lab-native .c2-view .view-switch button { font-size:12.5px !important; padding:5px 11px !important; }
+html.lab-native .c2-view .hud-toggle { font-size:12.5px; }
+html.lab-native .c2-view .scene-live { font-size:12px !important; padding:7px 11px !important; border-radius:10px; }
+html.lab-native .c2-view .orbit-hint { font-size:11px !important; }
+html.lab-native .c2-view .orbit-hint #tcp { font-size:11px !important; }
+html.lab-native .c2-view .inspection-legend { font-size:12px !important; bottom:92px; }
+
+/* 三维区：左下角的操作提示与外壳的一次性提示重复，去掉；喷枪位置读数保留 */
+html.lab-native .orbit-hint > :is(svg, span:not(#tcp)) { display:none !important; }

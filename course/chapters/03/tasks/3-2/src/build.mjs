@@ -1,0 +1,11 @@
+import {chapterLayout} from '../../../../../../shared/机器人构型与运动/src/chapter-layout.mjs';
+import {fileURLToPath as __taskFileURL} from 'node:url';
+const __taskFile=p=>__taskFileURL(new URL(p,import.meta.url));
+import {readFileSync,writeFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+const read=f=>readFileSync(new URL(f,import.meta.url),'utf8');
+let html=read("./page.html").replace('/*STYLES*/',()=>read("./style.css")+'\n'+read("./screen-layout.css"));
+for(const [mark,file] of [['THREE',"../../../../../../shared/vendor/three-r160.min.js"],['MODEL','model.js'],['ARM',"../../../../../../shared/robot-arm/six-axis-arm.js"],['APP','app.js']])html=html.replace(`/*${mark}*/`,()=>read(file).replace(/<\/script/gi,'<\\/script'));
+html=html.replace('href="../../README.md"','href="../index.html#chapter-3"');
+writeFileSync(new URL("../index.html",import.meta.url),chapterLayout(html,"3-2"));
+console.log('Built',__taskFile("../index.html"),html.length,'characters');

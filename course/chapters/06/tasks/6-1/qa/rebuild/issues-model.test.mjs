@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {issueScene} from '../../src/issues-model.mjs';
+test('mortar disturbance changes actual beds and the three-joint top elevation',()=>{const s=issueScene('mortar',4);assert.equal(s.metric,12);const upper=s.bricks.filter(b=>b.z>0&&b.selected);assert(upper.every(b=>b.mortar===14));assert.equal(Math.max(...upper.map(b=>b.z+b.h)),254);assert.equal(Math.max(...s.bricks.filter(b=>!b.selected).map(b=>b.z+b.h)),242);});
+test('datum movement keeps a fixed observation length and moves only the masonry',()=>{const a=issueScene('datum',0),b=issueScene('datum',18);assert.equal(a.length,990);assert.equal(b.length,990);assert.equal(a.bricks.length,b.bricks.length);a.bricks.forEach((q,i)=>{assert.equal(b.bricks[i].x-q.x,18);assert.equal(b.bricks[i].z,q.z);});});
+test('both flawed and corrected bonds preserve physical bounds and thickness',()=>{for(const amount of[0,5,10,62.5]){const s=issueScene('joints',amount);assert(s.bricks.every(b=>b.x>=0&&b.x+b.w<=990&&b.y>=0&&b.y+b.d<=240&&b.h===53));}});

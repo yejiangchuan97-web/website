@@ -1,0 +1,13 @@
+const task=await taskSpace(3),page=task.page('p1');
+await page.click('[data-tab="crane"]');await page.waitForFunction(()=>GalleryLab.state().selected==='crane'&&!GalleryLab.state().loading);
+await page.click('[data-focus="hook"]');await page.focus('#joint-hoist');await page.press('#joint-hoist','End');
+console.log('MACHINE',await page.evaluate(()=>({lesson:LessonLab.state(),errors:__learningErrors})));
+await page.goto('http://127.0.0.1:8873/course/chapters/01/tasks/1-3/index.html');
+await page.waitForFunction(()=>!!window.LessonLab);
+await page.click('#trial-start');await page.click('#trial-jog');await page.click('#trial-disturb');await page.click('#trial-stop');
+await page.click('[data-control-mode="program"]');await page.click('#trial-start');await page.click('#trial-disturb');await page.click('#trial-step');
+await page.click('[data-control-mode="feedback"]');await page.click('#trial-start');await page.click('#trial-disturb');
+console.log('FEEDBACK PAUSE',await page.evaluate(()=>LessonLab.state()));
+await page.click('#trial-restore');await page.click('#trial-ack');await page.click('#trial-start');
+console.log('RECOVERY',await page.evaluate(()=>({state:LessonLab.state(),errors:__learningErrors})));
+console.log(await page.snapshot());

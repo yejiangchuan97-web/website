@@ -1,0 +1,12 @@
+[
+ ["eval","window.layoutCheck=()=>{const c=document.querySelector('.controls'),r=c.getBoundingClientRect(),f=document.querySelector('#feedback').getBoundingClientRect(),v=[innerWidth,innerHeight];if(c.scrollHeight>c.clientHeight+1)throw new Error('Panel overflow '+sandingLab.state.tab+' '+c.scrollHeight+'/'+c.clientHeight);if(f.bottom>r.bottom-5)throw new Error('Feedback clipped');if(document.documentElement.scrollHeight>innerHeight||document.documentElement.scrollWidth>innerWidth)throw new Error('Page overflow');return {tab:sandingLab.state.tab,viewport:v,panel:c.scrollHeight}};layoutCheck()"],
+ ["click","[data-tab=surface]"],
+ ["eval","layoutCheck()"],
+ ["click","[data-tab=dust]"],
+ ["eval","layoutCheck()"],
+ ["click","[data-tab=care]"],
+ ["eval","layoutCheck()"],
+ ["click","#theme"],
+ ["wait",300],
+ ["shot","qa/layout-dark.png","#app",1]
+]

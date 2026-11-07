@@ -1,0 +1,22 @@
+[
+ ["click","[data-tab=care]"],
+ ["click","#rakingLight"],
+ ["click","#straightedge"],
+ ["click","[data-diagnosis='0:0']"],
+ ["click","[data-diagnosis='1:1']"],
+ ["click","[data-diagnosis='2:0']"],
+ ["eval","if(sandingLab.state.inspected.some(x=>!x))throw new Error('mobile diagnosis failed');const a=document.querySelector('.scene-area'),s=document.querySelector('#careScene');if(s.scrollHeight>a.clientHeight)throw new Error('care scene overflow '+s.scrollHeight+'/'+a.clientHeight);({scene:[s.clientHeight,s.scrollHeight],viewport:[innerWidth,innerHeight]})"],
+ ["shot","qa/mobile-care-fixed.png","#app",1],
+ ["click","#mobileToggle"],
+ ["click","[data-maintenance=stop]"],
+ ["click","[data-maintenance=extract]"],
+ ["click","[data-maintenance=isolate]"],
+ ["click","[data-maintenance=abrasive]"],
+ ["click","[data-maintenance=checkFilter]"],
+ ["click","[data-maintenance=cleanBody]"],
+ ["click","[data-maintenance=record]"],
+ ["click","#submitCare"],
+ ["eval","if(!sandingLab.state.done.care)throw new Error('mobile care failed');const c=document.querySelector('.controls');if(c.scrollHeight>c.clientHeight+1)throw new Error('controls overflow');'mobile care passed'"],
+ ["click","#mobileToggle"],
+ ["shot","qa/mobile-care-complete.png","#app",1]
+]

@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/vmc-motion/cet200",
+  "commit": "8ce4c1428d615079c480185eeef77c54f00d5c6a",
+  "file": "exchange_formats/cet200.glb",
+  "author": "VMC Motion Technologies Co., Ltd.",
+  "license": "Apache-2.0",
+  "retrieved": "2026-11-01",
+  "changes": "Original GLB bytes retained. Runtime: assemble original track belts at idler axles, omit collision-only objects, adjust display colors, add observation and slew binding. Fictional CET200 model; no AGX runtime used."
+}

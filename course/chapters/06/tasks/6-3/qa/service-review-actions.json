@@ -1,0 +1,7 @@
+[
+  ["lines", "qa/service-reviewed-lines-light.png", ".iso-plate"],
+  ["shot", "qa/service-reviewed-closeup-light.png", ".iso-plate", 4, [250, 50, 500, 420]],
+  ["eval", "document.body.dataset.theme='dark'"],
+  ["lines", "qa/service-reviewed-lines-dark.png", ".iso-plate"],
+  ["shot", "qa/service-reviewed-closeup-dark.png", ".iso-plate", 4, [250, 50, 500, 420]]
+]

@@ -1,0 +1,76 @@
+- generic [active] [ref=f1e1]:
+  - navigation "本章导航" [ref=f1e2]:
+    - link "← 第一章 · 走进智能建造" [ref=f1e3] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/overview/index.html
+    - link "1-2 认识施工机械：从作业到装置" [ref=f1e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-2/index.html
+    - link "1-3 认识施工机器人：反馈与人机分工" [ref=f1e5] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-3/index.html
+    - button "切换深色" [ref=f1e6] [cursor=pointer]
+  - main [ref=f1e7]:
+    - generic [ref=f1e8]:
+      - generic [ref=f1e9]:
+        - text: CHAPTER 01 / WORKSTATIONS
+        - heading "第1章 · 走进智能建造" [level=1] [ref=f1e10]
+        - paragraph [ref=f1e11]: 从施工任务认用途，再以反馈证据判断设备能力，最后说明人要负责什么。
+      - generic [ref=f1e12]:
+        - button "操作说明" [ref=f1e13] [cursor=pointer]
+        - button "⛶ 全屏" [ref=f1e14] [cursor=pointer]
+    - navigation "工位选择" [ref=f1e15]:
+      - button "01 1-2 从作业到装置" [pressed] [ref=f1e16] [cursor=pointer]:
+        - generic [ref=f1e17]: "01"
+        - generic [ref=f1e18]: 1-2 从作业到装置
+      - button "02 1-3 反馈与人机分工" [ref=f1e19] [cursor=pointer]:
+        - generic [ref=f1e20]: "02"
+        - generic [ref=f1e21]: 1-3 反馈与人机分工
+    - generic [ref=f1e22]:
+      - generic [ref=f1e23]:
+        - generic [ref=f1e24]:
+          - generic [ref=f1e25]: 1-2 从作业到装置 · 教学结构模型
+          - generic [ref=f1e26]:
+            - button "全景" [ref=f1e27] [cursor=pointer]
+            - button "近看" [ref=f1e28] [cursor=pointer]
+            - button "俯视" [ref=f1e29] [cursor=pointer]
+        - generic "拖动旋转，滚轮缩放；方向键调整视角，Home 复位" [ref=f1e30]:
+          - button "履带行走部" [ref=f1e32] [cursor=pointer]
+          - button "动力与配重" [ref=f1e33] [cursor=pointer]
+          - button "驾驶室" [ref=f1e34] [cursor=pointer]
+          - button "动臂" [ref=f1e35] [cursor=pointer]
+          - button "斗杆" [ref=f1e36] [cursor=pointer]
+          - button "铲斗与斗齿" [ref=f1e37] [cursor=pointer]
+        - generic [ref=f1e38]:
+          - generic [ref=f1e39]:
+            - text: 已观察展品
+            - strong [ref=f1e40]: 1 / 2
+            - emphasis [ref=f1e41]: 可直接进入各任务
+          - generic [ref=f1e42]:
+            - text: 动作状态
+            - strong [ref=f1e43]: 已暂停
+            - emphasis [ref=f1e44]: 预制动作或几何示意
+          - generic [ref=f1e45]:
+            - text: 当前部件
+            - strong [ref=f1e46]: 整机
+            - emphasis [ref=f1e47]: 点击展品进入课堂
+        - generic [ref=f1e48]:
+          - generic [ref=f1e49]: 拖动旋转 · 滚轮缩放 · 点击部件
+          - generic [ref=f1e50]: 三维观察
+      - complementary "操作与状态" [ref=f1e51]:
+        - generic [ref=f1e52]: 章节入口
+        - heading "1-2 从作业到装置" [level=2] [ref=f1e53]
+        - paragraph [ref=f1e54]: 读作业、找装置、试动作，形成“装置—动作—用途”说明。
+        - generic [ref=f1e55]:
+          - link "进入 1-2 从作业到装置 ↗" [ref=f1e56] [cursor=pointer]:
+            - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-2/index.html
+          - button "播放展品" [ref=f1e57] [cursor=pointer]
+        - status [ref=f1e58]: 读作业、找装置、试动作，形成“装置—动作—用途”说明。
+        - generic [ref=f1e60]:
+          - heading "章导入：为什么需要机器接手某些动作" [level=3] [ref=f1e61]
+          - text: 从“危、繁、脏、重”情境出发，指出要改变的具体动作，再讨论设备接手什么、人要核对和处理什么。
+          - heading "两项任务怎样衔接" [level=3] [ref=f1e62]
+          - text: 1-2 用“装置—动作—用途”说明选机；1-3 保持同一扰动，比较谁控制、谁依据反馈判断，以及异常后怎样恢复。
+          - heading "本章交付" [level=3] [ref=f1e63]
+          - text: 机械用途记录、控制方式对照说明、结构适配与能力缺口观察。记录支持讨论，不以观看模型数量评价学习。
+    - generic [ref=f1e64]:
+      - generic [ref=f1e65]: 课程展品为教学示意，可直接进入任意任务。
+      - link "课程总览 ↗" [ref=f1e66] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/home/index.html#chapter-1

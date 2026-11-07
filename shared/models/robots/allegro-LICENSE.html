@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Allegro 机械手 · 模型来源与许可</title><style>body{max-width:860px;margin:40px auto;padding:0 24px;font:16px/1.8 system-ui,sans-serif;color:#18354e;background:#f4f8fc}h1,h2{line-height:1.3}a{color:#216ba6}pre{white-space:pre-wrap;padding:20px;border:1px solid #bed2e3;background:white;font-size:13px}code{overflow-wrap:anywhere}</style></head><body><main><p><a href="../../../course/chapters/01/tasks/1-3/index.html">← 返回机器人展厅</a></p><h1>Allegro Hand V3 四指机械手</h1><p>机型由 Wonik Robotics 开发。本展品采用 Google DeepMind 的 MuJoCo Menagerie 所收录的模型，源描述由 SimLab 的公开 URDF 衍生，采用 BSD-2-Clause 许可。</p><ul><li><a href="https://github.com/google-deepmind/mujoco_menagerie/tree/71f066ad0be9cd271f7ed58c030243ef157af9f4/wonik_allegro">固定版本的模型来源</a></li><li><a href="allegro-source/README.md">上游说明原文</a> · <a href="allegro-source/right_hand.xml">原始 MJCF</a> · <a href="allegro-source/source.json">来源版本与文件 SHA-256</a></li><li><a href="../licenses/allegro.txt">原始 BSD-2-Clause 许可文本</a></li></ul><h2>本课程做了什么</h2><p>保留原始 STL 表面网格和 MJCF 指节连接、关节轴及约束范围，将其转换为离线 GLB。展台采用统一缩放并调整整体朝向，使掌部竖直便于观察；未用新几何替代原始手指。添加四指张合与依次活动的预制动画、四个弯曲滑块、部件观察点和总成展开。展开是连接关系观察，不代表拆卸步骤。</p><p>滑块的百分比是课程编排的动作量，多个关节按预设关系联动。页面没有执行物理仿真、力控、接触检测或现场测量，不表示真实抓握力、真实控制效果或施工适用性。</p><p>离线重建：<code>python scripts/build-allegro-hand.py</code>（仅使用 Python 标准库）。源文件与许可证保存在 <code>shared/models/robots/allegro-source/</code>，无在线运行依赖。来源核对日期：2026-11-04。</p><h2>保留的许可原文</h2><pre>Copyright (c) 2016, SimLab
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</pre></main></body></html>

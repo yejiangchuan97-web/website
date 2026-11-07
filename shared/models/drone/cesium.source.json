@@ -1,0 +1,30 @@
+{
+  "id": "cesium",
+  "title": "Cesium Drone",
+  "author": "Analytical Graphics, Inc.; mesh and textures by Ed Mackey",
+  "source": "https://github.com/CesiumGS/cesium/blob/fe279058966b376313914fb1cef051b6d9419429/Apps/SampleData/models/CesiumDrone/CesiumDrone.glb",
+  "licenseId": "CC-BY-4.0",
+  "file": "shared/models/drone/cesium.glb",
+  "runtime": "shared/models/drone/cesium.data.js",
+  "license": "shared/models/drone/LICENSE.html",
+  "provenance": "shared/models/drone/cesium.source.json",
+  "sha256": "77e8a8cfa4763ec83097f492cd48b2143e9c40797ff7211d5752604a35ac3d9d",
+  "bytes": 1169536,
+  "download": "https://raw.githubusercontent.com/CesiumGS/cesium/fe279058966b376313914fb1cef051b6d9419429/Apps/SampleData/models/CesiumDrone/CesiumDrone.glb",
+  "revision": "fe279058966b376313914fb1cef051b6d9419429",
+  "assetMetadata": {
+    "copyright": "Copyright 2017, 2018 Analytical Graphics, Inc., CC-BY 4.0 https://creativecommons.org/licenses/by/4.0/ - Mesh and textures by Ed Mackey.",
+    "generator": "Khronos Blender glTF 2.0 exporter",
+    "version": "2.0"
+  },
+  "licenseEvidence": "Original GLB JSON asset.copyright explicitly names CC-BY 4.0, Analytical Graphics, Inc., and Ed Mackey. The repository code license does not supersede this asset-specific license.",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "changes": [
+    "The source GLB is preserved byte-for-byte with all original meshes, UVs, materials and embedded textures.",
+    "Runtime adds part observation anchors, reversible assembly separation, uniform display scale and slow propeller rotation around original source node pivots.",
+    "Propeller animation is a classroom viewing aid; no flight dynamics, thrust, autonomous navigation or performance claims."
+  ],
+  "sourceNodeCount": 12,
+  "sourceMeshCount": 7,
+  "sourceImageCount": 3
+}

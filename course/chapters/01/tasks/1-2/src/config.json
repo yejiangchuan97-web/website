@@ -1,0 +1,60 @@
+{
+  "mode": "gallery",
+  "title": "认识施工机械",
+  "kicker": "TASK 1-2 / CONSTRUCTION MACHINERY",
+  "lead": "选择一种施工机械，旋转查看结构，播放动作或单独调节部件。",
+  "boundary": "外部模型与共用教学模型 · 机构动作为课堂绑定，模型来源与许可见各展品说明。",
+  "help": "点击上方名称切换展品。拖动模型旋转视角，滚轮缩放；点击部件编号或右侧部件索引查看结构。播放、暂停、单步和时间轴用于观察动作；在“结构观察”中展开总成、近看部件，点击复位恢复整机。",
+  "items": [
+    {
+      "id": "excavator",
+      "title": "挖掘机",
+      "description": "查看履带、驾驶室、动臂与铲斗，转动回转平台观察上下车结构。",
+      "application": "VMC Motion Technologies 的 CET200 开源工程模型（Apache-2.0），为虚构机型。保留原模型驾驶室、护栏、液压装置和铲斗，复用作者履带网格；展示配色与回转为课程适配。动臂与铲斗保持原装配姿态。",
+      "asset": "excavator",
+      "license": "shared/models/machinery/LICENSE.html"
+    },
+    {
+      "id": "dozer",
+      "title": "推土机",
+      "description": "观察完整履带、封闭驾驶室、弧形铲刀与 C 形推架，调节铲刀抬升。",
+      "application": "VMC Motion Technologies 的 CDZ200L 开源工程模型（Apache-2.0），为虚构机型。保留原始 CAD 网格，按真实连接销绑定课堂铲刀提升和双侧液压缸；转角与倾斜机构保持作者初始姿态。",
+      "license": "shared/models/dozer/LICENSE.html",
+      "dozer": "cdz200l",
+      "subtitle": "VMC MOTION CDZ200L"
+    },
+    {
+      "id": "loader",
+      "title": "装载机",
+      "description": "观察轮式底盘、铰接车架、举升连杆与可翻转铲斗。",
+      "application": "Innerscene 原始 CC0 网格。课堂绑定工作臂举升、铲斗收拢与液压缸联动；车架保持原始装配姿态。",
+      "asset": "loader",
+      "license": "shared/models/machinery/LICENSE.html"
+    },
+    {
+      "id": "crane",
+      "title": "塔式起重机",
+      "description": "转动起重臂，查看桁架塔身、平衡臂、配重和吊钩总成。",
+      "application": "Innerscene 原始 CC0 网格。课堂绑定起重臂回转；小车与吊钩保留原始装配姿态，不计算载荷或安全距离。",
+      "asset": "crane",
+      "license": "shared/models/machinery/LICENSE.html"
+    },
+    {
+      "id": "pump",
+      "machine": "pump",
+      "title": "混凝土泵车",
+      "description": "观察支腿、底盘、泵送装置、多节臂架与末端软管。",
+      "application": "泵送是物料输送，布料是末端位置与覆盖；支腿结构示意不代表地基承载验算。 本展品复用第五章泵送课程使用的公共模型。"
+    },
+    {
+      "id": "lift",
+      "machine": "lift",
+      "title": "施工升降机",
+      "description": "沿导轨架观察吊笼升降、齿条驱动与吊笼门。",
+      "application": "施工升降机沿导轨运行；具体载人或载物用途需看设备设计和许可。"
+    }
+  ],
+  "chapterTitle": "第一章 · 走进智能建造",
+  "tabLabel": "施工机械展品",
+  "layout": "gallery-workstation"
+}

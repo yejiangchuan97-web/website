@@ -1,0 +1,9 @@
+[
+  ["assert", "document.querySelectorAll('svg path').length > 40", "Detailed SVG geometry exists"],
+  ["move", ".iso-plate", 0.8, 0.5],
+  ["wait", 400],
+  ["eval", "document.querySelector('[data-readout]')?.textContent"],
+  ["key", "ArrowLeft", "[tabindex='0']"],
+  ["wait", 400],
+  ["assert", "document.querySelector('[data-readout]')?.textContent?.length > 0", "Live readout is populated"]
+]

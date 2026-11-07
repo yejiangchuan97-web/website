@@ -1,0 +1,104 @@
+/* 5-2：三维区里的原叠加层贴近边缘 */
+html.lab-native .scene-top { top:14px; left:16px; right:16px; justify-content:flex-end; }
+html.lab-native .view-tools { left:16px; bottom:44px; }
+html.lab-native .scene-bottom { left:16px; right:16px; bottom:14px; }
+
+/* 5-2：面板里的原控件改用外壳的蓝白配色（三维区里的标记颜色保持原样，与模型一致） */
+html.lab-native .c2-panel {
+  --teal:var(--course-accent); --teal-dark:var(--course-accent); --teal-soft:var(--blue-soft);
+  --line:var(--hair); --surface:var(--course-surface); --soft:var(--surface-2);
+  --secondary:var(--course-muted); --muted:var(--course-muted); --ink:var(--course-ink);
+}
+html.lab-native .c2-panel :is(p, h3, strong, small, span) { margin:0; }
+html.lab-native .c2-panel .button {
+  min-height:36px; padding:0 14px; border-radius:10px; font-size:13px; font-weight:600; gap:6px; cursor:pointer;
+}
+html.lab-native .c2-panel .button svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+html.lab-native .c2-panel .button.primary { border:0; color:#fff; background:linear-gradient(135deg,#3a82e4,#1f5bbd); box-shadow:0 4px 12px rgba(36,103,201,.24); }
+html[data-theme="dark"].lab-native .c2-panel .button.primary { background:linear-gradient(135deg,#8abaff,#5f97ea); color:#0f1d2e; }
+html.lab-native .c2-panel .button.primary kbd { color:inherit; opacity:.7; border-color:currentColor; font-size:11px; }
+html.lab-native .c2-panel .button.secondary { border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); box-shadow:var(--shadow-sm); }
+html.lab-native .c2-panel .button.secondary:hover:not(:disabled) { border-color:var(--course-accent); color:var(--course-accent); background:var(--course-surface); }
+html.lab-native .c2-panel .button:disabled { opacity:.45; cursor:not-allowed; }
+
+/* 交点 A–D */
+html.lab-native .c2-panel .point-list { gap:6px; }
+html.lab-native .c2-panel .point-list button { padding:7px 2px 6px; gap:3px; border-radius:10px; cursor:pointer; }
+html.lab-native .c2-panel .point-list button > span { font-size:15px; }
+html.lab-native .c2-panel .point-list button > small { font-size:11.5px; }
+html.lab-native .c2-panel .point-list button.done { background:var(--good-soft, #eaf7ef); border-color:#b9dfc6; }
+html.lab-native .c2-panel .point-list button.done > :is(span, small) { color:var(--good, #23834a); }
+html.lab-native .c2-panel .point-list button.marked { background:var(--warn-soft, #fdf3e6); border-color:#ecc794; }
+html.lab-native .c2-panel .point-list button.marked > :is(span, small) { color:#a8641c; }
+html.lab-native .c2-panel .point-list button.active { box-shadow:0 0 0 1px var(--course-accent) inset; }
+
+/* 微调枪口：方向盘缩小，对点状态放在右侧 */
+html.lab-native .c2-panel .align-card { margin:0; padding:0; border:0; }
+html.lab-native .c2-panel .align-card > .section-heading { display:none; }
+html.lab-native .c2-panel .alignment-controls { margin:0; gap:14px; }
+html.lab-native .c2-panel .dpad { width:96px; height:96px; }
+html.lab-native .c2-panel .dpad button { border-radius:8px; cursor:pointer; }
+html.lab-native .c2-panel .aim-status { gap:2px; }
+html.lab-native .c2-panel .aim-status .status-label { font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-panel .aim-status strong { font-size:15px; line-height:1.5; }
+html.lab-native .c2-panel .aim-status p { font-size:12px; line-height:1.5; }
+html.lab-native .c2-panel .action-group { margin:10px 0 0; gap:6px; }
+
+/* 进度：计数和动作进度并排 */
+html.lab-native .c2-panel .c52-deck { display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:16px; row-gap:6px; align-items:center; }
+html.lab-native .c2-panel .c52-deck > h3 { grid-column:1 / -1; }
+html.lab-native .c2-panel .c52-metrics { display:flex; gap:16px; }
+html.lab-native .c2-panel .metric > span { font-size:12px; color:var(--course-muted); }
+html.lab-native .c2-panel .metric > div { margin-top:0; }
+html.lab-native .c2-panel .metric strong { font-size:24px; color:var(--course-ink); }
+html.lab-native .c2-panel .metric:nth-child(2) strong { color:#c27a2c; }
+html.lab-native .c2-panel .cycle-monitor { padding:0 0 0 16px; }
+html.lab-native .c2-panel .cycle-heading, html.lab-native .c2-panel .cycle-heading strong { font-size:12px; }
+html.lab-native .c2-panel .cycle-track { margin-top:8px; height:5px; }
+html.lab-native .c2-panel .cycle-phases { margin-top:5px; font-size:11px; }
+
+/* 人工复核 */
+html.lab-native .c2-panel .safe-card { margin:0 0 6px; padding:10px 12px; border-radius:10px; background:var(--blue-soft); align-items:flex-start; }
+html.lab-native .c2-panel .safe-card > svg { color:var(--course-accent); fill:none; stroke:currentColor; stroke-width:2; }
+html.lab-native .c2-panel .safe-card :is(strong, p) { font-size:12.5px; line-height:1.55; }
+html.lab-native .c2-panel #review-safe { width:100%; }
+html.lab-native .c2-panel .observation-card { margin:8px 0 0; padding:10px 12px; border-radius:10px; display:flex; flex-direction:column; gap:6px; text-align:left; width:100%; cursor:pointer; }
+html.lab-native .c2-panel .observation-card .section-heading { margin:0; }
+html.lab-native .c2-panel .observation-card .section-heading svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; }
+html.lab-native .c2-panel #review-observation { font-size:12.5px; line-height:1.6; color:var(--course-ink); }
+html.lab-native .c2-panel .inspection-checks { margin:0; padding-top:6px; }
+html.lab-native .c2-panel .inspection-checks span { font-size:12px; }
+html.lab-native .c2-panel .complete-card { padding:6px 0; }
+html.lab-native .c2-panel .complete-card h3 { font-size:16px; margin:4px 0; }
+html.lab-native .c2-panel .complete-card p { font-size:12.5px; margin-bottom:8px; }
+html.lab-native .c2-panel .complete-icon svg { width:26px; height:26px; fill:none; stroke:var(--good, #23834a); stroke-width:2.4; }
+
+/* 看懂这一扣 */
+html.lab-native .c2-panel .study-focus { margin:0 0 10px; border-left-color:var(--course-accent); }
+html.lab-native .c2-panel .study-focus .eyebrow { display:none; }
+html.lab-native .c2-panel .study-focus h3 { font-size:15px; line-height:1.5; margin:0; }
+html.lab-native .c2-panel .study-focus p { font-size:12.5px; line-height:1.6; margin-top:4px; }
+html.lab-native .c2-panel .study-player input[type="range"] { margin:4px 0 10px; accent-color:var(--course-accent); }
+html.lab-native .c2-panel .playback-row .button { width:auto; min-height:34px; }
+html.lab-native .c2-panel .playback-row .icon-button { width:34px; height:34px; border-radius:10px; border:1px solid var(--hair); background:var(--course-surface); color:var(--course-ink); display:grid; place-items:center; cursor:pointer; }
+html.lab-native .c2-panel .playback-row .icon-button svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; }
+html.lab-native .c2-panel .playback-row > strong { font-size:13px; }
+html.lab-native .c2-panel .fault-lab { margin:0; padding:0; border:0; }
+html.lab-native .c2-panel .fault-lab > .section-heading { display:none; }
+html.lab-native .c2-panel .fault-lab > p:not(.fault-feedback) { font-size:12.5px; margin:0 0 8px; }
+html.lab-native .c2-panel .fault-lab .button { background:var(--warn-soft, #fdf3e6); border-color:#ecc794; color:#9b5f1d; box-shadow:none; }
+html[data-theme="dark"].lab-native .c2-panel .fault-lab .button { background:#47392a; border-color:#7a5d3a; color:#f0c995; }
+html.lab-native .c2-panel .fault-actions { margin-top:8px; gap:5px; }
+html.lab-native .c2-panel .fault-step { padding:7px 10px; font-size:12.5px; border-radius:9px; background:var(--course-surface); cursor:pointer; }
+html.lab-native .c2-panel .fault-step:disabled { opacity:.5; cursor:not-allowed; }
+html.lab-native .c2-panel .fault-lab .fault-feedback { margin-top:8px; font-size:12.5px; line-height:1.55; color:var(--course-accent); }
+/* 复核全部完成：和原页面一样只留完成卡 */
+body[data-stage="done"].lab-native .c2-panel .c2-group:has(.safe-card),
+html.lab-native body[data-stage="done"] .c2-panel .c2-group:has(.safe-card),
+html.lab-native body[data-stage="done"] .c2-panel :is(#review-closeup, .action-group:has(#pull)) { display:none; }
+
+/* 面板末尾的一句范围说明 */
+html.lab-native .c2-panel .c52-scope { margin:2px 0 0; padding-top:10px; border-top:1px solid var(--hair); font-size:11.5px; line-height:1.6; color:var(--course-muted); }
+
+/* 看法按钮放到三维区左上角（右上角是全屏按钮） */
+html.lab-native #scene-shell .scene-top { justify-content:flex-start; right:60px; }

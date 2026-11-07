@@ -1,0 +1,110 @@
+/* 1600 × 900 exhibition. Only the inspector scrolls when necessary. */
+body.gallery-page{height:100dvh;overflow:hidden;background:#dce7ef}
+#gallery-frame{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--gallery-scale,1));transform-origin:center;background:var(--bg);overflow:hidden}
+#gallery-frame .course-nav{height:54px;min-height:54px;padding:0 30px;font-size:12px}
+.gallery-page #gallery-frame .workshop{width:100%;height:846px;min-height:0;max-height:none;padding:20px 30px 12px;display:grid;grid-template-rows:80px 58px minmax(0,1fr) 30px;gap:14px}
+.gallery-page #gallery-frame .heading{margin:0;align-items:center}
+.gallery-page #gallery-frame .heading h1{font-size:30px;margin:6px 0}
+.gallery-page #gallery-frame .heading p{margin:0;font-size:12px}
+.gallery-page #gallery-frame .tabs{display:grid!important;grid-template-columns:repeat(var(--exhibit-count),minmax(0,1fr));margin:0;gap:9px}
+.gallery-page #gallery-frame .tabs button{min-height:0;height:58px;padding:8px 12px;border-radius:7px}
+.gallery-page #gallery-frame .tabs b{font-size:13px}
+.gallery-page #gallery-frame .tabs svg{width:32px;height:31px}
+.gallery-page #gallery-frame .work-area{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:18px;height:100%;min-height:0;margin:0}
+.gallery-page #gallery-frame .viewport-panel{height:100%;min-height:0;overflow:hidden}
+.gallery-page #gallery-frame .scene-host{height:auto;min-height:0;flex:1}
+.gallery-page #gallery-frame .scene-top{min-height:40px;padding:6px 15px}
+.gallery-page #gallery-frame .scene-top button{padding:5px 9px}
+.gallery-page #gallery-frame .side{height:100%;max-height:100%;min-height:0;overflow:auto;padding:20px;display:block}
+.gallery-page #gallery-frame .hero-caption{top:22px;left:26px}
+.gallery-page #gallery-frame .hero-caption h2{font-size:27px}
+.gallery-page #gallery-frame .hero-playback{padding:10px 15px}
+.gallery-page #gallery-frame .metrics{display:none}
+.gallery-page #gallery-frame .scene-bottom{padding:8px 15px}
+.gallery-page #gallery-frame .work-footer{margin:0;font-size:10px;min-width:0;display:flex;gap:16px;align-items:center}
+.gallery-page #gallery-frame .work-footer>span{flex:1}
+.gallery-page .part-index{grid-template-columns:1fr 1fr}
+.gallery-page .part-index button{font-size:10px;padding:7px}
+.gallery-page #station-title{font-size:23px;margin:0 0 10px}
+.gallery-page #station-intro{font-size:12px;margin-bottom:14px}
+.gallery-page #badge{display:none}
+.gallery-page #feedback{margin:12px 0;font-size:10px}
+.gallery-page .part-detail{padding-top:10px}
+:root[data-theme=dark] body.gallery-page{background:#08141f}
+.compact-gallery #gallery-frame{left:0;top:0;transform:none}
+.compact-gallery #gallery-frame .course-nav{height:44px;min-height:44px;padding:0 12px;gap:8px}
+.compact-gallery #gallery-frame .course-nav>a:not(.chapter){display:none}
+.compact-gallery #gallery-frame .course-nav .chapter{font-size:11px}
+.compact-gallery #gallery-frame .workshop{height:calc(100dvh - 44px);padding:10px;grid-template-rows:62px 43px minmax(0,1fr) 16px;gap:8px}
+.compact-gallery #gallery-frame .heading h1{font-size:21px}
+.compact-gallery #gallery-frame .heading .eyebrow{font-size:8px;letter-spacing:1px}
+.compact-gallery #gallery-frame .heading p{display:none}
+.compact-gallery #gallery-frame .heading-tools{display:flex;gap:4px}
+.compact-gallery #gallery-frame #help{font-size:10px;padding:7px}
+.compact-gallery #gallery-frame .tabs{display:flex!important;overflow:auto;gap:6px}
+.compact-gallery #gallery-frame .tabs button{flex:0 0 128px;height:40px;padding:5px 8px}
+.compact-gallery #gallery-frame .tabs svg{width:23px;height:24px}
+.compact-gallery #gallery-frame .tabs b{font-size:10px}
+.compact-gallery #gallery-frame .work-area{grid-template-columns:1fr;grid-template-rows:minmax(210px,1.4fr) minmax(100px,1fr);gap:8px}
+.compact-gallery #gallery-frame .hero-caption{top:9px;left:12px}
+.compact-gallery #gallery-frame .hero-caption h2{font-size:17px;margin:4px 0}
+.compact-gallery #gallery-frame .hero-caption p{display:none}
+.compact-gallery #gallery-frame .scene-top{min-height:30px;padding:3px 10px}
+.compact-gallery #gallery-frame .scene-top button{font-size:9px;padding:3px 6px}
+.compact-gallery #gallery-frame .scene-tools{bottom:7px;right:7px}
+.compact-gallery #gallery-frame .scene-tools button{padding:3px 5px;min-height:24px;font-size:9px}
+.compact-gallery #gallery-frame .hero-playback{padding:5px 8px;gap:4px}
+.compact-gallery #gallery-frame .hero-playback button{font-size:9px;min-height:26px;padding:4px 6px}
+.compact-gallery #gallery-frame .hero-playback .primary{min-width:72px}
+.compact-gallery #gallery-frame .transport{gap:5px}
+.compact-gallery #gallery-frame .transport output{font-size:8px}
+.compact-gallery #gallery-frame .scene-bottom{display:none}
+.compact-gallery #gallery-frame .side{padding:12px}
+.compact-gallery #gallery-frame .work-footer>span{display:none}
+.compact-gallery #gallery-frame .work-footer{font-size:9px;justify-content:flex-end}
+
+/* A consistent observation toolbar for both first-chapter exhibits. */
+.gallery-page #gallery-frame .scene-top{gap:12px;min-height:46px}
+.gallery-page #gallery-frame .view-buttons{display:flex;gap:5px;align-items:center;flex-shrink:0}
+.gallery-page #learning-guide{background:var(--soft);border-color:var(--blue);color:var(--blue)}
+.gallery-page .heading-tools{display:flex;gap:8px}
+.gallery-page button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+
+/* Learning content is supplied by each task; presentation is shared. */
+.learning-guide-dialog{box-sizing:border-box;width:min(760px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 40px);padding:28px 32px;border:1px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);overflow:auto;box-shadow:0 24px 90px #071e4433}
+.learning-guide-dialog::backdrop{background:#071a34a6;backdrop-filter:blur(4px)}
+.guide-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.guide-heading button{white-space:nowrap;min-height:36px}
+.learning-guide-dialog .guide-kicker{color:var(--blue);font-size:11px;letter-spacing:1.8px;margin:0 0 8px}
+.learning-guide-dialog h2{font-size:25px;line-height:1.4;margin:0}
+.learning-guide-dialog .guide-intro{font-size:13px;line-height:1.9;color:var(--muted);margin:14px 0 22px}
+.learning-guide-dialog h3{font-size:14px;margin:20px 0 10px}
+.guide-goals{display:grid;gap:7px;margin:0;padding:0 0 0 20px;font-size:13px;line-height:1.8}
+.guide-goals li::marker{color:var(--blue)}
+.guide-steps{list-style:none;display:grid;gap:9px;padding:0;margin:0}
+.guide-steps li{display:flex;gap:13px;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.guide-number{font-size:12px;color:var(--blue);font-variant-numeric:tabular-nums;padding-top:2px}
+.guide-steps h4{font-size:13px;margin:0 0 5px}
+.learning-guide-dialog .guide-steps p{font-size:12px;line-height:1.8;margin:0;color:var(--muted)}
+.guide-reflection{border-left:3px solid var(--blue);padding-left:14px;margin-top:20px}
+.learning-guide-dialog .guide-reflection h3{margin:0 0 6px}
+.learning-guide-dialog .guide-reflection p{font-size:13px;line-height:1.8;margin:0}
+.guide-footer{display:flex;align-items:center;gap:20px;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:22px}
+.guide-footer span{font-size:11px;line-height:1.7;color:var(--muted)}
+.guide-footer button{white-space:nowrap;min-height:40px;font-size:13px}
+@media(max-width:799px){
+ .compact-gallery #gallery-frame .heading-tools button{font-size:10px;padding:7px;min-height:32px}
+ .compact-gallery #gallery-frame .heading-tools{gap:5px}
+ .compact-gallery #gallery-frame .scene-top{padding:5px 8px;gap:4px;min-height:38px}
+ .compact-gallery #gallery-frame .scene-top>span{font-size:8px;letter-spacing:0}
+ .compact-gallery #gallery-frame .view-buttons{gap:3px}
+ .compact-gallery #gallery-frame .scene-top button{min-height:26px;padding:4px 6px}
+ .learning-guide-dialog{padding:21px 18px;width:calc(100vw - 20px);max-height:calc(100dvh - 24px);border-radius:12px}
+ .learning-guide-dialog h2{font-size:21px}
+ .guide-heading{gap:10px}
+ .guide-footer{align-items:flex-start;flex-direction:column;gap:12px}
+ .guide-footer button{align-self:flex-end}
+}
+@media(max-width:360px){.compact-gallery #gallery-frame #scene-label{max-width:80px;line-height:1.4}.compact-gallery #gallery-frame .heading h1{font-size:19px}.compact-gallery #gallery-frame .heading-tools button{padding:6px 4px}}
+@media(prefers-reduced-motion:reduce){.gallery-page *, .learning-guide-dialog{scroll-behavior:auto;transition:none!important}}

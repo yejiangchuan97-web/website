@@ -1,0 +1,137 @@
+- generic [ref=e2]:
+  - navigation "本章导航" [ref=e3]:
+    - link "← 第一章 · 走进智能建造" [ref=e4] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/overview/index.html
+    - link "1-2 认识施工机械" [ref=e5] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-2/index.html
+    - link "1-3 认识施工机器人" [ref=e6] [cursor=pointer]:
+      - /url: http://127.0.0.1:8765/course/chapters/01/tasks/1-3/index.html
+    - button "深色模式" [ref=e7] [cursor=pointer]: ☾ 深色模式
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - text: TASK 1-2 / CONSTRUCTION MACHINERY
+        - heading "认识施工机械" [level=1] [ref=e11]
+        - paragraph [ref=e12]: 选择一种施工机械，旋转查看结构，播放动作或单独调节部件。
+      - generic [ref=e13]:
+        - button "学习引导" [ref=e14] [cursor=pointer]
+        - button "操作说明" [ref=e15] [cursor=pointer]
+    - navigation "施工机械展品" [ref=e16]:
+      - button "01 挖掘机" [pressed] [ref=e17] [cursor=pointer]:
+        - generic [ref=e20]: "01"
+        - generic [ref=e21]: 挖掘机
+      - button "02 推土机" [ref=e22] [cursor=pointer]:
+        - generic [ref=e25]: "02"
+        - generic [ref=e26]: 推土机
+      - button "03 装载机" [ref=e27] [cursor=pointer]:
+        - generic [ref=e30]: "03"
+        - generic [ref=e31]: 装载机
+      - button "04 塔式起重机" [ref=e32] [cursor=pointer]:
+        - generic [ref=e35]: "04"
+        - generic [ref=e36]: 塔式起重机
+      - button "05 混凝土泵车" [ref=e37] [cursor=pointer]:
+        - generic [ref=e40]: "05"
+        - generic [ref=e41]: 混凝土泵车
+      - button "06 施工升降机" [ref=e42] [cursor=pointer]:
+        - generic [ref=e45]: "06"
+        - generic [ref=e46]: 施工升降机
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]: EXHIBIT / 机械结构观察
+          - generic [ref=e51]:
+            - button "全景" [ref=e52] [cursor=pointer]
+            - button "侧面" [ref=e53] [cursor=pointer]
+            - button "俯视" [ref=e54] [cursor=pointer]
+            - button "全屏观察三维模型" [ref=e55] [cursor=pointer]:
+              - text: ⛶
+              - generic [ref=e56]: 全屏
+        - generic "可操作的三维展品。方向键旋转，加减号缩放，空格播放，Home 全景，Escape 复位。" [ref=e57]:
+          - generic:
+            - text: FIG 01 / 06
+            - heading "挖掘机" [level=2]
+            - paragraph: HYDRAULIC EXCAVATOR
+          - generic [ref=e59]:
+            - button "↻ 环绕" [ref=e60] [cursor=pointer]
+            - button "放大" [ref=e61] [cursor=pointer]: ＋
+            - button "缩小" [ref=e62] [cursor=pointer]: −
+            - button "实体" [pressed] [ref=e63] [cursor=pointer]
+            - button "聚焦部件" [ref=e64] [cursor=pointer]
+          - button "履带底盘" [ref=e65] [cursor=pointer]: "01"
+          - button "回转平台与配重" [ref=e66] [cursor=pointer]: "02"
+          - button "驾驶室与操纵台" [ref=e67] [cursor=pointer]: "03"
+          - button "动臂与油缸" [ref=e68] [cursor=pointer]: "04"
+          - button "斗杆" [ref=e69] [cursor=pointer]: "05"
+          - button "铲斗与连杆" [ref=e70] [cursor=pointer]: "06"
+        - generic [ref=e71]:
+          - button "▶ 播放动作" [ref=e72] [cursor=pointer]
+          - button "单步" [ref=e73] [cursor=pointer]
+          - generic [ref=e74]:
+            - generic [ref=e75]: 动作进度（秒）
+            - slider "动作进度（秒）" [ref=e76]: "0"
+            - status [ref=e77]: 0.00 / 8.00 s
+          - button "复位" [ref=e78] [cursor=pointer]
+        - generic [ref=e79]:
+          - generic [ref=e80]: 拖动旋转 · 滚轮缩放 · 选择编号近看部件
+          - generic [ref=e81]: 三维观察
+        - status [ref=e82]
+      - complementary "操作与状态" [ref=e83]:
+        - heading "挖掘机" [level=2] [ref=e84]
+        - paragraph [ref=e85]: 查看履带、驾驶室、动臂与铲斗，转动回转平台观察上下车结构。
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - button "机构动作" [pressed] [ref=e88] [cursor=pointer]
+            - button "结构观察" [ref=e89] [cursor=pointer]
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e92]: 演示速度
+              - generic [ref=e93]:
+                - button "0.25×" [ref=e94] [cursor=pointer]
+                - button "0.5×" [ref=e95] [cursor=pointer]
+                - button "1×" [pressed] [ref=e96] [cursor=pointer]
+            - heading "单独调节机构 课堂姿态范围" [level=3] [ref=e97]:
+              - text: 单独调节机构
+              - generic [ref=e98]: 课堂姿态范围
+            - generic [ref=e99]:
+              - generic [ref=e100]:
+                - text: 回转平台
+                - status "回转平台 0" [ref=e101]: 0 °
+              - slider [ref=e102]: "0"
+        - status [ref=e103]: 查看履带、驾驶室、动臂与铲斗，转动回转平台观察上下车结构。
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - heading "部件索引" [level=3] [ref=e107]
+              - generic [ref=e108]: 06 ASSEMBLIES
+            - paragraph [ref=e109]: 选择下方部件，在展品上查看位置；点击「近看」进入局部。
+            - generic [ref=e110]:
+              - button "01 履带底盘 ↗" [ref=e111] [cursor=pointer]:
+                - generic [ref=e112]: "01"
+                - text: 履带底盘
+                - generic [ref=e113]: ↗
+              - button "02 回转平台与配重 ↗" [ref=e114] [cursor=pointer]:
+                - generic [ref=e115]: "02"
+                - text: 回转平台与配重
+                - generic [ref=e116]: ↗
+              - button "03 驾驶室与操纵台 ↗" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]: "03"
+                - text: 驾驶室与操纵台
+                - generic [ref=e119]: ↗
+              - button "04 动臂与油缸 ↗" [ref=e120] [cursor=pointer]:
+                - generic [ref=e121]: "04"
+                - text: 动臂与油缸
+                - generic [ref=e122]: ↗
+              - button "05 斗杆 ↗" [ref=e123] [cursor=pointer]:
+                - generic [ref=e124]: "05"
+                - text: 斗杆
+                - generic [ref=e125]: ↗
+              - button "06 铲斗与连杆 ↗" [ref=e126] [cursor=pointer]:
+                - generic [ref=e127]: "06"
+                - text: 铲斗与连杆
+                - generic [ref=e128]: ↗
+          - group [ref=e129]:
+            - generic "应用与模型说明" [ref=e130] [cursor=pointer]
+    - generic [ref=e131]:
+      - generic [ref=e132]: 外部模型与共用教学模型 · 机构动作为课堂绑定，模型来源与许可见各展品说明。
+      - link "课程总览 ↗" [ref=e133] [cursor=pointer]:
+        - /url: http://127.0.0.1:8765/course/home/index.html#chapter-1
